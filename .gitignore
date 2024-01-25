@@ -1,0 +1,6 @@
+*.a
+*.o
+*.mod
+/EXAMPLE/geom/ggeom
+/EXAMPLE/test/test
+/EXAMPLE/verify/verify
