@@ -50,7 +50,7 @@ ifndef COMPILER
 endif
 
 ifeq ($(COMPILER), intel)
-  FC        = ifx
+  FC        = ifort
   CXX       = icpx
   FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll
   #FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
