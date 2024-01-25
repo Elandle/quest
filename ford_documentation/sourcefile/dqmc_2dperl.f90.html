@@ -1,0 +1,1476 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dqmc_2dperl.F90 &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>dqmc_2dperl.F90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 2.7% of total for source files.">321 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_2dperl.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">dqmc_2dperl.F90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_2dperl.html">DQMC_2DPERL</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/dqmc_2dperl.f90.html#src">dqmc_2dperl.F90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">This file depends on</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~dqmc_2dperl.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefiledqmc_2dperlf90EfferentGraph" width="641pt" height="370pt"
+ viewBox="0.00 0.00 641.00 370.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph" class="graph" transform="scale(1.75 1.75) rotate(0) translate(4 645.28)">
+<title>sourcefile~~dqmc_2dperl.f90~~EfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-645.28 1120,-645.28 1120,4 -4,4"/>
+<!-- sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~dqmc_2dperl.f90</title>
+<polygon fill="none" stroke="black" points="1116,-430 1011,-430 1011,-406 1116,-406 1116,-430"/>
+<text text-anchor="middle" x="1063.5" y="-415.6" font-family="Helvetica,sans-Serif" font-size="10.50">dqmc_2dperl.F90</text>
+</g>
+<!-- sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~dqmc_cfg.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/dqmc_cfg.f90.html" xlink:title="dqmc_cfg.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="265.5,-222 178.5,-222 178.5,-198 265.5,-198 265.5,-222"/>
+<text text-anchor="middle" x="222" y="-207.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_cfg.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M499,-208C436.47,-203.86 420.33,-201.49 358,-208"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~dqmc_hubbard.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/dqmc_hubbard.f90.html" xlink:title="dqmc_hubbard.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="975,-450 860,-450 860,-426 975,-426 975,-450"/>
+<text text-anchor="middle" x="917.5" y="-435.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_hubbard.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_hubbard.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1010.92,-425.16C1002.57,-426.32 993.81,-427.54 985.17,-428.74"/>
+<polygon fill="#255000" stroke="#255000" points="984.51,-425.3 975.09,-430.14 985.48,-432.23 984.51,-425.3"/>
+</g>
+<!-- sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~dqmc_mpi.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/dqmc_mpi.f90.html" xlink:title="dqmc_mpi.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="685,-412 594,-412 594,-388 685,-388 685,-412"/>
+<text text-anchor="middle" x="639.5" y="-397.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_mpi.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M916.5,-398C856.45,-381.71 838.6,-401.89 776.5,-398"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M774.5,-398C748.49,-396.37 719.59,-396.55 695.31,-397.27"/>
+<polygon fill="#255000" stroke="#255000" points="695.09,-393.77 685.21,-397.6 695.32,-400.77 695.09,-393.77"/>
+</g>
+<!-- sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~dqmc_struct.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/dqmc_struct.f90.html" xlink:title="dqmc_struct.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="407,-415 307,-415 307,-391 407,-391 407,-415"/>
+<text text-anchor="middle" x="357" y="-400.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_struct.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M774.5,-280C703.35,-249.78 478.94,-346.9 392.46,-386.74"/>
+<polygon fill="#255000" stroke="#255000" points="390.93,-383.59 383.33,-390.97 393.87,-389.94 390.93,-383.59"/>
+</g>
+<!-- sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~dqmc_util.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/dqmc_util.f90.html" xlink:title="dqmc_util.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="114.5,-202 27.5,-202 27.5,-178 114.5,-178 114.5,-202"/>
+<text text-anchor="middle" x="71" y="-187.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_util.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1010.88,-414.03C983.15,-411.1 948.58,-406.16 918.5,-398"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M916.5,-398C859.01,-382.4 872.73,-335.26 824,-301 805.12,-287.73 797.27,-290.08 776.5,-280"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M774.5,-280C661.41,-225.13 626.42,-216.3 501,-208"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M499,-208C434.74,-198.89 422.8,-173.56 358,-170"/>
+</g>
+<!-- sourcefile~dqmc_cfg.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~dqmc_cfg.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M178.3,-204.27C161.63,-202.03 142.33,-199.44 124.79,-197.09"/>
+<polygon fill="#255000" stroke="#255000" points="125.08,-193.59 114.7,-195.73 124.15,-200.53 125.08,-193.59"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M880.36,-425.9C873.01,-422.26 865.77,-417.68 860,-412 833.64,-386.07 852.36,-360.73 824,-337 803.4,-319.76 384.74,-205.39 358,-208"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M887.92,-425.9C860.07,-415.06 816.24,-400.49 776.5,-398"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M872.62,-450.07C857.35,-453.7 840.04,-457.2 824,-459 681.09,-475.02 642.1,-467.76 501,-440"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-634C718.14,-653.24 699.52,-626.05 640.5,-634"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~dqmc_gfun.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/dqmc_gfun.f90.html" xlink:title="dqmc_gfun.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="822.5,-530 728.5,-530 728.5,-506 822.5,-506 822.5,-530"/>
+<text text-anchor="middle" x="775.5" y="-515.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_gfun.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_gfun.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M896.02,-450.17C877.34,-461.23 848.93,-477.91 824,-492 818.76,-494.96 813.16,-498.07 807.72,-501.07"/>
+<polygon fill="transparent" stroke="transparent" points="805.89,-498.08 798.8,-505.96 809.25,-504.22 805.89,-498.08"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~dqmc_matb.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/dqmc_matb.f90.html" xlink:title="dqmc_matb.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="549,-530 451,-530 451,-506 549,-506 549,-530"/>
+<text text-anchor="middle" x="500" y="-515.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_matb.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M913.19,-450.03C901.93,-488.1 860.99,-605.16 776.5,-634"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-634C731,-648.84 732.26,-593.25 691,-573 648.98,-552.37 597.83,-538.12 559.2,-529.3"/>
+<polygon fill="transparent" stroke="transparent" points="559.68,-525.82 549.16,-527.06 558.16,-532.65 559.68,-525.82"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~dqmc_phy0.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/dqmc_phy0.f90.html" xlink:title="dqmc_phy0.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="824,-450 727,-450 727,-426 824,-426 824,-450"/>
+<text text-anchor="middle" x="775.5" y="-435.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_phy0.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy0.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M859.96,-438C851.54,-438 842.86,-438 834.41,-438"/>
+<polygon fill="transparent" stroke="transparent" points="834.27,-434.5 824.27,-438 834.27,-441.5 834.27,-434.5"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~dqmc_phy2.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/dqmc_phy2.f90.html" xlink:title="dqmc_phy2.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="824,-370 727,-370 727,-346 824,-346 824,-370"/>
+<text text-anchor="middle" x="775.5" y="-355.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_phy2.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy2.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M886.81,-425.88C877.96,-421.86 868.4,-417.1 860,-412 842.68,-401.47 840.94,-395.12 824,-384 819.38,-380.97 814.38,-377.96 809.42,-375.12"/>
+<polygon fill="transparent" stroke="transparent" points="811.06,-372.03 800.62,-370.23 807.66,-378.15 811.06,-372.03"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node11" class="node">
+<title>sourcefile~dqmc_seqb.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/dqmc_seqb.f90.html" xlink:title="dqmc_seqb.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="687.5,-606 591.5,-606 591.5,-582 687.5,-582 687.5,-606"/>
+<text text-anchor="middle" x="639.5" y="-591.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_seqb.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-634C756.41,-640.17 709.88,-623.62 676.74,-609.96"/>
+<polygon fill="transparent" stroke="transparent" points="677.93,-606.67 667.36,-606.03 675.22,-613.12 677.93,-606.67"/>
+</g>
+<!-- sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M347.68,-390.93C325.52,-358.77 264.88,-270.77 237.16,-230.55"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="239.87,-228.32 231.32,-222.07 234.11,-232.29 239.87,-228.32"/>
+</g>
+<!-- sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge17" class="edge">
+<title>sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M316.39,-415.03C282.94,-424.15 238.14,-433.62 223,-424"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M765.87,-506C751.85,-487.12 722.48,-450.16 691,-426 686.81,-422.78 682.15,-419.77 677.42,-417.02"/>
+<polygon fill="#255000" stroke="#255000" points="678.76,-413.77 668.31,-412.07 675.42,-419.92 678.76,-413.77"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M767.66,-530.31C750.56,-559.29 702.82,-629.72 640.5,-634"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M638.5,-634C509.64,-642.85 477.54,-606.93 358,-558"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge18" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M638.5,-516C612.56,-514.14 583.8,-514.23 559.31,-514.94"/>
+<polygon fill="#255000" stroke="#255000" points="558.98,-511.45 549.1,-515.28 559.21,-518.44 558.98,-511.45"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge20" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M753.27,-530.04C731.05,-542.64 695.98,-562.54 670.84,-576.79"/>
+<polygon fill="#255000" stroke="#255000" points="669.05,-573.78 662.08,-581.76 672.5,-579.87 669.05,-573.78"/>
+</g>
+<!-- sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node14" class="node">
+<title>sourcefile~dqmc_wspace.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node14"><a xlink:href="../sourcefile/dqmc_wspace.f90.html" xlink:title="dqmc_wspace.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="412,-457 302,-457 302,-433 412,-433 412,-457"/>
+<text text-anchor="middle" x="357" y="-442.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_wspace.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M728.24,-518.6C702.4,-518.61 669.62,-518.09 640.5,-516"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M638.5,-516C575.26,-511.47 563.99,-485.17 501,-478"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M490.71,-505.98C476.63,-486.35 446.19,-447.27 412,-424 409.74,-422.46 407.35,-421.01 404.88,-419.65"/>
+<polygon fill="transparent" stroke="transparent" points="406.23,-416.41 395.72,-415.11 403.12,-422.69 406.23,-416.41"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M471.77,-530.01C436.93,-544.65 378.61,-566.43 358,-558"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M356,-558C278.34,-526.21 293.82,-469 223,-424"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge25" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M475.11,-505.88C466.55,-501.52 456.83,-496.56 448,-492 428.7,-482.04 407.14,-470.79 389.96,-461.78"/>
+<polygon fill="transparent" stroke="transparent" points="391.38,-458.58 380.9,-457.04 388.13,-464.78 391.38,-458.58"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge26" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M732.1,-425.98C719.64,-422.44 705.85,-418.53 692.84,-414.84"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="693.66,-411.44 683.08,-412.08 691.75,-418.17 693.66,-411.44"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge27" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M638.5,-440C577.44,-437.61 560.96,-451.8 501,-440"/>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M499,-440C468.61,-434.02 435.06,-425.3 408.31,-417.83"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="408.99,-414.39 398.41,-415.04 407.09,-421.12 408.99,-414.39"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge28" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M726.73,-439.96C701.15,-440.7 669.1,-441.12 640.5,-440"/>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M638.5,-440C614.54,-439.06 608.43,-433.55 588,-421 569.51,-409.64 571.68,-397.15 552,-388 473.16,-351.36 442.07,-340.86 358,-363"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge29" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M638.5,-440C575.15,-437.52 563.99,-485.17 501,-478"/>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M499,-478C468.43,-474.52 434.87,-466.83 408.16,-459.74"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="408.85,-456.3 398.28,-457.07 407.02,-463.06 408.85,-456.3"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge31" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M736.1,-370.04C721.38,-374.65 704.4,-379.97 688.86,-384.84"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="687.4,-381.63 678.9,-387.96 689.49,-388.31 687.4,-381.63"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge32" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M726.69,-361.45C688.84,-364.64 634.76,-370.24 588,-379 548.69,-386.37 540.01,-393.17 501,-402"/>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M499,-402C472.46,-406.98 442.62,-407.86 417.24,-407.24"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="417.14,-403.74 407.03,-406.91 416.91,-410.73 417.14,-403.74"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge34" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M726.8,-348.71C647.48,-335.4 484.66,-317.2 358,-363"/>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M356,-363C331.4,-369.48 325.3,-371.78 302,-382 265.59,-397.98 256.56,-445.33 223,-424"/>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M221,-424C139.94,-372.49 94.75,-259.24 78.74,-211.69"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="82.03,-210.51 75.6,-202.09 75.38,-212.68 82.03,-210.51"/>
+</g>
+<!-- sourcefile~dqmc_bonds.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node12" class="node">
+<title>sourcefile~dqmc_bonds.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/dqmc_bonds.f90.html" xlink:title="dqmc_bonds.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="551.5,-24 448.5,-24 448.5,0 551.5,0 551.5,-24"/>
+<text text-anchor="middle" x="500" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_bonds.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_bonds.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge30" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_bonds.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M762.68,-345.9C751.6,-333.8 735.5,-314.14 727,-294 687.97,-201.5 756.81,-146.81 691,-71 658.93,-34.05 604.18,-19.93 561.67,-14.68"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="562.02,-11.2 551.7,-13.59 561.26,-18.16 562.02,-11.2"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node13" class="node">
+<title>sourcefile~dqmc_symm.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node13"><a xlink:href="../sourcefile/dqmc_symm.f90.html" xlink:title="dqmc_symm.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="691,-104 588,-104 588,-80 691,-80 691,-104"/>
+<text text-anchor="middle" x="639.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_symm.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_symm.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge33" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_symm.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M764.12,-345.85C753.83,-333.4 738.03,-313.2 727,-294 691.21,-231.72 661.27,-151.77 647.94,-113.84"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="651.22,-112.61 644.63,-104.31 644.6,-114.9 651.22,-112.61"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge35" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M499,-402C465.06,-408.37 427.73,-419.97 400.01,-429.52"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="398.54,-426.33 390.25,-432.93 400.85,-432.94 398.54,-426.33"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge37" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M499,-558C439.41,-538.62 416,-581.74 358,-558"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge36" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M613.8,-581.98C605.49,-577.76 596.24,-572.85 588,-568 571.43,-558.25 568.59,-553.72 552,-544 546.73,-540.91 541.04,-537.81 535.45,-534.87"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="536.71,-531.58 526.21,-530.12 533.51,-537.81 536.71,-531.58"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge38" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M591.33,-583.09C564.61,-576.56 530.69,-567.65 501,-558"/>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M499,-558C476,-550.52 468.21,-552.29 448,-539 417.28,-518.79 389.25,-486.29 372.9,-465.29"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="375.48,-462.9 366.63,-457.06 369.91,-467.14 375.48,-462.9"/>
+</g>
+<!-- sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node15" class="node">
+<title>sourcefile~dqmc_geom_param.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node15"><a xlink:href="../sourcefile/dqmc_geom_param.f90.html" xlink:title="dqmc_geom_param.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="142,-102 0,-102 0,-78 142,-78 142,-102"/>
+<text text-anchor="middle" x="71" y="-87.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_geom_param.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge39" class="edge">
+<title>sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M448.25,-8.13C421.19,-7.21 387.49,-7.91 358,-14"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M356,-14C296.03,-26.38 283.11,-38.31 223,-50"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M221,-50C187.13,-56.59 149.62,-66.67 120.71,-75.07"/>
+<polygon fill="#255000" stroke="#255000" points="119.47,-71.78 110.86,-77.96 121.45,-78.5 119.47,-71.78"/>
+</g>
+<!-- sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node17" class="node">
+<title>sourcefile~dqmc_latt.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node17"><a xlink:href="../sourcefile/dqmc_latt.f90.html" xlink:title="dqmc_latt.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="266,-102 178,-102 178,-78 266,-78 266,-102"/>
+<text text-anchor="middle" x="222" y="-87.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_latt.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge40" class="edge">
+<title>sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M356,-14C350.28,-15.18 289.82,-50.51 252.41,-72.58"/>
+<polygon fill="#255000" stroke="#255000" points="250.28,-69.77 243.45,-77.87 253.84,-75.8 250.28,-69.77"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge46" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-170C437.41,-181.55 420.53,-174.14 358,-170"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M356,-170C275.44,-164.67 182.07,-174.28 125.03,-181.94"/>
+<polygon fill="#025500" stroke="#025500" points="124.24,-178.52 114.81,-183.34 125.2,-185.45 124.24,-178.52"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_bonds.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge41" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_bonds.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M620.22,-79.94C602.9,-68.67 576.04,-51.6 552,-38 546.44,-34.85 540.45,-31.65 534.6,-28.61"/>
+<polygon fill="#025500" stroke="#025500" points="536.11,-25.45 525.61,-24.01 532.92,-31.68 536.11,-25.45"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge42" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M610.18,-79.97C582.82,-69.26 539.93,-54.87 501,-52"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-52C436.5,-47.39 420.48,-56.81 358,-52"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M356,-52C297.06,-47.46 281.03,-38.71 223,-50"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node16" class="node">
+<title>sourcefile~dqmc_hamilt.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node16"><a xlink:href="../sourcefile/dqmc_hamilt.f90.html" xlink:title="dqmc_hamilt.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="552,-104 448,-104 448,-80 552,-80 552,-104"/>
+<text text-anchor="middle" x="500" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_hamilt.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_hamilt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge43" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_hamilt.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M587.69,-92C579.42,-92 570.78,-92 562.3,-92"/>
+<polygon fill="#025500" stroke="#025500" points="562.06,-88.5 552.06,-92 562.06,-95.5 562.06,-88.5"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge44" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-52C434.27,-47.23 422.78,-85.94 358,-90"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M356,-90C329.79,-91.64 300.61,-91.83 276.28,-91.52"/>
+<polygon fill="#025500" stroke="#025500" points="276.22,-88.02 266.17,-91.36 276.11,-95.02 276.22,-88.02"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node18" class="node">
+<title>sourcefile~dqmc_reclatt.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~EfferentGraph_node18"><a xlink:href="../sourcefile/dqmc_reclatt.f90.html" xlink:title="dqmc_reclatt.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="409,-142 305,-142 305,-118 409,-118 409,-142"/>
+<text text-anchor="middle" x="357" y="-127.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_reclatt.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_reclatt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge45" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_reclatt.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M624.53,-104.2C601.02,-123.68 551.17,-160.59 501,-170"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-170C479.77,-173.61 432.74,-158.44 398.27,-145.76"/>
+<polygon fill="#025500" stroke="#025500" points="399.06,-142.31 388.46,-142.09 396.61,-148.87 399.06,-142.31"/>
+</g>
+<!-- sourcefile~dqmc_wspace.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge47" class="edge">
+<title>sourcefile~dqmc_wspace.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M301.69,-446.15C276.1,-444.36 246.18,-438.73 223,-424"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge48" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M490.06,-104.19C475.52,-123.33 445.02,-160.64 412,-184 390.56,-199.17 384.14,-205.45 358,-208"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M356,-208C329.66,-210.57 300.24,-211.24 275.78,-211.2"/>
+<polygon fill="transparent" stroke="transparent" points="275.65,-207.7 265.63,-211.14 275.61,-214.7 275.65,-207.7"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge49" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M469.65,-79.96C441.56,-69.33 397.7,-55.06 358,-52"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge50" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M447.72,-89.38C420.96,-88.49 387.69,-88.14 358,-90"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_reclatt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge51" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_reclatt.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M454.39,-104.02C441.14,-107.59 426.48,-111.54 412.68,-115.26"/>
+<polygon fill="transparent" stroke="transparent" points="411.55,-111.94 402.81,-117.92 413.37,-118.7 411.55,-111.94"/>
+</g>
+<!-- sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge53" class="edge">
+<title>sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M203.03,-102.06C176.96,-119.56 128.5,-152.08 98.38,-172.29"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="96.39,-169.42 90.04,-177.89 100.29,-175.23 96.39,-169.42"/>
+</g>
+<!-- sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge52" class="edge">
+<title>sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M177.9,-90C169.87,-90 161.25,-90 152.51,-90"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="152.23,-86.5 142.23,-90 152.23,-93.5 152.23,-86.5"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge54" class="edge">
+<title>sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M335.8,-142.15C313.41,-155.62 277.11,-177.45 251.75,-192.7"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="249.72,-189.84 242.95,-198 253.33,-195.84 249.72,-189.84"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge55" class="edge">
+<title>sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M304.82,-125.76C269.16,-122.5 220.55,-117.47 178,-111 164.99,-109.02 151.16,-106.55 137.93,-104.01"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="138.43,-100.54 127.95,-102.05 137.09,-107.41 138.43,-100.54"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~EfferentGraph_edge56" class="edge">
+<title>sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M316.1,-118C302.54,-113.92 287.23,-109.32 272.99,-105.03"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="273.92,-101.66 263.34,-102.13 271.9,-108.36 273.92,-101.66"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefiledqmc_2dperlf90EfferentGraph = svgPanZoom('#sourcefiledqmc_2dperlf90EfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~dqmc_2dperl.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefiledqmc_2dperlf90AfferentGraph" width="213pt" height="74pt"
+ viewBox="0.00 0.00 213.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~dqmc_2dperl.f90~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>sourcefile~~dqmc_2dperl.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 209,-70 209,4 -4,4"/>
+<!-- sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~dqmc_2dperl.f90</title>
+<polygon fill="none" stroke="black" points="105,-45 0,-45 0,-21 105,-21 105,-45"/>
+<text text-anchor="middle" x="52.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">dqmc_2dperl.F90</text>
+</g>
+<!-- sourcefile~test.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~test.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/test.f90.html" xlink:title="test.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="200.5,-66 145.5,-66 145.5,-42 200.5,-42 200.5,-66"/>
+<text text-anchor="middle" x="173" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test.f90&#45;&gt;sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~test.f90&#45;&gt;sourcefile~dqmc_2dperl.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M145.41,-49.29C136.41,-47.69 125.95,-45.84 115.38,-43.97"/>
+<polygon fill="#255000" stroke="#255000" points="115.71,-40.47 105.25,-42.17 114.49,-47.36 115.71,-40.47"/>
+</g>
+<!-- sourcefile~verify.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~verify.f90</title>
+<g id="a_sourcefile~~dqmc_2dperl.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/verify.f90.html" xlink:title="verify.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="205,-24 141,-24 141,0 205,0 205,-24"/>
+<text text-anchor="middle" x="173" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">verify.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_2dperl.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_2dperl.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M140.87,-17.52C132.89,-18.93 124.04,-20.5 115.11,-22.08"/>
+<polygon fill="#255000" stroke="#255000" points="114.28,-18.67 105.04,-23.87 115.5,-25.57 114.28,-18.67"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">DQMC_2DPERL</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_UTIL</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_CFG</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_STRUCT</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_HUBBARD</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="c">! Chia-Chen: 09/06/2011</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="c">! added in order to access the number of processors</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_MPI</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">  </span><span class="k">implicit none</span><span class="w"> </span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">  </span><span class="c">! </span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">  </span><span class="c">! This module defines subroutines to initialize the data structure of </span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">  </span><span class="c">! a two-dimensional periodic rectangular lattice (2DPerl).</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">  </span><span class="c">!     </span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">  </span><span class="c">!  Subroutine List</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">  </span><span class="c">!  ===============</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="c">!    DQMC_Read2PERL : read in data for 2D rectangular </span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">  </span><span class="c">!                                    lattice.</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">  </span><span class="c">!    DQMC_2DREC(nx, ny, S) : construct data for a 2D rectangular lattice.   </span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">  </span><span class="c">!</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">IMP_TRIANGLE</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">IMP_RECTANGLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">  </span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="k">contains</span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">  </span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">  </span><span class="c">!---------------------------------------------------------------------!</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">  </span><span class="k">subroutine </span><span class="n">DQMC_Comp_2DPerl</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">    </span><span class="c">! Purpose</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">    </span><span class="c">!    This subroutine reads in data for a 2D rectangular lattice,</span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="w">    </span><span class="c">!    and the calls DQMC_2DREC to construct the lattice structure.</span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="w">    </span><span class="c">!    Basically, the only parameters needed are Nx and Ny, which</span>
+<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">    </span><span class="c">!    the size of the lattice along the x-cord and the y-cord.</span>
+<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-39" name="ln-39" href="#ln-39"></a><span class="w">    </span><span class="c">! Arguments</span>
+<a id="ln-40" name="ln-40" href="#ln-40"></a><span class="w">    </span><span class="c">! =========</span>
+<a id="ln-41" name="ln-41" href="#ln-41"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-42" name="ln-42" href="#ln-42"></a><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">OPT</span><span class="w">     </span><span class="c">! Input/output handle</span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a>
+<a id="ln-44" name="ln-44" href="#ln-44"></a><span class="w">    </span><span class="c">! ... Local scalar ...</span>
+<a id="ln-45" name="ln-45" href="#ln-45"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">cfg</span>
+<a id="ln-46" name="ln-46" href="#ln-46"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">Hubbard</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Hub</span><span class="w">          </span><span class="c">! Hubbard model</span>
+<a id="ln-47" name="ln-47" href="#ln-47"></a><span class="w">    </span><span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span>
+<a id="ln-48" name="ln-48" href="#ln-48"></a>
+<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="w">    </span><span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">nBin</span><span class="p">,</span><span class="w"> </span><span class="n">nIter</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span>
+<a id="ln-50" name="ln-50" href="#ln-50"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ofile</span>
+<a id="ln-52" name="ln-52" href="#ln-52"></a>
+<a id="ln-53" name="ln-53" href="#ln-53"></a><span class="w">    </span><span class="c">! ... Executable ...</span>
+<a id="ln-54" name="ln-54" href="#ln-54"></a>
+<a id="ln-55" name="ln-55" href="#ln-55"></a><span class="w">    </span><span class="c">! Read in run parameters from input file</span>
+<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Read_Config</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<a id="ln-57" name="ln-57" href="#ln-57"></a>
+<a id="ln-58" name="ln-58" href="#ln-58"></a><span class="w">    </span><span class="c">! Initialize the geometry</span>
+<a id="ln-59" name="ln-59" href="#ln-59"></a><span class="w">    </span><span class="k">call </span><span class="n">CFG_Get</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nx&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="w"> </span>
+<a id="ln-60" name="ln-60" href="#ln-60"></a><span class="w">    </span><span class="k">call </span><span class="n">CFG_Get</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ny&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">)</span>
+<a id="ln-61" name="ln-61" href="#ln-61"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Init_2DPerl</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">IMP_TRIANGLE</span><span class="p">)</span>
+<a id="ln-62" name="ln-62" href="#ln-62"></a>
+<a id="ln-63" name="ln-63" href="#ln-63"></a><span class="w">    </span><span class="c">! Fetch additional parameters</span>
+<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="w">    </span><span class="k">call </span><span class="n">CFG_Get</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ofile&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ofile</span><span class="p">)</span><span class="w">   </span><span class="c">! output file name</span>
+<a id="ln-65" name="ln-65" href="#ln-65"></a>
+<a id="ln-66" name="ln-66" href="#ln-66"></a><span class="w">    </span><span class="c">! Initialize the Hubbard data structure</span>
+<a id="ln-67" name="ln-67" href="#ln-67"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Hub_Config</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">cfg</span><span class="p">)</span>
+<a id="ln-68" name="ln-68" href="#ln-68"></a>
+<a id="ln-69" name="ln-69" href="#ln-69"></a><span class="w">    </span><span class="c">! Execution MC loop</span>
+<a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">    </span><span class="c">! Warmup sweep</span>
+<a id="ln-71" name="ln-71" href="#ln-71"></a><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">nWarm</span>
+<a id="ln-72" name="ln-72" href="#ln-72"></a><span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,i6,1x,i3)&#39;</span><span class="p">)</span><span class="s1">&#39; Warmup Sweep, nwrap  : &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">G_up</span><span class="p">%</span><span class="n">nwrap</span>
+<a id="ln-73" name="ln-73" href="#ln-73"></a><span class="w">       </span><span class="c">! The second parameter means no measurement should be made.</span>
+<a id="ln-74" name="ln-74" href="#ln-74"></a><span class="w">       </span><span class="k">call </span><span class="n">DQMC_Hub_Sweep</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">NO_MEAS0</span><span class="p">)</span>
+<a id="ln-75" name="ln-75" href="#ln-75"></a><span class="w">       </span><span class="k">call </span><span class="n">DQMC_Hub_Sweep2</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">nTry</span><span class="p">)</span>
+<a id="ln-76" name="ln-76" href="#ln-76"></a><span class="w">    </span><span class="k">end do</span>
+<a id="ln-77" name="ln-77" href="#ln-77"></a>
+<a id="ln-78" name="ln-78" href="#ln-78"></a><span class="w">    </span><span class="c">! Measurement sweeps. Note that we divide up nPass measurement sweeps into nBins, </span>
+<a id="ln-79" name="ln-79" href="#ln-79"></a><span class="w">    </span><span class="c">! each having nPass/nBin sweeps. This is to reduce autocorrelation between measurements.</span>
+<a id="ln-80" name="ln-80" href="#ln-80"></a><span class="w">    </span><span class="n">nBin</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">P0</span><span class="p">%</span><span class="n">nBin</span>
+<a id="ln-81" name="ln-81" href="#ln-81"></a><span class="w">    </span><span class="n">nIter</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">nPass</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">tausk</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nBin</span>
+<a id="ln-82" name="ln-82" href="#ln-82"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nIter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-83" name="ln-83" href="#ln-83"></a><span class="k">       do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nBin</span>
+<a id="ln-84" name="ln-84" href="#ln-84"></a><span class="w">          </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nIter</span>
+<a id="ln-85" name="ln-85" href="#ln-85"></a><span class="w">             </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">tausk</span>
+<a id="ln-86" name="ln-86" href="#ln-86"></a><span class="w">                </span><span class="k">call </span><span class="n">DQMC_Hub_Sweep</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">NO_MEAS0</span><span class="p">)</span>
+<a id="ln-87" name="ln-87" href="#ln-87"></a><span class="w">                </span><span class="k">call </span><span class="n">DQMC_Hub_Sweep2</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">nTry</span><span class="p">)</span>
+<a id="ln-88" name="ln-88" href="#ln-88"></a><span class="w">             </span><span class="k">enddo</span>
+<a id="ln-89" name="ln-89" href="#ln-89"></a>
+<a id="ln-90" name="ln-90" href="#ln-90"></a><span class="w">             </span><span class="c">! Fetch a random imaginary time slice for measurement </span>
+<a id="ln-91" name="ln-91" href="#ln-91"></a><span class="w">             </span><span class="k">call </span><span class="n">ran0</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">randn</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">seed</span><span class="p">)</span>
+<a id="ln-92" name="ln-92" href="#ln-92"></a><span class="w">             </span><span class="n">slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ceiling</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Hub</span><span class="p">%</span><span class="n">L</span><span class="p">)</span>
+<a id="ln-93" name="ln-93" href="#ln-93"></a>
+<a id="ln-94" name="ln-94" href="#ln-94"></a><span class="w">             </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,3i6)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39; Measurement Sweep, bin, iter, slice : &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span>
+<a id="ln-95" name="ln-95" href="#ln-95"></a><span class="w">             </span><span class="k">call </span><span class="n">DQMC_Hub_Meas</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span><span class="p">)</span>
+<a id="ln-96" name="ln-96" href="#ln-96"></a><span class="w">          </span><span class="k">end do</span>
+<a id="ln-97" name="ln-97" href="#ln-97"></a>
+<a id="ln-98" name="ln-98" href="#ln-98"></a><span class="w">          </span><span class="c">! Accumulate results for each bin</span>
+<a id="ln-99" name="ln-99" href="#ln-99"></a><span class="w">          </span><span class="k">call </span><span class="n">DQMC_Phy0_Avg</span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">P0</span><span class="p">)</span>
+<a id="ln-100" name="ln-100" href="#ln-100"></a>
+<a id="ln-101" name="ln-101" href="#ln-101"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">meas2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-102" name="ln-102" href="#ln-102"></a><span class="k">             if</span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">P2</span><span class="p">%</span><span class="n">diagonalize</span><span class="p">)</span><span class="k">then</span>
+<a id="ln-103" name="ln-103" href="#ln-103"></a><span class="k">               call </span><span class="n">DQMC_Phy2_Avg</span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">P2</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">S</span><span class="p">)</span>
+<a id="ln-104" name="ln-104" href="#ln-104"></a><span class="w">             </span><span class="k">else</span>
+<a id="ln-105" name="ln-105" href="#ln-105"></a><span class="k">               call </span><span class="n">DQMC_Phy2_Avg</span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">P2</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">%</span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">)</span>
+<a id="ln-106" name="ln-106" href="#ln-106"></a><span class="w">             </span><span class="k">endif</span>
+<a id="ln-107" name="ln-107" href="#ln-107"></a><span class="k">          end if</span>
+<a id="ln-108" name="ln-108" href="#ln-108"></a><span class="k">       end do</span>
+<a id="ln-109" name="ln-109" href="#ln-109"></a><span class="k">    else</span>
+<a id="ln-110" name="ln-110" href="#ln-110"></a><span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot; Error : The number of measurement sweeps npass/(nbin*tausk) in each bin is less than zero!&quot;</span>
+<a id="ln-111" name="ln-111" href="#ln-111"></a><span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;         Reset &#39;npass&#39;, &#39;nbin&#39;, and &#39;tausk&#39; in the input and start over&quot;</span>
+<a id="ln-112" name="ln-112" href="#ln-112"></a><span class="w">      </span><span class="k">stop</span>
+<a id="ln-113" name="ln-113" href="#ln-113"></a><span class="k">    endif</span>
+<a id="ln-114" name="ln-114" href="#ln-114"></a>
+<a id="ln-115" name="ln-115" href="#ln-115"></a>
+<a id="ln-116" name="ln-116" href="#ln-116"></a>
+<a id="ln-117" name="ln-117" href="#ln-117"></a><span class="w">    </span><span class="c">!Compute average and error</span>
+<a id="ln-118" name="ln-118" href="#ln-118"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Phy0_GetErr</span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">P0</span><span class="p">)</span>
+<a id="ln-119" name="ln-119" href="#ln-119"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">meas2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-120" name="ln-120" href="#ln-120"></a><span class="k">       call </span><span class="n">DQMC_Phy2_GetErr</span><span class="p">(</span><span class="n">Hub</span><span class="p">%</span><span class="n">P2</span><span class="p">)</span>
+<a id="ln-121" name="ln-121" href="#ln-121"></a><span class="w">    </span><span class="k">end if</span>
+<a id="ln-122" name="ln-122" href="#ln-122"></a>
+<a id="ln-123" name="ln-123" href="#ln-123"></a><span class="w">    </span><span class="c">! Prepare output file</span>
+<a id="ln-124" name="ln-124" href="#ln-124"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_open_file</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">ofile</span><span class="p">))</span><span class="o">//</span><span class="s1">&#39;.out&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">OPT</span><span class="p">)</span>
+<a id="ln-125" name="ln-125" href="#ln-125"></a>
+<a id="ln-126" name="ln-126" href="#ln-126"></a><span class="w">    </span><span class="c">! Print computed results</span>
+<a id="ln-127" name="ln-127" href="#ln-127"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Hub_Print</span><span class="p">(</span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">OPT</span><span class="p">)</span>
+<a id="ln-128" name="ln-128" href="#ln-128"></a>
+<a id="ln-129" name="ln-129" href="#ln-129"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Done Printing&#39;</span>
+<a id="ln-130" name="ln-130" href="#ln-130"></a>
+<a id="ln-131" name="ln-131" href="#ln-131"></a><span class="w">    </span><span class="c">! Clean up the used storage</span>
+<a id="ln-132" name="ln-132" href="#ln-132"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Hub_Free</span><span class="p">(</span><span class="n">Hub</span><span class="p">)</span>
+<a id="ln-133" name="ln-133" href="#ln-133"></a><span class="w">    </span><span class="k">call </span><span class="n">DQMC_Config_Free</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<a id="ln-134" name="ln-134" href="#ln-134"></a><span class="w">    </span>
+<a id="ln-135" name="ln-135" href="#ln-135"></a><span class="w">  </span><span class="k">end subroutine </span><span class="n">DQMC_Comp_2DPerl</span>
+<a id="ln-136" name="ln-136" href="#ln-136"></a><span class="w">  </span>
+<a id="ln-137" name="ln-137" href="#ln-137"></a><span class="w">  </span><span class="c">!---------------------------------------------------------------------!</span>
+<a id="ln-138" name="ln-138" href="#ln-138"></a>
+<a id="ln-139" name="ln-139" href="#ln-139"></a><span class="w">  </span><span class="k">subroutine </span><span class="n">DQMC_Init_2DPerl</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">IMP</span><span class="p">)</span><span class="w">    </span>
+<a id="ln-140" name="ln-140" href="#ln-140"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-141" name="ln-141" href="#ln-141"></a><span class="w">    </span><span class="c">! Purpose</span>
+<a id="ln-142" name="ln-142" href="#ln-142"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-143" name="ln-143" href="#ln-143"></a><span class="w">    </span><span class="c">!    This subroutine constuctures data structure for a 2D </span>
+<a id="ln-144" name="ln-144" href="#ln-144"></a><span class="w">    </span><span class="c">!    periodic rectangular lattice.  </span>
+<a id="ln-145" name="ln-145" href="#ln-145"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-146" name="ln-146" href="#ln-146"></a><span class="w">    </span><span class="c">! Details</span>
+<a id="ln-147" name="ln-147" href="#ln-147"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-148" name="ln-148" href="#ln-148"></a><span class="w">    </span><span class="c">!    For a Nx*Ny 2D rectangular lattice.</span>
+<a id="ln-149" name="ln-149" href="#ln-149"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-150" name="ln-150" href="#ln-150"></a><span class="w">    </span><span class="c">!    1. The sites are numbered from 1, which is the site on the </span>
+<a id="ln-151" name="ln-151" href="#ln-151"></a><span class="w">    </span><span class="c">!       south-west corner. The numbering is row major, which means</span>
+<a id="ln-152" name="ln-152" href="#ln-152"></a><span class="w">    </span><span class="c">!       it increases along x direction first (left to right) and </span>
+<a id="ln-153" name="ln-153" href="#ln-153"></a><span class="w">    </span><span class="c">!       then y-direction (bottom up).</span>
+<a id="ln-154" name="ln-154" href="#ln-154"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-155" name="ln-155" href="#ln-155"></a><span class="w">    </span><span class="c">!    2. Adjacency (T) has exact 4 elements per site: left</span>
+<a id="ln-156" name="ln-156" href="#ln-156"></a><span class="w">    </span><span class="c">!       right, up and down. Since the adjacency is cyclic, </span>
+<a id="ln-157" name="ln-157" href="#ln-157"></a><span class="w">    </span><span class="c">!       the code has had spacial treat for boundary sites.</span>
+<a id="ln-158" name="ln-158" href="#ln-158"></a><span class="w">    </span><span class="c">!       *** The way it computed here is not satisfied the </span>
+<a id="ln-159" name="ln-159" href="#ln-159"></a><span class="w">    </span><span class="c">!           &#39;checkboard&#39; order. should change it later.</span>
+<a id="ln-160" name="ln-160" href="#ln-160"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-161" name="ln-161" href="#ln-161"></a><span class="w">    </span><span class="c">!    3. The number of unique distance is computed as follows.</span>
+<a id="ln-162" name="ln-162" href="#ln-162"></a><span class="w">    </span><span class="c">!       Let long = max(Nx, Ny) and short = min(Nx, Ny).</span>
+<a id="ln-163" name="ln-163" href="#ln-163"></a><span class="w">    </span><span class="c">!       The distinct distance sites form a trapezoid</span>
+<a id="ln-164" name="ln-164" href="#ln-164"></a><span class="w">    </span><span class="c">!       The bottom is (long/2+1), the top is ((long-short)/2+1)</span>
+<a id="ln-165" name="ln-165" href="#ln-165"></a><span class="w">    </span><span class="c">!       and the height is (short/2+1). Therefore, </span>
+<a id="ln-166" name="ln-166" href="#ln-166"></a><span class="w">    </span><span class="c">!       </span>
+<a id="ln-167" name="ln-167" href="#ln-167"></a><span class="w">    </span><span class="c">!           nClass = (short/2+1)*(long-short/2+2)/2</span>
+<a id="ln-168" name="ln-168" href="#ln-168"></a><span class="w">    </span><span class="c">!       </span>
+<a id="ln-169" name="ln-169" href="#ln-169"></a><span class="w">    </span><span class="c">!    4. The phase (P) is computed in the rules that</span>
+<a id="ln-170" name="ln-170" href="#ln-170"></a><span class="w">    </span><span class="c">!       (a) adjacent sites have opposite phase.</span>
+<a id="ln-171" name="ln-171" href="#ln-171"></a><span class="w">    </span><span class="c">!       (b) site 1 is phased +.</span>
+<a id="ln-172" name="ln-172" href="#ln-172"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-173" name="ln-173" href="#ln-173"></a><span class="w">    </span><span class="c">! Arguments</span>
+<a id="ln-174" name="ln-174" href="#ln-174"></a><span class="w">    </span><span class="c">! =========</span>
+<a id="ln-175" name="ln-175" href="#ln-175"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-176" name="ln-176" href="#ln-176"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="w">  </span><span class="c">! dimension of the lattice</span>
+<a id="ln-177" name="ln-177" href="#ln-177"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">Struct</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">S</span><span class="w">       </span><span class="c">! Struct</span>
+<a id="ln-178" name="ln-178" href="#ln-178"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">IMP</span><span class="w">     </span>
+<a id="ln-179" name="ln-179" href="#ln-179"></a>
+<a id="ln-180" name="ln-180" href="#ln-180"></a><span class="w">    </span><span class="c">! ... local vars ...</span>
+<a id="ln-181" name="ln-181" href="#ln-181"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w">                </span><span class="c">! Order of matrix T and D </span>
+<a id="ln-182" name="ln-182" href="#ln-182"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">jx</span><span class="p">,</span><span class="w"> </span><span class="n">jy</span><span class="w">     </span><span class="c">! Loop iterator</span>
+<a id="ln-183" name="ln-183" href="#ln-183"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">up</span><span class="p">,</span><span class="w"> </span><span class="n">dn</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span><span class="p">,</span><span class="w"> </span><span class="n">rt</span><span class="w">   </span><span class="c">! adj and neighbor</span>
+<a id="ln-184" name="ln-184" href="#ln-184"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ne</span><span class="p">,</span><span class="w"> </span><span class="n">nw</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="p">,</span><span class="w"> </span><span class="n">sw</span><span class="w">   </span><span class="c">! </span>
+<a id="ln-185" name="ln-185" href="#ln-185"></a>
+<a id="ln-186" name="ln-186" href="#ln-186"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">idx</span><span class="w">              </span><span class="c">! </span>
+<a id="ln-187" name="ln-187" href="#ln-187"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">tmp</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">)</span>
+<a id="ln-188" name="ln-188" href="#ln-188"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cord</span><span class="p">(:,:)</span>
+<a id="ln-189" name="ln-189" href="#ln-189"></a><span class="w">    </span>
+<a id="ln-190" name="ln-190" href="#ln-190"></a><span class="w">    </span><span class="c">! ... parameters ...</span>
+<a id="ln-191" name="ln-191" href="#ln-191"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">NADJ</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="c">! Number of adjacencies</span>
+<a id="ln-192" name="ln-192" href="#ln-192"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">NNBR</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="w">  </span><span class="c">! Number of neighbors</span>
+<a id="ln-193" name="ln-193" href="#ln-193"></a><span class="w">    </span>
+<a id="ln-194" name="ln-194" href="#ln-194"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">TWOPI</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">6.283185307179586</span>
+<a id="ln-195" name="ln-195" href="#ln-195"></a>
+<a id="ln-196" name="ln-196" href="#ln-196"></a><span class="w">    </span><span class="c">! ... Executable ...</span>
+<a id="ln-197" name="ln-197" href="#ln-197"></a>
+<a id="ln-198" name="ln-198" href="#ln-198"></a><span class="w">    </span><span class="n">n</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span>
+<a id="ln-199" name="ln-199" href="#ln-199"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">nSite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-200" name="ln-200" href="#ln-200"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;(A,I3,A,I3,A,I5)&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<a id="ln-201" name="ln-201" href="#ln-201"></a><span class="w">         </span><span class="s2">&quot;2D Periodic Lattice; Nx=&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<a id="ln-202" name="ln-202" href="#ln-202"></a><span class="w">         </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;; Ny=&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;; total sites=&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">nSite</span>
+<a id="ln-203" name="ln-203" href="#ln-203"></a><span class="w">    </span>
+<a id="ln-204" name="ln-204" href="#ln-204"></a><span class="w">    </span><span class="c">! Compute all distinct sites</span>
+<a id="ln-205" name="ln-205" href="#ln-205"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">nWave</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+<a id="ln-206" name="ln-206" href="#ln-206"></a>
+<a id="ln-207" name="ln-207" href="#ln-207"></a><span class="w">    </span><span class="c">! memory allocation</span>
+<a id="ln-208" name="ln-208" href="#ln-208"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-209" name="ln-209" href="#ln-209"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(</span><span class="n">NNBR</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">nWave</span><span class="p">))</span>
+<a id="ln-210" name="ln-210" href="#ln-210"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="nb">dim</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="ln-211" name="ln-211" href="#ln-211"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">map</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-212" name="ln-212" href="#ln-212"></a>
+<a id="ln-213" name="ln-213" href="#ln-213"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="nb">dim</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-214" name="ln-214" href="#ln-214"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="nb">dim</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ny</span>
+<a id="ln-215" name="ln-215" href="#ln-215"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">Map</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-216" name="ln-216" href="#ln-216"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">nGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-217" name="ln-217" href="#ln-217"></a>
+<a id="ln-218" name="ln-218" href="#ln-218"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">gf_phase</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-219" name="ln-219" href="#ln-219"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">gf_phase</span><span class="o">=</span><span class="mi">1</span>
+<a id="ln-220" name="ln-220" href="#ln-220"></a>
+<a id="ln-221" name="ln-221" href="#ln-221"></a><span class="w">    </span><span class="c">! Build adjacent matrix for checkerboard method</span>
+<a id="ln-222" name="ln-222" href="#ln-222"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">n_t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-223" name="ln-223" href="#ln-223"></a><span class="w">    </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-224" name="ln-224" href="#ln-224"></a><span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span>
+<a id="ln-225" name="ln-225" href="#ln-225"></a><span class="w">       </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-226" name="ln-226" href="#ln-226"></a><span class="w">          </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">nx</span><span class="o">+</span><span class="n">i</span>
+<a id="ln-227" name="ln-227" href="#ln-227"></a><span class="w">          </span>
+<a id="ln-228" name="ln-228" href="#ln-228"></a><span class="w">          </span><span class="c">! up link</span>
+<a id="ln-229" name="ln-229" href="#ln-229"></a><span class="w">          </span><span class="n">up</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-230" name="ln-230" href="#ln-230"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">up</span><span class="w"> </span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-231" name="ln-231" href="#ln-231"></a><span class="k">             </span><span class="n">up</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-232" name="ln-232" href="#ln-232"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-233" name="ln-233" href="#ln-233"></a><span class="w">          </span>
+<a id="ln-234" name="ln-234" href="#ln-234"></a><span class="w">          </span><span class="c">! down link</span>
+<a id="ln-235" name="ln-235" href="#ln-235"></a><span class="w">          </span><span class="n">dn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-236" name="ln-236" href="#ln-236"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dn</span><span class="w"> </span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-237" name="ln-237" href="#ln-237"></a><span class="k">             </span><span class="n">dn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-238" name="ln-238" href="#ln-238"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-239" name="ln-239" href="#ln-239"></a><span class="w">          </span>
+<a id="ln-240" name="ln-240" href="#ln-240"></a><span class="w">          </span><span class="c">! left link</span>
+<a id="ln-241" name="ln-241" href="#ln-241"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-242" name="ln-242" href="#ln-242"></a><span class="k">             </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-243" name="ln-243" href="#ln-243"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-244" name="ln-244" href="#ln-244"></a><span class="k">             </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-245" name="ln-245" href="#ln-245"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-246" name="ln-246" href="#ln-246"></a><span class="w">             </span>
+<a id="ln-247" name="ln-247" href="#ln-247"></a><span class="w">          </span><span class="c">! right link</span>
+<a id="ln-248" name="ln-248" href="#ln-248"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-249" name="ln-249" href="#ln-249"></a><span class="k">             </span><span class="n">rt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-250" name="ln-250" href="#ln-250"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-251" name="ln-251" href="#ln-251"></a><span class="k">             </span><span class="n">rt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-252" name="ln-252" href="#ln-252"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-253" name="ln-253" href="#ln-253"></a>
+<a id="ln-254" name="ln-254" href="#ln-254"></a><span class="k">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">up</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-255" name="ln-255" href="#ln-255"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">dn</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-256" name="ln-256" href="#ln-256"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-257" name="ln-257" href="#ln-257"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">rt</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-258" name="ln-258" href="#ln-258"></a><span class="w">       </span><span class="k">end do</span>
+<a id="ln-259" name="ln-259" href="#ln-259"></a><span class="k">    end do</span>
+<a id="ln-260" name="ln-260" href="#ln-260"></a>
+<a id="ln-261" name="ln-261" href="#ln-261"></a><span class="k">    call </span><span class="n">DQMC_CCS_Compress</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">NADJ</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">T</span><span class="p">)</span>
+<a id="ln-262" name="ln-262" href="#ln-262"></a>
+<a id="ln-263" name="ln-263" href="#ln-263"></a><span class="w">    </span><span class="c">! Build neighboring matrix</span>
+<a id="ln-264" name="ln-264" href="#ln-264"></a><span class="w">    </span><span class="c">!        +---+---+---+</span>
+<a id="ln-265" name="ln-265" href="#ln-265"></a><span class="w">    </span><span class="c">!        | 7 | 4 | 1 |</span>
+<a id="ln-266" name="ln-266" href="#ln-266"></a><span class="w">    </span><span class="c">!        +---+---+---+</span>
+<a id="ln-267" name="ln-267" href="#ln-267"></a><span class="w">    </span><span class="c">!        | 8 | 5 | 2 |</span>
+<a id="ln-268" name="ln-268" href="#ln-268"></a><span class="w">    </span><span class="c">!        +---+---+---+</span>
+<a id="ln-269" name="ln-269" href="#ln-269"></a><span class="w">    </span><span class="c">!        | 9 | 6 | 3 |</span>
+<a id="ln-270" name="ln-270" href="#ln-270"></a><span class="w">    </span><span class="c">!        +---+---+---+</span>
+<a id="ln-271" name="ln-271" href="#ln-271"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-272" name="ln-272" href="#ln-272"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">n_b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+<a id="ln-273" name="ln-273" href="#ln-273"></a><span class="w">    </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-274" name="ln-274" href="#ln-274"></a><span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span>
+<a id="ln-275" name="ln-275" href="#ln-275"></a><span class="w">       </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-276" name="ln-276" href="#ln-276"></a><span class="w">          </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">nx</span><span class="o">+</span><span class="n">i</span>
+<a id="ln-277" name="ln-277" href="#ln-277"></a><span class="w">          </span>
+<a id="ln-278" name="ln-278" href="#ln-278"></a><span class="w">          </span><span class="c">! up link</span>
+<a id="ln-279" name="ln-279" href="#ln-279"></a><span class="w">          </span><span class="n">up</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-280" name="ln-280" href="#ln-280"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">up</span><span class="w"> </span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-281" name="ln-281" href="#ln-281"></a><span class="k">             </span><span class="n">up</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-282" name="ln-282" href="#ln-282"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-283" name="ln-283" href="#ln-283"></a><span class="w">          </span>
+<a id="ln-284" name="ln-284" href="#ln-284"></a><span class="w">          </span><span class="c">! down link</span>
+<a id="ln-285" name="ln-285" href="#ln-285"></a><span class="w">          </span><span class="n">dn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-286" name="ln-286" href="#ln-286"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dn</span><span class="w"> </span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-287" name="ln-287" href="#ln-287"></a><span class="k">             </span><span class="n">dn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-288" name="ln-288" href="#ln-288"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-289" name="ln-289" href="#ln-289"></a><span class="w">          </span>
+<a id="ln-290" name="ln-290" href="#ln-290"></a><span class="w">          </span><span class="c">! left link</span>
+<a id="ln-291" name="ln-291" href="#ln-291"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-292" name="ln-292" href="#ln-292"></a><span class="k">             </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-293" name="ln-293" href="#ln-293"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-294" name="ln-294" href="#ln-294"></a><span class="k">             </span><span class="n">lt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-295" name="ln-295" href="#ln-295"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-296" name="ln-296" href="#ln-296"></a><span class="w">             </span>
+<a id="ln-297" name="ln-297" href="#ln-297"></a><span class="w">          </span><span class="c">! right link</span>
+<a id="ln-298" name="ln-298" href="#ln-298"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-299" name="ln-299" href="#ln-299"></a><span class="k">             </span><span class="n">rt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-300" name="ln-300" href="#ln-300"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-301" name="ln-301" href="#ln-301"></a><span class="k">             </span><span class="n">rt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-302" name="ln-302" href="#ln-302"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-303" name="ln-303" href="#ln-303"></a>
+<a id="ln-304" name="ln-304" href="#ln-304"></a><span class="w">          </span><span class="c">! northeast link = up&#39;s right</span>
+<a id="ln-305" name="ln-305" href="#ln-305"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-306" name="ln-306" href="#ln-306"></a><span class="k">             </span><span class="n">ne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-307" name="ln-307" href="#ln-307"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-308" name="ln-308" href="#ln-308"></a><span class="k">             </span><span class="n">ne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-309" name="ln-309" href="#ln-309"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-310" name="ln-310" href="#ln-310"></a><span class="w">          </span>
+<a id="ln-311" name="ln-311" href="#ln-311"></a><span class="w">          </span><span class="c">! northwest link = up&#39;s left</span>
+<a id="ln-312" name="ln-312" href="#ln-312"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-313" name="ln-313" href="#ln-313"></a><span class="k">             </span><span class="n">nw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-314" name="ln-314" href="#ln-314"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-315" name="ln-315" href="#ln-315"></a><span class="k">             </span><span class="n">nw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-316" name="ln-316" href="#ln-316"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-317" name="ln-317" href="#ln-317"></a>
+<a id="ln-318" name="ln-318" href="#ln-318"></a><span class="w">          </span><span class="c">! southeast link = down&#39;s right</span>
+<a id="ln-319" name="ln-319" href="#ln-319"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-320" name="ln-320" href="#ln-320"></a><span class="k">             </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-321" name="ln-321" href="#ln-321"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-322" name="ln-322" href="#ln-322"></a><span class="k">             </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-323" name="ln-323" href="#ln-323"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-324" name="ln-324" href="#ln-324"></a><span class="w">          </span>
+<a id="ln-325" name="ln-325" href="#ln-325"></a><span class="w">          </span><span class="c">! southwest link = down&#39;s left</span>
+<a id="ln-326" name="ln-326" href="#ln-326"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-327" name="ln-327" href="#ln-327"></a><span class="k">             </span><span class="n">sw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span>
+<a id="ln-328" name="ln-328" href="#ln-328"></a><span class="w">          </span><span class="k">else</span>
+<a id="ln-329" name="ln-329" href="#ln-329"></a><span class="k">             </span><span class="n">sw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dn</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-330" name="ln-330" href="#ln-330"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-331" name="ln-331" href="#ln-331"></a>
+<a id="ln-332" name="ln-332" href="#ln-332"></a><span class="w">          </span><span class="c">! fill</span>
+<a id="ln-333" name="ln-333" href="#ln-333"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">ne</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-334" name="ln-334" href="#ln-334"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">rt</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<a id="ln-335" name="ln-335" href="#ln-335"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">se</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<a id="ln-336" name="ln-336" href="#ln-336"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">up</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<a id="ln-337" name="ln-337" href="#ln-337"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">idx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<a id="ln-338" name="ln-338" href="#ln-338"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">dn</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span>
+<a id="ln-339" name="ln-339" href="#ln-339"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">nw</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span>
+<a id="ln-340" name="ln-340" href="#ln-340"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span>
+<a id="ln-341" name="ln-341" href="#ln-341"></a><span class="w">          </span><span class="n">tmp</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">sw</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+<a id="ln-342" name="ln-342" href="#ln-342"></a><span class="w">       </span><span class="k">end do</span>
+<a id="ln-343" name="ln-343" href="#ln-343"></a><span class="k">    end do</span>
+<a id="ln-344" name="ln-344" href="#ln-344"></a>
+<a id="ln-345" name="ln-345" href="#ln-345"></a><span class="k">    call </span><span class="n">DQMC_CCS_Compress</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">*</span><span class="n">NNBR</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">B</span><span class="p">)</span>
+<a id="ln-346" name="ln-346" href="#ln-346"></a>
+<a id="ln-347" name="ln-347" href="#ln-347"></a><span class="w">    </span><span class="c">! build up the distance matrix.</span>
+<a id="ln-348" name="ln-348" href="#ln-348"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IMP</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="n">IMP_TRIANGLE</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-349" name="ln-349" href="#ln-349"></a><span class="k">       call </span><span class="n">DQMC_2DPerl_DC_Imp1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">cord</span><span class="p">)</span>
+<a id="ln-350" name="ln-350" href="#ln-350"></a><span class="w">    </span><span class="k">else</span>
+<a id="ln-351" name="ln-351" href="#ln-351"></a><span class="k">       call </span><span class="n">DQMC_2DPerl_DC_Imp2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">cord</span><span class="p">)</span>
+<a id="ln-352" name="ln-352" href="#ln-352"></a><span class="w">    </span><span class="k">end if</span>
+<a id="ln-353" name="ln-353" href="#ln-353"></a>
+<a id="ln-354" name="ln-354" href="#ln-354"></a><span class="w">    </span><span class="c">! Initialize phase matrix</span>
+<a id="ln-355" name="ln-355" href="#ln-355"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">:</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<a id="ln-356" name="ln-356" href="#ln-356"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">nx</span><span class="p">:</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-357" name="ln-357" href="#ln-357"></a><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a id="ln-358" name="ln-358" href="#ln-358"></a><span class="w">       </span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">-</span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">)</span>
+<a id="ln-359" name="ln-359" href="#ln-359"></a><span class="w">    </span><span class="k">end do</span>
+<a id="ln-360" name="ln-360" href="#ln-360"></a>
+<a id="ln-361" name="ln-361" href="#ln-361"></a><span class="k">    do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<a id="ln-362" name="ln-362" href="#ln-362"></a><span class="w">       </span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">P</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">)</span>
+<a id="ln-363" name="ln-363" href="#ln-363"></a><span class="w">    </span><span class="k">end do</span>
+<a id="ln-364" name="ln-364" href="#ln-364"></a>
+<a id="ln-365" name="ln-365" href="#ln-365"></a><span class="w">    </span><span class="c">! Make wave matrix</span>
+<a id="ln-366" name="ln-366" href="#ln-366"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w">  </span><span class="n">ONE</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-367" name="ln-367" href="#ln-367"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-368" name="ln-368" href="#ln-368"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-369" name="ln-369" href="#ln-369"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-370" name="ln-370" href="#ln-370"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="o">-</span><span class="n">HALF</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-371" name="ln-371" href="#ln-371"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-372" name="ln-372" href="#ln-372"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-373" name="ln-373" href="#ln-373"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-374" name="ln-374" href="#ln-374"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">W</span><span class="p">(:,</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="o">-</span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="o">/</span><span class="p">)</span>
+<a id="ln-375" name="ln-375" href="#ln-375"></a>
+<a id="ln-376" name="ln-376" href="#ln-376"></a><span class="w">    </span><span class="c">! label for each wave function</span>
+<a id="ln-377" name="ln-377" href="#ln-377"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<a id="ln-378" name="ln-378" href="#ln-378"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;  S-Wave : &quot;</span>
+<a id="ln-379" name="ln-379" href="#ln-379"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot; SX-Wave : &quot;</span>
+<a id="ln-380" name="ln-380" href="#ln-380"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;  D-Wave : &quot;</span>
+<a id="ln-381" name="ln-381" href="#ln-381"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;SXX-Wave : &quot;</span>
+<a id="ln-382" name="ln-382" href="#ln-382"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;DXX-Wave : &quot;</span>
+<a id="ln-383" name="ln-383" href="#ln-383"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot; PX-Wave : &quot;</span><span class="w">    </span>
+<a id="ln-384" name="ln-384" href="#ln-384"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot; PY-Wave : &quot;</span><span class="w">    </span>
+<a id="ln-385" name="ln-385" href="#ln-385"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;PXY-Wave : &quot;</span><span class="w">    </span>
+<a id="ln-386" name="ln-386" href="#ln-386"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">wlabel</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span><span class="s2">&quot;(a20)&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;PYX-Wave : &quot;</span>
+<a id="ln-387" name="ln-387" href="#ln-387"></a>
+<a id="ln-388" name="ln-388" href="#ln-388"></a>
+<a id="ln-389" name="ln-389" href="#ln-389"></a><span class="w">    </span><span class="c">! Fourier Transformation</span>
+<a id="ln-390" name="ln-390" href="#ln-390"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">FT</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">))</span>
+<a id="ln-391" name="ln-391" href="#ln-391"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">FT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span>
+<a id="ln-392" name="ln-392" href="#ln-392"></a><span class="w">    </span>
+<a id="ln-393" name="ln-393" href="#ln-393"></a><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span>
+<a id="ln-394" name="ln-394" href="#ln-394"></a><span class="w">       </span><span class="k">do </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-395" name="ln-395" href="#ln-395"></a><span class="w">          </span><span class="k">do </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-396" name="ln-396" href="#ln-396"></a><span class="w">             </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">jy</span><span class="o">*</span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a id="ln-397" name="ln-397" href="#ln-397"></a><span class="w">             </span><span class="n">S</span><span class="p">%</span><span class="n">FT</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">FT</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">&amp;</span>
+<a id="ln-398" name="ln-398" href="#ln-398"></a><span class="w">                  </span><span class="nb">cos</span><span class="p">(</span><span class="n">TWOPI</span><span class="o">*</span><span class="p">(</span><span class="n">cord</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">jx</span><span class="o">/</span><span class="n">nx</span><span class="o">+</span><span class="n">cord</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">jy</span><span class="o">/</span><span class="n">ny</span><span class="p">))</span>
+<a id="ln-399" name="ln-399" href="#ln-399"></a>
+<a id="ln-400" name="ln-400" href="#ln-400"></a><span class="w">          </span><span class="k">end do</span>
+<a id="ln-401" name="ln-401" href="#ln-401"></a><span class="k">       end do</span>
+<a id="ln-402" name="ln-402" href="#ln-402"></a><span class="k">    end do</span>
+<a id="ln-403" name="ln-403" href="#ln-403"></a>
+<a id="ln-404" name="ln-404" href="#ln-404"></a><span class="w">    </span><span class="c">! enable the flag</span>
+<a id="ln-405" name="ln-405" href="#ln-405"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">checklist</span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<a id="ln-406" name="ln-406" href="#ln-406"></a><span class="w">    </span><span class="k">deallocate</span><span class="p">(</span><span class="n">cord</span><span class="p">)</span>
+<a id="ln-407" name="ln-407" href="#ln-407"></a>
+<a id="ln-408" name="ln-408" href="#ln-408"></a><span class="w">  </span><span class="k">end subroutine </span><span class="n">DQMC_INIT_2DPERL</span>
+<a id="ln-409" name="ln-409" href="#ln-409"></a>
+<a id="ln-410" name="ln-410" href="#ln-410"></a><span class="w">  </span><span class="c">!---------------------------------------------------------------------!</span>
+<a id="ln-411" name="ln-411" href="#ln-411"></a>
+<a id="ln-412" name="ln-412" href="#ln-412"></a><span class="w">  </span><span class="k">subroutine </span><span class="n">DQMC_2DPerl_DC_Imp1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">cord</span><span class="p">)</span><span class="w">    </span>
+<a id="ln-413" name="ln-413" href="#ln-413"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-414" name="ln-414" href="#ln-414"></a><span class="w">    </span><span class="c">! Purpose</span>
+<a id="ln-415" name="ln-415" href="#ln-415"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-416" name="ln-416" href="#ln-416"></a><span class="w">    </span><span class="c">!    This subroutine implements distance classification, which</span>
+<a id="ln-417" name="ln-417" href="#ln-417"></a><span class="w">    </span><span class="c">!    use compact stragety</span>
+<a id="ln-418" name="ln-418" href="#ln-418"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-419" name="ln-419" href="#ln-419"></a><span class="w">    </span><span class="c">! Arguments</span>
+<a id="ln-420" name="ln-420" href="#ln-420"></a><span class="w">    </span><span class="c">! =========</span>
+<a id="ln-421" name="ln-421" href="#ln-421"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-422" name="ln-422" href="#ln-422"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="w">  </span><span class="c">! dimension of the lattice</span>
+<a id="ln-423" name="ln-423" href="#ln-423"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">Struct</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">S</span><span class="w">          </span><span class="c">! Struct</span>
+<a id="ln-424" name="ln-424" href="#ln-424"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">cord</span><span class="p">(:,:)</span><span class="w"> </span>
+<a id="ln-425" name="ln-425" href="#ln-425"></a>
+<a id="ln-426" name="ln-426" href="#ln-426"></a><span class="w">    </span><span class="c">! ... local vars ...</span>
+<a id="ln-427" name="ln-427" href="#ln-427"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">,</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">)</span><span class="w">   </span><span class="c">! distance table</span>
+<a id="ln-428" name="ln-428" href="#ln-428"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="nb">long</span><span class="p">,</span><span class="w"> </span><span class="nb">short</span><span class="w">      </span><span class="c">! Used in computing nClass</span>
+<a id="ln-429" name="ln-429" href="#ln-429"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">ix</span><span class="p">,</span><span class="w"> </span><span class="n">iy</span><span class="p">,</span><span class="w"> </span><span class="n">jx</span><span class="p">,</span><span class="w"> </span><span class="n">jy</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span>
+<a id="ln-430" name="ln-430" href="#ln-430"></a>
+<a id="ln-431" name="ln-431" href="#ln-431"></a><span class="w">    </span><span class="c">! site i to i is a special case, do not compute it</span>
+<a id="ln-432" name="ln-432" href="#ln-432"></a><span class="w">    </span><span class="nb">long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">)</span>
+<a id="ln-433" name="ln-433" href="#ln-433"></a><span class="w">    </span><span class="nb">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">)</span>
+<a id="ln-434" name="ln-434" href="#ln-434"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nb">short</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nb">long</span><span class="o">-</span><span class="nb">short</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a id="ln-435" name="ln-435" href="#ln-435"></a>
+<a id="ln-436" name="ln-436" href="#ln-436"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-437" name="ln-437" href="#ln-437"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">))</span>
+<a id="ln-438" name="ln-438" href="#ln-438"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">clabel</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">))</span>
+<a id="ln-439" name="ln-439" href="#ln-439"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">cord</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<a id="ln-440" name="ln-440" href="#ln-440"></a>
+<a id="ln-441" name="ln-441" href="#ln-441"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-442" name="ln-442" href="#ln-442"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-443" name="ln-443" href="#ln-443"></a>
+<a id="ln-444" name="ln-444" href="#ln-444"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-445" name="ln-445" href="#ln-445"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">clabel</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">FMT_POINT</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-446" name="ln-446" href="#ln-446"></a>
+<a id="ln-447" name="ln-447" href="#ln-447"></a><span class="w">    </span><span class="c">!! using lookup table (maybe hashing table )</span>
+<a id="ln-448" name="ln-448" href="#ln-448"></a><span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-449" name="ln-449" href="#ln-449"></a><span class="w">    </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! the first one is a special one</span>
+<a id="ln-450" name="ln-450" href="#ln-450"></a><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-451" name="ln-451" href="#ln-451"></a><span class="w">       </span><span class="c">!! compute the index of i</span>
+<a id="ln-452" name="ln-452" href="#ln-452"></a><span class="w">       </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="ln-453" name="ln-453" href="#ln-453"></a><span class="w">       </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-454" name="ln-454" href="#ln-454"></a>
+<a id="ln-455" name="ln-455" href="#ln-455"></a><span class="w">       </span><span class="c">!! initial the index of j</span>
+<a id="ln-456" name="ln-456" href="#ln-456"></a><span class="w">       </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-457" name="ln-457" href="#ln-457"></a><span class="w">          </span><span class="c">!! compute the index of j</span>
+<a id="ln-458" name="ln-458" href="#ln-458"></a><span class="w">          </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="ln-459" name="ln-459" href="#ln-459"></a><span class="w">          </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-460" name="ln-460" href="#ln-460"></a>
+<a id="ln-461" name="ln-461" href="#ln-461"></a><span class="w">          </span><span class="c">!! compute the distance</span>
+<a id="ln-462" name="ln-462" href="#ln-462"></a><span class="w">          </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">ix</span><span class="o">-</span><span class="n">jx</span><span class="p">)</span>
+<a id="ln-463" name="ln-463" href="#ln-463"></a><span class="w">          </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="n">nx</span><span class="o">-</span><span class="n">dx</span><span class="p">)</span>
+<a id="ln-464" name="ln-464" href="#ln-464"></a><span class="w">          </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">iy</span><span class="o">-</span><span class="n">jy</span><span class="p">)</span>
+<a id="ln-465" name="ln-465" href="#ln-465"></a><span class="w">          </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span><span class="n">ny</span><span class="o">-</span><span class="n">dy</span><span class="p">)</span>
+<a id="ln-466" name="ln-466" href="#ln-466"></a><span class="w">          </span><span class="nb">long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-467" name="ln-467" href="#ln-467"></a><span class="w">          </span><span class="nb">short</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-468" name="ln-468" href="#ln-468"></a><span class="w">          </span>
+<a id="ln-469" name="ln-469" href="#ln-469"></a><span class="w">          </span><span class="c">! not found</span>
+<a id="ln-470" name="ln-470" href="#ln-470"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="p">(</span><span class="nb">long</span><span class="p">,</span><span class="nb">short</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-471" name="ln-471" href="#ln-471"></a>
+<a id="ln-472" name="ln-472" href="#ln-472"></a><span class="k">             </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">             </span>
+<a id="ln-473" name="ln-473" href="#ln-473"></a><span class="w">             </span><span class="n">L</span><span class="p">(</span><span class="nb">long</span><span class="p">,</span><span class="w"> </span><span class="nb">short</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span>
+<a id="ln-474" name="ln-474" href="#ln-474"></a><span class="w">             </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span>
+<a id="ln-475" name="ln-475" href="#ln-475"></a><span class="w">             </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">clabel</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span><span class="n">FMT_POINT</span><span class="p">)</span><span class="w"> </span><span class="nb">long</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">short</span><span class="o">-</span><span class="mi">1</span>
+<a id="ln-476" name="ln-476" href="#ln-476"></a><span class="w">             </span><span class="n">cord</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">long</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-477" name="ln-477" href="#ln-477"></a><span class="w">             </span><span class="n">cord</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">short</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-478" name="ln-478" href="#ln-478"></a>
+<a id="ln-479" name="ln-479" href="#ln-479"></a><span class="w">          </span><span class="k">else</span><span class="w"> </span><span class="c">! found</span>
+<a id="ln-480" name="ln-480" href="#ln-480"></a>
+<a id="ln-481" name="ln-481" href="#ln-481"></a><span class="w">             </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="nb">long</span><span class="p">,</span><span class="w"> </span><span class="nb">short</span><span class="p">)</span>
+<a id="ln-482" name="ln-482" href="#ln-482"></a>
+<a id="ln-483" name="ln-483" href="#ln-483"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-484" name="ln-484" href="#ln-484"></a>
+<a id="ln-485" name="ln-485" href="#ln-485"></a><span class="w">          </span><span class="c">! matrix D is symmetric</span>
+<a id="ln-486" name="ln-486" href="#ln-486"></a><span class="w">          </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+<a id="ln-487" name="ln-487" href="#ln-487"></a>
+<a id="ln-488" name="ln-488" href="#ln-488"></a><span class="w">          </span><span class="c">! increase count by 2</span>
+<a id="ln-489" name="ln-489" href="#ln-489"></a><span class="w">          </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<a id="ln-490" name="ln-490" href="#ln-490"></a>
+<a id="ln-491" name="ln-491" href="#ln-491"></a><span class="w">       </span><span class="k">end do</span>
+<a id="ln-492" name="ln-492" href="#ln-492"></a>
+<a id="ln-493" name="ln-493" href="#ln-493"></a><span class="w">       </span><span class="c">! site i to i</span>
+<a id="ln-494" name="ln-494" href="#ln-494"></a><span class="w">       </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-495" name="ln-495" href="#ln-495"></a><span class="w">    </span><span class="k">end do</span>
+<a id="ln-496" name="ln-496" href="#ln-496"></a>
+<a id="ln-497" name="ln-497" href="#ln-497"></a><span class="k">  end subroutine </span><span class="n">DQMC_2DPERL_DC_IMP1</span>
+<a id="ln-498" name="ln-498" href="#ln-498"></a>
+<a id="ln-499" name="ln-499" href="#ln-499"></a><span class="w">  </span><span class="c">!---------------------------------------------------------------------!</span>
+<a id="ln-500" name="ln-500" href="#ln-500"></a>
+<a id="ln-501" name="ln-501" href="#ln-501"></a><span class="w">  </span><span class="k">subroutine </span><span class="n">DQMC_2DPerl_DC_Imp2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">cord</span><span class="p">)</span><span class="w">    </span>
+<a id="ln-502" name="ln-502" href="#ln-502"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-503" name="ln-503" href="#ln-503"></a><span class="w">    </span><span class="c">! Purpose</span>
+<a id="ln-504" name="ln-504" href="#ln-504"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-505" name="ln-505" href="#ln-505"></a><span class="w">    </span><span class="c">!    In this implementation of distance classication, the classes</span>
+<a id="ln-506" name="ln-506" href="#ln-506"></a><span class="w">    </span><span class="c">!    are in a rectangular form. </span>
+<a id="ln-507" name="ln-507" href="#ln-507"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-508" name="ln-508" href="#ln-508"></a><span class="w">    </span><span class="c">! Arguments</span>
+<a id="ln-509" name="ln-509" href="#ln-509"></a><span class="w">    </span><span class="c">! =========</span>
+<a id="ln-510" name="ln-510" href="#ln-510"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-511" name="ln-511" href="#ln-511"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ny</span><span class="w">  </span><span class="c">! dimension of the lattice</span>
+<a id="ln-512" name="ln-512" href="#ln-512"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">Struct</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">S</span><span class="w">          </span><span class="c">! Struct</span>
+<a id="ln-513" name="ln-513" href="#ln-513"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">cord</span><span class="p">(:,:)</span>
+<a id="ln-514" name="ln-514" href="#ln-514"></a>
+<a id="ln-515" name="ln-515" href="#ln-515"></a><span class="w">    </span><span class="c">! ... parameters ...</span>
+<a id="ln-516" name="ln-516" href="#ln-516"></a><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">TWOPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.283185307179586</span>
+<a id="ln-517" name="ln-517" href="#ln-517"></a>
+<a id="ln-518" name="ln-518" href="#ln-518"></a><span class="w">    </span><span class="c">! ... local vars ...</span>
+<a id="ln-519" name="ln-519" href="#ln-519"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="w">                        </span><span class="c">! distance table</span>
+<a id="ln-520" name="ln-520" href="#ln-520"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w">                          </span><span class="c">! loop iterators</span>
+<a id="ln-521" name="ln-521" href="#ln-521"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ix</span><span class="p">,</span><span class="w"> </span><span class="n">iy</span><span class="p">,</span><span class="w"> </span><span class="n">jx</span><span class="p">,</span><span class="w"> </span><span class="n">jy</span><span class="p">,</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="w">   </span><span class="c">! indices</span>
+<a id="ln-522" name="ln-522" href="#ln-522"></a>
+<a id="ln-523" name="ln-523" href="#ln-523"></a><span class="w">    </span><span class="c">! site i to i is a special case, do not compute it</span>
+<a id="ln-524" name="ln-524" href="#ln-524"></a>
+<a id="ln-525" name="ln-525" href="#ln-525"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">nx</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">ny</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a id="ln-526" name="ln-526" href="#ln-526"></a>
+<a id="ln-527" name="ln-527" href="#ln-527"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-528" name="ln-528" href="#ln-528"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">))</span>
+<a id="ln-529" name="ln-529" href="#ln-529"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">clabel</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">))</span>
+<a id="ln-530" name="ln-530" href="#ln-530"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">cord</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">nClass</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<a id="ln-531" name="ln-531" href="#ln-531"></a>
+<a id="ln-532" name="ln-532" href="#ln-532"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-533" name="ln-533" href="#ln-533"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-534" name="ln-534" href="#ln-534"></a>
+<a id="ln-535" name="ln-535" href="#ln-535"></a><span class="w">    </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-536" name="ln-536" href="#ln-536"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">clabel</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">FMT_POINT</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-537" name="ln-537" href="#ln-537"></a>
+<a id="ln-538" name="ln-538" href="#ln-538"></a><span class="w">    </span><span class="c">!! using lookup table (maybe hashing table )</span>
+<a id="ln-539" name="ln-539" href="#ln-539"></a><span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-540" name="ln-540" href="#ln-540"></a><span class="w">    </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">! the first one is a special one</span>
+<a id="ln-541" name="ln-541" href="#ln-541"></a><span class="w">    </span><span class="n">cord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span>
+<a id="ln-542" name="ln-542" href="#ln-542"></a><span class="w">    </span><span class="n">cord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span>
+<a id="ln-543" name="ln-543" href="#ln-543"></a><span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-544" name="ln-544" href="#ln-544"></a><span class="w">       </span><span class="c">!! compute the index of i</span>
+<a id="ln-545" name="ln-545" href="#ln-545"></a><span class="w">       </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="ln-546" name="ln-546" href="#ln-546"></a><span class="w">       </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-547" name="ln-547" href="#ln-547"></a>
+<a id="ln-548" name="ln-548" href="#ln-548"></a><span class="w">       </span><span class="c">!! initial the index of j</span>
+<a id="ln-549" name="ln-549" href="#ln-549"></a><span class="w">       </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<a id="ln-550" name="ln-550" href="#ln-550"></a><span class="w">          </span><span class="c">!! compute the index of j</span>
+<a id="ln-551" name="ln-551" href="#ln-551"></a><span class="w">          </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">mod</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="ln-552" name="ln-552" href="#ln-552"></a><span class="w">          </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">nx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-553" name="ln-553" href="#ln-553"></a>
+<a id="ln-554" name="ln-554" href="#ln-554"></a><span class="w">          </span><span class="c">!! compute the distance</span>
+<a id="ln-555" name="ln-555" href="#ln-555"></a><span class="w">          </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">ix</span><span class="o">-</span><span class="n">jx</span><span class="p">)</span>
+<a id="ln-556" name="ln-556" href="#ln-556"></a><span class="w">          </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="n">nx</span><span class="o">-</span><span class="n">dx</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="ln-557" name="ln-557" href="#ln-557"></a><span class="w">          </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">iy</span><span class="o">-</span><span class="n">jy</span><span class="p">)</span>
+<a id="ln-558" name="ln-558" href="#ln-558"></a><span class="w">          </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span><span class="n">ny</span><span class="o">-</span><span class="n">dy</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="ln-559" name="ln-559" href="#ln-559"></a><span class="w">          </span>
+<a id="ln-560" name="ln-560" href="#ln-560"></a><span class="w">          </span><span class="c">! not found</span>
+<a id="ln-561" name="ln-561" href="#ln-561"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="ln-562" name="ln-562" href="#ln-562"></a>
+<a id="ln-563" name="ln-563" href="#ln-563"></a><span class="w">             </span><span class="c">! Creat a new node</span>
+<a id="ln-564" name="ln-564" href="#ln-564"></a><span class="w">             </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">             </span>
+<a id="ln-565" name="ln-565" href="#ln-565"></a><span class="w">             </span><span class="n">L</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span>
+<a id="ln-566" name="ln-566" href="#ln-566"></a><span class="w">             </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span>
+<a id="ln-567" name="ln-567" href="#ln-567"></a><span class="w">             </span><span class="k">write</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">clabel</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span><span class="n">FMT_POINT</span><span class="p">)</span><span class="w"> </span><span class="n">dx</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="o">-</span><span class="mi">1</span>
+<a id="ln-568" name="ln-568" href="#ln-568"></a>
+<a id="ln-569" name="ln-569" href="#ln-569"></a><span class="w">             </span><span class="c">! Build a new row of COS table</span>
+<a id="ln-570" name="ln-570" href="#ln-570"></a><span class="w">             </span><span class="n">cord</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-571" name="ln-571" href="#ln-571"></a><span class="w">             </span><span class="n">cord</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-572" name="ln-572" href="#ln-572"></a><span class="w">          </span><span class="k">else</span><span class="w"> </span><span class="c">! found</span>
+<a id="ln-573" name="ln-573" href="#ln-573"></a>
+<a id="ln-574" name="ln-574" href="#ln-574"></a><span class="w">             </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
+<a id="ln-575" name="ln-575" href="#ln-575"></a>
+<a id="ln-576" name="ln-576" href="#ln-576"></a><span class="w">          </span><span class="k">end if</span>
+<a id="ln-577" name="ln-577" href="#ln-577"></a>
+<a id="ln-578" name="ln-578" href="#ln-578"></a><span class="w">          </span><span class="c">! matrix D is symmetric</span>
+<a id="ln-579" name="ln-579" href="#ln-579"></a><span class="w">          </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+<a id="ln-580" name="ln-580" href="#ln-580"></a>
+<a id="ln-581" name="ln-581" href="#ln-581"></a><span class="w">          </span><span class="c">! increase count by 2</span>
+<a id="ln-582" name="ln-582" href="#ln-582"></a><span class="w">          </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">%</span><span class="n">F</span><span class="p">(</span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<a id="ln-583" name="ln-583" href="#ln-583"></a>
+<a id="ln-584" name="ln-584" href="#ln-584"></a><span class="w">       </span><span class="k">end do</span>
+<a id="ln-585" name="ln-585" href="#ln-585"></a>
+<a id="ln-586" name="ln-586" href="#ln-586"></a><span class="w">       </span><span class="c">! site i to i</span>
+<a id="ln-587" name="ln-587" href="#ln-587"></a><span class="w">       </span><span class="n">S</span><span class="p">%</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-588" name="ln-588" href="#ln-588"></a>
+<a id="ln-589" name="ln-589" href="#ln-589"></a><span class="w">    </span><span class="k">end do</span>
+<a id="ln-590" name="ln-590" href="#ln-590"></a>
+<a id="ln-591" name="ln-591" href="#ln-591"></a><span class="k">  end subroutine </span><span class="n">DQMC_2DPERL_DC_IMP2</span>
+<a id="ln-592" name="ln-592" href="#ln-592"></a>
+<a id="ln-593" name="ln-593" href="#ln-593"></a><span class="k">end module </span><span class="n">DQMC_2DPERL</span>
+<a id="ln-594" name="ln-594" href="#ln-594"></a><span class="w"> </span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

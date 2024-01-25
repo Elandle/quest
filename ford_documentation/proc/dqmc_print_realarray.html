@@ -1,0 +1,653 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_Print_RealArray &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_Print_RealArray
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.2% of total for procedures.">20 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_util.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_util.f90.html'>dqmc_util.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dqmc_util.html'>DQMC_Util</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_Print_RealArray</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine DQMC_Print_RealArray(n, m, title, label, avg, err, OPT)  
+</h2>
+    
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~124"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~11"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-title~4"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>title</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-label~9"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>label</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-avg~24"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>avg</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-err~24"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>err</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-opt~21"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>OPT</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dqmc_print_realarray~~CalledByGraph Pages: 1 -->
+<svg id="procdqmc_print_realarrayCalledByGraph" width="641pt" height="182pt"
+ viewBox="0.00 0.00 641.00 181.84" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dqmc_print_realarray~~CalledByGraph" class="graph" transform="scale(1.62 1.62) rotate(0) translate(4 289.9)">
+<title>proc~~dqmc_print_realarray~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-289.9 1032,-289.9 1032,4 -4,4"/>
+<!-- proc~dqmc_print_realarray -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node1" class="node">
+<title>proc~dqmc_print_realarray</title>
+<polygon fill="none" stroke="black" points="1028,-166.65 832,-166.65 832,-142.65 1028,-142.65 1028,-166.65"/>
+<text text-anchor="middle" x="930" y="-152.25" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Util::DQMC_Print_RealArray</text>
+</g>
+<!-- interface~dqmc_print_array -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node2" class="node">
+<title>interface~dqmc_print_array</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node2"><a xlink:href="../interface/dqmc_print_array.html" xlink:title="DQMC_Util::DQMC_Print_Array">
+<polygon fill="#a7506f" stroke="#a7506f" points="787,-197.65 615,-197.65 615,-173.65 787,-173.65 787,-197.65"/>
+<text text-anchor="middle" x="701" y="-183.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_Print_Array</text>
+</a>
+</g>
+</g>
+<!-- interface~dqmc_print_array&#45;&gt;proc~dqmc_print_realarray -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge4" class="edge">
+<title>interface~dqmc_print_array&#45;&gt;proc~dqmc_print_realarray</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M787.17,-174.02C801.48,-172.06 816.43,-170.02 831.04,-168.03"/>
+<polygon fill="#255000" stroke="#255000" points="831.64,-171.48 841.08,-166.66 830.7,-164.54 831.64,-171.48"/>
+</g>
+<!-- proc~dqmc_phy0_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node3" class="node">
+<title>proc~dqmc_phy0_print</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node3"><a xlink:href="../proc/dqmc_phy0_print.html" xlink:title="DQMC_Phy0::DQMC_Phy0_Print">
+<polygon fill="#d9534f" stroke="#d9534f" points="789.5,-74.65 612.5,-74.65 612.5,-50.65 789.5,-50.65 789.5,-74.65"/>
+<text text-anchor="middle" x="701" y="-60.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy0::DQMC_Phy0_Print</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_phy0_print&#45;&gt;proc~dqmc_print_realarray -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge1" class="edge">
+<title>proc~dqmc_phy0_print&#45;&gt;proc~dqmc_print_realarray</title>
+<path fill="none" stroke="#255000" d="M766.64,-74.66C776.6,-77.2 786.67,-80.19 796,-83.65 834.42,-97.89 875.58,-121.27 901.77,-137.28"/>
+<polygon fill="#255000" stroke="#255000" points="900.03,-140.32 910.38,-142.6 903.72,-134.37 900.03,-140.32"/>
+</g>
+<!-- proc~dqmc_phy0_printft -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node4" class="node">
+<title>proc~dqmc_phy0_printft</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node4"><a xlink:href="../proc/dqmc_phy0_printft.html" xlink:title="DQMC_Phy0::DQMC_Phy0_PrintFT">
+<polygon fill="#d9534f" stroke="#d9534f" points="796,-269.65 606,-269.65 606,-245.65 796,-245.65 796,-269.65"/>
+<text text-anchor="middle" x="701" y="-255.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy0::DQMC_Phy0_PrintFT</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_phy0_printft&#45;&gt;proc~dqmc_print_realarray -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge2" class="edge">
+<title>proc~dqmc_phy0_printft&#45;&gt;proc~dqmc_print_realarray</title>
+<path fill="none" stroke="#255000" d="M728.48,-245.63C769.21,-227.15 847.29,-191.72 893.08,-170.95"/>
+<polygon fill="#255000" stroke="#255000" points="894.67,-174.07 902.33,-166.75 891.78,-167.69 894.67,-174.07"/>
+</g>
+<!-- proc~dqmc_phy2_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node5" class="node">
+<title>proc~dqmc_phy2_print</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node5"><a xlink:href="../proc/dqmc_phy2_print.html" xlink:title="DQMC_Phy2::DQMC_Phy2_Print">
+<polygon fill="#d9534f" stroke="#d9534f" points="789.5,-116.65 612.5,-116.65 612.5,-92.65 789.5,-92.65 789.5,-116.65"/>
+<text text-anchor="middle" x="701" y="-102.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy2::DQMC_Phy2_Print</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_phy2_print&#45;&gt;proc~dqmc_print_realarray -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge3" class="edge">
+<title>proc~dqmc_phy2_print&#45;&gt;proc~dqmc_print_realarray</title>
+<path fill="none" stroke="#255000" d="M756.66,-116.69C789.14,-123.84 830.5,-132.95 864.56,-140.45"/>
+<polygon fill="#255000" stroke="#255000" points="863.9,-143.89 874.42,-142.63 865.41,-137.06 863.9,-143.89"/>
+</g>
+<!-- proc~dqmc_hub_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node6" class="node">
+<title>proc~dqmc_hub_print</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node6"><a xlink:href="../proc/dqmc_hub_print.html" xlink:title="DQMC_Hubbard::DQMC_Hub_Print">
+<polygon fill="#d9534f" stroke="#d9534f" points="556.5,-54.65 362.5,-54.65 362.5,-30.65 556.5,-30.65 556.5,-54.65"/>
+<text text-anchor="middle" x="459.5" y="-40.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard::DQMC_Hub_Print</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_print&#45;&gt;proc~dqmc_phy0_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge8" class="edge">
+<title>proc~dqmc_hub_print&#45;&gt;proc~dqmc_phy0_print</title>
+<path fill="none" stroke="transparent" d="M556.53,-50.67C571.55,-51.92 587.08,-53.22 602.14,-54.48"/>
+<polygon fill="transparent" stroke="transparent" points="602.21,-57.99 612.47,-55.34 602.8,-51.02 602.21,-57.99"/>
+</g>
+<!-- proc~dqmc_hub_print&#45;&gt;proc~dqmc_phy2_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge12" class="edge">
+<title>proc~dqmc_hub_print&#45;&gt;proc~dqmc_phy2_print</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M539.67,-54.72C550.01,-57.2 560.36,-60.15 570,-63.65 587.2,-69.89 588.89,-77.14 606,-83.65 612,-85.93 618.31,-88 624.71,-89.87"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="624.24,-93.37 634.81,-92.65 626.09,-86.62 624.24,-93.37"/>
+</g>
+<!-- proc~dqmc_hub_print~2 -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node7" class="node">
+<title>proc~dqmc_hub_print~2</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node7"><a xlink:href="../proc/dqmc_hub_print~2.html" xlink:title="DQMC_Hubbard::DQMC_Hub_Print">
+<polygon fill="#d9534f" stroke="#d9534f" points="556.5,-96.65 362.5,-96.65 362.5,-72.65 556.5,-72.65 556.5,-96.65"/>
+<text text-anchor="middle" x="459.5" y="-82.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard::DQMC_Hub_Print</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_print~2&#45;&gt;proc~dqmc_phy0_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge9" class="edge">
+<title>proc~dqmc_hub_print~2&#45;&gt;proc~dqmc_phy0_print</title>
+<path fill="none" stroke="transparent" d="M556.53,-75.83C571.55,-74.45 587.08,-73.02 602.14,-71.64"/>
+<polygon fill="transparent" stroke="transparent" points="602.83,-75.09 612.47,-70.69 602.19,-68.12 602.83,-75.09"/>
+</g>
+<!-- proc~dqmc_hub_print~2&#45;&gt;proc~dqmc_phy2_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge13" class="edge">
+<title>proc~dqmc_hub_print~2&#45;&gt;proc~dqmc_phy2_print</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M556.53,-92.67C571.55,-93.92 587.08,-95.22 602.14,-96.48"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="602.21,-99.99 612.47,-97.34 602.8,-93.02 602.21,-99.99"/>
+</g>
+<!-- proc~dqmc_tdm1_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node8" class="node">
+<title>proc~dqmc_tdm1_print</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node8"><a xlink:href="../proc/dqmc_tdm1_print.html" xlink:title="DQMC_TDM1::DQMC_TDM1_Print">
+<polygon fill="#d9534f" stroke="#d9534f" points="553,-260.65 366,-260.65 366,-236.65 553,-236.65 553,-260.65"/>
+<text text-anchor="middle" x="459.5" y="-246.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_Print</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_print&#45;&gt;interface~dqmc_print_array -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge5" class="edge">
+<title>proc~dqmc_tdm1_print&#45;&gt;interface~dqmc_print_array</title>
+<path fill="none" stroke="#255000" d="M530.3,-236.6C543.55,-233.93 557.25,-230.92 570,-227.65 599.41,-220.11 631.91,-209.61 657.06,-200.99"/>
+<polygon fill="#255000" stroke="#255000" points="658.36,-204.25 666.66,-197.67 656.07,-197.63 658.36,-204.25"/>
+</g>
+<!-- proc~dqmc_tdm1_printkft -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node9" class="node">
+<title>proc~dqmc_tdm1_printkft</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node9"><a xlink:href="../proc/dqmc_tdm1_printkft.html" xlink:title="DQMC_TDM1::DQMC_TDM1_PrintKFT">
+<polygon fill="#d9534f" stroke="#d9534f" points="563,-218.65 356,-218.65 356,-194.65 563,-194.65 563,-218.65"/>
+<text text-anchor="middle" x="459.5" y="-204.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_PrintKFT</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_printkft&#45;&gt;interface~dqmc_print_array -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge6" class="edge">
+<title>proc~dqmc_tdm1_printkft&#45;&gt;interface~dqmc_print_array</title>
+<path fill="none" stroke="#255000" d="M563.11,-197.65C576.87,-196.44 590.94,-195.21 604.57,-194.02"/>
+<polygon fill="#255000" stroke="#255000" points="605.24,-197.47 614.89,-193.11 604.62,-190.5 605.24,-197.47"/>
+</g>
+<!-- proc~dqmc_tdm1_selfenergy -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node10" class="node">
+<title>proc~dqmc_tdm1_selfenergy</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node10"><a xlink:href="../proc/dqmc_tdm1_selfenergy.html" xlink:title="DQMC_TDM1::DQMC_TDM1_SelfEnergy">
+<polygon fill="#d9534f" stroke="#d9534f" points="570,-176.65 349,-176.65 349,-152.65 570,-152.65 570,-176.65"/>
+<text text-anchor="middle" x="459.5" y="-162.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_SelfEnergy</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_selfenergy&#45;&gt;interface~dqmc_print_array -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge7" class="edge">
+<title>proc~dqmc_tdm1_selfenergy&#45;&gt;interface~dqmc_print_array</title>
+<path fill="none" stroke="#255000" d="M570.09,-174.26C581.59,-175.27 593.22,-176.29 604.55,-177.28"/>
+<polygon fill="#255000" stroke="#255000" points="604.59,-180.8 614.86,-178.18 605.2,-173.82 604.59,-180.8"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node11" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node11"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="250.5,-197.65 165.5,-197.65 165.5,-173.65 250.5,-173.65 250.5,-197.65"/>
+<text text-anchor="middle" x="208" y="-183.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_phy0_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge10" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_phy0_print</title>
+<path fill="none" stroke="transparent" d="M219.27,-173.6C251.53,-135.76 348.72,-21.78 349,-21.65 455.52,27.47 598.7,-19.64 664.38,-46.65"/>
+<polygon fill="transparent" stroke="transparent" points="663.29,-49.99 673.86,-50.63 666,-43.53 663.29,-49.99"/>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_phy0_printft -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge11" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_phy0_printft</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M223.28,-197.9C247.31,-217.61 298.19,-255.58 349,-269.65 445.47,-296.37 562.57,-283.88 634.15,-271.49"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="635.15,-274.86 644.38,-269.66 633.92,-267.97 635.15,-274.86"/>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_phy2_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge14" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_phy2_print</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M242.79,-173.63C270.88,-164.1 312.08,-151.17 349,-143.65 433.6,-126.41 531.34,-116.33 602.16,-110.76"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="602.71,-114.22 612.41,-109.97 602.17,-107.25 602.71,-114.22"/>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_tdm1_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge16" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_tdm1_print</title>
+<path fill="none" stroke="#025500" d="M245.56,-197.73C273.65,-206.74 313.51,-218.95 349,-227.65 358.97,-230.09 369.51,-232.43 379.96,-234.59"/>
+<polygon fill="#025500" stroke="#025500" points="379.43,-238.05 389.93,-236.61 380.82,-231.19 379.43,-238.05"/>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_tdm1_printkft -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge17" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_tdm1_printkft</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M250.76,-189.16C276.9,-191.36 311.93,-194.31 345.77,-197.16"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="345.48,-200.65 355.74,-198 346.07,-193.67 345.48,-200.65"/>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_tdm1_selfenergy -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge18" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_tdm1_selfenergy</title>
+<path fill="none" stroke="#002505" d="M250.76,-182.13C275.04,-180.09 307.01,-177.4 338.56,-174.74"/>
+<polygon fill="#002505" stroke="#002505" points="339.11,-178.21 348.78,-173.88 338.52,-171.23 339.11,-178.21"/>
+</g>
+<!-- proc~dqmc_comp_2dperl -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node12" class="node">
+<title>proc~dqmc_comp_2dperl</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node12"><a xlink:href="../proc/dqmc_comp_2dperl.html" xlink:title="DQMC_2DPERL::DQMC_Comp_2DPerl">
+<polygon fill="#d9534f" stroke="#d9534f" points="313,-54.65 103,-54.65 103,-30.65 313,-30.65 313,-54.65"/>
+<text text-anchor="middle" x="208" y="-40.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_2DPERL::DQMC_Comp_2DPerl</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_comp_2dperl&#45;&gt;proc~dqmc_hub_print -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge15" class="edge">
+<title>proc~dqmc_comp_2dperl&#45;&gt;proc~dqmc_hub_print</title>
+<path fill="none" stroke="#255000" d="M313,-42.65C325.88,-42.65 339.05,-42.65 351.96,-42.65"/>
+<polygon fill="#255000" stroke="#255000" points="352.24,-46.15 362.24,-42.65 352.24,-39.15 352.24,-46.15"/>
+</g>
+<!-- program~dqmc_test -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_node13" class="node">
+<title>program~dqmc_test</title>
+<g id="a_proc~~dqmc_print_realarray~~CalledByGraph_node13"><a xlink:href="../program/dqmc_test.html" xlink:title="dqmc_test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-54.65 0,-54.65 0,-30.65 67,-30.65 67,-54.65"/>
+<text text-anchor="middle" x="33.5" y="-40.25" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_test</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_test&#45;&gt;proc~dqmc_comp_2dperl -->
+<g id="proc~~dqmc_print_realarray~~CalledByGraph_edge19" class="edge">
+<title>program~dqmc_test&#45;&gt;proc~dqmc_comp_2dperl</title>
+<path fill="none" stroke="#255000" d="M67.35,-42.65C75.03,-42.65 83.65,-42.65 92.72,-42.65"/>
+<polygon fill="#255000" stroke="#255000" points="92.73,-46.15 102.73,-42.65 92.73,-39.15 92.73,-46.15"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocdqmc_print_realarrayCalledByGraph = svgPanZoom('#procdqmc_print_realarrayCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

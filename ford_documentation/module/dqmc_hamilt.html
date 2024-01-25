@@ -1,0 +1,1696 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_HAMILT &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_HAMILT
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 3.3% of total for modules and submodules.">385 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_hamilt.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_hamilt.f90.html'>dqmc_hamilt.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_HAMILT</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#type-hamiltonian_t">Hamiltonian_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-free_hamilt">free_hamilt</a>
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-construct_hamilt">construct_hamilt</a>
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-find_neighbors">find_neighbors</a>
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-count_hop_class">count_hop_class</a>
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-count_local_classes">count_local_classes</a>
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-dqmc_hamilt_groupckb">dqmc_hamilt_groupckb</a>
+            <a class="list-group-item" href="../module/dqmc_hamilt.html#proc-group_hopping">group_hopping</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='dqmc_geom_param.html'>DQMC_GEOM_PARAM</a></li>
+                  <li class="list-inline-item"><a href='dqmc_latt.html'>DQMC_LATT</a></li>
+                  <li class="list-inline-item"><a href='dqmc_reclatt.html'>DQMC_RECLATT</a></li>
+                  <li class="list-inline-item"><a href='dqmc_cfg.html'>DQMC_Cfg</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_hamilt~~UsesGraph Pages: 1 -->
+<svg id="moduledqmc_hamiltUsesGraph" width="504pt" height="102pt"
+ viewBox="0.00 0.00 504.00 102.36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_hamilt~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 98.36)">
+<title>module~~dqmc_hamilt~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-98.36 500,-98.36 500,4 -4,4"/>
+<!-- module~dqmc_hamilt -->
+<g id="module~~dqmc_hamilt~~UsesGraph_node1" class="node">
+<title>module~dqmc_hamilt</title>
+<polygon fill="none" stroke="black" points="496,-52.36 406,-52.36 406,-28.36 496,-28.36 496,-52.36"/>
+<text text-anchor="middle" x="451" y="-37.96" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_HAMILT</text>
+</g>
+<!-- module~dqmc_cfg -->
+<g id="module~~dqmc_hamilt~~UsesGraph_node2" class="node">
+<title>module~dqmc_cfg</title>
+<g id="a_module~~dqmc_hamilt~~UsesGraph_node2"><a xlink:href="../module/dqmc_cfg.html" xlink:title="DQMC_Cfg">
+<polygon fill="#337ab7" stroke="#337ab7" points="233.5,-94.36 164.5,-94.36 164.5,-70.36 233.5,-70.36 233.5,-94.36"/>
+<text text-anchor="middle" x="199" y="-79.96" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_cfg -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge1" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_cfg</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M320.5,-81.36C295.08,-83.2 266.56,-83.52 243.65,-83.34"/>
+<polygon fill="#255000" stroke="#255000" points="243.59,-79.84 233.55,-83.23 243.51,-86.84 243.59,-79.84"/>
+</g>
+<!-- module~dqmc_geom_param -->
+<g id="module~~dqmc_hamilt~~UsesGraph_node3" class="node">
+<title>module~dqmc_geom_param</title>
+<g id="a_module~~dqmc_hamilt~~UsesGraph_node3"><a xlink:href="../module/dqmc_geom_param.html" xlink:title="DQMC_GEOM_PARAM">
+<polygon fill="#337ab7" stroke="#337ab7" points="125,-32.36 0,-32.36 0,-8.36 125,-8.36 125,-32.36"/>
+<text text-anchor="middle" x="62.5" y="-17.96" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GEOM_PARAM</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge2" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M408.74,-28.3C396.36,-25.02 382.71,-21.72 370,-19.36 295.26,-5.45 276.02,-0.98 200,-0.36"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M198,-0.36C173.95,0.36 147.73,-2.66 124.88,-6.56"/>
+<polygon fill="#255000" stroke="#255000" points="124.2,-3.13 114.98,-8.34 125.44,-10.02 124.2,-3.13"/>
+</g>
+<!-- module~dqmc_latt -->
+<g id="module~~dqmc_hamilt~~UsesGraph_node4" class="node">
+<title>module~dqmc_latt</title>
+<g id="a_module~~dqmc_hamilt~~UsesGraph_node4"><a xlink:href="../module/dqmc_latt.html" xlink:title="DQMC_LATT">
+<polygon fill="#337ab7" stroke="#337ab7" points="237,-52.36 161,-52.36 161,-28.36 237,-28.36 237,-52.36"/>
+<text text-anchor="middle" x="199" y="-37.96" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge3" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M424.84,-52.41C399.63,-63.52 359.37,-78.69 322.5,-81.36"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M320.5,-81.36C304.02,-82.55 265.65,-68.35 236.61,-56.34"/>
+<polygon fill="#255000" stroke="#255000" points="237.73,-53.02 227.16,-52.38 235.03,-59.47 237.73,-53.02"/>
+</g>
+<!-- module~dqmc_reclatt -->
+<g id="module~~dqmc_hamilt~~UsesGraph_node5" class="node">
+<title>module~dqmc_reclatt</title>
+<g id="a_module~~dqmc_hamilt~~UsesGraph_node5"><a xlink:href="../module/dqmc_reclatt.html" xlink:title="DQMC_RECLATT">
+<polygon fill="#337ab7" stroke="#337ab7" points="370,-52.36 273,-52.36 273,-28.36 370,-28.36 370,-52.36"/>
+<text text-anchor="middle" x="321.5" y="-37.96" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_RECLATT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_reclatt -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge4" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M405.76,-40.36C397.58,-40.36 388.93,-40.36 380.41,-40.36"/>
+<polygon fill="#255000" stroke="#255000" points="380.13,-36.86 370.13,-40.36 380.13,-43.86 380.13,-36.86"/>
+</g>
+<!-- module~dqmc_util -->
+<g id="module~~dqmc_hamilt~~UsesGraph_node6" class="node">
+<title>module~dqmc_util</title>
+<g id="a_module~~dqmc_hamilt~~UsesGraph_node6"><a xlink:href="../module/dqmc_util.html" xlink:title="DQMC_Util">
+<polygon fill="#337ab7" stroke="#337ab7" points="96.5,-84.36 28.5,-84.36 28.5,-60.36 96.5,-60.36 96.5,-84.36"/>
+<text text-anchor="middle" x="62.5" y="-69.96" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_cfg&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge5" class="edge">
+<title>module~dqmc_cfg&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M164.41,-79.86C146.94,-78.56 125.4,-76.96 106.71,-75.57"/>
+<polygon fill="#255000" stroke="#255000" points="106.9,-72.08 96.66,-74.83 106.38,-79.06 106.9,-72.08"/>
+</g>
+<!-- module~dqmc_latt&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge6" class="edge">
+<title>module~dqmc_latt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M160.89,-34.84C152.81,-33.64 144,-32.33 135.09,-31"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="135.42,-27.52 125.02,-29.51 134.39,-34.44 135.42,-27.52"/>
+</g>
+<!-- module~dqmc_latt&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge7" class="edge">
+<title>module~dqmc_latt&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M160.89,-49.19C144.12,-53.18 124.2,-57.92 106.75,-62.07"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="105.73,-58.71 96.81,-64.43 107.35,-65.52 105.73,-58.71"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_cfg -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge8" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_cfg</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M285.97,-52.39C272.63,-57.04 257.23,-62.41 243.18,-67.31"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="241.99,-64.02 233.7,-70.61 244.3,-70.63 241.99,-64.02"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge9" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M298.13,-28.26C274.48,-16.59 235.71,-0.65 200,-0.36"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_hamilt~~UsesGraph_edge10" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M272.88,-40.36C264.46,-40.36 255.69,-40.36 247.29,-40.36"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="247.25,-36.86 237.25,-40.36 247.25,-43.86 247.25,-36.86"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_hamilt~~UsedByGraph Pages: 1 -->
+<svg id="moduledqmc_hamiltUsedByGraph" width="563pt" height="116pt"
+ viewBox="0.00 0.00 563.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_hamilt~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>module~~dqmc_hamilt~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 559,-112 559,4 -4,4"/>
+<!-- module~dqmc_hamilt -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_node1" class="node">
+<title>module~dqmc_hamilt</title>
+<polygon fill="none" stroke="black" points="90,-45 0,-45 0,-21 90,-21 90,-45"/>
+<text text-anchor="middle" x="45" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_HAMILT</text>
+</g>
+<!-- module~dqmc_geom_wrap -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_node2" class="node">
+<title>module~dqmc_geom_wrap</title>
+<g id="a_module~~dqmc_hamilt~~UsedByGraph_node2"><a xlink:href="../module/dqmc_geom_wrap.html" xlink:title="DQMC_GEOM_WRAP">
+<polygon fill="#337ab7" stroke="#337ab7" points="280.5,-66 161.5,-66 161.5,-42 280.5,-42 280.5,-66"/>
+<text text-anchor="middle" x="221" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GEOM_WRAP</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_hamilt -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_edge1" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_hamilt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M161.09,-46.89C141.45,-44.52 119.67,-41.89 100.39,-39.56"/>
+<polygon fill="#255000" stroke="#255000" points="100.61,-36.07 90.27,-38.34 99.77,-43.02 100.61,-36.07"/>
+</g>
+<!-- proc~map_symm_lattice -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_node3" class="node">
+<title>proc~map_symm_lattice</title>
+<g id="a_module~~dqmc_hamilt~~UsedByGraph_node3"><a xlink:href="../proc/map_symm_lattice.html" xlink:title="DQMC_SYMM::map_symm_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="316,-24 126,-24 126,0 316,0 316,-24"/>
+<text text-anchor="middle" x="221" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;module~dqmc_hamilt -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_edge2" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;module~dqmc_hamilt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M125.87,-23.36C117.09,-24.42 108.4,-25.47 100.17,-26.46"/>
+<polygon fill="#255000" stroke="#255000" points="99.54,-23.01 90.03,-27.69 100.37,-29.96 99.54,-23.01"/>
+</g>
+<!-- proc~dqmc_tdm1_init -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_node4" class="node">
+<title>proc~dqmc_tdm1_init</title>
+<g id="a_module~~dqmc_hamilt~~UsedByGraph_node4"><a xlink:href="../proc/dqmc_tdm1_init.html" xlink:title="DQMC_TDM1::DQMC_TDM1_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="543.5,-108 363.5,-108 363.5,-84 543.5,-84 543.5,-108"/>
+<text text-anchor="middle" x="453.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_init&#45;&gt;module~dqmc_geom_wrap -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_edge3" class="edge">
+<title>proc~dqmc_tdm1_init&#45;&gt;module~dqmc_geom_wrap</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M386.45,-83.96C356.45,-78.5 320.97,-72.03 290.67,-66.51"/>
+<polygon fill="#255000" stroke="#255000" points="291.07,-63.03 280.6,-64.68 289.81,-69.91 291.07,-63.03"/>
+</g>
+<!-- proc~dqmc_tdm1_initprop -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_node5" class="node">
+<title>proc~dqmc_tdm1_initprop</title>
+<g id="a_module~~dqmc_hamilt~~UsedByGraph_node5"><a xlink:href="../proc/dqmc_tdm1_initprop.html" xlink:title="DQMC_TDM1::DQMC_TDM1_InitProp">
+<polygon fill="#d9534f" stroke="#d9534f" points="555,-66 352,-66 352,-42 555,-42 555,-66"/>
+<text text-anchor="middle" x="453.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_InitProp</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_initprop&#45;&gt;module~dqmc_geom_wrap -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_edge4" class="edge">
+<title>proc~dqmc_tdm1_initprop&#45;&gt;module~dqmc_geom_wrap</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M351.73,-54C331.2,-54 310.04,-54 290.92,-54"/>
+<polygon fill="#255000" stroke="#255000" points="290.82,-50.5 280.82,-54 290.82,-57.5 290.82,-50.5"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_node6" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_module~~dqmc_hamilt~~UsedByGraph_node6"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="496,-24 411,-24 411,0 496,0 496,-24"/>
+<text text-anchor="middle" x="453.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;module~dqmc_geom_wrap -->
+<g id="module~~dqmc_hamilt~~UsedByGraph_edge5" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;module~dqmc_geom_wrap</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M410.76,-19.61C377.41,-25.68 329.98,-34.33 291,-41.43"/>
+<polygon fill="#255000" stroke="#255000" points="289.98,-38.06 280.77,-43.29 291.24,-44.94 289.98,-38.06"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-hamiltonian_t"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-njsites"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nJsites</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nusites"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nUsites</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ntsites"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ntsites</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxneig"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>maxneig</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tnneig"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tnneig</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-unneig"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Unneig</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jnneig"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Jnneig</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tsite"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tsite</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-usite"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Usite</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jsite"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Jsite</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tneig"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tneig</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uneig"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Uneig</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jneig"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Jneig</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tckb"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tckb</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mu_up"></span>
+              real(kind=8),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mu_up</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mu_dn"></span>
+              real(kind=8),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mu_dn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uv"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Uv</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jv"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Jv</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uvalue"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Uvalue</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-muupvalue"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>muupvalue</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mudnvalue"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>mudnvalue</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hopup"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>hopup</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hopdn"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>hopdn</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tupvalue~2"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tupvalue</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tdnvalue~2"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tdnvalue</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-phase"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>phase</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nhopclass"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nhopclass</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nlocclass"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nlocclass</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mylocclass"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>mylocclass</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-myhopclass"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>myhopclass</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nplink"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nplink</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-plink"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>plink</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tlink"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tlink</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constructed"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constructed</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neig_found"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>neig_found</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-analyzed"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>analyzed</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-free_hamilt"></span> <h3>public  subroutine <a href='../proc/free_hamilt.html'>free_hamilt</a>(hamilt)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-construct_hamilt"></span> <h3>public  subroutine <a href='../proc/construct_hamilt.html'>construct_hamilt</a>(hamilt, lattice, recip_lattice, cfg)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~2"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lattice"></span>
+              type(<a href='../type/lattice_t.html'>lattice_t</a>),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>lattice</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-recip_lattice"></span>
+              type(<a href='../type/recip_lattice_t.html'>recip_lattice_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>recip_lattice</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cfg~3"></span>
+              type(<a href='../type/config.html'>config</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cfg</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-find_neighbors"></span> <h3>public  subroutine <a href='../proc/find_neighbors.html'>find_neighbors</a>(hamilt)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~3"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-count_hop_class"></span> <h3>public  subroutine <a href='../proc/count_hop_class.html'>count_hop_class</a>(lattice, hamilt)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lattice~2"></span>
+              type(<a href='../type/lattice_t.html'>lattice_t</a>)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lattice</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~4"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-count_local_classes"></span> <h3>public  subroutine <a href='../proc/count_local_classes.html'>count_local_classes</a>(lattice, hamilt)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lattice~3"></span>
+              type(<a href='../type/lattice_t.html'>lattice_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lattice</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~5"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_hamilt_groupckb"></span> <h3>public  subroutine <a href='../proc/dqmc_hamilt_groupckb.html'>dqmc_hamilt_groupckb</a>(hamilt)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~6"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-group_hopping"></span> <h3>public  subroutine <a href='../proc/group_hopping.html'>group_hopping</a>(hamilt, n, nt, tmap, tupvalue, tdnvalue)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~7"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nt"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmap"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tmap</strong>(n,n)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tupvalue~3"></span>
+              real(kind=8),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tupvalue</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tdnvalue~3"></span>
+              real(kind=8),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>tdnvalue</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

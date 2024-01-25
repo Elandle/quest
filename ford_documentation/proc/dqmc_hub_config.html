@@ -1,0 +1,1799 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_Hub_Config &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_Hub_Config
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.7% of total for procedures.">72 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_hubbard.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_hubbard.f90.html'>dqmc_hubbard.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dqmc_hubbard.html'>DQMC_Hubbard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_Hub_Config</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine DQMC_Hub_Config(Hub, cfg)  
+</h2>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/dqmc_mpi.html'>DQMC_MPI</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dqmc_hub_config~~UsesGraph Pages: 1 -->
+<svg id="procdqmc_hub_configUsesGraph" width="318pt" height="32pt"
+ viewBox="0.00 0.00 318.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dqmc_hub_config~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~dqmc_hub_config~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 314,-28 314,4 -4,4"/>
+<!-- proc~dqmc_hub_config -->
+<g id="proc~~dqmc_hub_config~~UsesGraph_node1" class="node">
+<title>proc~dqmc_hub_config</title>
+<polygon fill="none" stroke="black" points="310,-24 105,-24 105,0 310,0 310,-24"/>
+<text text-anchor="middle" x="207.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Hubbard::DQMC_Hub_Config</text>
+</g>
+<!-- module~dqmc_mpi -->
+<g id="proc~~dqmc_hub_config~~UsesGraph_node2" class="node">
+<title>module~dqmc_mpi</title>
+<g id="a_proc~~dqmc_hub_config~~UsesGraph_node2"><a xlink:href="../module/dqmc_mpi.html" xlink:title="DQMC_MPI">
+<polygon fill="#337ab7" stroke="#337ab7" points="69,-24 0,-24 0,0 69,0 69,-24"/>
+<text text-anchor="middle" x="34.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MPI</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_config&#45;&gt;module~dqmc_mpi -->
+<g id="proc~~dqmc_hub_config~~UsesGraph_edge1" class="edge">
+<title>proc~dqmc_hub_config&#45;&gt;module~dqmc_mpi</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M104.56,-12C95.71,-12 87.1,-12 79.13,-12"/>
+<polygon fill="#255000" stroke="#255000" points="79.07,-8.5 69.07,-12 79.07,-15.5 79.07,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hub"></span>
+              type(<a href='../type/hubbard.html'>Hubbard</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Hub</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cfg~21"></span>
+              type(<a href='../type/config.html'>config</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cfg</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dqmc_hub_config~~CallsGraph Pages: 1 -->
+<svg id="procdqmc_hub_configCallsGraph" width="641pt" height="423pt"
+ viewBox="0.00 0.00 641.00 423.16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dqmc_hub_config~~CallsGraph" class="graph" transform="scale(3.06 3.06) rotate(0) translate(4 1290.57)">
+<title>proc~~dqmc_hub_config~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1290.57 1957,-1290.57 1957,4 -4,4"/>
+<!-- proc~dqmc_hub_config -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node1" class="node">
+<title>proc~dqmc_hub_config</title>
+<polygon fill="none" stroke="black" points="205,-1075.01 0,-1075.01 0,-1051.01 205,-1051.01 205,-1075.01"/>
+<text text-anchor="middle" x="102.5" y="-1060.61" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Hubbard::DQMC_Hub_Config</text>
+</g>
+<!-- interface~cfg_get -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node2" class="node">
+<title>interface~cfg_get</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node2"><a xlink:href="../interface/cfg_get.html" xlink:title="DQMC_Cfg::CFG_Get">
+<polygon fill="#a7506f" stroke="#a7506f" points="1368,-1115.01 1246,-1115.01 1246,-1091.01 1368,-1091.01 1368,-1115.01"/>
+<text text-anchor="middle" x="1307" y="-1100.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::CFG_Get</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_config&#45;&gt;interface~cfg_get -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge1" class="edge">
+<title>proc~dqmc_hub_config&#45;&gt;interface~cfg_get</title>
+<path fill="none" stroke="#255000" d="M194.2,-1075.03C288.63,-1086.49 440.91,-1102.01 573,-1102.01 573,-1102.01 573,-1102.01 832.5,-1102.01 975.72,-1102.01 1143.3,-1102.47 1235.75,-1102.77"/>
+<polygon fill="#255000" stroke="#255000" points="1235.82,-1106.27 1245.83,-1102.8 1235.84,-1099.27 1235.82,-1106.27"/>
+</g>
+<!-- interface~cfg_set -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node3" class="node">
+<title>interface~cfg_set</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node3"><a xlink:href="../interface/cfg_set.html" xlink:title="DQMC_Cfg::CFG_Set">
+<polygon fill="#a7506f" stroke="#a7506f" points="1367.5,-863.01 1246.5,-863.01 1246.5,-839.01 1367.5,-839.01 1367.5,-863.01"/>
+<text text-anchor="middle" x="1307" y="-848.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::CFG_Set</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_config&#45;&gt;interface~cfg_set -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge2" class="edge">
+<title>proc~dqmc_hub_config&#45;&gt;interface~cfg_set</title>
+<path fill="none" stroke="#255000" d="M196.85,-1050.99C291.47,-1039.85 442.16,-1025.01 573,-1025.01 573,-1025.01 573,-1025.01 832.5,-1025.01 1012.29,-1025.01 1208.21,-913.12 1278.78,-868.79"/>
+<polygon fill="#255000" stroke="#255000" points="1280.95,-871.56 1287.51,-863.25 1277.2,-865.65 1280.95,-871.56"/>
+</g>
+<!-- proc~dqmc_config_isset -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node4" class="node">
+<title>proc~dqmc_config_isset</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node4"><a xlink:href="../proc/dqmc_config_isset.html" xlink:title="DQMC_Cfg::DQMC_Config_isSet">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1645,-968.01 1465,-968.01 1465,-944.01 1645,-944.01 1645,-968.01"/>
+<text text-anchor="middle" x="1555" y="-953.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_isSet</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_config&#45;&gt;proc~dqmc_config_isset -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge3" class="edge">
+<title>proc~dqmc_hub_config&#45;&gt;proc~dqmc_config_isset</title>
+<path fill="none" stroke="#255000" d="M205.16,-1063.01C300.26,-1063.01 446.25,-1063.01 573,-1063.01 573,-1063.01 573,-1063.01 1068,-1063.01 1069.33,-1063.01 1357.46,-999.42 1489.39,-970.28"/>
+<polygon fill="#255000" stroke="#255000" points="1490.36,-973.65 1499.37,-968.08 1488.85,-966.81 1490.36,-973.65"/>
+</g>
+<!-- proc~dqmc_hub_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node5" class="node">
+<title>proc~dqmc_hub_init</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node5"><a xlink:href="../proc/dqmc_hub_init.html" xlink:title="DQMC_Hubbard::DQMC_Hub_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="428,-642.01 241,-642.01 241,-618.01 428,-618.01 428,-642.01"/>
+<text text-anchor="middle" x="334.5" y="-627.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard::DQMC_Hub_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_config&#45;&gt;proc~dqmc_hub_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge4" class="edge">
+<title>proc~dqmc_hub_config&#45;&gt;proc~dqmc_hub_init</title>
+<path fill="none" stroke="#255000" d="M109.89,-1050.98C141.48,-991.5 281.08,-728.69 322.12,-651.44"/>
+<polygon fill="#255000" stroke="#255000" points="325.43,-652.66 327.03,-642.19 319.25,-649.38 325.43,-652.66"/>
+</g>
+<!-- proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node6" class="node">
+<title>proc~dqmc_warning</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node6"><a xlink:href="../proc/dqmc_warning.html" xlink:title="DQMC_Util::DQMC_Warning">
+<polygon fill="#d9534f" stroke="#d9534f" points="1854,-1157.01 1696,-1157.01 1696,-1133.01 1854,-1133.01 1854,-1157.01"/>
+<text text-anchor="middle" x="1775" y="-1142.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_Warning</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_config&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge5" class="edge">
+<title>proc~dqmc_hub_config&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="#255000" d="M117.37,-1075.1C171.54,-1121.01 375.58,-1282.01 573,-1282.01 573,-1282.01 573,-1282.01 1308,-1282.01 1461.33,-1282.01 1509.48,-1304.02 1651,-1245.01 1694.4,-1226.91 1734.66,-1188.43 1756.63,-1164.83"/>
+<polygon fill="#255000" stroke="#255000" points="1759.47,-1166.91 1763.62,-1157.16 1754.3,-1162.2 1759.47,-1166.91"/>
+</g>
+<!-- proc~dqmc_config_geti -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node8" class="node">
+<title>proc~dqmc_config_geti</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node8"><a xlink:href="../proc/dqmc_config_geti.html" xlink:title="DQMC_Cfg::DQMC_Config_GetI">
+<polygon fill="#d9534f" stroke="#d9534f" points="1643,-1010.01 1467,-1010.01 1467,-986.01 1643,-986.01 1643,-1010.01"/>
+<text text-anchor="middle" x="1555" y="-995.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_GetI</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_get&#45;&gt;proc~dqmc_config_geti -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge6" class="edge">
+<title>interface~cfg_get&#45;&gt;proc~dqmc_config_geti</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1368.15,-1098.54C1387.03,-1094.85 1407.08,-1088.35 1423,-1077.01 1447.71,-1059.41 1434.24,-1036.55 1459,-1019.01 1461.25,-1017.42 1463.6,-1015.94 1466.02,-1014.58"/>
+<polygon fill="#255000" stroke="#255000" points="1467.68,-1017.66 1475.1,-1010.09 1464.58,-1011.38 1467.68,-1017.66"/>
+</g>
+<!-- proc~dqmc_config_getpi -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node9" class="node">
+<title>proc~dqmc_config_getpi</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node9"><a xlink:href="../proc/dqmc_config_getpi.html" xlink:title="DQMC_Cfg::DQMC_Config_GetPI">
+<polygon fill="#d9534f" stroke="#d9534f" points="1646,-1178.01 1464,-1178.01 1464,-1154.01 1646,-1154.01 1646,-1178.01"/>
+<text text-anchor="middle" x="1555" y="-1163.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_GetPI</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_get&#45;&gt;proc~dqmc_config_getpi -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge7" class="edge">
+<title>interface~cfg_get&#45;&gt;proc~dqmc_config_getpi</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1348.86,-1115.02C1379.15,-1123.76 1421.51,-1135.66 1459,-1145.01 1468.12,-1147.28 1477.77,-1149.56 1487.28,-1151.74"/>
+<polygon fill="#255000" stroke="#255000" points="1486.59,-1155.17 1497.12,-1153.96 1488.13,-1148.34 1486.59,-1155.17"/>
+</g>
+<!-- proc~dqmc_config_getpr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node10" class="node">
+<title>proc~dqmc_config_getpr</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node10"><a xlink:href="../proc/dqmc_config_getpr.html" xlink:title="DQMC_Cfg::DQMC_Config_GetPR">
+<polygon fill="#d9534f" stroke="#d9534f" points="1648.5,-1136.01 1461.5,-1136.01 1461.5,-1112.01 1648.5,-1112.01 1648.5,-1136.01"/>
+<text text-anchor="middle" x="1555" y="-1121.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_GetPR</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_get&#45;&gt;proc~dqmc_config_getpr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge8" class="edge">
+<title>interface~cfg_get&#45;&gt;proc~dqmc_config_getpr</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1368.18,-1108.15C1393.14,-1110.28 1422.81,-1112.81 1451.04,-1115.22"/>
+<polygon fill="#255000" stroke="#255000" points="1451.1,-1118.74 1461.36,-1116.1 1451.69,-1111.76 1451.1,-1118.74"/>
+</g>
+<!-- proc~dqmc_config_getr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node11" class="node">
+<title>proc~dqmc_config_getr</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node11"><a xlink:href="../proc/dqmc_config_getr.html" xlink:title="DQMC_Cfg::DQMC_Config_GetR">
+<polygon fill="#d9534f" stroke="#d9534f" points="1645.5,-1094.01 1464.5,-1094.01 1464.5,-1070.01 1645.5,-1070.01 1645.5,-1094.01"/>
+<text text-anchor="middle" x="1555" y="-1079.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_GetR</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_get&#45;&gt;proc~dqmc_config_getr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge9" class="edge">
+<title>interface~cfg_get&#45;&gt;proc~dqmc_config_getr</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1368.18,-1097.87C1394.01,-1095.67 1424.89,-1093.03 1453.99,-1090.55"/>
+<polygon fill="#255000" stroke="#255000" points="1454.53,-1094.01 1464.2,-1089.68 1453.94,-1087.04 1454.53,-1094.01"/>
+</g>
+<!-- proc~dqmc_config_gets -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node12" class="node">
+<title>proc~dqmc_config_gets</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node12"><a xlink:href="../proc/dqmc_config_gets.html" xlink:title="DQMC_Cfg::DQMC_Config_GetS">
+<polygon fill="#d9534f" stroke="#d9534f" points="1645,-1052.01 1465,-1052.01 1465,-1028.01 1645,-1028.01 1645,-1052.01"/>
+<text text-anchor="middle" x="1555" y="-1037.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_GetS</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_get&#45;&gt;proc~dqmc_config_gets -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge10" class="edge">
+<title>interface~cfg_get&#45;&gt;proc~dqmc_config_gets</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1368,-1091.77C1385.89,-1087.8 1405.42,-1082.84 1423,-1077.01 1439.62,-1071.5 1442.37,-1066.48 1459,-1061.01 1466.14,-1058.66 1473.67,-1056.49 1481.23,-1054.52"/>
+<polygon fill="#255000" stroke="#255000" points="1482.32,-1057.85 1491.17,-1052.03 1480.62,-1051.06 1482.32,-1057.85"/>
+</g>
+<!-- proc~dqmc_config_seti -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node13" class="node">
+<title>proc~dqmc_config_seti</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node13"><a xlink:href="../proc/dqmc_config_seti.html" xlink:title="DQMC_Cfg::DQMC_Config_SetI">
+<polygon fill="#d9534f" stroke="#d9534f" points="1642.5,-926.01 1467.5,-926.01 1467.5,-902.01 1642.5,-902.01 1642.5,-926.01"/>
+<text text-anchor="middle" x="1555" y="-911.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetI</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_seti -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge11" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_seti</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1348.86,-863.02C1379.15,-871.76 1421.51,-883.66 1459,-893.01 1468.12,-895.28 1477.77,-897.56 1487.28,-899.74"/>
+<polygon fill="transparent" stroke="transparent" points="1486.59,-903.17 1497.12,-901.96 1488.13,-896.34 1486.59,-903.17"/>
+</g>
+<!-- proc~dqmc_config_setpi -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node14" class="node">
+<title>proc~dqmc_config_setpi</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node14"><a xlink:href="../proc/dqmc_config_setpi.html" xlink:title="DQMC_Cfg::DQMC_Config_SetPI">
+<polygon fill="#d9534f" stroke="#d9534f" points="1645.5,-884.01 1464.5,-884.01 1464.5,-860.01 1645.5,-860.01 1645.5,-884.01"/>
+<text text-anchor="middle" x="1555" y="-869.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetPI</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_setpi -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge12" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_setpi</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1367.55,-856.09C1393.5,-858.31 1424.64,-860.97 1453.97,-863.47"/>
+<polygon fill="transparent" stroke="transparent" points="1453.99,-866.98 1464.25,-864.35 1454.59,-860.01 1453.99,-866.98"/>
+</g>
+<!-- proc~dqmc_config_setpr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node15" class="node">
+<title>proc~dqmc_config_setpr</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node15"><a xlink:href="../proc/dqmc_config_setpr.html" xlink:title="DQMC_Cfg::DQMC_Config_SetPR">
+<polygon fill="#d9534f" stroke="#d9534f" points="1647.5,-842.01 1462.5,-842.01 1462.5,-818.01 1647.5,-818.01 1647.5,-842.01"/>
+<text text-anchor="middle" x="1555" y="-827.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetPR</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_setpr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge13" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_setpr</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1367.55,-845.93C1392.99,-843.75 1423.42,-841.16 1452.24,-838.7"/>
+<polygon fill="transparent" stroke="transparent" points="1452.69,-842.17 1462.35,-837.83 1452.09,-835.2 1452.69,-842.17"/>
+</g>
+<!-- proc~dqmc_config_setr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node16" class="node">
+<title>proc~dqmc_config_setr</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node16"><a xlink:href="../proc/dqmc_config_setr.html" xlink:title="DQMC_Cfg::DQMC_Config_SetR">
+<polygon fill="#d9534f" stroke="#d9534f" points="1644.5,-800.01 1465.5,-800.01 1465.5,-776.01 1644.5,-776.01 1644.5,-800.01"/>
+<text text-anchor="middle" x="1555" y="-785.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetR</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_setr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge14" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_setr</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1348.86,-839C1379.15,-830.26 1421.51,-818.36 1459,-809.01 1468.12,-806.73 1477.77,-804.46 1487.28,-802.28"/>
+<polygon fill="transparent" stroke="transparent" points="1488.13,-805.68 1497.12,-800.06 1486.59,-798.85 1488.13,-805.68"/>
+</g>
+<!-- proc~dqmc_config_sets -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node17" class="node">
+<title>proc~dqmc_config_sets</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node17"><a xlink:href="../proc/dqmc_config_sets.html" xlink:title="DQMC_Cfg::DQMC_Config_SetS">
+<polygon fill="#d9534f" stroke="#d9534f" points="1644,-758.01 1466,-758.01 1466,-734.01 1644,-734.01 1644,-758.01"/>
+<text text-anchor="middle" x="1555" y="-743.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetS</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_sets -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge15" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_sets</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1325.76,-838.87C1353.17,-820.66 1407.95,-786.38 1459,-767.01 1465.15,-764.67 1471.64,-762.56 1478.2,-760.66"/>
+<polygon fill="transparent" stroke="transparent" points="1479.13,-764.04 1487.86,-758.03 1477.29,-757.29 1479.13,-764.04"/>
+</g>
+<!-- proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node18" class="node">
+<title>proc~dqmc_error</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node18"><a xlink:href="../proc/dqmc_error.html" xlink:title="DQMC_Util::DQMC_Error">
+<polygon fill="#d9534f" stroke="#d9534f" points="1845,-800.01 1705,-800.01 1705,-776.01 1845,-776.01 1845,-800.01"/>
+<text text-anchor="middle" x="1775" y="-785.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_Error</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_config_isset&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge16" class="edge">
+<title>proc~dqmc_config_isset&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025510" stroke-opacity="0.007843" d="M1632.43,-943.88C1638.94,-941.44 1645.23,-938.52 1651,-935.01 1703.07,-903.39 1743.56,-841.82 1762.42,-809.31"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="1765.68,-810.64 1767.56,-800.21 1759.59,-807.2 1765.68,-810.64"/>
+</g>
+<!-- proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node19" class="node">
+<title>proc~dqmc_find_param</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node19"><a xlink:href="../proc/dqmc_find_param.html" xlink:title="DQMC_Cfg::DQMC_Find_Param">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1863,-968.01 1687,-968.01 1687,-944.01 1863,-944.01 1863,-968.01"/>
+<text text-anchor="middle" x="1775" y="-953.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Find_Param</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_config_isset&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge17" class="edge">
+<title>proc~dqmc_config_isset&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#025510" stroke-opacity="0.007843" d="M1645.3,-956.01C1655.72,-956.01 1666.4,-956.01 1676.92,-956.01"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="1676.95,-959.51 1686.95,-956.01 1676.95,-952.51 1676.95,-959.51"/>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge28" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M339.59,-642.25C352.35,-678.73 394.72,-788.01 464,-851.01 727.21,-1090.36 848.46,-1089.92 1191,-1186.01 1388.29,-1241.35 1453.23,-1270.64 1651,-1217.01 1689.28,-1206.63 1727.85,-1181.01 1751.34,-1163.32"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="1753.5,-1166.07 1759.28,-1157.2 1749.22,-1160.53 1753.5,-1166.07"/>
+</g>
+<!-- proc~dqmc_b_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node7" class="node">
+<title>proc~dqmc_b_init</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node7"><a xlink:href="../proc/dqmc_b_init.html" xlink:title="DQMC_MATB::DQMC_B_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="909,-336.01 754,-336.01 754,-312.01 909,-312.01 909,-336.01"/>
+<text text-anchor="middle" x="831.5" y="-321.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB::DQMC_B_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_b_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge18" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_b_init</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M342.32,-617.79C358.95,-589.24 404.65,-518.08 464,-485.01 550.68,-436.71 594,-488.8 684,-447.01 738.01,-421.93 788.23,-371.64 813.47,-343.76"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="816.16,-346 820.2,-336.21 810.93,-341.35 816.16,-346"/>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge19" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M428.39,-641.41C527.75,-652.6 690.01,-668.01 830.5,-668.01 830.5,-668.01 830.5,-668.01 1308,-668.01 1460.76,-668.01 1508.49,-635 1651,-690.01 1694.52,-706.81 1734.74,-744.84 1756.67,-768.27"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="1754.32,-770.88 1763.65,-775.9 1759.48,-766.16 1754.32,-770.88"/>
+</g>
+<!-- proc~dqmc_getg -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node20" class="node">
+<title>proc~dqmc_getg</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node20"><a xlink:href="../proc/dqmc_getg.html" xlink:title="DQMC_GFun::DQMC_GetG">
+<polygon fill="#d9534f" stroke="#d9534f" points="649.5,-256.01 498.5,-256.01 498.5,-232.01 649.5,-232.01 649.5,-256.01"/>
+<text text-anchor="middle" x="574" y="-241.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GFun::DQMC_GetG</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_getg -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge20" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_getg</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M339.86,-617.9C354.18,-578.92 402.43,-453.96 464,-363.01 490.24,-324.24 528.67,-285.38 552.19,-263.07"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="554.66,-265.55 559.56,-256.16 549.87,-260.44 554.66,-265.55"/>
+</g>
+<!-- proc~dqmc_gfun_clone -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node21" class="node">
+<title>proc~dqmc_gfun_clone</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node21"><a xlink:href="../proc/dqmc_gfun_clone.html" xlink:title="DQMC_GFun::DQMC_GFun_Clone">
+<polygon fill="#d9534f" stroke="#d9534f" points="667.5,-602.01 480.5,-602.01 480.5,-578.01 667.5,-578.01 667.5,-602.01"/>
+<text text-anchor="middle" x="574" y="-587.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GFun::DQMC_GFun_Clone</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_gfun_clone -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge21" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_gfun_clone</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M406.76,-618.01C433.41,-613.52 463.88,-608.39 491.39,-603.75"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="492.1,-607.18 501.38,-602.07 490.94,-600.28 492.1,-607.18"/>
+</g>
+<!-- proc~dqmc_gfun_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node22" class="node">
+<title>proc~dqmc_gfun_init</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node22"><a xlink:href="../proc/dqmc_gfun_init.html" xlink:title="DQMC_GFun::DQMC_GFun_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="660,-560.01 488,-560.01 488,-536.01 660,-536.01 660,-560.01"/>
+<text text-anchor="middle" x="574" y="-545.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GFun::DQMC_GFun_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_gfun_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge22" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_gfun_init</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M356.64,-617.92C381.56,-604.16 424.58,-581.93 464,-569.01 471.55,-566.53 479.5,-564.31 487.52,-562.32"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="488.38,-565.72 497.31,-560.02 486.77,-558.9 488.38,-565.72"/>
+</g>
+<!-- proc~dqmc_hub_init_vmat -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node23" class="node">
+<title>proc~dqmc_hub_init_vmat</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node23"><a xlink:href="../proc/dqmc_hub_init_vmat.html" xlink:title="DQMC_Hubbard::DQMC_Hub_Init_Vmat">
+<polygon fill="#d9534f" stroke="#d9534f" points="684,-518.01 464,-518.01 464,-494.01 684,-494.01 684,-518.01"/>
+<text text-anchor="middle" x="574" y="-503.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard::DQMC_Hub_Init_Vmat</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_hub_init_vmat -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge23" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_hub_init_vmat</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M346.56,-617.89C367.3,-595.98 414.43,-549.92 464,-527.01 468.69,-524.84 473.59,-522.9 478.61,-521.15"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="479.92,-524.41 488.39,-518.04 477.8,-517.74 479.92,-524.41"/>
+</g>
+<!-- proc~dqmc_hub_input_hsf -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node24" class="node">
+<title>proc~dqmc_hub_input_hsf</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node24"><a xlink:href="../proc/dqmc_hub_input_hsf.html" xlink:title="DQMC_Hubbard::DQMC_Hub_Input_HSF">
+<polygon fill="#d9534f" stroke="#d9534f" points="943,-729.01 720,-729.01 720,-705.01 943,-705.01 943,-729.01"/>
+<text text-anchor="middle" x="831.5" y="-714.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard::DQMC_Hub_Input_HSF</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_hub_input_hsf -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge24" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_hub_input_hsf</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M359.43,-642.15C384.73,-654.38 426.13,-672.75 464,-682.01 544.5,-701.7 637.46,-710.42 709.62,-714.24"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="709.5,-717.73 719.66,-714.74 709.85,-710.74 709.5,-717.73"/>
+</g>
+<!-- proc~dqmc_phy0_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node25" class="node">
+<title>proc~dqmc_phy0_init</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node25"><a xlink:href="../proc/dqmc_phy0_init.html" xlink:title="DQMC_Phy0::DQMC_Phy0_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="658.5,-438.01 489.5,-438.01 489.5,-414.01 658.5,-414.01 658.5,-438.01"/>
+<text text-anchor="middle" x="574" y="-423.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy0::DQMC_Phy0_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_phy0_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge25" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_phy0_init</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M340.61,-617.77C354.88,-585.19 398.44,-495.89 464,-452.01 470.06,-447.96 476.68,-444.53 483.56,-441.64"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="484.99,-444.84 493.09,-438.02 482.5,-438.3 484.99,-444.84"/>
+</g>
+<!-- proc~dqmc_phy2_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node26" class="node">
+<title>proc~dqmc_phy2_init</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node26"><a xlink:href="../proc/dqmc_phy2_init.html" xlink:title="DQMC_Phy2::DQMC_Phy2_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="658.5,-396.01 489.5,-396.01 489.5,-372.01 658.5,-372.01 658.5,-396.01"/>
+<text text-anchor="middle" x="574" y="-381.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy2::DQMC_Phy2_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_phy2_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge26" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_phy2_init</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M338.56,-617.82C348.87,-579.5 386.08,-460.77 464,-405.01 468.87,-401.53 474.16,-398.58 479.7,-396.09"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="481.23,-399.25 489.24,-392.31 478.65,-392.74 481.23,-399.25"/>
+</g>
+<!-- proc~dqmc_seqb_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node27" class="node">
+<title>proc~dqmc_seqb_init</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node27"><a xlink:href="../proc/dqmc_seqb_init.html" xlink:title="DQMC_SEQB::DQMC_SeqB_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="661.5,-842.01 486.5,-842.01 486.5,-818.01 661.5,-818.01 661.5,-842.01"/>
+<text text-anchor="middle" x="574" y="-827.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SEQB::DQMC_SeqB_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_seqb_init -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge27" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_seqb_init</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M340.49,-642.48C354.45,-675.64 397.3,-766.33 464,-809.01 468.1,-811.63 472.44,-813.94 476.95,-815.97"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="475.83,-819.29 486.41,-819.77 478.43,-812.79 475.83,-819.29"/>
+</g>
+<!-- proc~dqmc_wspace_allocate -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node28" class="node">
+<title>proc~dqmc_wspace_allocate</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node28"><a xlink:href="../proc/dqmc_wspace_allocate.html" xlink:title="DQMC_WSpace::DQMC_WSpace_Allocate">
+<polygon fill="#d9534f" stroke="#d9534f" points="1423,-598.01 1191,-598.01 1191,-574.01 1423,-574.01 1423,-598.01"/>
+<text text-anchor="middle" x="1307" y="-583.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_WSpace::DQMC_WSpace_Allocate</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~dqmc_wspace_allocate -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge29" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~dqmc_wspace_allocate</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M428.12,-625.81C603.22,-617.87 982.94,-600.66 1180.65,-591.69"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="1180.96,-595.18 1190.79,-591.23 1180.64,-588.19 1180.96,-595.18"/>
+</g>
+<!-- proc~ran0 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node29" class="node">
+<title>proc~ran0</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node29"><a xlink:href="../proc/ran0.html" xlink:title="DQMC_Util::ran0">
+<polygon fill="#d9534f" stroke="#d9534f" points="624,-800.01 524,-800.01 524,-776.01 624,-776.01 624,-800.01"/>
+<text text-anchor="middle" x="574" y="-785.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::ran0</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~ran0 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge30" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~ran0</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M343.06,-642.29C360.58,-669.62 406.89,-735.52 464,-767.01 479.02,-775.29 496.78,-780.35 513.55,-783.43"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="513.4,-786.96 523.83,-785.11 514.52,-780.05 513.4,-786.96"/>
+</g>
+<!-- proc~ran1 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node30" class="node">
+<title>proc~ran1</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node30"><a xlink:href="../proc/ran1.html" xlink:title="DQMC_Util::ran1">
+<polygon fill="#d9534f" stroke="#d9534f" points="624,-758.01 524,-758.01 524,-734.01 624,-734.01 624,-758.01"/>
+<text text-anchor="middle" x="574" y="-743.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::ran1</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_hub_init&#45;&gt;proc~ran1 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge31" class="edge">
+<title>proc~dqmc_hub_init&#45;&gt;proc~ran1</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M349.07,-642.17C371.4,-661.55 418.04,-699.35 464,-720.01 479.58,-727.01 497.29,-732.27 513.83,-736.16"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="513.44,-739.65 523.96,-738.4 514.95,-732.82 513.44,-739.65"/>
+</g>
+<!-- proc~dqmc_b_expinit -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node38" class="node">
+<title>proc~dqmc_b_expinit</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node38"><a xlink:href="../proc/dqmc_b_expinit.html" xlink:title="DQMC_MATB::DQMC_B_ExpInit">
+<polygon fill="#d9534f" stroke="#d9534f" points="1642.5,-194.01 1467.5,-194.01 1467.5,-170.01 1642.5,-170.01 1642.5,-194.01"/>
+<text text-anchor="middle" x="1555" y="-179.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB::DQMC_B_ExpInit</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_b_init&#45;&gt;proc~dqmc_b_expinit -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge32" class="edge">
+<title>proc~dqmc_b_init&#45;&gt;proc~dqmc_b_expinit</title>
+<path fill="none" stroke="#255000" d="M909.3,-319.81C1024.15,-311.6 1246.08,-288.17 1423,-224.01 1440.41,-217.69 1441.75,-209.76 1459,-203.01 1464.83,-200.73 1470.97,-198.67 1477.2,-196.81"/>
+<polygon fill="#255000" stroke="#255000" points="1478.35,-200.12 1487.03,-194.06 1476.46,-193.38 1478.35,-200.12"/>
+</g>
+<!-- proc~dqmc_config_geti&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge35" class="edge">
+<title>proc~dqmc_config_geti&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="#255630" d="M1630.68,-1010.1C1637.76,-1012.54 1644.65,-1015.48 1651,-1019.01 1698.49,-1045.42 1739.34,-1095.91 1759.86,-1124.3"/>
+<polygon fill="#255630" stroke="#255630" points="1757.16,-1126.54 1765.8,-1132.68 1762.88,-1122.5 1757.16,-1126.54"/>
+</g>
+<!-- proc~dqmc_config_geti&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge33" class="edge">
+<title>proc~dqmc_config_geti&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#255630" d="M1634.82,-985.81C1640.53,-983.38 1646,-980.47 1651,-977.01 1667.18,-965.8 1733.87,-855.53 1761.71,-808.78"/>
+<polygon fill="#255630" stroke="#255630" points="1764.78,-810.46 1766.88,-800.08 1758.76,-806.89 1764.78,-810.46"/>
+</g>
+<!-- proc~dqmc_config_geti&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge34" class="edge">
+<title>proc~dqmc_config_geti&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#255630" d="M1618.47,-985.97C1644.35,-980.99 1674.55,-975.17 1701.41,-970"/>
+<polygon fill="#255630" stroke="#255630" points="1702.36,-973.38 1711.52,-968.05 1701.04,-966.5 1702.36,-973.38"/>
+</g>
+<!-- proc~dqmc_config_getpi&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge38" class="edge">
+<title>proc~dqmc_config_getpi&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="transparent" d="M1646.24,-1157.32C1659.27,-1156.06 1672.68,-1154.77 1685.67,-1153.52"/>
+<polygon fill="transparent" stroke="transparent" points="1686.37,-1156.97 1695.99,-1152.52 1685.7,-1150 1686.37,-1156.97"/>
+</g>
+<!-- proc~dqmc_config_getpi&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge36" class="edge">
+<title>proc~dqmc_config_getpi&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="transparent" d="M1640.07,-1153.85C1644.05,-1151.36 1647.74,-1148.43 1651,-1145.01 1716.34,-1076.47 1654.34,-1023.9 1687,-935.01 1704.83,-886.49 1738.71,-835.9 1758.52,-808.55"/>
+<polygon fill="transparent" stroke="transparent" points="1761.55,-810.33 1764.65,-800.2 1755.91,-806.18 1761.55,-810.33"/>
+</g>
+<!-- proc~dqmc_config_getpi&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge37" class="edge">
+<title>proc~dqmc_config_getpi&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="transparent" d="M1634.82,-1153.81C1640.53,-1151.38 1646,-1148.47 1651,-1145.01 1712.75,-1102.25 1751.03,-1017.43 1766.33,-977.61"/>
+<polygon fill="transparent" stroke="transparent" points="1769.67,-978.66 1769.89,-968.07 1763.11,-976.22 1769.67,-978.66"/>
+</g>
+<!-- proc~dqmc_config_getpr&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge41" class="edge">
+<title>proc~dqmc_config_getpr&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="transparent" d="M1648.77,-1132.95C1660.99,-1134.12 1673.49,-1135.33 1685.64,-1136.5"/>
+<polygon fill="transparent" stroke="transparent" points="1685.45,-1140 1695.74,-1137.47 1686.12,-1133.03 1685.45,-1140"/>
+</g>
+<!-- proc~dqmc_config_getpr&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge39" class="edge">
+<title>proc~dqmc_config_getpr&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="transparent" d="M1639.48,-1111.95C1643.66,-1109.44 1647.55,-1106.48 1651,-1103.01 1704.82,-1048.84 1659.19,-1006.13 1687,-935.01 1705.82,-886.87 1739.34,-836.14 1758.82,-808.66"/>
+<polygon fill="transparent" stroke="transparent" points="1761.86,-810.44 1764.85,-800.27 1756.17,-806.35 1761.86,-810.44"/>
+</g>
+<!-- proc~dqmc_config_getpr&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge40" class="edge">
+<title>proc~dqmc_config_getpr&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="transparent" d="M1632.43,-1111.88C1638.94,-1109.44 1645.23,-1106.52 1651,-1103.01 1703.07,-1071.39 1743.56,-1009.82 1762.42,-977.31"/>
+<polygon fill="transparent" stroke="transparent" points="1765.68,-978.64 1767.56,-968.21 1759.59,-975.2 1765.68,-978.64"/>
+</g>
+<!-- proc~dqmc_config_getr&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge44" class="edge">
+<title>proc~dqmc_config_getr&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="transparent" d="M1615.29,-1094.05C1627.18,-1096.76 1639.53,-1099.8 1651,-1103.01 1678.38,-1110.68 1708.6,-1120.98 1732.24,-1129.45"/>
+<polygon fill="transparent" stroke="transparent" points="1731.34,-1132.85 1741.94,-1132.96 1733.72,-1126.27 1731.34,-1132.85"/>
+</g>
+<!-- proc~dqmc_config_getr&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge42" class="edge">
+<title>proc~dqmc_config_getr&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="transparent" d="M1638.76,-1069.93C1643.18,-1067.43 1647.31,-1064.48 1651,-1061.01 1693.41,-1021.1 1663.98,-988.51 1687,-935.01 1707.54,-887.29 1740.71,-836.04 1759.61,-808.44"/>
+<polygon fill="transparent" stroke="transparent" points="1762.62,-810.24 1765.43,-800.02 1756.86,-806.25 1762.62,-810.24"/>
+</g>
+<!-- proc~dqmc_config_getr&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge43" class="edge">
+<title>proc~dqmc_config_getr&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="transparent" d="M1628.36,-1069.95C1636.19,-1067.5 1643.89,-1064.55 1651,-1061.01 1694.13,-1039.53 1734.7,-999.67 1756.77,-975.72"/>
+<polygon fill="transparent" stroke="transparent" points="1759.41,-978.02 1763.52,-968.26 1754.22,-973.32 1759.41,-978.02"/>
+</g>
+<!-- proc~dqmc_config_gets&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge47" class="edge">
+<title>proc~dqmc_config_gets&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="transparent" d="M1625.22,-1052.05C1634.07,-1054.53 1642.86,-1057.49 1651,-1061.01 1689.68,-1077.75 1728.96,-1107.22 1752.4,-1126.43"/>
+<polygon fill="transparent" stroke="transparent" points="1750.37,-1129.29 1760.29,-1133 1754.85,-1123.91 1750.37,-1129.29"/>
+</g>
+<!-- proc~dqmc_config_gets&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge45" class="edge">
+<title>proc~dqmc_config_gets&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="transparent" d="M1637.36,-1027.83C1642.23,-1025.37 1646.84,-1022.46 1651,-1019.01 1682.28,-993.1 1668.62,-971.23 1687,-935.01 1710.51,-888.68 1742.59,-836.92 1760.5,-808.85"/>
+<polygon fill="transparent" stroke="transparent" points="1763.54,-810.59 1765.99,-800.29 1757.65,-806.81 1763.54,-810.59"/>
+</g>
+<!-- proc~dqmc_config_gets&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge46" class="edge">
+<title>proc~dqmc_config_gets&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="transparent" d="M1621.02,-1027.96C1631.18,-1025.42 1641.46,-1022.44 1651,-1019.01 1684.83,-1006.83 1721.2,-987.33 1745.55,-973.24"/>
+<polygon fill="transparent" stroke="transparent" points="1747.4,-976.21 1754.26,-968.14 1743.86,-970.17 1747.4,-976.21"/>
+</g>
+<!-- proc~dqmc_config_seti&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge48" class="edge">
+<title>proc~dqmc_config_seti&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="transparent" d="M1628.36,-901.95C1636.19,-899.5 1643.89,-896.55 1651,-893.01 1694.13,-871.53 1734.7,-831.67 1756.77,-807.72"/>
+<polygon fill="transparent" stroke="transparent" points="1759.41,-810.02 1763.52,-800.26 1754.22,-805.32 1759.41,-810.02"/>
+</g>
+<!-- proc~dqmc_config_seti&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge49" class="edge">
+<title>proc~dqmc_config_seti&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="transparent" d="M1618.47,-926.05C1644.35,-931.03 1674.55,-936.85 1701.41,-942.02"/>
+<polygon fill="transparent" stroke="transparent" points="1701.04,-945.52 1711.52,-943.97 1702.36,-938.64 1701.04,-945.52"/>
+</g>
+<!-- proc~dqmc_config_setpi&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge50" class="edge">
+<title>proc~dqmc_config_setpi&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#632550" d="M1621.02,-859.96C1631.18,-857.42 1641.46,-854.44 1651,-851.01 1684.83,-838.83 1721.2,-819.33 1745.55,-805.24"/>
+<polygon fill="#632550" stroke="#632550" points="1747.4,-808.21 1754.26,-800.14 1743.86,-802.17 1747.4,-808.21"/>
+</g>
+<!-- proc~dqmc_config_setpi&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge51" class="edge">
+<title>proc~dqmc_config_setpi&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#632550" d="M1621.02,-884.05C1631.18,-886.6 1641.46,-889.58 1651,-893.01 1684.83,-905.18 1721.2,-924.69 1745.55,-938.78"/>
+<polygon fill="#632550" stroke="#632550" points="1743.86,-941.85 1754.26,-943.88 1747.4,-935.81 1743.86,-941.85"/>
+</g>
+<!-- proc~dqmc_config_setpr&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge52" class="edge">
+<title>proc~dqmc_config_setpr&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025500" d="M1618.47,-817.97C1644.35,-812.99 1674.55,-807.17 1701.41,-802"/>
+<polygon fill="#025500" stroke="#025500" points="1702.36,-805.38 1711.52,-800.05 1701.04,-798.5 1702.36,-805.38"/>
+</g>
+<!-- proc~dqmc_config_setpr&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge53" class="edge">
+<title>proc~dqmc_config_setpr&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#025500" d="M1628.36,-842.07C1636.19,-844.52 1643.89,-847.47 1651,-851.01 1694.13,-872.49 1734.7,-912.35 1756.77,-936.3"/>
+<polygon fill="#025500" stroke="#025500" points="1754.22,-938.7 1763.52,-943.76 1759.41,-934 1754.22,-938.7"/>
+</g>
+<!-- proc~dqmc_config_setr&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge54" class="edge">
+<title>proc~dqmc_config_setr&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025563" d="M1644.67,-788.01C1661.26,-788.01 1678.51,-788.01 1694.8,-788.01"/>
+<polygon fill="#025563" stroke="#025563" points="1694.8,-791.51 1704.8,-788.01 1694.8,-784.51 1694.8,-791.51"/>
+</g>
+<!-- proc~dqmc_config_setr&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge55" class="edge">
+<title>proc~dqmc_config_setr&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#025563" d="M1632.43,-800.14C1638.94,-802.58 1645.23,-805.5 1651,-809.01 1703.07,-840.63 1743.56,-902.2 1762.42,-934.71"/>
+<polygon fill="#025563" stroke="#025563" points="1759.59,-936.82 1767.56,-943.8 1765.68,-933.38 1759.59,-936.82"/>
+</g>
+<!-- proc~dqmc_config_sets&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge56" class="edge">
+<title>proc~dqmc_config_sets&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025512" stroke-opacity="0.027451" d="M1618.47,-758.05C1644.35,-763.03 1674.55,-768.85 1701.41,-774.02"/>
+<polygon fill="#025512" fill-opacity="0.027451" stroke="#025512" stroke-opacity="0.027451" points="1701.04,-777.52 1711.52,-775.97 1702.36,-770.64 1701.04,-777.52"/>
+</g>
+<!-- proc~dqmc_config_sets&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge57" class="edge">
+<title>proc~dqmc_config_sets&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#025512" stroke-opacity="0.027451" d="M1634.82,-758.21C1640.53,-760.64 1646,-763.55 1651,-767.01 1667.18,-778.22 1733.87,-888.49 1761.71,-935.24"/>
+<polygon fill="#025512" fill-opacity="0.027451" stroke="#025512" stroke-opacity="0.027451" points="1758.76,-937.13 1766.88,-943.94 1764.78,-933.56 1758.76,-937.13"/>
+</g>
+<!-- blas_dcopy -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node31" class="node">
+<title>blas_dcopy</title>
+<polygon fill="#777777" stroke="#777777" points="1591,-278.01 1519,-278.01 1519,-254.01 1591,-254.01 1591,-278.01"/>
+<text text-anchor="middle" x="1555" y="-263.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blas_dcopy</text>
+</g>
+<!-- proc~dqmc_getg&#45;&gt;blas_dcopy -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge58" class="edge">
+<title>proc~dqmc_getg&#45;&gt;blas_dcopy</title>
+<path fill="none" stroke="#019125" stroke-opacity="0.019608" d="M586.76,-256.13C609.78,-278.87 663.51,-327.27 720,-345.01 869.38,-391.91 1357.41,-304.04 1508.8,-274.92"/>
+<polygon fill="#019125" fill-opacity="0.019608" stroke="#019125" stroke-opacity="0.019608" points="1509.54,-278.34 1518.69,-273.01 1508.21,-271.47 1509.54,-278.34"/>
+</g>
+<!-- proc~dqmc_computeg -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node39" class="node">
+<title>proc~dqmc_computeg</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node39"><a xlink:href="../proc/dqmc_computeg.html" xlink:title="DQMC_GFun::DQMC_ComputeG">
+<polygon fill="#d9534f" stroke="#d9534f" points="922,-235.01 741,-235.01 741,-211.01 922,-211.01 922,-235.01"/>
+<text text-anchor="middle" x="831.5" y="-220.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GFun::DQMC_ComputeG</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_getg&#45;&gt;proc~dqmc_computeg -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge59" class="edge">
+<title>proc~dqmc_getg&#45;&gt;proc~dqmc_computeg</title>
+<path fill="none" stroke="#019125" stroke-opacity="0.019608" d="M649.59,-237.88C674.93,-235.8 703.66,-233.43 730.65,-231.22"/>
+<polygon fill="#019125" fill-opacity="0.019608" stroke="#019125" stroke-opacity="0.019608" points="731.21,-234.68 740.89,-230.37 730.64,-227.71 731.21,-234.68"/>
+</g>
+<!-- proc~dqmc_matdiff -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node40" class="node">
+<title>proc~dqmc_matdiff</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node40"><a xlink:href="../proc/dqmc_matdiff.html" xlink:title="DQMC_Util::DQMC_MatDiff">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="907.5,-277.01 755.5,-277.01 755.5,-253.01 907.5,-253.01 907.5,-277.01"/>
+<text text-anchor="middle" x="831.5" y="-262.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_MatDiff</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_getg&#45;&gt;proc~dqmc_matdiff -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge60" class="edge">
+<title>proc~dqmc_getg&#45;&gt;proc~dqmc_matdiff</title>
+<path fill="none" stroke="#019125" stroke-opacity="0.019608" d="M649.59,-250.14C679.5,-252.6 714.13,-255.45 745.05,-257.99"/>
+<polygon fill="#019125" fill-opacity="0.019608" stroke="#019125" stroke-opacity="0.019608" points="745.12,-261.5 755.38,-258.84 745.7,-254.53 745.12,-261.5"/>
+</g>
+<!-- proc~dqmc_multb_left -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node41" class="node">
+<title>proc~dqmc_multb_left</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node41"><a xlink:href="../proc/dqmc_multb_left.html" xlink:title="DQMC_MATB::DQMC_MultB_Left">
+<polygon fill="#d9534f" stroke="#d9534f" points="1645.5,-152.01 1464.5,-152.01 1464.5,-128.01 1645.5,-128.01 1645.5,-152.01"/>
+<text text-anchor="middle" x="1555" y="-137.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB::DQMC_MultB_Left</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_getg&#45;&gt;proc~dqmc_multb_left -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge61" class="edge">
+<title>proc~dqmc_getg&#45;&gt;proc~dqmc_multb_left</title>
+<path fill="none" stroke="#019125" stroke-opacity="0.019608" d="M599.72,-231.89C661.68,-202.25 829.41,-126.7 979,-101.01 1162.9,-69.42 1383.99,-104.55 1490.51,-125.96"/>
+<polygon fill="#019125" fill-opacity="0.019608" stroke="#019125" stroke-opacity="0.019608" points="1489.96,-129.42 1500.46,-127.98 1491.36,-122.56 1489.96,-129.42"/>
+</g>
+<!-- proc~dqmc_multbi_right -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node42" class="node">
+<title>proc~dqmc_multbi_right</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node42"><a xlink:href="../proc/dqmc_multbi_right.html" xlink:title="DQMC_MATB::DQMC_MultBi_Right">
+<polygon fill="#d9534f" stroke="#d9534f" points="1651,-110.01 1459,-110.01 1459,-86.01 1651,-86.01 1651,-110.01"/>
+<text text-anchor="middle" x="1555" y="-95.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB::DQMC_MultBi_Right</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_getg&#45;&gt;proc~dqmc_multbi_right -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge62" class="edge">
+<title>proc~dqmc_getg&#45;&gt;proc~dqmc_multbi_right</title>
+<path fill="none" stroke="#019125" stroke-opacity="0.019608" d="M583.05,-231.9C602.59,-203.69 655.7,-133.78 720,-105.01 988.85,15.27 1357,-51.17 1496.91,-83.55"/>
+<polygon fill="#019125" fill-opacity="0.019608" stroke="#019125" stroke-opacity="0.019608" points="1496.44,-87.03 1506.98,-85.91 1498.04,-80.22 1496.44,-87.03"/>
+</g>
+<!-- proc~dqmc_hub_input_hsf&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge63" class="edge">
+<title>proc~dqmc_hub_input_hsf&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#630255" d="M919.26,-704.98C1070.49,-686.85 1391.08,-660.97 1651,-725.01 1686.94,-733.87 1724.24,-754.93 1748.2,-770.27"/>
+<polygon fill="#630255" stroke="#630255" points="1746.42,-773.29 1756.7,-775.83 1750.25,-767.43 1746.42,-773.29"/>
+</g>
+<!-- lapack_dgeqp3 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node33" class="node">
+<title>lapack_dgeqp3</title>
+<polygon fill="#777777" stroke="#777777" points="1602,-438.01 1508,-438.01 1508,-414.01 1602,-414.01 1602,-438.01"/>
+<text text-anchor="middle" x="1555" y="-423.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dgeqp3</text>
+</g>
+<!-- proc~dqmc_wspace_allocate&#45;&gt;lapack_dgeqp3 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge64" class="edge">
+<title>proc~dqmc_wspace_allocate&#45;&gt;lapack_dgeqp3</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M1317.45,-573.7C1339.19,-546.27 1395.82,-479.97 1459,-447.01 1470.93,-440.78 1484.64,-436.4 1497.87,-433.31"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="1498.79,-436.7 1507.85,-431.2 1497.34,-429.85 1498.79,-436.7"/>
+</g>
+<!-- lapack_dgetri -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node34" class="node">
+<title>lapack_dgetri</title>
+<polygon fill="#777777" stroke="#777777" points="1597.5,-640.01 1512.5,-640.01 1512.5,-616.01 1597.5,-616.01 1597.5,-640.01"/>
+<text text-anchor="middle" x="1555" y="-625.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dgetri</text>
+</g>
+<!-- proc~dqmc_wspace_allocate&#45;&gt;lapack_dgetri -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge65" class="edge">
+<title>proc~dqmc_wspace_allocate&#45;&gt;lapack_dgetri</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M1378.49,-598.05C1417.91,-604.77 1466.17,-613.01 1502.11,-619.15"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="1501.92,-622.67 1512.37,-620.9 1503.1,-615.77 1501.92,-622.67"/>
+</g>
+<!-- lapack_dorgqr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node35" class="node">
+<title>lapack_dorgqr</title>
+<polygon fill="#777777" stroke="#777777" points="1599.5,-480.01 1510.5,-480.01 1510.5,-456.01 1599.5,-456.01 1599.5,-480.01"/>
+<text text-anchor="middle" x="1555" y="-465.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dorgqr</text>
+</g>
+<!-- proc~dqmc_wspace_allocate&#45;&gt;lapack_dorgqr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge66" class="edge">
+<title>proc~dqmc_wspace_allocate&#45;&gt;lapack_dorgqr</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M1324.37,-573.89C1351.22,-554.53 1406.85,-516.5 1459,-494.01 1472.01,-488.4 1486.56,-483.69 1500.28,-479.9"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="1501.32,-483.24 1510.09,-477.3 1499.53,-476.48 1501.32,-483.24"/>
+</g>
+<!-- lapack_dormqr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node36" class="node">
+<title>lapack_dormqr</title>
+<polygon fill="#777777" stroke="#777777" points="1601.5,-598.01 1508.5,-598.01 1508.5,-574.01 1601.5,-574.01 1601.5,-598.01"/>
+<text text-anchor="middle" x="1555" y="-583.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dormqr</text>
+</g>
+<!-- proc~dqmc_wspace_allocate&#45;&gt;lapack_dormqr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge67" class="edge">
+<title>proc~dqmc_wspace_allocate&#45;&gt;lapack_dormqr</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M1423.08,-586.01C1449.2,-586.01 1475.8,-586.01 1498.15,-586.01"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="1498.42,-589.51 1508.42,-586.01 1498.42,-582.51 1498.42,-589.51"/>
+</g>
+<!-- lapack_dsyev -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node37" class="node">
+<title>lapack_dsyev</title>
+<polygon fill="#777777" stroke="#777777" points="1817,-236.01 1733,-236.01 1733,-212.01 1817,-212.01 1817,-236.01"/>
+<text text-anchor="middle" x="1775" y="-221.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dsyev</text>
+</g>
+<!-- proc~dqmc_wspace_allocate&#45;&gt;lapack_dsyev -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge68" class="edge">
+<title>proc~dqmc_wspace_allocate&#45;&gt;lapack_dsyev</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M1385.97,-573.97C1476.01,-558.42 1616.23,-528.58 1651,-489.01 1723.35,-406.66 1613.07,-325.94 1687,-245.01 1696.19,-234.95 1709.28,-229.32 1722.53,-226.26"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="1723.44,-229.66 1732.63,-224.4 1722.16,-222.77 1723.44,-229.66"/>
+</g>
+<!-- dlarnv -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node32" class="node">
+<title>dlarnv</title>
+<polygon fill="#777777" stroke="#777777" points="858.5,-790.01 804.5,-790.01 804.5,-766.01 858.5,-766.01 858.5,-790.01"/>
+<text text-anchor="middle" x="831.5" y="-775.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlarnv</text>
+</g>
+<!-- proc~ran0&#45;&gt;dlarnv -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge69" class="edge">
+<title>proc~ran0&#45;&gt;dlarnv</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M624.26,-786.08C674.07,-784.13 749.86,-781.17 794.36,-779.42"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="794.58,-782.92 804.43,-779.03 794.3,-775.92 794.58,-782.92"/>
+</g>
+<!-- proc~ran1&#45;&gt;dlarnv -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge70" class="edge">
+<title>proc~ran1&#45;&gt;dlarnv</title>
+<path fill="none" stroke="#255063" d="M624.26,-752.18C674.07,-758.42 749.86,-767.91 794.36,-773.48"/>
+<polygon fill="#255063" stroke="#255063" points="794.07,-776.97 804.43,-774.74 794.94,-770.03 794.07,-776.97"/>
+</g>
+<!-- proc~dqmc_b_expinit&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge75" class="edge">
+<title>proc~dqmc_b_expinit&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#012725" stroke-opacity="0.019608" d="M1639.49,-194.05C1643.67,-196.57 1647.55,-199.53 1651,-203.01 1692.03,-244.47 1755.86,-664.29 1770.8,-765.94"/>
+<polygon fill="#012725" fill-opacity="0.019608" stroke="#012725" stroke-opacity="0.019608" points="1767.36,-766.6 1772.27,-775.99 1774.28,-765.59 1767.36,-766.6"/>
+</g>
+<!-- proc~dqmc_b_expinit&#45;&gt;lapack_dsyev -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge74" class="edge">
+<title>proc~dqmc_b_expinit&#45;&gt;lapack_dsyev</title>
+<path fill="none" stroke="#012725" stroke-opacity="0.019608" d="M1618.47,-194.05C1651.48,-200.4 1691.49,-208.11 1722.67,-214.12"/>
+<polygon fill="#012725" fill-opacity="0.019608" stroke="#012725" stroke-opacity="0.019608" points="1722.4,-217.63 1732.88,-216.09 1723.72,-210.76 1722.4,-217.63"/>
+</g>
+<!-- blas_dgemm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node43" class="node">
+<title>blas_dgemm</title>
+<polygon fill="#777777" stroke="#777777" points="1815.5,-152.01 1734.5,-152.01 1734.5,-128.01 1815.5,-128.01 1815.5,-152.01"/>
+<text text-anchor="middle" x="1775" y="-137.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blas_dgemm</text>
+</g>
+<!-- proc~dqmc_b_expinit&#45;&gt;blas_dgemm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge71" class="edge">
+<title>proc~dqmc_b_expinit&#45;&gt;blas_dgemm</title>
+<path fill="none" stroke="#012725" stroke-opacity="0.019608" d="M1618.47,-169.97C1652.08,-163.5 1692.94,-155.63 1724.35,-149.57"/>
+<polygon fill="#012725" fill-opacity="0.019608" stroke="#012725" stroke-opacity="0.019608" points="1725.04,-153.01 1734.2,-147.68 1723.72,-146.13 1725.04,-153.01"/>
+</g>
+<!-- blas_dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node44" class="node">
+<title>blas_dscal</title>
+<polygon fill="#777777" stroke="#777777" points="1808.5,-110.01 1741.5,-110.01 1741.5,-86.01 1808.5,-86.01 1808.5,-110.01"/>
+<text text-anchor="middle" x="1775" y="-95.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blas_dscal</text>
+</g>
+<!-- proc~dqmc_b_expinit&#45;&gt;blas_dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge72" class="edge">
+<title>proc~dqmc_b_expinit&#45;&gt;blas_dscal</title>
+<path fill="none" stroke="#012725" stroke-opacity="0.019608" d="M1631.9,-169.99C1638.59,-167.53 1645.06,-164.57 1651,-161.01 1672.09,-148.37 1666.03,-131.85 1687,-119.01 1700.24,-110.9 1716.4,-105.92 1731.19,-102.87"/>
+<polygon fill="#012725" fill-opacity="0.019608" stroke="#012725" stroke-opacity="0.019608" points="1731.94,-106.29 1741.15,-101.04 1730.68,-99.4 1731.94,-106.29"/>
+</g>
+<!-- dexp -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node45" class="node">
+<title>dexp</title>
+<polygon fill="#777777" stroke="#777777" points="1802,-194.01 1748,-194.01 1748,-170.01 1802,-170.01 1802,-194.01"/>
+<text text-anchor="middle" x="1775" y="-179.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dexp</text>
+</g>
+<!-- proc~dqmc_b_expinit&#45;&gt;dexp -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge73" class="edge">
+<title>proc~dqmc_b_expinit&#45;&gt;dexp</title>
+<path fill="none" stroke="#012725" stroke-opacity="0.019608" d="M1642.79,-182.01C1675.76,-182.01 1711.57,-182.01 1737.44,-182.01"/>
+<polygon fill="#012725" fill-opacity="0.019608" stroke="#012725" stroke-opacity="0.019608" points="1737.53,-185.51 1747.53,-182.01 1737.53,-178.51 1737.53,-185.51"/>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;proc~dqmc_warning -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge83" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;proc~dqmc_warning</title>
+<path fill="none" stroke="#002505" d="M922.11,-230.76C929.75,-234.08 936.88,-238.4 943,-244.01 947.68,-248.3 1186.41,-1119.62 1191,-1124.01 1340.07,-1266.69 1447.43,-1220.81 1651,-1187.01 1680.93,-1182.04 1713.36,-1170.7 1737.4,-1161.06"/>
+<polygon fill="#002505" stroke="#002505" points="1738.91,-1164.22 1746.83,-1157.19 1736.25,-1157.75 1738.91,-1164.22"/>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge79" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#002505" d="M922.16,-233.46C929.53,-236.26 936.59,-239.72 943,-244.01 967.28,-260.25 957.9,-278.8 979,-299.01 1058.16,-374.82 1090.73,-380.73 1191,-425.01 1288.75,-468.17 1567.99,-497.73 1651,-565.01 1718.43,-619.66 1754.77,-721.63 1768.06,-766.21"/>
+<polygon fill="#002505" stroke="#002505" points="1764.75,-767.36 1770.88,-776.01 1771.47,-765.43 1764.75,-767.36"/>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;blas_dcopy -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge76" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;blas_dcopy</title>
+<path fill="none" stroke="#002505" d="M916.27,-235.04C925.46,-237.5 934.54,-240.46 943,-244.01 960.96,-251.55 960.41,-263.19 979,-269.01 1168.31,-328.3 1410.19,-293.73 1508.95,-275.3"/>
+<polygon fill="#002505" stroke="#002505" points="1509.72,-278.71 1518.89,-273.41 1508.41,-271.84 1509.72,-278.71"/>
+</g>
+<!-- lapack_dgetrf -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node46" class="node">
+<title>lapack_dgetrf</title>
+<polygon fill="#777777" stroke="#777777" points="1109.5,-218.01 1024.5,-218.01 1024.5,-194.01 1109.5,-194.01 1109.5,-218.01"/>
+<text text-anchor="middle" x="1067" y="-203.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dgetrf</text>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;lapack_dgetrf -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge77" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;lapack_dgetrf</title>
+<path fill="none" stroke="#002505" d="M922.11,-216.49C953.36,-214.21 987.35,-211.74 1014.45,-209.76"/>
+<polygon fill="#002505" stroke="#002505" points="1014.75,-213.25 1024.47,-209.03 1014.25,-206.27 1014.75,-213.25"/>
+</g>
+<!-- lapack_dgetrs -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node47" class="node">
+<title>lapack_dgetrs</title>
+<polygon fill="#777777" stroke="#777777" points="1110.5,-176.01 1023.5,-176.01 1023.5,-152.01 1110.5,-152.01 1110.5,-176.01"/>
+<text text-anchor="middle" x="1067" y="-161.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">lapack_dgetrs</text>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;lapack_dgetrs -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge78" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;lapack_dgetrs</title>
+<path fill="none" stroke="#002505" d="M877.98,-211C906.88,-203.42 945.1,-193.5 979,-185.01 990.19,-182.21 1002.21,-179.26 1013.63,-176.5"/>
+<polygon fill="#002505" stroke="#002505" points="1014.58,-179.87 1023.48,-174.12 1012.94,-173.06 1014.58,-179.87"/>
+</g>
+<!-- proc~dqmc_scalerow -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node49" class="node">
+<title>proc~dqmc_scalerow</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node49"><a xlink:href="../proc/dqmc_scalerow.html" xlink:title="DQMC_Util::DQMC_ScaleRow">
+<polygon fill="#d9534f" stroke="#d9534f" points="1857.5,-26.01 1692.5,-26.01 1692.5,-2.01 1857.5,-2.01 1857.5,-26.01"/>
+<text text-anchor="middle" x="1775" y="-11.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_ScaleRow</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;proc~dqmc_scalerow -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge80" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;proc~dqmc_scalerow</title>
+<path fill="none" stroke="#002505" d="M842.87,-211.01C865.09,-186.14 920.09,-128.95 979,-101.01 1213.07,10.01 1528.26,5.41 1681.98,-5.24"/>
+<polygon fill="#002505" stroke="#002505" points="1682.09,-8.76 1692.32,-5.99 1682.59,-1.78 1682.09,-8.76"/>
+</g>
+<!-- proc~dqmc_seqmultb -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node50" class="node">
+<title>proc~dqmc_seqmultb</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node50"><a xlink:href="../proc/dqmc_seqmultb.html" xlink:title="DQMC_SEQB::DQMC_SeqMultB">
+<polygon fill="#d9534f" stroke="#d9534f" points="1155,-134.01 979,-134.01 979,-110.01 1155,-110.01 1155,-134.01"/>
+<text text-anchor="middle" x="1067" y="-119.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SEQB::DQMC_SeqMultB</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;proc~dqmc_seqmultb -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge81" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;proc~dqmc_seqmultb</title>
+<path fill="none" stroke="#002505" d="M851.15,-210.72C878.26,-193.36 930.61,-161.69 979,-143.01 984.8,-140.77 990.92,-138.72 997.11,-136.85"/>
+<polygon fill="#002505" stroke="#002505" points="998.2,-140.17 1006.86,-134.06 996.28,-133.44 998.2,-140.17"/>
+</g>
+<!-- proc~dqmc_trans -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node51" class="node">
+<title>proc~dqmc_trans</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node51"><a xlink:href="../proc/dqmc_trans.html" xlink:title="DQMC_Util::DQMC_Trans">
+<polygon fill="#d9534f" stroke="#d9534f" points="1138,-260.01 996,-260.01 996,-236.01 1138,-236.01 1138,-260.01"/>
+<text text-anchor="middle" x="1067" y="-245.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_Trans</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_computeg&#45;&gt;proc~dqmc_trans -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge82" class="edge">
+<title>proc~dqmc_computeg&#45;&gt;proc~dqmc_trans</title>
+<path fill="none" stroke="#002505" d="M922.11,-232.6C943.01,-234.84 965.15,-237.21 985.62,-239.4"/>
+<polygon fill="#002505" stroke="#002505" points="985.53,-242.91 995.84,-240.5 986.27,-235.95 985.53,-242.91"/>
+</g>
+<!-- proc~dqmc_multb_left&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge88" class="edge">
+<title>proc~dqmc_multb_left&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M1639.98,-152.26C1643.98,-154.73 1647.7,-157.63 1651,-161.01 1672.94,-183.48 1752.33,-656.95 1770.35,-765.82"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="1766.94,-766.68 1772.02,-775.98 1773.85,-765.54 1766.94,-766.68"/>
+</g>
+<!-- proc~dqmc_multb_left&#45;&gt;lapack_dsyev -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge87" class="edge">
+<title>proc~dqmc_multb_left&#45;&gt;lapack_dsyev</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M1631.9,-152.03C1638.59,-154.49 1645.06,-157.45 1651,-161.01 1672.09,-173.65 1666.03,-190.17 1687,-203.01 1697.87,-209.67 1710.72,-214.22 1723.15,-217.32"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="1722.46,-220.76 1732.98,-219.52 1723.99,-213.92 1722.46,-220.76"/>
+</g>
+<!-- proc~dqmc_multb_left&#45;&gt;blas_dgemm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge84" class="edge">
+<title>proc~dqmc_multb_left&#45;&gt;blas_dgemm</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M1645.61,-140.01C1672.4,-140.01 1700.79,-140.01 1724.05,-140.01"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="1724.35,-143.51 1734.35,-140.01 1724.35,-136.51 1724.35,-143.51"/>
+</g>
+<!-- proc~dqmc_multb_left&#45;&gt;blas_dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge85" class="edge">
+<title>proc~dqmc_multb_left&#45;&gt;blas_dscal</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M1618.47,-127.97C1654.69,-121 1699.34,-112.39 1731.5,-106.2"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="1732.31,-109.61 1741.47,-104.28 1730.99,-102.73 1732.31,-109.61"/>
+</g>
+<!-- proc~dqmc_multb_left&#45;&gt;dexp -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge86" class="edge">
+<title>proc~dqmc_multb_left&#45;&gt;dexp</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M1618.47,-152.05C1657.18,-159.5 1705.54,-168.82 1737.96,-175.07"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="1737.42,-178.53 1747.9,-176.98 1738.74,-171.65 1737.42,-178.53"/>
+</g>
+<!-- proc~dqmc_multb_left&#45;&gt;proc~dqmc_scalerow -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge89" class="edge">
+<title>proc~dqmc_multb_left&#45;&gt;proc~dqmc_scalerow</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M1637.36,-127.83C1642.23,-125.37 1646.84,-122.46 1651,-119.01 1682.28,-93.1 1655.97,-61.22 1687,-35.01 1688.56,-33.69 1690.18,-32.46 1691.87,-31.3"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="1693.87,-34.18 1700.72,-26.09 1690.33,-28.14 1693.87,-34.18"/>
+</g>
+<!-- proc~dqmc_multbi_right&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge94" class="edge">
+<title>proc~dqmc_multbi_right&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M1640.02,-110.21C1644.01,-112.7 1647.72,-115.61 1651,-119.01 1662.67,-131.1 1750.86,-650.8 1770.24,-765.69"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="1766.83,-766.5 1771.94,-775.78 1773.73,-765.34 1766.83,-766.5"/>
+</g>
+<!-- proc~dqmc_multbi_right&#45;&gt;lapack_dsyev -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge93" class="edge">
+<title>proc~dqmc_multbi_right&#45;&gt;lapack_dsyev</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M1637.36,-110.19C1642.23,-112.65 1646.84,-115.56 1651,-119.01 1682.28,-144.92 1655.97,-176.8 1687,-203.01 1697.02,-211.47 1709.9,-216.64 1722.65,-219.76"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="1722.3,-223.26 1732.8,-221.85 1723.71,-216.41 1722.3,-223.26"/>
+</g>
+<!-- proc~dqmc_multbi_right&#45;&gt;blas_dgemm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge90" class="edge">
+<title>proc~dqmc_multbi_right&#45;&gt;blas_dgemm</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M1618.47,-110.05C1652.08,-116.52 1692.94,-124.39 1724.35,-130.44"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="1723.72,-133.89 1734.2,-132.34 1725.04,-127.01 1723.72,-133.89"/>
+</g>
+<!-- proc~dqmc_multbi_right&#45;&gt;blas_dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge91" class="edge">
+<title>proc~dqmc_multbi_right&#45;&gt;blas_dscal</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M1651.3,-98.01C1679.22,-98.01 1708.36,-98.01 1731.23,-98.01"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="1731.27,-101.51 1741.27,-98.01 1731.27,-94.51 1731.27,-101.51"/>
+</g>
+<!-- proc~dqmc_multbi_right&#45;&gt;dexp -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge92" class="edge">
+<title>proc~dqmc_multbi_right&#45;&gt;dexp</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M1631.9,-110.03C1638.59,-112.49 1645.06,-115.45 1651,-119.01 1672.09,-131.65 1666.03,-148.17 1687,-161.01 1702.11,-170.26 1721.02,-175.44 1737.34,-178.33"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="1737.22,-181.86 1747.64,-179.93 1738.29,-174.94 1737.22,-181.86"/>
+</g>
+<!-- proc~dqmc_scalecolinv -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node48" class="node">
+<title>proc~dqmc_scalecolinv</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node48"><a xlink:href="../proc/dqmc_scalecolinv.html" xlink:title="DQMC_Util::DQMC_ScaleColInv">
+<polygon fill="#d9534f" stroke="#d9534f" points="1863,-68.01 1687,-68.01 1687,-44.01 1863,-44.01 1863,-68.01"/>
+<text text-anchor="middle" x="1775" y="-53.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_ScaleColInv</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_multbi_right&#45;&gt;proc~dqmc_scalecolinv -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge95" class="edge">
+<title>proc~dqmc_multbi_right&#45;&gt;proc~dqmc_scalecolinv</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M1618.47,-85.97C1644.35,-80.99 1674.55,-75.17 1701.41,-70"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="1702.36,-73.38 1711.52,-68.05 1701.04,-66.5 1702.36,-73.38"/>
+</g>
+<!-- dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node52" class="node">
+<title>dscal</title>
+<polygon fill="#777777" stroke="#777777" points="1953,-68.01 1899,-68.01 1899,-44.01 1953,-44.01 1953,-68.01"/>
+<text text-anchor="middle" x="1926" y="-53.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+</g>
+<!-- proc~dqmc_scalecolinv&#45;&gt;dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge96" class="edge">
+<title>proc~dqmc_scalecolinv&#45;&gt;dscal</title>
+<path fill="none" stroke="#016925" stroke-opacity="0.019608" d="M1863.11,-56.01C1872.04,-56.01 1880.72,-56.01 1888.62,-56.01"/>
+<polygon fill="#016925" fill-opacity="0.019608" stroke="#016925" stroke-opacity="0.019608" points="1888.86,-59.51 1898.86,-56.01 1888.86,-52.51 1888.86,-59.51"/>
+</g>
+<!-- proc~dqmc_scalerow&#45;&gt;dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge97" class="edge">
+<title>proc~dqmc_scalerow&#45;&gt;dscal</title>
+<path fill="none" stroke="#002505" d="M1829.11,-26.03C1840.35,-28.79 1852.1,-31.86 1863,-35.01 1871.55,-37.48 1880.68,-40.41 1889.22,-43.28"/>
+<polygon fill="#002505" stroke="#002505" points="1888.32,-46.67 1898.92,-46.6 1890.59,-40.05 1888.32,-46.67"/>
+</g>
+<!-- proc~dqmc_seqmultb&#45;&gt;proc~dqmc_multb_left -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge100" class="edge">
+<title>proc~dqmc_seqmultb&#45;&gt;proc~dqmc_multb_left</title>
+<path fill="none" stroke="#170025" stroke-opacity="0.019608" d="M1155.17,-125.24C1239.2,-128.35 1366.24,-133.06 1454.27,-136.32"/>
+<polygon fill="#170025" fill-opacity="0.019608" stroke="#170025" stroke-opacity="0.019608" points="1454.15,-139.81 1464.27,-136.69 1454.41,-132.82 1454.15,-139.81"/>
+</g>
+<!-- proc~dqmc_eye -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node53" class="node">
+<title>proc~dqmc_eye</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node53"><a xlink:href="../proc/dqmc_eye.html" xlink:title="DQMC_Util::DQMC_Eye">
+<polygon fill="#d9534f" stroke="#d9534f" points="1373.5,-173.01 1240.5,-173.01 1240.5,-149.01 1373.5,-149.01 1373.5,-173.01"/>
+<text text-anchor="middle" x="1307" y="-158.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_Eye</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_seqmultb&#45;&gt;proc~dqmc_eye -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge98" class="edge">
+<title>proc~dqmc_seqmultb&#45;&gt;proc~dqmc_eye</title>
+<path fill="none" stroke="#170025" stroke-opacity="0.019608" d="M1141.35,-134.03C1169.57,-138.65 1201.83,-143.94 1230.28,-148.6"/>
+<polygon fill="#170025" fill-opacity="0.019608" stroke="#170025" stroke-opacity="0.019608" points="1229.73,-152.06 1240.16,-150.22 1230.86,-145.15 1229.73,-152.06"/>
+</g>
+<!-- proc~dqmc_getb -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node54" class="node">
+<title>proc~dqmc_getb</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node54"><a xlink:href="../proc/dqmc_getb.html" xlink:title="DQMC_MATB::DQMC_GetB">
+<polygon fill="#d9534f" stroke="#d9534f" points="1383,-215.01 1231,-215.01 1231,-191.01 1383,-191.01 1383,-215.01"/>
+<text text-anchor="middle" x="1307" y="-200.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB::DQMC_GetB</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_seqmultb&#45;&gt;proc~dqmc_getb -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge99" class="edge">
+<title>proc~dqmc_seqmultb&#45;&gt;proc~dqmc_getb</title>
+<path fill="none" stroke="#170025" stroke-opacity="0.019608" d="M1135.59,-134.07C1142.37,-136.52 1148.97,-139.47 1155,-143.01 1175.34,-154.96 1170.33,-170.64 1191,-182.01 1200.33,-187.14 1210.66,-191.05 1221.19,-194.02"/>
+<polygon fill="#170025" fill-opacity="0.019608" stroke="#170025" stroke-opacity="0.019608" points="1220.34,-197.42 1230.9,-196.5 1222.07,-190.64 1220.34,-197.42"/>
+</g>
+<!-- proc~dqmc_udtd -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node55" class="node">
+<title>proc~dqmc_udtd</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node55"><a xlink:href="../proc/dqmc_udtd.html" xlink:title="DQMC_SEQB::DQMC_UDTD">
+<polygon fill="#d9534f" stroke="#d9534f" points="1385.5,-416.01 1228.5,-416.01 1228.5,-392.01 1385.5,-392.01 1385.5,-416.01"/>
+<text text-anchor="middle" x="1307" y="-401.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SEQB::DQMC_UDTD</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_seqmultb&#45;&gt;proc~dqmc_udtd -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge101" class="edge">
+<title>proc~dqmc_seqmultb&#45;&gt;proc~dqmc_udtd</title>
+<path fill="none" stroke="#170025" stroke-opacity="0.019608" d="M1141.23,-134.16C1146.16,-136.61 1150.82,-139.53 1155,-143.01 1185.27,-168.23 1172.34,-189.31 1191,-224.01 1223.27,-284.02 1268.45,-350.6 1291.39,-383.42"/>
+<polygon fill="#170025" fill-opacity="0.019608" stroke="#170025" stroke-opacity="0.019608" points="1288.63,-385.58 1297.24,-391.74 1294.36,-381.55 1288.63,-385.58"/>
+</g>
+<!-- proc~dqmc_getb&#45;&gt;proc~dqmc_scalerow -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge103" class="edge">
+<title>proc~dqmc_getb&#45;&gt;proc~dqmc_scalerow</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M1383.04,-201.75C1397.74,-198.29 1411.99,-192.23 1423,-182.01 1469.46,-138.89 1410.74,-85.1 1459,-44.01 1491.59,-16.26 1601.23,-11.18 1682.03,-11.45"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="1682.21,-14.95 1692.24,-11.51 1682.26,-7.95 1682.21,-14.95"/>
+</g>
+<!-- proc~dqmc_multb_right -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node57" class="node">
+<title>proc~dqmc_multb_right</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node57"><a xlink:href="../proc/dqmc_multb_right.html" xlink:title="DQMC_MATB::DQMC_MultB_Right">
+<polygon fill="#d9534f" stroke="#d9534f" points="1649.5,-236.01 1460.5,-236.01 1460.5,-212.01 1649.5,-212.01 1649.5,-236.01"/>
+<text text-anchor="middle" x="1555" y="-221.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB::DQMC_MultB_Right</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_getb&#45;&gt;proc~dqmc_multb_right -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge102" class="edge">
+<title>proc~dqmc_getb&#45;&gt;proc~dqmc_multb_right</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M1383.14,-209.42C1404.22,-211.22 1427.52,-213.21 1449.95,-215.13"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="1449.92,-218.64 1460.19,-216 1450.52,-211.66 1449.92,-218.64"/>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge109" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1385.85,-393.99C1473.91,-384.38 1610.39,-375.3 1651,-405.01 1711.72,-449.42 1757.35,-690.33 1770.29,-765.56"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1766.9,-766.51 1772.02,-775.78 1773.8,-765.34 1766.9,-766.51"/>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;blas_dcopy -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge104" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;blas_dcopy</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1385.57,-397.28C1399.17,-393.23 1412.35,-387.13 1423,-378.01 1456.03,-349.72 1425.9,-315.22 1459,-287.01 1472.76,-275.29 1491.61,-269.69 1508.89,-267.16"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1509.32,-270.63 1518.84,-265.99 1508.5,-263.68 1509.32,-270.63"/>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;lapack_dgeqp3 -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge107" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;lapack_dgeqp3</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1385.84,-410.97C1422.19,-414.22 1464.66,-418.02 1497.83,-420.99"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1497.53,-424.47 1507.8,-421.88 1498.15,-417.5 1497.53,-424.47"/>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;lapack_dorgqr -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge108" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;lapack_dorgqr</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1347.88,-416.07C1378.22,-425.08 1421.08,-437.43 1459,-447.01 1472.31,-450.37 1486.75,-453.72 1500.25,-456.72"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1499.84,-460.21 1510.36,-458.94 1501.34,-453.37 1499.84,-460.21"/>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;blas_dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge105" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;blas_dscal</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1317.91,-391.73C1340.04,-363.7 1393.82,-292.2 1423,-224.01 1449.46,-162.17 1406.08,-118.53 1459,-77.01 1500.13,-44.74 1654.9,-72.23 1731.09,-88.33"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1730.78,-91.84 1741.3,-90.52 1732.25,-85 1730.78,-91.84"/>
+</g>
+<!-- blas_dtrmm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node56" class="node">
+<title>blas_dtrmm</title>
+<polygon fill="#777777" stroke="#777777" points="1593,-320.01 1517,-320.01 1517,-296.01 1593,-296.01 1593,-320.01"/>
+<text text-anchor="middle" x="1555" y="-305.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">blas_dtrmm</text>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;blas_dtrmm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge106" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;blas_dtrmm</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1385.62,-393.87C1398.7,-390.13 1411.68,-385.01 1423,-378.01 1444.49,-364.72 1437.81,-347.77 1459,-334.01 1473.25,-324.75 1490.75,-318.76 1506.83,-314.9"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1507.6,-318.32 1516.62,-312.76 1506.11,-311.48 1507.6,-318.32"/>
+</g>
+<!-- proc~dqmc_scalecol -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_node58" class="node">
+<title>proc~dqmc_scalecol</title>
+<g id="a_proc~~dqmc_hub_config~~CallsGraph_node58"><a xlink:href="../proc/dqmc_scalecol.html" xlink:title="DQMC_Util::DQMC_ScaleCol">
+<polygon fill="#d9534f" stroke="#d9534f" points="1855,-278.01 1695,-278.01 1695,-254.01 1855,-254.01 1855,-278.01"/>
+<text text-anchor="middle" x="1775" y="-263.61" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_ScaleCol</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_udtd&#45;&gt;proc~dqmc_scalecol -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge110" class="edge">
+<title>proc~dqmc_udtd&#45;&gt;proc~dqmc_scalecol</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M1364.89,-391.97C1458.85,-372.03 1637.52,-333.84 1651,-329.01 1684.84,-316.87 1721.21,-297.36 1745.55,-283.26"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="1747.41,-286.23 1754.26,-278.15 1743.87,-280.19 1747.41,-286.23"/>
+</g>
+<!-- proc~dqmc_multb_right&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge115" class="edge">
+<title>proc~dqmc_multb_right&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025500" d="M1639.43,-236.11C1643.62,-238.61 1647.53,-241.55 1651,-245.01 1726.98,-320.59 1763.62,-672.66 1772.06,-765.51"/>
+<polygon fill="#025500" stroke="#025500" points="1768.6,-766.09 1772.97,-775.74 1775.57,-765.47 1768.6,-766.09"/>
+</g>
+<!-- proc~dqmc_multb_right&#45;&gt;lapack_dsyev -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge114" class="edge">
+<title>proc~dqmc_multb_right&#45;&gt;lapack_dsyev</title>
+<path fill="none" stroke="#025500" d="M1649.72,-224.01C1674.82,-224.01 1701.03,-224.01 1722.87,-224.01"/>
+<polygon fill="#025500" stroke="#025500" points="1722.9,-227.51 1732.9,-224.01 1722.9,-220.51 1722.9,-227.51"/>
+</g>
+<!-- proc~dqmc_multb_right&#45;&gt;blas_dgemm -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge111" class="edge">
+<title>proc~dqmc_multb_right&#45;&gt;blas_dgemm</title>
+<path fill="none" stroke="#025500" d="M1631.9,-211.99C1638.59,-209.53 1645.06,-206.57 1651,-203.01 1672.09,-190.37 1666.03,-173.85 1687,-161.01 1698.19,-154.16 1711.46,-149.54 1724.22,-146.43"/>
+<polygon fill="#025500" stroke="#025500" points="1725.27,-149.79 1734.3,-144.25 1723.79,-142.94 1725.27,-149.79"/>
+</g>
+<!-- proc~dqmc_multb_right&#45;&gt;blas_dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge112" class="edge">
+<title>proc~dqmc_multb_right&#45;&gt;blas_dscal</title>
+<path fill="none" stroke="#025500" d="M1637.36,-211.83C1642.23,-209.37 1646.84,-206.46 1651,-203.01 1682.28,-177.1 1655.97,-145.22 1687,-119.01 1699.37,-108.56 1716.08,-103.14 1731.55,-100.39"/>
+<polygon fill="#025500" stroke="#025500" points="1732.09,-103.84 1741.47,-98.93 1731.07,-96.92 1732.09,-103.84"/>
+</g>
+<!-- proc~dqmc_multb_right&#45;&gt;dexp -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge113" class="edge">
+<title>proc~dqmc_multb_right&#45;&gt;dexp</title>
+<path fill="none" stroke="#025500" d="M1618.47,-211.97C1657.18,-204.52 1705.54,-195.2 1737.96,-188.95"/>
+<polygon fill="#025500" stroke="#025500" points="1738.74,-192.37 1747.9,-187.04 1737.42,-185.49 1738.74,-192.37"/>
+</g>
+<!-- proc~dqmc_multb_right&#45;&gt;proc~dqmc_scalecol -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge116" class="edge">
+<title>proc~dqmc_multb_right&#45;&gt;proc~dqmc_scalecol</title>
+<path fill="none" stroke="#025500" d="M1618.47,-236.05C1644.35,-241.03 1674.55,-246.85 1701.41,-252.02"/>
+<polygon fill="#025500" stroke="#025500" points="1701.04,-255.52 1711.52,-253.97 1702.36,-248.64 1701.04,-255.52"/>
+</g>
+<!-- proc~dqmc_scalecol&#45;&gt;dscal -->
+<g id="proc~~dqmc_hub_config~~CallsGraph_edge117" class="edge">
+<title>proc~dqmc_scalecol&#45;&gt;dscal</title>
+<path fill="none" stroke="#002505" d="M1850.46,-253.88C1854.99,-251.42 1859.23,-248.49 1863,-245.01 1911.14,-200.58 1921.98,-118.2 1924.37,-78.52"/>
+<polygon fill="#002505" stroke="#002505" points="1927.87,-78.47 1924.85,-68.31 1920.88,-78.14 1927.87,-78.47"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocdqmc_hub_configCallsGraph = svgPanZoom('#procdqmc_hub_configCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dqmc_hub_config~~CalledByGraph Pages: 1 -->
+<svg id="procdqmc_hub_configCalledByGraph" width="562pt" height="74pt"
+ viewBox="0.00 0.00 562.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dqmc_hub_config~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>proc~~dqmc_hub_config~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 558,-70 558,4 -4,4"/>
+<!-- proc~dqmc_hub_config -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_node1" class="node">
+<title>proc~dqmc_hub_config</title>
+<polygon fill="none" stroke="black" points="554,-45 349,-45 349,-21 554,-21 554,-45"/>
+<text text-anchor="middle" x="451.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Hubbard::DQMC_Hub_Config</text>
+</g>
+<!-- proc~dqmc_comp_2dperl -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_node2" class="node">
+<title>proc~dqmc_comp_2dperl</title>
+<g id="a_proc~~dqmc_hub_config~~CalledByGraph_node2"><a xlink:href="../proc/dqmc_comp_2dperl.html" xlink:title="DQMC_2DPERL::DQMC_Comp_2DPerl">
+<polygon fill="#d9534f" stroke="#d9534f" points="313,-66 103,-66 103,-42 313,-42 313,-66"/>
+<text text-anchor="middle" x="208" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_2DPERL::DQMC_Comp_2DPerl</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_comp_2dperl&#45;&gt;proc~dqmc_hub_config -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_edge1" class="edge">
+<title>proc~dqmc_comp_2dperl&#45;&gt;proc~dqmc_hub_config</title>
+<path fill="none" stroke="#255000" d="M313.17,-44.94C321.7,-44.2 330.35,-43.45 338.93,-42.7"/>
+<polygon fill="#255000" stroke="#255000" points="339.31,-46.18 348.97,-41.83 338.7,-39.21 339.31,-46.18"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_node3" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_proc~~dqmc_hub_config~~CalledByGraph_node3"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="250.5,-24 165.5,-24 165.5,0 250.5,0 250.5,-24"/>
+<text text-anchor="middle" x="208" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_hub_config -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_edge2" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_hub_config</title>
+<path fill="none" stroke="#255000" d="M250.52,-15.61C274.98,-17.74 307.2,-20.54 338.62,-23.27"/>
+<polygon fill="#255000" stroke="#255000" points="338.52,-26.78 348.78,-24.16 339.12,-19.8 338.52,-26.78"/>
+</g>
+<!-- program~dqmc_test -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_node4" class="node">
+<title>program~dqmc_test</title>
+<g id="a_proc~~dqmc_hub_config~~CalledByGraph_node4"><a xlink:href="../program/dqmc_test.html" xlink:title="dqmc_test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="67,-66 0,-66 0,-42 67,-42 67,-66"/>
+<text text-anchor="middle" x="33.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_test</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_test&#45;&gt;proc~dqmc_comp_2dperl -->
+<g id="proc~~dqmc_hub_config~~CalledByGraph_edge3" class="edge">
+<title>program~dqmc_test&#45;&gt;proc~dqmc_comp_2dperl</title>
+<path fill="none" stroke="#255000" d="M67.35,-54C75.03,-54 83.65,-54 92.72,-54"/>
+<polygon fill="#255000" stroke="#255000" points="92.73,-57.5 102.73,-54 92.73,-50.5 92.73,-57.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

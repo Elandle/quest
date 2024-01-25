@@ -1,0 +1,1170 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_GEOM_PARAM &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_GEOM_PARAM
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.4% of total for modules and submodules.">48 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_geom_param.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_geom_param.f90.html'>dqmc_geom_param.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_GEOM_PARAM</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-rdim">rdim</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-toll">toll</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-pi">pi</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-im~5">im</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-n_fields">N_Fields</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-ndim_f">NDIM_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-prim_f">PRIM_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-super_f">SUPER_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-orb_f">ORB_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-hamilt_f">HAMILT_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-symm_f">SYMM_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-phase_f">PHASE_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-bonds_f">BONDS_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-pairs_f">PAIRS_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-dilut_f">DILUT_F</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-input_fields">INPUT_FIELDS</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-inpunit">inpunit</a>
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#variable-found_field">Found_Field</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_geom_param.html#proc-analyze_input">analyze_input</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>      
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_geom_param~~UsedByGraph Pages: 1 -->
+<svg id="moduledqmc_geom_paramUsedByGraph" width="641pt" height="278pt"
+ viewBox="0.00 0.00 641.00 277.63" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_geom_param~~UsedByGraph" class="graph" transform="scale(2.14 2.14) rotate(0) translate(4 589.38)">
+<title>module~~dqmc_geom_param~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-589.38 1366,-589.38 1366,4 -4,4"/>
+<!-- module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node1" class="node">
+<title>module~dqmc_geom_param</title>
+<polygon fill="none" stroke="black" points="125,-218.38 0,-218.38 0,-194.38 125,-194.38 125,-218.38"/>
+<text text-anchor="middle" x="62.5" y="-203.98" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_GEOM_PARAM</text>
+</g>
+<!-- module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node2" class="node">
+<title>module~dqmc_bonds</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node2"><a xlink:href="../module/dqmc_bonds.html" xlink:title="DQMC_BONDS">
+<polygon fill="#337ab7" stroke="#337ab7" points="427.5,-379.38 339.5,-379.38 339.5,-355.38 427.5,-355.38 427.5,-379.38"/>
+<text text-anchor="middle" x="383.5" y="-364.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_BONDS</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_bonds&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge1" class="edge">
+<title>module~dqmc_bonds&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M366.38,-379.42C344.88,-395.55 305.73,-425.18 273,-451.38 240,-477.81 238.7,-529.41 200,-512.38"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M198,-512.38C86.98,-463.56 67.59,-290.51 64.21,-228.61"/>
+<polygon fill="#255000" stroke="#255000" points="67.7,-228.23 63.75,-218.4 60.7,-228.55 67.7,-228.23"/>
+</g>
+<!-- module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node5" class="node">
+<title>module~dqmc_latt</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node5"><a xlink:href="../module/dqmc_latt.html" xlink:title="DQMC_LATT">
+<polygon fill="#337ab7" stroke="#337ab7" points="237,-218.38 161,-218.38 161,-194.38 237,-194.38 237,-218.38"/>
+<text text-anchor="middle" x="199" y="-203.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_bonds&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge18" class="edge">
+<title>module~dqmc_bonds&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M368.78,-355.28C337.34,-327.54 259.85,-259.18 221.8,-225.61"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="223.69,-222.62 213.88,-218.63 219.06,-227.87 223.69,-222.62"/>
+</g>
+<!-- module~dqmc_geom_wrap -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node3" class="node">
+<title>module~dqmc_geom_wrap</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node3"><a xlink:href="../module/dqmc_geom_wrap.html" xlink:title="DQMC_GEOM_WRAP">
+<polygon fill="#337ab7" stroke="#337ab7" points="973.5,-318.38 854.5,-318.38 854.5,-294.38 973.5,-294.38 973.5,-318.38"/>
+<text text-anchor="middle" x="914" y="-303.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GEOM_WRAP</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge2" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M655.5,-512.38C607.16,-527.38 246.33,-532.76 200,-512.38"/>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge7" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_bonds</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M854.48,-305.11C778.96,-304.41 643.77,-306.41 530,-325.38 494.85,-331.25 456.14,-342.67 427.49,-352.13"/>
+<polygon fill="#255000" stroke="#255000" points="426.17,-348.88 417.8,-355.38 428.39,-355.52 426.17,-348.88"/>
+</g>
+<!-- module~dqmc_hamilt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node4" class="node">
+<title>module~dqmc_hamilt</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node4"><a xlink:href="../module/dqmc_hamilt.html" xlink:title="DQMC_HAMILT">
+<polygon fill="#337ab7" stroke="#337ab7" points="701.5,-72.38 611.5,-72.38 611.5,-48.38 701.5,-48.38 701.5,-72.38"/>
+<text text-anchor="middle" x="656.5" y="-57.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_HAMILT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_hamilt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge16" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_hamilt</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M909.99,-294.38C899.7,-256.1 862.15,-136.27 783,-81.38 762.44,-67.13 735.52,-61.38 711.88,-59.39"/>
+<polygon fill="#025500" stroke="#025500" points="711.83,-55.88 701.63,-58.74 711.39,-62.87 711.83,-55.88"/>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge19" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M655.5,-226.38C616.71,-216.73 355.57,-209.86 247.1,-207.39"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="247.17,-203.89 237.09,-207.17 247.01,-210.89 247.17,-203.89"/>
+</g>
+<!-- module~dqmc_reclatt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node6" class="node">
+<title>module~dqmc_reclatt</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node6"><a xlink:href="../module/dqmc_reclatt.html" xlink:title="DQMC_RECLATT">
+<polygon fill="#337ab7" stroke="#337ab7" points="432,-135.38 335,-135.38 335,-111.38 432,-111.38 432,-135.38"/>
+<text text-anchor="middle" x="383.5" y="-120.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_RECLATT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_reclatt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge25" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M892.13,-294.27C867.06,-280.28 823.32,-257.61 783,-245.38 729.02,-229.01 712.24,-240 657.5,-226.38"/>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M655.5,-226.38C600.76,-212.76 579.34,-234.74 530,-207.38 508.5,-195.46 514.09,-179.55 494,-165.38 477.99,-154.1 458.56,-145.36 440.53,-138.86"/>
+<polygon fill="#002505" stroke="#002505" points="441.28,-135.41 430.69,-135.47 439,-142.03 441.28,-135.41"/>
+</g>
+<!-- module~dqmc_symm -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node7" class="node">
+<title>module~dqmc_symm</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node7"><a xlink:href="../module/dqmc_symm.html" xlink:title="DQMC_SYMM">
+<polygon fill="#337ab7" stroke="#337ab7" points="424.5,-484.38 342.5,-484.38 342.5,-460.38 424.5,-460.38 424.5,-484.38"/>
+<text text-anchor="middle" x="383.5" y="-469.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_geom_wrap&#45;&gt;module~dqmc_symm -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge30" class="edge">
+<title>module~dqmc_geom_wrap&#45;&gt;module~dqmc_symm</title>
+<path fill="none" stroke="#255025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M908.56,-318.56C895.41,-352.71 853.16,-449.71 783,-493.38 735.11,-523.2 711.38,-495.67 657.5,-512.38"/>
+<path fill="none" stroke="#255025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M655.5,-512.38C615.32,-524.85 501.25,-500.98 434.6,-485.05"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="435.27,-481.61 424.73,-482.66 433.63,-488.41 435.27,-481.61"/>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge3" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M621.47,-48.38C544.13,-23.03 350.19,29.51 200,-22.38"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M198,-22.38C125.57,-48.97 85.45,-141.79 70.44,-184.53"/>
+<polygon fill="#255000" stroke="#255000" points="67.04,-183.66 67.16,-194.25 73.67,-185.9 67.04,-183.66"/>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge20" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M611.47,-50.9C556.32,-41.12 459.91,-31.02 384.5,-60.38"/>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_reclatt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge26" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M611.41,-66.49C587.24,-70.16 556.82,-75.29 530,-81.38 496.75,-88.94 459.84,-99.62 431.51,-108.32"/>
+<polygon fill="#002505" stroke="#002505" points="430.39,-105 421.87,-111.31 432.46,-111.69 430.39,-105"/>
+</g>
+<!-- module~dqmc_latt&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge4" class="edge">
+<title>module~dqmc_latt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M160.89,-206.38C152.81,-206.38 144,-206.38 135.09,-206.38"/>
+<polygon fill="#255000" stroke="#255000" points="135.02,-202.88 125.02,-206.38 135.02,-209.88 135.02,-202.88"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge5" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M367.56,-111.3C330.54,-81.97 235,-10.29 200,-22.38"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge21" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M346.94,-135.54C325.25,-143.32 297.14,-154.05 273,-165.38 257.93,-172.46 241.72,-181.42 228.42,-189.15"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="226.57,-186.18 219.73,-194.27 230.12,-192.21 226.57,-186.18"/>
+</g>
+<!-- module~dqmc_symm&#45;&gt;module~dqmc_geom_param -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge6" class="edge">
+<title>module~dqmc_symm&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M342.47,-481.77C289.76,-494.04 203.29,-513.83 200,-512.38"/>
+</g>
+<!-- module~dqmc_kbonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node8" class="node">
+<title>module~dqmc_kbonds</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node8"><a xlink:href="../module/dqmc_kbonds.html" xlink:title="DQMC_KBONDS">
+<polygon fill="#337ab7" stroke="#337ab7" points="704,-156.38 609,-156.38 609,-132.38 704,-132.38 704,-156.38"/>
+<text text-anchor="middle" x="656.5" y="-141.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_KBONDS</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_kbonds&#45;&gt;module~dqmc_reclatt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge27" class="edge">
+<title>module~dqmc_kbonds&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M608.91,-140.77C562.85,-137.2 492.26,-131.73 442.57,-127.88"/>
+<polygon fill="#002505" stroke="#002505" points="442.54,-124.37 432.3,-127.09 442,-131.35 442.54,-124.37"/>
+</g>
+<!-- module~dqmc_phy2 -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node9" class="node">
+<title>module~dqmc_phy2</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node9"><a xlink:href="../module/dqmc_phy2.html" xlink:title="DQMC_Phy2">
+<polygon fill="#337ab7" stroke="#337ab7" points="694.5,-564.38 618.5,-564.38 618.5,-540.38 694.5,-540.38 694.5,-564.38"/>
+<text text-anchor="middle" x="656.5" y="-549.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy2</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_phy2&#45;&gt;module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge8" class="edge">
+<title>module~dqmc_phy2&#45;&gt;module~dqmc_bonds</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M618.38,-553.12C591.29,-551.8 555.06,-545.99 530,-526.38 500.88,-503.6 517.31,-480.09 494,-451.38 471.64,-423.84 438.51,-400.05 414.55,-384.9"/>
+<polygon fill="#255000" stroke="#255000" points="416.2,-381.8 405.86,-379.52 412.52,-387.76 416.2,-381.8"/>
+</g>
+<!-- module~dqmc_phy2&#45;&gt;module~dqmc_symm -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge31" class="edge">
+<title>module~dqmc_phy2&#45;&gt;module~dqmc_symm</title>
+<path fill="none" stroke="#255025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M618.35,-546.21C593.18,-541.66 559.3,-534.8 530,-526.38 492.77,-515.69 451.48,-499.98 422.42,-488.26"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="423.64,-484.97 413.06,-484.45 421,-491.46 423.64,-484.97"/>
+</g>
+<!-- proc~construct_bond_classes -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node10" class="node">
+<title>proc~construct_bond_classes</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node10"><a xlink:href="../proc/construct_bond_classes.html" xlink:title="DQMC_SYMM::construct_bond_classes">
+<polygon fill="#d9534f" stroke="#d9534f" points="764,-400.38 549,-400.38 549,-376.38 764,-376.38 764,-400.38"/>
+<text text-anchor="middle" x="656.5" y="-385.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::construct_bond_classes</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_bond_classes&#45;&gt;module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge9" class="edge">
+<title>proc~construct_bond_classes&#45;&gt;module~dqmc_bonds</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M548.78,-380.11C510.72,-377.17 469.49,-373.97 437.85,-371.52"/>
+<polygon fill="#255000" stroke="#255000" points="437.75,-368 427.51,-370.72 437.21,-374.98 437.75,-368"/>
+</g>
+<!-- proc~construct_lattice_classes -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node11" class="node">
+<title>proc~construct_lattice_classes</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node11"><a xlink:href="../proc/construct_lattice_classes.html" xlink:title="DQMC_SYMM::construct_lattice_classes">
+<polygon fill="#d9534f" stroke="#d9534f" points="494,-198.38 273,-198.38 273,-174.38 494,-174.38 494,-198.38"/>
+<text text-anchor="middle" x="383.5" y="-183.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::construct_lattice_classes</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_lattice_classes&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge22" class="edge">
+<title>proc~construct_lattice_classes&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M272.92,-198.39C264.07,-199.36 255.47,-200.31 247.46,-201.18"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="246.85,-197.73 237.29,-202.3 247.61,-204.69 246.85,-197.73"/>
+</g>
+<!-- proc~construct_pair_classes -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node12" class="node">
+<title>proc~construct_pair_classes</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node12"><a xlink:href="../proc/construct_pair_classes.html" xlink:title="DQMC_SYMM::construct_pair_classes">
+<polygon fill="#d9534f" stroke="#d9534f" points="761,-358.38 552,-358.38 552,-334.38 761,-334.38 761,-358.38"/>
+<text text-anchor="middle" x="656.5" y="-343.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::construct_pair_classes</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_pair_classes&#45;&gt;module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge10" class="edge">
+<title>proc~construct_pair_classes&#45;&gt;module~dqmc_bonds</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M551.89,-354.41C512.92,-357.43 470.22,-360.74 437.71,-363.26"/>
+<polygon fill="#255000" stroke="#255000" points="437.22,-359.79 427.52,-364.05 437.76,-366.77 437.22,-359.79"/>
+</g>
+<!-- proc~construct_recip_lattice_classes -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node13" class="node">
+<title>proc~construct_recip_lattice_classes</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node13"><a xlink:href="../proc/construct_recip_lattice_classes.html" xlink:title="DQMC_SYMM::construct_recip_lattice_classes">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-114.38 530,-114.38 530,-90.38 783,-90.38 783,-114.38"/>
+<text text-anchor="middle" x="656.5" y="-99.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::construct_recip_lattice_classes</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_recip_lattice_classes&#45;&gt;module~dqmc_reclatt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge28" class="edge">
+<title>proc~construct_recip_lattice_classes&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M529.92,-112.12C499.37,-114.48 468.15,-116.9 442.51,-118.89"/>
+<polygon fill="#002505" stroke="#002505" points="441.95,-115.42 432.25,-119.68 442.49,-122.4 441.95,-115.42"/>
+</g>
+<!-- proc~dqmc_tdm1_init -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node14" class="node">
+<title>proc~dqmc_tdm1_init</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node14"><a xlink:href="../proc/dqmc_tdm1_init.html" xlink:title="DQMC_TDM1::DQMC_TDM1_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="1236.5,-339.38 1056.5,-339.38 1056.5,-315.38 1236.5,-315.38 1236.5,-339.38"/>
+<text text-anchor="middle" x="1146.5" y="-324.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_init&#45;&gt;module~dqmc_geom_wrap -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge13" class="edge">
+<title>proc~dqmc_tdm1_init&#45;&gt;module~dqmc_geom_wrap</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1056.38,-319.26C1032.32,-317.07 1006.66,-314.73 983.89,-312.66"/>
+<polygon fill="transparent" stroke="transparent" points="983.93,-309.15 973.65,-311.73 983.29,-316.12 983.93,-309.15"/>
+</g>
+<!-- proc~dqmc_tdm1_initprop -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node15" class="node">
+<title>proc~dqmc_tdm1_initprop</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node15"><a xlink:href="../proc/dqmc_tdm1_initprop.html" xlink:title="DQMC_TDM1::DQMC_TDM1_InitProp">
+<polygon fill="#d9534f" stroke="#d9534f" points="1248,-297.38 1045,-297.38 1045,-273.38 1248,-273.38 1248,-297.38"/>
+<text text-anchor="middle" x="1146.5" y="-282.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1::DQMC_TDM1_InitProp</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_tdm1_initprop&#45;&gt;module~dqmc_geom_wrap -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge14" class="edge">
+<title>proc~dqmc_tdm1_initprop&#45;&gt;module~dqmc_geom_wrap</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1044.73,-294.56C1024.2,-296.44 1003.04,-298.36 983.92,-300.11"/>
+<polygon fill="transparent" stroke="transparent" points="983.46,-296.63 973.82,-301.03 984.1,-303.6 983.46,-296.63"/>
+</g>
+<!-- proc~init_kbonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node16" class="node">
+<title>proc~init_kbonds</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node16"><a xlink:href="../proc/init_kbonds.html" xlink:title="DQMC_KBONDS::init_kbonds">
+<polygon fill="#d9534f" stroke="#d9534f" points="738,-484.38 575,-484.38 575,-460.38 738,-460.38 738,-484.38"/>
+<text text-anchor="middle" x="656.5" y="-469.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_KBONDS::init_kbonds</text>
+</a>
+</g>
+</g>
+<!-- proc~init_kbonds&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge23" class="edge">
+<title>proc~init_kbonds&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M578.01,-460.35C562.09,-457.61 545.47,-454.57 530,-451.38 414.81,-427.66 361.81,-465.48 273,-388.38 224.56,-346.34 207.88,-267.61 202.45,-228.96"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="205.89,-228.24 201.15,-218.76 198.94,-229.12 205.89,-228.24"/>
+</g>
+<!-- proc~init_kbonds&#45;&gt;module~dqmc_symm -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge32" class="edge">
+<title>proc~init_kbonds&#45;&gt;module~dqmc_symm</title>
+<path fill="none" stroke="#255025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M574.92,-472.38C529.52,-472.38 474.22,-472.38 434.93,-472.38"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="434.8,-468.88 424.8,-472.38 434.8,-475.88 434.8,-468.88"/>
+</g>
+<!-- proc~map_symm_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node17" class="node">
+<title>proc~map_symm_bonds</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node17"><a xlink:href="../proc/map_symm_bonds.html" xlink:title="DQMC_SYMM::map_symm_bonds">
+<polygon fill="#d9534f" stroke="#d9534f" points="751,-278.38 562,-278.38 562,-254.38 751,-254.38 751,-278.38"/>
+<text text-anchor="middle" x="656.5" y="-263.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_bonds</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_bonds&#45;&gt;module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge11" class="edge">
+<title>proc~map_symm_bonds&#45;&gt;module~dqmc_bonds</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M580.59,-278.43C563.71,-282.1 546.05,-286.71 530,-292.38 487.21,-307.53 441.18,-332.97 412.61,-349.96"/>
+<polygon fill="#255000" stroke="#255000" points="410.73,-347 403.97,-355.16 414.34,-353 410.73,-347"/>
+</g>
+<!-- proc~map_symm_lattice -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node18" class="node">
+<title>proc~map_symm_lattice</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node18"><a xlink:href="../proc/map_symm_lattice.html" xlink:title="DQMC_SYMM::map_symm_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="1009,-52.38 819,-52.38 819,-28.38 1009,-28.38 1009,-52.38"/>
+<text text-anchor="middle" x="914" y="-37.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;module~dqmc_hamilt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge17" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;module~dqmc_hamilt</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M818.95,-47.75C782.9,-50.57 742.99,-53.69 711.88,-56.13"/>
+<polygon fill="#025500" stroke="#025500" points="711.37,-52.66 701.68,-56.93 711.92,-59.63 711.37,-52.66"/>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;module~dqmc_latt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge24" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M838.57,-28.37C733.37,-14.62 537.02,-1 384.5,-60.38"/>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M382.5,-60.38C333.93,-79.3 314.1,-70.32 273,-102.38 244.08,-124.94 221.94,-162.06 209.96,-185.32"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="206.79,-183.84 205.46,-194.35 213.06,-186.96 206.79,-183.84"/>
+</g>
+<!-- proc~map_symm_pairs -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node19" class="node">
+<title>proc~map_symm_pairs</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node19"><a xlink:href="../proc/map_symm_pairs.html" xlink:title="DQMC_SYMM::map_symm_pairs">
+<polygon fill="#d9534f" stroke="#d9534f" points="748,-442.38 565,-442.38 565,-418.38 748,-418.38 748,-442.38"/>
+<text text-anchor="middle" x="656.5" y="-427.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_pairs</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_pairs&#45;&gt;module~dqmc_bonds -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge12" class="edge">
+<title>proc~map_symm_pairs&#45;&gt;module~dqmc_bonds</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M575.23,-418.37C560.14,-415.71 544.54,-412.69 530,-409.38 496.75,-401.83 459.84,-391.15 431.51,-382.45"/>
+<polygon fill="#255000" stroke="#255000" points="432.46,-379.08 421.87,-379.46 430.39,-385.76 432.46,-379.08"/>
+</g>
+<!-- proc~map_symm_recip_lattice -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node20" class="node">
+<title>proc~map_symm_recip_lattice</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node20"><a xlink:href="../proc/map_symm_recip_lattice.html" xlink:title="DQMC_SYMM::map_symm_recip_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="767,-198.38 546,-198.38 546,-174.38 767,-174.38 767,-198.38"/>
+<text text-anchor="middle" x="656.5" y="-183.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_recip_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_recip_lattice&#45;&gt;module~dqmc_reclatt -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge29" class="edge">
+<title>proc~map_symm_recip_lattice&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M575.23,-174.37C560.14,-171.71 544.54,-168.69 530,-165.38 496.75,-157.83 459.84,-147.15 431.51,-138.45"/>
+<polygon fill="#002505" stroke="#002505" points="432.46,-135.08 421.87,-135.46 430.39,-141.76 432.46,-135.08"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node21" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node21"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1189,-422.38 1104,-422.38 1104,-398.38 1189,-398.38 1189,-422.38"/>
+<text text-anchor="middle" x="1146.5" y="-407.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;module~dqmc_geom_wrap -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge15" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;module~dqmc_geom_wrap</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1118.61,-398.25C1077.14,-379.54 997.54,-343.63 951.1,-322.67"/>
+<polygon fill="transparent" stroke="transparent" points="952.28,-319.36 941.72,-318.44 949.4,-325.74 952.28,-319.36"/>
+</g>
+<!-- module~dqmc_hubbard -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node22" class="node">
+<title>module~dqmc_hubbard</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node22"><a xlink:href="../module/dqmc_hubbard.html" xlink:title="DQMC_Hubbard">
+<polygon fill="#337ab7" stroke="#337ab7" points="962.5,-543.38 865.5,-543.38 865.5,-519.38 962.5,-519.38 962.5,-543.38"/>
+<text text-anchor="middle" x="914" y="-528.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge38" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1125.23,-422.61C1104.47,-435.42 1071.57,-456.55 1045,-477.38 1027.92,-490.78 1028.24,-500.34 1009,-510.38 997.77,-516.24 984.96,-520.47 972.48,-523.53"/>
+<polygon fill="#255000" stroke="#255000" points="971.58,-520.14 962.58,-525.73 973.1,-526.97 971.58,-520.14"/>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_phy2 -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge33" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_phy2</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M865.24,-535.31C819.41,-539.08 750.61,-544.73 704.9,-548.49"/>
+<polygon fill="transparent" stroke="transparent" points="704.34,-545.02 694.66,-549.33 704.91,-552 704.34,-545.02"/>
+</g>
+<!-- module~dqmc_hubbard~2 -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node23" class="node">
+<title>module~dqmc_hubbard~2</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node23"><a xlink:href="../module/dqmc_hubbard~2.html" xlink:title="DQMC_Hubbard">
+<polygon fill="#337ab7" stroke="#337ab7" points="962.5,-501.38 865.5,-501.38 865.5,-477.38 962.5,-477.38 962.5,-501.38"/>
+<text text-anchor="middle" x="914" y="-486.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy2 -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge34" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy2</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M865.16,-498.15C850.21,-501.4 833.77,-505.51 819,-510.38 802.37,-515.88 799.67,-521.02 783,-526.38 757.52,-534.58 728.27,-540.82 704.42,-545.12"/>
+<polygon fill="transparent" stroke="transparent" points="703.8,-541.68 694.56,-546.85 705.01,-548.57 703.8,-541.68"/>
+</g>
+<!-- module~dqmc_tdm2 -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node24" class="node">
+<title>module~dqmc_tdm2</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node24"><a xlink:href="../module/dqmc_tdm2.html" xlink:title="DQMC_TDM2">
+<polygon fill="#337ab7" stroke="#337ab7" points="955,-585.38 873,-585.38 873,-561.38 955,-561.38 955,-585.38"/>
+<text text-anchor="middle" x="914" y="-570.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM2</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_tdm2&#45;&gt;module~dqmc_phy2 -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge35" class="edge">
+<title>module~dqmc_tdm2&#45;&gt;module~dqmc_phy2</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M872.8,-570.08C827.24,-566.33 753.05,-560.24 704.75,-556.27"/>
+<polygon fill="transparent" stroke="transparent" points="704.82,-552.76 694.56,-555.43 704.24,-559.74 704.82,-552.76"/>
+</g>
+<!-- module~dqmc_2dperl -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node25" class="node">
+<title>module~dqmc_2dperl</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node25"><a xlink:href="../module/dqmc_2dperl.html" xlink:title="DQMC_2DPERL">
+<polygon fill="#337ab7" stroke="#337ab7" points="1192.5,-585.38 1100.5,-585.38 1100.5,-561.38 1192.5,-561.38 1192.5,-585.38"/>
+<text text-anchor="middle" x="1146.5" y="-570.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_2DPERL</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_2dperl&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge36" class="edge">
+<title>module~dqmc_2dperl&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1100.24,-565.14C1063.69,-558.48 1012.04,-549.07 972.56,-541.87"/>
+<polygon fill="#255000" stroke="#255000" points="973.01,-538.4 962.54,-540.05 971.75,-545.28 973.01,-538.4"/>
+</g>
+<!-- proc~dqmc_gtau_init -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node26" class="node">
+<title>proc~dqmc_gtau_init</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node26"><a xlink:href="../proc/dqmc_gtau_init.html" xlink:title="DQMC_GTAU::DQMC_Gtau_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="1232.5,-543.38 1060.5,-543.38 1060.5,-519.38 1232.5,-519.38 1232.5,-543.38"/>
+<text text-anchor="middle" x="1146.5" y="-528.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GTAU::DQMC_Gtau_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_gtau_init&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge37" class="edge">
+<title>proc~dqmc_gtau_init&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1060.33,-531.38C1031.23,-531.38 999.38,-531.38 972.94,-531.38"/>
+<polygon fill="#255000" stroke="#255000" points="972.71,-527.88 962.71,-531.38 972.71,-534.88 972.71,-527.88"/>
+</g>
+<!-- program~dqmc_verify -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node27" class="node">
+<title>program~dqmc_verify</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node27"><a xlink:href="../program/dqmc_verify.html" xlink:title="dqmc_verify">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1362,-523.38 1284,-523.38 1284,-499.38 1362,-499.38 1362,-523.38"/>
+<text text-anchor="middle" x="1323" y="-508.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_verify</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge39" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1283.97,-510.77C1272.42,-510.61 1259.69,-510.46 1248,-510.38 1157.78,-509.77 1134.93,-503.17 1045,-510.38 1021.19,-512.3 995.15,-516.15 972.68,-520.03"/>
+<polygon fill="#255000" stroke="#255000" points="971.86,-516.62 962.63,-521.81 973.08,-523.52 971.86,-516.62"/>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_2dperl -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge41" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_2dperl</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1303.89,-523.45C1289.34,-532.63 1268.1,-544.91 1248,-552.38 1233.68,-557.71 1217.68,-561.82 1202.73,-564.94"/>
+<polygon fill="#255000" stroke="#255000" points="1201.72,-561.57 1192.59,-566.94 1203.08,-568.44 1201.72,-561.57"/>
+</g>
+<!-- program~dqmc_test -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_node28" class="node">
+<title>program~dqmc_test</title>
+<g id="a_module~~dqmc_geom_param~~UsedByGraph_node28"><a xlink:href="../program/dqmc_test.html" xlink:title="dqmc_test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1356.5,-585.38 1289.5,-585.38 1289.5,-561.38 1356.5,-561.38 1356.5,-585.38"/>
+<text text-anchor="middle" x="1323" y="-570.98" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_test</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_test&#45;&gt;module~dqmc_2dperl -->
+<g id="module~~dqmc_geom_param~~UsedByGraph_edge40" class="edge">
+<title>program~dqmc_test&#45;&gt;module~dqmc_2dperl</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1289.18,-573.38C1264.91,-573.38 1231.29,-573.38 1202.89,-573.38"/>
+<polygon fill="#255000" stroke="#255000" points="1202.69,-569.88 1192.69,-573.38 1202.69,-576.88 1202.69,-569.88"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmoduledqmc_geom_paramUsedByGraph = svgPanZoom('#moduledqmc_geom_paramUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rdim"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>rdim</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-toll"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>toll</strong></td>
+<td> =</td>
+                <td>1.d-6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pi"></span>
+              real(kind=8),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>pi</strong></td>
+<td> =</td>
+                <td>acos(-1.d0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-im~5"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>im</strong></td>
+<td> =</td>
+                <td>(0.d0, 1.d0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_fields"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>N_Fields</strong></td>
+<td> =</td>
+                <td>10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ndim_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>NDIM_F</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prim_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PRIM_F</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-super_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>SUPER_F</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-orb_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ORB_F</strong></td>
+<td> =</td>
+                <td>4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>HAMILT_F</strong></td>
+<td> =</td>
+                <td>5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-symm_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>SYMM_F</strong></td>
+<td> =</td>
+                <td>6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-phase_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PHASE_F</strong></td>
+<td> =</td>
+                <td>7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bonds_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>BONDS_F</strong></td>
+<td> =</td>
+                <td>8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pairs_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PAIRS_F</strong></td>
+<td> =</td>
+                <td>9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dilut_f"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>DILUT_F</strong></td>
+<td> =</td>
+                <td>10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-input_fields"></span>
+              character(len=10),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>INPUT_FIELDS</strong>(N_Fields)</td>
+<td> =</td>
+                <td>(/&#39;  #NDIM   &#39;, &#39;  #PRIM   &#39;, &#39;  #SUPER  &#39;, &#39;   #ORB   &#39;, &#39; #HAMILT  &#39;, &#39;  #SYMM   &#39;, &#39;  #PHASE  &#39;, &#39;  #BONDS  &#39;, &#39;   #PAIR  &#39;, &#39;  #DILUT  &#39;/)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inpunit"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>inpunit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-found_field"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Found_Field</strong>(N_fields)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-analyze_input"></span> <h3>public  subroutine <a href='../proc/analyze_input.html'>analyze_input</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

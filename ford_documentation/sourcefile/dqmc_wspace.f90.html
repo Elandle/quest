@@ -1,0 +1,826 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dqmc_wspace.F90 &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>dqmc_wspace.F90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.5% of total for source files.">56 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_wspace.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">dqmc_wspace.F90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_wspace.html">DQMC_WSpace</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/dqmc_wspace.f90.html#src">dqmc_wspace.F90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">This file depends on</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~dqmc_wspace.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefiledqmc_wspacef90EfferentGraph" width="241pt" height="32pt"
+ viewBox="0.00 0.00 241.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~dqmc_wspace.f90~~EfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>sourcefile~~dqmc_wspace.f90~~EfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 237,-28 237,4 -4,4"/>
+<!-- sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~dqmc_wspace.f90</title>
+<polygon fill="none" stroke="black" points="233,-24 123,-24 123,0 233,0 233,-24"/>
+<text text-anchor="middle" x="178" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">dqmc_wspace.F90</text>
+</g>
+<!-- sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~dqmc_util.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/dqmc_util.f90.html" xlink:title="dqmc_util.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="87,-24 0,-24 0,0 87,0 87,-24"/>
+<text text-anchor="middle" x="43.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_util.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_wspace.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~dqmc_wspace.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M122.72,-12C114.29,-12 105.59,-12 97.19,-12"/>
+<polygon fill="#255000" stroke="#255000" points="97.13,-8.5 87.13,-12 97.13,-15.5 97.13,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~dqmc_wspace.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefiledqmc_wspacef90AfferentGraph" width="641pt" height="174pt"
+ viewBox="0.00 0.00 641.00 173.54" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph" class="graph" transform="scale(1.75 1.75) rotate(0) translate(4 300.3)">
+<title>sourcefile~~dqmc_wspace.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-300.3 1120,-300.3 1120,4 -4,4"/>
+<!-- sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~dqmc_wspace.f90</title>
+<polygon fill="none" stroke="black" points="110,-157.3 0,-157.3 0,-133.3 110,-133.3 110,-157.3"/>
+<text text-anchor="middle" x="55" y="-142.9" font-family="Helvetica,sans-Serif" font-size="10.50">dqmc_wspace.F90</text>
+</g>
+<!-- sourcefile~dqmc_checkerboard.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~dqmc_checkerboard.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/dqmc_checkerboard.f90.html" xlink:title="dqmc_checkerboard.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="291,-296.3 146,-296.3 146,-272.3 291,-272.3 291,-296.3"/>
+<text text-anchor="middle" x="218.5" y="-281.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_checkerboard.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_checkerboard.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~dqmc_checkerboard.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M172.5,-272.21C163.26,-268.58 153.94,-264 146,-258.3 111.15,-233.23 82.68,-191.18 67.63,-166.05"/>
+<polygon fill="#255000" stroke="#255000" points="70.59,-164.19 62.53,-157.32 64.55,-167.72 70.59,-164.19"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~dqmc_gfun.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/dqmc_gfun.f90.html" xlink:title="dqmc_gfun.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="554.5,-96.3 460.5,-96.3 460.5,-72.3 554.5,-72.3 554.5,-96.3"/>
+<text text-anchor="middle" x="507.5" y="-81.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_gfun.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M460.26,-89.26C435.15,-90.89 403.67,-91.2 376,-86.3"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M374,-86.3C351.81,-82.36 345.3,-80.44 327,-67.3 307.04,-52.95 311.82,-38.37 291,-25.3 263.16,-7.8 251.54,1.11 219.5,-6.3"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~dqmc_matb.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/dqmc_matb.f90.html" xlink:title="dqmc_matb.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="267.5,-58.3 169.5,-58.3 169.5,-34.3 267.5,-34.3 267.5,-58.3"/>
+<text text-anchor="middle" x="218.5" y="-43.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_matb.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M374,-86.3C338.46,-79.99 299.08,-69.75 268.98,-61.2"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="269.72,-57.77 259.14,-58.38 267.79,-64.5 269.72,-57.77"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~dqmc_seqb.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node8"><a xlink:href="../sourcefile/dqmc_seqb.f90.html" xlink:title="dqmc_seqb.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="423,-58.3 327,-58.3 327,-34.3 423,-34.3 423,-58.3"/>
+<text text-anchor="middle" x="375" y="-43.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_seqb.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge23" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M465.21,-72.27C453.19,-68.77 439.91,-64.91 427.35,-61.25"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="428.05,-57.81 417.47,-58.37 426.09,-64.53 428.05,-57.81"/>
+</g>
+<!-- sourcefile~dqmc_gtau.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~dqmc_gtau.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/dqmc_gtau.f90.html" xlink:title="dqmc_gtau.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="842.5,-52.3 748.5,-52.3 748.5,-28.3 842.5,-28.3 842.5,-52.3"/>
+<text text-anchor="middle" x="795.5" y="-37.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_gtau.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M763.53,-28.23C734.7,-18.14 690.31,-5.51 650.5,-6.3"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M648.5,-6.3C586.29,-7.52 570.55,-1.64 508.5,-6.3"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M506.5,-6.3C448.66,-10.64 433.88,-2.61 376,-6.3"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M374,-6.3C305.47,-10.66 286.4,9.17 219.5,-6.3"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M217.5,-6.3C185.46,-13.7 173.26,-6.91 146,-25.3 108.51,-50.59 80.46,-96.79 66.3,-123.89"/>
+<polygon fill="#255000" stroke="#255000" points="63.12,-122.44 61.72,-132.94 69.36,-125.6 63.12,-122.44"/>
+</g>
+<!-- sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_gfun.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M648.5,-6.3C600.56,-7.24 553.71,-42.26 528.22,-65.05"/>
+<polygon fill="transparent" stroke="transparent" points="525.7,-62.62 520.72,-71.97 530.44,-67.76 525.7,-62.62"/>
+</g>
+<!-- sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M374,-6.3C334.83,-8.79 291.7,-20.77 260.98,-30.98"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="259.81,-27.68 251.47,-34.22 262.06,-34.31 259.81,-27.68"/>
+</g>
+<!-- sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge24" class="edge">
+<title>sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M506.5,-6.3C473.6,-8.76 437.89,-20.38 412.16,-30.46"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="410.78,-27.24 402.81,-34.23 413.39,-33.73 410.78,-27.24"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node10" class="node">
+<title>sourcefile~dqmc_hubbard.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node10"><a xlink:href="../sourcefile/dqmc_hubbard.f90.html" xlink:title="dqmc_hubbard.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="707,-174.3 592,-174.3 592,-150.3 707,-150.3 707,-174.3"/>
+<text text-anchor="middle" x="649.5" y="-159.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_hubbard.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge28" class="edge">
+<title>sourcefile~dqmc_gtau.f90&#45;&gt;sourcefile~dqmc_hubbard.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M762.36,-52.43C755.39,-56.12 748.47,-60.72 743,-66.3 717.12,-92.7 734.32,-116.38 707,-141.3 705.67,-142.51 704.27,-143.65 702.8,-144.73"/>
+<polygon fill="transparent" stroke="transparent" points="700.54,-142.01 693.87,-150.24 704.22,-147.97 700.54,-142.01"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M197.7,-58.43C169.36,-75.8 117.1,-107.84 84.58,-127.78"/>
+<polygon fill="#255000" stroke="#255000" points="82.66,-124.85 75.97,-133.06 86.32,-130.81 82.66,-124.85"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~dqmc_phy0.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node6"><a xlink:href="../sourcefile/dqmc_phy0.f90.html" xlink:title="dqmc_phy0.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="556,-214.3 459,-214.3 459,-190.3 556,-190.3 556,-214.3"/>
+<text text-anchor="middle" x="507.5" y="-199.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_phy0.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M474.71,-214.4C442.66,-226.26 395.28,-242.78 376,-244.3"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M374,-244.3C263.38,-253.01 139.92,-193.03 85.02,-162.45"/>
+<polygon fill="#255000" stroke="#255000" points="86.63,-159.33 76.2,-157.45 83.18,-165.43 86.63,-159.33"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~dqmc_phy2.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node7"><a xlink:href="../sourcefile/dqmc_phy2.f90.html" xlink:title="dqmc_phy2.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="556,-256.3 459,-256.3 459,-232.3 556,-232.3 556,-256.3"/>
+<text text-anchor="middle" x="507.5" y="-241.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_phy2.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M458.77,-244.52C434.07,-244.58 403.41,-244.57 376,-244.3"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M352.84,-34.19C323.16,-18.73 267.42,4.78 219.5,-6.3"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M326.81,-46.3C311.45,-46.3 294.21,-46.3 278.12,-46.3"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="277.74,-42.8 267.74,-46.3 277.74,-49.8 277.74,-42.8"/>
+</g>
+<!-- sourcefile~dqmc_holstein.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~dqmc_holstein.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node9"><a xlink:href="../sourcefile/dqmc_holstein.f90.html" xlink:title="dqmc_holstein.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="705.5,-132.3 593.5,-132.3 593.5,-108.3 705.5,-108.3 705.5,-132.3"/>
+<text text-anchor="middle" x="649.5" y="-117.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_holstein.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_gfun.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M601.49,-108.21C589.58,-105.15 576.68,-101.83 564.37,-98.66"/>
+<polygon fill="transparent" stroke="transparent" points="565.23,-95.27 554.67,-96.17 563.48,-102.05 565.23,-95.27"/>
+</g>
+<!-- sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M593.31,-128.15C555.48,-133.6 504.17,-141.15 459,-148.3 422.05,-154.14 412.27,-171.47 376,-162.3"/>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M374,-162.3C315.87,-145.74 263.02,-95.01 236.82,-66.42"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="239.14,-63.77 229.86,-58.66 233.93,-68.44 239.14,-63.77"/>
+</g>
+<!-- sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge17" class="edge">
+<title>sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_phy0.f90</title>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M609.49,-132.35C603.43,-134.91 597.4,-137.89 592,-141.3 573.14,-153.22 573.95,-163.04 556,-176.3 551.76,-179.43 547.1,-182.43 542.41,-185.22"/>
+<polygon fill="#014525" fill-opacity="0.019608" stroke="#014525" stroke-opacity="0.019608" points="540.43,-182.32 533.44,-190.28 543.87,-188.41 540.43,-182.32"/>
+</g>
+<!-- sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge20" class="edge">
+<title>sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_phy2.f90</title>
+<path fill="none" stroke="#720255" stroke-dasharray="5,2" d="M604.73,-132.38C600.1,-134.83 595.73,-137.78 592,-141.3 563.05,-168.61 584.11,-195.11 556,-223.3 554.93,-224.37 553.79,-225.4 552.6,-226.38"/>
+<polygon fill="#720255" stroke="#720255" points="550.42,-223.62 544.13,-232.14 554.36,-229.41 550.42,-223.62"/>
+</g>
+<!-- sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge25" class="edge">
+<title>sourcefile~dqmc_holstein.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M633.88,-108.29C616.5,-94.76 586.05,-73.36 556,-63.3 516.45,-50.05 469.46,-45.97 433.41,-45.12"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="433.13,-41.61 423.07,-44.95 433.01,-48.61 433.13,-41.61"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_gfun.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M612.07,-150.24C605.27,-147.58 598.32,-144.57 592,-141.3 570.69,-130.27 548.33,-114.77 532.12,-102.71"/>
+<polygon fill="transparent" stroke="transparent" points="533.88,-99.66 523.79,-96.42 529.66,-105.24 533.88,-99.66"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M506.5,-162.3C449.73,-150.41 431.78,-178.19 376,-162.3"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge18" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy0.f90</title>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M606.5,-174.3C592.09,-178.41 575.8,-183.07 560.69,-187.39"/>
+<polygon fill="#014525" fill-opacity="0.019608" stroke="#014525" stroke-opacity="0.019608" points="559.61,-184.05 550.96,-190.16 561.54,-190.78 559.61,-184.05"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge21" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy2.f90</title>
+<path fill="none" stroke="#720255" stroke-dasharray="5,2" d="M631.98,-174.41C613.87,-187.4 583.69,-208.18 556,-223.3 553.11,-224.87 550.08,-226.43 547.01,-227.93"/>
+<polygon fill="#720255" stroke="#720255" points="545.32,-224.86 537.76,-232.28 548.3,-231.19 545.32,-224.86"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge26" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M591.76,-167.55C566.08,-168.59 535.5,-167.95 508.5,-162.3"/>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M506.5,-162.3C453.09,-151.12 465.97,-105.92 423,-72.3 418.97,-69.14 414.51,-66.15 409.99,-63.39"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="411.73,-60.35 401.32,-58.39 408.24,-66.42 411.73,-60.35"/>
+</g>
+<!-- sourcefile~dqmc_tdm1.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node11" class="node">
+<title>sourcefile~dqmc_tdm1.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node11"><a xlink:href="../sourcefile/dqmc_tdm1.f90.html" xlink:title="dqmc_tdm1.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="982,-132.3 884,-132.3 884,-108.3 982,-108.3 982,-132.3"/>
+<text text-anchor="middle" x="933" y="-117.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_tdm1.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_tdm1.f90&#45;&gt;sourcefile~dqmc_gtau.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~dqmc_tdm1.f90&#45;&gt;sourcefile~dqmc_gtau.f90</title>
+<path fill="none" stroke="#722550" stroke-dasharray="5,2" d="M911.42,-108.15C888.51,-94.62 851.3,-72.65 825.46,-57.39"/>
+<polygon fill="#722550" stroke="#722550" points="827.22,-54.37 816.83,-52.3 823.66,-60.4 827.22,-54.37"/>
+</g>
+<!-- sourcefile~dqmc_tdm2.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node12" class="node">
+<title>sourcefile~dqmc_tdm2.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node12"><a xlink:href="../sourcefile/dqmc_tdm2.f90.html" xlink:title="dqmc_tdm2.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1116,-205.3 1018,-205.3 1018,-181.3 1116,-181.3 1116,-205.3"/>
+<text text-anchor="middle" x="1067" y="-190.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_tdm2.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_tdm2.f90&#45;&gt;sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge22" class="edge">
+<title>sourcefile~dqmc_tdm2.f90&#45;&gt;sourcefile~dqmc_phy2.f90</title>
+<path fill="none" stroke="#720255" stroke-dasharray="5,2" d="M1040.91,-205.31C1024.54,-212.53 1002.49,-221.1 982,-225.3 834.55,-255.5 656.02,-252.24 566.14,-247.92"/>
+<polygon fill="#720255" stroke="#720255" points="566.32,-244.42 556.15,-247.41 565.96,-251.41 566.32,-244.42"/>
+</g>
+<!-- sourcefile~dqmc_tdm2.f90&#45;&gt;sourcefile~dqmc_tdm1.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge31" class="edge">
+<title>sourcefile~dqmc_tdm2.f90&#45;&gt;sourcefile~dqmc_tdm1.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M1048.08,-181.17C1031.37,-170.11 1005.54,-153.65 982,-141.3 978.93,-139.68 975.7,-138.08 972.44,-136.53"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="973.8,-133.3 963.25,-132.3 970.87,-139.66 973.8,-133.3"/>
+</g>
+<!-- sourcefile~verify.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node13" class="node">
+<title>sourcefile~verify.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node13"><a xlink:href="../sourcefile/verify.f90.html" xlink:title="verify.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="965,-216.3 901,-216.3 901,-192.3 965,-192.3 965,-216.3"/>
+<text text-anchor="middle" x="933" y="-201.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">verify.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge19" class="edge">
+<title>sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_phy0.f90</title>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M794.5,-202.3C715.56,-196.34 624.02,-197.8 566.19,-199.75"/>
+<polygon fill="#014525" fill-opacity="0.019608" stroke="#014525" stroke-opacity="0.019608" points="566.02,-196.26 556.15,-200.11 566.27,-203.25 566.02,-196.26"/>
+</g>
+<!-- sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge30" class="edge">
+<title>sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_hubbard.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M900.74,-204.91C873.24,-205.19 832.16,-204.99 796.5,-202.3"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M794.5,-202.3C758.28,-199.56 718.61,-187.86 690.1,-177.81"/>
+<polygon fill="transparent" stroke="transparent" points="691.09,-174.45 680.5,-174.34 688.72,-181.03 691.09,-174.45"/>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node14" class="node">
+<title>sourcefile~dqmc_2dperl.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node14"><a xlink:href="../sourcefile/dqmc_2dperl.f90.html" xlink:title="dqmc_2dperl.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="848,-174.3 743,-174.3 743,-150.3 848,-150.3 848,-174.3"/>
+<text text-anchor="middle" x="795.5" y="-159.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_2dperl.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge34" class="edge">
+<title>sourcefile~verify.f90&#45;&gt;sourcefile~dqmc_2dperl.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M900.91,-194.66C884.49,-189.57 863.95,-183.2 845.44,-177.47"/>
+<polygon fill="#255000" stroke="#255000" points="846.29,-174.06 835.7,-174.45 844.21,-180.75 846.29,-174.06"/>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge27" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_hubbard.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M742.92,-162.3C734.57,-162.3 725.81,-162.3 717.17,-162.3"/>
+<polygon fill="transparent" stroke="transparent" points="717.09,-158.8 707.09,-162.3 717.09,-165.8 717.09,-158.8"/>
+</g>
+<!-- sourcefile~ggeom.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node15" class="node">
+<title>sourcefile~ggeom.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node15"><a xlink:href="../sourcefile/ggeom.f90.html" xlink:title="ggeom.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1103.5,-112.3 1030.5,-112.3 1030.5,-88.3 1103.5,-88.3 1103.5,-112.3"/>
+<text text-anchor="middle" x="1067" y="-97.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ggeom.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~ggeom.f90&#45;&gt;sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge29" class="edge">
+<title>sourcefile~ggeom.f90&#45;&gt;sourcefile~dqmc_hubbard.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M1030.44,-99.78C1015.48,-99.59 997.9,-99.39 982,-99.3 938.45,-99.04 927.18,-93.57 884,-99.3 816.14,-108.29 740.01,-131.38 693.66,-146.96"/>
+<polygon fill="transparent" stroke="transparent" points="692.3,-143.73 683.96,-150.26 694.55,-150.36 692.3,-143.73"/>
+</g>
+<!-- sourcefile~ggeom.f90&#45;&gt;sourcefile~dqmc_tdm1.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge32" class="edge">
+<title>sourcefile~ggeom.f90&#45;&gt;sourcefile~dqmc_tdm1.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M1030.28,-105.71C1018.59,-107.48 1005.29,-109.49 992.37,-111.45"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="991.51,-108.04 982.14,-113 992.56,-114.96 991.51,-108.04"/>
+</g>
+<!-- sourcefile~test.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_node16" class="node">
+<title>sourcefile~test.f90</title>
+<g id="a_sourcefile~~dqmc_wspace.f90~~AfferentGraph_node16"><a xlink:href="../sourcefile/test.f90.html" xlink:title="test.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="960.5,-174.3 905.5,-174.3 905.5,-150.3 960.5,-150.3 960.5,-174.3"/>
+<text text-anchor="middle" x="933" y="-159.9" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test.f90&#45;&gt;sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~dqmc_wspace.f90~~AfferentGraph_edge33" class="edge">
+<title>sourcefile~test.f90&#45;&gt;sourcefile~dqmc_2dperl.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M905.23,-162.3C891.75,-162.3 874.81,-162.3 858.34,-162.3"/>
+<polygon fill="#255000" stroke="#255000" points="858.18,-158.8 848.18,-162.3 858.18,-165.8 858.18,-158.8"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefiledqmc_wspacef90AfferentGraph = svgPanZoom('#sourcefiledqmc_wspacef90AfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">DQMC_WSpace</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_UTIL</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">  </span><span class="k">implicit none</span><span class="w"> </span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="c">! </span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="c">! This module is used for memory mangement.</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">  </span><span class="c">!</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">  </span><span class="c">! Data Type</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">  </span><span class="c">! =========</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">  </span><span class="c">!</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">  </span><span class="k">type </span><span class="n">WSpace</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">     </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lw</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,:)</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,:)</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R3</span><span class="p">(:,:)</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R4</span><span class="p">(:,:)</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R5</span><span class="p">(:)</span><span class="w">  </span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R6</span><span class="p">(:)</span><span class="w">  </span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R7</span><span class="p">(:)</span><span class="w">  </span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">     </span><span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R8</span><span class="p">(:,:)</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">     </span><span class="kt">integer</span><span class="p">,</span><span class="w">  </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">I1</span><span class="p">(:)</span><span class="w">  </span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">     </span><span class="kt">integer</span><span class="p">,</span><span class="w">  </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">I2</span><span class="p">(:)</span><span class="w">  </span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">  </span><span class="k">end type </span><span class="n">WSpace</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">  </span><span class="c">!</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">  </span><span class="c">! Parameters</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">  </span><span class="c">! ==========</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">  </span><span class="c">!</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">LA_SYEV</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">     </span><span class="c">! Index of LAPACK subroutines.</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">LA_GEQRF</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w">     </span><span class="c">! This is used to specify </span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">LA_ORGQR</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">     </span><span class="c">! the size of working space.</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">LA_ORMQR</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w">     </span><span class="c">!  </span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="w">  </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">LA_GETRI</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w">     </span><span class="c">!  </span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a>
+<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="k">contains</span>
+<a id="ln-38" name="ln-38" href="#ln-38"></a>
+<a id="ln-39" name="ln-39" href="#ln-39"></a><span class="w">  </span><span class="c">!---------------------------------------------------------------------!</span>
+<a id="ln-40" name="ln-40" href="#ln-40"></a>
+<a id="ln-41" name="ln-41" href="#ln-41"></a><span class="w">  </span><span class="k">subroutine </span><span class="n">DQMC_WSpace_Allocate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mx_nbr</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">)</span>
+<a id="ln-42" name="ln-42" href="#ln-42"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">    </span><span class="c">! Purpose</span>
+<a id="ln-44" name="ln-44" href="#ln-44"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-45" name="ln-45" href="#ln-45"></a><span class="w">    </span><span class="c">!    This subrotine allocates memory for MPool</span>
+<a id="ln-46" name="ln-46" href="#ln-46"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-47" name="ln-47" href="#ln-47"></a><span class="w">    </span><span class="c">! Arguments</span>
+<a id="ln-48" name="ln-48" href="#ln-48"></a><span class="w">    </span><span class="c">! =========</span>
+<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-50" name="ln-50" href="#ln-50"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mx_nbr</span><span class="w">  </span><span class="c">! </span>
+<a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">WSpace</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">WS</span><span class="w">         </span><span class="c">! working space</span>
+<a id="ln-52" name="ln-52" href="#ln-52"></a>
+<a id="ln-53" name="ln-53" href="#ln-53"></a><span class="w">    </span><span class="c">! ... Local scalar ...</span>
+<a id="ln-54" name="ln-54" href="#ln-54"></a><span class="w">    </span><span class="kt">integer</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">nb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span>
+<a id="ln-55" name="ln-55" href="#ln-55"></a>
+<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="w">    </span><span class="c">! ... Executable ....</span>
+<a id="ln-57" name="ln-57" href="#ln-57"></a>
+<a id="ln-58" name="ln-58" href="#ln-58"></a><span class="w">    </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="ln-59" name="ln-59" href="#ln-59"></a><span class="w">    </span><span class="c">! Initialize working space</span>
+<a id="ln-60" name="ln-60" href="#ln-60"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-61" name="ln-61" href="#ln-61"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-62" name="ln-62" href="#ln-62"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-63" name="ln-63" href="#ln-63"></a>
+<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="w">    </span><span class="n">nb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mx_nbr</span><span class="p">)</span>
+<a id="ln-65" name="ln-65" href="#ln-65"></a><span class="w">    </span><span class="c">!allocate(WS%R4(nb,nb))</span>
+<a id="ln-66" name="ln-66" href="#ln-66"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R4</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-67" name="ln-67" href="#ln-67"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R5</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-68" name="ln-68" href="#ln-68"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R6</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-69" name="ln-69" href="#ln-69"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">I1</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">I2</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-71" name="ln-71" href="#ln-71"></a>
+<a id="ln-72" name="ln-72" href="#ln-72"></a><span class="w">    </span><span class="c">! Get optimal block size for working space</span>
+<a id="ln-73" name="ln-73" href="#ln-73"></a><span class="w">    </span><span class="c">! Part of codes are copied from LAPACK</span>
+<a id="ln-74" name="ln-74" href="#ln-74"></a><span class="w">    </span><span class="k">call </span><span class="n">lapack_dsyev</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R2</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<a id="ln-75" name="ln-75" href="#ln-75"></a><span class="w">    </span><span class="n">WS</span><span class="p">%</span><span class="n">lw</span><span class="p">(</span><span class="n">LA_SYEV</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span>
+<a id="ln-76" name="ln-76" href="#ln-76"></a><span class="w">    </span><span class="k">call </span><span class="n">lapack_dgeqp3</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R5</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<a id="ln-77" name="ln-77" href="#ln-77"></a><span class="w">    </span><span class="n">WS</span><span class="p">%</span><span class="n">lw</span><span class="p">(</span><span class="n">LA_GEQRF</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<a id="ln-78" name="ln-78" href="#ln-78"></a><span class="w">    </span><span class="k">call </span><span class="n">lapack_dorgqr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R5</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<a id="ln-79" name="ln-79" href="#ln-79"></a><span class="w">    </span><span class="n">WS</span><span class="p">%</span><span class="n">lw</span><span class="p">(</span><span class="n">LA_ORGQR</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<a id="ln-80" name="ln-80" href="#ln-80"></a><span class="w">    </span><span class="k">call </span><span class="n">lapack_dormqr</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R5</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<a id="ln-81" name="ln-81" href="#ln-81"></a><span class="w">    </span><span class="n">WS</span><span class="p">%</span><span class="n">lw</span><span class="p">(</span><span class="n">LA_ORMQR</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<a id="ln-82" name="ln-82" href="#ln-82"></a><span class="w">    </span><span class="k">call </span><span class="n">lapack_dgetri</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<a id="ln-83" name="ln-83" href="#ln-83"></a><span class="w">    </span><span class="n">WS</span><span class="p">%</span><span class="n">lw</span><span class="p">(</span><span class="n">LA_GETRI</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<a id="ln-84" name="ln-84" href="#ln-84"></a>
+<a id="ln-85" name="ln-85" href="#ln-85"></a><span class="w">    </span><span class="n">nb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">maxval</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">lw</span><span class="p">)</span>
+<a id="ln-86" name="ln-86" href="#ln-86"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R7</span><span class="p">(</span><span class="n">nb</span><span class="p">))</span>
+<a id="ln-87" name="ln-87" href="#ln-87"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R8</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<a id="ln-88" name="ln-88" href="#ln-88"></a>
+<a id="ln-89" name="ln-89" href="#ln-89"></a><span class="w">  </span><span class="k">end subroutine </span><span class="n">DQMC_WSpace_Allocate</span>
+<a id="ln-90" name="ln-90" href="#ln-90"></a>
+<a id="ln-91" name="ln-91" href="#ln-91"></a><span class="w">  </span><span class="c">!---------------------------------------------------------------------!</span>
+<a id="ln-92" name="ln-92" href="#ln-92"></a><span class="w">  </span>
+<a id="ln-93" name="ln-93" href="#ln-93"></a><span class="w">  </span><span class="k">subroutine </span><span class="n">DQMC_WSpace_Free</span><span class="p">(</span><span class="n">WS</span><span class="p">)</span>
+<a id="ln-94" name="ln-94" href="#ln-94"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-95" name="ln-95" href="#ln-95"></a><span class="w">    </span><span class="c">! Purpose</span>
+<a id="ln-96" name="ln-96" href="#ln-96"></a><span class="w">    </span><span class="c">! =======</span>
+<a id="ln-97" name="ln-97" href="#ln-97"></a><span class="w">    </span><span class="c">!    This subrotine frees working space</span>
+<a id="ln-98" name="ln-98" href="#ln-98"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-99" name="ln-99" href="#ln-99"></a><span class="w">    </span><span class="c">! Arguments</span>
+<a id="ln-100" name="ln-100" href="#ln-100"></a><span class="w">    </span><span class="c">! =========</span>
+<a id="ln-101" name="ln-101" href="#ln-101"></a><span class="w">    </span><span class="c">!</span>
+<a id="ln-102" name="ln-102" href="#ln-102"></a><span class="w">    </span><span class="k">type</span><span class="p">(</span><span class="n">WSpace</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">WS</span><span class="w">         </span><span class="c">! working space</span>
+<a id="ln-103" name="ln-103" href="#ln-103"></a>
+<a id="ln-104" name="ln-104" href="#ln-104"></a><span class="w">    </span><span class="c">! ... Executable ....</span>
+<a id="ln-105" name="ln-105" href="#ln-105"></a>
+<a id="ln-106" name="ln-106" href="#ln-106"></a><span class="w">    </span><span class="k">deallocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">R1</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R2</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R3</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R4</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R5</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R6</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R7</span><span class="p">,</span><span class="n">WS</span><span class="p">%</span><span class="n">R8</span><span class="p">)</span>
+<a id="ln-107" name="ln-107" href="#ln-107"></a><span class="w">    </span><span class="k">deallocate</span><span class="p">(</span><span class="n">WS</span><span class="p">%</span><span class="n">I1</span><span class="p">,</span><span class="w"> </span><span class="n">WS</span><span class="p">%</span><span class="n">I2</span><span class="p">)</span>
+<a id="ln-108" name="ln-108" href="#ln-108"></a>
+<a id="ln-109" name="ln-109" href="#ln-109"></a><span class="w">  </span><span class="k">end subroutine </span><span class="n">DQMC_WSpace_Free</span>
+<a id="ln-110" name="ln-110" href="#ln-110"></a>
+<a id="ln-111" name="ln-111" href="#ln-111"></a><span class="k">end module </span><span class="n">DQMC_Wspace</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

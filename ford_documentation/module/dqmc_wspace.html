@@ -1,0 +1,1251 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_WSpace &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_WSpace
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.5% of total for modules and submodules.">56 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_wspace.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_wspace.f90.html'>dqmc_wspace.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_WSpace</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_wspace.html#variable-la_syev">LA_SYEV</a>
+            <a class="list-group-item" href="../module/dqmc_wspace.html#variable-la_geqrf">LA_GEQRF</a>
+            <a class="list-group-item" href="../module/dqmc_wspace.html#variable-la_orgqr">LA_ORGQR</a>
+            <a class="list-group-item" href="../module/dqmc_wspace.html#variable-la_ormqr">LA_ORMQR</a>
+            <a class="list-group-item" href="../module/dqmc_wspace.html#variable-la_getri">LA_GETRI</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_wspace.html#type-wspace">WSpace</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_wspace.html#proc-dqmc_wspace_allocate">DQMC_WSpace_Allocate</a>
+            <a class="list-group-item" href="../module/dqmc_wspace.html#proc-dqmc_wspace_free">DQMC_WSpace_Free</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='dqmc_util.html'>DQMC_Util</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_wspace~~UsesGraph Pages: 1 -->
+<svg id="moduledqmc_wspaceUsesGraph" width="206pt" height="32pt"
+ viewBox="0.00 0.00 206.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_wspace~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>module~~dqmc_wspace~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 202,-28 202,4 -4,4"/>
+<!-- module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsesGraph_node1" class="node">
+<title>module~dqmc_wspace</title>
+<polygon fill="none" stroke="black" points="198,-24 104,-24 104,0 198,0 198,-24"/>
+<text text-anchor="middle" x="151" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_WSpace</text>
+</g>
+<!-- module~dqmc_util -->
+<g id="module~~dqmc_wspace~~UsesGraph_node2" class="node">
+<title>module~dqmc_util</title>
+<g id="a_module~~dqmc_wspace~~UsesGraph_node2"><a xlink:href="../module/dqmc_util.html" xlink:title="DQMC_Util">
+<polygon fill="#337ab7" stroke="#337ab7" points="68,-24 0,-24 0,0 68,0 68,-24"/>
+<text text-anchor="middle" x="34" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_wspace&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_wspace~~UsesGraph_edge1" class="edge">
+<title>module~dqmc_wspace&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M103.89,-12C95.36,-12 86.48,-12 78.05,-12"/>
+<polygon fill="#255000" stroke="#255000" points="78.03,-8.5 68.03,-12 78.03,-15.5 78.03,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_wspace~~UsedByGraph Pages: 1 -->
+<svg id="moduledqmc_wspaceUsedByGraph" width="641pt" height="214pt"
+ viewBox="0.00 0.00 641.00 214.34" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_wspace~~UsedByGraph" class="graph" transform="scale(1.49 1.49) rotate(0) translate(4 316)">
+<title>module~~dqmc_wspace~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-316 953,-316 953,4 -4,4"/>
+<!-- module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node1" class="node">
+<title>module~dqmc_wspace</title>
+<polygon fill="none" stroke="black" points="94,-233 0,-233 0,-209 94,-209 94,-233"/>
+<text text-anchor="middle" x="47" y="-218.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_WSpace</text>
+</g>
+<!-- module~dqmc_checkerboard -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node2" class="node">
+<title>module~dqmc_checkerboard</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node2"><a xlink:href="../module/dqmc_checkerboard.html" xlink:title="DQMC_CheckerBoard">
+<polygon fill="#337ab7" stroke="#337ab7" points="257,-312 130,-312 130,-288 257,-288 257,-312"/>
+<text text-anchor="middle" x="193.5" y="-297.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_CheckerBoard</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_checkerboard&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge1" class="edge">
+<title>module~dqmc_checkerboard&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M160.52,-287.99C150.57,-283.91 139.67,-279.09 130,-274 110.12,-263.55 88.86,-249.72 72.97,-238.81"/>
+<polygon fill="#255000" stroke="#255000" points="74.95,-235.92 64.74,-233.09 70.95,-241.67 74.95,-235.92"/>
+</g>
+<!-- module~dqmc_gfun -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node3" class="node">
+<title>module~dqmc_gfun</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node3"><a xlink:href="../module/dqmc_gfun.html" xlink:title="DQMC_GFun">
+<polygon fill="#337ab7" stroke="#337ab7" points="487,-186 409,-186 409,-162 487,-162 487,-186"/>
+<text text-anchor="middle" x="448" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GFun</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_gfun&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge2" class="edge">
+<title>module~dqmc_gfun&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M413.91,-161.91C391.66,-154.46 361.49,-145.65 334,-142"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M332,-142C269.15,-133.65 253.33,-80.35 194.5,-104"/>
+</g>
+<!-- module~dqmc_matb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node5" class="node">
+<title>module~dqmc_matb</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node5"><a xlink:href="../module/dqmc_matb.html" xlink:title="DQMC_MATB">
+<polygon fill="#337ab7" stroke="#337ab7" points="233.5,-194 153.5,-194 153.5,-170 233.5,-170 233.5,-194"/>
+<text text-anchor="middle" x="193.5" y="-179.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_MATB</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_gfun&#45;&gt;module~dqmc_matb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge12" class="edge">
+<title>module~dqmc_gfun&#45;&gt;module~dqmc_matb</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M332,-142C294.3,-136.99 252.56,-152.25 225.07,-165.34"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="223.38,-162.27 215.97,-169.85 226.49,-168.55 223.38,-162.27"/>
+</g>
+<!-- module~dqmc_seqb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node8" class="node">
+<title>module~dqmc_seqb</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node8"><a xlink:href="../module/dqmc_seqb.html" xlink:title="DQMC_SEQB">
+<polygon fill="#337ab7" stroke="#337ab7" points="373,-194 293,-194 293,-170 373,-170 373,-194"/>
+<text text-anchor="middle" x="333" y="-179.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SEQB</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_gfun&#45;&gt;module~dqmc_seqb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge23" class="edge">
+<title>module~dqmc_gfun&#45;&gt;module~dqmc_seqb</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M408.74,-176.71C400.64,-177.28 391.98,-177.9 383.53,-178.49"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="383.1,-175.01 373.37,-179.21 383.6,-182 383.1,-175.01"/>
+</g>
+<!-- module~dqmc_gtau -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node4" class="node">
+<title>module~dqmc_gtau</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node4"><a xlink:href="../module/dqmc_gtau.html" xlink:title="DQMC_GTAU">
+<polygon fill="#337ab7" stroke="#337ab7" points="611,-228 532,-228 532,-204 611,-204 611,-228"/>
+<text text-anchor="middle" x="571.5" y="-213.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GTAU</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_gtau&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge3" class="edge">
+<title>module~dqmc_gtau&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M332,-260C271.46,-251.7 255.61,-259.62 194.5,-260"/>
+</g>
+<!-- module~dqmc_gtau&#45;&gt;module~dqmc_gfun -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge8" class="edge">
+<title>module~dqmc_gtau&#45;&gt;module~dqmc_gfun</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M535.68,-203.96C522.59,-199.44 507.52,-194.23 493.66,-189.44"/>
+<polygon fill="transparent" stroke="transparent" points="494.42,-186 483.82,-186.04 492.13,-192.61 494.42,-186"/>
+</g>
+<!-- module~dqmc_gtau&#45;&gt;module~dqmc_matb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge13" class="edge">
+<title>module~dqmc_gtau&#45;&gt;module~dqmc_matb</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M447,-260C396.78,-260.38 383.76,-266.82 334,-260"/>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M332,-260C286.07,-253.7 240.89,-221.76 215.47,-200.75"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="217.52,-197.9 207.63,-194.1 212.99,-203.24 217.52,-197.9"/>
+</g>
+<!-- module~dqmc_gtau&#45;&gt;module~dqmc_seqb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge24" class="edge">
+<title>module~dqmc_gtau&#45;&gt;module~dqmc_seqb</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M550.24,-228.15C526.75,-241.08 486.46,-259.71 449,-260"/>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M447,-260C406.24,-260.31 369.51,-225.4 349.62,-202.19"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="352.14,-199.74 343.07,-194.25 346.74,-204.2 352.14,-199.74"/>
+</g>
+<!-- module~dqmc_matb&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge4" class="edge">
+<title>module~dqmc_matb&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M153.4,-192.55C137.68,-196.8 119.28,-201.76 102.3,-206.34"/>
+<polygon fill="#255000" stroke="#255000" points="101.24,-203.01 92.5,-208.99 103.06,-209.76 101.24,-203.01"/>
+</g>
+<!-- module~dqmc_phy0 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node6" class="node">
+<title>module~dqmc_phy0</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node6"><a xlink:href="../module/dqmc_phy0.html" xlink:title="DQMC_Phy0">
+<polygon fill="#337ab7" stroke="#337ab7" points="486,-39 410,-39 410,-15 486,-15 486,-39"/>
+<text text-anchor="middle" x="448" y="-24.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy0</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_phy0&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge5" class="edge">
+<title>module~dqmc_phy0&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M409.81,-35.84C359.83,-48.28 268.69,-72.94 194.5,-104"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M192.5,-104C138.63,-124.47 89.62,-173.29 64.89,-200.97"/>
+<polygon fill="#255000" stroke="#255000" points="61.97,-198.99 58.02,-208.82 67.24,-203.6 61.97,-198.99"/>
+</g>
+<!-- module~dqmc_phy2 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node7" class="node">
+<title>module~dqmc_phy2</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node7"><a xlink:href="../module/dqmc_phy2.html" xlink:title="DQMC_Phy2">
+<polygon fill="#337ab7" stroke="#337ab7" points="486,-128 410,-128 410,-104 486,-104 486,-128"/>
+<text text-anchor="middle" x="448" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Phy2</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_phy2&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge6" class="edge">
+<title>module~dqmc_phy2&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M409.86,-104.89C359.16,-91.76 266.37,-75.11 194.5,-104"/>
+</g>
+<!-- module~dqmc_seqb&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge7" class="edge">
+<title>module~dqmc_seqb&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M320.4,-194.13C298.19,-215.96 247.19,-259.67 194.5,-260"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M192.5,-260C154.85,-260.23 113.52,-247.71 84.74,-236.79"/>
+<polygon fill="#255000" stroke="#255000" points="85.7,-233.41 75.11,-233.02 83.15,-239.92 85.7,-233.41"/>
+</g>
+<!-- module~dqmc_seqb&#45;&gt;module~dqmc_matb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge16" class="edge">
+<title>module~dqmc_seqb&#45;&gt;module~dqmc_matb</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M292.97,-182C277.73,-182 260.07,-182 243.96,-182"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="243.63,-178.5 233.63,-182 243.63,-185.5 243.63,-178.5"/>
+</g>
+<!-- module~dqmc_hubbard -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node9" class="node">
+<title>module~dqmc_hubbard</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node9"><a xlink:href="../module/dqmc_hubbard.html" xlink:title="DQMC_Hubbard">
+<polygon fill="#337ab7" stroke="#337ab7" points="620,-79 523,-79 523,-55 620,-55 620,-79"/>
+<text text-anchor="middle" x="571.5" y="-64.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_gfun -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge9" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_gfun</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M556.56,-79.27C535.51,-97.82 495.41,-133.13 470.57,-155.01"/>
+<polygon fill="transparent" stroke="transparent" points="467.97,-152.63 462.78,-161.87 472.59,-157.89 467.97,-152.63"/>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_matb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge14" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_matb</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M522.9,-62.01C500.24,-60.89 472.93,-61.4 449,-67"/>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M447,-67C360.56,-87.25 267.71,-137.95 222.48,-164.76"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="220.61,-161.8 213.83,-169.94 224.21,-167.8 220.61,-161.8"/>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_phy0 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge17" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_phy0</title>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M534.05,-55C521.9,-51 508.21,-46.49 495.42,-42.28"/>
+<polygon fill="#014525" fill-opacity="0.019608" stroke="#014525" stroke-opacity="0.019608" points="496.44,-38.93 485.85,-39.13 494.25,-45.58 496.44,-38.93"/>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_phy2 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge20" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_phy2</title>
+<path fill="none" stroke="#720255" stroke-dasharray="5,2" d="M540.47,-79.11C524.84,-85.41 505.54,-93.2 488.69,-99.99"/>
+<polygon fill="#720255" stroke="#720255" points="487.07,-96.87 479.11,-103.86 489.69,-103.36 487.07,-96.87"/>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_seqb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge25" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_seqb</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M447,-67C396.91,-78.73 408.36,-118.64 373,-156 370.38,-158.76 367.42,-161.38 364.33,-163.82"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="362.06,-161.14 355.98,-169.82 366.15,-166.83 362.06,-161.14"/>
+</g>
+<!-- module~dqmc_hubbard~2 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node10" class="node">
+<title>module~dqmc_hubbard~2</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node10"><a xlink:href="../module/dqmc_hubbard~2.html" xlink:title="DQMC_Hubbard">
+<polygon fill="#337ab7" stroke="#337ab7" points="620,-186 523,-186 523,-162 620,-162 620,-186"/>
+<text text-anchor="middle" x="571.5" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_gfun -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge10" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_gfun</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M522.83,-174C514.42,-174 505.65,-174 497.22,-174"/>
+<polygon fill="transparent" stroke="transparent" points="497.16,-170.5 487.16,-174 497.16,-177.5 497.16,-170.5"/>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_matb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge15" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_matb</title>
+<path fill="none" stroke="#025514" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M447,-222C374.96,-229.17 292.2,-210.96 241.64,-196.81"/>
+<polygon fill="#025514" fill-opacity="0.019608" stroke="#025514" stroke-opacity="0.019608" points="242.55,-193.43 231.97,-194.04 240.62,-200.16 242.55,-193.43"/>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy0 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge18" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy0</title>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M564.16,-161.94C551.64,-138.88 521.9,-87.76 487,-53 484.29,-50.3 481.27,-47.71 478.15,-45.27"/>
+<polygon fill="#014525" fill-opacity="0.019608" stroke="#014525" stroke-opacity="0.019608" points="479.94,-42.24 469.78,-39.21 475.83,-47.91 479.94,-42.24"/>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy2 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge21" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy2</title>
+<path fill="none" stroke="#720255" stroke-dasharray="5,2" d="M545.33,-161.98C527.41,-153.43 503.11,-141.83 483.4,-132.42"/>
+<polygon fill="#720255" stroke="#720255" points="484.67,-129.15 474.14,-128 481.66,-135.47 484.67,-129.15"/>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_seqb -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge26" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_seqb</title>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M542.4,-186.04C509.62,-199.95 458.65,-221.04 449,-222"/>
+<path fill="none" stroke="#255021" stroke-dasharray="5,2" stroke-opacity="0.031373" d="M447,-222C416.56,-225.03 383.82,-211.39 361.46,-199.23"/>
+<polygon fill="#255021" fill-opacity="0.031373" stroke="#255021" stroke-opacity="0.031373" points="362.97,-196.06 352.54,-194.16 359.51,-202.15 362.97,-196.06"/>
+</g>
+<!-- module~dqmc_tdm1 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node11" class="node">
+<title>module~dqmc_tdm1</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node11"><a xlink:href="../module/dqmc_tdm1.html" xlink:title="DQMC_TDM1">
+<polygon fill="#337ab7" stroke="#337ab7" points="783,-186 701,-186 701,-162 783,-162 783,-186"/>
+<text text-anchor="middle" x="742" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM1</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_tdm1&#45;&gt;module~dqmc_gtau -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge11" class="edge">
+<title>module~dqmc_tdm1&#45;&gt;module~dqmc_gtau</title>
+<path fill="none" stroke="#722550" stroke-dasharray="5,2" d="M700.64,-184.06C676.66,-190.04 646.1,-197.66 620.83,-203.95"/>
+<polygon fill="#722550" stroke="#722550" points="619.94,-200.57 611.08,-206.38 621.63,-207.36 619.94,-200.57"/>
+</g>
+<!-- module~dqmc_tdm2 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node12" class="node">
+<title>module~dqmc_tdm2</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node12"><a xlink:href="../module/dqmc_tdm2.html" xlink:title="DQMC_TDM2">
+<polygon fill="#337ab7" stroke="#337ab7" points="947.5,-165 865.5,-165 865.5,-141 947.5,-141 947.5,-165"/>
+<text text-anchor="middle" x="906.5" y="-150.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_TDM2</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_tdm2&#45;&gt;module~dqmc_phy2 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge22" class="edge">
+<title>module~dqmc_tdm2&#45;&gt;module~dqmc_phy2</title>
+<path fill="none" stroke="#720255" stroke-dasharray="5,2" d="M865.39,-149.75C781.26,-142.93 586.7,-127.16 496.5,-119.85"/>
+<polygon fill="#720255" stroke="#720255" points="496.54,-116.34 486.29,-119.02 495.97,-123.32 496.54,-116.34"/>
+</g>
+<!-- module~dqmc_tdm2&#45;&gt;module~dqmc_tdm1 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge31" class="edge">
+<title>module~dqmc_tdm2&#45;&gt;module~dqmc_tdm1</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M865.33,-158.19C843.55,-161.01 816.43,-164.51 793.27,-167.5"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="792.74,-164.04 783.27,-168.8 793.64,-170.99 792.74,-164.04"/>
+</g>
+<!-- program~dqmc_verify -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node13" class="node">
+<title>program~dqmc_verify</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node13"><a xlink:href="../program/dqmc_verify.html" xlink:title="dqmc_verify">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="945.5,-24 867.5,-24 867.5,0 945.5,0 945.5,-24"/>
+<text text-anchor="middle" x="906.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_verify</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_phy0 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge19" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_phy0</title>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M867.34,-10.28C834.37,-9.21 785.46,-8.6 743,-12"/>
+<path fill="none" stroke="#014525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M741,-12C655.02,-18.89 554.53,-23.24 496.67,-25.39"/>
+<polygon fill="#014525" fill-opacity="0.019608" stroke="#014525" stroke-opacity="0.019608" points="496.25,-21.9 486.38,-25.77 496.5,-28.9 496.25,-21.9"/>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge30" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M741,-12C702.41,-15.09 692.82,-19.06 656,-31 639.37,-36.39 621.5,-43.85 606.58,-50.59"/>
+<polygon fill="#255000" stroke="#255000" points="604.87,-47.52 597.24,-54.88 607.79,-53.88 604.87,-47.52"/>
+</g>
+<!-- module~dqmc_2dperl -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node14" class="node">
+<title>module~dqmc_2dperl</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node14"><a xlink:href="../module/dqmc_2dperl.html" xlink:title="DQMC_2DPERL">
+<polygon fill="#337ab7" stroke="#337ab7" points="788,-64 696,-64 696,-40 788,-40 788,-64"/>
+<text text-anchor="middle" x="742" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_2DPERL</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_2dperl -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge34" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_2dperl</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M867.4,-21.38C846.73,-26.47 820.8,-32.85 797.98,-38.47"/>
+<polygon fill="#255000" stroke="#255000" points="796.95,-35.12 788.07,-40.9 798.62,-41.91 796.95,-35.12"/>
+</g>
+<!-- module~dqmc_2dperl&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge27" class="edge">
+<title>module~dqmc_2dperl&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M695.85,-56.02C675.65,-57.82 651.6,-59.96 630.12,-61.87"/>
+<polygon fill="#255000" stroke="#255000" points="629.79,-58.39 620.14,-62.76 630.41,-65.36 629.79,-58.39"/>
+</g>
+<!-- proc~dqmc_gtau_init -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node15" class="node">
+<title>proc~dqmc_gtau_init</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node15"><a xlink:href="../proc/dqmc_gtau_init.html" xlink:title="DQMC_GTAU::DQMC_Gtau_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="828,-106 656,-106 656,-82 828,-82 828,-106"/>
+<text text-anchor="middle" x="742" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GTAU::DQMC_Gtau_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_gtau_init&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge28" class="edge">
+<title>proc~dqmc_gtau_init&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M665.62,-81.92C653.81,-80.03 641.77,-78.1 630.44,-76.28"/>
+<polygon fill="#255000" stroke="#255000" points="630.68,-72.78 620.25,-74.65 629.57,-79.69 630.68,-72.78"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node16" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node16"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="949,-216 864,-216 864,-192 949,-192 949,-216"/>
+<text text-anchor="middle" x="906.5" y="-201.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge29" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M863.96,-213.49C811.75,-223.08 721.09,-231.79 656,-195 634.65,-182.93 600.59,-121.54 583.31,-88.36"/>
+<polygon fill="#255000" stroke="#255000" points="586.21,-86.34 578.52,-79.05 579.98,-89.54 586.21,-86.34"/>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;module~dqmc_tdm1 -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge32" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;module~dqmc_tdm1</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M863.65,-196.27C842.12,-192.3 815.72,-187.43 793.12,-183.25"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="793.49,-179.76 783.03,-181.39 792.22,-186.65 793.49,-179.76"/>
+</g>
+<!-- program~dqmc_test -->
+<g id="module~~dqmc_wspace~~UsedByGraph_node17" class="node">
+<title>program~dqmc_test</title>
+<g id="a_module~~dqmc_wspace~~UsedByGraph_node17"><a xlink:href="../program/dqmc_test.html" xlink:title="dqmc_test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="940,-66 873,-66 873,-42 940,-42 940,-66"/>
+<text text-anchor="middle" x="906.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_test</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_test&#45;&gt;module~dqmc_2dperl -->
+<g id="module~~dqmc_wspace~~UsedByGraph_edge33" class="edge">
+<title>program~dqmc_test&#45;&gt;module~dqmc_2dperl</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M872.62,-53.6C851.36,-53.33 823.15,-52.99 798.48,-52.68"/>
+<polygon fill="#255000" stroke="#255000" points="798.19,-49.18 788.15,-52.56 798.11,-56.18 798.19,-49.18"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panmoduledqmc_wspaceUsedByGraph = svgPanZoom('#moduledqmc_wspaceUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-la_syev"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>LA_SYEV</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-la_geqrf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>LA_GEQRF</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-la_orgqr"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>LA_ORGQR</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-la_ormqr"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>LA_ORMQR</strong></td>
+<td> =</td>
+                <td>4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-la_getri"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>LA_GETRI</strong></td>
+<td> =</td>
+                <td>5</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-wspace"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/wspace.html'>WSpace</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lw~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lw</strong>(5)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R1</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r2"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R2</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r3"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R3</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r4"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R4</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r5"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R5</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r6"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R6</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r7"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R7</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r8"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>R8</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>I1</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>I2</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_wspace_allocate"></span> <h3>public  subroutine <a href='../proc/dqmc_wspace_allocate.html'>DQMC_WSpace_Allocate</a>(n, mx_nbr, WS)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~93"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mx_nbr"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mx_nbr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ws~13"></span>
+              type(<a href='../type/wspace.html'>WSpace</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>WS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_wspace_free"></span> <h3>public  subroutine <a href='../proc/dqmc_wspace_free.html'>DQMC_WSpace_Free</a>(WS)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ws~14"></span>
+              type(<a href='../type/wspace.html'>WSpace</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>WS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,783 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>map_symm_lattice &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>map_symm_lattice
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.3% of total for procedures.">145 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_symm.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_symm.f90.html'>dqmc_symm.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dqmc_symm.html'>DQMC_SYMM</a></li>
+            <li class="breadcrumb-item active" aria-current="page">map_symm_lattice</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine map_symm_lattice(SymmOp, lattice, hamilt, SOP)  
+</h2>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/dqmc_hamilt.html'>DQMC_HAMILT</a></li>
+                  <li class="list-inline-item"><a href='../module/dqmc_latt.html'>DQMC_LATT</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~map_symm_lattice~~UsesGraph Pages: 1 -->
+<svg id="procmap_symm_latticeUsesGraph" width="641pt" height="115pt"
+ viewBox="0.00 0.00 641.00 114.71" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~map_symm_lattice~~UsesGraph" class="graph" transform="scale(1.14 1.14) rotate(0) translate(4 126.64)">
+<title>proc~~map_symm_lattice~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-126.64 726,-126.64 726,4 -4,4"/>
+<!-- proc~map_symm_lattice -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node1" class="node">
+<title>proc~map_symm_lattice</title>
+<polygon fill="none" stroke="black" points="722,-84 532,-84 532,-60 722,-60 722,-84"/>
+<text text-anchor="middle" x="627" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_SYMM::map_symm_lattice</text>
+</g>
+<!-- module~dqmc_hamilt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node2" class="node">
+<title>module~dqmc_hamilt</title>
+<g id="a_proc~~map_symm_lattice~~UsesGraph_node2"><a xlink:href="../module/dqmc_hamilt.html" xlink:title="DQMC_HAMILT">
+<polygon fill="#337ab7" stroke="#337ab7" points="496,-64 406,-64 406,-40 496,-40 496,-64"/>
+<text text-anchor="middle" x="451" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_HAMILT</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;module~dqmc_hamilt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge1" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;module~dqmc_hamilt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M531.87,-61.18C523.09,-60.17 514.4,-59.17 506.17,-58.23"/>
+<polygon fill="#255000" stroke="#255000" points="506.36,-54.73 496.03,-57.06 505.56,-61.68 506.36,-54.73"/>
+</g>
+<!-- module~dqmc_latt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node3" class="node">
+<title>module~dqmc_latt</title>
+<g id="a_proc~~map_symm_lattice~~UsesGraph_node3"><a xlink:href="../module/dqmc_latt.html" xlink:title="DQMC_LATT">
+<polygon fill="#337ab7" stroke="#337ab7" points="237,-104 161,-104 161,-80 237,-80 237,-104"/>
+<text text-anchor="middle" x="199" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;module~dqmc_latt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge2" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M531.97,-77.67C472.01,-81.42 392.66,-86.61 322.5,-92"/>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_latt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge5" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M423.84,-64.07C398.54,-74.8 358.82,-89.21 322.5,-92"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M320.5,-92C296.46,-93.85 269.64,-94.03 247.42,-93.67"/>
+<polygon fill="#255000" stroke="#255000" points="247.31,-90.17 237.24,-93.47 247.17,-97.17 247.31,-90.17"/>
+</g>
+<!-- module~dqmc_cfg -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node4" class="node">
+<title>module~dqmc_cfg</title>
+<g id="a_proc~~map_symm_lattice~~UsesGraph_node4"><a xlink:href="../module/dqmc_cfg.html" xlink:title="DQMC_Cfg">
+<polygon fill="#337ab7" stroke="#337ab7" points="233.5,-24 164.5,-24 164.5,0 233.5,0 233.5,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_cfg -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge3" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_cfg</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M408.74,-39.94C396.36,-36.66 382.71,-33.36 370,-31 327.53,-23.1 278.44,-18.04 243.97,-15.15"/>
+<polygon fill="#255000" stroke="#255000" points="244.01,-11.64 233.76,-14.32 243.44,-18.62 244.01,-11.64"/>
+</g>
+<!-- module~dqmc_geom_param -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node5" class="node">
+<title>module~dqmc_geom_param</title>
+<g id="a_proc~~map_symm_lattice~~UsesGraph_node5"><a xlink:href="../module/dqmc_geom_param.html" xlink:title="DQMC_GEOM_PARAM">
+<polygon fill="#337ab7" stroke="#337ab7" points="125,-104 0,-104 0,-80 125,-80 125,-104"/>
+<text text-anchor="middle" x="62.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GEOM_PARAM</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_geom_param -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge4" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M437.07,-64.05C422.18,-77.08 396.38,-97.17 370,-106 285.91,-134.16 181.57,-119.77 118.88,-106.27"/>
+<polygon fill="#255000" stroke="#255000" points="119.33,-102.78 108.8,-104.03 117.81,-109.62 119.33,-102.78"/>
+</g>
+<!-- module~dqmc_reclatt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node6" class="node">
+<title>module~dqmc_reclatt</title>
+<g id="a_proc~~map_symm_lattice~~UsesGraph_node6"><a xlink:href="../module/dqmc_reclatt.html" xlink:title="DQMC_RECLATT">
+<polygon fill="#337ab7" stroke="#337ab7" points="370,-64 273,-64 273,-40 370,-40 370,-64"/>
+<text text-anchor="middle" x="321.5" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_RECLATT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hamilt&#45;&gt;module~dqmc_reclatt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge6" class="edge">
+<title>module~dqmc_hamilt&#45;&gt;module~dqmc_reclatt</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M405.76,-52C397.58,-52 388.93,-52 380.41,-52"/>
+<polygon fill="#255000" stroke="#255000" points="380.13,-48.5 370.13,-52 380.13,-55.5 380.13,-48.5"/>
+</g>
+<!-- module~dqmc_latt&#45;&gt;module~dqmc_geom_param -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge7" class="edge">
+<title>module~dqmc_latt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M160.89,-92C152.81,-92 144,-92 135.09,-92"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="135.02,-88.5 125.02,-92 135.02,-95.5 135.02,-88.5"/>
+</g>
+<!-- module~dqmc_util -->
+<g id="proc~~map_symm_lattice~~UsesGraph_node7" class="node">
+<title>module~dqmc_util</title>
+<g id="a_proc~~map_symm_lattice~~UsesGraph_node7"><a xlink:href="../module/dqmc_util.html" xlink:title="DQMC_Util">
+<polygon fill="#337ab7" stroke="#337ab7" points="96.5,-43 28.5,-43 28.5,-19 96.5,-19 96.5,-43"/>
+<text text-anchor="middle" x="62.5" y="-28.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_latt&#45;&gt;module~dqmc_util -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge8" class="edge">
+<title>module~dqmc_latt&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M171.43,-79.95C150.79,-70.59 121.98,-57.52 99.31,-47.24"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="100.57,-43.97 90.02,-43.03 97.68,-50.34 100.57,-43.97"/>
+</g>
+<!-- module~dqmc_cfg&#45;&gt;module~dqmc_util -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge9" class="edge">
+<title>module~dqmc_cfg&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M164.41,-16.75C146.94,-19.21 125.4,-22.26 106.71,-24.9"/>
+<polygon fill="#255000" stroke="#255000" points="106.08,-21.45 96.66,-26.31 107.06,-28.38 106.08,-21.45"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_latt -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge12" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_latt</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M284.35,-64C272.42,-67.96 258.99,-72.42 246.41,-76.6"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="244.93,-73.4 236.54,-79.87 247.14,-80.04 244.93,-73.4"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_cfg -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge10" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_cfg</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M284.35,-40C271.4,-35.7 256.69,-30.82 243.21,-26.34"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="244.25,-23 233.66,-23.17 242.04,-29.64 244.25,-23"/>
+</g>
+<!-- module~dqmc_reclatt&#45;&gt;module~dqmc_geom_param -->
+<g id="proc~~map_symm_lattice~~UsesGraph_edge11" class="edge">
+<title>module~dqmc_reclatt&#45;&gt;module~dqmc_geom_param</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M272.88,-56.5C241.09,-59.79 198.41,-64.76 161,-71 149.26,-72.96 136.79,-75.38 124.84,-77.88"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="123.99,-74.48 114.94,-79.98 125.45,-81.32 123.99,-74.48"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocmap_symm_latticeUsesGraph = svgPanZoom('#procmap_symm_latticeUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-symmop~3"></span>
+              type(<a href='../type/symm_operations.html'>symm_operations</a>)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SymmOp</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lattice~7"></span>
+              type(<a href='../type/lattice_t.html'>lattice_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lattice</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hamilt~8"></span>
+              type(<a href='../type/hamiltonian_t.html'>Hamiltonian_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hamilt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sop~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SOP</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~map_symm_lattice~~CallsGraph Pages: 1 -->
+<svg id="procmap_symm_latticeCallsGraph" width="423pt" height="74pt"
+ viewBox="0.00 0.00 423.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~map_symm_lattice~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>proc~~map_symm_lattice~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 419,-70 419,4 -4,4"/>
+<!-- proc~map_symm_lattice -->
+<g id="proc~~map_symm_lattice~~CallsGraph_node1" class="node">
+<title>proc~map_symm_lattice</title>
+<polygon fill="none" stroke="black" points="190,-45 0,-45 0,-21 190,-21 190,-45"/>
+<text text-anchor="middle" x="95" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_SYMM::map_symm_lattice</text>
+</g>
+<!-- proc~apply_point_symm -->
+<g id="proc~~map_symm_lattice~~CallsGraph_node2" class="node">
+<title>proc~apply_point_symm</title>
+<g id="a_proc~~map_symm_lattice~~CallsGraph_node2"><a xlink:href="../proc/apply_point_symm.html" xlink:title="DQMC_SYMM::apply_point_symm">
+<polygon fill="#d9534f" stroke="#d9534f" points="415,-66 226,-66 226,-42 415,-42 415,-66"/>
+<text text-anchor="middle" x="320.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::apply_point_symm</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;proc~apply_point_symm -->
+<g id="proc~~map_symm_lattice~~CallsGraph_edge1" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;proc~apply_point_symm</title>
+<path fill="none" stroke="#255000" d="M190.14,-41.85C198.63,-42.64 207.25,-43.45 215.82,-44.26"/>
+<polygon fill="#255000" stroke="#255000" points="215.55,-47.75 225.83,-45.2 216.2,-40.78 215.55,-47.75"/>
+</g>
+<!-- proc~get_inverse -->
+<g id="proc~~map_symm_lattice~~CallsGraph_node3" class="node">
+<title>proc~get_inverse</title>
+<g id="a_proc~~map_symm_lattice~~CallsGraph_node3"><a xlink:href="../proc/get_inverse.html" xlink:title="DQMC_Util::get_inverse">
+<polygon fill="#d9534f" stroke="#d9534f" points="389,-24 252,-24 252,0 389,0 389,-24"/>
+<text text-anchor="middle" x="320.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::get_inverse</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;proc~get_inverse -->
+<g id="proc~~map_symm_lattice~~CallsGraph_edge2" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M190.14,-24.15C207.33,-22.54 225.09,-20.87 241.74,-19.31"/>
+<polygon fill="#255000" stroke="#255000" points="242.31,-22.77 251.94,-18.35 241.66,-15.8 242.31,-22.77"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~map_symm_lattice~~CalledByGraph Pages: 1 -->
+<svg id="procmap_symm_latticeCalledByGraph" width="572pt" height="32pt"
+ viewBox="0.00 0.00 572.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~map_symm_lattice~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~map_symm_lattice~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 568,-28 568,4 -4,4"/>
+<!-- proc~map_symm_lattice -->
+<g id="proc~~map_symm_lattice~~CalledByGraph_node1" class="node">
+<title>proc~map_symm_lattice</title>
+<polygon fill="none" stroke="black" points="564,-24 374,-24 374,0 564,0 564,-24"/>
+<text text-anchor="middle" x="469" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_SYMM::map_symm_lattice</text>
+</g>
+<!-- proc~dqmc_geom_fill -->
+<g id="proc~~map_symm_lattice~~CalledByGraph_node2" class="node">
+<title>proc~dqmc_geom_fill</title>
+<g id="a_proc~~map_symm_lattice~~CalledByGraph_node2"><a xlink:href="../proc/dqmc_geom_fill.html" xlink:title="DQMC_GEOM_WRAP::DQMC_Geom_Fill">
+<polygon fill="#d9534f" stroke="#d9534f" points="338,-24 121,-24 121,0 338,0 338,-24"/>
+<text text-anchor="middle" x="229.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GEOM_WRAP::DQMC_Geom_Fill</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~map_symm_lattice -->
+<g id="proc~~map_symm_lattice~~CalledByGraph_edge1" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~map_symm_lattice</title>
+<path fill="none" stroke="#255000" d="M338.13,-12C346.6,-12 355.14,-12 363.58,-12"/>
+<polygon fill="#255000" stroke="#255000" points="363.81,-15.5 373.81,-12 363.81,-8.5 363.81,-15.5"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="proc~~map_symm_lattice~~CalledByGraph_node3" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_proc~~map_symm_lattice~~CalledByGraph_node3"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="85,-24 0,-24 0,0 85,0 85,-24"/>
+<text text-anchor="middle" x="42.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_geom_fill -->
+<g id="proc~~map_symm_lattice~~CalledByGraph_edge2" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_geom_fill</title>
+<path fill="none" stroke="#255000" d="M85.02,-12C92.91,-12 101.53,-12 110.49,-12"/>
+<polygon fill="#255000" stroke="#255000" points="110.74,-15.5 120.74,-12 110.74,-8.5 110.74,-15.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

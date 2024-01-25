@@ -1,0 +1,828 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>test.F90 &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>test.F90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.1% of total for source files.">11 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/test.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">test.F90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#progs-0"
+         aria-expanded="false" aria-controls="progs-0">
+         <h4 class="card-header bg-primary text-white">Programs</h4>
+      </a>
+      <div id="progs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/dqmc_test.html">dqmc_test</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/test.f90.html#src">test.F90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">This file depends on</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: sourcefile~~test.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefiletestf90EfferentGraph" width="641pt" height="344pt"
+ viewBox="0.00 0.00 641.00 344.19" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~test.f90~~EfferentGraph" class="graph" transform="scale(1.9 1.9) rotate(0) translate(4 648.41)">
+<title>sourcefile~~test.f90~~EfferentGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-648.41 1211,-648.41 1211,4 -4,4"/>
+<!-- sourcefile~test.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~test.f90</title>
+<polygon fill="none" stroke="black" points="1207,-197.41 1152,-197.41 1152,-173.41 1207,-173.41 1207,-197.41"/>
+<text text-anchor="middle" x="1179.5" y="-183.01" font-family="Helvetica,sans-Serif" font-size="10.50">test.F90</text>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~dqmc_2dperl.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/dqmc_2dperl.f90.html" xlink:title="dqmc_2dperl.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1116,-236.41 1011,-236.41 1011,-212.41 1116,-212.41 1116,-236.41"/>
+<text text-anchor="middle" x="1063.5" y="-222.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_2dperl.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test.f90&#45;&gt;sourcefile~dqmc_2dperl.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~test.f90&#45;&gt;sourcefile~dqmc_2dperl.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1151.77,-194.55C1139.15,-198.87 1123.75,-204.14 1109.41,-209.05"/>
+<polygon fill="#255000" stroke="#255000" points="1108.03,-205.82 1099.7,-212.37 1110.29,-212.44 1108.03,-205.82"/>
+</g>
+<!-- sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~dqmc_mpi.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/dqmc_mpi.f90.html" xlink:title="dqmc_mpi.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="685,-218.41 594,-218.41 594,-194.41 685,-194.41 685,-218.41"/>
+<text text-anchor="middle" x="639.5" y="-204.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_mpi.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~test.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1151.82,-186.45C1068.14,-189.72 809.63,-199.81 695.56,-204.26"/>
+<polygon fill="#255000" stroke="#255000" points="695.16,-200.77 685.31,-204.66 695.43,-207.77 695.16,-200.77"/>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1037.9,-236.49C1020.53,-244.81 996.59,-255.87 975,-264.41 950.36,-274.15 942.53,-272.24 918.5,-283.41"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M916.5,-283.41C887.1,-297.07 808.25,-248.94 776.5,-242.41"/>
+</g>
+<!-- sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~dqmc_cfg.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/dqmc_cfg.f90.html" xlink:title="dqmc_cfg.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="265.5,-446.41 178.5,-446.41 178.5,-422.41 265.5,-422.41 265.5,-446.41"/>
+<text text-anchor="middle" x="222" y="-432.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_cfg.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M916.5,-283.41C846.5,-315.94 887.19,-386.07 824,-430.41 705.41,-513.63 645.57,-483.97 501,-474.41"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M499,-474.41C434.43,-467.81 421.7,-448.86 358,-436.41"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~dqmc_hubbard.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/dqmc_hubbard.f90.html" xlink:title="dqmc_hubbard.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="975,-255.41 860,-255.41 860,-231.41 975,-231.41 975,-255.41"/>
+<text text-anchor="middle" x="917.5" y="-241.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_hubbard.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_hubbard.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_hubbard.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1010.92,-231.21C1002.57,-232.32 993.81,-233.47 985.17,-234.61"/>
+<polygon fill="#255000" stroke="#255000" points="984.55,-231.16 975.09,-235.94 985.46,-238.1 984.55,-231.16"/>
+</g>
+<!-- sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~dqmc_struct.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/dqmc_struct.f90.html" xlink:title="dqmc_struct.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="407,-220.41 307,-220.41 307,-196.41 407,-196.41 407,-220.41"/>
+<text text-anchor="middle" x="357" y="-206.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_struct.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M1010.7,-213.07C903.11,-190.65 659.53,-146.1 588,-185.41 524.79,-220.15 571.45,-337.88 501,-322.41"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M499,-322.41C443.67,-309.72 396.32,-258.33 373.17,-229.07"/>
+<polygon fill="#255000" stroke="#255000" points="375.65,-226.55 366.78,-220.76 370.1,-230.82 375.65,-226.55"/>
+</g>
+<!-- sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~dqmc_util.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/dqmc_util.f90.html" xlink:title="dqmc_util.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="114.5,-466.41 27.5,-466.41 27.5,-442.41 114.5,-442.41 114.5,-466.41"/>
+<text text-anchor="middle" x="71" y="-452.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_util.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~dqmc_2dperl.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M499,-474.41C364.75,-460.69 205.79,-456.37 124.95,-455.02"/>
+<polygon fill="#255000" stroke="#255000" points="124.59,-451.51 114.54,-454.85 124.48,-458.51 124.59,-451.51"/>
+</g>
+<!-- sourcefile~dqmc_cfg.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~dqmc_cfg.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M178.3,-440.14C161.63,-442.38 142.33,-444.97 124.79,-447.32"/>
+<polygon fill="#255000" stroke="#255000" points="124.15,-443.88 114.7,-448.68 125.08,-450.81 124.15,-443.88"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M859.77,-247.99C834.1,-248.79 803.52,-247.96 776.5,-242.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-242.41C746.28,-236.6 715.17,-228.36 690.04,-221.23"/>
+<polygon fill="transparent" stroke="transparent" points="690.94,-217.85 680.37,-218.46 689.01,-224.58 690.94,-217.85"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M878.11,-255.51C871.33,-259.09 864.89,-263.65 860,-269.41 820.92,-315.44 870.33,-361.68 824,-400.41 787.32,-431.07 575.92,-476 358,-436.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M356,-436.41C329.92,-431.31 300.42,-430.39 275.84,-430.93"/>
+<polygon fill="transparent" stroke="transparent" points="275.52,-427.43 265.63,-431.23 275.73,-434.43 275.52,-427.43"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M885.61,-255.43C877.01,-259.36 867.87,-264.09 860,-269.41 841.76,-281.73 844.2,-294.68 824,-303.41 691.99,-360.44 641.93,-351.01 501,-322.41"/>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge17" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M910.26,-231.29C896.81,-205.9 863.12,-146.01 824,-104.41 805.85,-85.11 799.43,-81.68 776.5,-68.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-68.41C614.15,24.42 531.54,14.51 358,-50.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M356,-50.41C282.02,-78.18 293.41,-132.54 223,-168.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M221,-168.41C118.11,-220.82 84.29,-374.42 75.04,-432.14"/>
+<polygon fill="transparent" stroke="transparent" points="71.53,-431.94 73.5,-442.35 78.45,-432.98 71.53,-431.94"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~dqmc_gfun.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/dqmc_gfun.f90.html" xlink:title="dqmc_gfun.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="822.5,-137.41 728.5,-137.41 728.5,-113.41 822.5,-113.41 822.5,-137.41"/>
+<text text-anchor="middle" x="775.5" y="-123.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_gfun.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_gfun.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_gfun.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M902.04,-231.22C877.63,-210.64 828.05,-168.85 799.03,-144.4"/>
+<polygon fill="transparent" stroke="transparent" points="800.99,-141.47 791.09,-137.7 796.48,-146.82 800.99,-141.47"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~dqmc_matb.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/dqmc_matb.f90.html" xlink:title="dqmc_matb.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="549,-102.41 451,-102.41 451,-78.41 549,-78.41 549,-102.41"/>
+<text text-anchor="middle" x="500" y="-88.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_matb.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-68.41C769.86,-65.81 638.39,-77.56 559.45,-84.89"/>
+<polygon fill="transparent" stroke="transparent" points="558.78,-81.44 549.15,-85.85 559.43,-88.41 558.78,-81.44"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~dqmc_phy0.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/dqmc_phy0.f90.html" xlink:title="dqmc_phy0.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="824,-294.41 727,-294.41 727,-270.41 824,-270.41 824,-294.41"/>
+<text text-anchor="middle" x="775.5" y="-280.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_phy0.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy0.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy0.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M873.35,-255.43C859.51,-259.28 844.02,-263.6 829.56,-267.63"/>
+<polygon fill="transparent" stroke="transparent" points="828.44,-264.31 819.75,-270.36 830.32,-271.05 828.44,-264.31"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node11" class="node">
+<title>sourcefile~dqmc_phy2.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/dqmc_phy2.f90.html" xlink:title="dqmc_phy2.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="824,-391.41 727,-391.41 727,-367.41 824,-367.41 824,-391.41"/>
+<text text-anchor="middle" x="775.5" y="-377.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_phy2.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy2.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_phy2.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M881.14,-255.41C873.58,-259.09 866.06,-263.71 860,-269.41 835.37,-292.56 844.83,-309.79 824,-336.41 817.21,-345.08 808.57,-353.48 800.52,-360.51"/>
+<polygon fill="transparent" stroke="transparent" points="798.16,-357.93 792.77,-367.05 802.67,-363.28 798.16,-357.93"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node12" class="node">
+<title>sourcefile~dqmc_seqb.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/dqmc_seqb.f90.html" xlink:title="dqmc_seqb.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="687.5,-62.41 591.5,-62.41 591.5,-38.41 687.5,-38.41 687.5,-62.41"/>
+<text text-anchor="middle" x="639.5" y="-48.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_seqb.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~dqmc_hubbard.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M774.5,-68.41C751.37,-55.46 722.57,-50.43 697.6,-48.86"/>
+<polygon fill="transparent" stroke="transparent" points="697.67,-45.36 687.52,-48.39 697.35,-52.35 697.67,-45.36"/>
+</g>
+<!-- sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge18" class="edge">
+<title>sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M348.85,-220.56C327.29,-257.19 262.73,-366.9 235.42,-413.3"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="232.24,-411.8 230.19,-422.2 238.27,-415.35 232.24,-411.8"/>
+</g>
+<!-- sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~dqmc_struct.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M330.72,-196.37C297.74,-181.42 242.01,-158.98 223,-168.41"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M751.62,-137.54C743.75,-141.81 734.93,-146.72 727,-151.41 706.83,-163.32 684.54,-177.53 667.63,-188.51"/>
+<polygon fill="#255000" stroke="#255000" points="665.3,-185.85 658.84,-194.25 669.13,-191.72 665.3,-185.85"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M638.5,-128.41C599.41,-129.03 590.78,-139.42 552,-144.41 515.65,-149.08 255.84,-152.13 223,-168.41"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge20" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M728.3,-126.59C702.47,-127.22 669.7,-127.95 640.5,-128.41"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M638.5,-128.41C602.99,-128.97 564.12,-116.98 536.8,-106.32"/>
+<polygon fill="#255000" stroke="#255000" points="537.86,-102.98 527.28,-102.48 535.24,-109.47 537.86,-102.98"/>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_seqb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_seqb.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M752.97,-113.36C730.7,-100.89 695.74,-81.33 670.71,-67.32"/>
+<polygon fill="#255000" stroke="#255000" points="672.41,-64.26 661.98,-62.43 668.99,-70.37 672.41,-64.26"/>
+</g>
+<!-- sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node15" class="node">
+<title>sourcefile~dqmc_wspace.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node15"><a xlink:href="../sourcefile/dqmc_wspace.f90.html" xlink:title="dqmc_wspace.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="412,-140.41 302,-140.41 302,-116.41 412,-116.41 412,-140.41"/>
+<text text-anchor="middle" x="357" y="-126.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_wspace.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~dqmc_gfun.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M638.5,-128.41C577.39,-129.37 560.89,-142.61 501,-130.41"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M499,-130.41C474.23,-125.36 446.51,-124.06 422.24,-124.31"/>
+<polygon fill="#255000" stroke="#255000" points="422,-120.81 412.07,-124.5 422.13,-127.81 422,-120.81"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge25" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M484.44,-102.59C459.85,-123.17 409.91,-164.96 380.69,-189.42"/>
+<polygon fill="transparent" stroke="transparent" points="378.11,-187.01 372.69,-196.11 382.61,-192.38 378.11,-187.01"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge26" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M471.25,-78.34C436.42,-63.92 378.73,-42.65 358,-50.41"/>
+</g>
+<!-- sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge27" class="edge">
+<title>sourcefile~dqmc_matb.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M454.39,-102.43C441.14,-106 426.48,-109.95 412.68,-113.67"/>
+<polygon fill="transparent" stroke="transparent" points="411.55,-110.35 402.81,-116.33 413.37,-117.11 411.55,-110.35"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge28" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M751.56,-270.37C743.69,-266.11 734.88,-261.18 727,-256.41 710.55,-246.45 707.57,-242.16 691,-232.41 685.72,-229.3 680.03,-226.17 674.43,-223.21"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="675.69,-219.92 665.2,-218.43 672.47,-226.14 675.69,-219.92"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge29" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M638.5,-246.41C570.08,-232.5 569.43,-336.3 501,-322.41"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge30" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M757.31,-294.56C715.68,-322.87 605.2,-391.34 501,-398.41"/>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M499,-398.41C436.5,-402.98 405.54,-439.24 358,-398.41"/>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M356,-398.41C266.42,-321.47 328.79,-115.95 223,-168.41"/>
+</g>
+<!-- sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge31" class="edge">
+<title>sourcefile~dqmc_phy0.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M734.94,-270.4C708.42,-262.69 672.6,-252.94 640.5,-246.41"/>
+<path fill="none" stroke="#025510" stroke-dasharray="5,2" stroke-opacity="0.007843" d="M638.5,-246.41C615,-241.63 607.79,-240.94 588,-227.41 540.2,-194.72 557.75,-141.97 501,-130.41"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_mpi.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge33" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_mpi.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M766.42,-367.24C756.68,-352.4 740,-326.44 727,-303.41 709.61,-272.6 715.94,-257.5 691,-232.41 687.79,-229.17 684.08,-226.26 680.18,-223.65"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="681.79,-220.54 671.4,-218.44 678.21,-226.56 681.79,-220.54"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_struct.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge34" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_struct.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M726.93,-390.95C701.4,-395.93 669.34,-400.24 640.5,-398.41"/>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M638.5,-398.41C568.82,-393.97 569.43,-336.3 501,-322.41"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge36" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M638.5,-398.41C577.51,-394.53 561.97,-394.28 501,-398.41"/>
+</g>
+<!-- sourcefile~dqmc_bonds.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node13" class="node">
+<title>sourcefile~dqmc_bonds.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node13"><a xlink:href="../sourcefile/dqmc_bonds.f90.html" xlink:title="dqmc_bonds.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="551.5,-644.41 448.5,-644.41 448.5,-620.41 551.5,-620.41 551.5,-644.41"/>
+<text text-anchor="middle" x="500" y="-630.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_bonds.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_bonds.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge32" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_bonds.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M772.85,-391.44C767.57,-425.28 747.97,-522.15 691,-573.41 655.38,-605.46 602.56,-620.1 561.65,-626.79"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="560.88,-623.36 551.52,-628.32 561.93,-630.29 560.88,-623.36"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node14" class="node">
+<title>sourcefile~dqmc_symm.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node14"><a xlink:href="../sourcefile/dqmc_symm.f90.html" xlink:title="dqmc_symm.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="691,-564.41 588,-564.41 588,-540.41 691,-540.41 691,-564.41"/>
+<text text-anchor="middle" x="639.5" y="-550.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_symm.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_symm.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge35" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_symm.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M765.08,-391.57C742.36,-420.91 684.35,-495.8 656.24,-532.09"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="653.45,-529.98 650.09,-540.03 658.98,-534.26 653.45,-529.98"/>
+</g>
+<!-- sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge37" class="edge">
+<title>sourcefile~dqmc_phy2.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#010225" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M754.41,-367.3C686.8,-326.56 467.28,-194.26 387.4,-146.13"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="388.75,-142.85 378.38,-140.69 385.13,-148.85 388.75,-142.85"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge39" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M591.2,-47.32C564.59,-46.35 530.81,-46.42 501,-50.41"/>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M499,-50.41C436.89,-58.73 416.69,-28.45 358,-50.41"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_matb.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge38" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_matb.f90</title>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M597.25,-62.41C583.23,-66.49 567.4,-71.09 552.68,-75.38"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="551.32,-72.12 542.7,-78.28 553.28,-78.84 551.32,-72.12"/>
+</g>
+<!-- sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_wspace.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge40" class="edge">
+<title>sourcefile~dqmc_seqb.f90&#45;&gt;sourcefile~dqmc_wspace.f90</title>
+<path fill="none" stroke="#204025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M499,-50.41C451.96,-56.71 405.35,-88.91 379.25,-109.92"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="377.01,-107.23 371.53,-116.3 381.47,-112.63 377.01,-107.23"/>
+</g>
+<!-- sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node16" class="node">
+<title>sourcefile~dqmc_geom_param.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node16"><a xlink:href="../sourcefile/dqmc_geom_param.f90.html" xlink:title="dqmc_geom_param.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="142,-566.41 0,-566.41 0,-542.41 142,-542.41 142,-566.41"/>
+<text text-anchor="middle" x="71" y="-552.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_geom_param.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge41" class="edge">
+<title>sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M356,-630.41C297.5,-621.92 281.33,-640.01 223,-630.41"/>
+</g>
+<!-- sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node18" class="node">
+<title>sourcefile~dqmc_latt.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node18"><a xlink:href="../sourcefile/dqmc_latt.f90.html" xlink:title="dqmc_latt.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="266,-566.41 178,-566.41 178,-542.41 266,-542.41 266,-566.41"/>
+<text text-anchor="middle" x="222" y="-552.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_latt.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge42" class="edge">
+<title>sourcefile~dqmc_bonds.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M448.17,-634.86C421.24,-635.36 387.68,-634.72 358,-630.41"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M356,-630.41C311.98,-624.02 268.7,-593.53 243.99,-573.16"/>
+<polygon fill="#255000" stroke="#255000" points="245.94,-570.23 236.05,-566.44 241.42,-575.57 245.94,-570.23"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge48" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M593.61,-540.4C566.59,-532.92 531.61,-522.77 501,-512.41"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-512.41C475.27,-504.38 466.23,-505.59 448,-488.41 423.68,-465.5 436.57,-445.06 412,-422.41 392.69,-404.61 377.92,-415.52 358,-398.41"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_bonds.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge43" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_bonds.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M620.22,-564.47C602.9,-575.73 576.04,-592.81 552,-606.41 546.44,-609.56 540.45,-612.76 534.6,-615.8"/>
+<polygon fill="#025500" stroke="#025500" points="532.92,-612.73 525.61,-620.4 536.11,-618.96 532.92,-612.73"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge44" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-592.41C436.5,-597.02 419.33,-579.55 358,-592.41"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node17" class="node">
+<title>sourcefile~dqmc_hamilt.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node17"><a xlink:href="../sourcefile/dqmc_hamilt.f90.html" xlink:title="dqmc_hamilt.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="552,-564.41 448,-564.41 448,-540.41 552,-540.41 552,-564.41"/>
+<text text-anchor="middle" x="500" y="-550.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_hamilt.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_hamilt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge45" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_hamilt.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M587.69,-552.41C579.42,-552.41 570.78,-552.41 562.3,-552.41"/>
+<polygon fill="#025500" stroke="#025500" points="562.06,-548.91 552.06,-552.41 562.06,-555.91 562.06,-548.91"/>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge46" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M600.22,-564.43C563.11,-575.94 511.01,-591.67 501,-592.41"/>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-592.41C434.27,-597.18 422.78,-558.47 358,-554.41"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_node19" class="node">
+<title>sourcefile~dqmc_reclatt.f90</title>
+<g id="a_sourcefile~~test.f90~~EfferentGraph_node19"><a xlink:href="../sourcefile/dqmc_reclatt.f90.html" xlink:title="dqmc_reclatt.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="409,-526.41 305,-526.41 305,-502.41 409,-502.41 409,-526.41"/>
+<text text-anchor="middle" x="357" y="-512.01" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_reclatt.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_reclatt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge47" class="edge">
+<title>sourcefile~dqmc_symm.f90&#45;&gt;sourcefile~dqmc_reclatt.f90</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M499,-512.41C473.83,-503.89 444.65,-502.96 419.4,-504.71"/>
+<polygon fill="#025500" stroke="#025500" points="418.87,-501.24 409.2,-505.57 419.46,-508.21 418.87,-501.24"/>
+</g>
+<!-- sourcefile~dqmc_wspace.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge49" class="edge">
+<title>sourcefile~dqmc_wspace.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M301.69,-140.32C276.95,-146.85 247.73,-156.14 223,-168.41"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge50" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M471.34,-540.29C463.5,-536.34 455.16,-531.61 448,-526.41 402.24,-493.15 413.66,-446.52 358,-436.41"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge51" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M461.95,-564.45C433.71,-573.25 393.74,-584.92 358,-592.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M356,-592.41C295.83,-605.02 283.66,-640.4 223,-630.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M221,-630.41C173.17,-622.53 124.36,-592.61 96.19,-572.74"/>
+<polygon fill="transparent" stroke="transparent" points="97.95,-569.7 87.79,-566.69 93.86,-575.38 97.95,-569.7"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge52" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M447.72,-555.03C420.96,-555.91 387.69,-556.27 358,-554.41"/>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M356,-554.41C329.79,-552.77 300.61,-552.58 276.28,-552.89"/>
+<polygon fill="transparent" stroke="transparent" points="276.11,-549.39 266.17,-553.04 276.22,-556.39 276.11,-549.39"/>
+</g>
+<!-- sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_reclatt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge53" class="edge">
+<title>sourcefile~dqmc_hamilt.f90&#45;&gt;sourcefile~dqmc_reclatt.f90</title>
+<path fill="none" stroke="transparent" stroke-dasharray="5,2" d="M454.39,-540.39C441.14,-536.82 426.48,-532.86 412.68,-529.14"/>
+<polygon fill="transparent" stroke="transparent" points="413.37,-525.71 402.81,-526.48 411.55,-532.47 413.37,-525.71"/>
+</g>
+<!-- sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_util.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge55" class="edge">
+<title>sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_util.f90</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M203.03,-542.35C176.96,-524.85 128.5,-492.33 98.38,-472.11"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="100.29,-469.18 90.04,-466.51 96.39,-474.99 100.29,-469.18"/>
+</g>
+<!-- sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge54" class="edge">
+<title>sourcefile~dqmc_latt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M177.9,-554.41C169.87,-554.41 161.25,-554.41 152.51,-554.41"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="152.23,-550.91 142.23,-554.41 152.23,-557.91 152.23,-550.91"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_cfg.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge56" class="edge">
+<title>sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_cfg.f90</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M335.8,-502.26C313.41,-488.79 277.11,-466.95 251.75,-451.7"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="253.33,-448.57 242.95,-446.41 249.72,-454.56 253.33,-448.57"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge57" class="edge">
+<title>sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_geom_param.f90</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M304.82,-518.65C269.16,-521.91 220.55,-526.94 178,-533.41 164.99,-535.39 151.16,-537.86 137.93,-540.4"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="137.09,-537 127.95,-542.35 138.43,-543.87 137.09,-537"/>
+</g>
+<!-- sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_latt.f90 -->
+<g id="sourcefile~~test.f90~~EfferentGraph_edge58" class="edge">
+<title>sourcefile~dqmc_reclatt.f90&#45;&gt;sourcefile~dqmc_latt.f90</title>
+<path fill="none" stroke="#127025" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M316.1,-526.41C302.54,-530.49 287.23,-535.09 272.99,-539.38"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="271.9,-536.05 263.34,-542.28 273.92,-542.75 271.9,-536.05"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var pansourcefiletestf90EfferentGraph = svgPanZoom('#sourcefiletestf90EfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="202pt" height="32pt"
+ viewBox="0.00 0.00 201.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 197.5,-28 197.5,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="193.5,-24 88.5,-24 88.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="141" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">program </span><span class="n">dqmc_test</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">  </span><span class="c">! This program checks the execution time for</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="c">! QUEST on a 2-dimensional PEriodic Reactangular</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="c">! Lattice (2DPERL)</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_2DPERL</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="k">use </span><span class="n">DQMC_MPI</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="k">implicit none</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="k">  </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="cp">#ifdef DQMC_PROFILE</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">  </span><span class="c">!gfun_profile = .true.</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">  </span><span class="c">!matb_profile = .true.</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">  </span><span class="k">call </span><span class="n">profile_enable</span><span class="p">()</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="cp">#endif</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="k">call </span><span class="nb">system_clock</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">  </span><span class="c">!count number of processors</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">  </span><span class="k">call </span><span class="n">DQMC_MPI_Init</span><span class="p">(</span><span class="n">qmc_sim</span><span class="p">,</span><span class="w"> </span><span class="n">PLEVEL_1</span><span class="p">)</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">  </span><span class="k">call </span><span class="n">DQMC_Comp_2DPerl</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">  </span><span class="k">call </span><span class="nb">system_clock</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">rate</span><span class="p">)</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">  </span><span class="k">write</span><span class="p">(</span><span class="n">STDOUT</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;Running time:&quot;</span><span class="p">,</span><span class="w">  </span><span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">rate</span><span class="p">),</span><span class="w"> </span><span class="s2">&quot;(second)&quot;</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="cp">#ifdef DQMC_PROFILE</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">  </span><span class="c">!call gfun_print()</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">  </span><span class="c">!call matb_print()</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">  </span><span class="k">call </span><span class="n">profile_print</span><span class="p">()</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="cp">#endif</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="k">end program </span><span class="n">dqmc_test</span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

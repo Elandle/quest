@@ -1,0 +1,695 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_Geom_Init &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_Geom_Init
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.9% of total for procedures.">93 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_geom_wrap.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_geom_wrap.f90.html'>dqmc_geom_wrap.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dqmc_geom_wrap.html'>DQMC_GEOM_WRAP</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_Geom_Init</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine DQMC_Geom_Init(gwrap, S, cfg)  
+</h2>
+    
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gwrap~2"></span>
+              type(<a href='../type/geomwrap.html'>GeomWrap</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>gwrap</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s"></span>
+              type(<a href='../type/struct.html'>Struct</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>S</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cfg~2"></span>
+              type(<a href='../type/config.html'>config</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cfg</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dqmc_geom_init~~CallsGraph Pages: 1 -->
+<svg id="procdqmc_geom_initCallsGraph" width="641pt" height="156pt"
+ viewBox="0.00 0.00 641.00 155.86" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dqmc_geom_init~~CallsGraph" class="graph" transform="scale(1.42 1.42) rotate(0) translate(4 217.99)">
+<title>proc~~dqmc_geom_init~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-217.99 909,-217.99 909,4 -4,4"/>
+<!-- proc~dqmc_geom_init -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node1" class="node">
+<title>proc~dqmc_geom_init</title>
+<polygon fill="none" stroke="black" points="219,-129 0,-129 0,-105 219,-105 219,-129"/>
+<text text-anchor="middle" x="109.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_GEOM_WRAP::DQMC_Geom_Init</text>
+</g>
+<!-- interface~cfg_set -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node2" class="node">
+<title>interface~cfg_set</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node2"><a xlink:href="../interface/cfg_set.html" xlink:title="DQMC_Cfg::CFG_Set">
+<polygon fill="#a7506f" stroke="#a7506f" points="424,-129 303,-129 303,-105 424,-105 424,-129"/>
+<text text-anchor="middle" x="363.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::CFG_Set</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_geom_init&#45;&gt;interface~cfg_set -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge1" class="edge">
+<title>proc~dqmc_geom_init&#45;&gt;interface~cfg_set</title>
+<path fill="none" stroke="#255000" d="M219.2,-117C244.04,-117 269.79,-117 292.49,-117"/>
+<polygon fill="#255000" stroke="#255000" points="292.7,-120.5 302.7,-117 292.7,-113.5 292.7,-120.5"/>
+</g>
+<!-- proc~dqmc_ccs_compress -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node3" class="node">
+<title>proc~dqmc_ccs_compress</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node3"><a xlink:href="../proc/dqmc_ccs_compress.html" xlink:title="DQMC_STRUCT::DQMC_CCS_Compress">
+<polygon fill="#d9534f" stroke="#d9534f" points="472,-201 255,-201 255,-177 472,-177 472,-201"/>
+<text text-anchor="middle" x="363.5" y="-186.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_STRUCT::DQMC_CCS_Compress</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_geom_init&#45;&gt;proc~dqmc_ccs_compress -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge2" class="edge">
+<title>proc~dqmc_geom_init&#45;&gt;proc~dqmc_ccs_compress</title>
+<path fill="none" stroke="#255000" d="M152.68,-129.05C196.11,-141.46 263.85,-160.81 310.55,-174.16"/>
+<polygon fill="#255000" stroke="#255000" points="309.61,-177.53 320.18,-176.91 311.53,-170.8 309.61,-177.53"/>
+</g>
+<!-- proc~group_hopping -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node4" class="node">
+<title>proc~group_hopping</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node4"><a xlink:href="../proc/group_hopping.html" xlink:title="DQMC_HAMILT::group_hopping">
+<polygon fill="#d9534f" stroke="#d9534f" points="451,-87 276,-87 276,-63 451,-63 451,-87"/>
+<text text-anchor="middle" x="363.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_HAMILT::group_hopping</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_geom_init&#45;&gt;proc~group_hopping -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge3" class="edge">
+<title>proc~dqmc_geom_init&#45;&gt;proc~group_hopping</title>
+<path fill="none" stroke="#255000" d="M182.71,-104.96C213.16,-99.89 248.77,-93.96 280.22,-88.71"/>
+<polygon fill="#255000" stroke="#255000" points="280.99,-92.13 290.28,-87.04 279.84,-85.23 280.99,-92.13"/>
+</g>
+<!-- proc~dqmc_config_seti -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node5" class="node">
+<title>proc~dqmc_config_seti</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node5"><a xlink:href="../proc/dqmc_config_seti.html" xlink:title="DQMC_Cfg::DQMC_Config_SetI">
+<polygon fill="#d9534f" stroke="#d9534f" points="688,-108 513,-108 513,-84 688,-84 688,-108"/>
+<text text-anchor="middle" x="600.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetI</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_seti -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge4" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_seti</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M424.1,-111.67C447.98,-109.54 476.1,-107.03 502.76,-104.65"/>
+<polygon fill="#255000" stroke="#255000" points="503.24,-108.12 512.89,-103.74 502.62,-101.14 503.24,-108.12"/>
+</g>
+<!-- proc~dqmc_config_setpi -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node6" class="node">
+<title>proc~dqmc_config_setpi</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node6"><a xlink:href="../proc/dqmc_config_setpi.html" xlink:title="DQMC_Cfg::DQMC_Config_SetPI">
+<polygon fill="#d9534f" stroke="#d9534f" points="691,-66 510,-66 510,-42 691,-42 691,-66"/>
+<text text-anchor="middle" x="600.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetPI</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_setpi -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge5" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_setpi</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M424.07,-109.04C439.94,-105.93 456.88,-101.7 472,-96 489.33,-89.47 490.78,-81.82 508,-75 513.77,-72.72 519.84,-70.65 526.01,-68.78"/>
+<polygon fill="#255000" stroke="#255000" points="527.08,-72.12 535.74,-66.01 525.16,-65.38 527.08,-72.12"/>
+</g>
+<!-- proc~dqmc_config_setpr -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node7" class="node">
+<title>proc~dqmc_config_setpr</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node7"><a xlink:href="../proc/dqmc_config_setpr.html" xlink:title="DQMC_Cfg::DQMC_Config_SetPR">
+<polygon fill="#d9534f" stroke="#d9534f" points="693,-24 508,-24 508,0 693,0 693,-24"/>
+<text text-anchor="middle" x="600.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetPR</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_setpr -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge6" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_setpr</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M424.22,-114.49C440.87,-111.47 458.17,-105.92 472,-96 498.2,-77.2 482.11,-52.22 508,-33 510.06,-31.47 512.21,-30.05 514.44,-28.73"/>
+<polygon fill="#255000" stroke="#255000" points="516.08,-31.82 523.36,-24.12 512.87,-25.6 516.08,-31.82"/>
+</g>
+<!-- proc~dqmc_config_setr -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node8" class="node">
+<title>proc~dqmc_config_setr</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node8"><a xlink:href="../proc/dqmc_config_setr.html" xlink:title="DQMC_Cfg::DQMC_Config_SetR">
+<polygon fill="#d9534f" stroke="#d9534f" points="690,-192 511,-192 511,-168 690,-168 690,-192"/>
+<text text-anchor="middle" x="600.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetR</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_setr -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge7" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_setr</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M403.31,-129.03C432.08,-137.79 472.33,-149.7 508,-159 516.69,-161.27 525.87,-163.53 534.94,-165.69"/>
+<polygon fill="#255000" stroke="#255000" points="534.16,-169.1 544.7,-167.98 535.76,-162.28 534.16,-169.1"/>
+</g>
+<!-- proc~dqmc_config_sets -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node9" class="node">
+<title>proc~dqmc_config_sets</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node9"><a xlink:href="../proc/dqmc_config_sets.html" xlink:title="DQMC_Cfg::DQMC_Config_SetS">
+<polygon fill="#d9534f" stroke="#d9534f" points="689.5,-150 511.5,-150 511.5,-126 689.5,-126 689.5,-150"/>
+<text text-anchor="middle" x="600.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Config_SetS</text>
+</a>
+</g>
+</g>
+<!-- interface~cfg_set&#45;&gt;proc~dqmc_config_sets -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge8" class="edge">
+<title>interface~cfg_set&#45;&gt;proc~dqmc_config_sets</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M424.1,-122.33C447.39,-124.41 474.73,-126.85 500.79,-129.18"/>
+<polygon fill="#255000" stroke="#255000" points="500.82,-132.7 511.09,-130.1 501.45,-125.72 500.82,-132.7"/>
+</g>
+<!-- proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node10" class="node">
+<title>proc~dqmc_error</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node10"><a xlink:href="../proc/dqmc_error.html" xlink:title="DQMC_Util::DQMC_Error">
+<polygon fill="#d9534f" stroke="#d9534f" points="887,-150 747,-150 747,-126 887,-126 887,-150"/>
+<text text-anchor="middle" x="817" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util::DQMC_Error</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_ccs_compress&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge9" class="edge">
+<title>proc~dqmc_ccs_compress&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025500" d="M426.03,-201.04C492.79,-211.85 602.02,-222.95 693,-201 728.99,-192.32 766.27,-171.22 790.22,-155.82"/>
+<polygon fill="#025500" stroke="#025500" points="792.28,-158.66 798.72,-150.24 788.44,-152.81 792.28,-158.66"/>
+</g>
+<!-- proc~dqmc_config_seti&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge10" class="edge">
+<title>proc~dqmc_config_seti&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#255000" d="M662.97,-108.04C688.43,-113.02 718.14,-118.84 744.57,-124.01"/>
+<polygon fill="#255000" stroke="#255000" points="744.04,-127.48 754.52,-125.96 745.38,-120.61 744.04,-127.48"/>
+</g>
+<!-- proc~dqmc_find_param -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_node11" class="node">
+<title>proc~dqmc_find_param</title>
+<g id="a_proc~~dqmc_geom_init~~CallsGraph_node11"><a xlink:href="../proc/dqmc_find_param.html" xlink:title="DQMC_Cfg::DQMC_Find_Param">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="905,-108 729,-108 729,-84 905,-84 905,-108"/>
+<text text-anchor="middle" x="817" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg::DQMC_Find_Param</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_config_seti&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge11" class="edge">
+<title>proc~dqmc_config_seti&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#255000" d="M688.13,-96C698.16,-96 708.43,-96 718.59,-96"/>
+<polygon fill="#255000" stroke="#255000" points="718.7,-99.5 728.7,-96 718.7,-92.5 718.7,-99.5"/>
+</g>
+<!-- proc~dqmc_config_setpi&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge12" class="edge">
+<title>proc~dqmc_config_setpi&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="transparent" d="M674.14,-66.06C680.74,-68.51 687.14,-71.46 693,-75 714.04,-87.72 708.03,-104.16 729,-117 732.01,-118.84 735.16,-120.52 738.42,-122.05"/>
+<polygon fill="transparent" stroke="transparent" points="737.25,-125.36 747.82,-125.99 739.95,-118.9 737.25,-125.36"/>
+</g>
+<!-- proc~dqmc_config_setpi&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge13" class="edge">
+<title>proc~dqmc_config_setpi&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="transparent" d="M662.97,-66.04C688.43,-71.02 718.14,-76.84 744.57,-82.01"/>
+<polygon fill="transparent" stroke="transparent" points="744.04,-85.48 754.52,-83.96 745.38,-78.61 744.04,-85.48"/>
+</g>
+<!-- proc~dqmc_config_setpr&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge14" class="edge">
+<title>proc~dqmc_config_setpr&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025500" d="M679.43,-24.2C684.29,-26.65 688.87,-29.55 693,-33 724.18,-59.03 697.97,-90.79 729,-117 731.69,-119.27 734.59,-121.31 737.64,-123.13"/>
+<polygon fill="#025500" stroke="#025500" points="736.08,-126.27 746.57,-127.72 739.28,-120.04 736.08,-126.27"/>
+</g>
+<!-- proc~dqmc_config_setpr&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge15" class="edge">
+<title>proc~dqmc_config_setpr&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#025500" d="M663.63,-24.07C673.57,-26.62 683.66,-29.6 693,-33 726.78,-45.31 763.16,-64.8 787.52,-78.84"/>
+<polygon fill="#025500" stroke="#025500" points="785.84,-81.91 796.24,-83.93 789.37,-75.86 785.84,-81.91"/>
+</g>
+<!-- proc~dqmc_config_setr&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge16" class="edge">
+<title>proc~dqmc_config_setr&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M662.97,-167.96C688.43,-162.98 718.14,-157.16 744.57,-151.99"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="745.38,-155.39 754.52,-150.04 744.04,-148.52 745.38,-155.39"/>
+</g>
+<!-- proc~dqmc_config_setr&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge17" class="edge">
+<title>proc~dqmc_config_setr&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M674.14,-167.94C680.74,-165.49 687.14,-162.54 693,-159 714.04,-146.28 708.03,-129.84 729,-117 732.01,-115.16 735.16,-113.48 738.42,-111.95"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="739.95,-115.1 747.82,-108.01 737.25,-108.64 739.95,-115.1"/>
+</g>
+<!-- proc~dqmc_config_sets&#45;&gt;proc~dqmc_error -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge18" class="edge">
+<title>proc~dqmc_config_sets&#45;&gt;proc~dqmc_error</title>
+<path fill="none" stroke="#002505" d="M689.67,-138C705.16,-138 721.2,-138 736.44,-138"/>
+<polygon fill="#002505" stroke="#002505" points="736.85,-141.5 746.85,-138 736.85,-134.5 736.85,-141.5"/>
+</g>
+<!-- proc~dqmc_config_sets&#45;&gt;proc~dqmc_find_param -->
+<g id="proc~~dqmc_geom_init~~CallsGraph_edge19" class="edge">
+<title>proc~dqmc_config_sets&#45;&gt;proc~dqmc_find_param</title>
+<path fill="none" stroke="#002505" d="M662.97,-125.96C688.43,-120.98 718.14,-115.16 744.57,-109.99"/>
+<polygon fill="#002505" stroke="#002505" points="745.38,-113.39 754.52,-108.04 744.04,-106.52 745.38,-113.39"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocdqmc_geom_initCallsGraph = svgPanZoom('#procdqmc_geom_initCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dqmc_geom_init~~CalledByGraph Pages: 1 -->
+<svg id="procdqmc_geom_initCalledByGraph" width="348pt" height="32pt"
+ viewBox="0.00 0.00 348.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dqmc_geom_init~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~dqmc_geom_init~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 344,-28 344,4 -4,4"/>
+<!-- proc~dqmc_geom_init -->
+<g id="proc~~dqmc_geom_init~~CalledByGraph_node1" class="node">
+<title>proc~dqmc_geom_init</title>
+<polygon fill="none" stroke="black" points="340,-24 121,-24 121,0 340,0 340,-24"/>
+<text text-anchor="middle" x="230.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_GEOM_WRAP::DQMC_Geom_Init</text>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="proc~~dqmc_geom_init~~CalledByGraph_node2" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_proc~~dqmc_geom_init~~CalledByGraph_node2"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="85,-24 0,-24 0,0 85,0 85,-24"/>
+<text text-anchor="middle" x="42.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_geom_init -->
+<g id="proc~~dqmc_geom_init~~CalledByGraph_edge1" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_geom_init</title>
+<path fill="none" stroke="#255000" d="M85.24,-12C93.1,-12 101.67,-12 110.59,-12"/>
+<polygon fill="#255000" stroke="#255000" points="110.78,-15.5 120.78,-12 110.78,-8.5 110.78,-15.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

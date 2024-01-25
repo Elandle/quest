@@ -1,0 +1,626 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>get_inverse &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>get_inverse
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.1% of total for procedures.">16 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_util.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_util.f90.html'>dqmc_util.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dqmc_util.html'>DQMC_Util</a></li>
+            <li class="breadcrumb-item active" aria-current="page">get_inverse</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine get_inverse(a, inv)  
+</h2>
+    
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~7"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong>(3,3)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inv~2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>inv</strong>(3,3)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~get_inverse~~CalledByGraph Pages: 1 -->
+<svg id="procget_inverseCalledByGraph" width="641pt" height="249pt"
+ viewBox="0.00 0.00 641.00 248.97" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~get_inverse~~CalledByGraph" class="graph" transform="scale(1.61 1.61) rotate(0) translate(4 398)">
+<title>proc~~get_inverse~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-398 1031,-398 1031,4 -4,4"/>
+<!-- proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_node1" class="node">
+<title>proc~get_inverse</title>
+<polygon fill="none" stroke="black" points="1027,-209 890,-209 890,-185 1027,-185 1027,-209"/>
+<text text-anchor="middle" x="958.5" y="-194.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Util::get_inverse</text>
+</g>
+<!-- proc~assign_phase -->
+<g id="proc~~get_inverse~~CalledByGraph_node2" class="node">
+<title>proc~assign_phase</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node2"><a xlink:href="../proc/assign_phase.html" xlink:title="DQMC_LATT::assign_phase">
+<polygon fill="#d9534f" stroke="#d9534f" points="819,-394 666,-394 666,-370 819,-370 819,-394"/>
+<text text-anchor="middle" x="742.5" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT::assign_phase</text>
+</a>
+</g>
+</g>
+<!-- proc~assign_phase&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge1" class="edge">
+<title>proc~assign_phase&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M819.01,-376.23C831.41,-372.94 843.59,-368.09 854,-361 905.92,-325.64 937.14,-254.71 950.25,-218.84"/>
+<polygon fill="#255000" stroke="#255000" points="953.59,-219.9 953.61,-209.31 946.98,-217.58 953.59,-219.9"/>
+</g>
+<!-- proc~construct_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_node3" class="node">
+<title>proc~construct_lattice</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node3"><a xlink:href="../proc/construct_lattice.html" xlink:title="DQMC_LATT::construct_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="827,-352 658,-352 658,-328 827,-328 827,-352"/>
+<text text-anchor="middle" x="742.5" y="-337.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT::construct_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_lattice&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge2" class="edge">
+<title>proc~construct_lattice&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M827.19,-330.46C836.58,-327.56 845.73,-323.82 854,-319 896.29,-294.36 929.4,-245.83 945.93,-217.98"/>
+<polygon fill="#255000" stroke="#255000" points="949.11,-219.48 951.08,-209.06 943.05,-215.98 949.11,-219.48"/>
+</g>
+<!-- proc~construct_recip_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_node4" class="node">
+<title>proc~construct_recip_lattice</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node4"><a xlink:href="../proc/construct_recip_lattice.html" xlink:title="DQMC_RECLATT::construct_recip_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="854,-310 631,-310 631,-286 854,-286 854,-310"/>
+<text text-anchor="middle" x="742.5" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_RECLATT::construct_recip_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_recip_lattice&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge3" class="edge">
+<title>proc~construct_recip_lattice&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M828.92,-285.99C837.57,-283.53 846.08,-280.57 854,-277 886.95,-262.17 918.91,-234.88 938.4,-216.34"/>
+<polygon fill="#255000" stroke="#255000" points="940.98,-218.71 945.71,-209.23 936.1,-213.69 940.98,-218.71"/>
+</g>
+<!-- proc~dqmc_init_kmate -->
+<g id="proc~~get_inverse~~CalledByGraph_node5" class="node">
+<title>proc~dqmc_init_kmate</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node5"><a xlink:href="../proc/dqmc_init_kmate.html" xlink:title="DQMC_RECLATT::DQMC_init_kmate">
+<polygon fill="#d9534f" stroke="#d9534f" points="841,-32 644,-32 644,-8 841,-8 841,-32"/>
+<text text-anchor="middle" x="742.5" y="-17.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_RECLATT::DQMC_init_kmate</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_init_kmate&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge4" class="edge">
+<title>proc~dqmc_init_kmate&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M825.78,-32.08C835.78,-35.61 845.46,-40.15 854,-46 902.24,-79.04 934.6,-142.57 948.99,-175.71"/>
+<polygon fill="#255000" stroke="#255000" points="945.77,-177.09 952.87,-184.95 952.22,-174.38 945.77,-177.09"/>
+</g>
+<!-- proc~hoptowho -->
+<g id="proc~~get_inverse~~CalledByGraph_node6" class="node">
+<title>proc~hoptowho</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node6"><a xlink:href="../proc/hoptowho.html" xlink:title="DQMC_LATT::hoptowho">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="809.5,-150 675.5,-150 675.5,-126 809.5,-126 809.5,-150"/>
+<text text-anchor="middle" x="742.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT::hoptowho</text>
+</a>
+</g>
+</g>
+<!-- proc~hoptowho&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge5" class="edge">
+<title>proc~hoptowho&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M798.51,-150.06C816.3,-154.19 836.05,-159.03 854,-164 873.17,-169.3 894.11,-175.84 912.11,-181.69"/>
+<polygon fill="#255000" stroke="#255000" points="911.19,-185.07 921.78,-184.86 913.37,-178.42 911.19,-185.07"/>
+</g>
+<!-- proc~init_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_node7" class="node">
+<title>proc~init_lattice</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node7"><a xlink:href="../proc/init_lattice.html" xlink:title="DQMC_LATT::init_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="810.5,-268 674.5,-268 674.5,-244 810.5,-244 810.5,-268"/>
+<text text-anchor="middle" x="742.5" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_LATT::init_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~init_lattice&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge6" class="edge">
+<title>proc~init_lattice&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M798.51,-243.94C816.3,-239.81 836.05,-234.97 854,-230 873.17,-224.7 894.11,-218.16 912.11,-212.31"/>
+<polygon fill="#255000" stroke="#255000" points="913.37,-215.58 921.78,-209.14 911.19,-208.93 913.37,-215.58"/>
+</g>
+<!-- proc~init_recip_latt -->
+<g id="proc~~get_inverse~~CalledByGraph_node8" class="node">
+<title>proc~init_recip_latt</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node8"><a xlink:href="../proc/init_recip_latt.html" xlink:title="DQMC_RECLATT::init_recip_latt">
+<polygon fill="#d9534f" stroke="#d9534f" points="571.5,-234 397.5,-234 397.5,-210 571.5,-210 571.5,-234"/>
+<text text-anchor="middle" x="484.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_RECLATT::init_recip_latt</text>
+</a>
+</g>
+</g>
+<!-- proc~init_recip_latt&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge7" class="edge">
+<title>proc~init_recip_latt&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M571.52,-217.44C659.42,-212.79 794.71,-205.62 879.56,-201.13"/>
+<polygon fill="#255000" stroke="#255000" points="879.85,-204.62 889.65,-200.59 879.48,-197.63 879.85,-204.62"/>
+</g>
+<!-- proc~map_symm_bonds -->
+<g id="proc~~get_inverse~~CalledByGraph_node9" class="node">
+<title>proc~map_symm_bonds</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node9"><a xlink:href="../proc/map_symm_bonds.html" xlink:title="DQMC_SYMM::map_symm_bonds">
+<polygon fill="#d9534f" stroke="#d9534f" points="579,-192 390,-192 390,-168 579,-168 579,-192"/>
+<text text-anchor="middle" x="484.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_bonds</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_bonds&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge8" class="edge">
+<title>proc~map_symm_bonds&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M579.03,-183.37C667.01,-186.54 797.2,-191.23 879.66,-194.2"/>
+<polygon fill="#255000" stroke="#255000" points="879.6,-197.7 889.72,-194.56 879.85,-190.7 879.6,-197.7"/>
+</g>
+<!-- proc~map_symm_bonds&#45;&gt;proc~hoptowho -->
+<g id="proc~~get_inverse~~CalledByGraph_edge16" class="edge">
+<title>proc~map_symm_bonds&#45;&gt;proc~hoptowho</title>
+<path fill="none" stroke="#025510" stroke-opacity="0.007843" d="M558.86,-167.96C592.07,-162.52 631.31,-156.08 664.9,-150.57"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="665.82,-153.96 675.13,-148.89 664.69,-147.05 665.82,-153.96"/>
+</g>
+<!-- proc~map_symm_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_node10" class="node">
+<title>proc~map_symm_lattice</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node10"><a xlink:href="../proc/map_symm_lattice.html" xlink:title="DQMC_SYMM::map_symm_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="579.5,-66 389.5,-66 389.5,-42 579.5,-42 579.5,-66"/>
+<text text-anchor="middle" x="484.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_lattice&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge9" class="edge">
+<title>proc~map_symm_lattice&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M568.48,-66.01C669.05,-80.91 828.3,-105.72 854,-117 887.26,-131.6 919.37,-159.19 938.77,-177.84"/>
+<polygon fill="#255000" stroke="#255000" points="936.46,-180.46 946.04,-184.98 941.36,-175.47 936.46,-180.46"/>
+</g>
+<!-- proc~map_symm_recip_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_node11" class="node">
+<title>proc~map_symm_recip_lattice</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node11"><a xlink:href="../proc/map_symm_recip_lattice.html" xlink:title="DQMC_SYMM::map_symm_recip_lattice">
+<polygon fill="#d9534f" stroke="#d9534f" points="595,-24 374,-24 374,0 595,0 595,-24"/>
+<text text-anchor="middle" x="484.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_SYMM::map_symm_recip_lattice</text>
+</a>
+</g>
+</g>
+<!-- proc~map_symm_recip_lattice&#45;&gt;proc~get_inverse -->
+<g id="proc~~get_inverse~~CalledByGraph_edge10" class="edge">
+<title>proc~map_symm_recip_lattice&#45;&gt;proc~get_inverse</title>
+<path fill="none" stroke="#255000" d="M549.83,-24.01C564.68,-26.88 580.4,-29.98 595,-33 611.05,-36.32 614.88,-38.02 631,-41 729.52,-59.21 766.52,-25.17 854,-74 896.94,-97.97 929.81,-147.22 946.12,-175.59"/>
+<polygon fill="#255000" stroke="#255000" points="943.26,-177.65 951.19,-184.68 949.38,-174.24 943.26,-177.65"/>
+</g>
+<!-- proc~construct_hamilt -->
+<g id="proc~~get_inverse~~CalledByGraph_node12" class="node">
+<title>proc~construct_hamilt</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node12"><a xlink:href="../proc/construct_hamilt.html" xlink:title="DQMC_HAMILT::construct_hamilt">
+<polygon fill="#d9534f" stroke="#d9534f" points="576.5,-150 392.5,-150 392.5,-126 576.5,-126 576.5,-150"/>
+<text text-anchor="middle" x="484.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_HAMILT::construct_hamilt</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_hamilt&#45;&gt;proc~hoptowho -->
+<g id="proc~~get_inverse~~CalledByGraph_edge14" class="edge">
+<title>proc~construct_hamilt&#45;&gt;proc~hoptowho</title>
+<path fill="none" stroke="#025510" stroke-opacity="0.007843" d="M576.84,-138C605.74,-138 637.37,-138 665.11,-138"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="665.14,-141.5 675.14,-138 665.14,-134.5 665.14,-141.5"/>
+</g>
+<!-- proc~construct_pairs -->
+<g id="proc~~get_inverse~~CalledByGraph_node13" class="node">
+<title>proc~construct_pairs</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node13"><a xlink:href="../proc/construct_pairs.html" xlink:title="DQMC_BONDS::construct_pairs">
+<polygon fill="#d9534f" stroke="#d9534f" points="573,-108 396,-108 396,-84 573,-84 573,-108"/>
+<text text-anchor="middle" x="484.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_BONDS::construct_pairs</text>
+</a>
+</g>
+</g>
+<!-- proc~construct_pairs&#45;&gt;proc~hoptowho -->
+<g id="proc~~get_inverse~~CalledByGraph_edge15" class="edge">
+<title>proc~construct_pairs&#45;&gt;proc~hoptowho</title>
+<path fill="none" stroke="#025510" stroke-opacity="0.007843" d="M558.86,-108.04C592.07,-113.48 631.31,-119.92 664.9,-125.43"/>
+<polygon fill="#025510" fill-opacity="0.007843" stroke="#025510" stroke-opacity="0.007843" points="664.69,-128.95 675.13,-127.11 665.82,-122.04 664.69,-128.95"/>
+</g>
+<!-- proc~dqmc_geom_fill -->
+<g id="proc~~get_inverse~~CalledByGraph_node14" class="node">
+<title>proc~dqmc_geom_fill</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node14"><a xlink:href="../proc/dqmc_geom_fill.html" xlink:title="DQMC_GEOM_WRAP::DQMC_Geom_Fill">
+<polygon fill="#d9534f" stroke="#d9534f" points="338,-213 121,-213 121,-189 338,-189 338,-213"/>
+<text text-anchor="middle" x="229.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GEOM_WRAP::DQMC_Geom_Fill</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~assign_phase -->
+<g id="proc~~get_inverse~~CalledByGraph_edge11" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~assign_phase</title>
+<path fill="none" stroke="#255000" d="M239.72,-213.04C260.47,-239.17 313.78,-300.96 374,-329 463.9,-370.86 578.47,-381.55 655.59,-383.42"/>
+<polygon fill="#255000" stroke="#255000" points="655.68,-386.92 665.75,-383.62 655.82,-379.92 655.68,-386.92"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~construct_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_edge12" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~construct_lattice</title>
+<path fill="none" stroke="transparent" d="M244.4,-213.15C268.75,-233.68 321.57,-274.87 374,-294 463.17,-326.53 571.71,-336.84 647.62,-339.74"/>
+<polygon fill="transparent" stroke="transparent" points="647.53,-343.24 657.64,-340.08 647.77,-336.24 647.53,-343.24"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~construct_recip_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_edge13" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~construct_recip_lattice</title>
+<path fill="none" stroke="transparent" d="M251.57,-213.07C278.85,-228.07 328.33,-253.12 374,-265 454.67,-285.99 548.29,-294.17 620.84,-297.13"/>
+<polygon fill="transparent" stroke="transparent" points="620.81,-300.64 630.94,-297.52 621.08,-293.64 620.81,-300.64"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~init_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_edge17" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~init_lattice</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M263.02,-213.05C291.76,-223.08 335.05,-236.71 374,-243 473.17,-259.01 589.27,-260.25 664.02,-258.83"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="664.36,-262.32 674.29,-258.61 664.22,-255.32 664.36,-262.32"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~init_recip_latt -->
+<g id="proc~~get_inverse~~CalledByGraph_edge18" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~init_recip_latt</title>
+<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M338.16,-209.94C354.38,-211.28 371.02,-212.66 386.98,-213.99"/>
+<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="387.11,-217.51 397.37,-214.85 387.69,-210.54 387.11,-217.51"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~map_symm_bonds -->
+<g id="proc~~get_inverse~~CalledByGraph_edge19" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~map_symm_bonds</title>
+<path fill="none" stroke="#500255" d="M338.16,-192.06C351.88,-190.92 365.9,-189.76 379.56,-188.63"/>
+<polygon fill="#500255" stroke="#500255" points="380.24,-192.08 389.92,-187.77 379.67,-185.11 380.24,-192.08"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~map_symm_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_edge20" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~map_symm_lattice</title>
+<path fill="none" stroke="#204025" stroke-opacity="0.019608" d="M240.18,-188.97C261.44,-163.45 315.03,-103.85 374,-75 378.28,-72.9 382.76,-71.02 387.35,-69.32"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="388.55,-72.61 396.9,-66.09 386.3,-65.98 388.55,-72.61"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~map_symm_recip_lattice -->
+<g id="proc~~get_inverse~~CalledByGraph_edge21" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~map_symm_recip_lattice</title>
+<path fill="none" stroke="#255015" stroke-opacity="0.007843" d="M236.97,-188.82C254.4,-157.3 305.69,-72.72 374,-33 377.24,-31.11 380.63,-29.39 384.1,-27.82"/>
+<polygon fill="#255015" fill-opacity="0.007843" stroke="#255015" stroke-opacity="0.007843" points="385.56,-31.01 393.51,-24.01 382.93,-24.52 385.56,-31.01"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~construct_hamilt -->
+<g id="proc~~get_inverse~~CalledByGraph_edge22" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~construct_hamilt</title>
+<path fill="none" stroke="#255000" d="M268,-188.96C296.8,-179.97 337.67,-167.78 374,-159 384.05,-156.57 394.68,-154.24 405.2,-152.07"/>
+<polygon fill="#255000" stroke="#255000" points="406.12,-155.46 415.23,-150.05 404.74,-148.6 406.12,-155.46"/>
+</g>
+<!-- proc~dqmc_geom_fill&#45;&gt;proc~construct_pairs -->
+<g id="proc~~get_inverse~~CalledByGraph_edge23" class="edge">
+<title>proc~dqmc_geom_fill&#45;&gt;proc~construct_pairs</title>
+<path fill="none" stroke="#025500" d="M246.79,-188.94C272.47,-170.52 324.55,-135.59 374,-117 380.33,-114.62 386.97,-112.5 393.72,-110.61"/>
+<polygon fill="#025500" stroke="#025500" points="394.88,-113.93 403.67,-108.01 393.11,-107.15 394.88,-113.93"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="proc~~get_inverse~~CalledByGraph_node15" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_proc~~get_inverse~~CalledByGraph_node15"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="85,-213 0,-213 0,-189 85,-189 85,-213"/>
+<text text-anchor="middle" x="42.5" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;proc~dqmc_geom_fill -->
+<g id="proc~~get_inverse~~CalledByGraph_edge24" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;proc~dqmc_geom_fill</title>
+<path fill="none" stroke="#002505" d="M85.02,-201C92.91,-201 101.53,-201 110.49,-201"/>
+<polygon fill="#002505" stroke="#002505" points="110.74,-204.5 120.74,-201 110.74,-197.5 110.74,-204.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocget_inverseCalledByGraph = svgPanZoom('#procget_inverseCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

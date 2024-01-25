@@ -1,0 +1,2685 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for Quest">
+    <meta name="author" content="" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DQMC_Phy0 &ndash; Quest</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">Quest </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DQMC_Phy0
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 6.0% of total for modules and submodules.">706 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dqmc_phy0.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dqmc_phy0.f90.html'>dqmc_phy0.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DQMC_Phy0</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-narrays">narrays</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-imeas">IMEAS</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-igfun">IGFUN</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-igfup">IGFUP</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-igfdn">IGFDN</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-ispxx">ISPXX</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-ispzz">ISPZZ</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-iavsp">IAVSP</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-iden0">IDEN0</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-iden1">IDEN1</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-ipair">IPAIR</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_nup">P0_NUP</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_ndn">P0_NDN</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_nud">P0_NUD</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_ke">P0_KE</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_energy">P0_ENERGY</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_density">P0_DENSITY</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_chit">P0_CHIT</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_cv">P0_CV</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_sferro">P0_SFERRO</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_sfer2">P0_SFER2</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_saf">P0_SAF</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_safsq">P0_SAFSQ</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_saf2">P0_SAF2</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_saf2sq">P0_SAF2SQ</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_potential_energy">P0_potential_energy</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_hopping_energy">P0_hopping_energy</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_double_occupancy">P0_double_occupancy</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_magnetization_squared">P0_magnetization_squared</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_n_no_saf">P0_N_NO_SAF</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_n">P0_N</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_sgn">P0_SGN</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_sgnup">P0_SGNUP</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_sgndn">P0_SGNDN</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_str">P0_STR</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#variable-p0_sign_str">P0_SIGN_STR</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_phy0.html#type-phy0">Phy0</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_init">DQMC_Phy0_Init</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_free">DQMC_Phy0_Free</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_avg">DQMC_Phy0_Avg</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_print">DQMC_Phy0_Print</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_geterr">DQMC_Phy0_GetErr</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_meas">DQMC_Phy0_Meas</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_getft">DQMC_Phy0_GetFT</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_geterrft">DQMC_Phy0_GetErrFT</a>
+            <a class="list-group-item" href="../module/dqmc_phy0.html#proc-dqmc_phy0_printft">DQMC_Phy0_PrintFT</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='dqmc_util.html'>DQMC_Util</a></li>
+                  <li class="list-inline-item"><a href='dqmc_struct.html'>DQMC_STRUCT</a></li>
+                  <li class="list-inline-item"><a href='dqmc_wspace.html'>DQMC_WSpace</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_phy0~~UsesGraph Pages: 1 -->
+<svg id="moduledqmc_phy0UsesGraph" width="448pt" height="127pt"
+ viewBox="0.00 0.00 448.00 127.18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_phy0~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 123.18)">
+<title>module~~dqmc_phy0~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-123.18 444,-123.18 444,4 -4,4"/>
+<!-- module~dqmc_phy0 -->
+<g id="module~~dqmc_phy0~~UsesGraph_node1" class="node">
+<title>module~dqmc_phy0</title>
+<polygon fill="none" stroke="black" points="440,-84 364,-84 364,-60 440,-60 440,-84"/>
+<text text-anchor="middle" x="402" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Phy0</text>
+</g>
+<!-- module~dqmc_struct -->
+<g id="module~~dqmc_phy0~~UsesGraph_node2" class="node">
+<title>module~dqmc_struct</title>
+<g id="a_module~~dqmc_phy0~~UsesGraph_node2"><a xlink:href="../module/dqmc_struct.html" xlink:title="DQMC_STRUCT">
+<polygon fill="#337ab7" stroke="#337ab7" points="328,-104 234,-104 234,-80 328,-80 328,-104"/>
+<text text-anchor="middle" x="281" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_STRUCT</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_phy0&#45;&gt;module~dqmc_struct -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge1" class="edge">
+<title>module~dqmc_phy0&#45;&gt;module~dqmc_struct</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M364,-78.22C355.86,-79.59 347.06,-81.07 338.35,-82.53"/>
+<polygon fill="#255000" stroke="#255000" points="337.5,-79.12 328.21,-84.23 338.66,-86.03 337.5,-79.12"/>
+</g>
+<!-- module~dqmc_util -->
+<g id="module~~dqmc_phy0~~UsesGraph_node3" class="node">
+<title>module~dqmc_util</title>
+<g id="a_module~~dqmc_phy0~~UsesGraph_node3"><a xlink:href="../module/dqmc_util.html" xlink:title="DQMC_Util">
+<polygon fill="#337ab7" stroke="#337ab7" points="68,-84 0,-84 0,-60 68,-60 68,-84"/>
+<text text-anchor="middle" x="34" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Util</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_phy0&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge2" class="edge">
+<title>module~dqmc_phy0&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M280,-52C209.77,-40.79 127.15,-52.65 78.04,-62.3"/>
+<polygon fill="#255000" stroke="#255000" points="77.19,-58.9 68.08,-64.31 78.58,-65.76 77.19,-58.9"/>
+</g>
+<!-- module~dqmc_wspace -->
+<g id="module~~dqmc_phy0~~UsesGraph_node4" class="node">
+<title>module~dqmc_wspace</title>
+<g id="a_module~~dqmc_phy0~~UsesGraph_node4"><a xlink:href="../module/dqmc_wspace.html" xlink:title="DQMC_WSpace">
+<polygon fill="#337ab7" stroke="#337ab7" points="198,-24 104,-24 104,0 198,0 198,-24"/>
+<text text-anchor="middle" x="151" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_WSpace</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_phy0&#45;&gt;module~dqmc_wspace -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge3" class="edge">
+<title>module~dqmc_phy0&#45;&gt;module~dqmc_wspace</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M363.77,-65.58C340.33,-61.58 309.41,-56.37 282,-52"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M280,-52C249.55,-47.14 216.36,-36.61 191.4,-27.57"/>
+<polygon fill="#255000" stroke="#255000" points="192.52,-24.25 181.92,-24.06 190.09,-30.81 192.52,-24.25"/>
+</g>
+<!-- module~dqmc_struct&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge5" class="edge">
+<title>module~dqmc_struct&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M244.68,-104.05C208.71,-114.51 151.63,-126.08 104,-113 87.41,-108.44 70.76,-98.74 57.98,-89.92"/>
+<polygon fill="#255000" stroke="#255000" points="59.96,-87.03 49.8,-84.02 55.87,-92.71 59.96,-87.03"/>
+</g>
+<!-- module~dqmc_cfg -->
+<g id="module~~dqmc_phy0~~UsesGraph_node5" class="node">
+<title>module~dqmc_cfg</title>
+<g id="a_module~~dqmc_phy0~~UsesGraph_node5"><a xlink:href="../module/dqmc_cfg.html" xlink:title="DQMC_Cfg">
+<polygon fill="#337ab7" stroke="#337ab7" points="185.5,-104 116.5,-104 116.5,-80 185.5,-80 185.5,-104"/>
+<text text-anchor="middle" x="151" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Cfg</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_struct&#45;&gt;module~dqmc_cfg -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge4" class="edge">
+<title>module~dqmc_struct&#45;&gt;module~dqmc_cfg</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M233.79,-92C221.37,-92 207.98,-92 195.7,-92"/>
+<polygon fill="#255000" stroke="#255000" points="195.69,-88.5 185.69,-92 195.69,-95.5 195.69,-88.5"/>
+</g>
+<!-- module~dqmc_wspace&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge6" class="edge">
+<title>module~dqmc_wspace&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M126.73,-24.14C109.58,-33.09 86.05,-45.36 67.12,-55.24"/>
+<polygon fill="#002505" stroke="#002505" points="65.48,-52.15 58.24,-59.88 68.72,-58.35 65.48,-52.15"/>
+</g>
+<!-- module~dqmc_cfg&#45;&gt;module~dqmc_util -->
+<g id="module~~dqmc_phy0~~UsesGraph_edge7" class="edge">
+<title>module~dqmc_cfg&#45;&gt;module~dqmc_util</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.43,-86.16C104.4,-84.07 90.66,-81.68 77.95,-79.47"/>
+<polygon fill="#255000" stroke="#255000" points="78.47,-76.01 68.02,-77.74 77.27,-82.9 78.47,-76.01"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dqmc_phy0~~UsedByGraph Pages: 1 -->
+<svg id="moduledqmc_phy0UsedByGraph" width="539pt" height="156pt"
+ viewBox="0.00 0.00 539.00 156.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dqmc_phy0~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 152)">
+<title>module~~dqmc_phy0~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-152 535,-152 535,4 -4,4"/>
+<!-- module~dqmc_phy0 -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node1" class="node">
+<title>module~dqmc_phy0</title>
+<polygon fill="none" stroke="black" points="76,-108 0,-108 0,-84 76,-84 76,-108"/>
+<text text-anchor="middle" x="38" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">DQMC_Phy0</text>
+</g>
+<!-- module~dqmc_hubbard -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node2" class="node">
+<title>module~dqmc_hubbard</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node2"><a xlink:href="../module/dqmc_hubbard.html" xlink:title="DQMC_Hubbard">
+<polygon fill="#337ab7" stroke="#337ab7" points="209,-108 112,-108 112,-84 209,-84 209,-108"/>
+<text text-anchor="middle" x="160.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hubbard&#45;&gt;module~dqmc_phy0 -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge1" class="edge">
+<title>module~dqmc_hubbard&#45;&gt;module~dqmc_phy0</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M111.88,-96C103.46,-96 94.69,-96 86.29,-96"/>
+<polygon fill="#255000" stroke="#255000" points="86.25,-92.5 76.25,-96 86.25,-99.5 86.25,-92.5"/>
+</g>
+<!-- module~dqmc_hubbard~2 -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node3" class="node">
+<title>module~dqmc_hubbard~2</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node3"><a xlink:href="../module/dqmc_hubbard~2.html" xlink:title="DQMC_Hubbard">
+<polygon fill="#337ab7" stroke="#337ab7" points="209,-66 112,-66 112,-42 209,-42 209,-66"/>
+<text text-anchor="middle" x="160.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_Hubbard</text>
+</a>
+</g>
+</g>
+<!-- module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy0 -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge2" class="edge">
+<title>module~dqmc_hubbard~2&#45;&gt;module~dqmc_phy0</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M124.97,-66.04C111.99,-70.56 97.04,-75.77 83.29,-80.56"/>
+<polygon fill="#255000" stroke="#255000" points="81.83,-77.37 73.54,-83.96 84.13,-83.98 81.83,-77.37"/>
+</g>
+<!-- program~dqmc_verify -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node4" class="node">
+<title>program~dqmc_verify</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node4"><a xlink:href="../program/dqmc_verify.html" xlink:title="dqmc_verify">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="531,-148 453,-148 453,-124 531,-124 531,-148"/>
+<text text-anchor="middle" x="492" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_verify</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_phy0 -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge3" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_phy0</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M330,-136C232.91,-130.32 207.62,-134.75 112,-117 103.33,-115.39 94.22,-113.19 85.47,-110.82"/>
+<polygon fill="#255000" stroke="#255000" points="86.38,-107.44 75.81,-108.09 84.48,-114.17 86.38,-107.44"/>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge7" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M452.73,-137.25C420.5,-138 373.2,-138.41 332,-136"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M330,-136C287.29,-133.5 240.01,-121.43 206.43,-111.19"/>
+<polygon fill="#255000" stroke="#255000" points="207.05,-107.72 196.47,-108.08 204.97,-114.4 207.05,-107.72"/>
+</g>
+<!-- module~dqmc_2dperl -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node5" class="node">
+<title>module~dqmc_2dperl</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node5"><a xlink:href="../module/dqmc_2dperl.html" xlink:title="DQMC_2DPERL">
+<polygon fill="#337ab7" stroke="#337ab7" points="377,-108 285,-108 285,-84 377,-84 377,-108"/>
+<text text-anchor="middle" x="331" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_2DPERL</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_verify&#45;&gt;module~dqmc_2dperl -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge9" class="edge">
+<title>program~dqmc_verify&#45;&gt;module~dqmc_2dperl</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M452.92,-126.42C433.16,-121.45 408.66,-115.29 386.9,-109.81"/>
+<polygon fill="#255000" stroke="#255000" points="387.67,-106.4 377.12,-107.35 385.96,-113.18 387.67,-106.4"/>
+</g>
+<!-- module~dqmc_2dperl&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge4" class="edge">
+<title>module~dqmc_2dperl&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M284.85,-96C264.74,-96 240.82,-96 219.41,-96"/>
+<polygon fill="#255000" stroke="#255000" points="219.14,-92.5 209.14,-96 219.14,-99.5 219.14,-92.5"/>
+</g>
+<!-- proc~dqmc_gtau_init -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node6" class="node">
+<title>proc~dqmc_gtau_init</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node6"><a xlink:href="../proc/dqmc_gtau_init.html" xlink:title="DQMC_GTAU::DQMC_Gtau_Init">
+<polygon fill="#d9534f" stroke="#d9534f" points="417,-66 245,-66 245,-42 417,-42 417,-66"/>
+<text text-anchor="middle" x="331" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DQMC_GTAU::DQMC_Gtau_Init</text>
+</a>
+</g>
+</g>
+<!-- proc~dqmc_gtau_init&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge5" class="edge">
+<title>proc~dqmc_gtau_init&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M281,-66.07C269.21,-68.98 256.65,-72.1 245,-75 236.57,-77.1 227.66,-79.33 218.93,-81.52"/>
+<polygon fill="#255000" stroke="#255000" points="218.03,-78.14 209.18,-83.97 219.73,-84.93 218.03,-78.14"/>
+</g>
+<!-- program~dqmc_ggeom -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node7" class="node">
+<title>program~dqmc_ggeom</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node7"><a xlink:href="../program/dqmc_ggeom.html" xlink:title="dqmc_ggeom">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="373.5,-24 288.5,-24 288.5,0 373.5,0 373.5,-24"/>
+<text text-anchor="middle" x="331" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_ggeom</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_ggeom&#45;&gt;module~dqmc_hubbard -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge6" class="edge">
+<title>program~dqmc_ggeom&#45;&gt;module~dqmc_hubbard</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M288.19,-17.01C273.74,-20.08 257.94,-25.03 245,-33 224.07,-45.9 228.73,-60.33 209,-75 207.18,-76.35 205.25,-77.65 203.27,-78.87"/>
+<polygon fill="#255000" stroke="#255000" points="201.33,-75.95 194.26,-83.84 204.71,-82.08 201.33,-75.95"/>
+</g>
+<!-- program~dqmc_test -->
+<g id="module~~dqmc_phy0~~UsedByGraph_node8" class="node">
+<title>program~dqmc_test</title>
+<g id="a_module~~dqmc_phy0~~UsedByGraph_node8"><a xlink:href="../program/dqmc_test.html" xlink:title="dqmc_test">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="525.5,-106 458.5,-106 458.5,-82 525.5,-82 525.5,-106"/>
+<text text-anchor="middle" x="492" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dqmc_test</text>
+</a>
+</g>
+</g>
+<!-- program~dqmc_test&#45;&gt;module~dqmc_2dperl -->
+<g id="module~~dqmc_phy0~~UsedByGraph_edge8" class="edge">
+<title>program~dqmc_test&#45;&gt;module~dqmc_2dperl</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M458.44,-94.41C438.02,-94.67 411.17,-95 387.46,-95.3"/>
+<polygon fill="#255000" stroke="#255000" points="387.13,-91.81 377.17,-95.43 387.22,-98.81 387.13,-91.81"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-narrays"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>narrays</strong></td>
+<td> =</td>
+                <td>9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imeas"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IMEAS</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-igfun"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IGFUN</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-igfup"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IGFUP</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-igfdn"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IGFDN</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ispxx"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ISPXX</strong></td>
+<td> =</td>
+                <td>4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ispzz"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>ISPZZ</strong></td>
+<td> =</td>
+                <td>5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iavsp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IAVSP</strong></td>
+<td> =</td>
+                <td>6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iden0"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IDEN0</strong></td>
+<td> =</td>
+                <td>7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iden1"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IDEN1</strong></td>
+<td> =</td>
+                <td>8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipair"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>IPAIR</strong></td>
+<td> =</td>
+                <td>9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_nup"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_NUP</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_ndn"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_NDN</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_nud"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_NUD</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_ke"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_KE</strong></td>
+<td> =</td>
+                <td>4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_energy"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_ENERGY</strong></td>
+<td> =</td>
+                <td>5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_density"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_DENSITY</strong></td>
+<td> =</td>
+                <td>6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_chit"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_CHIT</strong></td>
+<td> =</td>
+                <td>7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_cv"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_CV</strong></td>
+<td> =</td>
+                <td>8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_sferro"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SFERRO</strong></td>
+<td> =</td>
+                <td>9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_sfer2"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SFER2</strong></td>
+<td> =</td>
+                <td>10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_saf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SAF</strong></td>
+<td> =</td>
+                <td>15</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_safsq"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SAFSQ</strong></td>
+<td> =</td>
+                <td>16</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_saf2"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SAF2</strong></td>
+<td> =</td>
+                <td>17</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_saf2sq"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SAF2SQ</strong></td>
+<td> =</td>
+                <td>18</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_potential_energy"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_potential_energy</strong></td>
+<td> =</td>
+                <td>11</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_hopping_energy"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_hopping_energy</strong></td>
+<td> =</td>
+                <td>12</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_double_occupancy"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_double_occupancy</strong></td>
+<td> =</td>
+                <td>13</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_magnetization_squared"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_magnetization_squared</strong></td>
+<td> =</td>
+                <td>14</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_n_no_saf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_N_NO_SAF</strong></td>
+<td> =</td>
+                <td>14</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_n"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_N</strong></td>
+<td> =</td>
+                <td>18</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_sgn"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SGN</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_sgnup"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SGNUP</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_sgndn"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SGNDN</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_str"></span>
+              character(len=*),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_STR</strong>(P0_N)</td>
+<td> =</td>
+                <td>(/&#34;          Up spin occupancy : &#34;, &#34;        Down spin occupancy : &#34;, &#34;             &lt;U*N_up*N_dn&gt;  : &#34;, &#34;             Kinetic energy : &#34;, &#34;               Total energy : &#34;, &#34;                    Density : &#34;, &#34;                Chi_thermal : &#34;, &#34;              Specific heat : &#34;, &#34;  XX Ferro structure factor : &#34;, &#34;  ZZ Ferro structure factor : &#34;, &#34;           Potential energy : &#34;, &#34;             Hopping energy : &#34;, &#34;           Double occupancy : &#34;, &#34;      Magnetization squared : &#34;, &#34;     XX AF structure factor : &#34;, &#34;  Root Mean Square of XX AF : &#34;, &#34;     ZZ AF structure factor : &#34;, &#34;  Root Mean Square of ZZ AF : &#34;/)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0_sign_str"></span>
+              character(len=*),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>P0_SIGN_STR</strong>(3)</td>
+<td> =</td>
+                <td>(/&#34;                   Avg sign : &#34;, &#34;                Avg up sign : &#34;, &#34;                Avg dn sign : &#34;/)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-phy0"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/phy0.html'>Phy0</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nclass~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nClass</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nbin~9"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nBin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nmeas~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nMeas</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-avg"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>avg</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-err"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>err</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cnt~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cnt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~70"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~2"></span>
+              real(kind=wp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>beta</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-meas"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>meas</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sign"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>sign</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iarr"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IARR</strong>(0:narrays+1)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iarrft"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IARRFT</strong>(1:narrays+1)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iarrev"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IARREV</strong>(1:narrays+1)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-allprop"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>AllProp</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-allpropft"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>AllPropFT</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-allpropeigval"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>AllPropEigVal</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-allpropeigvec"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>AllPropEigVec</strong>(:,:,:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-g_fun"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>G_fun</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gf_up"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Gf_up</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gf_dn"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Gf_dn</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-spinxx"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>SpinXX</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-spinzz"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>SpinZZ</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-avespin"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>AveSpin</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-den0"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Den0</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-den1"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Den1</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pair~2"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>Pair</strong>(:,:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-up~2"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>up</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dn~2"></span>
+              real(kind=wp),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>dn</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-compsaf"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>compSAF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-init"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>init</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-initft"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>initFT</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_init"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_init.html'>DQMC_Phy0_Init</a>(P0, S, beta, nBin, WS)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~3"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~11"></span>
+              type(<a href='../type/struct.html'>Struct</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>S</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~3"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>beta</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nbin~10"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nBin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ws~8"></span>
+              type(<a href='../type/wspace.html'>WSpace</a>),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>WS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_free"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_free.html'>DQMC_Phy0_Free</a>(P0)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~4"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_avg"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_avg.html'>DQMC_Phy0_Avg</a>(P0)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~5"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_print"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_print.html'>DQMC_Phy0_Print</a>(P0, S, OPT)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~6"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~12"></span>
+              type(<a href='../type/struct.html'>Struct</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>S</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-opt~12"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>OPT</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_geterr"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_geterr.html'>DQMC_Phy0_GetErr</a>(P0)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~7"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_meas"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_meas.html'>DQMC_Phy0_Meas</a>(n, P0, G_up, G_dn, U, mu_up, mu_dn, t_up, t_dn, sgnup, sgndn, S)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~74"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~8"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-g_up~11"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>G_up</strong>(n,n)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-g_dn~11"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>G_dn</strong>(n,n)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~13"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>U</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mu_up~8"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mu_up</strong>(n)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mu_dn~8"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mu_dn</strong>(n)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t_up~7"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t_up</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t_dn~7"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t_dn</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sgnup~2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sgnup</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sgndn~2"></span>
+              real(kind=wp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sgndn</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~13"></span>
+              type(<a href='../type/struct.html'>Struct</a>),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>S</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_getft"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_getft.html'>DQMC_Phy0_GetFT</a>(P0, class, phase, ft_wgt_t, ft_wgt_g, nkt, nkg, na, nt)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~9"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-class~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>class</strong>(na*nt,na*nt)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-phase~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>phase</strong>(na*nt,na*nt)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ft_wgt_t"></span>
+              complex(kind=16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>ft_wgt_t</strong>(nt,nkt)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ft_wgt_g"></span>
+              complex(kind=16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>ft_wgt_g</strong>(nt,nkg)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nkt"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nkt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nkg"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nkg</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-na~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>na</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nt~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_geterrft"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_geterrft.html'>DQMC_Phy0_GetErrFT</a>(P0)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~10"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dqmc_phy0_printft"></span> <h3>public  subroutine <a href='../proc/dqmc_phy0_printft.html'>DQMC_Phy0_PrintFT</a>(P0, na, nkt, nkg, OPT)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p0~11"></span>
+              type(<a href='../type/phy0.html'>Phy0</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P0</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-na~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>na</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nkt~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nkt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nkg~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nkg</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-opt~13"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>OPT</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>Quest was developed by <br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
