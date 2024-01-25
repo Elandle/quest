@@ -10,7 +10,7 @@ COMPILER  = intel
 LAPACK    = intel
 
 # intel MKL library path
-MKLPATH   = $(MKLROOT)/lib/intel64
+MKLPATH   = $(MKLROOT)/include/intel64/ilp64
 
 # MAGMA library path
 MAGMAPATH = 
@@ -50,9 +50,9 @@ ifndef COMPILER
 endif
 
 ifeq ($(COMPILER), intel)
-  FC        = ifort
-  CXX       = icpc
-  FC_FLAGS  = -m64 -warn all -O3 -unroll
+  FC        = ifx
+  CXX       = icpx
+  FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll
   #FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
   #CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
   CXX_FLAGS = -m64 -Wall -O3 -unroll $(CUDAINC) $(MAGMAINC)
@@ -113,7 +113,7 @@ ifeq ($(LAPACK), mkl_par)
 endif
 
 ifeq ($(LAPACK), intel)
-  LAPACKLIB = -mkl=sequential -static-intel
+  LAPACKLIB = -qmkl=sequential -static-intel
 endif
 
 
@@ -200,4 +200,3 @@ clean :
 	(cd $(QUEST_DIR)/SRC; $(MAKE) clean)
 	(cd $(QUEST_DIR)/EXAMPLE; $(MAKE) clean)
 	(rm -f $(QUEST_DIR)/$(DQMCLIB))
-
