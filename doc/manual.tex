@@ -286,11 +286,237 @@ Double occupancy :   0.000000  |  0.000000 +-  0.000000  |    0.00 :  0.00
 
 
 
-\section{Basic usages}
-    In this section we will introduce the basic input parameters and output formats of QUEST.
-    Those parameters and formats are not universal, since QUEST allows each program to define its own input parameters and output results, as introduced in section 3. However, by walking through those basic parameters and formats, one can understand what QUEST needs and what QUEST can do, and the input/output styles of QUEST.
+\section{Input/output basics}
+    In this section we detail the basics of input and output in QUEST.
+    In section \ref{sec basic sim use} we mentioned how the program \texttt{geom} requires $2$ user-input files and returns $3$ output files.
+    This section details the basics of those types of files, referred to as input and output files.
+    For many, the QUEST output described in this section should suffice for most purposes.
+    If a user wishes for QUEST to give other output than what is described here, they should consult section \ref{sec adv} for advanced output usage.
+    Compared to output, a typical user would be more likely to find basic input insufficient for their desires (specifically lattice geometry).
+    For this, we again refer the user to section \ref{sec adv} for advanced input configuration, but remind the user that there are many geometry template files located in the directory \texttt{/geometries} that might be of use for this issue. 
+    \subsection{Input files}\label{sec config}
+        QUEST requires two files for input.
+        We will call these files the \texttt{in} file and the \texttt{geometry} file.
+        The \texttt{in} file specifies how the simulation should be run (Metropolis algorithm configuration, measurement bin amount, ...), while the \texttt{geometry} file specifies the lattice to be simulated (hoppings, interaction energy, site locations, ...).
+        The \texttt{geometry} file may be one of two types:
+        \begin{itemize}
+            \item free form (\texttt{.def} file extension)
+            \item general geometry (\texttt{.geom} file extension)
+        \end{itemize}
+        Internally, QUEST stores lattice geometry information in a derived data type named \texttt{Struct}.
+        When a geometry file is input, QUEST translates the contents into the \texttt{Struct} datatype so it may be used in its code.
+        More details about the inner workings of \texttt{Struct} are provided in section \ref{sec adv}. \\
+        \\
+        In free form input, the user has complete control over how the lattice geometry is setup.
+        This comes at a cost: the user must provide all information about the lattice (the hopping values between all sites on the lattice, information about the neighbors of all sites, ...).
+        If the user desires to use this form of input, they might want to create programs designed for making these files. \\
+        \\
+        In practice, general geometry input is used.
+        In general geometry input, the user describes how the lattice geometry is constructed in terms of primitive cells.
+        Basis vectors describing where to put cells are input, along with the Cartesian coordinates relative to cell centers of the sites within that cell (this is a potentially unintuitive part of QUEST: first a set of vectors describe where to put cells, then another set of vectors describes where to place sites in that cell; sites hold electrons, cells hold sites) and hoppings between the different types of sites defined in a cell; along with other parameters that will be detailed in this section.
+        General geometry input allows geometries to be defined in $\sim 50$ lines of text, compared to free form, which can easily take thousands of lines for the same geometry.
+        The drawback is a loss of control: the lattice is uniformly constructed.
+        \subsection{\texttt{in} input files}
+        As mentioned in section \ref{sec config}, \texttt{in} input files contain three things:
+        \begin{itemize}
+            \item a name for output files
+            \item the name of the input geometry file
+            \item simulation parameter configuration
+        \end{itemize}
+        A template for creating \texttt{in} files is located at \texttt{geometries/templates/input\_template}.
+        \texttt{in} files have the following syntax rules:
+        \begin{itemize}
+            \item \texttt{\#} declares a comment for the remainder of the line
+            \item \texttt{parameter = value} assigns \texttt{value} to \texttt{parameter}
+            \item commands must be input on one line
+            \item spaces only matter only in the specification of a token (eg \texttt{1.2} is not equivalent to \texttt{1. 2})
+        \end{itemize}
+        So an \texttt{in} file can be interpreted as a sequence of assignment statement separated by lines with optional comments (along with the usual rules for spaces).
+        Somewhere in the \texttt{in} file (generally at the very top), two parameters must be assigned a value\footnote{Technically only the \texttt{gfile}, but good practice is to specify a name for \texttt{ofile}}:
+        \begin{itemize}
+            \item \texttt{ofile} (string)
+            \item \texttt{gfile} (\texttt{.geom} or \texttt{.def})
+        \end{itemize}
+        We will call the above two parameters file parameters.
+        Technically only file parameters are the only parameters required in an \texttt{in} file.
+        The other parameters that can be specified in an input can be classified into the following groups: Hubbard model, Metropolis algorithm, measurement, and numerical parameters.
+        The Hubbard model parameters are as follows:
+        \begin{itemize}
+            \item \texttt{mu\_up} (real): chemical potential for up-spin electrons
+            \item \texttt{mu\_dn} (real): chemical potential for spin-down electrons
+            \item \texttt{L} (integer): number of imaginary time slices ($L=\beta/\Delta\tau$)
+            \item \texttt{HSF} (integer)\footnote{At the moment it is unknown what memory or input HSF means in implementation; but this option exists somehow}: indicator of how the Hubbard Stratonovich field (HSF) is input 
+            \begin{itemize}
+                \item \texttt{-1}: randomly generated HSF
+                \item \texttt{0}: use HSF in memory
+                \item \texttt{1}: HSF is read from a file
+            \end{itemize}
+            \item \texttt{bcond} (real, real, real): boundary conditions
+        \end{itemize}
+        The Metropolis algorithm parameters are as follows:
+        \begin{itemize}
+            \item \texttt{nwarm} (integer): number of warmup sweeps
+            \item \texttt{npass} (integer): number of measurement sweeps
+            \item \texttt{ntry} (integer): number of sites flipped in a global sweep
+            \item \texttt{tausk} (integer): specifies frequency of performing physical measurements
+            \item \texttt{tdm} (integer): whether or not to perform time-dependent measurements
+            \begin{itemize}
+                \item \texttt{0}: no time-dependent measurements are performed
+                \item \texttt{1}: time-dependent measurements are performed
+            \end{itemize}
+        \end{itemize}
+        The measurement parameters are as follows:
+        \begin{itemize}
+            \item \texttt{nbin} (integer): determines how the computed data is divided into bins
+            \item \texttt{nhist} (integer): unknown currently
+        \end{itemize}
+        The numerical parameters are as follows:
+        \begin{itemize}
+            \item \texttt{north} (integer): frequency of performing orthogonalization in matrix products\footnote{Used when using a stabilization algorithm in the calculation of the Green's function}
+            \item \texttt{nwrap} (integer): frequency of of performing Green's function calculation. QUEST dynamically adjusts this parameter according to the errors of updating. Numerical errors accumulates quickly for larger values
+            \item \texttt{fixwrap} (integer): unknown currently\footnote{From \url{https://code.google.com/archive/p/quest-qmc/wikis/input_parameters.wiki}: NO IDEA. BUT! When ASQRD is enabled and fix wrap is set to 1, north and nwrap cannot be equal.}
+            \item \texttt{errate} (real): tolerable error rate of recomputing
+            \item \texttt{difflim} (real): tolerable difference of the matrices computed from different methods
+        \end{itemize}
+        \subsection{General geometry input files}
+        As stated in section \ref{sec config}, general geometry input files describe lattice geometry by describing how the lattice is generated by primitive cells and how sites interact.
+        Also mentioned there is why general geometry files are more practical to use compared to free form input files: they can be handwritten in much fewer lines. \\
+        \\
+        General geometry input files have a very specific and restrictive syntax and must end in a \texttt{.geom} file extension.
+        The syntax of a general geometry input file is as follows:
+        \begin{verbatim}
+        #FLAG
+        <FLAG DEPENDENT SYNTAX>
+        \end{verbatim}
+        Blank lines are allowed.
+        No comments are allowed.
+        A \texttt{\#FLAG} must appear alone on its own line.
+        The \texttt{\#FLAG} command indicates that the following lines of code up until the next \texttt{\#FLAG} command are to be read by that particular flag.
+        By flag, we mean parameter flag.
+        For example, in \texttt{\#NDIM}, \texttt{NDIM} is the flag (alias) for the number of dimensions parameter.
+        There are $11$ total parameters that may be specified in a general geometry file, but not all are required to be used.
+        The directories \texttt{/geometries} and \texttt{/geometries/templates} have example general geometry files and templates for general geometry files (the user changes a few values to suite their need, eg for the template \texttt{square\_template} the user should input how many \texttt{x} and \texttt{y} units the lattice should span).
+        We will now detail the $11$ different parameters that may be included in a general geometry file. \\
+        \\
+        \texttt{\#NDIM}: the number of dimensions of the lattice (1, 2, or 3).
+        The value input here changes how \texttt{\#SUPER}, \texttt{\#K-POINT}, and \texttt{\#PHASE} may be input since these require dimensional input.
+        The syntax of \texttt{\#NDIM} is as follows:
+        \begin{verbatim}
+        #NDIM
+        n
+        \end{verbatim}
+        where \texttt{n} is either \texttt{1}, \texttt{2}, or \texttt{3}. \\
+        \\
+        \texttt{\#PRIM}: the primitive vectors defining the basis for the lattice in Cartesian coordinates.
+        A $3\times 3$ array of real numbers.
+        The syntax of \texttt{\#PRIM} is as follows:
+        \begin{verbatim}
+        #PRIM
+        a1x    a1y    a1z
+        a2x    a2y    a2z
+        a3x    a3y    a3z
+        \end{verbatim}
+        The primitive vectors are read row-wise.
+        If \texttt{NDIM} is equal to \texttt{2}, then the last row may be omitted or set to \texttt{0    0    1}.
+        Similarly if \texttt{NDIM} is equal to \texttt{1}. \\
+        \\
+        \texttt{\#SUPER}: defines the supercell of the lattice.
+        An \texttt{NDIM x NDIM} integer array.
+        Defines the `size' of the lattice: entries are weights of the primitive vectors.
+        The syntax of \texttt{\#SUPER} for an \texttt{NDIM = 3} lattice is as follows:
+        \begin{verbatim}
+        #SUPER
+        S1x    S1y    S1z
+        S2x    S2y    S2z
+        S3x    S3y    S3z
+        \end{verbatim}
+        Lower dimension lattices have similar syntax.
+        For example, for an \texttt{NDIM = 2} lattice with the first row of \texttt{\#SUPER} being \texttt{x    0} and second \texttt{0    y} means that the lattice is obtained by using translation in the $1$st primitive cell vector direction up to \texttt{x} times and similarly the $2$nd primitive cell vector up to \texttt{y} times. \\
+        \\
+        \texttt{\#K-POINT}: \texttt{NDIM} long real vector. Defines the original $k$-point.
+        Currently, the only supported value of this parameter is $(0,0,0)$ (the default value of this parameter) so this flag may be omitted in geometry files without worry. \\
+        \\
+        \texttt{\#ORB}: rows listing out the sites within a primitive cell.
+        The amount of rows is arbitrary (allowing an arbitrary amount of sites to be made in each primitive cell).
+        The syntax of \texttt{\#ORB} is as follows:
+        \begin{verbatim}
+        #ORB
+        label    x    y    z    #N
+        \end{verbatim}
+        where the rows following \texttt{\#ORB} may be defined at an arbitrary length.
+        \texttt{label} is a string that serves as a label for the particular type of site, \texttt{x    y    z} describes the location of the site relative to the origin of the cell in Cartesian coordinates, \texttt{\#N} is the number of the site being defined (beginning with $0$ and incrementing by $1$ for successive rows). \\
+        \\
+        \texttt{\#HAMILT}: defines the Hamiltonian of the system.
+        The syntax of \texttt{\#HAMILT} is as follows:
+        \begin{verbatim}
+        #HAMILT
+        label1    label2    x    y    z    tup    tdn    U
+        \end{verbatim}
+        where the rows repeat until the Hamiltonian is sufficiently described.
+        The meaning of a row is as follows.
+        \texttt{label1} and \texttt{label2} indicate that the row describes how those labeled site-types interact.
+        \texttt{label1} and \texttt{label2} are the \texttt{\#N} integers defined in \texttt{\#ORB} (eg particles $1$ and $3$ interact in such a specified way in the Hamiltonian).
+        Multiple rows starting with the same \texttt{label1} and \texttt{label2} may be required for a full description for reasons soon to be explained.
+        \texttt{x    y    z} describes the vector connecting \texttt{label1} to \texttt{label2}.
+        Describing \texttt{label2} to \texttt{label1} is not needed (QUEST handles considering going from site A to B and B to A when considering only A to B or B to A).
+        Multiple rows for the same set of labels may be required so electrons may hop to all adjacent primitive cells and not just to a specific primitive cell.
+        For example, if a lattice is filled out with primitive cells describing a square and each primitive cell has sites A and B in it, then just describing how an electron in an A site might get to a B site by moving `to the right' might not be sufficient since there is a B cell right above it also.
+        \texttt{tup} and \texttt{tdn} describe the hopping value for an electron hopping between sites with labels \texttt{label1} and \texttt{label2}, where \texttt{tup} is the hopping value for up-spin electrons and \texttt{tdn} for down-spin electrons (this may be different values for up and down spin electrons).
+        \texttt{U} describes interaction energy.
+        For a single site indexed by \texttt{label} to have an interaction energy, the following row should be present:
+        \begin{verbatim}
+        label    label    0.0    0.0    0.0    0.0    0.0    U
+        \end{verbatim}
+        where \texttt{U} is the interaction energy.
+        For differing labels and nonzero \texttt{x    y    z}, specifying a \texttt{U} value allows for the implementation of nearest neighbor interaction (or not-near, if \texttt{x    y    z} is made large). \\
+        \\
+        \texttt{\#SYMM}: QUEST allows for the input of $3$ types of point group symmetry operations: rotation about an axis, mirror plane, and inversion.
+        The main purpose of declaring symmetries is for simulation speedup.
+        The syntax of declaring point group symmetries is as follows:
+        \begin{verbatim}
+        #SYMM
+        CN    x    y    z    x1    y1    z1
+        D     x    y    z    x1    y1    z1
+        I     x    y    z
+        \end{verbatim}
+        The first row describes rotation about an axis symmetry.
+        This first row states the following: the lattice is symmetric under rotations $2\pi/\texttt{N}$ (where \texttt{N} is the integer defined in \texttt{CN}) about the axis defined by containing the point \texttt{(x,y,z)} in the direction \texttt{(x1,y1,z1)}.
+        The second row describes mirror plane symmetry.
+        This second row states the following: the lattice is symmetric under reflections about the plane defined by containing the point \texttt{(x,y,z)} with normal \texttt{(x1,y1,z1)}.
+        The third row describes inversion symmetry: $\mathbf{r}\mapsto-\mathbf{r}$ symmetry with inversion point \texttt{(x,y,z)}. \\
+        \\
+        \texttt{\#PHASE}: an \texttt{NDIM x NDIM} integer array. Unknown usage\footnote{Some information about the functionality is available at \url{https://code.google.com/archive/p/quest-qmc/wikis/Lieb_lattice_tutorial.wiki}}. \\
+        \\
+        \texttt{\#BONDS}: specifies the types of bondings between orbital types.
+        The syntax of \texttt{\#BONDS} is as follows:
+        \begin{verbatim}
+        label1    label2    x    y    z    #bond_label
+        \end{verbatim}
+        where each row is repeated as required to fully specify bonds.
+        \texttt{label1} and \texttt{label2} are the labels of two types of orbitals (which can be the same).
+        \texttt{x    y    z} is the vector connecting \texttt{label1} to \texttt{label2}.
+        \texttt{bond\_label} labels the bond type, and should be incrementing down rows starting from $1$. \\
+        \\
+        \texttt{\#PAIR}: specifies the types of pairings to be measured.
+        Uses linear combinations of the entries in \texttt{\#BOND} in its definitions of pairings; if not included QUEST will attempt to determine the pairings on its own.
+        It is unknown how to fully implement this. \\
+        \\
+        \texttt{\#END}: declares the end of the geometry file.
+        Syntax:
+        \begin{verbatim}
+        #END
+        \end{verbatim}
 
-    \subsection{Input file}\label{sec config}
+        \subsection{Free form input files}
+        To be implemented in a future version.
+        For now the old version text about input files is being kept.
+
+
+
+
+
+
+
         An input file of QUEST is consisted of a list of parameter assignments,
         \begin{verbatim}
         parameter = value
@@ -303,7 +529,7 @@ Double occupancy :   0.000000  |  0.000000 +-  0.000000  |    0.00 :  0.00
         %\footnote{Type \emph{real} is type double in Fortran. Type \emph{real array} and \emph{string} have length constraints. The maximum number of elements of \emph{real array} is 10; and the maximum number of characters of a \emph{string} is 30.}
         The basic parameters include
         \begin{enumerate}
-            \item \verb"oname" (string): file name for output files.
+            \item \verb"ofile" (string): file name for output files (\texttt{<name>.geometry}, \texttt{<name>.out}, \texttt{<name>.tdm.out}).
             \item \verb"gfile" (string.geom): geometry file for lattice
             \item \verb"n" (integer): total number of sites.
             \item \verb"nx" (integer): number of sites in the x-direction.
