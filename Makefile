@@ -52,7 +52,7 @@ endif
 ifeq ($(COMPILER), intel)
   FC        = ifort
   CXX       = icpx
-  FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll
+  FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays
   #FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
   #CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
   CXX_FLAGS = -m64 -Wall -O3 -unroll $(CUDAINC) $(MAGMAINC)
