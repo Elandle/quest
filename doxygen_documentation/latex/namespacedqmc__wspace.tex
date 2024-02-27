@@ -1,0 +1,103 @@
+\hypertarget{namespacedqmc__wspace}{}\doxysection{dqmc\+\_\+wspace Module Reference}
+\label{namespacedqmc__wspace}\index{dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__wspace_a1aa683f722db430ca505446166516fa0}{dqmc\+\_\+wspace\+\_\+allocate}} (n, mx\+\_\+nbr, WS)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__wspace_accc9a78385d9a8adea096adc366340ae}{dqmc\+\_\+wspace\+\_\+free}} (WS)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__wspace_a358fa64cf2255ba6b23540e8c1b4f76f}{la\+\_\+syev}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__wspace_ae95f9420feae3455340058aef7c542d5}{la\+\_\+geqrf}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__wspace_a13609c3ba7f7b8820207f5f4be2f6daf}{la\+\_\+orgqr}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__wspace_a1708d2fad94b6210a1863e89dea02fef}{la\+\_\+ormqr}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__wspace_acc28bc70b375419f102a307b2c16a0a1}{la\+\_\+getri}} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__wspace_a1aa683f722db430ca505446166516fa0}\label{namespacedqmc__wspace_a1aa683f722db430ca505446166516fa0}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!dqmc\_wspace\_allocate@{dqmc\_wspace\_allocate}}
+\index{dqmc\_wspace\_allocate@{dqmc\_wspace\_allocate}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{dqmc\_wspace\_allocate()}{dqmc\_wspace\_allocate()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+wspace\+::dqmc\+\_\+wspace\+\_\+allocate (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, intent(in)}]{mx\+\_\+nbr,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(inout)}]{WS }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file dqmc\+\_\+wspace.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__wspace_accc9a78385d9a8adea096adc366340ae}\label{namespacedqmc__wspace_accc9a78385d9a8adea096adc366340ae}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!dqmc\_wspace\_free@{dqmc\_wspace\_free}}
+\index{dqmc\_wspace\_free@{dqmc\_wspace\_free}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{dqmc\_wspace\_free()}{dqmc\_wspace\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+wspace\+::dqmc\+\_\+wspace\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(inout)}]{WS }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file dqmc\+\_\+wspace.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__wspace_ae95f9420feae3455340058aef7c542d5}\label{namespacedqmc__wspace_ae95f9420feae3455340058aef7c542d5}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!la\_geqrf@{la\_geqrf}}
+\index{la\_geqrf@{la\_geqrf}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{la\_geqrf}{la\_geqrf}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+wspace\+::la\+\_\+geqrf = 2}
+
+
+
+Definition at line 31 of file dqmc\+\_\+wspace.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__wspace_acc28bc70b375419f102a307b2c16a0a1}\label{namespacedqmc__wspace_acc28bc70b375419f102a307b2c16a0a1}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!la\_getri@{la\_getri}}
+\index{la\_getri@{la\_getri}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{la\_getri}{la\_getri}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+wspace\+::la\+\_\+getri = 5}
+
+
+
+Definition at line 34 of file dqmc\+\_\+wspace.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__wspace_a13609c3ba7f7b8820207f5f4be2f6daf}\label{namespacedqmc__wspace_a13609c3ba7f7b8820207f5f4be2f6daf}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!la\_orgqr@{la\_orgqr}}
+\index{la\_orgqr@{la\_orgqr}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{la\_orgqr}{la\_orgqr}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+wspace\+::la\+\_\+orgqr = 3}
+
+
+
+Definition at line 32 of file dqmc\+\_\+wspace.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__wspace_a1708d2fad94b6210a1863e89dea02fef}\label{namespacedqmc__wspace_a1708d2fad94b6210a1863e89dea02fef}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!la\_ormqr@{la\_ormqr}}
+\index{la\_ormqr@{la\_ormqr}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{la\_ormqr}{la\_ormqr}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+wspace\+::la\+\_\+ormqr = 4}
+
+
+
+Definition at line 33 of file dqmc\+\_\+wspace.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__wspace_a358fa64cf2255ba6b23540e8c1b4f76f}\label{namespacedqmc__wspace_a358fa64cf2255ba6b23540e8c1b4f76f}} 
+\index{dqmc\_wspace@{dqmc\_wspace}!la\_syev@{la\_syev}}
+\index{la\_syev@{la\_syev}!dqmc\_wspace@{dqmc\_wspace}}
+\doxysubsubsection{\texorpdfstring{la\_syev}{la\_syev}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+wspace\+::la\+\_\+syev = 1}
+
+
+
+Definition at line 30 of file dqmc\+\_\+wspace.\+F90.
+

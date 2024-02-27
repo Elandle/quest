@@ -140,17 +140,6 @@
 </h2>
     
 
-    <p>Initial parameters for dgeqp3
-QR factorization with column pivoting
-dgegp3 returns R-factor on the upper triangle of G.
-The lower triangle of G stores "reflectors",
-which is used to reconstruct the Q-factor.</p>
-<p>Move R-factor to R, and normalize it by diagonal elements.</p>
-<p>make T upper triangular.
-D = diag(T).
-Normalize R's row by its diagonal. R = inv(D)<em>R
-Compute V = P</em>V. (W is used as an temporary variable.)
-Compute V = R<em>W = R</em>P*V</p>
 
 
     <h3>Arguments</h3>
@@ -166,7 +155,7 @@ Compute V = R<em>W = R</em>P*V</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~56"></span>
+              <span class="anchor" id="variable-n~10"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -181,7 +170,7 @@ Compute V = R<em>W = R</em>P*V</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-u~10"></span>
+              <span class="anchor" id="variable-u~6"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -196,7 +185,7 @@ Compute V = R<em>W = R</em>P*V</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-d~8"></span>
+              <span class="anchor" id="variable-d~3"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -211,7 +200,7 @@ Compute V = R<em>W = R</em>P*V</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~6"></span>
+              <span class="anchor" id="variable-t~3"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -226,7 +215,7 @@ Compute V = R<em>W = R</em>P*V</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-w1~6"></span>
+              <span class="anchor" id="variable-w1~2"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -241,7 +230,7 @@ Compute V = R<em>W = R</em>P*V</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-w2~6"></span>
+              <span class="anchor" id="variable-w2~2"></span>
               real(kind=wp),
             </td>
 <td>intent(inout)</td>
@@ -301,7 +290,7 @@ Compute V = R<em>W = R</em>P*V</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-lwork~5"></span>
+              <span class="anchor" id="variable-lwork"></span>
               integer,
             </td>
 <td>intent(in)</td>

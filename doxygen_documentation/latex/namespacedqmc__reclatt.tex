@@ -1,0 +1,85 @@
+\hypertarget{namespacedqmc__reclatt}{}\doxysection{dqmc\+\_\+reclatt Module Reference}
+\label{namespacedqmc__reclatt}\index{dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__reclatt_a83d7d272cddd859c9b201d63cc67aae0}{free\+\_\+reclatt}} (reclatt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__reclatt_a7b53ec8aa08f44015ef43818909f2cd1}{init\+\_\+recip\+\_\+latt}} (lattice, recip\+\_\+lattice, applytwist, cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__reclatt_ad3a39f381d4f8e0a7062b05834af5130}{construct\+\_\+recip\+\_\+lattice}} (recip\+\_\+lattice)
+\item 
+logical function \mbox{\hyperlink{namespacedqmc__reclatt_aefa56bad24d53e6db60ba7a62fc3fa10}{closer\+\_\+to\+\_\+zero}} (ktp, kset, on\+\_\+edge, ndim)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__reclatt_a51df9a5274e449b1406915e7046e0289}{dqmc\+\_\+init\+\_\+kmate}} (reclatt, nmom, ksum)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__reclatt_a85a0716aae8bd7d7bef2c4dabe8e87f8}{dqmc\+\_\+fill\+\_\+fourierc}} (Reciplattice, lattice)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__reclatt_aefa56bad24d53e6db60ba7a62fc3fa10}\label{namespacedqmc__reclatt_aefa56bad24d53e6db60ba7a62fc3fa10}} 
+\index{dqmc\_reclatt@{dqmc\_reclatt}!closer\_to\_zero@{closer\_to\_zero}}
+\index{closer\_to\_zero@{closer\_to\_zero}!dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsubsection{\texorpdfstring{closer\_to\_zero()}{closer\_to\_zero()}}
+{\footnotesize\ttfamily logical function dqmc\+\_\+reclatt\+::closer\+\_\+to\+\_\+zero (\begin{DoxyParamCaption}\item[{real$\ast$8, dimension(rdim), intent(in)}]{ktp,  }\item[{real$\ast$8, dimension(3$\ast$$\ast$ndim-\/1, rdim), intent(in)}]{kset,  }\item[{logical}]{on\+\_\+edge,  }\item[{integer, intent(in)}]{ndim }\end{DoxyParamCaption})}
+
+
+
+Definition at line 358 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__reclatt_ad3a39f381d4f8e0a7062b05834af5130}\label{namespacedqmc__reclatt_ad3a39f381d4f8e0a7062b05834af5130}} 
+\index{dqmc\_reclatt@{dqmc\_reclatt}!construct\_recip\_lattice@{construct\_recip\_lattice}}
+\index{construct\_recip\_lattice@{construct\_recip\_lattice}!dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsubsection{\texorpdfstring{construct\_recip\_lattice()}{construct\_recip\_lattice()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+reclatt\+::construct\+\_\+recip\+\_\+lattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(inout)}]{recip\+\_\+lattice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 158 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__reclatt_a85a0716aae8bd7d7bef2c4dabe8e87f8}\label{namespacedqmc__reclatt_a85a0716aae8bd7d7bef2c4dabe8e87f8}} 
+\index{dqmc\_reclatt@{dqmc\_reclatt}!dqmc\_fill\_fourierc@{dqmc\_fill\_fourierc}}
+\index{dqmc\_fill\_fourierc@{dqmc\_fill\_fourierc}!dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsubsection{\texorpdfstring{dqmc\_fill\_fourierc()}{dqmc\_fill\_fourierc()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+reclatt\+::dqmc\+\_\+fill\+\_\+fourierc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(inout), target}]{Reciplattice,  }\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in), target}]{lattice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 451 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__reclatt_a51df9a5274e449b1406915e7046e0289}\label{namespacedqmc__reclatt_a51df9a5274e449b1406915e7046e0289}} 
+\index{dqmc\_reclatt@{dqmc\_reclatt}!dqmc\_init\_kmate@{dqmc\_init\_kmate}}
+\index{dqmc\_init\_kmate@{dqmc\_init\_kmate}!dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsubsection{\texorpdfstring{dqmc\_init\_kmate()}{dqmc\_init\_kmate()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+reclatt\+::dqmc\+\_\+init\+\_\+kmate (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(inout)}]{reclatt,  }\item[{integer, intent(in)}]{nmom,  }\item[{real(wp), dimension(nmom, rdim), intent(in)}]{ksum }\end{DoxyParamCaption})}
+
+
+
+Definition at line 389 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__reclatt_a83d7d272cddd859c9b201d63cc67aae0}\label{namespacedqmc__reclatt_a83d7d272cddd859c9b201d63cc67aae0}} 
+\index{dqmc\_reclatt@{dqmc\_reclatt}!free\_reclatt@{free\_reclatt}}
+\index{free\_reclatt@{free\_reclatt}!dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsubsection{\texorpdfstring{free\_reclatt()}{free\_reclatt()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+reclatt\+::free\+\_\+reclatt (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(inout)}]{reclatt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__reclatt_a7b53ec8aa08f44015ef43818909f2cd1}\label{namespacedqmc__reclatt_a7b53ec8aa08f44015ef43818909f2cd1}} 
+\index{dqmc\_reclatt@{dqmc\_reclatt}!init\_recip\_latt@{init\_recip\_latt}}
+\index{init\_recip\_latt@{init\_recip\_latt}!dqmc\_reclatt@{dqmc\_reclatt}}
+\doxysubsubsection{\texorpdfstring{init\_recip\_latt()}{init\_recip\_latt()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+reclatt\+::init\+\_\+recip\+\_\+latt (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in), target}]{lattice,  }\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(out), target}]{recip\+\_\+lattice,  }\item[{logical, intent(in)}]{applytwist,  }\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in), target}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file dqmc\+\_\+reclatt.\+F90.
+

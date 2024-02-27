@@ -1,0 +1,145 @@
+\hypertarget{namespacedqmc__matb}{}\doxysection{dqmc\+\_\+matb Module Reference}
+\label{namespacedqmc__matb}\index{dqmc\_matb@{dqmc\_matb}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_ac64a622ca02009f0e3d09da9bdff3a49}{dqmc\+\_\+b\+\_\+init}} (n, B, WS, Adj, ckb, t, mu, dtau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a9affe0f57867b7b128a7b9dcca5b98d4}{dqmc\+\_\+b\+\_\+expinit}} (B, \mbox{\hyperlink{blaslapack_8c_09_09_a97d832ae23af4f215e801e37e4f94254}{K}}, WS)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a2557bd5dd2239cf1f7627a656b8522bc}{dqmc\+\_\+b\+\_\+free}} (B)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_af6c97cadc84554df941702c976fed579}{dqmc\+\_\+multb\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a1a72b12b901178defa836bfba3854164}{dqmc\+\_\+multbi\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_affb66c78d7e736cad2da3110f1b960ca}{dqmc\+\_\+multb\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a71e7c012b022664c41d15ac79bae7866}{dqmc\+\_\+multbi\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a1e9abdd78be737f611f5d4e1f20ae48d}{dqmc\+\_\+multrtb0\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_aedc72e75f963a429324e69118e046bb8}{dqmc\+\_\+multrtb0i\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_ace7a08c3ef8765ab5d2475846203539b}{dqmc\+\_\+getb}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a2fd0b046e1458f3568d6b2b2c51aab96}{dqmc\+\_\+getbi}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__matb_a9affe0f57867b7b128a7b9dcca5b98d4}\label{namespacedqmc__matb_a9affe0f57867b7b128a7b9dcca5b98d4}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_b\_expinit@{dqmc\_b\_expinit}}
+\index{dqmc\_b\_expinit@{dqmc\_b\_expinit}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_b\_expinit()}{dqmc\_b\_expinit()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+b\+\_\+expinit (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(\+:,\+:), intent(inout)}]{K,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(inout), target}]{WS }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_a2557bd5dd2239cf1f7627a656b8522bc}\label{namespacedqmc__matb_a2557bd5dd2239cf1f7627a656b8522bc}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_b\_free@{dqmc\_b\_free}}
+\index{dqmc\_b\_free@{dqmc\_b\_free}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_b\_free()}{dqmc\_b\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+b\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(inout)}]{B }\end{DoxyParamCaption})}
+
+
+
+Definition at line 233 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_ac64a622ca02009f0e3d09da9bdff3a49}\label{namespacedqmc__matb_ac64a622ca02009f0e3d09da9bdff3a49}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_b\_init@{dqmc\_b\_init}}
+\index{dqmc\_b\_init@{dqmc\_b\_init}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_b\_init()}{dqmc\_b\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+b\+\_\+init (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(inout), target}]{WS,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{Adj,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(out)}]{ckb,  }\item[{real(wp), dimension(\+:), intent(in)}]{t,  }\item[{real(wp), dimension(n), intent(in)}]{mu,  }\item[{real(wp), intent(in)}]{dtau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_ace7a08c3ef8765ab5d2475846203539b}\label{namespacedqmc__matb_ace7a08c3ef8765ab5d2475846203539b}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_getb@{dqmc\_getb}}
+\index{dqmc\_getb@{dqmc\_getb}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_getb()}{dqmc\_getb()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+getb (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 626 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_a2fd0b046e1458f3568d6b2b2c51aab96}\label{namespacedqmc__matb_a2fd0b046e1458f3568d6b2b2c51aab96}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_getbi@{dqmc\_getbi}}
+\index{dqmc\_getbi@{dqmc\_getbi}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_getbi()}{dqmc\_getbi()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+getbi (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 665 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_af6c97cadc84554df941702c976fed579}\label{namespacedqmc__matb_af6c97cadc84554df941702c976fed579}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_multb\_left@{dqmc\_multb\_left}}
+\index{dqmc\_multb\_left@{dqmc\_multb\_left}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multb\_left()}{dqmc\_multb\_left()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+multb\+\_\+left (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 252 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_affb66c78d7e736cad2da3110f1b960ca}\label{namespacedqmc__matb_affb66c78d7e736cad2da3110f1b960ca}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_multb\_right@{dqmc\_multb\_right}}
+\index{dqmc\_multb\_right@{dqmc\_multb\_right}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multb\_right()}{dqmc\_multb\_right()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+multb\+\_\+right (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 413 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_a1a72b12b901178defa836bfba3854164}\label{namespacedqmc__matb_a1a72b12b901178defa836bfba3854164}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_multbi\_left@{dqmc\_multbi\_left}}
+\index{dqmc\_multbi\_left@{dqmc\_multbi\_left}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multbi\_left()}{dqmc\_multbi\_left()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+multbi\+\_\+left (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 331 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_a71e7c012b022664c41d15ac79bae7866}\label{namespacedqmc__matb_a71e7c012b022664c41d15ac79bae7866}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_multbi\_right@{dqmc\_multbi\_right}}
+\index{dqmc\_multbi\_right@{dqmc\_multbi\_right}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multbi\_right()}{dqmc\_multbi\_right()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+multbi\+\_\+right (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 491 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_a1e9abdd78be737f611f5d4e1f20ae48d}\label{namespacedqmc__matb_a1e9abdd78be737f611f5d4e1f20ae48d}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_multrtb0\_left@{dqmc\_multrtb0\_left}}
+\index{dqmc\_multrtb0\_left@{dqmc\_multrtb0\_left}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multrtb0\_left()}{dqmc\_multrtb0\_left()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+multrtb0\+\_\+left (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 572 of file dqmc\+\_\+matb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__matb_aedc72e75f963a429324e69118e046bb8}\label{namespacedqmc__matb_aedc72e75f963a429324e69118e046bb8}} 
+\index{dqmc\_matb@{dqmc\_matb}!dqmc\_multrtb0i\_right@{dqmc\_multrtb0i\_right}}
+\index{dqmc\_multrtb0i\_right@{dqmc\_multrtb0i\_right}!dqmc\_matb@{dqmc\_matb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multrtb0i\_right()}{dqmc\_multrtb0i\_right()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+matb\+::dqmc\+\_\+multrtb0i\+\_\+right (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 600 of file dqmc\+\_\+matb.\+F90.
+

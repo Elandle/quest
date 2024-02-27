@@ -1,0 +1,291 @@
+\hypertarget{wolffind_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/wolffind.cpp File Reference}
+\label{wolffind_8cpp}\index{SRC/sprng5/TESTS/wolffind.cpp@{SRC/sprng5/TESTS/wolffind.cpp}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for wolffind.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wolffind_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_ad61c523967cd39c2f627ac68b5addcae}{RNG}} ()
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_addd1e218b9b015247482037c1180600a}{LCG}} (int multi, int modul)
+\item 
+void \mbox{\hyperlink{wolffind_8cpp_a51d8b61b3aab58666a9983385ccac2d2}{Single\+\_\+\+Cluster\+\_\+\+Update}} (int multi, int modul)
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_a4e9bdf4a3ab5e3f6a60aa0d7d0afce52}{System\+\_\+\+Energy}} ()
+\item 
+void \mbox{\hyperlink{wolffind_8cpp_a4736641f955478d9f3144e0023089a1d}{compute}} (int i, int \mbox{\hyperlink{blaslapack_8c_09_09_a0240ac851181b84ac374872dc5434ee4}{N}})
+\item 
+void \mbox{\hyperlink{wolffind_8cpp_a37112e9e40a556382657d588411b1987}{wolff}} (int block\+\_\+size, int use\+\_\+blocks, int multi, int modul)
+\item 
+void \mbox{\hyperlink{wolffind_8cpp_a18d29f67a6981dd29081d18cca4ec34d}{minitialize}} (int rng\+\_\+type, int seed, int param, int model, int use\+\_\+blocks)
+\item 
+void \mbox{\hyperlink{wolffind_8cpp_a206fdc43ce0ce9553c5328fd755f567b}{check\+\_\+arguments}} (int \mbox{\hyperlink{wolfftest_8cpp_a98a79fece1cc30677d6678a14b02ef1e}{lattice\+\_\+size}}, int block\+\_\+size, int discard\+\_\+blocks, int use\+\_\+blocks, int modul)
+\item 
+void \mbox{\hyperlink{wolffind_8cpp_aa444edbc505e133567f0ac0ac694bbde}{thermalize}} (int block\+\_\+size, int discard\+\_\+blocks, int multi, int modul)
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_a98a79fece1cc30677d6678a14b02ef1e}{lattice\+\_\+size}}
+\item 
+int $\ast$ \mbox{\hyperlink{wolffind_8cpp_a139c1100ae8a7cd401cbef783e50fd62}{spin}}
+\item 
+int $\ast$ \mbox{\hyperlink{wolffind_8cpp_a716d3552c27408916cd2dccc0a626377}{stack}}
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_aceeee4f75cb2381f9521b30092609b1c}{nsites}}
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_ab15e6c2526a1d35231ff95f2eb782d84}{exponent}}
+\item 
+int \mbox{\hyperlink{wolffind_8cpp_ab77cc972f3ee899689ba053015472ccd}{mask}}
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_aa2e6cdab200874e2972d1b8138b03a3f}{prob}}
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_abd7a82d6a2b12df3c3fc2d0e9a2984b6}{Energy}} \mbox{[}10\mbox{]}\mbox{[}10\mbox{]}
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_a3a31bf3eb8155012bf1aae03d8f48d95}{Cv}} \mbox{[}10\mbox{]}\mbox{[}10\mbox{]}
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_a229fe836529a54bc8a7d390148d7a488}{J}} = 0.\+4406868
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_a07014bcab37624bcae852dc56b2c8c35}{exact\+\_\+energy}} = -\/1.\+4530649029
+\item 
+double \mbox{\hyperlink{wolffind_8cpp_a2dfc8b54d77dfc83f144c758aa1df192}{exact\+\_\+\+Cv}} = 1.\+4987048885
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{wolffind_8cpp_a206fdc43ce0ce9553c5328fd755f567b}\label{wolffind_8cpp_a206fdc43ce0ce9553c5328fd755f567b}} 
+\index{wolffind.cpp@{wolffind.cpp}!check\_arguments@{check\_arguments}}
+\index{check\_arguments@{check\_arguments}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_arguments()}{check\_arguments()}}
+{\footnotesize\ttfamily void check\+\_\+arguments (\begin{DoxyParamCaption}\item[{int}]{lattice\+\_\+size,  }\item[{int}]{block\+\_\+size,  }\item[{int}]{discard\+\_\+blocks,  }\item[{int}]{use\+\_\+blocks,  }\item[{int}]{modul }\end{DoxyParamCaption})}
+
+
+
+Definition at line 259 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a4736641f955478d9f3144e0023089a1d}\label{wolffind_8cpp_a4736641f955478d9f3144e0023089a1d}} 
+\index{wolffind.cpp@{wolffind.cpp}!compute@{compute}}
+\index{compute@{compute}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily void compute (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_addd1e218b9b015247482037c1180600a}\label{wolffind_8cpp_addd1e218b9b015247482037c1180600a}} 
+\index{wolffind.cpp@{wolffind.cpp}!LCG@{LCG}}
+\index{LCG@{LCG}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{LCG()}{LCG()}}
+{\footnotesize\ttfamily double \mbox{\hyperlink{classLCG}{LCG}} (\begin{DoxyParamCaption}\item[{int}]{multi,  }\item[{int}]{modul }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{wolffind_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{wolffind.cpp@{wolffind.cpp}!main@{main}}
+\index{main@{main}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 323 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a18d29f67a6981dd29081d18cca4ec34d}\label{wolffind_8cpp_a18d29f67a6981dd29081d18cca4ec34d}} 
+\index{wolffind.cpp@{wolffind.cpp}!minitialize@{minitialize}}
+\index{minitialize@{minitialize}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{minitialize()}{minitialize()}}
+{\footnotesize\ttfamily void minitialize (\begin{DoxyParamCaption}\item[{int}]{rng\+\_\+type,  }\item[{int}]{seed,  }\item[{int}]{param,  }\item[{int}]{model,  }\item[{int}]{use\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 227 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_ad61c523967cd39c2f627ac68b5addcae}\label{wolffind_8cpp_ad61c523967cd39c2f627ac68b5addcae}} 
+\index{wolffind.cpp@{wolffind.cpp}!RNG@{RNG}}
+\index{RNG@{RNG}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{RNG()}{RNG()}}
+{\footnotesize\ttfamily int RNG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a51d8b61b3aab58666a9983385ccac2d2}\label{wolffind_8cpp_a51d8b61b3aab58666a9983385ccac2d2}} 
+\index{wolffind.cpp@{wolffind.cpp}!Single\_Cluster\_Update@{Single\_Cluster\_Update}}
+\index{Single\_Cluster\_Update@{Single\_Cluster\_Update}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{Single\_Cluster\_Update()}{Single\_Cluster\_Update()}}
+{\footnotesize\ttfamily void Single\+\_\+\+Cluster\+\_\+\+Update (\begin{DoxyParamCaption}\item[{int}]{multi,  }\item[{int}]{modul }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a4e9bdf4a3ab5e3f6a60aa0d7d0afce52}\label{wolffind_8cpp_a4e9bdf4a3ab5e3f6a60aa0d7d0afce52}} 
+\index{wolffind.cpp@{wolffind.cpp}!System\_Energy@{System\_Energy}}
+\index{System\_Energy@{System\_Energy}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{System\_Energy()}{System\_Energy()}}
+{\footnotesize\ttfamily int System\+\_\+\+Energy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 112 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_aa444edbc505e133567f0ac0ac694bbde}\label{wolffind_8cpp_aa444edbc505e133567f0ac0ac694bbde}} 
+\index{wolffind.cpp@{wolffind.cpp}!thermalize@{thermalize}}
+\index{thermalize@{thermalize}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{thermalize()}{thermalize()}}
+{\footnotesize\ttfamily void thermalize (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+size,  }\item[{int}]{discard\+\_\+blocks,  }\item[{int}]{multi,  }\item[{int}]{modul }\end{DoxyParamCaption})}
+
+
+
+Definition at line 311 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a37112e9e40a556382657d588411b1987}\label{wolffind_8cpp_a37112e9e40a556382657d588411b1987}} 
+\index{wolffind.cpp@{wolffind.cpp}!wolff@{wolff}}
+\index{wolff@{wolff}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{wolff()}{wolff()}}
+{\footnotesize\ttfamily void wolff (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+size,  }\item[{int}]{use\+\_\+blocks,  }\item[{int}]{multi,  }\item[{int}]{modul }\end{DoxyParamCaption})}
+
+
+
+Definition at line 175 of file wolffind.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{wolffind_8cpp_a3a31bf3eb8155012bf1aae03d8f48d95}\label{wolffind_8cpp_a3a31bf3eb8155012bf1aae03d8f48d95}} 
+\index{wolffind.cpp@{wolffind.cpp}!Cv@{Cv}}
+\index{Cv@{Cv}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{Cv}{Cv}}
+{\footnotesize\ttfamily double Cv\mbox{[}10\mbox{]}\mbox{[}10\mbox{]}}
+
+
+
+Definition at line 18 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_abd7a82d6a2b12df3c3fc2d0e9a2984b6}\label{wolffind_8cpp_abd7a82d6a2b12df3c3fc2d0e9a2984b6}} 
+\index{wolffind.cpp@{wolffind.cpp}!Energy@{Energy}}
+\index{Energy@{Energy}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{Energy}{Energy}}
+{\footnotesize\ttfamily double Energy\mbox{[}10\mbox{]}\mbox{[}10\mbox{]}}
+
+
+
+Definition at line 18 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a2dfc8b54d77dfc83f144c758aa1df192}\label{wolffind_8cpp_a2dfc8b54d77dfc83f144c758aa1df192}} 
+\index{wolffind.cpp@{wolffind.cpp}!exact\_Cv@{exact\_Cv}}
+\index{exact\_Cv@{exact\_Cv}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{exact\_Cv}{exact\_Cv}}
+{\footnotesize\ttfamily double exact\+\_\+\+Cv = 1.\+4987048885}
+
+
+
+Definition at line 19 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a07014bcab37624bcae852dc56b2c8c35}\label{wolffind_8cpp_a07014bcab37624bcae852dc56b2c8c35}} 
+\index{wolffind.cpp@{wolffind.cpp}!exact\_energy@{exact\_energy}}
+\index{exact\_energy@{exact\_energy}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{exact\_energy}{exact\_energy}}
+{\footnotesize\ttfamily double exact\+\_\+energy = -\/1.\+4530649029}
+
+
+
+Definition at line 19 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_ab15e6c2526a1d35231ff95f2eb782d84}\label{wolffind_8cpp_ab15e6c2526a1d35231ff95f2eb782d84}} 
+\index{wolffind.cpp@{wolffind.cpp}!exponent@{exponent}}
+\index{exponent@{exponent}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{exponent}{exponent}}
+{\footnotesize\ttfamily int exponent}
+
+
+
+Definition at line 16 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a229fe836529a54bc8a7d390148d7a488}\label{wolffind_8cpp_a229fe836529a54bc8a7d390148d7a488}} 
+\index{wolffind.cpp@{wolffind.cpp}!J@{J}}
+\index{J@{J}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{J}{J}}
+{\footnotesize\ttfamily double J = 0.\+4406868}
+
+
+
+Definition at line 18 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a98a79fece1cc30677d6678a14b02ef1e}\label{wolffind_8cpp_a98a79fece1cc30677d6678a14b02ef1e}} 
+\index{wolffind.cpp@{wolffind.cpp}!lattice\_size@{lattice\_size}}
+\index{lattice\_size@{lattice\_size}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{lattice\_size}{lattice\_size}}
+{\footnotesize\ttfamily int lattice\+\_\+size}
+
+
+
+Definition at line 15 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_ab77cc972f3ee899689ba053015472ccd}\label{wolffind_8cpp_ab77cc972f3ee899689ba053015472ccd}} 
+\index{wolffind.cpp@{wolffind.cpp}!mask@{mask}}
+\index{mask@{mask}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{mask}{mask}}
+{\footnotesize\ttfamily int mask}
+
+
+
+Definition at line 16 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_aceeee4f75cb2381f9521b30092609b1c}\label{wolffind_8cpp_aceeee4f75cb2381f9521b30092609b1c}} 
+\index{wolffind.cpp@{wolffind.cpp}!nsites@{nsites}}
+\index{nsites@{nsites}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{nsites}{nsites}}
+{\footnotesize\ttfamily int nsites}
+
+
+
+Definition at line 15 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_aa2e6cdab200874e2972d1b8138b03a3f}\label{wolffind_8cpp_aa2e6cdab200874e2972d1b8138b03a3f}} 
+\index{wolffind.cpp@{wolffind.cpp}!prob@{prob}}
+\index{prob@{prob}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{prob}{prob}}
+{\footnotesize\ttfamily double prob}
+
+
+
+Definition at line 17 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a139c1100ae8a7cd401cbef783e50fd62}\label{wolffind_8cpp_a139c1100ae8a7cd401cbef783e50fd62}} 
+\index{wolffind.cpp@{wolffind.cpp}!spin@{spin}}
+\index{spin@{spin}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{spin}{spin}}
+{\footnotesize\ttfamily int $\ast$ spin}
+
+
+
+Definition at line 15 of file wolffind.\+cpp.
+
+\mbox{\Hypertarget{wolffind_8cpp_a716d3552c27408916cd2dccc0a626377}\label{wolffind_8cpp_a716d3552c27408916cd2dccc0a626377}} 
+\index{wolffind.cpp@{wolffind.cpp}!stack@{stack}}
+\index{stack@{stack}!wolffind.cpp@{wolffind.cpp}}
+\doxysubsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily int $\ast$ stack}
+
+
+
+Definition at line 15 of file wolffind.\+cpp.
+

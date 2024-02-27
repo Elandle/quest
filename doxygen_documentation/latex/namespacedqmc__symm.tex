@@ -1,0 +1,157 @@
+\hypertarget{namespacedqmc__symm}{}\doxysection{dqmc\+\_\+symm Module Reference}
+\label{namespacedqmc__symm}\index{dqmc\_symm@{dqmc\_symm}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a46b0a9a0a1ba6405298bdf96dd26eca8}{free\+\_\+symm}} (symm)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a322b2bd21270556b75d2939c019e0bb1}{read\+\_\+symm}} (Symm\+Op)
+\item 
+integer function \mbox{\hyperlink{namespacedqmc__symm_af9962eb4eb46094c1e6dfef11189f2b2}{count\+\_\+symmetry}} ()
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a07ed1c0798a70981679f85caef9a11ec}{apply\+\_\+point\+\_\+symm}} (label, point, axis, theta, \mbox{\hyperlink{mlfg_8cpp_af1169f4ccb325c14fde7bba35de58ab7}{set}}, new\+\_\+set, nset, reciprocal)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a275ef01ea1a139abc0bdb628f50ee949}{map\+\_\+symm\+\_\+lattice}} (Symm\+Op, lattice, hamilt, SOP)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_ad91458c75a3c7f56ed257cea8a12bce2}{map\+\_\+symm\+\_\+recip\+\_\+lattice}} (Symm\+Op, recip\+\_\+lattice, applytwist)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_afed9f17e915b9c81faefd491d65febed}{map\+\_\+symm\+\_\+bonds}} (Bonds, Symm\+Op, Lattice)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_aa744915e4f5d170a6d20f54f13aaf78b}{map\+\_\+symm\+\_\+pairs}} (Pairs, Symm\+Op)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a5863fa86f07fce6703f1f6ff0f919ca1}{construct\+\_\+lattice\+\_\+classes}} (Symm\+Op, lattice)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a11b98404f7ac60f9b51ba5a716f61537}{construct\+\_\+recip\+\_\+lattice\+\_\+classes}} (Symm\+Op, recip\+\_\+lattice, applytwist)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_a31f998a7502e39c2dcca7b7c7e3f41bc}{construct\+\_\+bond\+\_\+classes}} (Bonds, Symm\+Op)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__symm_af08217b62d022a23017a7ced7c5a62a5}{construct\+\_\+pair\+\_\+classes}} (Bonds, Pairs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__symm_a07ed1c0798a70981679f85caef9a11ec}\label{namespacedqmc__symm_a07ed1c0798a70981679f85caef9a11ec}} 
+\index{dqmc\_symm@{dqmc\_symm}!apply\_point\_symm@{apply\_point\_symm}}
+\index{apply\_point\_symm@{apply\_point\_symm}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{apply\_point\_symm()}{apply\_point\_symm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::apply\+\_\+point\+\_\+symm (\begin{DoxyParamCaption}\item[{character$\ast$1}]{label,  }\item[{real$\ast$8, dimension(3), intent(in)}]{point,  }\item[{real$\ast$8, dimension(3), intent(in)}]{axis,  }\item[{real$\ast$8, intent(in)}]{theta,  }\item[{real$\ast$8, dimension(3$\ast$nset), intent(in)}]{set,  }\item[{real$\ast$8, dimension(3,nset), intent(out)}]{new\+\_\+set,  }\item[{integer, intent(in)}]{nset,  }\item[{logical, intent(in)}]{reciprocal }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_a31f998a7502e39c2dcca7b7c7e3f41bc}\label{namespacedqmc__symm_a31f998a7502e39c2dcca7b7c7e3f41bc}} 
+\index{dqmc\_symm@{dqmc\_symm}!construct\_bond\_classes@{construct\_bond\_classes}}
+\index{construct\_bond\_classes@{construct\_bond\_classes}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{construct\_bond\_classes()}{construct\_bond\_classes()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::construct\+\_\+bond\+\_\+classes (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__bonds_1_1bonds__t}{bonds\+\_\+t}}), intent(inout)}]{Bonds,  }\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}), intent(in)}]{Symm\+Op }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1223 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_a5863fa86f07fce6703f1f6ff0f919ca1}\label{namespacedqmc__symm_a5863fa86f07fce6703f1f6ff0f919ca1}} 
+\index{dqmc\_symm@{dqmc\_symm}!construct\_lattice\_classes@{construct\_lattice\_classes}}
+\index{construct\_lattice\_classes@{construct\_lattice\_classes}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{construct\_lattice\_classes()}{construct\_lattice\_classes()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::construct\+\_\+lattice\+\_\+classes (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}})}]{Symm\+Op,  }\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}})}]{lattice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 928 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_af08217b62d022a23017a7ced7c5a62a5}\label{namespacedqmc__symm_af08217b62d022a23017a7ced7c5a62a5}} 
+\index{dqmc\_symm@{dqmc\_symm}!construct\_pair\_classes@{construct\_pair\_classes}}
+\index{construct\_pair\_classes@{construct\_pair\_classes}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{construct\_pair\_classes()}{construct\_pair\_classes()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::construct\+\_\+pair\+\_\+classes (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__bonds_1_1bonds__t}{bonds\+\_\+t}}), intent(in)}]{Bonds,  }\item[{type(\mbox{\hyperlink{structdqmc__bonds_1_1pairing}{pairing}}), intent(inout)}]{Pairs }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1367 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_a11b98404f7ac60f9b51ba5a716f61537}\label{namespacedqmc__symm_a11b98404f7ac60f9b51ba5a716f61537}} 
+\index{dqmc\_symm@{dqmc\_symm}!construct\_recip\_lattice\_classes@{construct\_recip\_lattice\_classes}}
+\index{construct\_recip\_lattice\_classes@{construct\_recip\_lattice\_classes}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{construct\_recip\_lattice\_classes()}{construct\_recip\_lattice\_classes()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::construct\+\_\+recip\+\_\+lattice\+\_\+classes (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}})}]{Symm\+Op,  }\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}})}]{recip\+\_\+lattice,  }\item[{logical, intent(in)}]{applytwist }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1118 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_af9962eb4eb46094c1e6dfef11189f2b2}\label{namespacedqmc__symm_af9962eb4eb46094c1e6dfef11189f2b2}} 
+\index{dqmc\_symm@{dqmc\_symm}!count\_symmetry@{count\_symmetry}}
+\index{count\_symmetry@{count\_symmetry}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{count\_symmetry()}{count\_symmetry()}}
+{\footnotesize\ttfamily integer function dqmc\+\_\+symm\+::count\+\_\+symmetry}
+
+
+
+Definition at line 187 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_a46b0a9a0a1ba6405298bdf96dd26eca8}\label{namespacedqmc__symm_a46b0a9a0a1ba6405298bdf96dd26eca8}} 
+\index{dqmc\_symm@{dqmc\_symm}!free\_symm@{free\_symm}}
+\index{free\_symm@{free\_symm}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{free\_symm()}{free\_symm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::free\+\_\+symm (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}), intent(inout)}]{symm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_afed9f17e915b9c81faefd491d65febed}\label{namespacedqmc__symm_afed9f17e915b9c81faefd491d65febed}} 
+\index{dqmc\_symm@{dqmc\_symm}!map\_symm\_bonds@{map\_symm\_bonds}}
+\index{map\_symm\_bonds@{map\_symm\_bonds}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{map\_symm\_bonds()}{map\_symm\_bonds()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::map\+\_\+symm\+\_\+bonds (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__bonds_1_1bonds__t}{bonds\+\_\+t}}), intent(inout)}]{Bonds,  }\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}), intent(inout)}]{Symm\+Op,  }\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in)}]{Lattice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 717 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_a275ef01ea1a139abc0bdb628f50ee949}\label{namespacedqmc__symm_a275ef01ea1a139abc0bdb628f50ee949}} 
+\index{dqmc\_symm@{dqmc\_symm}!map\_symm\_lattice@{map\_symm\_lattice}}
+\index{map\_symm\_lattice@{map\_symm\_lattice}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{map\_symm\_lattice()}{map\_symm\_lattice()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::map\+\_\+symm\+\_\+lattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}})}]{Symm\+Op,  }\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in)}]{lattice,  }\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(in)}]{hamilt,  }\item[{integer, intent(in)}]{SOP }\end{DoxyParamCaption})}
+
+
+
+Definition at line 351 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_aa744915e4f5d170a6d20f54f13aaf78b}\label{namespacedqmc__symm_aa744915e4f5d170a6d20f54f13aaf78b}} 
+\index{dqmc\_symm@{dqmc\_symm}!map\_symm\_pairs@{map\_symm\_pairs}}
+\index{map\_symm\_pairs@{map\_symm\_pairs}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{map\_symm\_pairs()}{map\_symm\_pairs()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::map\+\_\+symm\+\_\+pairs (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__bonds_1_1pairing}{pairing}}), intent(inout)}]{Pairs,  }\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}), intent(inout)}]{Symm\+Op }\end{DoxyParamCaption})}
+
+
+
+Definition at line 890 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_ad91458c75a3c7f56ed257cea8a12bce2}\label{namespacedqmc__symm_ad91458c75a3c7f56ed257cea8a12bce2}} 
+\index{dqmc\_symm@{dqmc\_symm}!map\_symm\_recip\_lattice@{map\_symm\_recip\_lattice}}
+\index{map\_symm\_recip\_lattice@{map\_symm\_recip\_lattice}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{map\_symm\_recip\_lattice()}{map\_symm\_recip\_lattice()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::map\+\_\+symm\+\_\+recip\+\_\+lattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}})}]{Symm\+Op,  }\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(in)}]{recip\+\_\+lattice,  }\item[{logical, intent(in)}]{applytwist }\end{DoxyParamCaption})}
+
+
+
+Definition at line 543 of file dqmc\+\_\+symm.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__symm_a322b2bd21270556b75d2939c019e0bb1}\label{namespacedqmc__symm_a322b2bd21270556b75d2939c019e0bb1}} 
+\index{dqmc\_symm@{dqmc\_symm}!read\_symm@{read\_symm}}
+\index{read\_symm@{read\_symm}!dqmc\_symm@{dqmc\_symm}}
+\doxysubsubsection{\texorpdfstring{read\_symm()}{read\_symm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+symm\+::read\+\_\+symm (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}), intent(out)}]{Symm\+Op }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file dqmc\+\_\+symm.\+F90.
+

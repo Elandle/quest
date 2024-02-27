@@ -1,0 +1,103 @@
+\hypertarget{dqmc__tdm1_8F90}{}\doxysection{SRC/dqmc\+\_\+tdm1.F90 File Reference}
+\label{dqmc__tdm1_8F90}\index{SRC/dqmc\_tdm1.F90@{SRC/dqmc\_tdm1.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+tdm1.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{dqmc__tdm1_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__tdm1_1_1tdmarray}{dqmc\+\_\+tdm1\+::tdmarray}}
+\item 
+type \mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{dqmc\+\_\+tdm1\+::tdm1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__tdm1}{dqmc\+\_\+tdm1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a71fa5c56aab2feb47312967e413cc0cf}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+init}} (L, dtau, T1, n\+Bin, S, Gwrap)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a36bcdd2ead405f82c6499b119b2a268a}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+initftw}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a3932d3474c689fd3772c896d45a6bb64}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+initprop}} (T1, S, Gwrap, iprop)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a160a4746c09c2f7d3a6e9ef9a3cd5a84}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+free}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a1f398b80c5a5700325c66c4b9a38c0c3}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+meas}} (T1, tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a00ed997c2209c0e5876a68e66fc3f304}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+meas\+\_\+para}} (T1, p\+T1, tau, ptau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_abdda87e6d10b9d4fb4827e753fc9d717}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+compute}} (T1, upt0, up0t, dnt0, dn0t, up00, uptt, dn00, dntt, it, i0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_ac45fb40b740f91e9962ff58b87732064}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+avg}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a103166f9552e5211df1c6b553373db2d}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+geterr}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a610f3f0bc7b3ae815b01c88a137a10ce}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+print}} (T1, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_ab8078a5cfb2f9877f0796853e7abcc67}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+getkft}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a64d7bfd2f84eeb6f59f07532b4609f59}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+geterrkft}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_ab79b489eab84c45048bf7f28ca2dcbb2}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+printkft}} (T1, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_af1535503711c61c80ba32823b87c6c39}{dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+selfenergy}} (T1, tau, OPT)
+\item 
+subroutine \mbox{\hyperlink{dqmc__tdm1_8F90_a127e1d14841576fa816d7b36c56d0dd3}{convert\+\_\+to\+\_\+iwn}} (tdmgtau, tdmgw)
+\item 
+subroutine \mbox{\hyperlink{dqmc__tdm1_8F90_a5687c6b4ebfbc1dbbbfeaa76c2c325ab}{invertg}} (tdmgw)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a42d90824bddb4136effc5df28a943b29}{dqmc\+\_\+tdm1\+::ntdmarray}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a620bc147d90436ed18ea440b8d550372}{dqmc\+\_\+tdm1\+::igfun}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a6b0f8e3879fdea90473099f34da225de}{dqmc\+\_\+tdm1\+::igfup}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a29565cd55bc2a0235fcdd6b488f6cdad}{dqmc\+\_\+tdm1\+::igfdn}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a51de1cd8248f6d000cad9904aa6eef00}{dqmc\+\_\+tdm1\+::ispxx}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a5ba16ac8c0ebcc224af9da49387b3fd2}{dqmc\+\_\+tdm1\+::ispzz}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a246cbdb7810cb95a5a131b7c7873d8c0}{dqmc\+\_\+tdm1\+::idens}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_aa3bf9dc5c07c9e2b0332b846c3583cea}{dqmc\+\_\+tdm1\+::ipair}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a953d6e7c27c9edfaa4f6aff5658a25e4}{dqmc\+\_\+tdm1\+::icond}} = 8
+\item 
+character(len=12), dimension(ntdmarray), parameter \mbox{\hyperlink{namespacedqmc__tdm1_a422a927176f0a2b4c337830e61f94393}{dqmc\+\_\+tdm1\+::pname}} = (/ \char`\"{}Gfun \char`\"{}, \char`\"{}Gfun up \char`\"{}, \char`\"{}Gfun dn \char`\"{}, \char`\"{}Sx\+Sx \char`\"{}, \char`\"{}Sz\+Sz \char`\"{}, \char`\"{}Den-\/Den \char`\"{}, \char`\"{}S-\/wave \char`\"{}, \char`\"{}Conductivity\char`\"{} /)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{dqmc__tdm1_8F90_a127e1d14841576fa816d7b36c56d0dd3}\label{dqmc__tdm1_8F90_a127e1d14841576fa816d7b36c56d0dd3}} 
+\index{dqmc\_tdm1.F90@{dqmc\_tdm1.F90}!convert\_to\_iwn@{convert\_to\_iwn}}
+\index{convert\_to\_iwn@{convert\_to\_iwn}!dqmc\_tdm1.F90@{dqmc\_tdm1.F90}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_iwn()}{convert\_to\_iwn()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+\_\+selfenergy\+::convert\+\_\+to\+\_\+iwn (\begin{DoxyParamCaption}\item[{complex(wp), dimension(npp, 0\+:l-\/1), intent(in)}]{tdmgtau,  }\item[{complex(wp), dimension(np, np, 0\+:l-\/1), intent(out)}]{tdmgw }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1343 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{dqmc__tdm1_8F90_a5687c6b4ebfbc1dbbbfeaa76c2c325ab}\label{dqmc__tdm1_8F90_a5687c6b4ebfbc1dbbbfeaa76c2c325ab}} 
+\index{dqmc\_tdm1.F90@{dqmc\_tdm1.F90}!invertg@{invertg}}
+\index{invertg@{invertg}!dqmc\_tdm1.F90@{dqmc\_tdm1.F90}}
+\doxysubsubsection{\texorpdfstring{invertg()}{invertg()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+\_\+selfenergy\+::invertg (\begin{DoxyParamCaption}\item[{complex(wp), dimension(np, np, 0\+:l-\/1), intent(inout), target}]{tdmgw }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1367 of file dqmc\+\_\+tdm1.\+F90.
+

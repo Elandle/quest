@@ -1,0 +1,116 @@
+\hypertarget{dqmc__phy0_8F90}{}\doxysection{SRC/dqmc\+\_\+phy0.F90 File Reference}
+\label{dqmc__phy0_8F90}\index{SRC/dqmc\_phy0.F90@{SRC/dqmc\_phy0.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+phy0.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{dqmc__phy0_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__phy0_1_1phy0}{dqmc\+\_\+phy0\+::phy0}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__phy0}{dqmc\+\_\+phy0}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a92dcf598f16553cf81e35287048e98cd}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+init}} (P0, S, beta, n\+Bin, WS)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a86c6045ae94c5460d0859a973e00046e}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+free}} (P0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a314dab4af9d6c1714dad4b97f0b08510}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+avg}} (P0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_afd7fbf41cfc67775a3e216b82a2b0c39}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+print}} (P0, S, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a4fe98e50fa2d8e78fd0683cb141b72b6}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+geterr}} (P0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a14ead1b746ddbbeb1034ad82986b8ddc}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+meas}} (n, P0, G\+\_\+up, G\+\_\+dn, U, mu\+\_\+up, mu\+\_\+dn, t\+\_\+up, t\+\_\+dn, sgnup, sgndn, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a7b2f839e3f43150765727b09b79c8ab8}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+getft}} (P0, class, phase, ft\+\_\+wgt\+\_\+t, ft\+\_\+wgt\+\_\+g, nkt, nkg, na, nt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_ad5e12ed145c623ef7637e10a92afd345}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+geterrft}} (P0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy0_a01bda767195d0655d68405960acc3361}{dqmc\+\_\+phy0\+::dqmc\+\_\+phy0\+\_\+printft}} (P0, na, nkt, nkg, OPT)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{dqmc\+\_\+phy0\+::narrays}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a90d01e44490400d04f1fe86d819a6743}{dqmc\+\_\+phy0\+::imeas}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a3bed0604f83dc436fdfb1064a9674208}{dqmc\+\_\+phy0\+::igfun}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a6df24ee12378d9592ab6094dd754cd2d}{dqmc\+\_\+phy0\+::igfup}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_ae0504b169f549c2432cf443912918552}{dqmc\+\_\+phy0\+::igfdn}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_afd0eeb9e984947bc1e3b823fc2a46d56}{dqmc\+\_\+phy0\+::ispxx}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a2b2c7704d08445656ea8ac85e9105f66}{dqmc\+\_\+phy0\+::ispzz}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a8a0aaf14d3b7110bbfe2714e240ba266}{dqmc\+\_\+phy0\+::iavsp}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a43c89303934d1210baa2a602e8682da2}{dqmc\+\_\+phy0\+::iden0}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a68272a993d1b8e3927754760cc73ec9c}{dqmc\+\_\+phy0\+::iden1}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_ac7a792d4fd2b1f26690df8a33714b2a3}{dqmc\+\_\+phy0\+::ipair}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a6afec97aedb989ecc31be5c19d14248a}{dqmc\+\_\+phy0\+::p0\+\_\+nup}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a2abad364641ff6cf1757ec5898be44a7}{dqmc\+\_\+phy0\+::p0\+\_\+ndn}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a8c7ec2afd860ae7c82a21d3f65a9d820}{dqmc\+\_\+phy0\+::p0\+\_\+nud}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a6a33f2c01ab60d0fbaa02d015778a229}{dqmc\+\_\+phy0\+::p0\+\_\+ke}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a5c55c9e82477bc09c015d729beed153c}{dqmc\+\_\+phy0\+::p0\+\_\+energy}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a8056ab98b49de605275fdbc6cb73b525}{dqmc\+\_\+phy0\+::p0\+\_\+density}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a06512e17696644734a1acad6c8bb2d69}{dqmc\+\_\+phy0\+::p0\+\_\+chit}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a51852358ab00bd348545d029304268c2}{dqmc\+\_\+phy0\+::p0\+\_\+cv}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a6b2fbf982b2707e57d75efd7a2123506}{dqmc\+\_\+phy0\+::p0\+\_\+sferro}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_aaa08fab8b44c7f6a5ad58efced6d55e8}{dqmc\+\_\+phy0\+::p0\+\_\+sfer2}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_ae157004f843b361a56a8586f521c70e9}{dqmc\+\_\+phy0\+::p0\+\_\+saf}} = 15
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a68c58c910de1b3c0b44e1a0f3c840254}{dqmc\+\_\+phy0\+::p0\+\_\+safsq}} = 16
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_af2b8410a61ad1086115446321f4c221c}{dqmc\+\_\+phy0\+::p0\+\_\+saf2}} = 17
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a2aa997cdde4536a59603664b437ee588}{dqmc\+\_\+phy0\+::p0\+\_\+saf2sq}} = 18
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_ad17dfa449046f2348e985a6d7fd88b9e}{dqmc\+\_\+phy0\+::p0\+\_\+potential\+\_\+energy}} = 11
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a13343dc22760c79d6f82da690dc1ba39}{dqmc\+\_\+phy0\+::p0\+\_\+hopping\+\_\+energy}} = 12
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a41cf9d3d41e1617331ec82bcc9889b8d}{dqmc\+\_\+phy0\+::p0\+\_\+double\+\_\+occupancy}} = 13
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_af60c8f8ff3a64757dee0626345c96edf}{dqmc\+\_\+phy0\+::p0\+\_\+magnetization\+\_\+squared}} = 14
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a8bf36e4cacbaeb260af702cc4a659494}{dqmc\+\_\+phy0\+::p0\+\_\+n\+\_\+no\+\_\+saf}} = 14
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a90135809a01190e1352ca85ca58cf39c}{dqmc\+\_\+phy0\+::p0\+\_\+n}} = 18
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a50dc0367bf4ccba51a02937b863b8d6e}{dqmc\+\_\+phy0\+::p0\+\_\+sgn}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a7a32bf05b483b55a6fbe1bd95c56418b}{dqmc\+\_\+phy0\+::p0\+\_\+sgnup}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__phy0_a41ecbec3955ad3119303e896d479dc3c}{dqmc\+\_\+phy0\+::p0\+\_\+sgndn}} = 3
+\item 
+character(len= $\ast$), dimension(p0\+\_\+n), parameter \mbox{\hyperlink{namespacedqmc__phy0_a86ec8d54c467f76dcc0e0bbb4e6e01e2}{dqmc\+\_\+phy0\+::p0\+\_\+str}} = (/ \char`\"{} Up spin occupancy \+: \char`\"{}, \char`\"{} Down spin occupancy \+: \char`\"{}, \char`\"{} $<$U$\ast$N\+\_\+up$\ast$N\+\_\+dn$>$ \+: \char`\"{}, \char`\"{} Kinetic energy \+: \char`\"{}, \char`\"{} Total energy \+: \char`\"{}, \char`\"{} Density \+: \char`\"{}, \char`\"{} Chi\+\_\+thermal \+: \char`\"{}, \char`\"{} Specific heat \+: \char`\"{}, \char`\"{} XX Ferro structure factor \+: \char`\"{}, \char`\"{} ZZ Ferro structure factor \+: \char`\"{}, \char`\"{} Potential energy \+: \char`\"{}, \char`\"{} Hopping energy \+: \char`\"{}, \char`\"{} Double occupancy \+: \char`\"{}, \char`\"{} Magnetization squared \+: \char`\"{}, \char`\"{} XX AF structure factor \+: \char`\"{}, \char`\"{} Root Mean Square of XX AF \+: \char`\"{}, \char`\"{} ZZ AF structure factor \+: \char`\"{}, \char`\"{} Root Mean Square of ZZ AF \+: \char`\"{}/)
+\item 
+character(len= $\ast$), dimension(3), parameter \mbox{\hyperlink{namespacedqmc__phy0_afee83678dc507260802b664cecfbf12c}{dqmc\+\_\+phy0\+::p0\+\_\+sign\+\_\+str}} = (/ \char`\"{} Avg sign \+: \char`\"{}, \char`\"{} Avg up sign \+: \char`\"{}, \char`\"{} Avg dn sign \+: \char`\"{}/)
+\end{DoxyCompactItemize}

@@ -1,0 +1,186 @@
+\hypertarget{structdqmc__cfg_1_1param}{}\doxysection{dqmc\+\_\+cfg\+::param Type Reference}
+\label{structdqmc__cfg_1_1param}\index{dqmc\_cfg::param@{dqmc\_cfg::param}}
+
+
+Data type for describing parameters, stores information such as a parameters name and value(s).  
+
+
+
+
+Collaboration diagram for dqmc\+\_\+cfg\+::param\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{structdqmc__cfg_1_1param__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{structdqmc__cfg_1_1param_ae42b2440626cae8b25dd640a90ae8b49}{id}}
+\begin{DoxyCompactList}\small\item\em Uniquely identifies the parameter that an instance of this data type refers to. For a given parameter, this value is determined by that parameters index in {\ttfamily PARAM\+\_\+\+NAME}. Lies between 1 and {\ttfamily N\+\_\+\+Param} (inclusive). \end{DoxyCompactList}\item 
+character(len=\mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{slen}}) \mbox{\hyperlink{structdqmc__cfg_1_1param_a316acff28af45e07de01a5925878a6e2}{pname}}
+\begin{DoxyCompactList}\small\item\em The name of the parameter that an instance of this data type refers to. All possible parameter names are stored in {\ttfamily PARAM\+\_\+\+NAME}. More specifically, {\ttfamily PARAM\+\_\+\+NAME}({\ttfamily id}) = {\ttfamily pname}. \end{DoxyCompactList}\item 
+integer \mbox{\hyperlink{structdqmc__cfg_1_1param_a3afbd2effe6d37daee19328b27d5a1e0}{ptype}}
+\begin{DoxyCompactList}\small\item\em One of {\ttfamily TYPE\+\_\+\+STRING}, {\ttfamily TYPE\+\_\+\+INTEGER}, or {\ttfamily TYPE\+\_\+\+REAL}. Determined by {\ttfamily PARAM\+\_\+\+TYPE}({\ttfamily id}) \end{DoxyCompactList}\item 
+logical \mbox{\hyperlink{structdqmc__cfg_1_1param_a633f99a27ca2a3eee885e7fc96b2f7fc}{isarray}}
+\begin{DoxyCompactList}\small\item\em .true. if the values of the parameter are stored as an array, .false. otherwise. Determined by {\ttfamily PARAM\+\_\+\+ARRAY}({\ttfamily id}) \end{DoxyCompactList}\item 
+logical \mbox{\hyperlink{structdqmc__cfg_1_1param_ac3ac975e981ccc02dedfb803ddd25343}{isset}}
+\begin{DoxyCompactList}\small\item\em .true. if the parameter has been set a value, .false. otherwise. \end{DoxyCompactList}\item 
+character(len=\mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{slen}}) \mbox{\hyperlink{structdqmc__cfg_1_1param_afc3d7fdf7e4121d51332de2a0d47b083}{defaultval}}
+\item 
+type(\mbox{\hyperlink{structdqmc__cfg_1_1param}{param}}), pointer \mbox{\hyperlink{structdqmc__cfg_1_1param_a9af4ac11254e742ec1b1d2a7db5500dc}{next}}
+\item 
+integer \mbox{\hyperlink{structdqmc__cfg_1_1param_a5bd44c077f411b0d4d62b99e88dfd0f6}{ival}}
+\item 
+real(wp) \mbox{\hyperlink{structdqmc__cfg_1_1param_adf381d8799f7ad0f37e7d261d070e116}{rval}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__cfg_1_1param_ab7b074968d37132907cc1e7ce1c0bb72}{iptr}}
+\item 
+real(wp), dimension(\+:), pointer \mbox{\hyperlink{structdqmc__cfg_1_1param_a0240f6a8bd50b148eef69d69dce81060}{rptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data type for describing parameters, stores information such as a parameters name and value(s). 
+
+Definition at line 274 of file dqmc\+\_\+cfg.\+F90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_afc3d7fdf7e4121d51332de2a0d47b083}\label{structdqmc__cfg_1_1param_afc3d7fdf7e4121d51332de2a0d47b083}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!defaultval@{defaultval}}
+\index{defaultval@{defaultval}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{defaultval}{defaultval}}
+{\footnotesize\ttfamily character(len=\mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{slen}}) dqmc\+\_\+cfg\+::param\+::defaultval}
+
+
+
+Definition at line 291 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_ae42b2440626cae8b25dd640a90ae8b49}\label{structdqmc__cfg_1_1param_ae42b2440626cae8b25dd640a90ae8b49}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!id@{id}}
+\index{id@{id}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily integer dqmc\+\_\+cfg\+::param\+::id}
+
+
+
+Uniquely identifies the parameter that an instance of this data type refers to. For a given parameter, this value is determined by that parameters index in {\ttfamily PARAM\+\_\+\+NAME}. Lies between 1 and {\ttfamily N\+\_\+\+Param} (inclusive). 
+
+
+
+Definition at line 278 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_ab7b074968d37132907cc1e7ce1c0bb72}\label{structdqmc__cfg_1_1param_ab7b074968d37132907cc1e7ce1c0bb72}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!iptr@{iptr}}
+\index{iptr@{iptr}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{iptr}{iptr}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+cfg\+::param\+::iptr}
+
+
+
+Definition at line 297 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_a633f99a27ca2a3eee885e7fc96b2f7fc}\label{structdqmc__cfg_1_1param_a633f99a27ca2a3eee885e7fc96b2f7fc}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!isarray@{isarray}}
+\index{isarray@{isarray}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{isarray}{isarray}}
+{\footnotesize\ttfamily logical dqmc\+\_\+cfg\+::param\+::isarray}
+
+
+
+.true. if the values of the parameter are stored as an array, .false. otherwise. Determined by {\ttfamily PARAM\+\_\+\+ARRAY}({\ttfamily id}) 
+
+
+
+Definition at line 288 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_ac3ac975e981ccc02dedfb803ddd25343}\label{structdqmc__cfg_1_1param_ac3ac975e981ccc02dedfb803ddd25343}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!isset@{isset}}
+\index{isset@{isset}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{isset}{isset}}
+{\footnotesize\ttfamily logical dqmc\+\_\+cfg\+::param\+::isset}
+
+
+
+.true. if the parameter has been set a value, .false. otherwise. 
+
+
+
+Definition at line 290 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_a5bd44c077f411b0d4d62b99e88dfd0f6}\label{structdqmc__cfg_1_1param_a5bd44c077f411b0d4d62b99e88dfd0f6}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!ival@{ival}}
+\index{ival@{ival}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{ival}{ival}}
+{\footnotesize\ttfamily integer dqmc\+\_\+cfg\+::param\+::ival}
+
+
+
+Definition at line 295 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_a9af4ac11254e742ec1b1d2a7db5500dc}\label{structdqmc__cfg_1_1param_a9af4ac11254e742ec1b1d2a7db5500dc}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!next@{next}}
+\index{next@{next}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily type(\mbox{\hyperlink{structdqmc__cfg_1_1param}{param}}), pointer dqmc\+\_\+cfg\+::param\+::next}
+
+
+
+Definition at line 292 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_a316acff28af45e07de01a5925878a6e2}\label{structdqmc__cfg_1_1param_a316acff28af45e07de01a5925878a6e2}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!pname@{pname}}
+\index{pname@{pname}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{pname}{pname}}
+{\footnotesize\ttfamily character(len=\mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{slen}}) dqmc\+\_\+cfg\+::param\+::pname}
+
+
+
+The name of the parameter that an instance of this data type refers to. All possible parameter names are stored in {\ttfamily PARAM\+\_\+\+NAME}. More specifically, {\ttfamily PARAM\+\_\+\+NAME}({\ttfamily id}) = {\ttfamily pname}. 
+
+
+
+Definition at line 282 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_a3afbd2effe6d37daee19328b27d5a1e0}\label{structdqmc__cfg_1_1param_a3afbd2effe6d37daee19328b27d5a1e0}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!ptype@{ptype}}
+\index{ptype@{ptype}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{ptype}{ptype}}
+{\footnotesize\ttfamily integer dqmc\+\_\+cfg\+::param\+::ptype}
+
+
+
+One of {\ttfamily TYPE\+\_\+\+STRING}, {\ttfamily TYPE\+\_\+\+INTEGER}, or {\ttfamily TYPE\+\_\+\+REAL}. Determined by {\ttfamily PARAM\+\_\+\+TYPE}({\ttfamily id}) 
+
+
+
+Definition at line 285 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_a0240f6a8bd50b148eef69d69dce81060}\label{structdqmc__cfg_1_1param_a0240f6a8bd50b148eef69d69dce81060}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!rptr@{rptr}}
+\index{rptr@{rptr}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{rptr}{rptr}}
+{\footnotesize\ttfamily real(wp), dimension(\+:), pointer dqmc\+\_\+cfg\+::param\+::rptr}
+
+
+
+Definition at line 298 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{structdqmc__cfg_1_1param_adf381d8799f7ad0f37e7d261d070e116}\label{structdqmc__cfg_1_1param_adf381d8799f7ad0f37e7d261d070e116}} 
+\index{dqmc\_cfg::param@{dqmc\_cfg::param}!rval@{rval}}
+\index{rval@{rval}!dqmc\_cfg::param@{dqmc\_cfg::param}}
+\doxysubsubsection{\texorpdfstring{rval}{rval}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+cfg\+::param\+::rval}
+
+
+
+Definition at line 296 of file dqmc\+\_\+cfg.\+F90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SRC/\mbox{\hyperlink{dqmc__cfg_8F90}{dqmc\+\_\+cfg.\+F90}}\end{DoxyCompactItemize}

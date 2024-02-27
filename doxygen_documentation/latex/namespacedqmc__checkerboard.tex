@@ -1,0 +1,133 @@
+\hypertarget{namespacedqmc__checkerboard}{}\doxysection{dqmc\+\_\+checkerboard Module Reference}
+\label{namespacedqmc__checkerboard}\index{dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_af9d184f606f77971e84432db15005a75}{dqmc\+\_\+b\+\_\+init}} (n, B, WS, Adj, ckb, t, mu, dtau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_a669ab37cc48ecfd66ac2d4c6b4a454fa}{dqmc\+\_\+b\+\_\+free}} (B)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_aea9905947795c214ed798f52239bf2f4}{dqmc\+\_\+multb\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_a555c582c799d6b3ae3f628cf16b4c38b}{dqmc\+\_\+multb\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_a61360edfa6612e33af73dfb4c8a0344e}{dqmc\+\_\+multbi\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_ac26269e575976683cfa0c5112422eff1}{dqmc\+\_\+multbi\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_a7983754e4fafaf12536339ea205f6563}{dqmc\+\_\+multrtb0\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_a05be7b7e3fcba57be87abba3606e029f}{dqmc\+\_\+multrtb0i\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_ac18a1f7687f0327896305fdc0c7e984f}{dqmc\+\_\+getb}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__checkerboard_a6ee4a5b056fcd8b4b5eef28ba90dac0a}{dqmc\+\_\+getbi}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__checkerboard_a669ab37cc48ecfd66ac2d4c6b4a454fa}\label{namespacedqmc__checkerboard_a669ab37cc48ecfd66ac2d4c6b4a454fa}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_b\_free@{dqmc\_b\_free}}
+\index{dqmc\_b\_free@{dqmc\_b\_free}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_b\_free()}{dqmc\_b\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+b\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B }\end{DoxyParamCaption})}
+
+
+
+Definition at line 125 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_af9d184f606f77971e84432db15005a75}\label{namespacedqmc__checkerboard_af9d184f606f77971e84432db15005a75}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_b\_init@{dqmc\_b\_init}}
+\index{dqmc\_b\_init@{dqmc\_b\_init}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_b\_init()}{dqmc\_b\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+b\+\_\+init (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(out)}]{B,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(in), target}]{WS,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{Adj,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{ckb,  }\item[{real(wp), dimension($\ast$), intent(in)}]{t,  }\item[{real(wp), dimension(n), intent(in)}]{mu,  }\item[{real(wp), intent(in)}]{dtau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_ac18a1f7687f0327896305fdc0c7e984f}\label{namespacedqmc__checkerboard_ac18a1f7687f0327896305fdc0c7e984f}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_getb@{dqmc\_getb}}
+\index{dqmc\_getb@{dqmc\_getb}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_getb()}{dqmc\_getb()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+getb (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 462 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_a6ee4a5b056fcd8b4b5eef28ba90dac0a}\label{namespacedqmc__checkerboard_a6ee4a5b056fcd8b4b5eef28ba90dac0a}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_getbi@{dqmc\_getbi}}
+\index{dqmc\_getbi@{dqmc\_getbi}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_getbi()}{dqmc\_getbi()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+getbi (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 485 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_aea9905947795c214ed798f52239bf2f4}\label{namespacedqmc__checkerboard_aea9905947795c214ed798f52239bf2f4}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_multb\_left@{dqmc\_multb\_left}}
+\index{dqmc\_multb\_left@{dqmc\_multb\_left}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multb\_left()}{dqmc\_multb\_left()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+multb\+\_\+left (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 145 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_a555c582c799d6b3ae3f628cf16b4c38b}\label{namespacedqmc__checkerboard_a555c582c799d6b3ae3f628cf16b4c38b}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_multb\_right@{dqmc\_multb\_right}}
+\index{dqmc\_multb\_right@{dqmc\_multb\_right}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multb\_right()}{dqmc\_multb\_right()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+multb\+\_\+right (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 216 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_a61360edfa6612e33af73dfb4c8a0344e}\label{namespacedqmc__checkerboard_a61360edfa6612e33af73dfb4c8a0344e}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_multbi\_left@{dqmc\_multbi\_left}}
+\index{dqmc\_multbi\_left@{dqmc\_multbi\_left}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multbi\_left()}{dqmc\_multbi\_left()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+multbi\+\_\+left (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 282 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_ac26269e575976683cfa0c5112422eff1}\label{namespacedqmc__checkerboard_ac26269e575976683cfa0c5112422eff1}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_multbi\_right@{dqmc\_multbi\_right}}
+\index{dqmc\_multbi\_right@{dqmc\_multbi\_right}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multbi\_right()}{dqmc\_multbi\_right()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+multbi\+\_\+right (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(inout)}]{B,  }\item[{real(wp), dimension(n), intent(in)}]{V\+\_\+i,  }\item[{real(wp), dimension(n,n), intent(inout), target}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 350 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_a7983754e4fafaf12536339ea205f6563}\label{namespacedqmc__checkerboard_a7983754e4fafaf12536339ea205f6563}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_multrtb0\_left@{dqmc\_multrtb0\_left}}
+\index{dqmc\_multrtb0\_left@{dqmc\_multrtb0\_left}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multrtb0\_left()}{dqmc\_multrtb0\_left()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+multrtb0\+\_\+left (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 412 of file dqmc\+\_\+checkerboard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__checkerboard_a05be7b7e3fcba57be87abba3606e029f}\label{namespacedqmc__checkerboard_a05be7b7e3fcba57be87abba3606e029f}} 
+\index{dqmc\_checkerboard@{dqmc\_checkerboard}!dqmc\_multrtb0i\_right@{dqmc\_multrtb0i\_right}}
+\index{dqmc\_multrtb0i\_right@{dqmc\_multrtb0i\_right}!dqmc\_checkerboard@{dqmc\_checkerboard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_multrtb0i\_right()}{dqmc\_multrtb0i\_right()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+checkerboard\+::dqmc\+\_\+multrtb0i\+\_\+right (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{M,  }\item[{type(\mbox{\hyperlink{structdqmc__checkerboard_1_1matb}{matb}}), intent(in)}]{B,  }\item[{real(wp), dimension(n,n), intent(inout)}]{C }\end{DoxyParamCaption})}
+
+
+
+Definition at line 437 of file dqmc\+\_\+checkerboard.\+F90.
+

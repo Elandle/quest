@@ -1,0 +1,122 @@
+\hypertarget{mpitests_2perm_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/mpitests/perm.cpp File Reference}
+\label{mpitests_2perm_8cpp}\index{SRC/sprng5/TESTS/mpitests/perm.cpp@{SRC/sprng5/TESTS/mpitests/perm.cpp}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for perm.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{mpitests_2perm_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mpitests_2perm_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}{NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM}}~2
+\item 
+\#define \mbox{\hyperlink{mpitests_2perm_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}{FATAL\+\_\+\+ABORT}}~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)
+\item 
+\#define \mbox{\hyperlink{mpitests_2perm_8cpp_a8dadb9527917c7d5fefa9b01be41e6db}{PROC\+\_\+\+ONE\+\_\+\+GROUP}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mpitests_2perm_8cpp_a2063d6cc56c92823c5f798b77030e853}{init\+Test}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{mpitests_2perm_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}{deinit\+Test}} (void)
+\item 
+int \mbox{\hyperlink{mpitests_2perm_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mpitests_2perm_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}\label{mpitests_2perm_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}} 
+\index{perm.cpp@{perm.cpp}!FATAL\_ABORT@{FATAL\_ABORT}}
+\index{FATAL\_ABORT@{FATAL\_ABORT}!perm.cpp@{perm.cpp}}
+\doxysubsubsection{\texorpdfstring{FATAL\_ABORT}{FATAL\_ABORT}}
+{\footnotesize\ttfamily \#define FATAL\+\_\+\+ABORT~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)}
+
+
+
+Definition at line 35 of file perm.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2perm_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}\label{mpitests_2perm_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}} 
+\index{perm.cpp@{perm.cpp}!NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}}
+\index{NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}!perm.cpp@{perm.cpp}}
+\doxysubsubsection{\texorpdfstring{NUM\_TEST\_ENGIN\_PARAM}{NUM\_TEST\_ENGIN\_PARAM}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM~2}
+
+
+
+Definition at line 16 of file perm.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2perm_8cpp_a8dadb9527917c7d5fefa9b01be41e6db}\label{mpitests_2perm_8cpp_a8dadb9527917c7d5fefa9b01be41e6db}} 
+\index{perm.cpp@{perm.cpp}!PROC\_ONE\_GROUP@{PROC\_ONE\_GROUP}}
+\index{PROC\_ONE\_GROUP@{PROC\_ONE\_GROUP}!perm.cpp@{perm.cpp}}
+\doxysubsubsection{\texorpdfstring{PROC\_ONE\_GROUP}{PROC\_ONE\_GROUP}}
+{\footnotesize\ttfamily \#define PROC\+\_\+\+ONE\+\_\+\+GROUP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \{                                       \(\backslash\)}
+\DoxyCodeLine{   long    theBin, index, r, maxPos;                           \(\backslash\)}
+\DoxyCodeLine{   double  tempHold;                                           \(\backslash\)}
+\DoxyCodeLine{                                                               \(\backslash\)}
+\DoxyCodeLine{   for (index=0;index<grpSize;index++) \{                       \(\backslash\)}
+\DoxyCodeLine{      oneGrp[index] = \mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}();                                \(\backslash\)}
+\DoxyCodeLine{   \}                                                           \(\backslash\)}
+\DoxyCodeLine{                                                               \(\backslash\)}
+\DoxyCodeLine{   for (theBin=0,r=grpSize;r>1;r-\/-\/) \{                          \(\backslash\)}
+\DoxyCodeLine{      for (index=1,maxPos=0;index<r;index++) \{                 \(\backslash\)}
+\DoxyCodeLine{         if (oneGrp[maxPos]<oneGrp[index]) maxPos = index;     \(\backslash\)}
+\DoxyCodeLine{      \}                                                        \(\backslash\)}
+\DoxyCodeLine{      if (maxPos!=r-\/1) \{                                       \(\backslash\)}
+\DoxyCodeLine{        tempHold = oneGrp[r-\/1];                                \(\backslash\)}
+\DoxyCodeLine{        oneGrp[r-\/1] = oneGrp[maxPos];                          \(\backslash\)}
+\DoxyCodeLine{        oneGrp[maxPos] = tempHold;                             \(\backslash\)}
+\DoxyCodeLine{      \}                                                        \(\backslash\)}
+\DoxyCodeLine{      theBin = theBin * r + maxPos;                            \(\backslash\)}
+\DoxyCodeLine{   \}                                                           \(\backslash\)}
+\DoxyCodeLine{   bins[theBin]++;                                             \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 87 of file perm.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpitests_2perm_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}\label{mpitests_2perm_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}} 
+\index{perm.cpp@{perm.cpp}!deinitTest@{deinitTest}}
+\index{deinitTest@{deinitTest}!perm.cpp@{perm.cpp}}
+\doxysubsubsection{\texorpdfstring{deinitTest()}{deinitTest()}}
+{\footnotesize\ttfamily void deinit\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file perm.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2perm_8cpp_a2063d6cc56c92823c5f798b77030e853}\label{mpitests_2perm_8cpp_a2063d6cc56c92823c5f798b77030e853}} 
+\index{perm.cpp@{perm.cpp}!initTest@{initTest}}
+\index{initTest@{initTest}!perm.cpp@{perm.cpp}}
+\doxysubsubsection{\texorpdfstring{initTest()}{initTest()}}
+{\footnotesize\ttfamily void init\+Test (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file perm.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2perm_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{mpitests_2perm_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{perm.cpp@{perm.cpp}!main@{main}}
+\index{main@{main}!perm.cpp@{perm.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 110 of file perm.\+cpp.
+

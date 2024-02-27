@@ -1,0 +1,97 @@
+\hypertarget{namespacedqmc__hamilt}{}\doxysection{dqmc\+\_\+hamilt Module Reference}
+\label{namespacedqmc__hamilt}\index{dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_a795e7672311550f68b1e8771007659be}{free\+\_\+hamilt}} (hamilt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_a883a20715a11ed695f09a0a7a902e413}{construct\+\_\+hamilt}} (hamilt, lattice, recip\+\_\+lattice, cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_ade72d7dde7fa767907f10acf0a96212e}{find\+\_\+neighbors}} (hamilt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_a27007f5ae70a9f12bde4807874969b98}{count\+\_\+hop\+\_\+class}} (lattice, hamilt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_a615d6aa35db522fbf5ce214490663337}{count\+\_\+local\+\_\+classes}} (lattice, hamilt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_a13b4a669b5e34a3c74023dca55e98db6}{dqmc\+\_\+hamilt\+\_\+groupckb}} (hamilt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hamilt_a3312b1c3aa1f6fa7ae5bbec3c7f073a8}{group\+\_\+hopping}} (hamilt, n, nt, tmap, tupvalue, tdnvalue)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__hamilt_a883a20715a11ed695f09a0a7a902e413}\label{namespacedqmc__hamilt_a883a20715a11ed695f09a0a7a902e413}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!construct\_hamilt@{construct\_hamilt}}
+\index{construct\_hamilt@{construct\_hamilt}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{construct\_hamilt()}{construct\_hamilt()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::construct\+\_\+hamilt (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(out)}]{hamilt,  }\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in), target}]{lattice,  }\item[{type(\mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t}{recip\+\_\+lattice\+\_\+t}}), intent(in)}]{recip\+\_\+lattice,  }\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hamilt_a27007f5ae70a9f12bde4807874969b98}\label{namespacedqmc__hamilt_a27007f5ae70a9f12bde4807874969b98}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!count\_hop\_class@{count\_hop\_class}}
+\index{count\_hop\_class@{count\_hop\_class}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{count\_hop\_class()}{count\_hop\_class()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::count\+\_\+hop\+\_\+class (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}})}]{lattice,  }\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}})}]{hamilt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 328 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hamilt_a615d6aa35db522fbf5ce214490663337}\label{namespacedqmc__hamilt_a615d6aa35db522fbf5ce214490663337}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!count\_local\_classes@{count\_local\_classes}}
+\index{count\_local\_classes@{count\_local\_classes}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{count\_local\_classes()}{count\_local\_classes()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::count\+\_\+local\+\_\+classes (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in)}]{lattice,  }\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(inout)}]{hamilt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 402 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hamilt_a13b4a669b5e34a3c74023dca55e98db6}\label{namespacedqmc__hamilt_a13b4a669b5e34a3c74023dca55e98db6}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!dqmc\_hamilt\_groupckb@{dqmc\_hamilt\_groupckb}}
+\index{dqmc\_hamilt\_groupckb@{dqmc\_hamilt\_groupckb}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hamilt\_groupckb()}{dqmc\_hamilt\_groupckb()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::dqmc\+\_\+hamilt\+\_\+groupckb (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(inout)}]{hamilt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 457 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hamilt_ade72d7dde7fa767907f10acf0a96212e}\label{namespacedqmc__hamilt_ade72d7dde7fa767907f10acf0a96212e}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!find\_neighbors@{find\_neighbors}}
+\index{find\_neighbors@{find\_neighbors}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{find\_neighbors()}{find\_neighbors()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::find\+\_\+neighbors (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(inout)}]{hamilt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 231 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hamilt_a795e7672311550f68b1e8771007659be}\label{namespacedqmc__hamilt_a795e7672311550f68b1e8771007659be}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!free\_hamilt@{free\_hamilt}}
+\index{free\_hamilt@{free\_hamilt}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{free\_hamilt()}{free\_hamilt()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::free\+\_\+hamilt (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(inout)}]{hamilt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hamilt_a3312b1c3aa1f6fa7ae5bbec3c7f073a8}\label{namespacedqmc__hamilt_a3312b1c3aa1f6fa7ae5bbec3c7f073a8}} 
+\index{dqmc\_hamilt@{dqmc\_hamilt}!group\_hopping@{group\_hopping}}
+\index{group\_hopping@{group\_hopping}!dqmc\_hamilt@{dqmc\_hamilt}}
+\doxysubsubsection{\texorpdfstring{group\_hopping()}{group\_hopping()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hamilt\+::group\+\_\+hopping (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t}{hamiltonian\+\_\+t}}), intent(in)}]{hamilt,  }\item[{integer, intent(in)}]{n,  }\item[{integer, intent(out)}]{nt,  }\item[{integer, dimension(n,n), intent(out)}]{tmap,  }\item[{real$\ast$8, dimension(\+:), intent(inout), pointer}]{tupvalue,  }\item[{real$\ast$8, dimension(\+:), intent(inout), pointer}]{tdnvalue }\end{DoxyParamCaption})}
+
+
+
+Definition at line 519 of file dqmc\+\_\+hamilt.\+F90.
+

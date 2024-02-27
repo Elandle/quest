@@ -1,0 +1,102 @@
+\hypertarget{dqmc__struct_8F90}{}\doxysection{SRC/dqmc\+\_\+struct.F90 File Reference}
+\label{dqmc__struct_8F90}\index{SRC/dqmc\_struct.F90@{SRC/dqmc\_struct.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+struct.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{dqmc__struct_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__struct_1_1ccs}{dqmc\+\_\+struct\+::ccs}}
+\item 
+type \mbox{\hyperlink{structdqmc__struct_1_1struct}{dqmc\+\_\+struct\+::struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__struct}{dqmc\+\_\+struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_ae9b435a187e16e9cd13a14dc2511881c}{dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+free}} (sparA)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_ad82b2851e2ad651bbecde42dab8cbe49}{dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+print}} (sparA, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_aedb8059fe5fed118eda91b264a4219c8}{dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+compress}} (n, nnz, A, sparA)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a254b70cffa74312ef402cda33a832ffd}{dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+fill}} (n, A, sparA)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_aae5ab98a288c4b6ad666dd7f7bb7562e}{dqmc\+\_\+struct\+::dqmc\+\_\+struct\+\_\+free}} (S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a2d881d4be7e008a684f808443ce60818}{dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+read\+\_\+def}} (S, gfile, table\+Format)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a403f6ce3397f9b5e7dc69cacb421f7e1}{dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+discover\+\_\+f}} (n, D, F)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a3bfe4f2800171c4529c08ea244f8df0e}{dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+discover\+\_\+map}} (n, D, F, Map, idx)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_accd76cfe5dbc13e4f281dfd1a4b13f96}{dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+print}} (S, OPT)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a76be6210fb36f9553eb29d674a79a080}{dqmc\+\_\+struct\+::n\+\_\+checklist}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a6fbb6998e7a58637d374d85899ca05c4}{dqmc\+\_\+struct\+::struct\+\_\+init}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a966009d1fdb99aaebd3bc38348efdc51}{dqmc\+\_\+struct\+::struct\+\_\+dim}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a575c428393b6c03439f4e3a462736329}{dqmc\+\_\+struct\+::struct\+\_\+adj}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a7d684ad07029e980dfcf3e8e59081637}{dqmc\+\_\+struct\+::struct\+\_\+class}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_af1fbd94ac047b06c175c63ca87e27b9d}{dqmc\+\_\+struct\+::struct\+\_\+wave}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a54b998733cb6a99ec668c0f208d17915}{dqmc\+\_\+struct\+::struct\+\_\+bond}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a8cb65a8177b62db9cb3875766c353d98}{dqmc\+\_\+struct\+::struct\+\_\+phase}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a83bf608ca6d9ddbf21dc0d76b688537b}{dqmc\+\_\+struct\+::struct\+\_\+ft}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a773c416dbde7b48071c28827c42dcb6c}{dqmc\+\_\+struct\+::label\+\_\+len}} = 47
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a8858f795a492f5ed3b3cb660411ef23e}{dqmc\+\_\+struct\+::gname\+\_\+len}} = 80
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_ad85e135e8866e5a4dd987779fa3efd55}{dqmc\+\_\+struct\+::n\+\_\+geo\+\_\+param}} = 15
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a50b7f28a8ebd727632c2d8fcdfc5a65a}{dqmc\+\_\+struct\+::gemo\+\_\+b}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a1063d019bae98fbf2f15bfa4d39087d1}{dqmc\+\_\+struct\+::gemo\+\_\+d}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a200dc792d120d769fef7ff1e79dd54b1}{dqmc\+\_\+struct\+::gemo\+\_\+ft}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_acf20a5df5e76be9521f5e2d1ed58b05e}{dqmc\+\_\+struct\+::gemo\+\_\+p}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a749e395df3d9b8669741b4e667977ac6}{dqmc\+\_\+struct\+::gemo\+\_\+t}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a0858adb96d09f3a5cba6c343ae337543}{dqmc\+\_\+struct\+::gemo\+\_\+w}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a4f6c9a3ec377d6810cb7c95ce527477b}{dqmc\+\_\+struct\+::gemo\+\_\+clabel}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a4793514b312b41ca34ab7da75968feac}{dqmc\+\_\+struct\+::gemo\+\_\+dim}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a8050e1aaf91dd5e6e266d7ac6136c88d}{dqmc\+\_\+struct\+::gemo\+\_\+nclass}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_aea216f8d48157260e648792bd5fb71a2}{dqmc\+\_\+struct\+::gemo\+\_\+nsite}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_aa56153d2e8859a70e3e4e23ef74521b7}{dqmc\+\_\+struct\+::gemo\+\_\+nwave}} = 11
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_ade66bee9b3737609818be6a9f48ee264}{dqmc\+\_\+struct\+::gemo\+\_\+n\+\_\+b}} = 12
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_adc054b628799f5114fb1da5ffd40bbbb}{dqmc\+\_\+struct\+::gemo\+\_\+n\+\_\+t}} = 13
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_ab400768faf2be6401dd8ce50de058963}{dqmc\+\_\+struct\+::gemo\+\_\+name}} = 14
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a0dca76d11b3efbcc7f870b7875423f0d}{dqmc\+\_\+struct\+::gemo\+\_\+wlabel}} = 15
+\item 
+character(len= $\ast$), dimension(n\+\_\+geo\+\_\+param), parameter \mbox{\hyperlink{namespacedqmc__struct_ab8b590b5271ab920eed8b33c2c571d68}{dqmc\+\_\+struct\+::geo\+\_\+param}} = (/\char`\"{}B \char`\"{}, \char`\"{}D \char`\"{}, \char`\"{}FT \char`\"{}, \char`\"{}P \char`\"{}, \char`\"{}T \char`\"{}, \char`\"{}W \char`\"{}, \char`\"{}c\+Label \char`\"{}, \char`\"{}dim \char`\"{}, \char`\"{}n\+Class \char`\"{}, \char`\"{}n\+Site \char`\"{}, \char`\"{}n\+Wave \char`\"{}, \char`\"{}n\+\_\+b \char`\"{}, \char`\"{}n\+\_\+t \char`\"{}, \char`\"{}name \char`\"{}, \char`\"{}w\+Label \char`\"{}/)
+\end{DoxyCompactItemize}

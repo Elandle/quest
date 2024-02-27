@@ -1,0 +1,355 @@
+\hypertarget{chisquare_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/chisquare.cpp File Reference}
+\label{chisquare_8cpp}\index{SRC/sprng5/TESTS/chisquare.cpp@{SRC/sprng5/TESTS/chisquare.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+Include dependency graph for chisquare.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{chisquare_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{chisquare_8cpp_a3641b6d4c21b7a852dbb32c2b693302e}{ITMAX}}~10000000        /$\ast$ maximum allowed number of iterations $\ast$/
+\item 
+\#define \mbox{\hyperlink{chisquare_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}{EPS}}~3.\+0e-\/7            /$\ast$ relative accuracy                    $\ast$/
+\item 
+\#define \mbox{\hyperlink{chisquare_8cpp_a54a4e9f9387854c492c138ece3fc2279}{FPMIN}}~1.\+0e-\/30         /$\ast$ number near the smallest             $\ast$/
+\item 
+\#define \mbox{\hyperlink{chisquare_8cpp_affe776513b24d84b39af8ab0930fef7f}{max}}(a,  b)~(a$<$b?b\+:a)
+\item 
+\#define \mbox{\hyperlink{chisquare_8cpp_ac6afabdc09a49a433ee19d8a9486056d}{min}}(a,  b)~(a$>$b?b\+:a)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a36f2f09f69e482f392f580e04391bf75}{set\+\_\+d\+\_\+of\+\_\+f}} (long df)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_a63a01fc5244a0bcca51bbe89bd147d71}{chiF}} (double chi\+Sq)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_aa00ed7eebc0c25371d34f1be245af868}{chisquare}} (long $\ast$\mbox{\hyperlink{poker_8cpp_a4da3f009823066249974e91fd3cfc286}{actual}}, double $\ast$\mbox{\hyperlink{poker_8cpp_ab67a99ca3cdfa29c165a262d945e10df}{probability}}, long n, long k, int $\ast$nb)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_a70bdec5145a425e43497b120c060b2d5}{chipercent}} (double chi\+Sq, long fr)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_aa1745417f9696825bc7cc68538800b5b}{gammp}} (double a, double \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_a68af3ca9dfb4f65fa4fd116fe12987ce}{KSpercent}} (double value, long n)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_aaf3e6db3d875312592884d87ccb2e0f0}{KS}} (double $\ast$V, long n, double($\ast$F)(double))
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a5277079b0c65d166db9553deb8a92de2}{gser}} (double $\ast$gamser, double a, double \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, double $\ast$gln)
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a5b446e3e8ec13c8e2383ac156f0cf77f}{gcf}} (double $\ast$gammcf, double a, double \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, double $\ast$gln)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_ae01374ddda83bc2216ba9df9c76d9995}{gammln}} (double xx)
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a400e51f30cdc046b8ba0a480bacf3d94}{chi\+Gamma\+Clear\+Err\+Mess}} (void)
+\item 
+const char $\ast$ \mbox{\hyperlink{chisquare_8cpp_aebcc458c81d607ac113511d058b744a5}{chi\+Gamma\+Read\+Err\+Mess}} (void)
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a8e153d2b02f38800753abdfd075d3991}{chi\+Gamma\+Flag\+Error}} (const char $\ast$error\+Text)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_a0d638a8799e725566fbedcccd35beb50}{cum\+\_\+normal}} (double sample, double mean, double stddev)
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a9199f5155427b06f6154284ac826eae0}{set\+\_\+normal\+\_\+params}} (double mu, double sd)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_a4390a65f46763681ea0e1cd1c9f0513b}{normalF}} (double \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_a2666d6dbf920901bcda8e51e0a0645a7}{mean\+\_\+sd}} (double $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, int n, double $\ast$mean, double $\ast$sd)
+\item 
+void \mbox{\hyperlink{chisquare_8cpp_ab49bd46cdd902042e8b426a99eb4d2d0}{set\+\_\+\+KS\+\_\+n}} (long n)
+\item 
+double \mbox{\hyperlink{chisquare_8cpp_aef427d7277e28bcaae6601972c45325d}{KSF}} (double value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{chisquare_8cpp_aef34cfeab7d655be26d53d565135b2e7}{error\+Message}}
+\item 
+long \mbox{\hyperlink{chisquare_8cpp_afb8f233ca79f31f6f4a669678fa8b3cb}{degrees\+\_\+of\+\_\+freedom}} = 1
+\item 
+long \mbox{\hyperlink{chisquare_8cpp_aa6c11b6fc68fc24b91c66cf343926fe1}{KS\+\_\+n}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{chisquare_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}\label{chisquare_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}} 
+\index{chisquare.cpp@{chisquare.cpp}!EPS@{EPS}}
+\index{EPS@{EPS}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{EPS}{EPS}}
+{\footnotesize\ttfamily \#define EPS~3.\+0e-\/7            /$\ast$ relative accuracy                    $\ast$/}
+
+
+
+Definition at line 16 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a54a4e9f9387854c492c138ece3fc2279}\label{chisquare_8cpp_a54a4e9f9387854c492c138ece3fc2279}} 
+\index{chisquare.cpp@{chisquare.cpp}!FPMIN@{FPMIN}}
+\index{FPMIN@{FPMIN}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{FPMIN}{FPMIN}}
+{\footnotesize\ttfamily \#define FPMIN~1.\+0e-\/30         /$\ast$ number near the smallest             $\ast$/}
+
+
+
+Definition at line 17 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a3641b6d4c21b7a852dbb32c2b693302e}\label{chisquare_8cpp_a3641b6d4c21b7a852dbb32c2b693302e}} 
+\index{chisquare.cpp@{chisquare.cpp}!ITMAX@{ITMAX}}
+\index{ITMAX@{ITMAX}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{ITMAX}{ITMAX}}
+{\footnotesize\ttfamily \#define ITMAX~10000000        /$\ast$ maximum allowed number of iterations $\ast$/}
+
+
+
+Definition at line 15 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_affe776513b24d84b39af8ab0930fef7f}\label{chisquare_8cpp_affe776513b24d84b39af8ab0930fef7f}} 
+\index{chisquare.cpp@{chisquare.cpp}!max@{max}}
+\index{max@{max}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{max}{max}}
+{\footnotesize\ttfamily \#define max(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~(a$<$b?b\+:a)}
+
+
+
+Definition at line 21 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_ac6afabdc09a49a433ee19d8a9486056d}\label{chisquare_8cpp_ac6afabdc09a49a433ee19d8a9486056d}} 
+\index{chisquare.cpp@{chisquare.cpp}!min@{min}}
+\index{min@{min}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{min}{min}}
+{\footnotesize\ttfamily \#define min(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~(a$>$b?b\+:a)}
+
+
+
+Definition at line 24 of file chisquare.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{chisquare_8cpp_a63a01fc5244a0bcca51bbe89bd147d71}\label{chisquare_8cpp_a63a01fc5244a0bcca51bbe89bd147d71}} 
+\index{chisquare.cpp@{chisquare.cpp}!chiF@{chiF}}
+\index{chiF@{chiF}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{chiF()}{chiF()}}
+{\footnotesize\ttfamily double chiF (\begin{DoxyParamCaption}\item[{double}]{chi\+Sq }\end{DoxyParamCaption})}
+
+
+
+Definition at line 280 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a400e51f30cdc046b8ba0a480bacf3d94}\label{chisquare_8cpp_a400e51f30cdc046b8ba0a480bacf3d94}} 
+\index{chisquare.cpp@{chisquare.cpp}!chiGammaClearErrMess@{chiGammaClearErrMess}}
+\index{chiGammaClearErrMess@{chiGammaClearErrMess}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{chiGammaClearErrMess()}{chiGammaClearErrMess()}}
+{\footnotesize\ttfamily void chi\+Gamma\+Clear\+Err\+Mess (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 412 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a8e153d2b02f38800753abdfd075d3991}\label{chisquare_8cpp_a8e153d2b02f38800753abdfd075d3991}} 
+\index{chisquare.cpp@{chisquare.cpp}!chiGammaFlagError@{chiGammaFlagError}}
+\index{chiGammaFlagError@{chiGammaFlagError}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{chiGammaFlagError()}{chiGammaFlagError()}}
+{\footnotesize\ttfamily void chi\+Gamma\+Flag\+Error (\begin{DoxyParamCaption}\item[{const char $\ast$}]{error\+Text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 422 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aebcc458c81d607ac113511d058b744a5}\label{chisquare_8cpp_aebcc458c81d607ac113511d058b744a5}} 
+\index{chisquare.cpp@{chisquare.cpp}!chiGammaReadErrMess@{chiGammaReadErrMess}}
+\index{chiGammaReadErrMess@{chiGammaReadErrMess}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{chiGammaReadErrMess()}{chiGammaReadErrMess()}}
+{\footnotesize\ttfamily const char $\ast$ chi\+Gamma\+Read\+Err\+Mess (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 417 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a70bdec5145a425e43497b120c060b2d5}\label{chisquare_8cpp_a70bdec5145a425e43497b120c060b2d5}} 
+\index{chisquare.cpp@{chisquare.cpp}!chipercent@{chipercent}}
+\index{chipercent@{chipercent}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{chipercent()}{chipercent()}}
+{\footnotesize\ttfamily double chipercent (\begin{DoxyParamCaption}\item[{double}]{chi\+Sq,  }\item[{long}]{fr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 285 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aa00ed7eebc0c25371d34f1be245af868}\label{chisquare_8cpp_aa00ed7eebc0c25371d34f1be245af868}} 
+\index{chisquare.cpp@{chisquare.cpp}!chisquare@{chisquare}}
+\index{chisquare@{chisquare}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{chisquare()}{chisquare()}}
+{\footnotesize\ttfamily double chisquare (\begin{DoxyParamCaption}\item[{long $\ast$}]{actual,  }\item[{double $\ast$}]{probability,  }\item[{long}]{n,  }\item[{long}]{k,  }\item[{int $\ast$}]{nb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 238 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a0d638a8799e725566fbedcccd35beb50}\label{chisquare_8cpp_a0d638a8799e725566fbedcccd35beb50}} 
+\index{chisquare.cpp@{chisquare.cpp}!cum\_normal@{cum\_normal}}
+\index{cum\_normal@{cum\_normal}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{cum\_normal()}{cum\_normal()}}
+{\footnotesize\ttfamily double cum\+\_\+normal (\begin{DoxyParamCaption}\item[{double}]{sample,  }\item[{double}]{mean,  }\item[{double}]{stddev }\end{DoxyParamCaption})}
+
+
+
+Definition at line 480 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_ae01374ddda83bc2216ba9df9c76d9995}\label{chisquare_8cpp_ae01374ddda83bc2216ba9df9c76d9995}} 
+\index{chisquare.cpp@{chisquare.cpp}!gammln@{gammln}}
+\index{gammln@{gammln}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{gammln()}{gammln()}}
+{\footnotesize\ttfamily double gammln (\begin{DoxyParamCaption}\item[{double}]{xx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 393 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aa1745417f9696825bc7cc68538800b5b}\label{chisquare_8cpp_aa1745417f9696825bc7cc68538800b5b}} 
+\index{chisquare.cpp@{chisquare.cpp}!gammp@{gammp}}
+\index{gammp@{gammp}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{gammp()}{gammp()}}
+{\footnotesize\ttfamily double gammp (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 291 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a5b446e3e8ec13c8e2383ac156f0cf77f}\label{chisquare_8cpp_a5b446e3e8ec13c8e2383ac156f0cf77f}} 
+\index{chisquare.cpp@{chisquare.cpp}!gcf@{gcf}}
+\index{gcf@{gcf}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{gcf()}{gcf()}}
+{\footnotesize\ttfamily void gcf (\begin{DoxyParamCaption}\item[{double $\ast$}]{gammcf,  }\item[{double}]{a,  }\item[{double}]{x,  }\item[{double $\ast$}]{gln }\end{DoxyParamCaption})}
+
+
+
+Definition at line 351 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a5277079b0c65d166db9553deb8a92de2}\label{chisquare_8cpp_a5277079b0c65d166db9553deb8a92de2}} 
+\index{chisquare.cpp@{chisquare.cpp}!gser@{gser}}
+\index{gser@{gser}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{gser()}{gser()}}
+{\footnotesize\ttfamily void gser (\begin{DoxyParamCaption}\item[{double $\ast$}]{gamser,  }\item[{double}]{a,  }\item[{double}]{x,  }\item[{double $\ast$}]{gln }\end{DoxyParamCaption})}
+
+
+
+Definition at line 315 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aaf3e6db3d875312592884d87ccb2e0f0}\label{chisquare_8cpp_aaf3e6db3d875312592884d87ccb2e0f0}} 
+\index{chisquare.cpp@{chisquare.cpp}!KS@{KS}}
+\index{KS@{KS}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{KS()}{KS()}}
+{\footnotesize\ttfamily double KS (\begin{DoxyParamCaption}\item[{double $\ast$}]{V,  }\item[{long}]{n,  }\item[{double($\ast$)(double)}]{F }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aef427d7277e28bcaae6601972c45325d}\label{chisquare_8cpp_aef427d7277e28bcaae6601972c45325d}} 
+\index{chisquare.cpp@{chisquare.cpp}!KSF@{KSF}}
+\index{KSF@{KSF}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{KSF()}{KSF()}}
+{\footnotesize\ttfamily double KSF (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a68af3ca9dfb4f65fa4fd116fe12987ce}\label{chisquare_8cpp_a68af3ca9dfb4f65fa4fd116fe12987ce}} 
+\index{chisquare.cpp@{chisquare.cpp}!KSpercent@{KSpercent}}
+\index{KSpercent@{KSpercent}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{KSpercent()}{KSpercent()}}
+{\footnotesize\ttfamily double KSpercent (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{long}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 114 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a2666d6dbf920901bcda8e51e0a0645a7}\label{chisquare_8cpp_a2666d6dbf920901bcda8e51e0a0645a7}} 
+\index{chisquare.cpp@{chisquare.cpp}!mean\_sd@{mean\_sd}}
+\index{mean\_sd@{mean\_sd}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{mean\_sd()}{mean\_sd()}}
+{\footnotesize\ttfamily void mean\+\_\+sd (\begin{DoxyParamCaption}\item[{double $\ast$}]{x,  }\item[{int}]{n,  }\item[{double $\ast$}]{mean,  }\item[{double $\ast$}]{sd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 527 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a4390a65f46763681ea0e1cd1c9f0513b}\label{chisquare_8cpp_a4390a65f46763681ea0e1cd1c9f0513b}} 
+\index{chisquare.cpp@{chisquare.cpp}!normalF@{normalF}}
+\index{normalF@{normalF}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{normalF()}{normalF()}}
+{\footnotesize\ttfamily double normalF (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 522 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a36f2f09f69e482f392f580e04391bf75}\label{chisquare_8cpp_a36f2f09f69e482f392f580e04391bf75}} 
+\index{chisquare.cpp@{chisquare.cpp}!set\_d\_of\_f@{set\_d\_of\_f}}
+\index{set\_d\_of\_f@{set\_d\_of\_f}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{set\_d\_of\_f()}{set\_d\_of\_f()}}
+{\footnotesize\ttfamily void set\+\_\+d\+\_\+of\+\_\+f (\begin{DoxyParamCaption}\item[{long}]{df }\end{DoxyParamCaption})}
+
+
+
+Definition at line 275 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_ab49bd46cdd902042e8b426a99eb4d2d0}\label{chisquare_8cpp_ab49bd46cdd902042e8b426a99eb4d2d0}} 
+\index{chisquare.cpp@{chisquare.cpp}!set\_KS\_n@{set\_KS\_n}}
+\index{set\_KS\_n@{set\_KS\_n}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{set\_KS\_n()}{set\_KS\_n()}}
+{\footnotesize\ttfamily void set\+\_\+\+KS\+\_\+n (\begin{DoxyParamCaption}\item[{long}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_a9199f5155427b06f6154284ac826eae0}\label{chisquare_8cpp_a9199f5155427b06f6154284ac826eae0}} 
+\index{chisquare.cpp@{chisquare.cpp}!set\_normal\_params@{set\_normal\_params}}
+\index{set\_normal\_params@{set\_normal\_params}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{set\_normal\_params()}{set\_normal\_params()}}
+{\footnotesize\ttfamily void set\+\_\+normal\+\_\+params (\begin{DoxyParamCaption}\item[{double}]{mu,  }\item[{double}]{sd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 516 of file chisquare.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{chisquare_8cpp_afb8f233ca79f31f6f4a669678fa8b3cb}\label{chisquare_8cpp_afb8f233ca79f31f6f4a669678fa8b3cb}} 
+\index{chisquare.cpp@{chisquare.cpp}!degrees\_of\_freedom@{degrees\_of\_freedom}}
+\index{degrees\_of\_freedom@{degrees\_of\_freedom}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{degrees\_of\_freedom}{degrees\_of\_freedom}}
+{\footnotesize\ttfamily long degrees\+\_\+of\+\_\+freedom = 1}
+
+
+
+Definition at line 28 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aef34cfeab7d655be26d53d565135b2e7}\label{chisquare_8cpp_aef34cfeab7d655be26d53d565135b2e7}} 
+\index{chisquare.cpp@{chisquare.cpp}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
+{\footnotesize\ttfamily const char$\ast$ error\+Message}
+
+
+
+Definition at line 27 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{chisquare_8cpp_aa6c11b6fc68fc24b91c66cf343926fe1}\label{chisquare_8cpp_aa6c11b6fc68fc24b91c66cf343926fe1}} 
+\index{chisquare.cpp@{chisquare.cpp}!KS\_n@{KS\_n}}
+\index{KS\_n@{KS\_n}!chisquare.cpp@{chisquare.cpp}}
+\doxysubsubsection{\texorpdfstring{KS\_n}{KS\_n}}
+{\footnotesize\ttfamily long KS\+\_\+n = 1}
+
+
+
+Definition at line 29 of file chisquare.\+cpp.
+

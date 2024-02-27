@@ -1,0 +1,4 @@
+<map id="dqmc_cfg::config" name="dqmc_cfg::config">
+<area shape="rect" id="node1" title="Data type for holding the configuration (config/cfg) of a simulation. Implemented as a linked list of..." alt="" coords="7,95,139,121"/>
+<area shape="rect" id="node2" href="$structdqmc__cfg_1_1param.html" title="Data type for describing parameters, stores information such as a parameters name and value(s)." alt="" coords="5,5,140,32"/>
+</map>

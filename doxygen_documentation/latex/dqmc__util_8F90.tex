@@ -1,0 +1,132 @@
+\hypertarget{dqmc__util_8F90}{}\doxysection{SRC/dqmc\+\_\+util.F90 File Reference}
+\label{dqmc__util_8F90}\index{SRC/dqmc\_util.F90@{SRC/dqmc\_util.F90}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__util_1_1conjg}{dqmc\+\_\+util\+::conjg}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__util_1_1dqmc__jackknife}{dqmc\+\_\+util\+::dqmc\+\_\+jackknife}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__util_1_1dqmc__signjackknife}{dqmc\+\_\+util\+::dqmc\+\_\+signjackknife}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__util_1_1dqmc__print__array}{dqmc\+\_\+util\+::dqmc\+\_\+print\+\_\+array}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__util}{dqmc\+\_\+util}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+real $\ast$8 function, pointer \mbox{\hyperlink{namespacedqmc__util_a53a0dfa41dc785b7a09064aeb17800fa}{dqmc\+\_\+util\+::conjg\+\_\+real}} (x)
+\item 
+real $\ast$8 function, dimension(\+:), pointer \mbox{\hyperlink{namespacedqmc__util_a568ba13709d9d14e2e9acb5c6494bd3a}{dqmc\+\_\+util\+::conjg\+\_\+real1}} (x)
+\item 
+real $\ast$8 function, dimension(\+:,\+:), pointer \mbox{\hyperlink{namespacedqmc__util_af03f282a3a4199331d0bb66dee2312c0}{dqmc\+\_\+util\+::conjg\+\_\+real2}} (x)
+\item 
+real(wp) function \mbox{\hyperlink{namespacedqmc__util_a5b7bf810ab3d439a4fbdc21f1390bcc1}{dqmc\+\_\+util\+::dqmc\+\_\+matdiff}} (n, A, B)
+\item 
+real(wp) function \mbox{\hyperlink{namespacedqmc__util_a3c37f16398600271add8e6d1078b8c5d}{dqmc\+\_\+util\+::dqmc\+\_\+matnorm}} (n, A)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a4330e19e042d12f38b37e7c98aebb551}{dqmc\+\_\+util\+::dqmc\+\_\+eye}} (n, A)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_ad51831cfb17d46a50d592b18d1f195e4}{dqmc\+\_\+util\+::dqmc\+\_\+trans}} (n, At, A)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_af9a80f412cc39ddf8e4c8cd6e9d13da4}{dqmc\+\_\+util\+::dqmc\+\_\+scalecol}} (n, A, D)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a46df1f741b7e8d31f25ea2763cf50e99}{dqmc\+\_\+util\+::dqmc\+\_\+scalerow}} (n, A, D)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a7b7fadef462ad72c987cf77265f84981}{dqmc\+\_\+util\+::dqmc\+\_\+scalecolinv}} (n, A, D)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_aede037f8a8fbf7c241cb03c999efcafa}{dqmc\+\_\+util\+::dqmc\+\_\+scalerowinv}} (n, A, D)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_ab5e2ab86dc4385e4c03c001bb4701ef3}{dqmc\+\_\+util\+::dqmc\+\_\+signjackknife\+\_\+real}} (n, avg, err, x, y, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}}, sum\+\_\+sgn)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a49425066e89cd25b237a67802876f1c0}{dqmc\+\_\+util\+::dqmc\+\_\+signjackknife\+\_\+complex}} (n, avg, err, x, y, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}}, sum\+\_\+sgn)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a2db25f5d64908c05f4ef71186590ba60}{dqmc\+\_\+util\+::dqmc\+\_\+jackknife\+\_\+real}} (n, avg, err, x, y, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}}, sum\+\_\+sgn)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a4fcf6037d9de33d588dd1f628720658f}{dqmc\+\_\+util\+::dqmc\+\_\+jackknife\+\_\+complex}} (n, avg, err, x, y, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}}, sum\+\_\+sgn)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a6d48e29ca0e63212ed526793e5395990}{dqmc\+\_\+util\+::dqmc\+\_\+geterr}} (n, err, avg, list)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a8e037b7fd56a794d417f1dca5c84c9c3}{dqmc\+\_\+util\+::dqmc\+\_\+geterr1}} (n, data, avg, err)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a3473f2ecb256d04f0e69ad413aa3c4fb}{dqmc\+\_\+util\+::dqmc\+\_\+geterr2}} (n, sm, ssq, avg, err)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a5f2c44cc2dde5e7673207c15cefcc61b}{dqmc\+\_\+util\+::dqmc\+\_\+error}} (message, no)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a68363d7b10eb7d04325305a30e596cc8}{dqmc\+\_\+util\+::dqmc\+\_\+warning}} (message, no)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a8e32aecedd707fd821527e3b453ec908}{dqmc\+\_\+util\+::ran0}} (n, var, seed)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a4b16f24f4b4c7ce04e2ea09d7cd2c798}{dqmc\+\_\+util\+::ran1}} (n, var, seed)
+\item 
+integer function \mbox{\hyperlink{namespacedqmc__util_a84da3891b63c5add58abd9c4a2835515}{dqmc\+\_\+util\+::intran}} (L, seed)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_acffc1de1e91dfd717c8edaf270b40cc8}{dqmc\+\_\+util\+::rann}} (n, var, seed)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a91dd021668a7285a45a0d3bc6f2dc32f}{dqmc\+\_\+util\+::dumpa}} (m, n, A, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_ab0240558d300a59350c533e9eda4f57c}{dqmc\+\_\+util\+::dqmc\+\_\+print\+\_\+realarray}} (n, m, title, label, avg, err, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_af2391351a92fa84322fa9cba128fa865}{dqmc\+\_\+util\+::dqmc\+\_\+print\+\_\+complexarray}} (n, m, title, label, avg, err, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a5d6b1f39dd3947ae8613997c6d0e54bd}{dqmc\+\_\+util\+::dqmc\+\_\+print\+\_\+eigenmode}} (n, m, title, value, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_ab93722a9554e7e5ea8bc640ea6fc4f37}{dqmc\+\_\+util\+::dqmc\+\_\+getftk}} (value, n, nclass, class, na, nk, ft\+\_\+wgt, phase, valuek)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a505ab29b3592fe471add343c3c5ad379}{dqmc\+\_\+util\+::dqmc\+\_\+io\+\_\+open}} (fname, INP\+\_\+\+UNIT, OUT\+\_\+\+UNIT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a68ec05451661b5acfb725ea8b6115dd6}{dqmc\+\_\+util\+::dqmc\+\_\+open\+\_\+file}} (fname, fstatus, FILE\+\_\+\+UNIT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_a9ab1ad3b4f17f260c5d6e94e5aa82926}{dqmc\+\_\+util\+::dqmc\+\_\+count\+\_\+records}} (n, FILE\+\_\+\+UNIT)
+\item 
+logical function \mbox{\hyperlink{namespacedqmc__util_a748866a37bf5dc11b9480814a5e4d2f8}{dqmc\+\_\+util\+::move\+\_\+to\+\_\+record}} (string, iunit)
+\item 
+real(wp) function \mbox{\hyperlink{namespacedqmc__util_a1ae14563df2324229637878bcfe248a2}{dqmc\+\_\+util\+::get\+\_\+det}} (a)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__util_ae4fe86270e13f88975334857891a41b2}{dqmc\+\_\+util\+::get\+\_\+inverse}} (a, inv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_abd87560a20833f4bba1a74bbb1b29ce4}{dqmc\+\_\+util\+::wp}} = kind(1.\+0d0)
+\item 
+real(wp), parameter \mbox{\hyperlink{namespacedqmc__util_aaf757f79456311b76527bcbb4a2d55ea}{dqmc\+\_\+util\+::zero}} = 0.\+0\+D0
+\item 
+real(wp), parameter \mbox{\hyperlink{namespacedqmc__util_a3a58d5ba7629c972e91736a2bac83aa1}{dqmc\+\_\+util\+::one}} = 1.\+0\+D0
+\item 
+real(wp), parameter \mbox{\hyperlink{namespacedqmc__util_a74b88c15138e81ba8d1c4d2bad98e56e}{dqmc\+\_\+util\+::two}} = 2.\+0\+D0
+\item 
+real(wp), parameter \mbox{\hyperlink{namespacedqmc__util_a0a75f26c09e1c0ecd74f7a8aa3f61c8b}{dqmc\+\_\+util\+::half}} = 0.\+5D0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_adc50a5357b490f92641c1e369ce10784}{dqmc\+\_\+util\+::stderr}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_ac7627f272fa09d3e8b18d63268f5e2ba}{dqmc\+\_\+util\+::stdout}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_aaede8e34fc3f2594c60cf69035644a4e}{dqmc\+\_\+util\+::stdin}} = 5
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_a996b8045bca0856227edb5799bbe1181}{dqmc\+\_\+util\+::fmt\+\_\+strint}} = \char`\"{}(a30, i12)\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_a32838e15f29635577b65fdce4e756f08}{dqmc\+\_\+util\+::fmt\+\_\+strdbl}} = \char`\"{}(a30, f19.\+6)\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_adc2ac521990984f398fce5e4ddf86aed}{dqmc\+\_\+util\+::fmt\+\_\+str2bl}} = \char`\"{}(a30, \textquotesingle{}(\textquotesingle{}, f11.\+6, \textquotesingle{},\textquotesingle{}, f11.\+6, \textquotesingle{})\textquotesingle{})\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_aefe0058082e1a9654d66a1a0ce2b5e5f}{dqmc\+\_\+util\+::fmt\+\_\+valerr}} = \char`\"{}(a30, f12.\+6,\textquotesingle{} +-\/ \textquotesingle{},f12.\+6)\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_a945b817c5c9234a00a297ba38e4f3725}{dqmc\+\_\+util\+::fmt\+\_\+intpar}} = \char`\"{}(i3,i3)\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_a8458e371d7a775450ad29294fc04dc40}{dqmc\+\_\+util\+::fmt\+\_\+dbline}} = \char`\"{}(76(\textquotesingle{}=\textquotesingle{}))\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_a62d8822137e8d88acc53c9a00f786a40}{dqmc\+\_\+util\+::fmt\+\_\+sgline}} = \char`\"{}(76(\textquotesingle{}-\/\textquotesingle{}))\char`\"{}
+\item 
+character($\ast$), parameter \mbox{\hyperlink{namespacedqmc__util_ab773fef397c8e1c4e1e78e80ef301d60}{dqmc\+\_\+util\+::fmt\+\_\+point}} = \char`\"{}(\textquotesingle{}point ; dx=\textquotesingle{}, i3, \textquotesingle{} ; dy=\textquotesingle{}, i3, \textquotesingle{} \+:\textquotesingle{})\char`\"{}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_a742237781995d63c451299dd85f667aa}{dqmc\+\_\+util\+::dlarnv\+\_\+uni\+\_\+0\+\_\+1}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_aa389f30743729c8ac51480b6476923cb}{dqmc\+\_\+util\+::dlarnv\+\_\+uni\+\_\+n1\+\_\+1}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__util_a1224c7849bca735f7910c531fffcbad9}{dqmc\+\_\+util\+::dlarnv\+\_\+normal}} = 3
+\end{DoxyCompactItemize}

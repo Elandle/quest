@@ -1,0 +1,163 @@
+\hypertarget{namespacedqmc__mpi}{}\doxysection{dqmc\+\_\+mpi Module Reference}
+\label{namespacedqmc__mpi}\index{dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__mpi_1_1mpi__simor}{mpi\+\_\+simor}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__mpi_af94f3a4224b6e8eda4a84b879ac2cacb}{dqmc\+\_\+mpi\+\_\+init}} (sim, level)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__mpi_a7d89f0d4b4dcc6c855a82a6fdefe071b}{dqmc\+\_\+mpi\+\_\+final}} (sim)
+\item 
+logical function \mbox{\hyperlink{namespacedqmc__mpi_a132541b2002828ebbc4e4b5a90c954e9}{dqmc\+\_\+mpi\+\_\+is\+\_\+root}} (sim, channel)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{namespacedqmc__mpi_af5a4b36c0b6412e9b4c141338ebcade1}{mpi\+\_\+comm\+\_\+world}}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_aa189e62f2c1a13be0cd51e3bf6f6071c}{channel\+\_\+aggr}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_a81de7b4c7c3b5f42419fce73dea96b08}{channel\+\_\+meas}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_aea323b9edd8c0daef551150ad500f9e8}{channel\+\_\+gfun}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_ac6f8e76633ee56754b93c9b538309daa}{plevel\+\_\+1}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_a51efd8375578ee31d91806944476c186}{plevel\+\_\+2}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_a1e93c677a7bf49782725c6fad960458f}{plevel\+\_\+3}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__mpi_aae281a83d1e3280fe51922ef9753fc5f}{plevel\+\_\+4}} = 4
+\item 
+type(\mbox{\hyperlink{structdqmc__mpi_1_1mpi__simor}{mpi\+\_\+simor}}) \mbox{\hyperlink{namespacedqmc__mpi_a526b6752a997de86beb00cf2af4ec5d6}{qmc\+\_\+sim}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__mpi_a7d89f0d4b4dcc6c855a82a6fdefe071b}\label{namespacedqmc__mpi_a7d89f0d4b4dcc6c855a82a6fdefe071b}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!dqmc\_mpi\_final@{dqmc\_mpi\_final}}
+\index{dqmc\_mpi\_final@{dqmc\_mpi\_final}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{dqmc\_mpi\_final()}{dqmc\_mpi\_final()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+mpi\+::dqmc\+\_\+mpi\+\_\+final (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__mpi_1_1mpi__simor}{mpi\+\_\+simor}})}]{sim }\end{DoxyParamCaption})}
+
+
+
+Definition at line 106 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_af94f3a4224b6e8eda4a84b879ac2cacb}\label{namespacedqmc__mpi_af94f3a4224b6e8eda4a84b879ac2cacb}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!dqmc\_mpi\_init@{dqmc\_mpi\_init}}
+\index{dqmc\_mpi\_init@{dqmc\_mpi\_init}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{dqmc\_mpi\_init()}{dqmc\_mpi\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+mpi\+::dqmc\+\_\+mpi\+\_\+init (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__mpi_1_1mpi__simor}{mpi\+\_\+simor}})}]{sim,  }\item[{integer, intent(in)}]{level }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_a132541b2002828ebbc4e4b5a90c954e9}\label{namespacedqmc__mpi_a132541b2002828ebbc4e4b5a90c954e9}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!dqmc\_mpi\_is\_root@{dqmc\_mpi\_is\_root}}
+\index{dqmc\_mpi\_is\_root@{dqmc\_mpi\_is\_root}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{dqmc\_mpi\_is\_root()}{dqmc\_mpi\_is\_root()}}
+{\footnotesize\ttfamily logical function dqmc\+\_\+mpi\+::dqmc\+\_\+mpi\+\_\+is\+\_\+root (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__mpi_1_1mpi__simor}{mpi\+\_\+simor}})}]{sim,  }\item[{integer, intent(in)}]{channel }\end{DoxyParamCaption})}
+
+
+
+Definition at line 135 of file dqmc\+\_\+mpi.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__mpi_aa189e62f2c1a13be0cd51e3bf6f6071c}\label{namespacedqmc__mpi_aa189e62f2c1a13be0cd51e3bf6f6071c}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!channel\_aggr@{channel\_aggr}}
+\index{channel\_aggr@{channel\_aggr}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{channel\_aggr}{channel\_aggr}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::channel\+\_\+aggr = 1}
+
+
+
+Definition at line 34 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_aea323b9edd8c0daef551150ad500f9e8}\label{namespacedqmc__mpi_aea323b9edd8c0daef551150ad500f9e8}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!channel\_gfun@{channel\_gfun}}
+\index{channel\_gfun@{channel\_gfun}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{channel\_gfun}{channel\_gfun}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::channel\+\_\+gfun = 3}
+
+
+
+Definition at line 36 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_a81de7b4c7c3b5f42419fce73dea96b08}\label{namespacedqmc__mpi_a81de7b4c7c3b5f42419fce73dea96b08}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!channel\_meas@{channel\_meas}}
+\index{channel\_meas@{channel\_meas}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{channel\_meas}{channel\_meas}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::channel\+\_\+meas = 2}
+
+
+
+Definition at line 35 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_af5a4b36c0b6412e9b4c141338ebcade1}\label{namespacedqmc__mpi_af5a4b36c0b6412e9b4c141338ebcade1}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!mpi\_comm\_world@{mpi\_comm\_world}}
+\index{mpi\_comm\_world@{mpi\_comm\_world}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{mpi\_comm\_world}{mpi\_comm\_world}}
+{\footnotesize\ttfamily integer dqmc\+\_\+mpi\+::mpi\+\_\+comm\+\_\+world}
+
+
+
+Definition at line 9 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_ac6f8e76633ee56754b93c9b538309daa}\label{namespacedqmc__mpi_ac6f8e76633ee56754b93c9b538309daa}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!plevel\_1@{plevel\_1}}
+\index{plevel\_1@{plevel\_1}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{plevel\_1}{plevel\_1}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::plevel\+\_\+1 = 1}
+
+
+
+Definition at line 38 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_a51efd8375578ee31d91806944476c186}\label{namespacedqmc__mpi_a51efd8375578ee31d91806944476c186}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!plevel\_2@{plevel\_2}}
+\index{plevel\_2@{plevel\_2}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{plevel\_2}{plevel\_2}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::plevel\+\_\+2 = 2}
+
+
+
+Definition at line 39 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_a1e93c677a7bf49782725c6fad960458f}\label{namespacedqmc__mpi_a1e93c677a7bf49782725c6fad960458f}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!plevel\_3@{plevel\_3}}
+\index{plevel\_3@{plevel\_3}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{plevel\_3}{plevel\_3}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::plevel\+\_\+3 = 3}
+
+
+
+Definition at line 40 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_aae281a83d1e3280fe51922ef9753fc5f}\label{namespacedqmc__mpi_aae281a83d1e3280fe51922ef9753fc5f}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!plevel\_4@{plevel\_4}}
+\index{plevel\_4@{plevel\_4}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{plevel\_4}{plevel\_4}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+mpi\+::plevel\+\_\+4 = 4}
+
+
+
+Definition at line 41 of file dqmc\+\_\+mpi.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__mpi_a526b6752a997de86beb00cf2af4ec5d6}\label{namespacedqmc__mpi_a526b6752a997de86beb00cf2af4ec5d6}} 
+\index{dqmc\_mpi@{dqmc\_mpi}!qmc\_sim@{qmc\_sim}}
+\index{qmc\_sim@{qmc\_sim}!dqmc\_mpi@{dqmc\_mpi}}
+\doxysubsubsection{\texorpdfstring{qmc\_sim}{qmc\_sim}}
+{\footnotesize\ttfamily type(\mbox{\hyperlink{structdqmc__mpi_1_1mpi__simor}{mpi\+\_\+simor}}) dqmc\+\_\+mpi\+::qmc\+\_\+sim}
+
+
+
+Definition at line 43 of file dqmc\+\_\+mpi.\+F90.
+

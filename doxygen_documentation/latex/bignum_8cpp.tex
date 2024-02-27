@@ -1,0 +1,509 @@
+\hypertarget{bignum_8cpp}{}\doxysection{SRC/sprng5/\+SRC/bignum.cpp File Reference}
+\label{bignum_8cpp}\index{SRC/sprng5/SRC/bignum.cpp@{SRC/sprng5/SRC/bignum.cpp}}
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$iomanip.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}bignum.\+h\char`\"{}}\newline
+Include dependency graph for bignum.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bignum_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bignum_8cpp_af467900d1e39aef2872f4091f5404b03}{NUMBITS}}~32
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a886e69a964da98a798d9264fce7467d6}{Set\+\_\+ui}} (unsigned long int n)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_ab94f3009399303daed0e4136aff3528e}{Set\+\_\+si}} (signed long int n)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a8ffee84555db4217f34694e619259fbe}{operator+}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a9ebf6ee4341aa9bcd5646721688ac90c}{operator+}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_ae19bbdd5cbda6b6a8c067ff26da79ddd}{operator-\/}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_ad7c0e998ef6a5379ee41364e8e5f0890}{Sub4\+Div}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a5ff96ba3a5936c9870cf60562a8bf375}{operator-\/}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a11db262261d4da2c43d1ea617d88cf48}{operator$\ast$}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a039e919103c001e29be29eb08db05686}{operator$\ast$}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a91eec7d2f280d1c9484d299cce670c82}{operator/}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a66dbc3acf152d31ee7a6049d6a32b710}{operator/}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a99c687a9b91d4f4528022657a713201c}{operator\%}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a28eed59721a0bb5af409304f5a306ea1}{operator\%}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a0eb62b493554c6e7ea8d0a77799acef4}{operator$^\wedge$}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a059d861ce5bf76c50d2b11057cb05265}{operator$^\wedge$}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+unsigned long int \mbox{\hyperlink{bignum_8cpp_adfeafe45046b7d503acbfa362fa319eb}{operator\&}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_ac76215d694c7df08a475aaf3f359d2a8}{operator$>$$>$}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, unsigned long int index)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_adfd06c4861d390279c663e414813a4da}{operator$<$$<$}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, unsigned long int index)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a2ebe15aacbda7ffba3cbf99efcde0bca}{b\+\_\+div\+\_\+2exp}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int ex\+\_\+of\+\_\+2)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_aa30d9f3e4416823f2be1f75ed4b83efd}{b\+\_\+pow}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&base, const unsigned long int exp)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a9d2378ef32a8f8f4bb35e35465852d4d}{b\+\_\+powm}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&base, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&exp, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&mod)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_a9cb7af8b5b8ac44c47cda60d81536fc1}{b\+\_\+powm}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} \&base, const unsigned long int exp, \mbox{\hyperlink{classBigNum}{Big\+Num}} \&mod)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_ae3837990999c512f6524c6df17875b33}{b\+\_\+abs}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_adce039e11c83b9959ec797632cd5231a}{b\+\_\+abs2}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{bignum_8cpp_ad75d331f248df95fce2021667c1409dc}{b\+\_\+neg}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+int \mbox{\hyperlink{bignum_8cpp_afbd0d93cce0f47188f9aa1b05235f976}{b\+\_\+cmp}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+int \mbox{\hyperlink{bignum_8cpp_a700cfe89ab998e9e779a4c54ca0cfe4f}{b\+\_\+cmp}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+int \mbox{\hyperlink{bignum_8cpp_a1850f8a93b4b7c512059e21127f8c3ad}{b\+\_\+cmp}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const signed long int y)
+\item 
+bool \mbox{\hyperlink{bignum_8cpp_a1f3f1166613fee42da8e76fdc7601228}{operator==}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+bool \mbox{\hyperlink{bignum_8cpp_a53a5e0f090cfed3b0168b86fec0c7741}{operator==}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const unsigned long int y)
+\item 
+unsigned long int \mbox{\hyperlink{bignum_8cpp_a1aa82ecf3d818a9fddaf824a18dd9d1e}{Smaller\+Size}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+unsigned long int \mbox{\hyperlink{bignum_8cpp_ac1d7bd7e786e52aae3ffa747d1cec1d4}{Bigger\+Size}} (const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&y)
+\item 
+int \mbox{\hyperlink{bignum_8cpp_af8aabc180015fc7f53cb91db0db0081e}{Get\+Num\+Bits}} (unsigned long int \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+ostream \& \mbox{\hyperlink{bignum_8cpp_ad07f02c7026185a1edc554a10870cbb6}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&bn)
+\item 
+int \mbox{\hyperlink{bignum_8cpp_a9d2dcfe1f20a2227098b3ec42b3e6485}{Test}} (const unsigned long int num, int index)
+\item 
+unsigned long int \mbox{\hyperlink{bignum_8cpp_af3ced6b6b6a680719e52a956ebd8ebd8}{Set}} (const unsigned long int num, int index)
+\item 
+unsigned long int \mbox{\hyperlink{bignum_8cpp_acb78aaa0d6b3bc1ef50eb2f24533bc0b}{Unset}} (const unsigned long int num, int index)
+\item 
+unsigned long int \mbox{\hyperlink{bignum_8cpp_ae51c311c4a2459f2d93b5e26700dc00f}{Ceil\+Div}} (unsigned long int \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, unsigned long int y)
+\item 
+int \mbox{\hyperlink{bignum_8cpp_aaa01335b9171b3e177fcefedd48b7c63}{C2I}} (char c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{bignum_8cpp_af467900d1e39aef2872f4091f5404b03}\label{bignum_8cpp_af467900d1e39aef2872f4091f5404b03}} 
+\index{bignum.cpp@{bignum.cpp}!NUMBITS@{NUMBITS}}
+\index{NUMBITS@{NUMBITS}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{NUMBITS}{NUMBITS}}
+{\footnotesize\ttfamily \#define NUMBITS~32}
+
+
+
+Definition at line 34 of file bignum.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{bignum_8cpp_ae3837990999c512f6524c6df17875b33}\label{bignum_8cpp_ae3837990999c512f6524c6df17875b33}} 
+\index{bignum.cpp@{bignum.cpp}!b\_abs@{b\_abs}}
+\index{b\_abs@{b\_abs}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_abs()}{b\_abs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+abs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1065 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_adce039e11c83b9959ec797632cd5231a}\label{bignum_8cpp_adce039e11c83b9959ec797632cd5231a}} 
+\index{bignum.cpp@{bignum.cpp}!b\_abs2@{b\_abs2}}
+\index{b\_abs2@{b\_abs2}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_abs2()}{b\_abs2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+abs2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1071 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_afbd0d93cce0f47188f9aa1b05235f976}\label{bignum_8cpp_afbd0d93cce0f47188f9aa1b05235f976}} 
+\index{bignum.cpp@{bignum.cpp}!b\_cmp@{b\_cmp}}
+\index{b\_cmp@{b\_cmp}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_cmp()}{b\_cmp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int b\+\_\+cmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1088 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a1850f8a93b4b7c512059e21127f8c3ad}\label{bignum_8cpp_a1850f8a93b4b7c512059e21127f8c3ad}} 
+\index{bignum.cpp@{bignum.cpp}!b\_cmp@{b\_cmp}}
+\index{b\_cmp@{b\_cmp}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_cmp()}{b\_cmp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int b\+\_\+cmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const signed long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1182 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a700cfe89ab998e9e779a4c54ca0cfe4f}\label{bignum_8cpp_a700cfe89ab998e9e779a4c54ca0cfe4f}} 
+\index{bignum.cpp@{bignum.cpp}!b\_cmp@{b\_cmp}}
+\index{b\_cmp@{b\_cmp}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_cmp()}{b\_cmp()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int b\+\_\+cmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1142 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a2ebe15aacbda7ffba3cbf99efcde0bca}\label{bignum_8cpp_a2ebe15aacbda7ffba3cbf99efcde0bca}} 
+\index{bignum.cpp@{bignum.cpp}!b\_div\_2exp@{b\_div\_2exp}}
+\index{b\_div\_2exp@{b\_div\_2exp}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_div\_2exp()}{b\_div\_2exp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+div\+\_\+2exp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{ex\+\_\+of\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 986 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ad75d331f248df95fce2021667c1409dc}\label{bignum_8cpp_ad75d331f248df95fce2021667c1409dc}} 
+\index{bignum.cpp@{bignum.cpp}!b\_neg@{b\_neg}}
+\index{b\_neg@{b\_neg}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_neg()}{b\_neg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+neg (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1078 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_aa30d9f3e4416823f2be1f75ed4b83efd}\label{bignum_8cpp_aa30d9f3e4416823f2be1f75ed4b83efd}} 
+\index{bignum.cpp@{bignum.cpp}!b\_pow@{b\_pow}}
+\index{b\_pow@{b\_pow}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_pow()}{b\_pow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{base,  }\item[{const unsigned long int}]{exp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 994 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a9cb7af8b5b8ac44c47cda60d81536fc1}\label{bignum_8cpp_a9cb7af8b5b8ac44c47cda60d81536fc1}} 
+\index{bignum.cpp@{bignum.cpp}!b\_powm@{b\_powm}}
+\index{b\_powm@{b\_powm}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_powm()}{b\_powm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+powm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{base,  }\item[{const unsigned long int}]{exp,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{mod }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1027 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a9d2378ef32a8f8f4bb35e35465852d4d}\label{bignum_8cpp_a9d2378ef32a8f8f4bb35e35465852d4d}} 
+\index{bignum.cpp@{bignum.cpp}!b\_powm@{b\_powm}}
+\index{b\_powm@{b\_powm}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{b\_powm()}{b\_powm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} b\+\_\+powm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{base,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{exp,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{mod }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1002 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ac1d7bd7e786e52aae3ffa747d1cec1d4}\label{bignum_8cpp_ac1d7bd7e786e52aae3ffa747d1cec1d4}} 
+\index{bignum.cpp@{bignum.cpp}!BiggerSize@{BiggerSize}}
+\index{BiggerSize@{BiggerSize}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{BiggerSize()}{BiggerSize()}}
+{\footnotesize\ttfamily unsigned long int Bigger\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1234 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_aaa01335b9171b3e177fcefedd48b7c63}\label{bignum_8cpp_aaa01335b9171b3e177fcefedd48b7c63}} 
+\index{bignum.cpp@{bignum.cpp}!C2I@{C2I}}
+\index{C2I@{C2I}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{C2I()}{C2I()}}
+{\footnotesize\ttfamily int C2I (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1351 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ae51c311c4a2459f2d93b5e26700dc00f}\label{bignum_8cpp_ae51c311c4a2459f2d93b5e26700dc00f}} 
+\index{bignum.cpp@{bignum.cpp}!CeilDiv@{CeilDiv}}
+\index{CeilDiv@{CeilDiv}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{CeilDiv()}{CeilDiv()}}
+{\footnotesize\ttfamily unsigned long int Ceil\+Div (\begin{DoxyParamCaption}\item[{unsigned long int}]{x,  }\item[{unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1343 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_af8aabc180015fc7f53cb91db0db0081e}\label{bignum_8cpp_af8aabc180015fc7f53cb91db0db0081e}} 
+\index{bignum.cpp@{bignum.cpp}!GetNumBits@{GetNumBits}}
+\index{GetNumBits@{GetNumBits}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNumBits()}{GetNumBits()}}
+{\footnotesize\ttfamily int Get\+Num\+Bits (\begin{DoxyParamCaption}\item[{unsigned long int}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1243 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a28eed59721a0bb5af409304f5a306ea1}\label{bignum_8cpp_a28eed59721a0bb5af409304f5a306ea1}} 
+\index{bignum.cpp@{bignum.cpp}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator\% (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 828 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a99c687a9b91d4f4528022657a713201c}\label{bignum_8cpp_a99c687a9b91d4f4528022657a713201c}} 
+\index{bignum.cpp@{bignum.cpp}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator\% (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 817 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_adfeafe45046b7d503acbfa362fa319eb}\label{bignum_8cpp_adfeafe45046b7d503acbfa362fa319eb}} 
+\index{bignum.cpp@{bignum.cpp}!operator\&@{operator\&}}
+\index{operator\&@{operator\&}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator\&()}{operator\&()}}
+{\footnotesize\ttfamily unsigned long int operator\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 875 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a11db262261d4da2c43d1ea617d88cf48}\label{bignum_8cpp_a11db262261d4da2c43d1ea617d88cf48}} 
+\index{bignum.cpp@{bignum.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 631 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a039e919103c001e29be29eb08db05686}\label{bignum_8cpp_a039e919103c001e29be29eb08db05686}} 
+\index{bignum.cpp@{bignum.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 683 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a8ffee84555db4217f34694e619259fbe}\label{bignum_8cpp_a8ffee84555db4217f34694e619259fbe}} 
+\index{bignum.cpp@{bignum.cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 178 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a9ebf6ee4341aa9bcd5646721688ac90c}\label{bignum_8cpp_a9ebf6ee4341aa9bcd5646721688ac90c}} 
+\index{bignum.cpp@{bignum.cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 334 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ae19bbdd5cbda6b6a8c067ff26da79ddd}\label{bignum_8cpp_ae19bbdd5cbda6b6a8c067ff26da79ddd}} 
+\index{bignum.cpp@{bignum.cpp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 340 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a5ff96ba3a5936c9870cf60562a8bf375}\label{bignum_8cpp_a5ff96ba3a5936c9870cf60562a8bf375}} 
+\index{bignum.cpp@{bignum.cpp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 625 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a91eec7d2f280d1c9484d299cce670c82}\label{bignum_8cpp_a91eec7d2f280d1c9484d299cce670c82}} 
+\index{bignum.cpp@{bignum.cpp}!operator/@{operator/}}
+\index{operator/@{operator/}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 689 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a66dbc3acf152d31ee7a6049d6a32b710}\label{bignum_8cpp_a66dbc3acf152d31ee7a6049d6a32b710}} 
+\index{bignum.cpp@{bignum.cpp}!operator/@{operator/}}
+\index{operator/@{operator/}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 811 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_adfd06c4861d390279c663e414813a4da}\label{bignum_8cpp_adfd06c4861d390279c663e414813a4da}} 
+\index{bignum.cpp@{bignum.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator$<$$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{unsigned long int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 935 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ad07f02c7026185a1edc554a10870cbb6}\label{bignum_8cpp_ad07f02c7026185a1edc554a10870cbb6}} 
+\index{bignum.cpp@{bignum.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{bn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1291 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a1f3f1166613fee42da8e76fdc7601228}\label{bignum_8cpp_a1f3f1166613fee42da8e76fdc7601228}} 
+\index{bignum.cpp@{bignum.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1213 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a53a5e0f090cfed3b0168b86fec0c7741}\label{bignum_8cpp_a53a5e0f090cfed3b0168b86fec0c7741}} 
+\index{bignum.cpp@{bignum.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1221 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ac76215d694c7df08a475aaf3f359d2a8}\label{bignum_8cpp_ac76215d694c7df08a475aaf3f359d2a8}} 
+\index{bignum.cpp@{bignum.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator$>$$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{unsigned long int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 880 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a0eb62b493554c6e7ea8d0a77799acef4}\label{bignum_8cpp_a0eb62b493554c6e7ea8d0a77799acef4}} 
+\index{bignum.cpp@{bignum.cpp}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$^\wedge$()}{operator^()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator$^\wedge$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 834 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a059d861ce5bf76c50d2b11057cb05265}\label{bignum_8cpp_a059d861ce5bf76c50d2b11057cb05265}} 
+\index{bignum.cpp@{bignum.cpp}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$^\wedge$()}{operator^()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} operator$^\wedge$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const unsigned long int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 868 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_af3ced6b6b6a680719e52a956ebd8ebd8}\label{bignum_8cpp_af3ced6b6b6a680719e52a956ebd8ebd8}} 
+\index{bignum.cpp@{bignum.cpp}!Set@{Set}}
+\index{Set@{Set}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily unsigned long int Set (\begin{DoxyParamCaption}\item[{const unsigned long int}]{num,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1329 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ab94f3009399303daed0e4136aff3528e}\label{bignum_8cpp_ab94f3009399303daed0e4136aff3528e}} 
+\index{bignum.cpp@{bignum.cpp}!Set\_si@{Set\_si}}
+\index{Set\_si@{Set\_si}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{Set\_si()}{Set\_si()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} Set\+\_\+si (\begin{DoxyParamCaption}\item[{signed long int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a886e69a964da98a798d9264fce7467d6}\label{bignum_8cpp_a886e69a964da98a798d9264fce7467d6}} 
+\index{bignum.cpp@{bignum.cpp}!Set\_ui@{Set\_ui}}
+\index{Set\_ui@{Set\_ui}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{Set\_ui()}{Set\_ui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} Set\+\_\+ui (\begin{DoxyParamCaption}\item[{unsigned long int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 140 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a1aa82ecf3d818a9fddaf824a18dd9d1e}\label{bignum_8cpp_a1aa82ecf3d818a9fddaf824a18dd9d1e}} 
+\index{bignum.cpp@{bignum.cpp}!SmallerSize@{SmallerSize}}
+\index{SmallerSize@{SmallerSize}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{SmallerSize()}{SmallerSize()}}
+{\footnotesize\ttfamily unsigned long int Smaller\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1226 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_ad7c0e998ef6a5379ee41364e8e5f0890}\label{bignum_8cpp_ad7c0e998ef6a5379ee41364e8e5f0890}} 
+\index{bignum.cpp@{bignum.cpp}!Sub4Div@{Sub4Div}}
+\index{Sub4Div@{Sub4Div}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{Sub4Div()}{Sub4Div()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} Sub4\+Div (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{x,  }\item[{const \mbox{\hyperlink{classBigNum}{Big\+Num}} \&}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 487 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_a9d2dcfe1f20a2227098b3ec42b3e6485}\label{bignum_8cpp_a9d2dcfe1f20a2227098b3ec42b3e6485}} 
+\index{bignum.cpp@{bignum.cpp}!Test@{Test}}
+\index{Test@{Test}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}}
+{\footnotesize\ttfamily int Test (\begin{DoxyParamCaption}\item[{const unsigned long int}]{num,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1321 of file bignum.\+cpp.
+
+\mbox{\Hypertarget{bignum_8cpp_acb78aaa0d6b3bc1ef50eb2f24533bc0b}\label{bignum_8cpp_acb78aaa0d6b3bc1ef50eb2f24533bc0b}} 
+\index{bignum.cpp@{bignum.cpp}!Unset@{Unset}}
+\index{Unset@{Unset}!bignum.cpp@{bignum.cpp}}
+\doxysubsubsection{\texorpdfstring{Unset()}{Unset()}}
+{\footnotesize\ttfamily unsigned long int Unset (\begin{DoxyParamCaption}\item[{const unsigned long int}]{num,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1336 of file bignum.\+cpp.
+

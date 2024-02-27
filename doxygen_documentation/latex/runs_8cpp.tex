@@ -1,0 +1,118 @@
+\hypertarget{runs_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/runs.cpp File Reference}
+\label{runs_8cpp}\index{SRC/sprng5/TESTS/runs.cpp@{SRC/sprng5/TESTS/runs.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for runs.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{runs_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{runs_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}{NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM}}~2
+\item 
+\#define \mbox{\hyperlink{runs_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}{FATAL\+\_\+\+ABORT}}~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)
+\item 
+\#define \mbox{\hyperlink{runs_8cpp_a7dd13869785d5b9b3f14bc13df5aa4c5}{PROC\+\_\+\+ONE\+\_\+\+RUN}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{runs_8cpp_a2063d6cc56c92823c5f798b77030e853}{init\+Test}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{runs_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}{deinit\+Test}} (void)
+\item 
+int \mbox{\hyperlink{runs_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{runs_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}\label{runs_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}} 
+\index{runs.cpp@{runs.cpp}!FATAL\_ABORT@{FATAL\_ABORT}}
+\index{FATAL\_ABORT@{FATAL\_ABORT}!runs.cpp@{runs.cpp}}
+\doxysubsubsection{\texorpdfstring{FATAL\_ABORT}{FATAL\_ABORT}}
+{\footnotesize\ttfamily \#define FATAL\+\_\+\+ABORT~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)}
+
+
+
+Definition at line 33 of file runs.\+cpp.
+
+\mbox{\Hypertarget{runs_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}\label{runs_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}} 
+\index{runs.cpp@{runs.cpp}!NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}}
+\index{NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}!runs.cpp@{runs.cpp}}
+\doxysubsubsection{\texorpdfstring{NUM\_TEST\_ENGIN\_PARAM}{NUM\_TEST\_ENGIN\_PARAM}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM~2}
+
+
+
+Definition at line 16 of file runs.\+cpp.
+
+\mbox{\Hypertarget{runs_8cpp_a7dd13869785d5b9b3f14bc13df5aa4c5}\label{runs_8cpp_a7dd13869785d5b9b3f14bc13df5aa4c5}} 
+\index{runs.cpp@{runs.cpp}!PROC\_ONE\_RUN@{PROC\_ONE\_RUN}}
+\index{PROC\_ONE\_RUN@{PROC\_ONE\_RUN}!runs.cpp@{runs.cpp}}
+\doxysubsubsection{\texorpdfstring{PROC\_ONE\_RUN}{PROC\_ONE\_RUN}}
+{\footnotesize\ttfamily \#define PROC\+\_\+\+ONE\+\_\+\+RUN}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \{                                           \(\backslash\)}
+\DoxyCodeLine{   int  theLen;                                                  \(\backslash\)}
+\DoxyCodeLine{   double  tempX, tempY;                                         \(\backslash\)}
+\DoxyCodeLine{                                                                 \(\backslash\)}
+\DoxyCodeLine{   theLen = 0;                                                   \(\backslash\)}
+\DoxyCodeLine{   tempY = \mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}();                                             \(\backslash\)}
+\DoxyCodeLine{   do \{                                                          \(\backslash\)}
+\DoxyCodeLine{      theLen++;                                                  \(\backslash\)}
+\DoxyCodeLine{      tempX = tempY;                                             \(\backslash\)}
+\DoxyCodeLine{      tempY = \mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}();                                          \(\backslash\)}
+\DoxyCodeLine{   \} \textcolor{keywordflow}{while} (tempX<tempY);                                        \(\backslash\)}
+\DoxyCodeLine{                                                                 \(\backslash\)}
+\DoxyCodeLine{   \textcolor{comment}{/* Add (theLen<1) clause to catch overflow */}                 \(\backslash\)}
+\DoxyCodeLine{   if ((theLen>maxRunLen) || (theLen<1)) bins[numBin-\/1]++;       \(\backslash\)}
+\DoxyCodeLine{   else bins[theLen-\/1]++;                                        \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 82 of file runs.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{runs_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}\label{runs_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}} 
+\index{runs.cpp@{runs.cpp}!deinitTest@{deinitTest}}
+\index{deinitTest@{deinitTest}!runs.cpp@{runs.cpp}}
+\doxysubsubsection{\texorpdfstring{deinitTest()}{deinitTest()}}
+{\footnotesize\ttfamily void deinit\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 74 of file runs.\+cpp.
+
+\mbox{\Hypertarget{runs_8cpp_a2063d6cc56c92823c5f798b77030e853}\label{runs_8cpp_a2063d6cc56c92823c5f798b77030e853}} 
+\index{runs.cpp@{runs.cpp}!initTest@{initTest}}
+\index{initTest@{initTest}!runs.cpp@{runs.cpp}}
+\doxysubsubsection{\texorpdfstring{initTest()}{initTest()}}
+{\footnotesize\ttfamily void init\+Test (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file runs.\+cpp.
+
+\mbox{\Hypertarget{runs_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{runs_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{runs.cpp@{runs.cpp}!main@{main}}
+\index{main@{main}!runs.cpp@{runs.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 100 of file runs.\+cpp.
+

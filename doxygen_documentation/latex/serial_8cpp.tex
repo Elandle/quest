@@ -1,0 +1,109 @@
+\hypertarget{serial_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/serial.cpp File Reference}
+\label{serial_8cpp}\index{SRC/sprng5/TESTS/serial.cpp@{SRC/sprng5/TESTS/serial.cpp}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for serial.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{serial_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{serial_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}{NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM}}~2
+\item 
+\#define \mbox{\hyperlink{serial_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}{FATAL\+\_\+\+ABORT}}~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)
+\item 
+\#define \mbox{\hyperlink{serial_8cpp_a03d7ebd0ed88434e3117f66a7605f0c0}{PROC\+\_\+\+ONE\+\_\+\+PAIR}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serial_8cpp_a2063d6cc56c92823c5f798b77030e853}{init\+Test}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{serial_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}{deinit\+Test}} (void)
+\item 
+int \mbox{\hyperlink{serial_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{serial_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}\label{serial_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}} 
+\index{serial.cpp@{serial.cpp}!FATAL\_ABORT@{FATAL\_ABORT}}
+\index{FATAL\_ABORT@{FATAL\_ABORT}!serial.cpp@{serial.cpp}}
+\doxysubsubsection{\texorpdfstring{FATAL\_ABORT}{FATAL\_ABORT}}
+{\footnotesize\ttfamily \#define FATAL\+\_\+\+ABORT~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)}
+
+
+
+Definition at line 33 of file serial.\+cpp.
+
+\mbox{\Hypertarget{serial_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}\label{serial_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}} 
+\index{serial.cpp@{serial.cpp}!NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}}
+\index{NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}!serial.cpp@{serial.cpp}}
+\doxysubsubsection{\texorpdfstring{NUM\_TEST\_ENGIN\_PARAM}{NUM\_TEST\_ENGIN\_PARAM}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM~2}
+
+
+
+Definition at line 16 of file serial.\+cpp.
+
+\mbox{\Hypertarget{serial_8cpp_a03d7ebd0ed88434e3117f66a7605f0c0}\label{serial_8cpp_a03d7ebd0ed88434e3117f66a7605f0c0}} 
+\index{serial.cpp@{serial.cpp}!PROC\_ONE\_PAIR@{PROC\_ONE\_PAIR}}
+\index{PROC\_ONE\_PAIR@{PROC\_ONE\_PAIR}!serial.cpp@{serial.cpp}}
+\doxysubsubsection{\texorpdfstring{PROC\_ONE\_PAIR}{PROC\_ONE\_PAIR}}
+{\footnotesize\ttfamily \#define PROC\+\_\+\+ONE\+\_\+\+PAIR}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \{                                          \(\backslash\)}
+\DoxyCodeLine{   long  binIndex;                                               \(\backslash\)}
+\DoxyCodeLine{                                                                 \(\backslash\)}
+\DoxyCodeLine{   binIndex  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long} \textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}() * numDiv);         \(\backslash\)}
+\DoxyCodeLine{   binIndex *= numDiv;                                           \(\backslash\)}
+\DoxyCodeLine{   binIndex += \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long} \textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}() * numDiv);         \(\backslash\)}
+\DoxyCodeLine{   bins[binIndex]++;                                             \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 80 of file serial.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{serial_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}\label{serial_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}} 
+\index{serial.cpp@{serial.cpp}!deinitTest@{deinitTest}}
+\index{deinitTest@{deinitTest}!serial.cpp@{serial.cpp}}
+\doxysubsubsection{\texorpdfstring{deinitTest()}{deinitTest()}}
+{\footnotesize\ttfamily void deinit\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file serial.\+cpp.
+
+\mbox{\Hypertarget{serial_8cpp_a2063d6cc56c92823c5f798b77030e853}\label{serial_8cpp_a2063d6cc56c92823c5f798b77030e853}} 
+\index{serial.cpp@{serial.cpp}!initTest@{initTest}}
+\index{initTest@{initTest}!serial.cpp@{serial.cpp}}
+\doxysubsubsection{\texorpdfstring{initTest()}{initTest()}}
+{\footnotesize\ttfamily void init\+Test (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file serial.\+cpp.
+
+\mbox{\Hypertarget{serial_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{serial_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{serial.cpp@{serial.cpp}!main@{main}}
+\index{main@{main}!serial.cpp@{serial.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file serial.\+cpp.
+

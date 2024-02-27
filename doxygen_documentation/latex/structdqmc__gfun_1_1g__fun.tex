@@ -1,0 +1,356 @@
+\hypertarget{structdqmc__gfun_1_1g__fun}{}\doxysection{dqmc\+\_\+gfun\+::g\+\_\+fun Type Reference}
+\label{structdqmc__gfun_1_1g__fun}\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a2a928dde64d09bb2a0505f93bc997fef}{n}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ab012c460645833bf740920d3426310b3}{l}}
+\item 
+real(wp) \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_aa3a36a0fe0aa109fb345d5b32bf81b41}{sgn}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a52697bdf2af6adf71b96f5f8388cf12f}{g}}
+\item 
+logical \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ab1df11d88492a7ae3b73bb1c6162b829}{owns\+\_\+g}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a0d3685c40538f1bf5cafbdc8e5e3d195}{v}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a28fda8a6c344b59a1283eec5b81d0284}{ilb}}
+\item 
+real(wp) \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a749ad9cc4919a82187cb057a8c6dc85e}{det}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a0d84a5182cff2875d616d8d6fdcc5343}{pvt}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a9cef4a8f3e13b26fb8c79d7eaa776ab7}{tmp}}
+\item 
+integer $\ast$8 \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ad1ea840ff8d699e01bd6015f07bcb884}{cpp\+\_\+data}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a4adfde85c54272f025cacf8e49b6cbc9}{nwrap}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a0cab2b5c74ba5725c6bd4287da64817a}{wps}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_aa43f5968c56669baaa48a9807e324bb7}{lastwr}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ae1bd5b5711f2c0a0e394733bf083efb6}{maxwrap}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a9be9d5326752abfc901b6c21549ea0cc}{fixwrap}}
+\item 
+real(wp) \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_acda37f21f2d391bf3dd042ccdff21ee1}{difflim}}
+\item 
+real(wp) \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a3ed4ff8f1ee932dc3efc9bec97fd782f}{errrate}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a5efd4b492edc909e6f73b4a0787af9f7}{redo}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a8f68394e4f9cee9388d5220fdb68fed6}{noredo}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ae14c6029bf6e66be95a5c79bbbf570f8}{nblk}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a980d894e95156f7c76f12bfd485f3129}{blksz}}
+\item 
+real(wp), dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a4f481bc209b339413f335a2d11f0387d}{u}}
+\item 
+real(wp), dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ac5f8ed70b0f880cc79b8eb23f6b52d01}{w}}
+\item 
+integer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ad69efc6f9b909e873230f9ebe3fccc2c}{nmodify}}
+\item 
+real(wp), dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_aba644f8866a40eb4aef1cf5468155576}{gs}}
+\item 
+real(wp), dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_a95ab2e006066f92dbfa84e9a5fde49bf}{ws}}
+\item 
+logical \mbox{\hyperlink{structdqmc__gfun_1_1g__fun_ac794112a6d007de05dd1341914f77804}{sxx}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 43 of file dqmc\+\_\+gfun.\+F90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a980d894e95156f7c76f12bfd485f3129}\label{structdqmc__gfun_1_1g__fun_a980d894e95156f7c76f12bfd485f3129}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!blksz@{blksz}}
+\index{blksz@{blksz}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{blksz}{blksz}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::blksz}
+
+
+
+Definition at line 69 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ad1ea840ff8d699e01bd6015f07bcb884}\label{structdqmc__gfun_1_1g__fun_ad1ea840ff8d699e01bd6015f07bcb884}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!cpp\_data@{cpp\_data}}
+\index{cpp\_data@{cpp\_data}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{cpp\_data}{cpp\_data}}
+{\footnotesize\ttfamily integer$\ast$8 dqmc\+\_\+gfun\+::g\+\_\+fun\+::cpp\+\_\+data}
+
+
+
+Definition at line 59 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a749ad9cc4919a82187cb057a8c6dc85e}\label{structdqmc__gfun_1_1g__fun_a749ad9cc4919a82187cb057a8c6dc85e}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!det@{det}}
+\index{det@{det}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{det}{det}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+gfun\+::g\+\_\+fun\+::det}
+
+
+
+Definition at line 51 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_acda37f21f2d391bf3dd042ccdff21ee1}\label{structdqmc__gfun_1_1g__fun_acda37f21f2d391bf3dd042ccdff21ee1}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!difflim@{difflim}}
+\index{difflim@{difflim}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{difflim}{difflim}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+gfun\+::g\+\_\+fun\+::difflim}
+
+
+
+Definition at line 64 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a3ed4ff8f1ee932dc3efc9bec97fd782f}\label{structdqmc__gfun_1_1g__fun_a3ed4ff8f1ee932dc3efc9bec97fd782f}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!errrate@{errrate}}
+\index{errrate@{errrate}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{errrate}{errrate}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+gfun\+::g\+\_\+fun\+::errrate}
+
+
+
+Definition at line 64 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a9be9d5326752abfc901b6c21549ea0cc}\label{structdqmc__gfun_1_1g__fun_a9be9d5326752abfc901b6c21549ea0cc}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!fixwrap@{fixwrap}}
+\index{fixwrap@{fixwrap}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{fixwrap}{fixwrap}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::fixwrap}
+
+
+
+Definition at line 63 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a52697bdf2af6adf71b96f5f8388cf12f}\label{structdqmc__gfun_1_1g__fun_a52697bdf2af6adf71b96f5f8388cf12f}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!g@{g}}
+\index{g@{g}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::g}
+
+
+
+Definition at line 47 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_aba644f8866a40eb4aef1cf5468155576}\label{structdqmc__gfun_1_1g__fun_aba644f8866a40eb4aef1cf5468155576}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!gs@{gs}}
+\index{gs@{gs}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{gs}{gs}}
+{\footnotesize\ttfamily real(wp), dimension(\+:,\+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::gs}
+
+
+
+Definition at line 74 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a28fda8a6c344b59a1283eec5b81d0284}\label{structdqmc__gfun_1_1g__fun_a28fda8a6c344b59a1283eec5b81d0284}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!ilb@{ilb}}
+\index{ilb@{ilb}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{ilb}{ilb}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::ilb}
+
+
+
+Definition at line 50 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ab012c460645833bf740920d3426310b3}\label{structdqmc__gfun_1_1g__fun_ab012c460645833bf740920d3426310b3}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!l@{l}}
+\index{l@{l}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{l}{l}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::l}
+
+
+
+Definition at line 45 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_aa43f5968c56669baaa48a9807e324bb7}\label{structdqmc__gfun_1_1g__fun_aa43f5968c56669baaa48a9807e324bb7}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!lastwr@{lastwr}}
+\index{lastwr@{lastwr}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{lastwr}{lastwr}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::lastwr}
+
+
+
+Definition at line 63 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ae1bd5b5711f2c0a0e394733bf083efb6}\label{structdqmc__gfun_1_1g__fun_ae1bd5b5711f2c0a0e394733bf083efb6}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!maxwrap@{maxwrap}}
+\index{maxwrap@{maxwrap}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{maxwrap}{maxwrap}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::maxwrap}
+
+
+
+Definition at line 63 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a2a928dde64d09bb2a0505f93bc997fef}\label{structdqmc__gfun_1_1g__fun_a2a928dde64d09bb2a0505f93bc997fef}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!n@{n}}
+\index{n@{n}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::n}
+
+
+
+Definition at line 44 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ae14c6029bf6e66be95a5c79bbbf570f8}\label{structdqmc__gfun_1_1g__fun_ae14c6029bf6e66be95a5c79bbbf570f8}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!nblk@{nblk}}
+\index{nblk@{nblk}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{nblk}{nblk}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::nblk}
+
+
+
+Definition at line 68 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ad69efc6f9b909e873230f9ebe3fccc2c}\label{structdqmc__gfun_1_1g__fun_ad69efc6f9b909e873230f9ebe3fccc2c}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!nmodify@{nmodify}}
+\index{nmodify@{nmodify}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{nmodify}{nmodify}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::nmodify}
+
+
+
+Definition at line 72 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a8f68394e4f9cee9388d5220fdb68fed6}\label{structdqmc__gfun_1_1g__fun_a8f68394e4f9cee9388d5220fdb68fed6}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!noredo@{noredo}}
+\index{noredo@{noredo}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{noredo}{noredo}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::noredo}
+
+
+
+Definition at line 65 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a4adfde85c54272f025cacf8e49b6cbc9}\label{structdqmc__gfun_1_1g__fun_a4adfde85c54272f025cacf8e49b6cbc9}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!nwrap@{nwrap}}
+\index{nwrap@{nwrap}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{nwrap}{nwrap}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::nwrap}
+
+
+
+Definition at line 63 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ab1df11d88492a7ae3b73bb1c6162b829}\label{structdqmc__gfun_1_1g__fun_ab1df11d88492a7ae3b73bb1c6162b829}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!owns\_g@{owns\_g}}
+\index{owns\_g@{owns\_g}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{owns\_g}{owns\_g}}
+{\footnotesize\ttfamily logical dqmc\+\_\+gfun\+::g\+\_\+fun\+::owns\+\_\+g}
+
+
+
+Definition at line 48 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a0d84a5182cff2875d616d8d6fdcc5343}\label{structdqmc__gfun_1_1g__fun_a0d84a5182cff2875d616d8d6fdcc5343}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!pvt@{pvt}}
+\index{pvt@{pvt}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{pvt}{pvt}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::pvt}
+
+
+
+Definition at line 54 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a5efd4b492edc909e6f73b4a0787af9f7}\label{structdqmc__gfun_1_1g__fun_a5efd4b492edc909e6f73b4a0787af9f7}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!redo@{redo}}
+\index{redo@{redo}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{redo}{redo}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::redo}
+
+
+
+Definition at line 65 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_aa3a36a0fe0aa109fb345d5b32bf81b41}\label{structdqmc__gfun_1_1g__fun_aa3a36a0fe0aa109fb345d5b32bf81b41}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!sgn@{sgn}}
+\index{sgn@{sgn}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{sgn}{sgn}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+gfun\+::g\+\_\+fun\+::sgn}
+
+
+
+Definition at line 46 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ac794112a6d007de05dd1341914f77804}\label{structdqmc__gfun_1_1g__fun_ac794112a6d007de05dd1341914f77804}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!sxx@{sxx}}
+\index{sxx@{sxx}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{sxx}{sxx}}
+{\footnotesize\ttfamily logical dqmc\+\_\+gfun\+::g\+\_\+fun\+::sxx}
+
+
+
+Definition at line 77 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a9cef4a8f3e13b26fb8c79d7eaa776ab7}\label{structdqmc__gfun_1_1g__fun_a9cef4a8f3e13b26fb8c79d7eaa776ab7}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!tmp@{tmp}}
+\index{tmp@{tmp}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{tmp}{tmp}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::tmp}
+
+
+
+Definition at line 55 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a4f481bc209b339413f335a2d11f0387d}\label{structdqmc__gfun_1_1g__fun_a4f481bc209b339413f335a2d11f0387d}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!u@{u}}
+\index{u@{u}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily real(wp), dimension(\+:,\+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::u}
+
+
+
+Definition at line 70 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a0d3685c40538f1bf5cafbdc8e5e3d195}\label{structdqmc__gfun_1_1g__fun_a0d3685c40538f1bf5cafbdc8e5e3d195}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!v@{v}}
+\index{v@{v}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::v}
+
+
+
+Definition at line 49 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_ac5f8ed70b0f880cc79b8eb23f6b52d01}\label{structdqmc__gfun_1_1g__fun_ac5f8ed70b0f880cc79b8eb23f6b52d01}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!w@{w}}
+\index{w@{w}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily real(wp), dimension(\+:,\+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::w}
+
+
+
+Definition at line 71 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a0cab2b5c74ba5725c6bd4287da64817a}\label{structdqmc__gfun_1_1g__fun_a0cab2b5c74ba5725c6bd4287da64817a}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!wps@{wps}}
+\index{wps@{wps}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{wps}{wps}}
+{\footnotesize\ttfamily integer dqmc\+\_\+gfun\+::g\+\_\+fun\+::wps}
+
+
+
+Definition at line 63 of file dqmc\+\_\+gfun.\+F90.
+
+\mbox{\Hypertarget{structdqmc__gfun_1_1g__fun_a95ab2e006066f92dbfa84e9a5fde49bf}\label{structdqmc__gfun_1_1g__fun_a95ab2e006066f92dbfa84e9a5fde49bf}} 
+\index{dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}!ws@{ws}}
+\index{ws@{ws}!dqmc\_gfun::g\_fun@{dqmc\_gfun::g\_fun}}
+\doxysubsubsection{\texorpdfstring{ws}{ws}}
+{\footnotesize\ttfamily real(wp), dimension(\+:,\+:), pointer dqmc\+\_\+gfun\+::g\+\_\+fun\+::ws}
+
+
+
+Definition at line 75 of file dqmc\+\_\+gfun.\+F90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SRC/\mbox{\hyperlink{dqmc__gfun_8F90}{dqmc\+\_\+gfun.\+F90}}\end{DoxyCompactItemize}

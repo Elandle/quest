@@ -1,0 +1,404 @@
+\hypertarget{structdqmc__phy0_1_1phy0}{}\doxysection{dqmc\+\_\+phy0\+::phy0 Type Reference}
+\label{structdqmc__phy0_1_1phy0}\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a06583c558ac60c435a3405e4d931e118}{nclass}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a1b7e3f6b034c05459eded03c23d961ab}{nbin}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ae807ee78dd4702b3013d5324c48b4df3}{nmeas}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ab1d6f8a1c4c0636f738dad28b9273027}{avg}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a7adbd2e4ba9e13decc0f7211b022f6dc}{err}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a268c6860829ac9d53ac6187986da10e1}{cnt}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ae3a7ac5727ebf8207a6fc633926f34d0}{idx}}
+\item 
+integer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_acee38ee8c84f7afab66aa94f660a79c7}{n}}
+\item 
+real(wp) \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a52210d339cb97c456092b8e960c243f6}{beta}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a01afccc99eeeec2db198a97352e103ed}{meas}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a5310aab5e1be9d088aa4b7f78edd1d1b}{sign}}
+\item 
+integer, dimension(0\+:\mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{narrays}}+1) \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a308ee994a2eec140827f6202c80923f2}{iarr}}
+\item 
+integer, dimension(1\+:\mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{narrays}}+1) \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a32c2705fe521d6b6395369ddd1fa38d0}{iarrft}}
+\item 
+integer, dimension(1\+:\mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{narrays}}+1) \mbox{\hyperlink{structdqmc__phy0_1_1phy0_abfe4f99eac0c5e6e9182954d407b8fae}{iarrev}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a1664bb2b334fb388e112627bc3ed6dd8}{allprop}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a0631fcdc8b34cae73c62b4436a9874bc}{allpropft}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ac9639fc33ad90c31dd585d7ca8e0da4d}{allpropeigval}}
+\item 
+complex $\ast$16, dimension(\+:, \+:, \+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a9e90b090a114a370399a8e92f73de7d6}{allpropeigvec}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ab1411e5912342f5feac4b20cf6559dfd}{g\+\_\+fun}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_adfbbbf1160d6b63bbdd133df15bb920c}{gf\+\_\+up}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ae6c8ada53911341f36e8c472204df1d1}{gf\+\_\+dn}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a07c5e249142183c6e1db8b2ccf17023a}{spinxx}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a5821af673862ca5ef6477fccb7fc8f38}{spinzz}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a37d2b5af9de858b051e18100f5cac348}{avespin}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ac2edb60a7817e5c9c8bae453090c4164}{den0}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a8c4cd35b2a11bffdbaf211663b781e61}{den1}}
+\item 
+real(wp), dimension(\+:, \+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a79578dc510c2856eba0d42bb50298cce}{pair}}
+\item 
+real(wp), dimension(\+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_ad15f1aa0c768562ee42f6ff324c69244}{up}}
+\item 
+real(wp), dimension(\+:), pointer \mbox{\hyperlink{structdqmc__phy0_1_1phy0_aab9f2b4f89058746dd5b3d81dde4fc7e}{dn}}
+\item 
+logical \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a6483fcc0f2f5f2a16a71271bcff1f1db}{compsaf}}
+\item 
+logical \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a1199cd18a9dd1cfb262b73e4978819d8}{init}}
+\item 
+logical \mbox{\hyperlink{structdqmc__phy0_1_1phy0_a1cb872dd6d711a2104c0ecee7728dab7}{initft}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 146 of file dqmc\+\_\+phy0.\+F90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a1664bb2b334fb388e112627bc3ed6dd8}\label{structdqmc__phy0_1_1phy0_a1664bb2b334fb388e112627bc3ed6dd8}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!allprop@{allprop}}
+\index{allprop@{allprop}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{allprop}{allprop}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::allprop}
+
+
+
+Definition at line 170 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ac9639fc33ad90c31dd585d7ca8e0da4d}\label{structdqmc__phy0_1_1phy0_ac9639fc33ad90c31dd585d7ca8e0da4d}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!allpropeigval@{allpropeigval}}
+\index{allpropeigval@{allpropeigval}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{allpropeigval}{allpropeigval}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::allpropeigval}
+
+
+
+Definition at line 172 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a9e90b090a114a370399a8e92f73de7d6}\label{structdqmc__phy0_1_1phy0_a9e90b090a114a370399a8e92f73de7d6}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!allpropeigvec@{allpropeigvec}}
+\index{allpropeigvec@{allpropeigvec}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{allpropeigvec}{allpropeigvec}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:, \+:, \+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::allpropeigvec}
+
+
+
+Definition at line 173 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a0631fcdc8b34cae73c62b4436a9874bc}\label{structdqmc__phy0_1_1phy0_a0631fcdc8b34cae73c62b4436a9874bc}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!allpropft@{allpropft}}
+\index{allpropft@{allpropft}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{allpropft}{allpropft}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::allpropft}
+
+
+
+Definition at line 171 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a37d2b5af9de858b051e18100f5cac348}\label{structdqmc__phy0_1_1phy0_a37d2b5af9de858b051e18100f5cac348}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!avespin@{avespin}}
+\index{avespin@{avespin}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{avespin}{avespin}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::avespin}
+
+
+
+Definition at line 181 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ab1d6f8a1c4c0636f738dad28b9273027}\label{structdqmc__phy0_1_1phy0_ab1d6f8a1c4c0636f738dad28b9273027}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!avg@{avg}}
+\index{avg@{avg}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{avg}{avg}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::avg}
+
+
+
+Definition at line 152 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a52210d339cb97c456092b8e960c243f6}\label{structdqmc__phy0_1_1phy0_a52210d339cb97c456092b8e960c243f6}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!beta@{beta}}
+\index{beta@{beta}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+phy0\+::phy0\+::beta}
+
+
+
+Definition at line 159 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a268c6860829ac9d53ac6187986da10e1}\label{structdqmc__phy0_1_1phy0_a268c6860829ac9d53ac6187986da10e1}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!cnt@{cnt}}
+\index{cnt@{cnt}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{cnt}{cnt}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::cnt}
+
+
+
+Definition at line 154 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a6483fcc0f2f5f2a16a71271bcff1f1db}\label{structdqmc__phy0_1_1phy0_a6483fcc0f2f5f2a16a71271bcff1f1db}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!compsaf@{compsaf}}
+\index{compsaf@{compsaf}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{compsaf}{compsaf}}
+{\footnotesize\ttfamily logical dqmc\+\_\+phy0\+::phy0\+::compsaf}
+
+
+
+Definition at line 189 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ac2edb60a7817e5c9c8bae453090c4164}\label{structdqmc__phy0_1_1phy0_ac2edb60a7817e5c9c8bae453090c4164}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!den0@{den0}}
+\index{den0@{den0}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{den0}{den0}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::den0}
+
+
+
+Definition at line 182 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a8c4cd35b2a11bffdbaf211663b781e61}\label{structdqmc__phy0_1_1phy0_a8c4cd35b2a11bffdbaf211663b781e61}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!den1@{den1}}
+\index{den1@{den1}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{den1}{den1}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::den1}
+
+
+
+Definition at line 183 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_aab9f2b4f89058746dd5b3d81dde4fc7e}\label{structdqmc__phy0_1_1phy0_aab9f2b4f89058746dd5b3d81dde4fc7e}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!dn@{dn}}
+\index{dn@{dn}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{dn}{dn}}
+{\footnotesize\ttfamily real(wp), dimension(\+:), pointer dqmc\+\_\+phy0\+::phy0\+::dn}
+
+
+
+Definition at line 188 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a7adbd2e4ba9e13decc0f7211b022f6dc}\label{structdqmc__phy0_1_1phy0_a7adbd2e4ba9e13decc0f7211b022f6dc}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!err@{err}}
+\index{err@{err}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{err}{err}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::err}
+
+
+
+Definition at line 152 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ab1411e5912342f5feac4b20cf6559dfd}\label{structdqmc__phy0_1_1phy0_ab1411e5912342f5feac4b20cf6559dfd}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!g\_fun@{g\_fun}}
+\index{g\_fun@{g\_fun}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{g\_fun}{g\_fun}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::g\+\_\+fun}
+
+
+
+Definition at line 176 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ae6c8ada53911341f36e8c472204df1d1}\label{structdqmc__phy0_1_1phy0_ae6c8ada53911341f36e8c472204df1d1}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!gf\_dn@{gf\_dn}}
+\index{gf\_dn@{gf\_dn}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{gf\_dn}{gf\_dn}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::gf\+\_\+dn}
+
+
+
+Definition at line 178 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_adfbbbf1160d6b63bbdd133df15bb920c}\label{structdqmc__phy0_1_1phy0_adfbbbf1160d6b63bbdd133df15bb920c}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!gf\_up@{gf\_up}}
+\index{gf\_up@{gf\_up}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{gf\_up}{gf\_up}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::gf\+\_\+up}
+
+
+
+Definition at line 177 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a308ee994a2eec140827f6202c80923f2}\label{structdqmc__phy0_1_1phy0_a308ee994a2eec140827f6202c80923f2}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!iarr@{iarr}}
+\index{iarr@{iarr}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{iarr}{iarr}}
+{\footnotesize\ttfamily integer, dimension(0\+: \mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{narrays}} + 1) dqmc\+\_\+phy0\+::phy0\+::iarr}
+
+
+
+Definition at line 166 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_abfe4f99eac0c5e6e9182954d407b8fae}\label{structdqmc__phy0_1_1phy0_abfe4f99eac0c5e6e9182954d407b8fae}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!iarrev@{iarrev}}
+\index{iarrev@{iarrev}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{iarrev}{iarrev}}
+{\footnotesize\ttfamily integer, dimension(1\+: \mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{narrays}} + 1) dqmc\+\_\+phy0\+::phy0\+::iarrev}
+
+
+
+Definition at line 168 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a32c2705fe521d6b6395369ddd1fa38d0}\label{structdqmc__phy0_1_1phy0_a32c2705fe521d6b6395369ddd1fa38d0}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!iarrft@{iarrft}}
+\index{iarrft@{iarrft}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{iarrft}{iarrft}}
+{\footnotesize\ttfamily integer, dimension(1\+: \mbox{\hyperlink{namespacedqmc__phy0_a45f85cc238ec73b90ffeb4506270d3b4}{narrays}} + 1) dqmc\+\_\+phy0\+::phy0\+::iarrft}
+
+
+
+Definition at line 167 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ae3a7ac5727ebf8207a6fc633926f34d0}\label{structdqmc__phy0_1_1phy0_ae3a7ac5727ebf8207a6fc633926f34d0}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!idx@{idx}}
+\index{idx@{idx}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{idx}{idx}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::idx}
+
+
+
+Definition at line 156 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a1199cd18a9dd1cfb262b73e4978819d8}\label{structdqmc__phy0_1_1phy0_a1199cd18a9dd1cfb262b73e4978819d8}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!init@{init}}
+\index{init@{init}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{init}{init}}
+{\footnotesize\ttfamily logical dqmc\+\_\+phy0\+::phy0\+::init}
+
+
+
+Definition at line 190 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a1cb872dd6d711a2104c0ecee7728dab7}\label{structdqmc__phy0_1_1phy0_a1cb872dd6d711a2104c0ecee7728dab7}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!initft@{initft}}
+\index{initft@{initft}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{initft}{initft}}
+{\footnotesize\ttfamily logical dqmc\+\_\+phy0\+::phy0\+::initft}
+
+
+
+Definition at line 191 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a01afccc99eeeec2db198a97352e103ed}\label{structdqmc__phy0_1_1phy0_a01afccc99eeeec2db198a97352e103ed}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!meas@{meas}}
+\index{meas@{meas}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{meas}{meas}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::meas}
+
+
+
+Definition at line 162 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_acee38ee8c84f7afab66aa94f660a79c7}\label{structdqmc__phy0_1_1phy0_acee38ee8c84f7afab66aa94f660a79c7}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!n@{n}}
+\index{n@{n}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::n}
+
+
+
+Definition at line 158 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a1b7e3f6b034c05459eded03c23d961ab}\label{structdqmc__phy0_1_1phy0_a1b7e3f6b034c05459eded03c23d961ab}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!nbin@{nbin}}
+\index{nbin@{nbin}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{nbin}{nbin}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::nbin}
+
+
+
+Definition at line 150 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a06583c558ac60c435a3405e4d931e118}\label{structdqmc__phy0_1_1phy0_a06583c558ac60c435a3405e4d931e118}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!nclass@{nclass}}
+\index{nclass@{nclass}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{nclass}{nclass}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::nclass}
+
+
+
+Definition at line 148 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ae807ee78dd4702b3013d5324c48b4df3}\label{structdqmc__phy0_1_1phy0_ae807ee78dd4702b3013d5324c48b4df3}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!nmeas@{nmeas}}
+\index{nmeas@{nmeas}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{nmeas}{nmeas}}
+{\footnotesize\ttfamily integer dqmc\+\_\+phy0\+::phy0\+::nmeas}
+
+
+
+Definition at line 151 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a79578dc510c2856eba0d42bb50298cce}\label{structdqmc__phy0_1_1phy0_a79578dc510c2856eba0d42bb50298cce}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!pair@{pair}}
+\index{pair@{pair}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{pair}{pair}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::pair}
+
+
+
+Definition at line 184 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a5310aab5e1be9d088aa4b7f78edd1d1b}\label{structdqmc__phy0_1_1phy0_a5310aab5e1be9d088aa4b7f78edd1d1b}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!sign@{sign}}
+\index{sign@{sign}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{sign}{sign}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::sign}
+
+
+
+Definition at line 163 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a07c5e249142183c6e1db8b2ccf17023a}\label{structdqmc__phy0_1_1phy0_a07c5e249142183c6e1db8b2ccf17023a}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!spinxx@{spinxx}}
+\index{spinxx@{spinxx}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{spinxx}{spinxx}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::spinxx}
+
+
+
+Definition at line 179 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_a5821af673862ca5ef6477fccb7fc8f38}\label{structdqmc__phy0_1_1phy0_a5821af673862ca5ef6477fccb7fc8f38}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!spinzz@{spinzz}}
+\index{spinzz@{spinzz}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{spinzz}{spinzz}}
+{\footnotesize\ttfamily real(wp), dimension(\+:, \+:), pointer dqmc\+\_\+phy0\+::phy0\+::spinzz}
+
+
+
+Definition at line 180 of file dqmc\+\_\+phy0.\+F90.
+
+\mbox{\Hypertarget{structdqmc__phy0_1_1phy0_ad15f1aa0c768562ee42f6ff324c69244}\label{structdqmc__phy0_1_1phy0_ad15f1aa0c768562ee42f6ff324c69244}} 
+\index{dqmc\_phy0::phy0@{dqmc\_phy0::phy0}!up@{up}}
+\index{up@{up}!dqmc\_phy0::phy0@{dqmc\_phy0::phy0}}
+\doxysubsubsection{\texorpdfstring{up}{up}}
+{\footnotesize\ttfamily real(wp), dimension(\+:), pointer dqmc\+\_\+phy0\+::phy0\+::up}
+
+
+
+Definition at line 187 of file dqmc\+\_\+phy0.\+F90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SRC/\mbox{\hyperlink{dqmc__phy0_8F90}{dqmc\+\_\+phy0.\+F90}}\end{DoxyCompactItemize}

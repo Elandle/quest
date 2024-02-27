@@ -1,0 +1,215 @@
+\hypertarget{mpitests_2tests_8h}{}\doxysection{SRC/sprng5/\+TESTS/mpitests/tests.h File Reference}
+\label{mpitests_2tests_8h}\index{SRC/sprng5/TESTS/mpitests/tests.h@{SRC/sprng5/TESTS/mpitests/tests.h}}
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+Include dependency graph for tests.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{mpitests_2tests_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mpitests_2tests_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mpitests_2tests_8h_a7463db24d5c08c85d47055adeb27e4ac}{N\+\_\+\+STREAM\+\_\+\+PARAM}}~7
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_a70bdec5145a425e43497b120c060b2d5}{chipercent}} (double chi\+Sq, long fr)
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_aa00ed7eebc0c25371d34f1be245af868}{chisquare}} (long $\ast$\mbox{\hyperlink{poker_8cpp_a4da3f009823066249974e91fd3cfc286}{actual}}, double $\ast$\mbox{\hyperlink{poker_8cpp_ab67a99ca3cdfa29c165a262d945e10df}{probability}}, long n, long k, int $\ast$nb)
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_a63a01fc5244a0bcca51bbe89bd147d71}{chiF}} (double chi\+Sq)
+\item 
+void \mbox{\hyperlink{mpitests_2tests_8h_a36f2f09f69e482f392f580e04391bf75}{set\+\_\+d\+\_\+of\+\_\+f}} (long df)
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_aaf3e6db3d875312592884d87ccb2e0f0}{KS}} (double $\ast$V, long n, double($\ast$F)(double))
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_a68af3ca9dfb4f65fa4fd116fe12987ce}{KSpercent}} (double value, long n)
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_aef427d7277e28bcaae6601972c45325d}{KSF}} (double value)
+\item 
+void \mbox{\hyperlink{mpitests_2tests_8h_ab49bd46cdd902042e8b426a99eb4d2d0}{set\+\_\+\+KS\+\_\+n}} (long n)
+\item 
+void \mbox{\hyperlink{mpitests_2tests_8h_a51ce096d49f43f031820a3987e711a55}{next\+\_\+stream}} (void)
+\item 
+double \mbox{\hyperlink{mpitests_2tests_8h_a4b15bc6471422b9f579d561053eb7186}{get\+\_\+rn}} (void)
+\item 
+long \mbox{\hyperlink{mpitests_2tests_8h_a7de3d5c17b30809f99d998cfce9b7a0c}{init\+\_\+tests}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{mpitests_2tests_8h_a1e32b752aa5d8e1c3291aff5d6127f7e}{NTESTS}}
+\item 
+int \mbox{\hyperlink{mpitests_2tests_8h_a2010535983e2ced45b88c57ffedc5756}{proc\+\_\+rank}}
+\item 
+int \mbox{\hyperlink{mpitests_2tests_8h_af9f02ce6cf205dd08c9ed464a1ea2c12}{init\+\_\+nprocs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mpitests_2tests_8h_a7463db24d5c08c85d47055adeb27e4ac}\label{mpitests_2tests_8h_a7463db24d5c08c85d47055adeb27e4ac}} 
+\index{tests.h@{tests.h}!N\_STREAM\_PARAM@{N\_STREAM\_PARAM}}
+\index{N\_STREAM\_PARAM@{N\_STREAM\_PARAM}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{N\_STREAM\_PARAM}{N\_STREAM\_PARAM}}
+{\footnotesize\ttfamily \#define N\+\_\+\+STREAM\+\_\+\+PARAM~7}
+
+
+
+Definition at line 7 of file tests.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpitests_2tests_8h_a63a01fc5244a0bcca51bbe89bd147d71}\label{mpitests_2tests_8h_a63a01fc5244a0bcca51bbe89bd147d71}} 
+\index{tests.h@{tests.h}!chiF@{chiF}}
+\index{chiF@{chiF}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{chiF()}{chiF()}}
+{\footnotesize\ttfamily double chiF (\begin{DoxyParamCaption}\item[{double}]{chi\+Sq }\end{DoxyParamCaption})}
+
+
+
+Definition at line 280 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a70bdec5145a425e43497b120c060b2d5}\label{mpitests_2tests_8h_a70bdec5145a425e43497b120c060b2d5}} 
+\index{tests.h@{tests.h}!chipercent@{chipercent}}
+\index{chipercent@{chipercent}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{chipercent()}{chipercent()}}
+{\footnotesize\ttfamily double chipercent (\begin{DoxyParamCaption}\item[{double}]{chi\+Sq,  }\item[{long}]{fr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 285 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_aa00ed7eebc0c25371d34f1be245af868}\label{mpitests_2tests_8h_aa00ed7eebc0c25371d34f1be245af868}} 
+\index{tests.h@{tests.h}!chisquare@{chisquare}}
+\index{chisquare@{chisquare}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{chisquare()}{chisquare()}}
+{\footnotesize\ttfamily double chisquare (\begin{DoxyParamCaption}\item[{long $\ast$}]{actual,  }\item[{double $\ast$}]{probability,  }\item[{long}]{n,  }\item[{long}]{k,  }\item[{int $\ast$}]{nb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 238 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a4b15bc6471422b9f579d561053eb7186}\label{mpitests_2tests_8h_a4b15bc6471422b9f579d561053eb7186}} 
+\index{tests.h@{tests.h}!get\_rn@{get\_rn}}
+\index{get\_rn@{get\_rn}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_rn()}{get\_rn()}}
+{\footnotesize\ttfamily double get\+\_\+rn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 192 of file init\+\_\+tests.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a7de3d5c17b30809f99d998cfce9b7a0c}\label{mpitests_2tests_8h_a7de3d5c17b30809f99d998cfce9b7a0c}} 
+\index{tests.h@{tests.h}!init\_tests@{init\_tests}}
+\index{init\_tests@{init\_tests}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{init\_tests()}{init\_tests()}}
+{\footnotesize\ttfamily long init\+\_\+tests (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file init\+\_\+tests.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_aaf3e6db3d875312592884d87ccb2e0f0}\label{mpitests_2tests_8h_aaf3e6db3d875312592884d87ccb2e0f0}} 
+\index{tests.h@{tests.h}!KS@{KS}}
+\index{KS@{KS}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{KS()}{KS()}}
+{\footnotesize\ttfamily double KS (\begin{DoxyParamCaption}\item[{double $\ast$}]{V,  }\item[{long}]{n,  }\item[{double($\ast$)(double)}]{F }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_aef427d7277e28bcaae6601972c45325d}\label{mpitests_2tests_8h_aef427d7277e28bcaae6601972c45325d}} 
+\index{tests.h@{tests.h}!KSF@{KSF}}
+\index{KSF@{KSF}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{KSF()}{KSF()}}
+{\footnotesize\ttfamily double KSF (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a68af3ca9dfb4f65fa4fd116fe12987ce}\label{mpitests_2tests_8h_a68af3ca9dfb4f65fa4fd116fe12987ce}} 
+\index{tests.h@{tests.h}!KSpercent@{KSpercent}}
+\index{KSpercent@{KSpercent}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{KSpercent()}{KSpercent()}}
+{\footnotesize\ttfamily double KSpercent (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{long}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 114 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a51ce096d49f43f031820a3987e711a55}\label{mpitests_2tests_8h_a51ce096d49f43f031820a3987e711a55}} 
+\index{tests.h@{tests.h}!next\_stream@{next\_stream}}
+\index{next\_stream@{next\_stream}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{next\_stream()}{next\_stream()}}
+{\footnotesize\ttfamily void next\+\_\+stream (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 154 of file init\+\_\+tests.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a36f2f09f69e482f392f580e04391bf75}\label{mpitests_2tests_8h_a36f2f09f69e482f392f580e04391bf75}} 
+\index{tests.h@{tests.h}!set\_d\_of\_f@{set\_d\_of\_f}}
+\index{set\_d\_of\_f@{set\_d\_of\_f}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{set\_d\_of\_f()}{set\_d\_of\_f()}}
+{\footnotesize\ttfamily void set\+\_\+d\+\_\+of\+\_\+f (\begin{DoxyParamCaption}\item[{long}]{df }\end{DoxyParamCaption})}
+
+
+
+Definition at line 275 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_ab49bd46cdd902042e8b426a99eb4d2d0}\label{mpitests_2tests_8h_ab49bd46cdd902042e8b426a99eb4d2d0}} 
+\index{tests.h@{tests.h}!set\_KS\_n@{set\_KS\_n}}
+\index{set\_KS\_n@{set\_KS\_n}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{set\_KS\_n()}{set\_KS\_n()}}
+{\footnotesize\ttfamily void set\+\_\+\+KS\+\_\+n (\begin{DoxyParamCaption}\item[{long}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file chisquare.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mpitests_2tests_8h_af9f02ce6cf205dd08c9ed464a1ea2c12}\label{mpitests_2tests_8h_af9f02ce6cf205dd08c9ed464a1ea2c12}} 
+\index{tests.h@{tests.h}!init\_nprocs@{init\_nprocs}}
+\index{init\_nprocs@{init\_nprocs}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{init\_nprocs}{init\_nprocs}}
+{\footnotesize\ttfamily int init\+\_\+nprocs\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 13 of file communicate.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a1e32b752aa5d8e1c3291aff5d6127f7e}\label{mpitests_2tests_8h_a1e32b752aa5d8e1c3291aff5d6127f7e}} 
+\index{tests.h@{tests.h}!NTESTS@{NTESTS}}
+\index{NTESTS@{NTESTS}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{NTESTS}{NTESTS}}
+{\footnotesize\ttfamily long NTESTS\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 16 of file init\+\_\+tests.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2tests_8h_a2010535983e2ced45b88c57ffedc5756}\label{mpitests_2tests_8h_a2010535983e2ced45b88c57ffedc5756}} 
+\index{tests.h@{tests.h}!proc\_rank@{proc\_rank}}
+\index{proc\_rank@{proc\_rank}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{proc\_rank}{proc\_rank}}
+{\footnotesize\ttfamily int proc\+\_\+rank\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 17 of file init\+\_\+tests.\+cpp.
+

@@ -1,0 +1,247 @@
+\hypertarget{namespacedqmc__gtau}{}\doxysection{dqmc\+\_\+gtau Module Reference}
+\label{namespacedqmc__gtau}\index{dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a85fdcb8d4b15690395c8e4e687fe684b}{dqmc\+\_\+gtau\+\_\+init}} (Hub, tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_aaed461c36a4f6b7de45d8e2de8acfbf0}{dqmc\+\_\+gtau\+\_\+free}} (tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a1c57892aed7be0e2375f598dab4ab11a}{dqmc\+\_\+gtau\+\_\+loada}} (tau, spin, slice, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}})
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_aa11d8aef1e76de9c7b9b69873c00ac49}{dqmc\+\_\+gtau\+\_\+copyup}} (tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a58d135791a673d1ab451ef55c6919a27}{dqmc\+\_\+gtau\+\_\+dumpa}} (tau, spin, it, i0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a60d944b5293b4f69da4d8f71c3738ad2}{dqmc\+\_\+makegtau}} (tau, it, i0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_aa79a4c438e9fd161bbcb9f56f2748d92}{dqmc\+\_\+getgtau}} (it, i0, spin, gt0, g0t, g00, gtt, tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a4af0c3e33609cb6259680772023c0586}{dqmc\+\_\+change\+\_\+gtau\+\_\+time}} (tau, idir, spin)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a0e5229bc220ea10a9ecae06a55d07f01}{dqmc\+\_\+gtau\+\_\+setalias}} (spin, tau, A, B, V, gt0, g0t, g00, gtt, it, i0, itau, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}})
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a86ebad0c412d0a35bd86853544370e56}{dqmc\+\_\+gtau\+\_\+getg0}} (n, tau, spin, slice, g0tau)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a9bb0a5859472ab0424dd1a4f60f73242}{tau\+\_\+t0}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_af2c8388f792265dcbc6c817d51ec2cd9}{tau\+\_\+both}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a6989887e7345e3d95abd9f3cca367611}{tau\+\_\+0t}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_aba62bea1257f727669809e4984784d67}{tau\+\_\+up}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a51fda49af990a12ffd7dd2a1da394d28}{tau\+\_\+dn}} = -\/1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a00df72c952f52efb56295a65d9401230}{tplus}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a8416f343c83ae868b8c955760e3385f2}{tminus}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a6b76c36682705d426e728cc6453c61ee}{zplus}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a996eb5e0078d7f6fc915a9a37f80a288}{zminus}} = 4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__gtau_a4af0c3e33609cb6259680772023c0586}\label{namespacedqmc__gtau_a4af0c3e33609cb6259680772023c0586}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_change\_gtau\_time@{dqmc\_change\_gtau\_time}}
+\index{dqmc\_change\_gtau\_time@{dqmc\_change\_gtau\_time}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_change\_gtau\_time()}{dqmc\_change\_gtau\_time()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+change\+\_\+gtau\+\_\+time (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau,  }\item[{integer, intent(in)}]{idir,  }\item[{integer, intent(in)}]{spin }\end{DoxyParamCaption})}
+
+
+
+Definition at line 904 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_aa79a4c438e9fd161bbcb9f56f2748d92}\label{namespacedqmc__gtau_aa79a4c438e9fd161bbcb9f56f2748d92}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_getgtau@{dqmc\_getgtau}}
+\index{dqmc\_getgtau@{dqmc\_getgtau}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_getgtau()}{dqmc\_getgtau()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+getgtau (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{it,  }\item[{integer, intent(in)}]{i0,  }\item[{integer, intent(in)}]{spin,  }\item[{real(wp), dimension(\+:,\+:), intent(inout)}]{gt0,  }\item[{real(wp), dimension(\+:,\+:), intent(inout)}]{g0t,  }\item[{real(wp), dimension(\+:,\+:), intent(inout)}]{g00,  }\item[{real(wp), dimension(\+:,\+:), intent(inout)}]{gtt,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout), target}]{tau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 491 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_aa11d8aef1e76de9c7b9b69873c00ac49}\label{namespacedqmc__gtau_aa11d8aef1e76de9c7b9b69873c00ac49}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_copyup@{dqmc\_gtau\_copyup}}
+\index{dqmc\_gtau\_copyup@{dqmc\_gtau\_copyup}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_copyup()}{dqmc\_gtau\_copyup()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+copyup (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 353 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a58d135791a673d1ab451ef55c6919a27}\label{namespacedqmc__gtau_a58d135791a673d1ab451ef55c6919a27}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_dumpa@{dqmc\_gtau\_dumpa}}
+\index{dqmc\_gtau\_dumpa@{dqmc\_gtau\_dumpa}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_dumpa()}{dqmc\_gtau\_dumpa()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+dumpa (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau,  }\item[{integer, intent(in)}]{spin,  }\item[{integer, intent(in)}]{it,  }\item[{integer, intent(in)}]{i0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 381 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_aaed461c36a4f6b7de45d8e2de8acfbf0}\label{namespacedqmc__gtau_aaed461c36a4f6b7de45d8e2de8acfbf0}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_free@{dqmc\_gtau\_free}}
+\index{dqmc\_gtau\_free@{dqmc\_gtau\_free}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_free()}{dqmc\_gtau\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 212 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a86ebad0c412d0a35bd86853544370e56}\label{namespacedqmc__gtau_a86ebad0c412d0a35bd86853544370e56}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_getg0@{dqmc\_gtau\_getg0}}
+\index{dqmc\_gtau\_getg0@{dqmc\_gtau\_getg0}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_getg0()}{dqmc\_gtau\_getg0()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+getg0 (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau,  }\item[{integer, intent(in)}]{spin,  }\item[{integer, intent(in)}]{slice,  }\item[{real(wp), dimension(n, n), intent(out)}]{g0tau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1168 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a85fdcb8d4b15690395c8e4e687fe684b}\label{namespacedqmc__gtau_a85fdcb8d4b15690395c8e4e687fe684b}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_init@{dqmc\_gtau\_init}}
+\index{dqmc\_gtau\_init@{dqmc\_gtau\_init}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_init()}{dqmc\_gtau\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+init (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(in), target}]{Hub,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a1c57892aed7be0e2375f598dab4ab11a}\label{namespacedqmc__gtau_a1c57892aed7be0e2375f598dab4ab11a}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_loada@{dqmc\_gtau\_loada}}
+\index{dqmc\_gtau\_loada@{dqmc\_gtau\_loada}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_loada()}{dqmc\_gtau\_loada()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+loada (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout), target}]{tau,  }\item[{integer, intent(in)}]{spin,  }\item[{integer, intent(in)}]{slice,  }\item[{real(wp), intent(out)}]{sgn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 254 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a0e5229bc220ea10a9ecae06a55d07f01}\label{namespacedqmc__gtau_a0e5229bc220ea10a9ecae06a55d07f01}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_gtau\_setalias@{dqmc\_gtau\_setalias}}
+\index{dqmc\_gtau\_setalias@{dqmc\_gtau\_setalias}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_gtau\_setalias()}{dqmc\_gtau\_setalias()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+setalias (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{spin,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(in), target}]{tau,  }\item[{real(wp), dimension(\+:,\+:), optional, pointer}]{A,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), optional, pointer}]{B,  }\item[{real(wp), dimension(\+:,\+:), optional, pointer}]{V,  }\item[{real(wp), dimension(\+:,\+:), optional, pointer}]{gt0,  }\item[{real(wp), dimension(\+:,\+:), optional, pointer}]{g0t,  }\item[{real(wp), dimension(\+:,\+:), optional, pointer}]{g00,  }\item[{real(wp), dimension(\+:,\+:), optional, pointer}]{gtt,  }\item[{integer, optional, pointer}]{it,  }\item[{integer, optional, pointer}]{i0,  }\item[{integer, dimension(\+:), optional, pointer}]{itau,  }\item[{real(wp), optional, pointer}]{sgn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1120 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a60d944b5293b4f69da4d8f71c3738ad2}\label{namespacedqmc__gtau_a60d944b5293b4f69da4d8f71c3738ad2}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!dqmc\_makegtau@{dqmc\_makegtau}}
+\index{dqmc\_makegtau@{dqmc\_makegtau}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{dqmc\_makegtau()}{dqmc\_makegtau()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+gtau\+::dqmc\+\_\+makegtau (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau,  }\item[{integer, intent(in)}]{it,  }\item[{integer, intent(in)}]{i0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 424 of file dqmc\+\_\+gtau.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__gtau_a6989887e7345e3d95abd9f3cca367611}\label{namespacedqmc__gtau_a6989887e7345e3d95abd9f3cca367611}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tau\_0t@{tau\_0t}}
+\index{tau\_0t@{tau\_0t}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tau\_0t}{tau\_0t}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tau\+\_\+0t = 2}
+
+
+
+Definition at line 108 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_af2c8388f792265dcbc6c817d51ec2cd9}\label{namespacedqmc__gtau_af2c8388f792265dcbc6c817d51ec2cd9}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tau\_both@{tau\_both}}
+\index{tau\_both@{tau\_both}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tau\_both}{tau\_both}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tau\+\_\+both = 1}
+
+
+
+Definition at line 107 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a51fda49af990a12ffd7dd2a1da394d28}\label{namespacedqmc__gtau_a51fda49af990a12ffd7dd2a1da394d28}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tau\_dn@{tau\_dn}}
+\index{tau\_dn@{tau\_dn}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tau\_dn}{tau\_dn}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tau\+\_\+dn = -\/1}
+
+
+
+Definition at line 111 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a9bb0a5859472ab0424dd1a4f60f73242}\label{namespacedqmc__gtau_a9bb0a5859472ab0424dd1a4f60f73242}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tau\_t0@{tau\_t0}}
+\index{tau\_t0@{tau\_t0}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tau\_t0}{tau\_t0}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tau\+\_\+t0 = 0}
+
+
+
+Definition at line 106 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_aba62bea1257f727669809e4984784d67}\label{namespacedqmc__gtau_aba62bea1257f727669809e4984784d67}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tau\_up@{tau\_up}}
+\index{tau\_up@{tau\_up}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tau\_up}{tau\_up}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tau\+\_\+up = 1}
+
+
+
+Definition at line 110 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a8416f343c83ae868b8c955760e3385f2}\label{namespacedqmc__gtau_a8416f343c83ae868b8c955760e3385f2}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tminus@{tminus}}
+\index{tminus@{tminus}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tminus}{tminus}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tminus = 2}
+
+
+
+Definition at line 114 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a00df72c952f52efb56295a65d9401230}\label{namespacedqmc__gtau_a00df72c952f52efb56295a65d9401230}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!tplus@{tplus}}
+\index{tplus@{tplus}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{tplus}{tplus}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::tplus = 1}
+
+
+
+Definition at line 113 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a996eb5e0078d7f6fc915a9a37f80a288}\label{namespacedqmc__gtau_a996eb5e0078d7f6fc915a9a37f80a288}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!zminus@{zminus}}
+\index{zminus@{zminus}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{zminus}{zminus}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::zminus = 4}
+
+
+
+Definition at line 116 of file dqmc\+\_\+gtau.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__gtau_a6b76c36682705d426e728cc6453c61ee}\label{namespacedqmc__gtau_a6b76c36682705d426e728cc6453c61ee}} 
+\index{dqmc\_gtau@{dqmc\_gtau}!zplus@{zplus}}
+\index{zplus@{zplus}!dqmc\_gtau@{dqmc\_gtau}}
+\doxysubsubsection{\texorpdfstring{zplus}{zplus}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+gtau\+::zplus = 3}
+
+
+
+Definition at line 115 of file dqmc\+\_\+gtau.\+F90.
+

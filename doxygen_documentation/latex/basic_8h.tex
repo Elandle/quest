@@ -1,0 +1,224 @@
+\hypertarget{basic_8h}{}\doxysection{SRC/sprng5/\+SRC/basic.h File Reference}
+\label{basic_8h}\index{SRC/sprng5/SRC/basic.h@{SRC/sprng5/SRC/basic.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{basic_8h_aefff0b42910dc7882bbd6929f9f7b74b}{free\+\_\+bn\+\_\+array}} (struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} $\ast$array)
+\item 
+struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} \mbox{\hyperlink{basic_8h_a6cab093651da442faf28e4cf48ce9580}{join}} (struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} first, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} second)
+\item 
+struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} \mbox{\hyperlink{basic_8h_a14840ec93ce50f0822eabaa8301a7baa}{minus}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$list, long size)
+\item 
+struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} \mbox{\hyperlink{basic_8h_a3ac23ed00f18691583effa6827df2e19}{mult\+\_\+reduce}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$number, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} \mbox{\hyperlink{mlfg_8cpp_af1169f4ccb325c14fde7bba35de58ab7}{set}}, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$limit)
+\item 
+struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} \mbox{\hyperlink{basic_8h_a2f03dc92d8f8f577b18299ca71b713a0}{find\+\_\+denom}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$the\+\_\+primes, long maxsize, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$limit)
+\item 
+void \mbox{\hyperlink{basic_8h_ac071152d8ccff454eb3bc0e2fd183d73}{mu\+\_\+eval}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$result, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} denominators)
+\item 
+short \mbox{\hyperlink{basic_8h_a12e7b7848ab6e7f220a66d28ebdce385}{divisible}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$y)
+\item 
+short \mbox{\hyperlink{basic_8h_ab7f84d704b1c5c99579ab593d61e20a4}{any\+\_\+divide}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$number, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$the\+\_\+primes, long no\+\_\+of\+\_\+primes)
+\item 
+void \mbox{\hyperlink{basic_8h_ad7cca3882006328b842199b7c37ba3cf}{incr}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, long num)
+\item 
+void \mbox{\hyperlink{basic_8h_a2863b7df0dfee2b184c6228d9e42e46c}{decr}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, long num)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{basic_8h_a840401deeb2aa20368ddfdc1b2a59249}{linear\+\_\+find}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$y, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$current\+\_\+mu, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$guess, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} the\+\_\+primes)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{basic_8h_a8d8ed4d0ff046c74eeb3165bca8b3081}{guess\+\_\+mu\+\_\+inverse}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$y, \mbox{\hyperlink{classBigRat}{Big\+Rat}} $\ast$magic)
+\item 
+void \mbox{\hyperlink{basic_8h_af02783662fed52781a6783319ddaf182}{Mu}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$result, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} left\+\_\+to\+\_\+kill, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} the\+\_\+final\+\_\+denom)
+\item 
+\mbox{\hyperlink{classBigNum}{Big\+Num}} \mbox{\hyperlink{basic_8h_ab91c077e0e86f78aa51aba79e0843f58}{find\+\_\+M}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$guess, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$y, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} left\+\_\+to\+\_\+kill, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} denom, struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} initial\+\_\+primes, \mbox{\hyperlink{classBigRat}{Big\+Rat}} $\ast$magic)
+\item 
+void \mbox{\hyperlink{basic_8h_a909115d56f157cc9018f7b3e4c69847a}{init\+\_\+rel\+\_\+prime}} (\mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}} $\ast$data, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$maxval)
+\item 
+void \mbox{\hyperlink{basic_8h_a264776b79cd0f2fdae124f22d8fdbb08}{free\+\_\+rel\+\_\+prime}} (\mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}} $\ast$data)
+\item 
+int \mbox{\hyperlink{basic_8h_a35c7ad128962d035b452b2e459f60d35}{rel\+\_\+prime}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$result, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$number, \mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}} data)
+\item 
+void \mbox{\hyperlink{basic_8h_a760751f9600f38d030c7cdeca8d992bf}{prim\+\_\+elt}} (\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$result, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$number, \mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}} data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{basic_8h_ab7f84d704b1c5c99579ab593d61e20a4}\label{basic_8h_ab7f84d704b1c5c99579ab593d61e20a4}} 
+\index{basic.h@{basic.h}!any\_divide@{any\_divide}}
+\index{any\_divide@{any\_divide}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{any\_divide()}{any\_divide()}}
+{\footnotesize\ttfamily short any\+\_\+divide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{number,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{the\+\_\+primes,  }\item[{long}]{no\+\_\+of\+\_\+primes }\end{DoxyParamCaption})}
+
+
+
+Definition at line 186 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a2863b7df0dfee2b184c6228d9e42e46c}\label{basic_8h_a2863b7df0dfee2b184c6228d9e42e46c}} 
+\index{basic.h@{basic.h}!decr@{decr}}
+\index{decr@{decr}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{decr()}{decr()}}
+{\footnotesize\ttfamily void decr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{x,  }\item[{long}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line 210 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a12e7b7848ab6e7f220a66d28ebdce385}\label{basic_8h_a12e7b7848ab6e7f220a66d28ebdce385}} 
+\index{basic.h@{basic.h}!divisible@{divisible}}
+\index{divisible@{divisible}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{divisible()}{divisible()}}
+{\footnotesize\ttfamily short divisible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{x,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 180 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a2f03dc92d8f8f577b18299ca71b713a0}\label{basic_8h_a2f03dc92d8f8f577b18299ca71b713a0}} 
+\index{basic.h@{basic.h}!find\_denom@{find\_denom}}
+\index{find\_denom@{find\_denom}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{find\_denom()}{find\_denom()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} find\+\_\+denom (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{the\+\_\+primes,  }\item[{long}]{maxsize,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{limit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_ab91c077e0e86f78aa51aba79e0843f58}\label{basic_8h_ab91c077e0e86f78aa51aba79e0843f58}} 
+\index{basic.h@{basic.h}!find\_M@{find\_M}}
+\index{find\_M@{find\_M}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{find\_M()}{find\_M()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} find\+\_\+M (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{guess,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{y,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{left\+\_\+to\+\_\+kill,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{denom,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{initial\+\_\+primes,  }\item[{\mbox{\hyperlink{classBigRat}{Big\+Rat}} $\ast$}]{magic }\end{DoxyParamCaption})}
+
+
+
+Definition at line 288 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_aefff0b42910dc7882bbd6929f9f7b74b}\label{basic_8h_aefff0b42910dc7882bbd6929f9f7b74b}} 
+\index{basic.h@{basic.h}!free\_bn\_array@{free\_bn\_array}}
+\index{free\_bn\_array@{free\_bn\_array}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{free\_bn\_array()}{free\_bn\_array()}}
+{\footnotesize\ttfamily void free\+\_\+bn\+\_\+array (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} $\ast$}]{array }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a264776b79cd0f2fdae124f22d8fdbb08}\label{basic_8h_a264776b79cd0f2fdae124f22d8fdbb08}} 
+\index{basic.h@{basic.h}!free\_rel\_prime@{free\_rel\_prime}}
+\index{free\_rel\_prime@{free\_rel\_prime}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{free\_rel\_prime()}{free\_rel\_prime()}}
+{\footnotesize\ttfamily void free\+\_\+rel\+\_\+prime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}} $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 367 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a8d8ed4d0ff046c74eeb3165bca8b3081}\label{basic_8h_a8d8ed4d0ff046c74eeb3165bca8b3081}} 
+\index{basic.h@{basic.h}!guess\_mu\_inverse@{guess\_mu\_inverse}}
+\index{guess\_mu\_inverse@{guess\_mu\_inverse}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{guess\_mu\_inverse()}{guess\_mu\_inverse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} guess\+\_\+mu\+\_\+inverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{y,  }\item[{\mbox{\hyperlink{classBigRat}{Big\+Rat}} $\ast$}]{magic }\end{DoxyParamCaption})}
+
+
+
+Definition at line 248 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_ad7cca3882006328b842199b7c37ba3cf}\label{basic_8h_ad7cca3882006328b842199b7c37ba3cf}} 
+\index{basic.h@{basic.h}!incr@{incr}}
+\index{incr@{incr}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{incr()}{incr()}}
+{\footnotesize\ttfamily void incr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{x,  }\item[{long}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line 205 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a909115d56f157cc9018f7b3e4c69847a}\label{basic_8h_a909115d56f157cc9018f7b3e4c69847a}} 
+\index{basic.h@{basic.h}!init\_rel\_prime@{init\_rel\_prime}}
+\index{init\_rel\_prime@{init\_rel\_prime}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{init\_rel\_prime()}{init\_rel\_prime()}}
+{\footnotesize\ttfamily void init\+\_\+rel\+\_\+prime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{maxval }\end{DoxyParamCaption})}
+
+
+
+Definition at line 317 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a6cab093651da442faf28e4cf48ce9580}\label{basic_8h_a6cab093651da442faf28e4cf48ce9580}} 
+\index{basic.h@{basic.h}!join@{join}}
+\index{join@{join}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} join (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{first,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{second }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a840401deeb2aa20368ddfdc1b2a59249}\label{basic_8h_a840401deeb2aa20368ddfdc1b2a59249}} 
+\index{basic.h@{basic.h}!linear\_find@{linear\_find}}
+\index{linear\_find@{linear\_find}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{linear\_find()}{linear\_find()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigNum}{Big\+Num}} linear\+\_\+find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{y,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{current\+\_\+mu,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{guess,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{the\+\_\+primes }\end{DoxyParamCaption})}
+
+
+
+Definition at line 216 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a14840ec93ce50f0822eabaa8301a7baa}\label{basic_8h_a14840ec93ce50f0822eabaa8301a7baa}} 
+\index{basic.h@{basic.h}!minus@{minus}}
+\index{minus@{minus}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{minus()}{minus()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} minus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{list,  }\item[{long}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_af02783662fed52781a6783319ddaf182}\label{basic_8h_af02783662fed52781a6783319ddaf182}} 
+\index{basic.h@{basic.h}!Mu@{Mu}}
+\index{Mu@{Mu}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{Mu()}{Mu()}}
+{\footnotesize\ttfamily void Mu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{x,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{left\+\_\+to\+\_\+kill,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{the\+\_\+final\+\_\+denom }\end{DoxyParamCaption})}
+
+
+
+Definition at line 262 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_ac071152d8ccff454eb3bc0e2fd183d73}\label{basic_8h_ac071152d8ccff454eb3bc0e2fd183d73}} 
+\index{basic.h@{basic.h}!mu\_eval@{mu\_eval}}
+\index{mu\_eval@{mu\_eval}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{mu\_eval()}{mu\_eval()}}
+{\footnotesize\ttfamily void mu\+\_\+eval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{x,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{denominators }\end{DoxyParamCaption})}
+
+
+
+Definition at line 162 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a3ac23ed00f18691583effa6827df2e19}\label{basic_8h_a3ac23ed00f18691583effa6827df2e19}} 
+\index{basic.h@{basic.h}!mult\_reduce@{mult\_reduce}}
+\index{mult\_reduce@{mult\_reduce}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{mult\_reduce()}{mult\_reduce()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}} mult\+\_\+reduce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{number,  }\item[{struct \mbox{\hyperlink{structBIGNUM__ARRAY__TYPE}{BIGNUM\+\_\+\+ARRAY\+\_\+\+TYPE}}}]{set,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{limit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a760751f9600f38d030c7cdeca8d992bf}\label{basic_8h_a760751f9600f38d030c7cdeca8d992bf}} 
+\index{basic.h@{basic.h}!prim\_elt@{prim\_elt}}
+\index{prim\_elt@{prim\_elt}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{prim\_elt()}{prim\_elt()}}
+{\footnotesize\ttfamily void prim\+\_\+elt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{number,  }\item[{\mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 401 of file basic.\+cpp.
+
+\mbox{\Hypertarget{basic_8h_a35c7ad128962d035b452b2e459f60d35}\label{basic_8h_a35c7ad128962d035b452b2e459f60d35}} 
+\index{basic.h@{basic.h}!rel\_prime@{rel\_prime}}
+\index{rel\_prime@{rel\_prime}!basic.h@{basic.h}}
+\doxysubsubsection{\texorpdfstring{rel\_prime()}{rel\_prime()}}
+{\footnotesize\ttfamily int rel\+\_\+prime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{result,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{number,  }\item[{\mbox{\hyperlink{basic_8cpp_a3541503c3979aaf0acb5f74da97ef988}{REL\+\_\+\+PRIME\+\_\+\+TABLE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 377 of file basic.\+cpp.
+

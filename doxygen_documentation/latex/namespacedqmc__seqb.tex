@@ -1,0 +1,97 @@
+\hypertarget{namespacedqmc__seqb}{}\doxysection{dqmc\+\_\+seqb Module Reference}
+\label{namespacedqmc__seqb}\index{dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_aafa2e9586b3e2a19c315497ea41b9a91}{dqmc\+\_\+seqb\+\_\+init}} (n, L, n\+Orth, B, SB, WS)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_a54fac2959f2a9ae75958cfa9699d4df3}{dqmc\+\_\+seqb\+\_\+init2}} (n, L, n\+Orth, B, SB, U, D, T, WS)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_ae9153dfe21e721c0d6cf6ab3947eb4c2}{dqmc\+\_\+seqb\+\_\+free}} (SB)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_a2b613635f4ed0f7540025e6894170a9a}{dqmc\+\_\+seqb\+\_\+update}} (SB)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_ac9a1f6fe4ec5382af975a2c638d45c8b}{dqmc\+\_\+udtd}} (n, U, D, T, W1, W2, rw, tau, piv, lwork)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_af9a82cf42213b412bb69855bdea62f0b}{dqmc\+\_\+seqmultb}} (il, ir, SB, V)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__seqb_a1953a831cb7e06e4b2963dad370a1de5}{dqmc\+\_\+seqmultbi}} (il, ir, SB, V)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__seqb_ae9153dfe21e721c0d6cf6ab3947eb4c2}\label{namespacedqmc__seqb_ae9153dfe21e721c0d6cf6ab3947eb4c2}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_seqb\_free@{dqmc\_seqb\_free}}
+\index{dqmc\_seqb\_free@{dqmc\_seqb\_free}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_seqb\_free()}{dqmc\_seqb\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+seqb\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}), intent(inout)}]{SB }\end{DoxyParamCaption})}
+
+
+
+Definition at line 131 of file dqmc\+\_\+seqb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__seqb_aafa2e9586b3e2a19c315497ea41b9a91}\label{namespacedqmc__seqb_aafa2e9586b3e2a19c315497ea41b9a91}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_seqb\_init@{dqmc\_seqb\_init}}
+\index{dqmc\_seqb\_init@{dqmc\_seqb\_init}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_seqb\_init()}{dqmc\_seqb\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+seqb\+\_\+init (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, intent(in)}]{L,  }\item[{integer, intent(in)}]{n\+Orth,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in), target}]{B,  }\item[{type(\mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}), intent(inout)}]{SB,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(in), target}]{WS }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file dqmc\+\_\+seqb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__seqb_a54fac2959f2a9ae75958cfa9699d4df3}\label{namespacedqmc__seqb_a54fac2959f2a9ae75958cfa9699d4df3}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_seqb\_init2@{dqmc\_seqb\_init2}}
+\index{dqmc\_seqb\_init2@{dqmc\_seqb\_init2}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_seqb\_init2()}{dqmc\_seqb\_init2()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+seqb\+\_\+init2 (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, intent(in)}]{L,  }\item[{integer, intent(in)}]{n\+Orth,  }\item[{type(\mbox{\hyperlink{structdqmc__matb_1_1matb}{matb}}), intent(in), target}]{B,  }\item[{type(\mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}), intent(inout)}]{SB,  }\item[{real(wp), dimension(\+:,\+:), intent(in), target}]{U,  }\item[{real(wp), dimension(\+:), intent(in), target}]{D,  }\item[{real(wp), dimension(\+:,\+:), intent(in), target}]{T,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(in), target}]{WS }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file dqmc\+\_\+seqb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__seqb_a2b613635f4ed0f7540025e6894170a9a}\label{namespacedqmc__seqb_a2b613635f4ed0f7540025e6894170a9a}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_seqb\_update@{dqmc\_seqb\_update}}
+\index{dqmc\_seqb\_update@{dqmc\_seqb\_update}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_seqb\_update()}{dqmc\_seqb\_update()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+seqb\+\_\+update (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}), intent(inout)}]{SB }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file dqmc\+\_\+seqb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__seqb_af9a82cf42213b412bb69855bdea62f0b}\label{namespacedqmc__seqb_af9a82cf42213b412bb69855bdea62f0b}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_seqmultb@{dqmc\_seqmultb}}
+\index{dqmc\_seqmultb@{dqmc\_seqmultb}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_seqmultb()}{dqmc\_seqmultb()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+seqmultb (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{il,  }\item[{integer, intent(in)}]{ir,  }\item[{type(\mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}), intent(inout)}]{SB,  }\item[{real(wp), dimension(sb\%n, sb\%l), intent(in)}]{V }\end{DoxyParamCaption})}
+
+
+
+Definition at line 256 of file dqmc\+\_\+seqb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__seqb_a1953a831cb7e06e4b2963dad370a1de5}\label{namespacedqmc__seqb_a1953a831cb7e06e4b2963dad370a1de5}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_seqmultbi@{dqmc\_seqmultbi}}
+\index{dqmc\_seqmultbi@{dqmc\_seqmultbi}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_seqmultbi()}{dqmc\_seqmultbi()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+seqmultbi (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{il,  }\item[{integer, intent(in)}]{ir,  }\item[{type(\mbox{\hyperlink{structdqmc__seqb_1_1seqb}{seqb}}), intent(inout)}]{SB,  }\item[{real(wp), dimension(sb\%n, sb\%l), intent(in)}]{V }\end{DoxyParamCaption})}
+
+
+
+Definition at line 347 of file dqmc\+\_\+seqb.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__seqb_ac9a1f6fe4ec5382af975a2c638d45c8b}\label{namespacedqmc__seqb_ac9a1f6fe4ec5382af975a2c638d45c8b}} 
+\index{dqmc\_seqb@{dqmc\_seqb}!dqmc\_udtd@{dqmc\_udtd}}
+\index{dqmc\_udtd@{dqmc\_udtd}!dqmc\_seqb@{dqmc\_seqb}}
+\doxysubsubsection{\texorpdfstring{dqmc\_udtd()}{dqmc\_udtd()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+seqb\+::dqmc\+\_\+udtd (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n,n), intent(inout)}]{U,  }\item[{real(wp), dimension(n), intent(inout)}]{D,  }\item[{real(wp), dimension(n,n), intent(inout)}]{T,  }\item[{real(wp), dimension(n,n), intent(inout)}]{W1,  }\item[{real(wp), dimension(n,n), intent(inout)}]{W2,  }\item[{real(wp), dimension(\+:), intent(inout)}]{rw,  }\item[{real(wp), dimension(n), intent(inout)}]{tau,  }\item[{integer, dimension(\+:), intent(inout)}]{piv,  }\item[{integer, dimension(\+:), intent(in)}]{lwork }\end{DoxyParamCaption})}
+
+
+
+Definition at line 158 of file dqmc\+\_\+seqb.\+F90.
+

@@ -1,0 +1,116 @@
+\hypertarget{mpitests_2gap_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/mpitests/gap.cpp File Reference}
+\label{mpitests_2gap_8cpp}\index{SRC/sprng5/TESTS/mpitests/gap.cpp@{SRC/sprng5/TESTS/mpitests/gap.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for gap.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mpitests_2gap_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mpitests_2gap_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}{NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM}}~4
+\item 
+\#define \mbox{\hyperlink{mpitests_2gap_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}{FATAL\+\_\+\+ABORT}}~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)
+\item 
+\#define \mbox{\hyperlink{mpitests_2gap_8cpp_ae8d81ef9dbb7ebbb5f43241a6ac31ee5}{PROC\+\_\+\+ONE\+\_\+\+GAP}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mpitests_2gap_8cpp_a2063d6cc56c92823c5f798b77030e853}{init\+Test}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{mpitests_2gap_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}{deinit\+Test}} (void)
+\item 
+int \mbox{\hyperlink{mpitests_2gap_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mpitests_2gap_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}\label{mpitests_2gap_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}} 
+\index{gap.cpp@{gap.cpp}!FATAL\_ABORT@{FATAL\_ABORT}}
+\index{FATAL\_ABORT@{FATAL\_ABORT}!gap.cpp@{gap.cpp}}
+\doxysubsubsection{\texorpdfstring{FATAL\_ABORT}{FATAL\_ABORT}}
+{\footnotesize\ttfamily \#define FATAL\+\_\+\+ABORT~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)}
+
+
+
+Definition at line 28 of file gap.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2gap_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}\label{mpitests_2gap_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}} 
+\index{gap.cpp@{gap.cpp}!NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}}
+\index{NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}!gap.cpp@{gap.cpp}}
+\doxysubsubsection{\texorpdfstring{NUM\_TEST\_ENGIN\_PARAM}{NUM\_TEST\_ENGIN\_PARAM}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM~4}
+
+
+
+Definition at line 16 of file gap.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2gap_8cpp_ae8d81ef9dbb7ebbb5f43241a6ac31ee5}\label{mpitests_2gap_8cpp_ae8d81ef9dbb7ebbb5f43241a6ac31ee5}} 
+\index{gap.cpp@{gap.cpp}!PROC\_ONE\_GAP@{PROC\_ONE\_GAP}}
+\index{PROC\_ONE\_GAP@{PROC\_ONE\_GAP}!gap.cpp@{gap.cpp}}
+\doxysubsubsection{\texorpdfstring{PROC\_ONE\_GAP}{PROC\_ONE\_GAP}}
+{\footnotesize\ttfamily \#define PROC\+\_\+\+ONE\+\_\+\+GAP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \{                                           \(\backslash\)}
+\DoxyCodeLine{   long  gapLen;                                                 \(\backslash\)}
+\DoxyCodeLine{   double  tempX;                                                \(\backslash\)}
+\DoxyCodeLine{                                                                 \(\backslash\)}
+\DoxyCodeLine{   gapLen = -\/1;                                                  \(\backslash\)}
+\DoxyCodeLine{   do \{                                                          \(\backslash\)}
+\DoxyCodeLine{      gapLen++;                                                  \(\backslash\)}
+\DoxyCodeLine{      tempX = \mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}();                                          \(\backslash\)}
+\DoxyCodeLine{   \} \textcolor{keywordflow}{while} ((tempX<lowerBound) || (tempX>=upperBound));          \(\backslash\)}
+\DoxyCodeLine{                                                                 \(\backslash\)}
+\DoxyCodeLine{   \textcolor{comment}{/* Add (gapLen<0) clause to catch overflow */}                 \(\backslash\)}
+\DoxyCodeLine{   if ((gapLen>maxGapLen) || (gapLen<0)) bins[numBin-\/1]++;       \(\backslash\)}
+\DoxyCodeLine{   else bins[gapLen]++;                                          \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 88 of file gap.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpitests_2gap_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}\label{mpitests_2gap_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}} 
+\index{gap.cpp@{gap.cpp}!deinitTest@{deinitTest}}
+\index{deinitTest@{deinitTest}!gap.cpp@{gap.cpp}}
+\doxysubsubsection{\texorpdfstring{deinitTest()}{deinitTest()}}
+{\footnotesize\ttfamily void deinit\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 80 of file gap.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2gap_8cpp_a2063d6cc56c92823c5f798b77030e853}\label{mpitests_2gap_8cpp_a2063d6cc56c92823c5f798b77030e853}} 
+\index{gap.cpp@{gap.cpp}!initTest@{initTest}}
+\index{initTest@{initTest}!gap.cpp@{gap.cpp}}
+\doxysubsubsection{\texorpdfstring{initTest()}{initTest()}}
+{\footnotesize\ttfamily void init\+Test (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file gap.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2gap_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{mpitests_2gap_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{gap.cpp@{gap.cpp}!main@{main}}
+\index{main@{main}!gap.cpp@{gap.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 104 of file gap.\+cpp.
+

@@ -1,0 +1,281 @@
+\hypertarget{lcg64_8cpp}{}\doxysection{SRC/sprng5/\+SRC/lcg64/lcg64.cpp File Reference}
+\label{lcg64_8cpp}\index{SRC/sprng5/SRC/lcg64/lcg64.cpp@{SRC/sprng5/SRC/lcg64/lcg64.cpp}}
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sprng.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lcg64.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}primes\+\_\+64.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}store.\+h\char`\"{}}\newline
+Include dependency graph for lcg64.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lcg64_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}{NDEBUG}}
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}{MAX\+\_\+\+STREAMS}}~lcg64\+\_\+\+MAX\+\_\+\+STREAMS
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a5b116849652d56c12807cf6e6f989e71}{NGENS}}~lcg64\+\_\+\+NGENS
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a13602473e09442186741707f56c04991}{PARAMLIST}}~lcg64\+\_\+\+PARAMLIST
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}}~\char`\"{}00\char`\"{}
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_abde7219dfdfc8895b93fba0919e697f3}{GENTYPE}}~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}64 bit Linear Congruential Generator with Prime Addend\char`\"{}
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}~3  /$\ast$$\ast$$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_ae9a304c1e5055905dd082826f4966c50}{INIT\+\_\+\+SEED1}}~0x2bc6ffffU
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a8d2183cf08c1d3783414f54091d0d3c6}{INIT\+\_\+\+SEED0}}~0x8cfe166dU
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a2d4ad26c03f36d5a08e9b0b817b6f7ed}{TWO\+\_\+\+M22}}~2.\+384185791015625e-\/07 /$\ast$ 2$^\wedge$(-\/22) $\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_ae20c22e2e57bef58b4af09a9a7b68c4e}{TWO\+\_\+\+P22}}~4194304  /$\ast$ 2$^\wedge$(22) $\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_ab4797afa52edffd7548301ced91bd29e}{TWO\+\_\+\+M20}}~9.\+5367431640625e-\/07 /$\ast$ 2$^\wedge$(-\/20) $\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_afc511e5ad28ab2156ecdfaa4a5b5c223}{TWO\+\_\+\+P20}}~1048576 /$\ast$ 2$^\wedge$(20) $\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a76ae6bf8cbcb67413347f5e9a535d00f}{TWO\+\_\+\+M42}}~2.\+273736754432321e-\/13 /$\ast$ 2$^\wedge$(-\/42) $\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}{TWO\+\_\+\+M64}}~5.\+4210108624275222e-\/20 /$\ast$ 2$^\wedge$(-\/64) $\ast$/
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a839671370d55b209d3330e6c8e9bda7a}{EXPO}}~0x3ff00000
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}{MSB}}~0
+\item 
+\#define \mbox{\hyperlink{lcg64_8cpp_a525d3ca9955b22e489a749a548831a1d}{LSB}}~(1-\/\mbox{\hyperlink{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}{MSB}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{lcg64_8cpp_a7d153f01faf2abd3753614ba45c3bdad}{MAX\+\_\+\+STREAMS}} = (146138719)
+\item 
+unsigned int \mbox{\hyperlink{lcg64_8cpp_ad3d1649ca0fbd90252939f07b36871d8}{PARAMLIST}} \mbox{[}\mbox{\hyperlink{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}\mbox{]}\mbox{[}2\mbox{]}
+\item 
+int \mbox{\hyperlink{lcg64_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}{NGENS}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lcg64_8cpp_a839671370d55b209d3330e6c8e9bda7a}\label{lcg64_8cpp_a839671370d55b209d3330e6c8e9bda7a}} 
+\index{lcg64.cpp@{lcg64.cpp}!EXPO@{EXPO}}
+\index{EXPO@{EXPO}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{EXPO}{EXPO}}
+{\footnotesize\ttfamily \#define EXPO~0x3ff00000}
+
+\mbox{\Hypertarget{lcg64_8cpp_abde7219dfdfc8895b93fba0919e697f3}\label{lcg64_8cpp_abde7219dfdfc8895b93fba0919e697f3}} 
+\index{lcg64.cpp@{lcg64.cpp}!GENTYPE@{GENTYPE}}
+\index{GENTYPE@{GENTYPE}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{GENTYPE}{GENTYPE}}
+{\footnotesize\ttfamily \#define GENTYPE~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}64 bit Linear Congruential Generator with Prime Addend\char`\"{}}
+
+
+
+Definition at line 55 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a8d2183cf08c1d3783414f54091d0d3c6}\label{lcg64_8cpp_a8d2183cf08c1d3783414f54091d0d3c6}} 
+\index{lcg64.cpp@{lcg64.cpp}!INIT\_SEED0@{INIT\_SEED0}}
+\index{INIT\_SEED0@{INIT\_SEED0}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{INIT\_SEED0}{INIT\_SEED0}}
+{\footnotesize\ttfamily \#define INIT\+\_\+\+SEED0~0x8cfe166dU}
+
+
+
+Definition at line 91 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_ae9a304c1e5055905dd082826f4966c50}\label{lcg64_8cpp_ae9a304c1e5055905dd082826f4966c50}} 
+\index{lcg64.cpp@{lcg64.cpp}!INIT\_SEED1@{INIT\_SEED1}}
+\index{INIT\_SEED1@{INIT\_SEED1}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{INIT\_SEED1}{INIT\_SEED1}}
+{\footnotesize\ttfamily \#define INIT\+\_\+\+SEED1~0x2bc6ffffU}
+
+
+
+Definition at line 90 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a525d3ca9955b22e489a749a548831a1d}\label{lcg64_8cpp_a525d3ca9955b22e489a749a548831a1d}} 
+\index{lcg64.cpp@{lcg64.cpp}!LSB@{LSB}}
+\index{LSB@{LSB}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{LSB}{LSB}}
+{\footnotesize\ttfamily \#define LSB~(1-\/\mbox{\hyperlink{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}{MSB}})}
+
+\mbox{\Hypertarget{lcg64_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}\label{lcg64_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}} 
+\index{lcg64.cpp@{lcg64.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+STREAMS~lcg64\+\_\+\+MAX\+\_\+\+STREAMS}
+
+
+
+Definition at line 46 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}\label{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}} 
+\index{lcg64.cpp@{lcg64.cpp}!MSB@{MSB}}
+\index{MSB@{MSB}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{MSB}{MSB}}
+{\footnotesize\ttfamily \#define MSB~0}
+
+\mbox{\Hypertarget{lcg64_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}\label{lcg64_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}} 
+\index{lcg64.cpp@{lcg64.cpp}!NDEBUG@{NDEBUG}}
+\index{NDEBUG@{NDEBUG}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{NDEBUG}{NDEBUG}}
+{\footnotesize\ttfamily \#define NDEBUG}
+
+
+
+Definition at line 38 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a5b116849652d56c12807cf6e6f989e71}\label{lcg64_8cpp_a5b116849652d56c12807cf6e6f989e71}} 
+\index{lcg64.cpp@{lcg64.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily \#define NGENS~lcg64\+\_\+\+NGENS}
+
+
+
+Definition at line 47 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_ae468832efa6adf5e9a96cabd8f878b47}\label{lcg64_8cpp_ae468832efa6adf5e9a96cabd8f878b47}} 
+\index{lcg64.cpp@{lcg64.cpp}!NPARAMS@{NPARAMS}}
+\index{NPARAMS@{NPARAMS}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{NPARAMS}{NPARAMS}}
+{\footnotesize\ttfamily \#define NPARAMS~3  /$\ast$$\ast$$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$$\ast$$\ast$/}
+
+
+
+Definition at line 57 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a13602473e09442186741707f56c04991}\label{lcg64_8cpp_a13602473e09442186741707f56c04991}} 
+\index{lcg64.cpp@{lcg64.cpp}!PARAMLIST@{PARAMLIST}}
+\index{PARAMLIST@{PARAMLIST}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAMLIST}{PARAMLIST}}
+{\footnotesize\ttfamily \#define PARAMLIST~lcg64\+\_\+\+PARAMLIST}
+
+
+
+Definition at line 48 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_ab4797afa52edffd7548301ced91bd29e}\label{lcg64_8cpp_ab4797afa52edffd7548301ced91bd29e}} 
+\index{lcg64.cpp@{lcg64.cpp}!TWO\_M20@{TWO\_M20}}
+\index{TWO\_M20@{TWO\_M20}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M20}{TWO\_M20}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M20~9.\+5367431640625e-\/07 /$\ast$ 2$^\wedge$(-\/20) $\ast$/}
+
+
+
+Definition at line 95 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a2d4ad26c03f36d5a08e9b0b817b6f7ed}\label{lcg64_8cpp_a2d4ad26c03f36d5a08e9b0b817b6f7ed}} 
+\index{lcg64.cpp@{lcg64.cpp}!TWO\_M22@{TWO\_M22}}
+\index{TWO\_M22@{TWO\_M22}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M22}{TWO\_M22}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M22~2.\+384185791015625e-\/07 /$\ast$ 2$^\wedge$(-\/22) $\ast$/}
+
+
+
+Definition at line 93 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a76ae6bf8cbcb67413347f5e9a535d00f}\label{lcg64_8cpp_a76ae6bf8cbcb67413347f5e9a535d00f}} 
+\index{lcg64.cpp@{lcg64.cpp}!TWO\_M42@{TWO\_M42}}
+\index{TWO\_M42@{TWO\_M42}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M42}{TWO\_M42}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M42~2.\+273736754432321e-\/13 /$\ast$ 2$^\wedge$(-\/42) $\ast$/}
+
+
+
+Definition at line 97 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}\label{lcg64_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}} 
+\index{lcg64.cpp@{lcg64.cpp}!TWO\_M64@{TWO\_M64}}
+\index{TWO\_M64@{TWO\_M64}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M64}{TWO\_M64}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M64~5.\+4210108624275222e-\/20 /$\ast$ 2$^\wedge$(-\/64) $\ast$/}
+
+
+
+Definition at line 98 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_afc511e5ad28ab2156ecdfaa4a5b5c223}\label{lcg64_8cpp_afc511e5ad28ab2156ecdfaa4a5b5c223}} 
+\index{lcg64.cpp@{lcg64.cpp}!TWO\_P20@{TWO\_P20}}
+\index{TWO\_P20@{TWO\_P20}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_P20}{TWO\_P20}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+P20~1048576 /$\ast$ 2$^\wedge$(20) $\ast$/}
+
+
+
+Definition at line 96 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_ae20c22e2e57bef58b4af09a9a7b68c4e}\label{lcg64_8cpp_ae20c22e2e57bef58b4af09a9a7b68c4e}} 
+\index{lcg64.cpp@{lcg64.cpp}!TWO\_P22@{TWO\_P22}}
+\index{TWO\_P22@{TWO\_P22}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_P22}{TWO\_P22}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+P22~4194304  /$\ast$ 2$^\wedge$(22) $\ast$/}
+
+
+
+Definition at line 94 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}\label{lcg64_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}} 
+\index{lcg64.cpp@{lcg64.cpp}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily \#define VERSION~\char`\"{}00\char`\"{}}
+
+
+
+Definition at line 51 of file lcg64.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{lcg64_8cpp_a7d153f01faf2abd3753614ba45c3bdad}\label{lcg64_8cpp_a7d153f01faf2abd3753614ba45c3bdad}} 
+\index{lcg64.cpp@{lcg64.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily int MAX\+\_\+\+STREAMS = (146138719)}
+
+
+
+Definition at line 56 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}\label{lcg64_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}} 
+\index{lcg64.cpp@{lcg64.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily int NGENS = 0}
+
+
+
+Definition at line 103 of file lcg64.\+cpp.
+
+\mbox{\Hypertarget{lcg64_8cpp_ad3d1649ca0fbd90252939f07b36871d8}\label{lcg64_8cpp_ad3d1649ca0fbd90252939f07b36871d8}} 
+\index{lcg64.cpp@{lcg64.cpp}!PARAMLIST@{PARAMLIST}}
+\index{PARAMLIST@{PARAMLIST}!lcg64.cpp@{lcg64.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAMLIST}{PARAMLIST}}
+{\footnotesize\ttfamily unsigned int PARAMLIST\mbox{[}\mbox{\hyperlink{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}\mbox{]}\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \{ 0x87b0b0fdU, 0x27bb2ee6U \},}
+\DoxyCodeLine{    \{ 0xe78b6955U, 0x2c6fe96eU \},}
+\DoxyCodeLine{    \{ 0x31a53f85U, 0x369dea0fU \} \}}
+
+\end{DoxyCode}
+
+
+Definition at line 81 of file lcg64.\+cpp.
+

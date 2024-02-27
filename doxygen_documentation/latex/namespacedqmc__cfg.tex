@@ -1,0 +1,552 @@
+\hypertarget{namespacedqmc__cfg}{}\doxysection{dqmc\+\_\+cfg Module Reference}
+\label{namespacedqmc__cfg}\index{dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__cfg_1_1param}{param}}
+\begin{DoxyCompactList}\small\item\em Data type for describing parameters, stores information such as a parameters name and value(s). \end{DoxyCompactList}\item 
+type \mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}
+\begin{DoxyCompactList}\small\item\em Data type for holding the configuration (config/cfg) of a simulation. Implemented as a linked list of {\ttfamily Param} data types. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interfacedqmc__cfg_1_1cfg__set}{cfg\+\_\+set}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__cfg_1_1cfg__get}{cfg\+\_\+get}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_afad06a3f34e69125bb9d7a4ca6a8b472}{dqmc\+\_\+readln}} (str, IPT, status)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_aef9a5dd82c2ad291bcb86ace11b36a19}{dqmc\+\_\+default\+\_\+def}} (cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_aa72becc856dcde89d71808409708493e}{dqmc\+\_\+config\+\_\+free}} (cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a97fc65a963cfc7f748a7b404ad392cba}{dqmc\+\_\+read\+\_\+def}} (cfg, IPT)
+\begin{DoxyCompactList}\small\item\em Reads in parameters from a .def input file to a config (cfg) data type. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a2daa0a387cf89a79e0295586a01b94d4}{dqmc\+\_\+print\+\_\+def}} (cfg, OPT)
+\item 
+integer function \mbox{\hyperlink{namespacedqmc__cfg_a411e5d82f9fea2c3ddb27b3114a0f82b}{dqmc\+\_\+find\+\_\+param}} (cfg, pname)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a8d8b28e6c7732506add91ae56748c817}{dqmc\+\_\+read\+\_\+config}} (cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a6993013482bccbdd686ff3f056da8f44}{dqmc\+\_\+config\+\_\+seti}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a3130ce15e208d29abf0f3f4ae7d4ea8d}{dqmc\+\_\+config\+\_\+setr}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_af579027ebaabaa3203e717de884cf19a}{dqmc\+\_\+config\+\_\+setpr}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a87607d85cc3727a974e49b9b2484434e}{dqmc\+\_\+config\+\_\+setpi}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a7a6de9f853f1d8d1321dba2bcedc12f5}{dqmc\+\_\+config\+\_\+sets}} (cfg, name, value)
+\item 
+logical function \mbox{\hyperlink{namespacedqmc__cfg_a435ea3c02c34b71009b568fb7796fac3}{dqmc\+\_\+config\+\_\+isset}} (cfg, name)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_afada4a4adf481f23ada8280a8903acf3}{dqmc\+\_\+config\+\_\+geti}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_ae0fa5dc3d24814ed2fc30771a557dc37}{dqmc\+\_\+config\+\_\+getr}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_aacc82eb52a68a4b72e3ff9eb35e31126}{dqmc\+\_\+config\+\_\+getpr}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a0ddf533cabb7be857d4b5e23b82ee343}{dqmc\+\_\+config\+\_\+getpi}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a7986318190e0742f4bdcd451f4fd576a}{dqmc\+\_\+config\+\_\+gets}} (cfg, name, value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+character, parameter \mbox{\hyperlink{namespacedqmc__cfg_a1f056ebdc445184fe5d25f35840ed19c}{comment}} = \char`\"{}\#\char`\"{}
+\begin{DoxyCompactList}\small\item\em What character denotes the start of a comment in input files. \end{DoxyCompactList}\item 
+character, parameter \mbox{\hyperlink{namespacedqmc__cfg_a8b17ff053f5e9966931f781437a8e44b}{separat}} = \char`\"{}=\char`\"{}
+\begin{DoxyCompactList}\small\item\em What character denotes parameter definition (equality) in input files. \end{DoxyCompactList}\item 
+character, parameter \mbox{\hyperlink{namespacedqmc__cfg_aefada4cb546e57dd14c7612b2e856cab}{comma}} = \char`\"{},\char`\"{}
+\begin{DoxyCompactList}\small\item\em What character denotes separation on the same line in input files. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{slen}} = 60
+\begin{DoxyCompactList}\small\item\em Maximum line length (characters) for input files. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a71e87982cc8d1b06f2d5b5a77903bce8}{llen}} = 256
+\begin{DoxyCompactList}\small\item\em Maximum amount of lines for input files. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a867f2ec16aa67001f084f1a811af38ee}{alen}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a60dd988b94b8b7ec538d805c38118dd9}{stat\+\_\+eof}} = -\/1
+\begin{DoxyCompactList}\small\item\em Stores the value denoting that the end of a file has been reached. For use when setting the status of parameter read-\/in looping. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a566ba00f9c0cc52c2651b636138d7efb}{stat\+\_\+comment}} = 0
+\begin{DoxyCompactList}\small\item\em Stores the value denoting that a comment has been reached. For use when setting the status of parameter read-\/in looping. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_ade560577b11988c21594101028191928}{stat\+\_\+normal}} = 1
+\begin{DoxyCompactList}\small\item\em Stores the value denoting that a valid parameter definition has been stated. For use when setting the status of parameter read-\/in looping. \end{DoxyCompactList}\item 
+character(8), dimension(3), parameter \mbox{\hyperlink{namespacedqmc__cfg_a096836211d281a1a06011df00ca26ad9}{type\+\_\+str}} =(/\char`\"{}Real$\ast$8 \char`\"{},\char`\"{}Integer \char`\"{},\char`\"{}Char(60)\char`\"{}/)
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a44f3034b223a5e9fd6c271ebceb70bfe}{type\+\_\+real}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_ad4c623836b68f9b905ce1ba2d51005db}{type\+\_\+integer}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_aed463252c63b9271476df44a82f1d179}{type\+\_\+string}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}} = 40
+\begin{DoxyCompactList}\small\item\em Number of parameters. \end{DoxyCompactList}\item 
+character(len= $\ast$), dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter \mbox{\hyperlink{namespacedqmc__cfg_a498a6f2fe1366f0a5c13899a5eca2a2b}{param\+\_\+name}} = (/\char`\"{}HSF \char`\"{}, \char`\"{}HSFin \char`\"{}, \char`\"{}HSFout \char`\"{}, \char`\"{}HSFtype\char`\"{}, \char`\"{}L \char`\"{}, \char`\"{}U \char`\"{}, \char`\"{}accept \char`\"{}, \char`\"{}bcond \char`\"{}, \char`\"{}debug \char`\"{}, \char`\"{}delta1 \char`\"{}, \char`\"{}delta2 \char`\"{}, \char`\"{}difflim\char`\"{}, \char`\"{}dmu \char`\"{}, \char`\"{}dtau \char`\"{}, \char`\"{}errrate\char`\"{}, \char`\"{}fixwrap\char`\"{}, \char`\"{}gamma \char`\"{}, \char`\"{}gfile \char`\"{}, \char`\"{}mu\+\_\+dn \char`\"{}, \char`\"{}mu\+\_\+up \char`\"{}, \char`\"{}n \char`\"{}, \char`\"{}nbin \char`\"{}, \char`\"{}nhist \char`\"{}, \char`\"{}nitvl \char`\"{}, \char`\"{}north \char`\"{}, \char`\"{}npass \char`\"{}, \char`\"{}ntry \char`\"{}, \char`\"{}nwarm \char`\"{}, \char`\"{}nwrap \char`\"{}, \char`\"{}nx \char`\"{}, \char`\"{}ny \char`\"{}, \char`\"{}nz \char`\"{}, \char`\"{}ofile \char`\"{}, \char`\"{}reject \char`\"{}, \char`\"{}seed \char`\"{}, \char`\"{}ssxx \char`\"{}, \char`\"{}t\+\_\+dn \char`\"{}, \char`\"{}t\+\_\+up \char`\"{}, \char`\"{}tausk \char`\"{}, \char`\"{}tdm \char`\"{}/)
+\begin{DoxyCompactList}\small\item\em Stores the names of input parameters. \end{DoxyCompactList}\item 
+character(len= $\ast$), dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter \mbox{\hyperlink{namespacedqmc__cfg_add38f34a0c23681ebc16a6c5ce3becef}{param\+\_\+dval}} = (/\char`\"{}-\/1 \char`\"{}, \char`\"{}HSF.\+in \char`\"{}, \char`\"{}HSF.\+out \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0,0,0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}0.\+001 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0.\+125 \char`\"{}, \char`\"{}0.\+001 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}geom.\+def\char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}16 \char`\"{}, \char`\"{}10 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}5000 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1000 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}2 \char`\"{}, \char`\"{}quest \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}10 \char`\"{}, \char`\"{}0 \char`\"{}/)
+\item 
+integer, dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter \mbox{\hyperlink{namespacedqmc__cfg_ab03aa5ddc519a21f2afd0e7d9ad66c03}{param\+\_\+type}} = (/TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+STRING, TYPE\+\_\+\+STRING, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL , TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+STRING, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+STRING, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER/)
+\item 
+logical, dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter \mbox{\hyperlink{namespacedqmc__cfg_abb2796473311bce0843ee5b39b0a29f5}{param\+\_\+array}} = (/.false., .false., .false., .false., .false., .true. , .false., .true. , .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .true. , .true. , .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .true. , .true. , .false., .false./)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__cfg_aa72becc856dcde89d71808409708493e}\label{namespacedqmc__cfg_aa72becc856dcde89d71808409708493e}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_free@{dqmc\_config\_free}}
+\index{dqmc\_config\_free@{dqmc\_config\_free}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_free()}{dqmc\_config\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 421 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_afada4a4adf481f23ada8280a8903acf3}\label{namespacedqmc__cfg_afada4a4adf481f23ada8280a8903acf3}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_geti@{dqmc\_config\_geti}}
+\index{dqmc\_config\_geti@{dqmc\_config\_geti}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_geti()}{dqmc\_config\_geti()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+geti (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name,  }\item[{integer, intent(out)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1017 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a0ddf533cabb7be857d4b5e23b82ee343}\label{namespacedqmc__cfg_a0ddf533cabb7be857d4b5e23b82ee343}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_getpi@{dqmc\_config\_getpi}}
+\index{dqmc\_config\_getpi@{dqmc\_config\_getpi}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_getpi()}{dqmc\_config\_getpi()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+getpi (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name,  }\item[{integer, intent(out)}]{n,  }\item[{integer, dimension(\+:), intent(inout), pointer}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1132 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_aacc82eb52a68a4b72e3ff9eb35e31126}\label{namespacedqmc__cfg_aacc82eb52a68a4b72e3ff9eb35e31126}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_getpr@{dqmc\_config\_getpr}}
+\index{dqmc\_config\_getpr@{dqmc\_config\_getpr}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_getpr()}{dqmc\_config\_getpr()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+getpr (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name,  }\item[{integer, intent(out)}]{n,  }\item[{real(wp), dimension(\+:), intent(inout), pointer}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1084 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_ae0fa5dc3d24814ed2fc30771a557dc37}\label{namespacedqmc__cfg_ae0fa5dc3d24814ed2fc30771a557dc37}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_getr@{dqmc\_config\_getr}}
+\index{dqmc\_config\_getr@{dqmc\_config\_getr}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_getr()}{dqmc\_config\_getr()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+getr (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name,  }\item[{real(wp), intent(out)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1050 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a7986318190e0742f4bdcd451f4fd576a}\label{namespacedqmc__cfg_a7986318190e0742f4bdcd451f4fd576a}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_gets@{dqmc\_config\_gets}}
+\index{dqmc\_config\_gets@{dqmc\_config\_gets}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_gets()}{dqmc\_config\_gets()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+gets (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name,  }\item[{character(len=\mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{slen}})}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1176 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a435ea3c02c34b71009b568fb7796fac3}\label{namespacedqmc__cfg_a435ea3c02c34b71009b568fb7796fac3}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_isset@{dqmc\_config\_isset}}
+\index{dqmc\_config\_isset@{dqmc\_config\_isset}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_isset()}{dqmc\_config\_isset()}}
+{\footnotesize\ttfamily logical function dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+isset (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 987 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a6993013482bccbdd686ff3f056da8f44}\label{namespacedqmc__cfg_a6993013482bccbdd686ff3f056da8f44}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_seti@{dqmc\_config\_seti}}
+\index{dqmc\_config\_seti@{dqmc\_config\_seti}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_seti()}{dqmc\_config\_seti()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+seti (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{character(len=$\ast$), intent(in)}]{name,  }\item[{integer, intent(in)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 827 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a87607d85cc3727a974e49b9b2484434e}\label{namespacedqmc__cfg_a87607d85cc3727a974e49b9b2484434e}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_setpi@{dqmc\_config\_setpi}}
+\index{dqmc\_config\_setpi@{dqmc\_config\_setpi}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_setpi()}{dqmc\_config\_setpi()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+setpi (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{character(len=$\ast$), intent(in)}]{name,  }\item[{integer, intent(in)}]{n,  }\item[{integer, dimension(n), intent(in)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 923 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_af579027ebaabaa3203e717de884cf19a}\label{namespacedqmc__cfg_af579027ebaabaa3203e717de884cf19a}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_setpr@{dqmc\_config\_setpr}}
+\index{dqmc\_config\_setpr@{dqmc\_config\_setpr}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_setpr()}{dqmc\_config\_setpr()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+setpr (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{character(len=$\ast$), intent(in)}]{name,  }\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(n), intent(in)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 888 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a3130ce15e208d29abf0f3f4ae7d4ea8d}\label{namespacedqmc__cfg_a3130ce15e208d29abf0f3f4ae7d4ea8d}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_setr@{dqmc\_config\_setr}}
+\index{dqmc\_config\_setr@{dqmc\_config\_setr}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_setr()}{dqmc\_config\_setr()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+setr (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{character(len=$\ast$), intent(in)}]{name,  }\item[{real(wp), intent(in)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 858 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a7a6de9f853f1d8d1321dba2bcedc12f5}\label{namespacedqmc__cfg_a7a6de9f853f1d8d1321dba2bcedc12f5}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_config\_sets@{dqmc\_config\_sets}}
+\index{dqmc\_config\_sets@{dqmc\_config\_sets}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_config\_sets()}{dqmc\_config\_sets()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+sets (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{character($\ast$), intent(in)}]{name,  }\item[{character($\ast$), intent(in)}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 958 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_aef9a5dd82c2ad291bcb86ace11b36a19}\label{namespacedqmc__cfg_aef9a5dd82c2ad291bcb86ace11b36a19}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_default\_def@{dqmc\_default\_def}}
+\index{dqmc\_default\_def@{dqmc\_default\_def}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_default\_def()}{dqmc\_default\_def()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+default\+\_\+def (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 377 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a411e5d82f9fea2c3ddb27b3114a0f82b}\label{namespacedqmc__cfg_a411e5d82f9fea2c3ddb27b3114a0f82b}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_find\_param@{dqmc\_find\_param}}
+\index{dqmc\_find\_param@{dqmc\_find\_param}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_find\_param()}{dqmc\_find\_param()}}
+{\footnotesize\ttfamily integer function dqmc\+\_\+cfg\+::dqmc\+\_\+find\+\_\+param (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(in)}]{cfg,  }\item[{character($\ast$), intent(in)}]{pname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 606 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a2daa0a387cf89a79e0295586a01b94d4}\label{namespacedqmc__cfg_a2daa0a387cf89a79e0295586a01b94d4}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_print\_def@{dqmc\_print\_def}}
+\index{dqmc\_print\_def@{dqmc\_print\_def}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_print\_def()}{dqmc\_print\_def()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+print\+\_\+def (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 568 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a8d8b28e6c7732506add91ae56748c817}\label{namespacedqmc__cfg_a8d8b28e6c7732506add91ae56748c817}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_read\_config@{dqmc\_read\_config}}
+\index{dqmc\_read\_config@{dqmc\_read\_config}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_read\_config()}{dqmc\_read\_config()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+read\+\_\+config (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 681 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a97fc65a963cfc7f748a7b404ad392cba}\label{namespacedqmc__cfg_a97fc65a963cfc7f748a7b404ad392cba}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_read\_def@{dqmc\_read\_def}}
+\index{dqmc\_read\_def@{dqmc\_read\_def}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_read\_def()}{dqmc\_read\_def()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+read\+\_\+def (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg,  }\item[{integer, intent(in)}]{IPT }\end{DoxyParamCaption})}
+
+
+
+Reads in parameters from a .def input file to a config (cfg) data type. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em cfg} & ({\ttfamily config}) config data type to store read in parameters to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em IPT} & ({\ttfamily integer}) unit number of opened .def input file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 455 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_afad06a3f34e69125bb9d7a4ca6a8b472}\label{namespacedqmc__cfg_afad06a3f34e69125bb9d7a4ca6a8b472}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!dqmc\_readln@{dqmc\_readln}}
+\index{dqmc\_readln@{dqmc\_readln}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{dqmc\_readln()}{dqmc\_readln()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+cfg\+::dqmc\+\_\+readln (\begin{DoxyParamCaption}\item[{character(len=\mbox{\hyperlink{namespacedqmc__cfg_a71e87982cc8d1b06f2d5b5a77903bce8}{llen}}), intent(inout)}]{str,  }\item[{integer, intent(in)}]{IPT,  }\item[{integer, intent(inout)}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 329 of file dqmc\+\_\+cfg.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__cfg_a867f2ec16aa67001f084f1a811af38ee}\label{namespacedqmc__cfg_a867f2ec16aa67001f084f1a811af38ee}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!alen@{alen}}
+\index{alen@{alen}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{alen}{alen}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::alen = 10}
+
+
+
+Definition at line 30 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_aefada4cb546e57dd14c7612b2e856cab}\label{namespacedqmc__cfg_aefada4cb546e57dd14c7612b2e856cab}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!comma@{comma}}
+\index{comma@{comma}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{comma}{comma}}
+{\footnotesize\ttfamily character, parameter dqmc\+\_\+cfg\+::comma = \char`\"{},\char`\"{}}
+
+
+
+What character denotes separation on the same line in input files. 
+
+
+
+Definition at line 23 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a1f056ebdc445184fe5d25f35840ed19c}\label{namespacedqmc__cfg_a1f056ebdc445184fe5d25f35840ed19c}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!comment@{comment}}
+\index{comment@{comment}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{comment}{comment}}
+{\footnotesize\ttfamily character, parameter dqmc\+\_\+cfg\+::comment = \char`\"{}\#\char`\"{}}
+
+
+
+What character denotes the start of a comment in input files. 
+
+
+
+Definition at line 19 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a71e87982cc8d1b06f2d5b5a77903bce8}\label{namespacedqmc__cfg_a71e87982cc8d1b06f2d5b5a77903bce8}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!llen@{llen}}
+\index{llen@{llen}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{llen}{llen}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::llen = 256}
+
+
+
+Maximum amount of lines for input files. 
+
+
+
+Definition at line 29 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}\label{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!n\_param@{n\_param}}
+\index{n\_param@{n\_param}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{n\_param}{n\_param}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::n\+\_\+param = 40}
+
+
+
+Number of parameters. 
+
+
+
+Definition at line 49 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_abb2796473311bce0843ee5b39b0a29f5}\label{namespacedqmc__cfg_abb2796473311bce0843ee5b39b0a29f5}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!param\_array@{param\_array}}
+\index{param\_array@{param\_array}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{param\_array}{param\_array}}
+{\footnotesize\ttfamily logical, dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter dqmc\+\_\+cfg\+::param\+\_\+array = (/.false., .false., .false., .false., .false., .true. , .false., .true. , .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .true. , .true. , .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .true. , .true. , .false., .false./)}
+
+
+
+Definition at line 228 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_add38f34a0c23681ebc16a6c5ce3becef}\label{namespacedqmc__cfg_add38f34a0c23681ebc16a6c5ce3becef}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!param\_dval@{param\_dval}}
+\index{param\_dval@{param\_dval}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{param\_dval}{param\_dval}}
+{\footnotesize\ttfamily character(len=$\ast$), dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter dqmc\+\_\+cfg\+::param\+\_\+dval = (/\char`\"{}-\/1 \char`\"{}, \char`\"{}HSF.\+in \char`\"{}, \char`\"{}HSF.\+out \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0,0,0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}0.\+001 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0.\+125 \char`\"{}, \char`\"{}0.\+001 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}geom.\+def\char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}16 \char`\"{}, \char`\"{}10 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}5000 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1000 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}2 \char`\"{}, \char`\"{}quest \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}10 \char`\"{}, \char`\"{}0 \char`\"{}/)}
+
+
+
+Definition at line 142 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a498a6f2fe1366f0a5c13899a5eca2a2b}\label{namespacedqmc__cfg_a498a6f2fe1366f0a5c13899a5eca2a2b}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!param\_name@{param\_name}}
+\index{param\_name@{param\_name}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{param\_name}{param\_name}}
+{\footnotesize\ttfamily character(len=$\ast$), dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter dqmc\+\_\+cfg\+::param\+\_\+name = (/\char`\"{}HSF \char`\"{}, \char`\"{}HSFin \char`\"{}, \char`\"{}HSFout \char`\"{}, \char`\"{}HSFtype\char`\"{}, \char`\"{}L \char`\"{}, \char`\"{}U \char`\"{}, \char`\"{}accept \char`\"{}, \char`\"{}bcond \char`\"{}, \char`\"{}debug \char`\"{}, \char`\"{}delta1 \char`\"{}, \char`\"{}delta2 \char`\"{}, \char`\"{}difflim\char`\"{}, \char`\"{}dmu \char`\"{}, \char`\"{}dtau \char`\"{}, \char`\"{}errrate\char`\"{}, \char`\"{}fixwrap\char`\"{}, \char`\"{}gamma \char`\"{}, \char`\"{}gfile \char`\"{}, \char`\"{}mu\+\_\+dn \char`\"{}, \char`\"{}mu\+\_\+up \char`\"{}, \char`\"{}n \char`\"{}, \char`\"{}nbin \char`\"{}, \char`\"{}nhist \char`\"{}, \char`\"{}nitvl \char`\"{}, \char`\"{}north \char`\"{}, \char`\"{}npass \char`\"{}, \char`\"{}ntry \char`\"{}, \char`\"{}nwarm \char`\"{}, \char`\"{}nwrap \char`\"{}, \char`\"{}nx \char`\"{}, \char`\"{}ny \char`\"{}, \char`\"{}nz \char`\"{}, \char`\"{}ofile \char`\"{}, \char`\"{}reject \char`\"{}, \char`\"{}seed \char`\"{}, \char`\"{}ssxx \char`\"{}, \char`\"{}t\+\_\+dn \char`\"{}, \char`\"{}t\+\_\+up \char`\"{}, \char`\"{}tausk \char`\"{}, \char`\"{}tdm \char`\"{}/)}
+
+
+
+Stores the names of input parameters. 
+
+Must be of length {\ttfamily N\+\_\+\+Param}. See {\ttfamily PARAM\+\_\+\+DVAL} for the default value of a parameter, which is used if not specified on input.
+
+{\bfseries{Parameter}} {\bfseries{names\+:}} \begin{DoxyVerb}
+ HSF     (integer)      : specifies the method in which the Hubbard Stratonovich field (HSF) is input or generated.
+ HSFin   (file name)    : file name to read HSF from if HSF is set to HSF_FROM_FILE.
+ HSFout  (file name)    : file name to output HSF to.
+ HSFtype (integer)      : 0 if HSF is discrete, 1 if HSF is continuous.
+ L       (integer)      : number of imaginary time slices.
+ U       (real)         : potential energy.
+ accept  (integer)      : accept counts.
+ bcond   (real, dim(3)) : boundary conditions.
+ debug                  : flag for debug information output.
+ delta1
+ delta2
+ difflim
+ dmu
+ dtau
+ errrate
+ fixwrap
+ gamma
+ gfile
+ mu_dn
+ mu_up
+ n
+ nbin
+ nhist
+ nitvl
+ north
+ npass
+ ntry
+ nwarm
+ nwrap
+ nx
+ ny
+ nz
+ ofile
+ reject
+ seed
+ ssxx
+ t_dn
+ t_up
+ tausk
+ tdm
+\end{DoxyVerb}
+
+
+Definition at line 98 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_ab03aa5ddc519a21f2afd0e7d9ad66c03}\label{namespacedqmc__cfg_ab03aa5ddc519a21f2afd0e7d9ad66c03}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!param\_type@{param\_type}}
+\index{param\_type@{param\_type}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{param\_type}{param\_type}}
+{\footnotesize\ttfamily integer, dimension(\mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{n\+\_\+param}}), parameter dqmc\+\_\+cfg\+::param\+\_\+type = (/TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+STRING, TYPE\+\_\+\+STRING, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL , TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+STRING, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+STRING, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER/)}
+
+
+
+Definition at line 185 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a8b17ff053f5e9966931f781437a8e44b}\label{namespacedqmc__cfg_a8b17ff053f5e9966931f781437a8e44b}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!separat@{separat}}
+\index{separat@{separat}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{separat}{separat}}
+{\footnotesize\ttfamily character, parameter dqmc\+\_\+cfg\+::separat = \char`\"{}=\char`\"{}}
+
+
+
+What character denotes parameter definition (equality) in input files. 
+
+
+
+Definition at line 21 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}\label{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!slen@{slen}}
+\index{slen@{slen}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{slen}{slen}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::slen = 60}
+
+
+
+Maximum line length (characters) for input files. 
+
+
+
+Definition at line 27 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a566ba00f9c0cc52c2651b636138d7efb}\label{namespacedqmc__cfg_a566ba00f9c0cc52c2651b636138d7efb}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!stat\_comment@{stat\_comment}}
+\index{stat\_comment@{stat\_comment}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{stat\_comment}{stat\_comment}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::stat\+\_\+comment = 0}
+
+
+
+Stores the value denoting that a comment has been reached. For use when setting the status of parameter read-\/in looping. 
+
+
+
+Definition at line 36 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a60dd988b94b8b7ec538d805c38118dd9}\label{namespacedqmc__cfg_a60dd988b94b8b7ec538d805c38118dd9}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!stat\_eof@{stat\_eof}}
+\index{stat\_eof@{stat\_eof}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{stat\_eof}{stat\_eof}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::stat\+\_\+eof = -\/1}
+
+
+
+Stores the value denoting that the end of a file has been reached. For use when setting the status of parameter read-\/in looping. 
+
+
+
+Definition at line 34 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_ade560577b11988c21594101028191928}\label{namespacedqmc__cfg_ade560577b11988c21594101028191928}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!stat\_normal@{stat\_normal}}
+\index{stat\_normal@{stat\_normal}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{stat\_normal}{stat\_normal}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::stat\+\_\+normal = 1}
+
+
+
+Stores the value denoting that a valid parameter definition has been stated. For use when setting the status of parameter read-\/in looping. 
+
+
+
+Definition at line 38 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_ad4c623836b68f9b905ce1ba2d51005db}\label{namespacedqmc__cfg_ad4c623836b68f9b905ce1ba2d51005db}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!type\_integer@{type\_integer}}
+\index{type\_integer@{type\_integer}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{type\_integer}{type\_integer}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::type\+\_\+integer = 2}
+
+
+
+Definition at line 44 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a44f3034b223a5e9fd6c271ebceb70bfe}\label{namespacedqmc__cfg_a44f3034b223a5e9fd6c271ebceb70bfe}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!type\_real@{type\_real}}
+\index{type\_real@{type\_real}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{type\_real}{type\_real}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::type\+\_\+real = 1}
+
+
+
+Definition at line 43 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_a096836211d281a1a06011df00ca26ad9}\label{namespacedqmc__cfg_a096836211d281a1a06011df00ca26ad9}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!type\_str@{type\_str}}
+\index{type\_str@{type\_str}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{type\_str}{type\_str}}
+{\footnotesize\ttfamily character(8), dimension(3), parameter dqmc\+\_\+cfg\+::type\+\_\+str =(/\char`\"{}Real$\ast$8 \char`\"{},\char`\"{}Integer \char`\"{},\char`\"{}Char(60)\char`\"{}/)}
+
+
+
+Definition at line 41 of file dqmc\+\_\+cfg.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__cfg_aed463252c63b9271476df44a82f1d179}\label{namespacedqmc__cfg_aed463252c63b9271476df44a82f1d179}} 
+\index{dqmc\_cfg@{dqmc\_cfg}!type\_string@{type\_string}}
+\index{type\_string@{type\_string}!dqmc\_cfg@{dqmc\_cfg}}
+\doxysubsubsection{\texorpdfstring{type\_string}{type\_string}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+cfg\+::type\+\_\+string = 3}
+
+
+
+Definition at line 45 of file dqmc\+\_\+cfg.\+F90.
+

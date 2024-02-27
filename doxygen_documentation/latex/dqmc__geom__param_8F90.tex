@@ -1,0 +1,51 @@
+\hypertarget{dqmc__geom__param_8F90}{}\doxysection{SRC/dqmc\+\_\+geom\+\_\+param.F90 File Reference}
+\label{dqmc__geom__param_8F90}\index{SRC/dqmc\_geom\_param.F90@{SRC/dqmc\_geom\_param.F90}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__geom__param}{dqmc\+\_\+geom\+\_\+param}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__geom__param_a91745551076de3b38182f6ee4bbc688c}{dqmc\+\_\+geom\+\_\+param\+::analyze\+\_\+input}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a9808a9a68d8b8f6c1dbff87c524d1ac7}{dqmc\+\_\+geom\+\_\+param\+::rdim}} = 3
+\item 
+real $\ast$8, parameter \mbox{\hyperlink{namespacedqmc__geom__param_ac6e96b73836f259aca3b908aa6a8ccdd}{dqmc\+\_\+geom\+\_\+param\+::toll}} = 1.d-\/6
+\item 
+real $\ast$8, parameter \mbox{\hyperlink{namespacedqmc__geom__param_aa466f9ab4f3b9761538f14f3ea34ef39}{dqmc\+\_\+geom\+\_\+param\+::pi}} =acos(-\/1.d0)
+\item 
+complex $\ast$16, parameter \mbox{\hyperlink{namespacedqmc__geom__param_adffd39f4d501c77549c0540da1e63fa2}{dqmc\+\_\+geom\+\_\+param\+::im}} = (0.d0, 1.d0)
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}{dqmc\+\_\+geom\+\_\+param\+::n\+\_\+fields}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a275f116d357d91eca84ee29618bebef9}{dqmc\+\_\+geom\+\_\+param\+::ndim\+\_\+f}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_ae28dd24e7211971ba510f300206cc1da}{dqmc\+\_\+geom\+\_\+param\+::prim\+\_\+f}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_acc61f782ba3220cee69a802c4b66efff}{dqmc\+\_\+geom\+\_\+param\+::super\+\_\+f}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a380762b0fb809b87f7e13978eb377e9c}{dqmc\+\_\+geom\+\_\+param\+::orb\+\_\+f}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a7041791a4185ef0e90dbee9e0f66402b}{dqmc\+\_\+geom\+\_\+param\+::hamilt\+\_\+f}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a69075466fbeac7befd39dabd5cac7ef4}{dqmc\+\_\+geom\+\_\+param\+::symm\+\_\+f}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a7a4432df6cb451e89510ec727d23115a}{dqmc\+\_\+geom\+\_\+param\+::phase\+\_\+f}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a03fb8f65a302da6d789b0ffe30e82dc9}{dqmc\+\_\+geom\+\_\+param\+::bonds\+\_\+f}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_ae86753ef6c05dc5992ec77314a1c77a6}{dqmc\+\_\+geom\+\_\+param\+::pairs\+\_\+f}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a61df654d7d74e87c96b061b202eca3d3}{dqmc\+\_\+geom\+\_\+param\+::dilut\+\_\+f}} = 10
+\item 
+character $\ast$10, dimension(n\+\_\+fields), parameter \mbox{\hyperlink{namespacedqmc__geom__param_a29d6b39656f7c59e0bdf9f978bf7865c}{dqmc\+\_\+geom\+\_\+param\+::input\+\_\+fields}} = (/ \textquotesingle{} \#NDIM \textquotesingle{}, \textquotesingle{} \#\mbox{\hyperlink{pmlcg_2info_8h_a6dd0302d2b9ced6e396b9182a6287b9e}{PRIM}} \textquotesingle{}, \textquotesingle{} \#SUPER \textquotesingle{}, \textquotesingle{} \#ORB \textquotesingle{}, \textquotesingle{} \#HAMILT \textquotesingle{}, \textquotesingle{} \#SYMM \textquotesingle{}, \textquotesingle{} \#PHASE \textquotesingle{}, \textquotesingle{} \#BONDS \textquotesingle{}, \textquotesingle{} \#PAIR \textquotesingle{}, \textquotesingle{} \#DILUT \textquotesingle{} /)
+\item 
+integer \mbox{\hyperlink{namespacedqmc__geom__param_a94cf18d3e87f84d05bac6a52ee2bfb73}{dqmc\+\_\+geom\+\_\+param\+::inpunit}}
+\item 
+logical, dimension(n\+\_\+fields) \mbox{\hyperlink{namespacedqmc__geom__param_ae8e2d4ceaf37def394d8619f1a2795f4}{dqmc\+\_\+geom\+\_\+param\+::found\+\_\+field}}
+\end{DoxyCompactItemize}

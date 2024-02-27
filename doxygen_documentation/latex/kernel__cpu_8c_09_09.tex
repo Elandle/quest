@@ -1,0 +1,113 @@
+\hypertarget{kernel__cpu_8c_09_09}{}\doxysection{SRC/kernel\+\_\+cpu.c++ File Reference}
+\label{kernel__cpu_8c_09_09}\index{SRC/kernel\_cpu.c++@{SRC/kernel\_cpu.c++}}
+{\ttfamily \#include \char`\"{}profile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kernel\+\_\+cpu.\+h\char`\"{}}\newline
+Include dependency graph for kernel\+\_\+cpu.\+c++\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{kernel__cpu_8c_09_09__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_af45c17f73af85f458ca28c19b7a9b49c}{cpu\+\_\+diag}} (int n, double $\ast$A, double $\ast$D)
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_a008f5eb8e3cad82c6883db57ff8e0700}{cpu\+\_\+normcol}} (int n, double $\ast$A, double $\ast$D, double $\ast$c)
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_a405aeb4535eee121eb9308ac8a5f84f9}{cpu\+\_\+permute}} (int n, int $\ast$ipiv, double $\ast$A, double $\ast$Q)
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_a945f92dfa741eaace1873097c22eb305}{cpu\+\_\+scalerowperm}} (int n, double $\ast$D, double $\ast$Q, int $\ast$ipiv, double $\ast$T)
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_a96d52d740bcc1fea05b414fee60576a2}{cpu\+\_\+scalerow}} (int n, double $\ast$h, double $\ast$B, double $\ast$\mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}})
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_a0294ba2edfe645522b915874b9e78417}{cpu\+\_\+scalerowcol}} (int n, double $\ast$h, double $\ast$G)
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_aa5ad42d19081466b8f99de23e93bd78a}{cpu\+\_\+scalerowadd}} (int n, double $\ast$Db, double $\ast$U, double $\ast$D, double $\ast$T, double $\ast$G)
+\item 
+void \mbox{\hyperlink{kernel__cpu_8c_09_09_a95c8577f9d88a981dd7b0c5698f910a0}{cpu\+\_\+sort}} (int n, double $\ast$Db, int $\ast$ipiv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_af45c17f73af85f458ca28c19b7a9b49c}\label{kernel__cpu_8c_09_09_af45c17f73af85f458ca28c19b7a9b49c}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_diag@{cpu\_diag}}
+\index{cpu\_diag@{cpu\_diag}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_diag()}{cpu\_diag()}}
+{\footnotesize\ttfamily void cpu\+\_\+diag (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{A,  }\item[{double $\ast$}]{D }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_a008f5eb8e3cad82c6883db57ff8e0700}\label{kernel__cpu_8c_09_09_a008f5eb8e3cad82c6883db57ff8e0700}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_normcol@{cpu\_normcol}}
+\index{cpu\_normcol@{cpu\_normcol}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_normcol()}{cpu\_normcol()}}
+{\footnotesize\ttfamily void cpu\+\_\+normcol (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{A,  }\item[{double $\ast$}]{D,  }\item[{double $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_a405aeb4535eee121eb9308ac8a5f84f9}\label{kernel__cpu_8c_09_09_a405aeb4535eee121eb9308ac8a5f84f9}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_permute@{cpu\_permute}}
+\index{cpu\_permute@{cpu\_permute}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_permute()}{cpu\_permute()}}
+{\footnotesize\ttfamily void cpu\+\_\+permute (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{A,  }\item[{double $\ast$}]{Q }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_a96d52d740bcc1fea05b414fee60576a2}\label{kernel__cpu_8c_09_09_a96d52d740bcc1fea05b414fee60576a2}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_scalerow@{cpu\_scalerow}}
+\index{cpu\_scalerow@{cpu\_scalerow}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_scalerow()}{cpu\_scalerow()}}
+{\footnotesize\ttfamily void cpu\+\_\+scalerow (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{h,  }\item[{double $\ast$}]{B,  }\item[{double $\ast$}]{M }\end{DoxyParamCaption})}
+
+
+
+Definition at line 65 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_aa5ad42d19081466b8f99de23e93bd78a}\label{kernel__cpu_8c_09_09_aa5ad42d19081466b8f99de23e93bd78a}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_scalerowadd@{cpu\_scalerowadd}}
+\index{cpu\_scalerowadd@{cpu\_scalerowadd}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_scalerowadd()}{cpu\_scalerowadd()}}
+{\footnotesize\ttfamily void cpu\+\_\+scalerowadd (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{Db,  }\item[{double $\ast$}]{U,  }\item[{double $\ast$}]{D,  }\item[{double $\ast$}]{T,  }\item[{double $\ast$}]{G }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_a0294ba2edfe645522b915874b9e78417}\label{kernel__cpu_8c_09_09_a0294ba2edfe645522b915874b9e78417}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_scalerowcol@{cpu\_scalerowcol}}
+\index{cpu\_scalerowcol@{cpu\_scalerowcol}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_scalerowcol()}{cpu\_scalerowcol()}}
+{\footnotesize\ttfamily void cpu\+\_\+scalerowcol (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{h,  }\item[{double $\ast$}]{G }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_a945f92dfa741eaace1873097c22eb305}\label{kernel__cpu_8c_09_09_a945f92dfa741eaace1873097c22eb305}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_scalerowperm@{cpu\_scalerowperm}}
+\index{cpu\_scalerowperm@{cpu\_scalerowperm}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_scalerowperm()}{cpu\_scalerowperm()}}
+{\footnotesize\ttfamily void cpu\+\_\+scalerowperm (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{D,  }\item[{double $\ast$}]{Q,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{T }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file kernel\+\_\+cpu.\+c++.
+
+\mbox{\Hypertarget{kernel__cpu_8c_09_09_a95c8577f9d88a981dd7b0c5698f910a0}\label{kernel__cpu_8c_09_09_a95c8577f9d88a981dd7b0c5698f910a0}} 
+\index{kernel\_cpu.c++@{kernel\_cpu.c++}!cpu\_sort@{cpu\_sort}}
+\index{cpu\_sort@{cpu\_sort}!kernel\_cpu.c++@{kernel\_cpu.c++}}
+\doxysubsubsection{\texorpdfstring{cpu\_sort()}{cpu\_sort()}}
+{\footnotesize\ttfamily void cpu\+\_\+sort (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{Db,  }\item[{int $\ast$}]{ipiv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file kernel\+\_\+cpu.\+c++.
+

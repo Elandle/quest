@@ -1,0 +1,242 @@
+\hypertarget{namespacedqmc__geom__param}{}\doxysection{dqmc\+\_\+geom\+\_\+param Module Reference}
+\label{namespacedqmc__geom__param}\index{dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__geom__param_a91745551076de3b38182f6ee4bbc688c}{analyze\+\_\+input}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a9808a9a68d8b8f6c1dbff87c524d1ac7}{rdim}} = 3
+\item 
+real $\ast$8, parameter \mbox{\hyperlink{namespacedqmc__geom__param_ac6e96b73836f259aca3b908aa6a8ccdd}{toll}} = 1.d-\/6
+\item 
+real $\ast$8, parameter \mbox{\hyperlink{namespacedqmc__geom__param_aa466f9ab4f3b9761538f14f3ea34ef39}{pi}} =acos(-\/1.d0)
+\item 
+complex $\ast$16, parameter \mbox{\hyperlink{namespacedqmc__geom__param_adffd39f4d501c77549c0540da1e63fa2}{im}} = (0.d0, 1.d0)
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}{n\+\_\+fields}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a275f116d357d91eca84ee29618bebef9}{ndim\+\_\+f}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_ae28dd24e7211971ba510f300206cc1da}{prim\+\_\+f}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_acc61f782ba3220cee69a802c4b66efff}{super\+\_\+f}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a380762b0fb809b87f7e13978eb377e9c}{orb\+\_\+f}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a7041791a4185ef0e90dbee9e0f66402b}{hamilt\+\_\+f}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a69075466fbeac7befd39dabd5cac7ef4}{symm\+\_\+f}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a7a4432df6cb451e89510ec727d23115a}{phase\+\_\+f}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a03fb8f65a302da6d789b0ffe30e82dc9}{bonds\+\_\+f}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_ae86753ef6c05dc5992ec77314a1c77a6}{pairs\+\_\+f}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__geom__param_a61df654d7d74e87c96b061b202eca3d3}{dilut\+\_\+f}} = 10
+\item 
+character $\ast$10, dimension(\mbox{\hyperlink{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}{n\+\_\+fields}}), parameter \mbox{\hyperlink{namespacedqmc__geom__param_a29d6b39656f7c59e0bdf9f978bf7865c}{input\+\_\+fields}} = (/ \textquotesingle{} \#NDIM \textquotesingle{}, \textquotesingle{} \#\mbox{\hyperlink{pmlcg_2info_8h_a6dd0302d2b9ced6e396b9182a6287b9e}{PRIM}} \textquotesingle{}, \textquotesingle{} \#SUPER \textquotesingle{}, \textquotesingle{} \#ORB \textquotesingle{}, \textquotesingle{} \#HAMILT \textquotesingle{}, \textquotesingle{} \#SYMM \textquotesingle{}, \textquotesingle{} \#PHASE \textquotesingle{}, \textquotesingle{} \#BONDS \textquotesingle{}, \textquotesingle{} \#PAIR \textquotesingle{}, \textquotesingle{} \#DILUT \textquotesingle{} /)
+\item 
+integer \mbox{\hyperlink{namespacedqmc__geom__param_a94cf18d3e87f84d05bac6a52ee2bfb73}{inpunit}}
+\item 
+logical, dimension(\mbox{\hyperlink{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}{n\+\_\+fields}}) \mbox{\hyperlink{namespacedqmc__geom__param_ae8e2d4ceaf37def394d8619f1a2795f4}{found\+\_\+field}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__geom__param_a91745551076de3b38182f6ee4bbc688c}\label{namespacedqmc__geom__param_a91745551076de3b38182f6ee4bbc688c}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!analyze\_input@{analyze\_input}}
+\index{analyze\_input@{analyze\_input}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{analyze\_input()}{analyze\_input()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+geom\+\_\+param\+::analyze\+\_\+input}
+
+
+
+Definition at line 41 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__geom__param_a03fb8f65a302da6d789b0ffe30e82dc9}\label{namespacedqmc__geom__param_a03fb8f65a302da6d789b0ffe30e82dc9}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!bonds\_f@{bonds\_f}}
+\index{bonds\_f@{bonds\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{bonds\_f}{bonds\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::bonds\+\_\+f = 8}
+
+
+
+Definition at line 16 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a61df654d7d74e87c96b061b202eca3d3}\label{namespacedqmc__geom__param_a61df654d7d74e87c96b061b202eca3d3}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!dilut\_f@{dilut\_f}}
+\index{dilut\_f@{dilut\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{dilut\_f}{dilut\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::dilut\+\_\+f = 10}
+
+
+
+Definition at line 18 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_ae8e2d4ceaf37def394d8619f1a2795f4}\label{namespacedqmc__geom__param_ae8e2d4ceaf37def394d8619f1a2795f4}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!found\_field@{found\_field}}
+\index{found\_field@{found\_field}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{found\_field}{found\_field}}
+{\footnotesize\ttfamily logical, dimension(\mbox{\hyperlink{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}{n\+\_\+fields}}) dqmc\+\_\+geom\+\_\+param\+::found\+\_\+field}
+
+
+
+Definition at line 33 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a7041791a4185ef0e90dbee9e0f66402b}\label{namespacedqmc__geom__param_a7041791a4185ef0e90dbee9e0f66402b}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!hamilt\_f@{hamilt\_f}}
+\index{hamilt\_f@{hamilt\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{hamilt\_f}{hamilt\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::hamilt\+\_\+f = 5}
+
+
+
+Definition at line 13 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_adffd39f4d501c77549c0540da1e63fa2}\label{namespacedqmc__geom__param_adffd39f4d501c77549c0540da1e63fa2}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!im@{im}}
+\index{im@{im}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{im}{im}}
+{\footnotesize\ttfamily complex$\ast$16, parameter dqmc\+\_\+geom\+\_\+param\+::im = (0.d0, 1.d0)}
+
+
+
+Definition at line 6 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a94cf18d3e87f84d05bac6a52ee2bfb73}\label{namespacedqmc__geom__param_a94cf18d3e87f84d05bac6a52ee2bfb73}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!inpunit@{inpunit}}
+\index{inpunit@{inpunit}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{inpunit}{inpunit}}
+{\footnotesize\ttfamily integer dqmc\+\_\+geom\+\_\+param\+::inpunit}
+
+
+
+Definition at line 32 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a29d6b39656f7c59e0bdf9f978bf7865c}\label{namespacedqmc__geom__param_a29d6b39656f7c59e0bdf9f978bf7865c}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!input\_fields@{input\_fields}}
+\index{input\_fields@{input\_fields}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{input\_fields}{input\_fields}}
+{\footnotesize\ttfamily character$\ast$10, dimension(\mbox{\hyperlink{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}{n\+\_\+fields}}), parameter dqmc\+\_\+geom\+\_\+param\+::input\+\_\+fields = (/ \textquotesingle{} \#NDIM \textquotesingle{}, \textquotesingle{} \#\mbox{\hyperlink{pmlcg_2info_8h_a6dd0302d2b9ced6e396b9182a6287b9e}{PRIM}} \textquotesingle{}, \textquotesingle{} \#SUPER \textquotesingle{}, \textquotesingle{} \#ORB \textquotesingle{}, \textquotesingle{} \#HAMILT \textquotesingle{}, \textquotesingle{} \#SYMM \textquotesingle{}, \textquotesingle{} \#PHASE \textquotesingle{}, \textquotesingle{} \#BONDS \textquotesingle{}, \textquotesingle{} \#PAIR \textquotesingle{}, \textquotesingle{} \#DILUT \textquotesingle{} /)}
+
+
+
+Definition at line 20 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}\label{namespacedqmc__geom__param_a3f262300b2288695f3e445de1ddc189d}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!n\_fields@{n\_fields}}
+\index{n\_fields@{n\_fields}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{n\_fields}{n\_fields}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::n\+\_\+fields = 10}
+
+
+
+Definition at line 8 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a275f116d357d91eca84ee29618bebef9}\label{namespacedqmc__geom__param_a275f116d357d91eca84ee29618bebef9}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!ndim\_f@{ndim\_f}}
+\index{ndim\_f@{ndim\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{ndim\_f}{ndim\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::ndim\+\_\+f = 1}
+
+
+
+Definition at line 9 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a380762b0fb809b87f7e13978eb377e9c}\label{namespacedqmc__geom__param_a380762b0fb809b87f7e13978eb377e9c}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!orb\_f@{orb\_f}}
+\index{orb\_f@{orb\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{orb\_f}{orb\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::orb\+\_\+f = 4}
+
+
+
+Definition at line 12 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_ae86753ef6c05dc5992ec77314a1c77a6}\label{namespacedqmc__geom__param_ae86753ef6c05dc5992ec77314a1c77a6}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!pairs\_f@{pairs\_f}}
+\index{pairs\_f@{pairs\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{pairs\_f}{pairs\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::pairs\+\_\+f = 9}
+
+
+
+Definition at line 17 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a7a4432df6cb451e89510ec727d23115a}\label{namespacedqmc__geom__param_a7a4432df6cb451e89510ec727d23115a}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!phase\_f@{phase\_f}}
+\index{phase\_f@{phase\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{phase\_f}{phase\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::phase\+\_\+f = 7}
+
+
+
+Definition at line 15 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_aa466f9ab4f3b9761538f14f3ea34ef39}\label{namespacedqmc__geom__param_aa466f9ab4f3b9761538f14f3ea34ef39}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!pi@{pi}}
+\index{pi@{pi}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily real$\ast$8, parameter dqmc\+\_\+geom\+\_\+param\+::pi =acos(-\/1.d0)}
+
+
+
+Definition at line 5 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_ae28dd24e7211971ba510f300206cc1da}\label{namespacedqmc__geom__param_ae28dd24e7211971ba510f300206cc1da}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!prim\_f@{prim\_f}}
+\index{prim\_f@{prim\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{prim\_f}{prim\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::prim\+\_\+f = 2}
+
+
+
+Definition at line 10 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a9808a9a68d8b8f6c1dbff87c524d1ac7}\label{namespacedqmc__geom__param_a9808a9a68d8b8f6c1dbff87c524d1ac7}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!rdim@{rdim}}
+\index{rdim@{rdim}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{rdim}{rdim}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::rdim = 3}
+
+
+
+Definition at line 4 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_acc61f782ba3220cee69a802c4b66efff}\label{namespacedqmc__geom__param_acc61f782ba3220cee69a802c4b66efff}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!super\_f@{super\_f}}
+\index{super\_f@{super\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{super\_f}{super\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::super\+\_\+f = 3}
+
+
+
+Definition at line 11 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_a69075466fbeac7befd39dabd5cac7ef4}\label{namespacedqmc__geom__param_a69075466fbeac7befd39dabd5cac7ef4}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!symm\_f@{symm\_f}}
+\index{symm\_f@{symm\_f}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{symm\_f}{symm\_f}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+geom\+\_\+param\+::symm\+\_\+f = 6}
+
+
+
+Definition at line 14 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__geom__param_ac6e96b73836f259aca3b908aa6a8ccdd}\label{namespacedqmc__geom__param_ac6e96b73836f259aca3b908aa6a8ccdd}} 
+\index{dqmc\_geom\_param@{dqmc\_geom\_param}!toll@{toll}}
+\index{toll@{toll}!dqmc\_geom\_param@{dqmc\_geom\_param}}
+\doxysubsubsection{\texorpdfstring{toll}{toll}}
+{\footnotesize\ttfamily real$\ast$8, parameter dqmc\+\_\+geom\+\_\+param\+::toll = 1.d-\/6}
+
+
+
+Definition at line 5 of file dqmc\+\_\+geom\+\_\+param.\+F90.
+

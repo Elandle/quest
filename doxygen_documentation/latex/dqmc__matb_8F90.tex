@@ -1,0 +1,67 @@
+\hypertarget{dqmc__matb_8F90}{}\doxysection{SRC/dqmc\+\_\+matb.F90 File Reference}
+\label{dqmc__matb_8F90}\index{SRC/dqmc\_matb.F90@{SRC/dqmc\_matb.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+matb.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{dqmc__matb_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__matb_1_1matb}{dqmc\+\_\+matb\+::matb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__matb}{dqmc\+\_\+matb}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{dqmc__matb_8F90_a328adaa38b701218e169652036430fbd}{PROF\+\_\+\+BEGIN}}
+\item 
+\#define \mbox{\hyperlink{dqmc__matb_8F90_a9c76424b11cece2d3e8dc8f84137793a}{PROF\+\_\+\+END}}(c,  t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_ac64a622ca02009f0e3d09da9bdff3a49}{dqmc\+\_\+matb\+::dqmc\+\_\+b\+\_\+init}} (n, B, WS, Adj, ckb, t, mu, dtau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a9affe0f57867b7b128a7b9dcca5b98d4}{dqmc\+\_\+matb\+::dqmc\+\_\+b\+\_\+expinit}} (B, \mbox{\hyperlink{blaslapack_8c_09_09_a97d832ae23af4f215e801e37e4f94254}{K}}, WS)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a2557bd5dd2239cf1f7627a656b8522bc}{dqmc\+\_\+matb\+::dqmc\+\_\+b\+\_\+free}} (B)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_af6c97cadc84554df941702c976fed579}{dqmc\+\_\+matb\+::dqmc\+\_\+multb\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a1a72b12b901178defa836bfba3854164}{dqmc\+\_\+matb\+::dqmc\+\_\+multbi\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_affb66c78d7e736cad2da3110f1b960ca}{dqmc\+\_\+matb\+::dqmc\+\_\+multb\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a71e7c012b022664c41d15ac79bae7866}{dqmc\+\_\+matb\+::dqmc\+\_\+multbi\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a1e9abdd78be737f611f5d4e1f20ae48d}{dqmc\+\_\+matb\+::dqmc\+\_\+multrtb0\+\_\+left}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_aedc72e75f963a429324e69118e046bb8}{dqmc\+\_\+matb\+::dqmc\+\_\+multrtb0i\+\_\+right}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_ace7a08c3ef8765ab5d2475846203539b}{dqmc\+\_\+matb\+::dqmc\+\_\+getb}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__matb_a2fd0b046e1458f3568d6b2b2c51aab96}{dqmc\+\_\+matb\+::dqmc\+\_\+getbi}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, B, V\+\_\+i, C)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{dqmc__matb_8F90_a328adaa38b701218e169652036430fbd}\label{dqmc__matb_8F90_a328adaa38b701218e169652036430fbd}} 
+\index{dqmc\_matb.F90@{dqmc\_matb.F90}!PROF\_BEGIN@{PROF\_BEGIN}}
+\index{PROF\_BEGIN@{PROF\_BEGIN}!dqmc\_matb.F90@{dqmc\_matb.F90}}
+\doxysubsubsection{\texorpdfstring{PROF\_BEGIN}{PROF\_BEGIN}}
+{\footnotesize\ttfamily \#define PROF\+\_\+\+BEGIN}
+
+\mbox{\Hypertarget{dqmc__matb_8F90_a9c76424b11cece2d3e8dc8f84137793a}\label{dqmc__matb_8F90_a9c76424b11cece2d3e8dc8f84137793a}} 
+\index{dqmc\_matb.F90@{dqmc\_matb.F90}!PROF\_END@{PROF\_END}}
+\index{PROF\_END@{PROF\_END}!dqmc\_matb.F90@{dqmc\_matb.F90}}
+\doxysubsubsection{\texorpdfstring{PROF\_END}{PROF\_END}}
+{\footnotesize\ttfamily \#define PROF\+\_\+\+END(\begin{DoxyParamCaption}\item[{}]{c,  }\item[{}]{t }\end{DoxyParamCaption})}
+

@@ -1,0 +1,64 @@
+\hypertarget{dqmc__gtau_8F90}{}\doxysection{SRC/dqmc\+\_\+gtau.F90 File Reference}
+\label{dqmc__gtau_8F90}\index{SRC/dqmc\_gtau.F90@{SRC/dqmc\_gtau.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+gtau.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{dqmc__gtau_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__gtau_1_1gtau}{dqmc\+\_\+gtau\+::gtau}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__gtau}{dqmc\+\_\+gtau}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a85fdcb8d4b15690395c8e4e687fe684b}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+init}} (Hub, tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_aaed461c36a4f6b7de45d8e2de8acfbf0}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+free}} (tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a1c57892aed7be0e2375f598dab4ab11a}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+loada}} (tau, spin, slice, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}})
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_aa11d8aef1e76de9c7b9b69873c00ac49}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+copyup}} (tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a58d135791a673d1ab451ef55c6919a27}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+dumpa}} (tau, spin, it, i0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a60d944b5293b4f69da4d8f71c3738ad2}{dqmc\+\_\+gtau\+::dqmc\+\_\+makegtau}} (tau, it, i0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_aa79a4c438e9fd161bbcb9f56f2748d92}{dqmc\+\_\+gtau\+::dqmc\+\_\+getgtau}} (it, i0, spin, gt0, g0t, g00, gtt, tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a4af0c3e33609cb6259680772023c0586}{dqmc\+\_\+gtau\+::dqmc\+\_\+change\+\_\+gtau\+\_\+time}} (tau, idir, spin)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a0e5229bc220ea10a9ecae06a55d07f01}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+setalias}} (spin, tau, A, B, V, gt0, g0t, g00, gtt, it, i0, itau, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}})
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__gtau_a86ebad0c412d0a35bd86853544370e56}{dqmc\+\_\+gtau\+::dqmc\+\_\+gtau\+\_\+getg0}} (n, tau, spin, slice, g0tau)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a9bb0a5859472ab0424dd1a4f60f73242}{dqmc\+\_\+gtau\+::tau\+\_\+t0}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_af2c8388f792265dcbc6c817d51ec2cd9}{dqmc\+\_\+gtau\+::tau\+\_\+both}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a6989887e7345e3d95abd9f3cca367611}{dqmc\+\_\+gtau\+::tau\+\_\+0t}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_aba62bea1257f727669809e4984784d67}{dqmc\+\_\+gtau\+::tau\+\_\+up}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a51fda49af990a12ffd7dd2a1da394d28}{dqmc\+\_\+gtau\+::tau\+\_\+dn}} = -\/1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a00df72c952f52efb56295a65d9401230}{dqmc\+\_\+gtau\+::tplus}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a8416f343c83ae868b8c955760e3385f2}{dqmc\+\_\+gtau\+::tminus}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a6b76c36682705d426e728cc6453c61ee}{dqmc\+\_\+gtau\+::zplus}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__gtau_a996eb5e0078d7f6fc915a9a37f80a288}{dqmc\+\_\+gtau\+::zminus}} = 4
+\end{DoxyCompactItemize}

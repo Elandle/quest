@@ -1,0 +1,128 @@
+\hypertarget{sum_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/sum.cpp File Reference}
+\label{sum_8cpp}\index{SRC/sprng5/TESTS/sum.cpp@{SRC/sprng5/TESTS/sum.cpp}}
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for sum.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sum_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sum_8cpp_ac6afabdc09a49a433ee19d8a9486056d}{min}}(a,  b)~((a)$<$(b))?(a)\+:(b)
+\item 
+\#define \mbox{\hyperlink{sum_8cpp_affe776513b24d84b39af8ab0930fef7f}{max}}(a,  b)~((a)$>$(b))?(a)\+:(b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{sum_8cpp_a410780a871feb8fef5f85535c23e1f99}{test\+\_\+normal}} (double $\ast$array, int n)
+\item 
+void \mbox{\hyperlink{sum_8cpp_a9199f5155427b06f6154284ac826eae0}{set\+\_\+normal\+\_\+params}} (double mu, double sd)
+\item 
+double \mbox{\hyperlink{sum_8cpp_a4390a65f46763681ea0e1cd1c9f0513b}{normalF}} (double \mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}})
+\item 
+void \mbox{\hyperlink{sum_8cpp_a2666d6dbf920901bcda8e51e0a0645a7}{mean\+\_\+sd}} (double $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, int n, double $\ast$mean, double $\ast$sd)
+\item 
+int \mbox{\hyperlink{sum_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sum_8cpp_a939f3969e8c4745952f2c64b3ab5aed8}{group\+\_\+size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{sum_8cpp_affe776513b24d84b39af8ab0930fef7f}\label{sum_8cpp_affe776513b24d84b39af8ab0930fef7f}} 
+\index{sum.cpp@{sum.cpp}!max@{max}}
+\index{max@{max}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{max}{max}}
+{\footnotesize\ttfamily \#define max(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~((a)$>$(b))?(a)\+:(b)}
+
+
+
+Definition at line 15 of file sum.\+cpp.
+
+\mbox{\Hypertarget{sum_8cpp_ac6afabdc09a49a433ee19d8a9486056d}\label{sum_8cpp_ac6afabdc09a49a433ee19d8a9486056d}} 
+\index{sum.cpp@{sum.cpp}!min@{min}}
+\index{min@{min}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{min}{min}}
+{\footnotesize\ttfamily \#define min(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~((a)$<$(b))?(a)\+:(b)}
+
+
+
+Definition at line 14 of file sum.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sum_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{sum_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{sum.cpp@{sum.cpp}!main@{main}}
+\index{main@{main}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 24 of file sum.\+cpp.
+
+\mbox{\Hypertarget{sum_8cpp_a2666d6dbf920901bcda8e51e0a0645a7}\label{sum_8cpp_a2666d6dbf920901bcda8e51e0a0645a7}} 
+\index{sum.cpp@{sum.cpp}!mean\_sd@{mean\_sd}}
+\index{mean\_sd@{mean\_sd}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{mean\_sd()}{mean\_sd()}}
+{\footnotesize\ttfamily void mean\+\_\+sd (\begin{DoxyParamCaption}\item[{double $\ast$}]{x,  }\item[{int}]{n,  }\item[{double $\ast$}]{mean,  }\item[{double $\ast$}]{sd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 527 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{sum_8cpp_a4390a65f46763681ea0e1cd1c9f0513b}\label{sum_8cpp_a4390a65f46763681ea0e1cd1c9f0513b}} 
+\index{sum.cpp@{sum.cpp}!normalF@{normalF}}
+\index{normalF@{normalF}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{normalF()}{normalF()}}
+{\footnotesize\ttfamily double normalF (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 522 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{sum_8cpp_a9199f5155427b06f6154284ac826eae0}\label{sum_8cpp_a9199f5155427b06f6154284ac826eae0}} 
+\index{sum.cpp@{sum.cpp}!set\_normal\_params@{set\_normal\_params}}
+\index{set\_normal\_params@{set\_normal\_params}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{set\_normal\_params()}{set\_normal\_params()}}
+{\footnotesize\ttfamily void set\+\_\+normal\+\_\+params (\begin{DoxyParamCaption}\item[{double}]{mu,  }\item[{double}]{sd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 516 of file chisquare.\+cpp.
+
+\mbox{\Hypertarget{sum_8cpp_a410780a871feb8fef5f85535c23e1f99}\label{sum_8cpp_a410780a871feb8fef5f85535c23e1f99}} 
+\index{sum.cpp@{sum.cpp}!test\_normal@{test\_normal}}
+\index{test\_normal@{test\_normal}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_normal()}{test\_normal()}}
+{\footnotesize\ttfamily double test\+\_\+normal (\begin{DoxyParamCaption}\item[{double $\ast$}]{array,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file sum.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{sum_8cpp_a939f3969e8c4745952f2c64b3ab5aed8}\label{sum_8cpp_a939f3969e8c4745952f2c64b3ab5aed8}} 
+\index{sum.cpp@{sum.cpp}!group\_size@{group\_size}}
+\index{group\_size@{group\_size}!sum.cpp@{sum.cpp}}
+\doxysubsubsection{\texorpdfstring{group\_size}{group\_size}}
+{\footnotesize\ttfamily int group\+\_\+size}
+
+
+
+Definition at line 22 of file sum.\+cpp.
+

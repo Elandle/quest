@@ -1,0 +1,319 @@
+\hypertarget{fwrap_8cpp}{}\doxysection{SRC/sprng5/\+SRC/fwrap.cpp File Reference}
+\label{fwrap_8cpp}\index{SRC/sprng5/SRC/fwrap.cpp@{SRC/sprng5/SRC/fwrap.cpp}}
+{\ttfamily \#include \char`\"{}fwrap.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sprng\+\_\+cpp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/resource.\+h$>$}\newline
+Include dependency graph for fwrap.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fwrap_8cpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{fwrap_8cpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a616ba8234e1091946862a4aecf021276}{fget\+\_\+seed\+\_\+rng\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}})
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_af1bbc99c772e61debc7e88b921b38689}{ffree\+\_\+rng\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}})
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a13858b3af9c15727a05cdeea35856073}{fmake\+\_\+new\+\_\+seed\+\_\+\+F77}} (void)
+\item 
+int $\ast$ \mbox{\hyperlink{fwrap_8cpp_a7fdab2c99695a16040235f415e2977bb}{finit\+\_\+rng\+\_\+sim\+\_\+\+F77}} (int $\ast$seed, int $\ast$\mbox{\hyperlink{lcg_8cpp_a69188bd4d45e4e72a129942e1564e551}{mult}}, int $\ast$\mbox{\hyperlink{pi-simple_8cpp_a9c91ebe5a0d761035861536a9e17257a}{gtype}}=0)
+\item 
+int $\ast$ \mbox{\hyperlink{fwrap_8cpp_a6b54b92a3472d4d0fc255e84838ce5eb}{finit\+\_\+rng\+\_\+\+F77}} (int $\ast$rng\+\_\+type, int $\ast$gennum, int $\ast$total\+\_\+gen, int $\ast$seed, int $\ast$length)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_acba141fb500e5db312cb1b4492b21e3c}{fspawn\+\_\+rng\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}}, int $\ast$nspawned, int $\ast$$\ast$new\+Gen)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a38a0a8b8dd8fce507656020bd807b365}{fget\+\_\+rn\+\_\+int\+\_\+sim\+\_\+\+F77}} (void)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a09fa6ddf0289520f582d80530923a884}{fget\+\_\+rn\+\_\+int\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}})
+\item 
+float \mbox{\hyperlink{fwrap_8cpp_a751e0ecc5c23dcad1a060fd0a6e66b8a}{fget\+\_\+rn\+\_\+flt\+\_\+sim\+\_\+\+F77}} (void)
+\item 
+float \mbox{\hyperlink{fwrap_8cpp_adb7759dc1aeb194769bc8b58470215ad}{fget\+\_\+rn\+\_\+flt\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}})
+\item 
+double \mbox{\hyperlink{fwrap_8cpp_ac9cd10cd05dd4e83bc7c83c9e4ff019c}{fget\+\_\+rn\+\_\+dbl\+\_\+sim\+\_\+\+F77}} (void)
+\item 
+double \mbox{\hyperlink{fwrap_8cpp_a30c07c2f8dc97b25a2a0eb288389f3b9}{fget\+\_\+rn\+\_\+dbl\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}})
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_ae69e88fff2be704641dab776db17e662}{fpack\+\_\+rng\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}}, char $\ast$buffer)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_af57c8e01c3a1d36a01826eaff9f714b4}{fpack\+\_\+rng\+\_\+simple\+\_\+\+F77}} (char $\ast$buffer)
+\item 
+int $\ast$ \mbox{\hyperlink{fwrap_8cpp_a9ec59c3e795d0080d69aacc01217720e}{funpack\+\_\+rng\+\_\+\+F77}} (char $\ast$buffer, int $\ast$rng\+\_\+type)
+\item 
+int $\ast$ \mbox{\hyperlink{fwrap_8cpp_a6fd4fa7693cafd49f3f05dee043c95fe}{funpack\+\_\+rng\+\_\+simple\+\_\+\+F77}} (char $\ast$buffer, int $\ast$rng\+\_\+type)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_ac47c050af62dbb29be43074a5b1d160c}{fprint\+\_\+rng\+\_\+\+F77}} (int $\ast$$\ast$\mbox{\hyperlink{wolfftest_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}})
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a0aa3208a7954a7370d3f5b1c9a7e7860}{fprint\+\_\+rng\+\_\+simple\+\_\+\+F77}} (void)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a3832f5dbf909aa654f5396fa5d921ae9}{fseed\+\_\+mpi\+\_\+\+F77}} (void)
+\item 
+int $\ast$ \mbox{\hyperlink{fwrap_8cpp_ac3b3f3ac4d24ccb85de2c422e378fb9d}{finit\+\_\+rng\+\_\+simmpi\+\_\+\+F77}} (int $\ast$seed, int $\ast$\mbox{\hyperlink{lcg_8cpp_a69188bd4d45e4e72a129942e1564e551}{mult}}, int $\ast$rng\+\_\+type)
+\item 
+int \mbox{\hyperlink{fwrap_8cpp_a24970c77e2056c6c153eac873d317d71}{fget\+\_\+rn\+\_\+int\+\_\+simmpi\+\_\+\+F77}} (void)
+\item 
+float \mbox{\hyperlink{fwrap_8cpp_a3ba51661a4ba8d7732376ff4c35e94d1}{fget\+\_\+rn\+\_\+flt\+\_\+simmpi\+\_\+\+F77}} (void)
+\item 
+double \mbox{\hyperlink{fwrap_8cpp_a2db43a829e17f1fbe3370bd1795b787f}{fget\+\_\+rn\+\_\+dbl\+\_\+simmpi\+\_\+\+F77}} (void)
+\item 
+double \mbox{\hyperlink{fwrap_8cpp_a08be4844d73a0356e8e20af6ee2d971c}{fcpu\+\_\+t\+\_\+\+F77}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fwrap_8cpp_a08be4844d73a0356e8e20af6ee2d971c}\label{fwrap_8cpp_a08be4844d73a0356e8e20af6ee2d971c}} 
+\index{fwrap.cpp@{fwrap.cpp}!fcpu\_t\_F77@{fcpu\_t\_F77}}
+\index{fcpu\_t\_F77@{fcpu\_t\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fcpu\_t\_F77()}{fcpu\_t\_F77()}}
+{\footnotesize\ttfamily double fcpu\+\_\+t\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_af1bbc99c772e61debc7e88b921b38689}\label{fwrap_8cpp_af1bbc99c772e61debc7e88b921b38689}} 
+\index{fwrap.cpp@{fwrap.cpp}!ffree\_rng\_F77@{ffree\_rng\_F77}}
+\index{ffree\_rng\_F77@{ffree\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{ffree\_rng\_F77()}{ffree\_rng\_F77()}}
+{\footnotesize\ttfamily int ffree\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a30c07c2f8dc97b25a2a0eb288389f3b9}\label{fwrap_8cpp_a30c07c2f8dc97b25a2a0eb288389f3b9}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_dbl\_F77@{fget\_rn\_dbl\_F77}}
+\index{fget\_rn\_dbl\_F77@{fget\_rn\_dbl\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_dbl\_F77()}{fget\_rn\_dbl\_F77()}}
+{\footnotesize\ttfamily double fget\+\_\+rn\+\_\+dbl\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 154 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_ac9cd10cd05dd4e83bc7c83c9e4ff019c}\label{fwrap_8cpp_ac9cd10cd05dd4e83bc7c83c9e4ff019c}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_dbl\_sim\_F77@{fget\_rn\_dbl\_sim\_F77}}
+\index{fget\_rn\_dbl\_sim\_F77@{fget\_rn\_dbl\_sim\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_dbl\_sim\_F77()}{fget\_rn\_dbl\_sim\_F77()}}
+{\footnotesize\ttfamily double fget\+\_\+rn\+\_\+dbl\+\_\+sim\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 149 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a2db43a829e17f1fbe3370bd1795b787f}\label{fwrap_8cpp_a2db43a829e17f1fbe3370bd1795b787f}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_dbl\_simmpi\_F77@{fget\_rn\_dbl\_simmpi\_F77}}
+\index{fget\_rn\_dbl\_simmpi\_F77@{fget\_rn\_dbl\_simmpi\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_dbl\_simmpi\_F77()}{fget\_rn\_dbl\_simmpi\_F77()}}
+{\footnotesize\ttfamily double fget\+\_\+rn\+\_\+dbl\+\_\+simmpi\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 237 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_adb7759dc1aeb194769bc8b58470215ad}\label{fwrap_8cpp_adb7759dc1aeb194769bc8b58470215ad}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_flt\_F77@{fget\_rn\_flt\_F77}}
+\index{fget\_rn\_flt\_F77@{fget\_rn\_flt\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_flt\_F77()}{fget\_rn\_flt\_F77()}}
+{\footnotesize\ttfamily float fget\+\_\+rn\+\_\+flt\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 143 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a751e0ecc5c23dcad1a060fd0a6e66b8a}\label{fwrap_8cpp_a751e0ecc5c23dcad1a060fd0a6e66b8a}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_flt\_sim\_F77@{fget\_rn\_flt\_sim\_F77}}
+\index{fget\_rn\_flt\_sim\_F77@{fget\_rn\_flt\_sim\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_flt\_sim\_F77()}{fget\_rn\_flt\_sim\_F77()}}
+{\footnotesize\ttfamily float fget\+\_\+rn\+\_\+flt\+\_\+sim\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 138 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a3ba51661a4ba8d7732376ff4c35e94d1}\label{fwrap_8cpp_a3ba51661a4ba8d7732376ff4c35e94d1}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_flt\_simmpi\_F77@{fget\_rn\_flt\_simmpi\_F77}}
+\index{fget\_rn\_flt\_simmpi\_F77@{fget\_rn\_flt\_simmpi\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_flt\_simmpi\_F77()}{fget\_rn\_flt\_simmpi\_F77()}}
+{\footnotesize\ttfamily float fget\+\_\+rn\+\_\+flt\+\_\+simmpi\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 232 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a09fa6ddf0289520f582d80530923a884}\label{fwrap_8cpp_a09fa6ddf0289520f582d80530923a884}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_int\_F77@{fget\_rn\_int\_F77}}
+\index{fget\_rn\_int\_F77@{fget\_rn\_int\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_int\_F77()}{fget\_rn\_int\_F77()}}
+{\footnotesize\ttfamily int fget\+\_\+rn\+\_\+int\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a38a0a8b8dd8fce507656020bd807b365}\label{fwrap_8cpp_a38a0a8b8dd8fce507656020bd807b365}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_int\_sim\_F77@{fget\_rn\_int\_sim\_F77}}
+\index{fget\_rn\_int\_sim\_F77@{fget\_rn\_int\_sim\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_int\_sim\_F77()}{fget\_rn\_int\_sim\_F77()}}
+{\footnotesize\ttfamily int fget\+\_\+rn\+\_\+int\+\_\+sim\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 127 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a24970c77e2056c6c153eac873d317d71}\label{fwrap_8cpp_a24970c77e2056c6c153eac873d317d71}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_rn\_int\_simmpi\_F77@{fget\_rn\_int\_simmpi\_F77}}
+\index{fget\_rn\_int\_simmpi\_F77@{fget\_rn\_int\_simmpi\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_int\_simmpi\_F77()}{fget\_rn\_int\_simmpi\_F77()}}
+{\footnotesize\ttfamily int fget\+\_\+rn\+\_\+int\+\_\+simmpi\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 227 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a616ba8234e1091946862a4aecf021276}\label{fwrap_8cpp_a616ba8234e1091946862a4aecf021276}} 
+\index{fwrap.cpp@{fwrap.cpp}!fget\_seed\_rng\_F77@{fget\_seed\_rng\_F77}}
+\index{fget\_seed\_rng\_F77@{fget\_seed\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fget\_seed\_rng\_F77()}{fget\_seed\_rng\_F77()}}
+{\footnotesize\ttfamily int fget\+\_\+seed\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a6b54b92a3472d4d0fc255e84838ce5eb}\label{fwrap_8cpp_a6b54b92a3472d4d0fc255e84838ce5eb}} 
+\index{fwrap.cpp@{fwrap.cpp}!finit\_rng\_F77@{finit\_rng\_F77}}
+\index{finit\_rng\_F77@{finit\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{finit\_rng\_F77()}{finit\_rng\_F77()}}
+{\footnotesize\ttfamily int $\ast$ finit\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$}]{rng\+\_\+type,  }\item[{int $\ast$}]{gennum,  }\item[{int $\ast$}]{total\+\_\+gen,  }\item[{int $\ast$}]{seed,  }\item[{int $\ast$}]{length }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a7fdab2c99695a16040235f415e2977bb}\label{fwrap_8cpp_a7fdab2c99695a16040235f415e2977bb}} 
+\index{fwrap.cpp@{fwrap.cpp}!finit\_rng\_sim\_F77@{finit\_rng\_sim\_F77}}
+\index{finit\_rng\_sim\_F77@{finit\_rng\_sim\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{finit\_rng\_sim\_F77()}{finit\_rng\_sim\_F77()}}
+{\footnotesize\ttfamily int $\ast$ finit\+\_\+rng\+\_\+sim\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$}]{seed,  }\item[{int $\ast$}]{mult,  }\item[{int $\ast$}]{gtype = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_ac3b3f3ac4d24ccb85de2c422e378fb9d}\label{fwrap_8cpp_ac3b3f3ac4d24ccb85de2c422e378fb9d}} 
+\index{fwrap.cpp@{fwrap.cpp}!finit\_rng\_simmpi\_F77@{finit\_rng\_simmpi\_F77}}
+\index{finit\_rng\_simmpi\_F77@{finit\_rng\_simmpi\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{finit\_rng\_simmpi\_F77()}{finit\_rng\_simmpi\_F77()}}
+{\footnotesize\ttfamily int $\ast$ finit\+\_\+rng\+\_\+simmpi\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$}]{seed,  }\item[{int $\ast$}]{mult,  }\item[{int $\ast$}]{rng\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Definition at line 222 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a13858b3af9c15727a05cdeea35856073}\label{fwrap_8cpp_a13858b3af9c15727a05cdeea35856073}} 
+\index{fwrap.cpp@{fwrap.cpp}!fmake\_new\_seed\_F77@{fmake\_new\_seed\_F77}}
+\index{fmake\_new\_seed\_F77@{fmake\_new\_seed\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fmake\_new\_seed\_F77()}{fmake\_new\_seed\_F77()}}
+{\footnotesize\ttfamily int fmake\+\_\+new\+\_\+seed\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 93 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_ae69e88fff2be704641dab776db17e662}\label{fwrap_8cpp_ae69e88fff2be704641dab776db17e662}} 
+\index{fwrap.cpp@{fwrap.cpp}!fpack\_rng\_F77@{fpack\_rng\_F77}}
+\index{fpack\_rng\_F77@{fpack\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fpack\_rng\_F77()}{fpack\_rng\_F77()}}
+{\footnotesize\ttfamily int fpack\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr,  }\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_af57c8e01c3a1d36a01826eaff9f714b4}\label{fwrap_8cpp_af57c8e01c3a1d36a01826eaff9f714b4}} 
+\index{fwrap.cpp@{fwrap.cpp}!fpack\_rng\_simple\_F77@{fpack\_rng\_simple\_F77}}
+\index{fpack\_rng\_simple\_F77@{fpack\_rng\_simple\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fpack\_rng\_simple\_F77()}{fpack\_rng\_simple\_F77()}}
+{\footnotesize\ttfamily int fpack\+\_\+rng\+\_\+simple\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Definition at line 174 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_ac47c050af62dbb29be43074a5b1d160c}\label{fwrap_8cpp_ac47c050af62dbb29be43074a5b1d160c}} 
+\index{fwrap.cpp@{fwrap.cpp}!fprint\_rng\_F77@{fprint\_rng\_F77}}
+\index{fprint\_rng\_F77@{fprint\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fprint\_rng\_F77()}{fprint\_rng\_F77()}}
+{\footnotesize\ttfamily int fprint\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 202 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a0aa3208a7954a7370d3f5b1c9a7e7860}\label{fwrap_8cpp_a0aa3208a7954a7370d3f5b1c9a7e7860}} 
+\index{fwrap.cpp@{fwrap.cpp}!fprint\_rng\_simple\_F77@{fprint\_rng\_simple\_F77}}
+\index{fprint\_rng\_simple\_F77@{fprint\_rng\_simple\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fprint\_rng\_simple\_F77()}{fprint\_rng\_simple\_F77()}}
+{\footnotesize\ttfamily int fprint\+\_\+rng\+\_\+simple\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 208 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a3832f5dbf909aa654f5396fa5d921ae9}\label{fwrap_8cpp_a3832f5dbf909aa654f5396fa5d921ae9}} 
+\index{fwrap.cpp@{fwrap.cpp}!fseed\_mpi\_F77@{fseed\_mpi\_F77}}
+\index{fseed\_mpi\_F77@{fseed\_mpi\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fseed\_mpi\_F77()}{fseed\_mpi\_F77()}}
+{\footnotesize\ttfamily int fseed\+\_\+mpi\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 213 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_acba141fb500e5db312cb1b4492b21e3c}\label{fwrap_8cpp_acba141fb500e5db312cb1b4492b21e3c}} 
+\index{fwrap.cpp@{fwrap.cpp}!fspawn\_rng\_F77@{fspawn\_rng\_F77}}
+\index{fspawn\_rng\_F77@{fspawn\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{fspawn\_rng\_F77()}{fspawn\_rng\_F77()}}
+{\footnotesize\ttfamily int fspawn\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{genptr,  }\item[{int $\ast$}]{nspawned,  }\item[{int $\ast$$\ast$}]{new\+Gen }\end{DoxyParamCaption})}
+
+
+
+Definition at line 114 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a9ec59c3e795d0080d69aacc01217720e}\label{fwrap_8cpp_a9ec59c3e795d0080d69aacc01217720e}} 
+\index{fwrap.cpp@{fwrap.cpp}!funpack\_rng\_F77@{funpack\_rng\_F77}}
+\index{funpack\_rng\_F77@{funpack\_rng\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{funpack\_rng\_F77()}{funpack\_rng\_F77()}}
+{\footnotesize\ttfamily int $\ast$ funpack\+\_\+rng\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{int $\ast$}]{rng\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Definition at line 187 of file fwrap.\+cpp.
+
+\mbox{\Hypertarget{fwrap_8cpp_a6fd4fa7693cafd49f3f05dee043c95fe}\label{fwrap_8cpp_a6fd4fa7693cafd49f3f05dee043c95fe}} 
+\index{fwrap.cpp@{fwrap.cpp}!funpack\_rng\_simple\_F77@{funpack\_rng\_simple\_F77}}
+\index{funpack\_rng\_simple\_F77@{funpack\_rng\_simple\_F77}!fwrap.cpp@{fwrap.cpp}}
+\doxysubsubsection{\texorpdfstring{funpack\_rng\_simple\_F77()}{funpack\_rng\_simple\_F77()}}
+{\footnotesize\ttfamily int $\ast$ funpack\+\_\+rng\+\_\+simple\+\_\+\+F77 (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{int $\ast$}]{rng\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Definition at line 197 of file fwrap.\+cpp.
+

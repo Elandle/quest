@@ -1,0 +1,642 @@
+\hypertarget{classMLFG}{}\doxysection{MLFG Class Reference}
+\label{classMLFG}\index{MLFG@{MLFG}}
+
+
+{\ttfamily \#include $<$mlfg.\+h$>$}
+
+
+
+Inheritance diagram for MLFG\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{classMLFG__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for MLFG\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{classMLFG__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{classMLFG_af654b73a319b087f2d4e64cfc7503f03}{uint64}}\mbox{[}2\mbox{]}
+\item 
+typedef unsigned int \mbox{\hyperlink{classMLFG_af654b73a319b087f2d4e64cfc7503f03}{uint64}}\mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMLFG_aadb1997995510e2e828fff8593494a75}{MLFG}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_a5eb0e05eb46c4992c42af0065df021c2}{init\+\_\+rng}} (int, int, int, int)
+\item 
+\mbox{\hyperlink{classMLFG_a10fee85802a877b3d4bb59b053a1f087}{$\sim$\+MLFG}} ()
+\item 
+\mbox{\hyperlink{classMLFG_a33588f6ebb55c192a0749e6b6a6bd79f}{MLFG}} (const \mbox{\hyperlink{classMLFG}{MLFG}} \&)
+\item 
+\mbox{\hyperlink{classMLFG}{MLFG}} \& \mbox{\hyperlink{classMLFG_ae2f6ce61ab1e30b1f6184a55fec74d63}{operator=}} (const \mbox{\hyperlink{classMLFG}{MLFG}} \&)
+\item 
+int \mbox{\hyperlink{classMLFG_a22ca9a6c09e9ae52dca5069c79dc36a0}{get\+\_\+rn\+\_\+int}} ()
+\item 
+float \mbox{\hyperlink{classMLFG_a38d0837c401d7677e2756e92bd4554a6}{get\+\_\+rn\+\_\+flt}} ()
+\item 
+double \mbox{\hyperlink{classMLFG_a42050324d0922494308274a18a27e267}{get\+\_\+rn\+\_\+dbl}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_aec4a8a531874a4700cdd5a5403846264}{spawn\+\_\+rng}} (int, \mbox{\hyperlink{classSprng}{Sprng}} $\ast$$\ast$$\ast$)
+\item 
+int \mbox{\hyperlink{classMLFG_ac6decc4386f15e5768334c064438ae6d}{get\+\_\+seed\+\_\+rng}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_a999bdcc07d6dec4b32e2ebd9eed6bf3f}{free\+\_\+rng}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_aacd1958457adda9b2ede0bf036a3fde4}{pack\+\_\+rng}} (char $\ast$$\ast$)
+\item 
+int \mbox{\hyperlink{classMLFG_a5afe2ce7995893acb3b16137aa5821bd}{unpack\+\_\+rng}} (char $\ast$)
+\item 
+int \mbox{\hyperlink{classMLFG_ac75dd412504bdfe64a789d2df115d1e1}{print\+\_\+rng}} ()
+\item 
+void \mbox{\hyperlink{classMLFG_aac3f1b430622a6f657ad2d920d062c92}{advance\+\_\+state}} ()
+\item 
+\mbox{\hyperlink{classMLFG_aadb1997995510e2e828fff8593494a75}{MLFG}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_a5eb0e05eb46c4992c42af0065df021c2}{init\+\_\+rng}} (int, int, int, int)
+\item 
+\mbox{\hyperlink{classMLFG_a10fee85802a877b3d4bb59b053a1f087}{$\sim$\+MLFG}} ()
+\item 
+\mbox{\hyperlink{classMLFG_a33588f6ebb55c192a0749e6b6a6bd79f}{MLFG}} (const \mbox{\hyperlink{classMLFG}{MLFG}} \&)
+\item 
+\mbox{\hyperlink{classMLFG}{MLFG}} \& \mbox{\hyperlink{classMLFG_a5486d4610fde0cb0a0a99f1a7c1b9f6a}{operator=}} (const \mbox{\hyperlink{classMLFG}{MLFG}} \&)
+\item 
+int \mbox{\hyperlink{classMLFG_a22ca9a6c09e9ae52dca5069c79dc36a0}{get\+\_\+rn\+\_\+int}} ()
+\item 
+float \mbox{\hyperlink{classMLFG_a38d0837c401d7677e2756e92bd4554a6}{get\+\_\+rn\+\_\+flt}} ()
+\item 
+double \mbox{\hyperlink{classMLFG_a42050324d0922494308274a18a27e267}{get\+\_\+rn\+\_\+dbl}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_aec4a8a531874a4700cdd5a5403846264}{spawn\+\_\+rng}} (int, \mbox{\hyperlink{classSprng}{Sprng}} $\ast$$\ast$$\ast$)
+\item 
+int \mbox{\hyperlink{classMLFG_ac6decc4386f15e5768334c064438ae6d}{get\+\_\+seed\+\_\+rng}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_a999bdcc07d6dec4b32e2ebd9eed6bf3f}{free\+\_\+rng}} ()
+\item 
+int \mbox{\hyperlink{classMLFG_aacd1958457adda9b2ede0bf036a3fde4}{pack\+\_\+rng}} (char $\ast$$\ast$)
+\item 
+int \mbox{\hyperlink{classMLFG_a5afe2ce7995893acb3b16137aa5821bd}{unpack\+\_\+rng}} (char $\ast$)
+\item 
+int \mbox{\hyperlink{classMLFG_ac75dd412504bdfe64a789d2df115d1e1}{print\+\_\+rng}} ()
+\item 
+void \mbox{\hyperlink{classMLFG_aac3f1b430622a6f657ad2d920d062c92}{advance\+\_\+state}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classMLFG_ad00915d6dd0c56db5207c428ffee8cf0}{rng\+\_\+type}}
+\item 
+char $\ast$ \mbox{\hyperlink{classMLFG_a64c7fa38cccf6bed218a9b21e80c3a7b}{gentype}}
+\item 
+int \mbox{\hyperlink{classMLFG_aaaf71e3eb87fd4a97e4d2af36e272061}{stream\+\_\+number}}
+\item 
+int \mbox{\hyperlink{classMLFG_a0326f18c48f7d4a78ef2df53272e7fd7}{nstreams}}
+\item 
+int \mbox{\hyperlink{classMLFG_a23d9cae9e5a0027c5c6adfa66816bd72}{init\+\_\+seed}}
+\item 
+int \mbox{\hyperlink{classMLFG_ae6f1f3ea1565406de0d29ee8c63d04ab}{parameter}}
+\item 
+int \mbox{\hyperlink{classMLFG_aaf245f2818a9c95a35ac4d89ce72274b}{narrays}}
+\item 
+int $\ast$ \mbox{\hyperlink{classMLFG_a7cd9a03f254afc29167deb8ea1cd7d68}{array\+\_\+sizes}}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{classMLFG_a692ca2a88b46505ad6bb86a9537dd457}{arrays}}
+\item 
+\mbox{\hyperlink{classMLFG_af654b73a319b087f2d4e64cfc7503f03}{uint64}} $\ast$ \mbox{\hyperlink{classMLFG_a980e52de2b84dfb495e23f580c30fdc9}{lags}}
+\item 
+\mbox{\hyperlink{classMLFG_af654b73a319b087f2d4e64cfc7503f03}{uint64}} $\ast$ \mbox{\hyperlink{classMLFG_a5af3f2a7ede40742e143e512a067780c}{si}}
+\item 
+int \mbox{\hyperlink{classMLFG_a73c6b92ed55e64b87576668f53fd0313}{hptr}}
+\item 
+int \mbox{\hyperlink{classMLFG_a991069cb1a1d45a55660fc05e7af3cc7}{lval}}
+\item 
+int \mbox{\hyperlink{classMLFG_a0b3ae37ee8ec44d68d6ca5543287c4c2}{kval}}
+\item 
+int \mbox{\hyperlink{classMLFG_ae494a671acd3a4692c0b065239eed8d4}{seed}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 8 of file mlfg.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classMLFG_af654b73a319b087f2d4e64cfc7503f03}\label{classMLFG_af654b73a319b087f2d4e64cfc7503f03}} 
+\index{MLFG@{MLFG}!uint64@{uint64}}
+\index{uint64@{uint64}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{uint64}{uint64}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily typedef unsigned int MLFG\+::uint64\mbox{[}2\mbox{]}}
+
+
+
+Definition at line 41 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_af654b73a319b087f2d4e64cfc7503f03}\label{classMLFG_af654b73a319b087f2d4e64cfc7503f03}} 
+\index{MLFG@{MLFG}!uint64@{uint64}}
+\index{uint64@{uint64}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{uint64}{uint64}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily typedef unsigned int MLFG\+::uint64\mbox{[}2\mbox{]}}
+
+
+
+Definition at line 41 of file mlfg.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMLFG_aadb1997995510e2e828fff8593494a75}\label{classMLFG_aadb1997995510e2e828fff8593494a75}} 
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{MLFG()}{MLFG()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily MLFG\+::\+MLFG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 587 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a10fee85802a877b3d4bb59b053a1f087}\label{classMLFG_a10fee85802a877b3d4bb59b053a1f087}} 
+\index{MLFG@{MLFG}!````~MLFG@{$\sim$MLFG}}
+\index{````~MLFG@{$\sim$MLFG}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{$\sim$MLFG()}{~MLFG()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MLFG\+::$\sim$\+MLFG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 707 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a33588f6ebb55c192a0749e6b6a6bd79f}\label{classMLFG_a33588f6ebb55c192a0749e6b6a6bd79f}} 
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{MLFG()}{MLFG()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily MLFG\+::\+MLFG (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMLFG}{MLFG}} \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 712 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_aadb1997995510e2e828fff8593494a75}\label{classMLFG_aadb1997995510e2e828fff8593494a75}} 
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{MLFG()}{MLFG()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily MLFG\+::\+MLFG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMLFG_a10fee85802a877b3d4bb59b053a1f087}\label{classMLFG_a10fee85802a877b3d4bb59b053a1f087}} 
+\index{MLFG@{MLFG}!````~MLFG@{$\sim$MLFG}}
+\index{````~MLFG@{$\sim$MLFG}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{$\sim$MLFG()}{~MLFG()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily MLFG\+::$\sim$\+MLFG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMLFG_a33588f6ebb55c192a0749e6b6a6bd79f}\label{classMLFG_a33588f6ebb55c192a0749e6b6a6bd79f}} 
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\index{MLFG@{MLFG}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{MLFG()}{MLFG()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily MLFG\+::\+MLFG (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMLFG}{MLFG}} \&}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMLFG_aac3f1b430622a6f657ad2d920d062c92}\label{classMLFG_aac3f1b430622a6f657ad2d920d062c92}} 
+\index{MLFG@{MLFG}!advance\_state@{advance\_state}}
+\index{advance\_state@{advance\_state}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{advance\_state()}{advance\_state()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void MLFG\+::advance\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 436 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_aac3f1b430622a6f657ad2d920d062c92}\label{classMLFG_aac3f1b430622a6f657ad2d920d062c92}} 
+\index{MLFG@{MLFG}!advance\_state@{advance\_state}}
+\index{advance\_state@{advance\_state}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{advance\_state()}{advance\_state()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void MLFG\+::advance\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMLFG_a999bdcc07d6dec4b32e2ebd9eed6bf3f}\label{classMLFG_a999bdcc07d6dec4b32e2ebd9eed6bf3f}} 
+\index{MLFG@{MLFG}!free\_rng@{free\_rng}}
+\index{free\_rng@{free\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{free\_rng()}{free\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::free\+\_\+rng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a157f6226dfcd4558342130752aa24b68}{Sprng}}.
+
+
+
+Definition at line 849 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a999bdcc07d6dec4b32e2ebd9eed6bf3f}\label{classMLFG_a999bdcc07d6dec4b32e2ebd9eed6bf3f}} 
+\index{MLFG@{MLFG}!free\_rng@{free\_rng}}
+\index{free\_rng@{free\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{free\_rng()}{free\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::free\+\_\+rng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a157f6226dfcd4558342130752aa24b68}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_a42050324d0922494308274a18a27e267}\label{classMLFG_a42050324d0922494308274a18a27e267}} 
+\index{MLFG@{MLFG}!get\_rn\_dbl@{get\_rn\_dbl}}
+\index{get\_rn\_dbl@{get\_rn\_dbl}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_rn\_dbl()}{get\_rn\_dbl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double MLFG\+::get\+\_\+rn\+\_\+dbl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_ae7388ce264d44427873e18c76c1680a0}{Sprng}}.
+
+
+
+Definition at line 758 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a42050324d0922494308274a18a27e267}\label{classMLFG_a42050324d0922494308274a18a27e267}} 
+\index{MLFG@{MLFG}!get\_rn\_dbl@{get\_rn\_dbl}}
+\index{get\_rn\_dbl@{get\_rn\_dbl}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_rn\_dbl()}{get\_rn\_dbl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double MLFG\+::get\+\_\+rn\+\_\+dbl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_ae7388ce264d44427873e18c76c1680a0}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_a38d0837c401d7677e2756e92bd4554a6}\label{classMLFG_a38d0837c401d7677e2756e92bd4554a6}} 
+\index{MLFG@{MLFG}!get\_rn\_flt@{get\_rn\_flt}}
+\index{get\_rn\_flt@{get\_rn\_flt}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_rn\_flt()}{get\_rn\_flt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float MLFG\+::get\+\_\+rn\+\_\+flt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a23fd904f2e0f1e8ea4bf009fbb9d050c}{Sprng}}.
+
+
+
+Definition at line 783 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a38d0837c401d7677e2756e92bd4554a6}\label{classMLFG_a38d0837c401d7677e2756e92bd4554a6}} 
+\index{MLFG@{MLFG}!get\_rn\_flt@{get\_rn\_flt}}
+\index{get\_rn\_flt@{get\_rn\_flt}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_rn\_flt()}{get\_rn\_flt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily float MLFG\+::get\+\_\+rn\+\_\+flt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a23fd904f2e0f1e8ea4bf009fbb9d050c}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_a22ca9a6c09e9ae52dca5069c79dc36a0}\label{classMLFG_a22ca9a6c09e9ae52dca5069c79dc36a0}} 
+\index{MLFG@{MLFG}!get\_rn\_int@{get\_rn\_int}}
+\index{get\_rn\_int@{get\_rn\_int}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_rn\_int()}{get\_rn\_int()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::get\+\_\+rn\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_af788732357c9866d06f081aa3361e395}{Sprng}}.
+
+
+
+Definition at line 770 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a22ca9a6c09e9ae52dca5069c79dc36a0}\label{classMLFG_a22ca9a6c09e9ae52dca5069c79dc36a0}} 
+\index{MLFG@{MLFG}!get\_rn\_int@{get\_rn\_int}}
+\index{get\_rn\_int@{get\_rn\_int}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_rn\_int()}{get\_rn\_int()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::get\+\_\+rn\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_af788732357c9866d06f081aa3361e395}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_ac6decc4386f15e5768334c064438ae6d}\label{classMLFG_ac6decc4386f15e5768334c064438ae6d}} 
+\index{MLFG@{MLFG}!get\_seed\_rng@{get\_seed\_rng}}
+\index{get\_seed\_rng@{get\_seed\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_seed\_rng()}{get\_seed\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::get\+\_\+seed\+\_\+rng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a7e7f7af42c3eda346c623ee9328125dd}{Sprng}}.
+
+
+
+Definition at line 969 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_ac6decc4386f15e5768334c064438ae6d}\label{classMLFG_ac6decc4386f15e5768334c064438ae6d}} 
+\index{MLFG@{MLFG}!get\_seed\_rng@{get\_seed\_rng}}
+\index{get\_seed\_rng@{get\_seed\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{get\_seed\_rng()}{get\_seed\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::get\+\_\+seed\+\_\+rng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a7e7f7af42c3eda346c623ee9328125dd}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_a5eb0e05eb46c4992c42af0065df021c2}\label{classMLFG_a5eb0e05eb46c4992c42af0065df021c2}} 
+\index{MLFG@{MLFG}!init\_rng@{init\_rng}}
+\index{init\_rng@{init\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{init\_rng()}{init\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::init\+\_\+rng (\begin{DoxyParamCaption}\item[{int}]{gn,  }\item[{int}]{tg,  }\item[{int}]{s,  }\item[{int}]{pa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a3a3e1f81ca8e9e4302a0474e91a53105}{Sprng}}.
+
+
+
+Definition at line 606 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a5eb0e05eb46c4992c42af0065df021c2}\label{classMLFG_a5eb0e05eb46c4992c42af0065df021c2}} 
+\index{MLFG@{MLFG}!init\_rng@{init\_rng}}
+\index{init\_rng@{init\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{init\_rng()}{init\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::init\+\_\+rng (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{int}]{,  }\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a3a3e1f81ca8e9e4302a0474e91a53105}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_ae2f6ce61ab1e30b1f6184a55fec74d63}\label{classMLFG_ae2f6ce61ab1e30b1f6184a55fec74d63}} 
+\index{MLFG@{MLFG}!operator=@{operator=}}
+\index{operator=@{operator=}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMLFG}{MLFG}} \& MLFG\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMLFG}{MLFG}} \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 731 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a5486d4610fde0cb0a0a99f1a7c1b9f6a}\label{classMLFG_a5486d4610fde0cb0a0a99f1a7c1b9f6a}} 
+\index{MLFG@{MLFG}!operator=@{operator=}}
+\index{operator=@{operator=}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMLFG}{MLFG}}\& MLFG\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMLFG}{MLFG}} \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMLFG_aacd1958457adda9b2ede0bf036a3fde4}\label{classMLFG_aacd1958457adda9b2ede0bf036a3fde4}} 
+\index{MLFG@{MLFG}!pack\_rng@{pack\_rng}}
+\index{pack\_rng@{pack\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{pack\_rng()}{pack\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::pack\+\_\+rng (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_aec16a28d339fe167126f903e431d19a1}{Sprng}}.
+
+
+
+Definition at line 869 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_aacd1958457adda9b2ede0bf036a3fde4}\label{classMLFG_aacd1958457adda9b2ede0bf036a3fde4}} 
+\index{MLFG@{MLFG}!pack\_rng@{pack\_rng}}
+\index{pack\_rng@{pack\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{pack\_rng()}{pack\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::pack\+\_\+rng (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_aec16a28d339fe167126f903e431d19a1}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_ac75dd412504bdfe64a789d2df115d1e1}\label{classMLFG_ac75dd412504bdfe64a789d2df115d1e1}} 
+\index{MLFG@{MLFG}!print\_rng@{print\_rng}}
+\index{print\_rng@{print\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{print\_rng()}{print\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::print\+\_\+rng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a67ebf3b97338edd140f1e040c6cdb771}{Sprng}}.
+
+
+
+Definition at line 974 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_ac75dd412504bdfe64a789d2df115d1e1}\label{classMLFG_ac75dd412504bdfe64a789d2df115d1e1}} 
+\index{MLFG@{MLFG}!print\_rng@{print\_rng}}
+\index{print\_rng@{print\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{print\_rng()}{print\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::print\+\_\+rng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a67ebf3b97338edd140f1e040c6cdb771}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_aec4a8a531874a4700cdd5a5403846264}\label{classMLFG_aec4a8a531874a4700cdd5a5403846264}} 
+\index{MLFG@{MLFG}!spawn\_rng@{spawn\_rng}}
+\index{spawn\_rng@{spawn\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{spawn\_rng()}{spawn\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::spawn\+\_\+rng (\begin{DoxyParamCaption}\item[{int}]{nspawned,  }\item[{\mbox{\hyperlink{classSprng}{Sprng}} $\ast$$\ast$$\ast$}]{newgens }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a60f14cb551de88c4ba14908da195beb1}{Sprng}}.
+
+
+
+Definition at line 797 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_aec4a8a531874a4700cdd5a5403846264}\label{classMLFG_aec4a8a531874a4700cdd5a5403846264}} 
+\index{MLFG@{MLFG}!spawn\_rng@{spawn\_rng}}
+\index{spawn\_rng@{spawn\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{spawn\_rng()}{spawn\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::spawn\+\_\+rng (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{\mbox{\hyperlink{classSprng}{Sprng}} $\ast$$\ast$$\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_a60f14cb551de88c4ba14908da195beb1}{Sprng}}.
+
+\mbox{\Hypertarget{classMLFG_a5afe2ce7995893acb3b16137aa5821bd}\label{classMLFG_a5afe2ce7995893acb3b16137aa5821bd}} 
+\index{MLFG@{MLFG}!unpack\_rng@{unpack\_rng}}
+\index{unpack\_rng@{unpack\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{unpack\_rng()}{unpack\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int MLFG\+::unpack\+\_\+rng (\begin{DoxyParamCaption}\item[{char $\ast$}]{packed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_af186b1a775d52eb0ece93546875c3fbc}{Sprng}}.
+
+
+
+Definition at line 902 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{classMLFG_a5afe2ce7995893acb3b16137aa5821bd}\label{classMLFG_a5afe2ce7995893acb3b16137aa5821bd}} 
+\index{MLFG@{MLFG}!unpack\_rng@{unpack\_rng}}
+\index{unpack\_rng@{unpack\_rng}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{unpack\_rng()}{unpack\_rng()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int MLFG\+::unpack\+\_\+rng (\begin{DoxyParamCaption}\item[{char $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSprng_af186b1a775d52eb0ece93546875c3fbc}{Sprng}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMLFG_a7cd9a03f254afc29167deb8ea1cd7d68}\label{classMLFG_a7cd9a03f254afc29167deb8ea1cd7d68}} 
+\index{MLFG@{MLFG}!array\_sizes@{array\_sizes}}
+\index{array\_sizes@{array\_sizes}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{array\_sizes}{array\_sizes}}
+{\footnotesize\ttfamily int $\ast$ MLFG\+::array\+\_\+sizes}
+
+
+
+Definition at line 35 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a692ca2a88b46505ad6bb86a9537dd457}\label{classMLFG_a692ca2a88b46505ad6bb86a9537dd457}} 
+\index{MLFG@{MLFG}!arrays@{arrays}}
+\index{arrays@{arrays}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{arrays}{arrays}}
+{\footnotesize\ttfamily int $\ast$$\ast$ MLFG\+::arrays}
+
+
+
+Definition at line 36 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a64c7fa38cccf6bed218a9b21e80c3a7b}\label{classMLFG_a64c7fa38cccf6bed218a9b21e80c3a7b}} 
+\index{MLFG@{MLFG}!gentype@{gentype}}
+\index{gentype@{gentype}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{gentype}{gentype}}
+{\footnotesize\ttfamily char $\ast$ MLFG\+::gentype}
+
+
+
+Definition at line 29 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a73c6b92ed55e64b87576668f53fd0313}\label{classMLFG_a73c6b92ed55e64b87576668f53fd0313}} 
+\index{MLFG@{MLFG}!hptr@{hptr}}
+\index{hptr@{hptr}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{hptr}{hptr}}
+{\footnotesize\ttfamily int MLFG\+::hptr}
+
+
+
+Definition at line 46 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a23d9cae9e5a0027c5c6adfa66816bd72}\label{classMLFG_a23d9cae9e5a0027c5c6adfa66816bd72}} 
+\index{MLFG@{MLFG}!init\_seed@{init\_seed}}
+\index{init\_seed@{init\_seed}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{init\_seed}{init\_seed}}
+{\footnotesize\ttfamily int MLFG\+::init\+\_\+seed}
+
+
+
+Definition at line 32 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a0b3ae37ee8ec44d68d6ca5543287c4c2}\label{classMLFG_a0b3ae37ee8ec44d68d6ca5543287c4c2}} 
+\index{MLFG@{MLFG}!kval@{kval}}
+\index{kval@{kval}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{kval}{kval}}
+{\footnotesize\ttfamily int MLFG\+::kval}
+
+
+
+Definition at line 47 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a980e52de2b84dfb495e23f580c30fdc9}\label{classMLFG_a980e52de2b84dfb495e23f580c30fdc9}} 
+\index{MLFG@{MLFG}!lags@{lags}}
+\index{lags@{lags}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{lags}{lags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMLFG_af654b73a319b087f2d4e64cfc7503f03}{uint64}} $\ast$ MLFG\+::lags}
+
+
+
+Definition at line 44 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a991069cb1a1d45a55660fc05e7af3cc7}\label{classMLFG_a991069cb1a1d45a55660fc05e7af3cc7}} 
+\index{MLFG@{MLFG}!lval@{lval}}
+\index{lval@{lval}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{lval}{lval}}
+{\footnotesize\ttfamily int MLFG\+::lval}
+
+
+
+Definition at line 47 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_aaf245f2818a9c95a35ac4d89ce72274b}\label{classMLFG_aaf245f2818a9c95a35ac4d89ce72274b}} 
+\index{MLFG@{MLFG}!narrays@{narrays}}
+\index{narrays@{narrays}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{narrays}{narrays}}
+{\footnotesize\ttfamily int MLFG\+::narrays}
+
+
+
+Definition at line 34 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a0326f18c48f7d4a78ef2df53272e7fd7}\label{classMLFG_a0326f18c48f7d4a78ef2df53272e7fd7}} 
+\index{MLFG@{MLFG}!nstreams@{nstreams}}
+\index{nstreams@{nstreams}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{nstreams}{nstreams}}
+{\footnotesize\ttfamily int MLFG\+::nstreams}
+
+
+
+Definition at line 31 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_ae6f1f3ea1565406de0d29ee8c63d04ab}\label{classMLFG_ae6f1f3ea1565406de0d29ee8c63d04ab}} 
+\index{MLFG@{MLFG}!parameter@{parameter}}
+\index{parameter@{parameter}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{parameter}{parameter}}
+{\footnotesize\ttfamily int MLFG\+::parameter}
+
+
+
+Definition at line 33 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_ad00915d6dd0c56db5207c428ffee8cf0}\label{classMLFG_ad00915d6dd0c56db5207c428ffee8cf0}} 
+\index{MLFG@{MLFG}!rng\_type@{rng\_type}}
+\index{rng\_type@{rng\_type}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{rng\_type}{rng\_type}}
+{\footnotesize\ttfamily int MLFG\+::rng\+\_\+type}
+
+
+
+Definition at line 28 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_ae494a671acd3a4692c0b065239eed8d4}\label{classMLFG_ae494a671acd3a4692c0b065239eed8d4}} 
+\index{MLFG@{MLFG}!seed@{seed}}
+\index{seed@{seed}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily int MLFG\+::seed}
+
+
+
+Definition at line 47 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_a5af3f2a7ede40742e143e512a067780c}\label{classMLFG_a5af3f2a7ede40742e143e512a067780c}} 
+\index{MLFG@{MLFG}!si@{si}}
+\index{si@{si}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{si}{si}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMLFG_af654b73a319b087f2d4e64cfc7503f03}{uint64}} $\ast$ MLFG\+::si}
+
+
+
+Definition at line 45 of file mlfg.\+h.
+
+\mbox{\Hypertarget{classMLFG_aaaf71e3eb87fd4a97e4d2af36e272061}\label{classMLFG_aaaf71e3eb87fd4a97e4d2af36e272061}} 
+\index{MLFG@{MLFG}!stream\_number@{stream\_number}}
+\index{stream\_number@{stream\_number}!MLFG@{MLFG}}
+\doxysubsubsection{\texorpdfstring{stream\_number}{stream\_number}}
+{\footnotesize\ttfamily int MLFG\+::stream\+\_\+number}
+
+
+
+Definition at line 30 of file mlfg.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+SRC/sprng5/include/\mbox{\hyperlink{include_2mlfg_8h}{mlfg.\+h}}\item 
+SRC/sprng5/\+SRC/mlfg/\mbox{\hyperlink{mlfg_8cpp}{mlfg.\+cpp}}\end{DoxyCompactItemize}

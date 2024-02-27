@@ -1,0 +1,192 @@
+\hypertarget{kernel__gpu_8h}{}\doxysection{SRC/kernel\+\_\+gpu.h File Reference}
+\label{kernel__gpu_8h}\index{SRC/kernel\_gpu.h@{SRC/kernel\_gpu.h}}
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$magma.\+h$>$}\newline
+Include dependency graph for kernel\+\_\+gpu.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{kernel__gpu_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcuda__exception}{cuda\+\_\+exception}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{kernel__gpu_8h_a73d2474e814a098599e4482e35442b42}{CUDACHECK}}(a)~\{ int code = (a); \mbox{\hyperlink{_8vtemplate_8cpp_ab31df3dff71cf78e2e6b8cbed31b4d10}{if}} (code) throw(\mbox{\hyperlink{classcuda__exception}{cuda\+\_\+exception}}(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, code)); \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_ab76bc5f70eeb60c6f832a34a17b79ff3}{gpu\+\_\+init}} ()
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_abc60b47b1e0e981f7458c0aa05a85f2d}{gpu\+\_\+shutdown}} ()
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_ae172f8f053fcb148290f2eb3f70483a0}{gpu\+\_\+diag}} (int n, double $\ast$A, double $\ast$D)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a446317d3f11fff767fb7572a3e371137}{gpu\+\_\+normcol}} (int n, double $\ast$A, double $\ast$D, double $\ast$c)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a02f1ac0936ac7eb83069e17d9efc4432}{gpu\+\_\+permute}} (int n, int $\ast$ipiv, double $\ast$A, double $\ast$Q)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a44617de351b31e5a711fe2b9dcb73803}{gpu\+\_\+scalerowperm}} (int n, double $\ast$D, double $\ast$Q, int $\ast$ipiv, double $\ast$T)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a9ec95508bcaf3689c5d43692b5431b6f}{gpu\+\_\+scalerow}} (int n, double $\ast$h, double $\ast$B, double $\ast$\mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}})
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_af19c2dd518925141f45e5b446c72513a}{gpu\+\_\+scalerowcol}} (int n, double $\ast$h, double $\ast$G)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a695549f87a0af2e05692b55104194897}{gpu\+\_\+dgemm}} (const char $\ast$trans, int m, int n, int k, double alpha, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int ldb, double beta, double $\ast$c, int ldc)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_aaab0b8524f60255e4e6e1e30accf2fa9}{gpu\+\_\+dgeqrf}} (int m, int n, double $\ast$dA, int ldda, double $\ast$tau, double $\ast$dT)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_acd8ceeebc3f5d88a6ba0851d3f301aae}{gpu\+\_\+dorgqr}} (int m, int n, int k, double $\ast$da, int ldda, double $\ast$tau, double $\ast$dT, int nb)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a65ca8c5c794953a92a3d146d4e032fd5}{gpu\+\_\+dgetrf}} (int m, int n, double $\ast$dA, int ldda, int $\ast$ipiv)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_aae6d4a1b3aeb3142be2a59eb5d64d202}{gpu\+\_\+dgetrs}} (const char $\ast$trans, int n, int nrhs, double $\ast$dA, int ldda, int $\ast$ipiv, double $\ast$dB, int lddb)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a8aab4a6cb49830de85249710260bde1e}{gpu\+\_\+setvector}} (int n, int size, void $\ast$src, void $\ast$dst)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_aec5727c558e2b44a11e8ff74e36ce4e7}{gpu\+\_\+getvector}} (int n, int size, void $\ast$src, void $\ast$dst)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a590ecb9a0b9fbfe1cabd074b5cd0c695}{gpu\+\_\+setmatrix}} (int m, int n, int size, void $\ast$src, void $\ast$dst)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_ab03f2b38f71eee08ccbaba422e7b67cf}{gpu\+\_\+getmatrix}} (int m, int n, int size, void $\ast$src, void $\ast$dst)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_a5be94fe3b805f4199b680e3f7ca78f36}{gpu\+\_\+copy}} (void $\ast$dst, void $\ast$src, int size)
+\item 
+void \mbox{\hyperlink{kernel__gpu_8h_ae69e6c9e5682d2ea2a22a532bc45ba97}{gpu\+\_\+sort}} (int n, double $\ast$Db, int $\ast$ipiv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{kernel__gpu_8h_a73d2474e814a098599e4482e35442b42}\label{kernel__gpu_8h_a73d2474e814a098599e4482e35442b42}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!CUDACHECK@{CUDACHECK}}
+\index{CUDACHECK@{CUDACHECK}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{CUDACHECK}{CUDACHECK}}
+{\footnotesize\ttfamily \#define CUDACHECK(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~\{ int code = (a); \mbox{\hyperlink{_8vtemplate_8cpp_ab31df3dff71cf78e2e6b8cbed31b4d10}{if}} (code) throw(\mbox{\hyperlink{classcuda__exception}{cuda\+\_\+exception}}(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, code)); \}}
+
+
+
+Definition at line 12 of file kernel\+\_\+gpu.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kernel__gpu_8h_a5be94fe3b805f4199b680e3f7ca78f36}\label{kernel__gpu_8h_a5be94fe3b805f4199b680e3f7ca78f36}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_copy@{gpu\_copy}}
+\index{gpu\_copy@{gpu\_copy}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_copy()}{gpu\_copy()}}
+{\footnotesize\ttfamily void gpu\+\_\+copy (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{void $\ast$}]{src,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a695549f87a0af2e05692b55104194897}\label{kernel__gpu_8h_a695549f87a0af2e05692b55104194897}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_dgemm@{gpu\_dgemm}}
+\index{gpu\_dgemm@{gpu\_dgemm}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_dgemm()}{gpu\_dgemm()}}
+{\footnotesize\ttfamily void gpu\+\_\+dgemm (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{k,  }\item[{double}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int}]{ldb,  }\item[{double}]{beta,  }\item[{double $\ast$}]{c,  }\item[{int}]{ldc }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_aaab0b8524f60255e4e6e1e30accf2fa9}\label{kernel__gpu_8h_aaab0b8524f60255e4e6e1e30accf2fa9}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_dgeqrf@{gpu\_dgeqrf}}
+\index{gpu\_dgeqrf@{gpu\_dgeqrf}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_dgeqrf()}{gpu\_dgeqrf()}}
+{\footnotesize\ttfamily void gpu\+\_\+dgeqrf (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{dA,  }\item[{int}]{ldda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{dT }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a65ca8c5c794953a92a3d146d4e032fd5}\label{kernel__gpu_8h_a65ca8c5c794953a92a3d146d4e032fd5}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_dgetrf@{gpu\_dgetrf}}
+\index{gpu\_dgetrf@{gpu\_dgetrf}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_dgetrf()}{gpu\_dgetrf()}}
+{\footnotesize\ttfamily void gpu\+\_\+dgetrf (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{dA,  }\item[{int}]{ldda,  }\item[{int $\ast$}]{ipiv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_aae6d4a1b3aeb3142be2a59eb5d64d202}\label{kernel__gpu_8h_aae6d4a1b3aeb3142be2a59eb5d64d202}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_dgetrs@{gpu\_dgetrs}}
+\index{gpu\_dgetrs@{gpu\_dgetrs}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_dgetrs()}{gpu\_dgetrs()}}
+{\footnotesize\ttfamily void gpu\+\_\+dgetrs (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{int}]{n,  }\item[{int}]{nrhs,  }\item[{double $\ast$}]{dA,  }\item[{int}]{ldda,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{dB,  }\item[{int}]{lddb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_ae172f8f053fcb148290f2eb3f70483a0}\label{kernel__gpu_8h_ae172f8f053fcb148290f2eb3f70483a0}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_diag@{gpu\_diag}}
+\index{gpu\_diag@{gpu\_diag}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_diag()}{gpu\_diag()}}
+{\footnotesize\ttfamily void gpu\+\_\+diag (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{A,  }\item[{double $\ast$}]{D }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_acd8ceeebc3f5d88a6ba0851d3f301aae}\label{kernel__gpu_8h_acd8ceeebc3f5d88a6ba0851d3f301aae}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_dorgqr@{gpu\_dorgqr}}
+\index{gpu\_dorgqr@{gpu\_dorgqr}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_dorgqr()}{gpu\_dorgqr()}}
+{\footnotesize\ttfamily void gpu\+\_\+dorgqr (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{k,  }\item[{double $\ast$}]{da,  }\item[{int}]{ldda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{dT,  }\item[{int}]{nb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_ab03f2b38f71eee08ccbaba422e7b67cf}\label{kernel__gpu_8h_ab03f2b38f71eee08ccbaba422e7b67cf}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_getmatrix@{gpu\_getmatrix}}
+\index{gpu\_getmatrix@{gpu\_getmatrix}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_getmatrix()}{gpu\_getmatrix()}}
+{\footnotesize\ttfamily void gpu\+\_\+getmatrix (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{size,  }\item[{void $\ast$}]{src,  }\item[{void $\ast$}]{dst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_aec5727c558e2b44a11e8ff74e36ce4e7}\label{kernel__gpu_8h_aec5727c558e2b44a11e8ff74e36ce4e7}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_getvector@{gpu\_getvector}}
+\index{gpu\_getvector@{gpu\_getvector}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_getvector()}{gpu\_getvector()}}
+{\footnotesize\ttfamily void gpu\+\_\+getvector (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{size,  }\item[{void $\ast$}]{src,  }\item[{void $\ast$}]{dst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_ab76bc5f70eeb60c6f832a34a17b79ff3}\label{kernel__gpu_8h_ab76bc5f70eeb60c6f832a34a17b79ff3}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_init@{gpu\_init}}
+\index{gpu\_init@{gpu\_init}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_init()}{gpu\_init()}}
+{\footnotesize\ttfamily void gpu\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a446317d3f11fff767fb7572a3e371137}\label{kernel__gpu_8h_a446317d3f11fff767fb7572a3e371137}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_normcol@{gpu\_normcol}}
+\index{gpu\_normcol@{gpu\_normcol}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_normcol()}{gpu\_normcol()}}
+{\footnotesize\ttfamily void gpu\+\_\+normcol (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{A,  }\item[{double $\ast$}]{D,  }\item[{double $\ast$}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a02f1ac0936ac7eb83069e17d9efc4432}\label{kernel__gpu_8h_a02f1ac0936ac7eb83069e17d9efc4432}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_permute@{gpu\_permute}}
+\index{gpu\_permute@{gpu\_permute}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_permute()}{gpu\_permute()}}
+{\footnotesize\ttfamily void gpu\+\_\+permute (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{A,  }\item[{double $\ast$}]{Q }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a9ec95508bcaf3689c5d43692b5431b6f}\label{kernel__gpu_8h_a9ec95508bcaf3689c5d43692b5431b6f}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_scalerow@{gpu\_scalerow}}
+\index{gpu\_scalerow@{gpu\_scalerow}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_scalerow()}{gpu\_scalerow()}}
+{\footnotesize\ttfamily void gpu\+\_\+scalerow (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{h,  }\item[{double $\ast$}]{B,  }\item[{double $\ast$}]{M }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_af19c2dd518925141f45e5b446c72513a}\label{kernel__gpu_8h_af19c2dd518925141f45e5b446c72513a}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_scalerowcol@{gpu\_scalerowcol}}
+\index{gpu\_scalerowcol@{gpu\_scalerowcol}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_scalerowcol()}{gpu\_scalerowcol()}}
+{\footnotesize\ttfamily void gpu\+\_\+scalerowcol (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{h,  }\item[{double $\ast$}]{G }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a44617de351b31e5a711fe2b9dcb73803}\label{kernel__gpu_8h_a44617de351b31e5a711fe2b9dcb73803}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_scalerowperm@{gpu\_scalerowperm}}
+\index{gpu\_scalerowperm@{gpu\_scalerowperm}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_scalerowperm()}{gpu\_scalerowperm()}}
+{\footnotesize\ttfamily void gpu\+\_\+scalerowperm (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{D,  }\item[{double $\ast$}]{Q,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{T }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a590ecb9a0b9fbfe1cabd074b5cd0c695}\label{kernel__gpu_8h_a590ecb9a0b9fbfe1cabd074b5cd0c695}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_setmatrix@{gpu\_setmatrix}}
+\index{gpu\_setmatrix@{gpu\_setmatrix}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_setmatrix()}{gpu\_setmatrix()}}
+{\footnotesize\ttfamily void gpu\+\_\+setmatrix (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{size,  }\item[{void $\ast$}]{src,  }\item[{void $\ast$}]{dst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_a8aab4a6cb49830de85249710260bde1e}\label{kernel__gpu_8h_a8aab4a6cb49830de85249710260bde1e}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_setvector@{gpu\_setvector}}
+\index{gpu\_setvector@{gpu\_setvector}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_setvector()}{gpu\_setvector()}}
+{\footnotesize\ttfamily void gpu\+\_\+setvector (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{size,  }\item[{void $\ast$}]{src,  }\item[{void $\ast$}]{dst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_abc60b47b1e0e981f7458c0aa05a85f2d}\label{kernel__gpu_8h_abc60b47b1e0e981f7458c0aa05a85f2d}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_shutdown@{gpu\_shutdown}}
+\index{gpu\_shutdown@{gpu\_shutdown}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_shutdown()}{gpu\_shutdown()}}
+{\footnotesize\ttfamily void gpu\+\_\+shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{kernel__gpu_8h_ae69e6c9e5682d2ea2a22a532bc45ba97}\label{kernel__gpu_8h_ae69e6c9e5682d2ea2a22a532bc45ba97}} 
+\index{kernel\_gpu.h@{kernel\_gpu.h}!gpu\_sort@{gpu\_sort}}
+\index{gpu\_sort@{gpu\_sort}!kernel\_gpu.h@{kernel\_gpu.h}}
+\doxysubsubsection{\texorpdfstring{gpu\_sort()}{gpu\_sort()}}
+{\footnotesize\ttfamily void gpu\+\_\+sort (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{Db,  }\item[{int $\ast$}]{ipiv }\end{DoxyParamCaption})}
+

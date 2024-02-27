@@ -1,0 +1,114 @@
+\hypertarget{store_8cpp}{}\doxysection{SRC/sprng5/\+SRC/store.cpp File Reference}
+\label{store_8cpp}\index{SRC/sprng5/SRC/store.cpp@{SRC/sprng5/SRC/store.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include \char`\"{}store.\+h\char`\"{}}\newline
+Include dependency graph for store.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{store_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{store_8cpp_af75ede3051df01db1a0ab471564d99e7}{store\+\_\+long}} (unsigned long l, int nbytes, unsigned char $\ast$c)
+\item 
+int \mbox{\hyperlink{store_8cpp_a0ea7974a264cff664eb56ca67bdacfdf}{store\+\_\+longarray}} (unsigned long $\ast$l, int n, int nbytes, unsigned char $\ast$c)
+\item 
+int \mbox{\hyperlink{store_8cpp_a76b8ee31f23acd3b85ee16fe0c96ba46}{load\+\_\+long}} (unsigned char $\ast$c, int nbytes, unsigned long $\ast$l)
+\item 
+int \mbox{\hyperlink{store_8cpp_ab2b314d7d5455a2b1306d037cf4dbbd0}{load\+\_\+longarray}} (unsigned char $\ast$c, int n, int nbytes, unsigned long $\ast$l)
+\item 
+int \mbox{\hyperlink{store_8cpp_af69df53579875357b275a531a5585080}{store\+\_\+int}} (unsigned int l, int nbytes, unsigned char $\ast$c)
+\item 
+int \mbox{\hyperlink{store_8cpp_a12163835b18db253eb3347896ffa8fac}{store\+\_\+intarray}} (unsigned int $\ast$l, int n, int nbytes, unsigned char $\ast$c)
+\item 
+int \mbox{\hyperlink{store_8cpp_ad62bca92fdb0b5ad4830c4da950aeb00}{load\+\_\+int}} (unsigned char $\ast$c, int nbytes, unsigned int $\ast$l)
+\item 
+int \mbox{\hyperlink{store_8cpp_a1f28882f125542024f429bd5f4d5cac5}{load\+\_\+intarray}} (unsigned char $\ast$c, int n, int nbytes, unsigned int $\ast$l)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{store_8cpp_ad62bca92fdb0b5ad4830c4da950aeb00}\label{store_8cpp_ad62bca92fdb0b5ad4830c4da950aeb00}} 
+\index{store.cpp@{store.cpp}!load\_int@{load\_int}}
+\index{load\_int@{load\_int}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_int()}{load\_int()}}
+{\footnotesize\ttfamily int load\+\_\+int (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{c,  }\item[{int}]{nbytes,  }\item[{unsigned int $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_a1f28882f125542024f429bd5f4d5cac5}\label{store_8cpp_a1f28882f125542024f429bd5f4d5cac5}} 
+\index{store.cpp@{store.cpp}!load\_intarray@{load\_intarray}}
+\index{load\_intarray@{load\_intarray}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_intarray()}{load\_intarray()}}
+{\footnotesize\ttfamily int load\+\_\+intarray (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{c,  }\item[{int}]{n,  }\item[{int}]{nbytes,  }\item[{unsigned int $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Definition at line 100 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_a76b8ee31f23acd3b85ee16fe0c96ba46}\label{store_8cpp_a76b8ee31f23acd3b85ee16fe0c96ba46}} 
+\index{store.cpp@{store.cpp}!load\_long@{load\_long}}
+\index{load\_long@{load\_long}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_long()}{load\_long()}}
+{\footnotesize\ttfamily int load\+\_\+long (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{c,  }\item[{int}]{nbytes,  }\item[{unsigned long $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_ab2b314d7d5455a2b1306d037cf4dbbd0}\label{store_8cpp_ab2b314d7d5455a2b1306d037cf4dbbd0}} 
+\index{store.cpp@{store.cpp}!load\_longarray@{load\_longarray}}
+\index{load\_longarray@{load\_longarray}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_longarray()}{load\_longarray()}}
+{\footnotesize\ttfamily int load\+\_\+longarray (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{c,  }\item[{int}]{n,  }\item[{int}]{nbytes,  }\item[{unsigned long $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_af69df53579875357b275a531a5585080}\label{store_8cpp_af69df53579875357b275a531a5585080}} 
+\index{store.cpp@{store.cpp}!store\_int@{store\_int}}
+\index{store\_int@{store\_int}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{store\_int()}{store\_int()}}
+{\footnotesize\ttfamily int store\+\_\+int (\begin{DoxyParamCaption}\item[{unsigned int}]{l,  }\item[{int}]{nbytes,  }\item[{unsigned char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_a12163835b18db253eb3347896ffa8fac}\label{store_8cpp_a12163835b18db253eb3347896ffa8fac}} 
+\index{store.cpp@{store.cpp}!store\_intarray@{store\_intarray}}
+\index{store\_intarray@{store\_intarray}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{store\_intarray()}{store\_intarray()}}
+{\footnotesize\ttfamily int store\+\_\+intarray (\begin{DoxyParamCaption}\item[{unsigned int $\ast$}]{l,  }\item[{int}]{n,  }\item[{int}]{nbytes,  }\item[{unsigned char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_af75ede3051df01db1a0ab471564d99e7}\label{store_8cpp_af75ede3051df01db1a0ab471564d99e7}} 
+\index{store.cpp@{store.cpp}!store\_long@{store\_long}}
+\index{store\_long@{store\_long}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{store\_long()}{store\_long()}}
+{\footnotesize\ttfamily int store\+\_\+long (\begin{DoxyParamCaption}\item[{unsigned long}]{l,  }\item[{int}]{nbytes,  }\item[{unsigned char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file store.\+cpp.
+
+\mbox{\Hypertarget{store_8cpp_a0ea7974a264cff664eb56ca67bdacfdf}\label{store_8cpp_a0ea7974a264cff664eb56ca67bdacfdf}} 
+\index{store.cpp@{store.cpp}!store\_longarray@{store\_longarray}}
+\index{store\_longarray@{store\_longarray}!store.cpp@{store.cpp}}
+\doxysubsubsection{\texorpdfstring{store\_longarray()}{store\_longarray()}}
+{\footnotesize\ttfamily int store\+\_\+longarray (\begin{DoxyParamCaption}\item[{unsigned long $\ast$}]{l,  }\item[{int}]{n,  }\item[{int}]{nbytes,  }\item[{unsigned char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file store.\+cpp.
+

@@ -1,0 +1,309 @@
+\hypertarget{namespacedqmc__tdm1}{}\doxysection{dqmc\+\_\+tdm1 Module Reference}
+\label{namespacedqmc__tdm1}\index{dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__tdm1_1_1tdmarray}{tdmarray}}
+\item 
+type \mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a71fa5c56aab2feb47312967e413cc0cf}{dqmc\+\_\+tdm1\+\_\+init}} (L, dtau, T1, n\+Bin, S, Gwrap)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a36bcdd2ead405f82c6499b119b2a268a}{dqmc\+\_\+tdm1\+\_\+initftw}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a3932d3474c689fd3772c896d45a6bb64}{dqmc\+\_\+tdm1\+\_\+initprop}} (T1, S, Gwrap, iprop)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a160a4746c09c2f7d3a6e9ef9a3cd5a84}{dqmc\+\_\+tdm1\+\_\+free}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a1f398b80c5a5700325c66c4b9a38c0c3}{dqmc\+\_\+tdm1\+\_\+meas}} (T1, tau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a00ed997c2209c0e5876a68e66fc3f304}{dqmc\+\_\+tdm1\+\_\+meas\+\_\+para}} (T1, p\+T1, tau, ptau)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_abdda87e6d10b9d4fb4827e753fc9d717}{dqmc\+\_\+tdm1\+\_\+compute}} (T1, upt0, up0t, dnt0, dn0t, up00, uptt, dn00, dntt, it, i0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_ac45fb40b740f91e9962ff58b87732064}{dqmc\+\_\+tdm1\+\_\+avg}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a103166f9552e5211df1c6b553373db2d}{dqmc\+\_\+tdm1\+\_\+geterr}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a610f3f0bc7b3ae815b01c88a137a10ce}{dqmc\+\_\+tdm1\+\_\+print}} (T1, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_ab8078a5cfb2f9877f0796853e7abcc67}{dqmc\+\_\+tdm1\+\_\+getkft}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_a64d7bfd2f84eeb6f59f07532b4609f59}{dqmc\+\_\+tdm1\+\_\+geterrkft}} (T1)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_ab79b489eab84c45048bf7f28ca2dcbb2}{dqmc\+\_\+tdm1\+\_\+printkft}} (T1, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__tdm1_af1535503711c61c80ba32823b87c6c39}{dqmc\+\_\+tdm1\+\_\+selfenergy}} (T1, tau, OPT)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a42d90824bddb4136effc5df28a943b29}{ntdmarray}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a620bc147d90436ed18ea440b8d550372}{igfun}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a6b0f8e3879fdea90473099f34da225de}{igfup}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a29565cd55bc2a0235fcdd6b488f6cdad}{igfdn}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a51de1cd8248f6d000cad9904aa6eef00}{ispxx}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a5ba16ac8c0ebcc224af9da49387b3fd2}{ispzz}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a246cbdb7810cb95a5a131b7c7873d8c0}{idens}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_aa3bf9dc5c07c9e2b0332b846c3583cea}{ipair}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__tdm1_a953d6e7c27c9edfaa4f6aff5658a25e4}{icond}} = 8
+\item 
+character(len=12), dimension(\mbox{\hyperlink{namespacedqmc__tdm1_a42d90824bddb4136effc5df28a943b29}{ntdmarray}}), parameter \mbox{\hyperlink{namespacedqmc__tdm1_a422a927176f0a2b4c337830e61f94393}{pname}} = (/ \char`\"{}Gfun \char`\"{}, \char`\"{}Gfun up \char`\"{}, \char`\"{}Gfun dn \char`\"{}, \char`\"{}Sx\+Sx \char`\"{}, \char`\"{}Sz\+Sz \char`\"{}, \char`\"{}Den-\/Den \char`\"{}, \char`\"{}S-\/wave \char`\"{}, \char`\"{}Conductivity\char`\"{} /)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__tdm1_ac45fb40b740f91e9962ff58b87732064}\label{namespacedqmc__tdm1_ac45fb40b740f91e9962ff58b87732064}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_avg@{dqmc\_tdm1\_avg}}
+\index{dqmc\_tdm1\_avg@{dqmc\_tdm1\_avg}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_avg()}{dqmc\_tdm1\_avg()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+avg (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 860 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_abdda87e6d10b9d4fb4827e753fc9d717}\label{namespacedqmc__tdm1_abdda87e6d10b9d4fb4827e753fc9d717}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_compute@{dqmc\_tdm1\_compute}}
+\index{dqmc\_tdm1\_compute@{dqmc\_tdm1\_compute}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_compute()}{dqmc\_tdm1\_compute()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+compute (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{upt0,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{up0t,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{dnt0,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{dn0t,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{up00,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{uptt,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{dn00,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{dntt,  }\item[{integer, intent(in)}]{it,  }\item[{integer, intent(in)}]{i0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 559 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a160a4746c09c2f7d3a6e9ef9a3cd5a84}\label{namespacedqmc__tdm1_a160a4746c09c2f7d3a6e9ef9a3cd5a84}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_free@{dqmc\_tdm1\_free}}
+\index{dqmc\_tdm1\_free@{dqmc\_tdm1\_free}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_free()}{dqmc\_tdm1\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 311 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a103166f9552e5211df1c6b553373db2d}\label{namespacedqmc__tdm1_a103166f9552e5211df1c6b553373db2d}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_geterr@{dqmc\_tdm1\_geterr}}
+\index{dqmc\_tdm1\_geterr@{dqmc\_tdm1\_geterr}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_geterr()}{dqmc\_tdm1\_geterr()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+geterr (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 895 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a64d7bfd2f84eeb6f59f07532b4609f59}\label{namespacedqmc__tdm1_a64d7bfd2f84eeb6f59f07532b4609f59}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_geterrkft@{dqmc\_tdm1\_geterrkft}}
+\index{dqmc\_tdm1\_geterrkft@{dqmc\_tdm1\_geterrkft}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_geterrkft()}{dqmc\_tdm1\_geterrkft()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+geterrkft (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1069 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_ab8078a5cfb2f9877f0796853e7abcc67}\label{namespacedqmc__tdm1_ab8078a5cfb2f9877f0796853e7abcc67}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_getkft@{dqmc\_tdm1\_getkft}}
+\index{dqmc\_tdm1\_getkft@{dqmc\_tdm1\_getkft}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_getkft()}{dqmc\_tdm1\_getkft()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+getkft (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1027 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a71fa5c56aab2feb47312967e413cc0cf}\label{namespacedqmc__tdm1_a71fa5c56aab2feb47312967e413cc0cf}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_init@{dqmc\_tdm1\_init}}
+\index{dqmc\_tdm1\_init@{dqmc\_tdm1\_init}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_init()}{dqmc\_tdm1\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+init (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{L,  }\item[{real(wp), intent(in)}]{dtau,  }\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1,  }\item[{integer, intent(in)}]{n\+Bin,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(in)}]{S,  }\item[{type(\mbox{\hyperlink{structdqmc__geom__wrap_1_1geomwrap}{geomwrap}}), intent(in)}]{Gwrap }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a36bcdd2ead405f82c6499b119b2a268a}\label{namespacedqmc__tdm1_a36bcdd2ead405f82c6499b119b2a268a}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_initftw@{dqmc\_tdm1\_initftw}}
+\index{dqmc\_tdm1\_initftw@{dqmc\_tdm1\_initftw}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_initftw()}{dqmc\_tdm1\_initftw()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+initftw (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a3932d3474c689fd3772c896d45a6bb64}\label{namespacedqmc__tdm1_a3932d3474c689fd3772c896d45a6bb64}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_initprop@{dqmc\_tdm1\_initprop}}
+\index{dqmc\_tdm1\_initprop@{dqmc\_tdm1\_initprop}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_initprop()}{dqmc\_tdm1\_initprop()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+initprop (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(in)}]{S,  }\item[{type(\mbox{\hyperlink{structdqmc__geom__wrap_1_1geomwrap}{geomwrap}}), intent(in)}]{Gwrap,  }\item[{integer, intent(in)}]{iprop }\end{DoxyParamCaption})}
+
+
+
+Definition at line 187 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a1f398b80c5a5700325c66c4b9a38c0c3}\label{namespacedqmc__tdm1_a1f398b80c5a5700325c66c4b9a38c0c3}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_meas@{dqmc\_tdm1\_meas}}
+\index{dqmc\_tdm1\_meas@{dqmc\_tdm1\_meas}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_meas()}{dqmc\_tdm1\_meas()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+meas (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 343 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a00ed997c2209c0e5876a68e66fc3f304}\label{namespacedqmc__tdm1_a00ed997c2209c0e5876a68e66fc3f304}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_meas\_para@{dqmc\_tdm1\_meas\_para}}
+\index{dqmc\_tdm1\_meas\_para@{dqmc\_tdm1\_meas\_para}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_meas\_para()}{dqmc\_tdm1\_meas\_para()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+meas\+\_\+para (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(inout)}]{T1,  }\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), dimension(\+:), intent(inout)}]{p\+T1,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), dimension(\+:), intent(inout)}]{ptau }\end{DoxyParamCaption})}
+
+
+
+Definition at line 450 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a610f3f0bc7b3ae815b01c88a137a10ce}\label{namespacedqmc__tdm1_a610f3f0bc7b3ae815b01c88a137a10ce}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_print@{dqmc\_tdm1\_print}}
+\index{dqmc\_tdm1\_print@{dqmc\_tdm1\_print}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_print()}{dqmc\_tdm1\_print()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+print (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(in)}]{T1,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 985 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_ab79b489eab84c45048bf7f28ca2dcbb2}\label{namespacedqmc__tdm1_ab79b489eab84c45048bf7f28ca2dcbb2}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_printkft@{dqmc\_tdm1\_printkft}}
+\index{dqmc\_tdm1\_printkft@{dqmc\_tdm1\_printkft}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_printkft()}{dqmc\_tdm1\_printkft()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+printkft (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(in)}]{T1,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1144 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_af1535503711c61c80ba32823b87c6c39}\label{namespacedqmc__tdm1_af1535503711c61c80ba32823b87c6c39}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!dqmc\_tdm1\_selfenergy@{dqmc\_tdm1\_selfenergy}}
+\index{dqmc\_tdm1\_selfenergy@{dqmc\_tdm1\_selfenergy}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{dqmc\_tdm1\_selfenergy()}{dqmc\_tdm1\_selfenergy()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+tdm1\+::dqmc\+\_\+tdm1\+\_\+selfenergy (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__tdm1_1_1tdm1}{tdm1}}), intent(in)}]{T1,  }\item[{type(\mbox{\hyperlink{structdqmc__gtau_1_1gtau}{gtau}}), intent(inout)}]{tau,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1198 of file dqmc\+\_\+tdm1.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__tdm1_a953d6e7c27c9edfaa4f6aff5658a25e4}\label{namespacedqmc__tdm1_a953d6e7c27c9edfaa4f6aff5658a25e4}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!icond@{icond}}
+\index{icond@{icond}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{icond}{icond}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::icond = 8}
+
+
+
+Definition at line 54 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a246cbdb7810cb95a5a131b7c7873d8c0}\label{namespacedqmc__tdm1_a246cbdb7810cb95a5a131b7c7873d8c0}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!idens@{idens}}
+\index{idens@{idens}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{idens}{idens}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::idens = 6}
+
+
+
+Definition at line 52 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a29565cd55bc2a0235fcdd6b488f6cdad}\label{namespacedqmc__tdm1_a29565cd55bc2a0235fcdd6b488f6cdad}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!igfdn@{igfdn}}
+\index{igfdn@{igfdn}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{igfdn}{igfdn}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::igfdn = 3}
+
+
+
+Definition at line 49 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a620bc147d90436ed18ea440b8d550372}\label{namespacedqmc__tdm1_a620bc147d90436ed18ea440b8d550372}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!igfun@{igfun}}
+\index{igfun@{igfun}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{igfun}{igfun}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::igfun = 1}
+
+
+
+Definition at line 47 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a6b0f8e3879fdea90473099f34da225de}\label{namespacedqmc__tdm1_a6b0f8e3879fdea90473099f34da225de}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!igfup@{igfup}}
+\index{igfup@{igfup}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{igfup}{igfup}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::igfup = 2}
+
+
+
+Definition at line 48 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_aa3bf9dc5c07c9e2b0332b846c3583cea}\label{namespacedqmc__tdm1_aa3bf9dc5c07c9e2b0332b846c3583cea}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!ipair@{ipair}}
+\index{ipair@{ipair}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{ipair}{ipair}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::ipair = 7}
+
+
+
+Definition at line 53 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a51de1cd8248f6d000cad9904aa6eef00}\label{namespacedqmc__tdm1_a51de1cd8248f6d000cad9904aa6eef00}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!ispxx@{ispxx}}
+\index{ispxx@{ispxx}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{ispxx}{ispxx}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::ispxx = 4}
+
+
+
+Definition at line 50 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a5ba16ac8c0ebcc224af9da49387b3fd2}\label{namespacedqmc__tdm1_a5ba16ac8c0ebcc224af9da49387b3fd2}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!ispzz@{ispzz}}
+\index{ispzz@{ispzz}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{ispzz}{ispzz}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::ispzz = 5}
+
+
+
+Definition at line 51 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a42d90824bddb4136effc5df28a943b29}\label{namespacedqmc__tdm1_a42d90824bddb4136effc5df28a943b29}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!ntdmarray@{ntdmarray}}
+\index{ntdmarray@{ntdmarray}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{ntdmarray}{ntdmarray}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+tdm1\+::ntdmarray = 8}
+
+
+
+Definition at line 46 of file dqmc\+\_\+tdm1.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__tdm1_a422a927176f0a2b4c337830e61f94393}\label{namespacedqmc__tdm1_a422a927176f0a2b4c337830e61f94393}} 
+\index{dqmc\_tdm1@{dqmc\_tdm1}!pname@{pname}}
+\index{pname@{pname}!dqmc\_tdm1@{dqmc\_tdm1}}
+\doxysubsubsection{\texorpdfstring{pname}{pname}}
+{\footnotesize\ttfamily character(len=12), dimension(\mbox{\hyperlink{namespacedqmc__tdm1_a42d90824bddb4136effc5df28a943b29}{ntdmarray}}), parameter dqmc\+\_\+tdm1\+::pname = (/ \char`\"{}Gfun \char`\"{}, \char`\"{}Gfun up \char`\"{}, \char`\"{}Gfun dn \char`\"{}, \char`\"{}Sx\+Sx \char`\"{}, \char`\"{}Sz\+Sz \char`\"{}, \char`\"{}Den-\/Den \char`\"{}, \char`\"{}S-\/wave \char`\"{}, \char`\"{}Conductivity\char`\"{} /)}
+
+
+
+Definition at line 57 of file dqmc\+\_\+tdm1.\+F90.
+

@@ -1,0 +1,452 @@
+\hypertarget{structdqmc__hamilt_1_1hamiltonian__t}{}\doxysection{dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t Type Reference}
+\label{structdqmc__hamilt_1_1hamiltonian__t}\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a098d1b6b47783c7e902b898eaa430723}{njsites}}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a56cff6dce7865b0c54f1be3653847ff9}{nusites}}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a1f736a4ca9b070426766d6fbdce55073}{ntsites}}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_aa458f89f9b67662e652a1a779044e4ec}{maxneig}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_ac35f274afaaa2cd71fd058e62919d8fe}{tnneig}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a266867c559d2708dd6e7cc92463a8150}{unneig}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a06d30e91dd7c51df85413f1a132c7df3}{jnneig}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a95c1081481b7216049840c2252c6e0ea}{tsite}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a74e6c02a9b806d49e930cf1cd1eef9e5}{usite}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a43e07482050e4b705367d6164dbcc7e6}{jsite}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a93b413dca4d6c2b5db1124a73c6289e9}{tneig}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_affee9f4c6b0627f2692b5c4d020ea9e4}{uneig}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_ac1a276d5026f5d930d14575d322f74fb}{jneig}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a9f75ae91126402eab905ff3ded97bdee}{tckb}}
+\item 
+real $\ast$8 \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_abd2641ef2892f7302895ce1264aff762}{mu\+\_\+up}}
+\item 
+real $\ast$8 \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a1a96ed99e25257cea43474b0eebd51e7}{mu\+\_\+dn}}
+\item 
+real $\ast$8, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_adbb177980df2c8878a86077ceeed7a48}{uv}}
+\item 
+real $\ast$8, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a4da0514524c1c2e5bd06c3e69123b8b5}{jv}}
+\item 
+real $\ast$8, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_ac723b14dafc4b6f0958af33498176798}{uvalue}}
+\item 
+real $\ast$8, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a715d0b4e1353b06d286be71a38214e72}{muupvalue}}
+\item 
+real $\ast$8, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a5a96239eda5d3d0c0958e724a75702aa}{mudnvalue}}
+\item 
+complex $\ast$16, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a7df80023381ccfdf49af9b9849f1584f}{hopup}}
+\item 
+complex $\ast$16, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a38882b0a68297a7cba439c62d29fa224}{hopdn}}
+\item 
+complex $\ast$16, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a80003a0c8977c46c30f171dad0d96169}{tupvalue}}
+\item 
+complex $\ast$16, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a2d3f1dff22a5c204246e107b42d34683}{tdnvalue}}
+\item 
+complex $\ast$16, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_abddbdb6cc23a4a721607d52c3df8afc5}{phase}}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_aa40ceedf8bb0338a0967deaf63f5b0e3}{nhopclass}}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a98e548274eacc08853f617f350c41e8c}{nlocclass}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a274c9c06b1e35b3f8b3cc5f668545262}{mylocclass}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_ad844dc45a76375a59920df2b483cac21}{myhopclass}}
+\item 
+integer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_ac1cb0443d7b2f56b811727a5127a7757}{nplink}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a50a28b9b38a7d8142ce70fa38a7f8a03}{plink}}
+\item 
+real(wp), dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_ac86abf2bbd7bdd44aabb79fe00599343}{tlink}}
+\item 
+logical \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a4b62012b585de56336cf1bd78adfa819}{constructed}}
+\item 
+logical \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a663fac043049bf8047116412c2edd26c}{neig\+\_\+found}}
+\item 
+logical \mbox{\hyperlink{structdqmc__hamilt_1_1hamiltonian__t_a51f6258290c9da2213f01b2c916fa74c}{analyzed}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file dqmc\+\_\+hamilt.\+F90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a51f6258290c9da2213f01b2c916fa74c}\label{structdqmc__hamilt_1_1hamiltonian__t_a51f6258290c9da2213f01b2c916fa74c}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!analyzed@{analyzed}}
+\index{analyzed@{analyzed}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{analyzed}{analyzed}}
+{\footnotesize\ttfamily logical dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::analyzed}
+
+
+
+Definition at line 38 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a4b62012b585de56336cf1bd78adfa819}\label{structdqmc__hamilt_1_1hamiltonian__t_a4b62012b585de56336cf1bd78adfa819}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!constructed@{constructed}}
+\index{constructed@{constructed}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{constructed}{constructed}}
+{\footnotesize\ttfamily logical dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::constructed}
+
+
+
+Definition at line 36 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a38882b0a68297a7cba439c62d29fa224}\label{structdqmc__hamilt_1_1hamiltonian__t_a38882b0a68297a7cba439c62d29fa224}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!hopdn@{hopdn}}
+\index{hopdn@{hopdn}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{hopdn}{hopdn}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::hopdn}
+
+
+
+Definition at line 19 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a7df80023381ccfdf49af9b9849f1584f}\label{structdqmc__hamilt_1_1hamiltonian__t_a7df80023381ccfdf49af9b9849f1584f}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!hopup@{hopup}}
+\index{hopup@{hopup}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{hopup}{hopup}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::hopup}
+
+
+
+Definition at line 19 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_ac1a276d5026f5d930d14575d322f74fb}\label{structdqmc__hamilt_1_1hamiltonian__t_ac1a276d5026f5d930d14575d322f74fb}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!jneig@{jneig}}
+\index{jneig@{jneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{jneig}{jneig}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::jneig}
+
+
+
+Definition at line 14 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a06d30e91dd7c51df85413f1a132c7df3}\label{structdqmc__hamilt_1_1hamiltonian__t_a06d30e91dd7c51df85413f1a132c7df3}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!jnneig@{jnneig}}
+\index{jnneig@{jnneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{jnneig}{jnneig}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::jnneig}
+
+
+
+Definition at line 12 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a43e07482050e4b705367d6164dbcc7e6}\label{structdqmc__hamilt_1_1hamiltonian__t_a43e07482050e4b705367d6164dbcc7e6}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!jsite@{jsite}}
+\index{jsite@{jsite}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{jsite}{jsite}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::jsite}
+
+
+
+Definition at line 13 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a4da0514524c1c2e5bd06c3e69123b8b5}\label{structdqmc__hamilt_1_1hamiltonian__t_a4da0514524c1c2e5bd06c3e69123b8b5}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!jv@{jv}}
+\index{jv@{jv}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{jv}{jv}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::jv}
+
+
+
+Definition at line 17 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_aa458f89f9b67662e652a1a779044e4ec}\label{structdqmc__hamilt_1_1hamiltonian__t_aa458f89f9b67662e652a1a779044e4ec}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!maxneig@{maxneig}}
+\index{maxneig@{maxneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{maxneig}{maxneig}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::maxneig}
+
+
+
+Definition at line 11 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a1a96ed99e25257cea43474b0eebd51e7}\label{structdqmc__hamilt_1_1hamiltonian__t_a1a96ed99e25257cea43474b0eebd51e7}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!mu\_dn@{mu\_dn}}
+\index{mu\_dn@{mu\_dn}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{mu\_dn}{mu\_dn}}
+{\footnotesize\ttfamily real$\ast$8 dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::mu\+\_\+dn}
+
+
+
+Definition at line 16 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_abd2641ef2892f7302895ce1264aff762}\label{structdqmc__hamilt_1_1hamiltonian__t_abd2641ef2892f7302895ce1264aff762}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!mu\_up@{mu\_up}}
+\index{mu\_up@{mu\_up}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{mu\_up}{mu\_up}}
+{\footnotesize\ttfamily real$\ast$8 dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::mu\+\_\+up}
+
+
+
+Definition at line 16 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a5a96239eda5d3d0c0958e724a75702aa}\label{structdqmc__hamilt_1_1hamiltonian__t_a5a96239eda5d3d0c0958e724a75702aa}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!mudnvalue@{mudnvalue}}
+\index{mudnvalue@{mudnvalue}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{mudnvalue}{mudnvalue}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::mudnvalue}
+
+
+
+Definition at line 18 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a715d0b4e1353b06d286be71a38214e72}\label{structdqmc__hamilt_1_1hamiltonian__t_a715d0b4e1353b06d286be71a38214e72}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!muupvalue@{muupvalue}}
+\index{muupvalue@{muupvalue}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{muupvalue}{muupvalue}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::muupvalue}
+
+
+
+Definition at line 18 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_ad844dc45a76375a59920df2b483cac21}\label{structdqmc__hamilt_1_1hamiltonian__t_ad844dc45a76375a59920df2b483cac21}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!myhopclass@{myhopclass}}
+\index{myhopclass@{myhopclass}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{myhopclass}{myhopclass}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::myhopclass}
+
+
+
+Definition at line 25 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a274c9c06b1e35b3f8b3cc5f668545262}\label{structdqmc__hamilt_1_1hamiltonian__t_a274c9c06b1e35b3f8b3cc5f668545262}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!mylocclass@{mylocclass}}
+\index{mylocclass@{mylocclass}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{mylocclass}{mylocclass}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::mylocclass}
+
+
+
+Definition at line 24 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a663fac043049bf8047116412c2edd26c}\label{structdqmc__hamilt_1_1hamiltonian__t_a663fac043049bf8047116412c2edd26c}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!neig\_found@{neig\_found}}
+\index{neig\_found@{neig\_found}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{neig\_found}{neig\_found}}
+{\footnotesize\ttfamily logical dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::neig\+\_\+found}
+
+
+
+Definition at line 37 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_aa40ceedf8bb0338a0967deaf63f5b0e3}\label{structdqmc__hamilt_1_1hamiltonian__t_aa40ceedf8bb0338a0967deaf63f5b0e3}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!nhopclass@{nhopclass}}
+\index{nhopclass@{nhopclass}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{nhopclass}{nhopclass}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::nhopclass}
+
+
+
+Definition at line 22 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a098d1b6b47783c7e902b898eaa430723}\label{structdqmc__hamilt_1_1hamiltonian__t_a098d1b6b47783c7e902b898eaa430723}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!njsites@{njsites}}
+\index{njsites@{njsites}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{njsites}{njsites}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::njsites}
+
+
+
+Definition at line 10 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a98e548274eacc08853f617f350c41e8c}\label{structdqmc__hamilt_1_1hamiltonian__t_a98e548274eacc08853f617f350c41e8c}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!nlocclass@{nlocclass}}
+\index{nlocclass@{nlocclass}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{nlocclass}{nlocclass}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::nlocclass}
+
+
+
+Definition at line 23 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_ac1cb0443d7b2f56b811727a5127a7757}\label{structdqmc__hamilt_1_1hamiltonian__t_ac1cb0443d7b2f56b811727a5127a7757}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!nplink@{nplink}}
+\index{nplink@{nplink}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{nplink}{nplink}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::nplink}
+
+
+
+Definition at line 26 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a1f736a4ca9b070426766d6fbdce55073}\label{structdqmc__hamilt_1_1hamiltonian__t_a1f736a4ca9b070426766d6fbdce55073}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!ntsites@{ntsites}}
+\index{ntsites@{ntsites}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{ntsites}{ntsites}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::ntsites}
+
+
+
+Definition at line 10 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a56cff6dce7865b0c54f1be3653847ff9}\label{structdqmc__hamilt_1_1hamiltonian__t_a56cff6dce7865b0c54f1be3653847ff9}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!nusites@{nusites}}
+\index{nusites@{nusites}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{nusites}{nusites}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::nusites}
+
+
+
+Definition at line 10 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_abddbdb6cc23a4a721607d52c3df8afc5}\label{structdqmc__hamilt_1_1hamiltonian__t_abddbdb6cc23a4a721607d52c3df8afc5}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!phase@{phase}}
+\index{phase@{phase}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{phase}{phase}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::phase}
+
+
+
+Definition at line 21 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a50a28b9b38a7d8142ce70fa38a7f8a03}\label{structdqmc__hamilt_1_1hamiltonian__t_a50a28b9b38a7d8142ce70fa38a7f8a03}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!plink@{plink}}
+\index{plink@{plink}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{plink}{plink}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::plink}
+
+
+
+Definition at line 30 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a9f75ae91126402eab905ff3ded97bdee}\label{structdqmc__hamilt_1_1hamiltonian__t_a9f75ae91126402eab905ff3ded97bdee}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tckb@{tckb}}
+\index{tckb@{tckb}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tckb}{tckb}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tckb}
+
+
+
+Definition at line 15 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a2d3f1dff22a5c204246e107b42d34683}\label{structdqmc__hamilt_1_1hamiltonian__t_a2d3f1dff22a5c204246e107b42d34683}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tdnvalue@{tdnvalue}}
+\index{tdnvalue@{tdnvalue}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tdnvalue}{tdnvalue}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tdnvalue}
+
+
+
+Definition at line 20 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_ac86abf2bbd7bdd44aabb79fe00599343}\label{structdqmc__hamilt_1_1hamiltonian__t_ac86abf2bbd7bdd44aabb79fe00599343}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tlink@{tlink}}
+\index{tlink@{tlink}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tlink}{tlink}}
+{\footnotesize\ttfamily real(wp), dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tlink}
+
+
+
+Definition at line 35 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a93b413dca4d6c2b5db1124a73c6289e9}\label{structdqmc__hamilt_1_1hamiltonian__t_a93b413dca4d6c2b5db1124a73c6289e9}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tneig@{tneig}}
+\index{tneig@{tneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tneig}{tneig}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tneig}
+
+
+
+Definition at line 14 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_ac35f274afaaa2cd71fd058e62919d8fe}\label{structdqmc__hamilt_1_1hamiltonian__t_ac35f274afaaa2cd71fd058e62919d8fe}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tnneig@{tnneig}}
+\index{tnneig@{tnneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tnneig}{tnneig}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tnneig}
+
+
+
+Definition at line 12 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a95c1081481b7216049840c2252c6e0ea}\label{structdqmc__hamilt_1_1hamiltonian__t_a95c1081481b7216049840c2252c6e0ea}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tsite@{tsite}}
+\index{tsite@{tsite}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tsite}{tsite}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tsite}
+
+
+
+Definition at line 13 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a80003a0c8977c46c30f171dad0d96169}\label{structdqmc__hamilt_1_1hamiltonian__t_a80003a0c8977c46c30f171dad0d96169}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!tupvalue@{tupvalue}}
+\index{tupvalue@{tupvalue}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{tupvalue}{tupvalue}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::tupvalue}
+
+
+
+Definition at line 20 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_affee9f4c6b0627f2692b5c4d020ea9e4}\label{structdqmc__hamilt_1_1hamiltonian__t_affee9f4c6b0627f2692b5c4d020ea9e4}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!uneig@{uneig}}
+\index{uneig@{uneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{uneig}{uneig}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::uneig}
+
+
+
+Definition at line 14 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a266867c559d2708dd6e7cc92463a8150}\label{structdqmc__hamilt_1_1hamiltonian__t_a266867c559d2708dd6e7cc92463a8150}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!unneig@{unneig}}
+\index{unneig@{unneig}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{unneig}{unneig}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::unneig}
+
+
+
+Definition at line 12 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_a74e6c02a9b806d49e930cf1cd1eef9e5}\label{structdqmc__hamilt_1_1hamiltonian__t_a74e6c02a9b806d49e930cf1cd1eef9e5}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!usite@{usite}}
+\index{usite@{usite}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{usite}{usite}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::usite}
+
+
+
+Definition at line 13 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_adbb177980df2c8878a86077ceeed7a48}\label{structdqmc__hamilt_1_1hamiltonian__t_adbb177980df2c8878a86077ceeed7a48}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!uv@{uv}}
+\index{uv@{uv}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{uv}{uv}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:,\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::uv}
+
+
+
+Definition at line 17 of file dqmc\+\_\+hamilt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__hamilt_1_1hamiltonian__t_ac723b14dafc4b6f0958af33498176798}\label{structdqmc__hamilt_1_1hamiltonian__t_ac723b14dafc4b6f0958af33498176798}} 
+\index{dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}!uvalue@{uvalue}}
+\index{uvalue@{uvalue}!dqmc\_hamilt::hamiltonian\_t@{dqmc\_hamilt::hamiltonian\_t}}
+\doxysubsubsection{\texorpdfstring{uvalue}{uvalue}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:), pointer dqmc\+\_\+hamilt\+::hamiltonian\+\_\+t\+::uvalue}
+
+
+
+Definition at line 18 of file dqmc\+\_\+hamilt.\+F90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SRC/\mbox{\hyperlink{dqmc__hamilt_8F90}{dqmc\+\_\+hamilt.\+F90}}\end{DoxyCompactItemize}

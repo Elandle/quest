@@ -1,0 +1,470 @@
+\hypertarget{mlfg_8cpp}{}\doxysection{SRC/sprng5/\+SRC/mlfg/mlfg.cpp File Reference}
+\label{mlfg_8cpp}\index{SRC/sprng5/SRC/mlfg/mlfg.cpp@{SRC/sprng5/SRC/mlfg/mlfg.cpp}}
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sprng.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mlfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}store.\+h\char`\"{}}\newline
+Include dependency graph for mlfg.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mlfg_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvstruct}{vstruct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}{NDEBUG}}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}{MAX\+\_\+\+STREAMS}}~mlfg\+\_\+\+MAX\+\_\+\+STREAMS
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a5b116849652d56c12807cf6e6f989e71}{NGENS}}~mlfg\+\_\+\+NGENS
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a1309d8d6e05efe3739cff9e4c528a29d}{valid}}~mlfg\+\_\+valid
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}}~\char`\"{}00\char`\"{}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_abde7219dfdfc8895b93fba0919e697f3}{GENTYPE}}~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Multiplicative Lagged Fibonacci Generator\char`\"{}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}~11  /$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a8688ec0ea42227306cafa70026d302a6}{TWO\+\_\+\+M32}}~2.\+3283064365386962e-\/10 /$\ast$ 2$^\wedge$(-\/32) $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(a,  b,  c)~\{c\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]}\&b\mbox{[}0\mbox{]}; c\mbox{[}1\mbox{]} = a\mbox{[}1\mbox{]}\&b\mbox{[}1\mbox{]};\}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_ae36d945cb07a84165e77381954e58441}{Or}}(a,  b,  c)~\{c\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]}$\vert$b\mbox{[}0\mbox{]}; c\mbox{[}1\mbox{]} = a\mbox{[}1\mbox{]}$\vert$b\mbox{[}1\mbox{]};\}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a0e57b1984ac963f6eeadee63e055742f}{Xor}}(a,  b,  c)~\{c\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]}$^\wedge$b\mbox{[}0\mbox{]}; c\mbox{[}1\mbox{]} = a\mbox{[}1\mbox{]}$^\wedge$b\mbox{[}1\mbox{]};\}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a099a1ea25b57bb53787bc5c010ce8b6a}{notzero}}(a)~((a\mbox{[}0\mbox{]}==0 \&\& a\mbox{[}1\mbox{]}==0)?0\+:1)
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_aec10b127ecff170686558e31136a65ff}{multiply}}(a,  b,  c)
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_aac73361aee6db7eb30a8b321c2c37490}{add}}(a,  b,  c)
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a5d44893d0c2171bf811bd9ac2751c8b2}{decrement}}(a,  c)
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a1014b651ed84d12f1c8a5ca1fca04b74}{highword}}(a)~((a)\mbox{[}1\mbox{]})
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_ae83e51659bea3862e0cdcc131f220de4}{lowword}}(a)~((a)\mbox{[}0\mbox{]})
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_af1169f4ccb325c14fde7bba35de58ab7}{set}}(a,  b)~\{b\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]};b\mbox{[}1\mbox{]}=a\mbox{[}1\mbox{]};\mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(b,MASK64,b);\}
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a66c09e5b27b31e3a8f9271c4c02abf3e}{seti}}(a,  b)~\{b\mbox{[}0\mbox{]} = a;b\mbox{[}1\mbox{]}=0;\} /$\ast$ b is an int $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a6ed2e22bfb6a906cedd7f81d3a25511c}{seti2}}(a,  b,  c)~\{c\mbox{[}1\mbox{]} = b; c\mbox{[}0\mbox{]} = a; \mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(c,MASK64,c);\}/$\ast$a,b = +ve int$\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a4c22ab7e260c0964e60b28fcf4ee64a0}{TWO\+\_\+\+M52}}~2.\+2204460492503131e-\/16 /$\ast$ 2$^\wedge$(-\/52) $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}{TWO\+\_\+\+M64}}~5.\+4210108624275222e-\/20 /$\ast$ 2$^\wedge$(-\/64) $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}{BITS}}~62   /$\ast$ Initialization of ALFG part is m-\/2 bits $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}{MAX\+\_\+\+BIT\+\_\+\+INT}}~(\mbox{\hyperlink{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}{BITS}}-\/2)
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a410cd29123f8a3042a128dc8f6c400f0}{RUNUP}}~(2$\ast$\mbox{\hyperlink{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}{BITS}})  /$\ast$ Do RUNUP iterations after initialization $\ast$/
+\item 
+\#define \mbox{\hyperlink{mlfg_8cpp_a3547c69793eb36540810e8f9394c5a9c}{GS0}}~0x372f05ac
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}{uint64}}\mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mlfg_8cpp_a3dbd5450b178a4ec5a55e9ac253304ef}{load\+\_\+uint64}} (unsigned char $\ast$c, \mbox{\hyperlink{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}{uint64}} $\ast$l)
+\item 
+int \mbox{\hyperlink{mlfg_8cpp_ac62465482c46f6fb109d19aa5d76febe}{load\+\_\+uint64array}} (unsigned char $\ast$c, int n, \mbox{\hyperlink{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}{uint64}} $\ast$l)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mlfg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}{MAX\+\_\+\+STREAMS}} = 0x7fffffff
+\item 
+const struct \mbox{\hyperlink{structvstruct}{vstruct}} \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{mlfg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}{NGENS}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mlfg_8cpp_aac73361aee6db7eb30a8b321c2c37490}\label{mlfg_8cpp_aac73361aee6db7eb30a8b321c2c37490}} 
+\index{mlfg.cpp@{mlfg.cpp}!add@{add}}
+\index{add@{add}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{add}{add}}
+{\footnotesize\ttfamily \#define add(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                           \{\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t = a[0]+b[0]; \(\backslash\)}
+\DoxyCodeLine{                           c[1] = a[1]+b[1]+(t<a[0]);c[0]=t;\(\backslash\)}
+\DoxyCodeLine{                           And(c,MASK64,c);\}}
+
+\end{DoxyCode}
+
+
+Definition at line 129 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}\label{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}} 
+\index{mlfg.cpp@{mlfg.cpp}!And@{And}}
+\index{And@{And}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{And}{And}}
+{\footnotesize\ttfamily \#define And(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~\{c\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]}\&b\mbox{[}0\mbox{]}; c\mbox{[}1\mbox{]} = a\mbox{[}1\mbox{]}\&b\mbox{[}1\mbox{]};\}}
+
+
+
+Definition at line 121 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}\label{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}} 
+\index{mlfg.cpp@{mlfg.cpp}!BITS@{BITS}}
+\index{BITS@{BITS}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{BITS}{BITS}}
+{\footnotesize\ttfamily \#define BITS~62   /$\ast$ Initialization of ALFG part is m-\/2 bits $\ast$/}
+
+
+
+Definition at line 225 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a5d44893d0c2171bf811bd9ac2751c8b2}\label{mlfg_8cpp_a5d44893d0c2171bf811bd9ac2751c8b2}} 
+\index{mlfg.cpp@{mlfg.cpp}!decrement@{decrement}}
+\index{decrement@{decrement}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{decrement}{decrement}}
+{\footnotesize\ttfamily \#define decrement(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{c }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                            \{\textcolor{keywordflow}{if}(a[0]==0)\{c[1]=a[1]-\/1;c[0]=0xffffffff;\} \(\backslash\)}
+\DoxyCodeLine{                            else c[0] = a[0]-\/1; \mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(c,MASK64,c);\}}
+
+\end{DoxyCode}
+
+
+Definition at line 132 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_abde7219dfdfc8895b93fba0919e697f3}\label{mlfg_8cpp_abde7219dfdfc8895b93fba0919e697f3}} 
+\index{mlfg.cpp@{mlfg.cpp}!GENTYPE@{GENTYPE}}
+\index{GENTYPE@{GENTYPE}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{GENTYPE}{GENTYPE}}
+{\footnotesize\ttfamily \#define GENTYPE~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Multiplicative Lagged Fibonacci Generator\char`\"{}}
+
+
+
+Definition at line 38 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a3547c69793eb36540810e8f9394c5a9c}\label{mlfg_8cpp_a3547c69793eb36540810e8f9394c5a9c}} 
+\index{mlfg.cpp@{mlfg.cpp}!GS0@{GS0}}
+\index{GS0@{GS0}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{GS0}{GS0}}
+{\footnotesize\ttfamily \#define GS0~0x372f05ac}
+
+
+
+Definition at line 228 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a1014b651ed84d12f1c8a5ca1fca04b74}\label{mlfg_8cpp_a1014b651ed84d12f1c8a5ca1fca04b74}} 
+\index{mlfg.cpp@{mlfg.cpp}!highword@{highword}}
+\index{highword@{highword}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{highword}{highword}}
+{\footnotesize\ttfamily \#define highword(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((a)\mbox{[}1\mbox{]})}
+
+
+
+Definition at line 165 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_ae83e51659bea3862e0cdcc131f220de4}\label{mlfg_8cpp_ae83e51659bea3862e0cdcc131f220de4}} 
+\index{mlfg.cpp@{mlfg.cpp}!lowword@{lowword}}
+\index{lowword@{lowword}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{lowword}{lowword}}
+{\footnotesize\ttfamily \#define lowword(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((a)\mbox{[}0\mbox{]})}
+
+
+
+Definition at line 166 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}\label{mlfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}} 
+\index{mlfg.cpp@{mlfg.cpp}!MAX\_BIT\_INT@{MAX\_BIT\_INT}}
+\index{MAX\_BIT\_INT@{MAX\_BIT\_INT}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_BIT\_INT}{MAX\_BIT\_INT}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+BIT\+\_\+\+INT~(\mbox{\hyperlink{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}{BITS}}-\/2)}
+
+
+
+Definition at line 226 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}\label{mlfg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}} 
+\index{mlfg.cpp@{mlfg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+STREAMS~mlfg\+\_\+\+MAX\+\_\+\+STREAMS}
+
+
+
+Definition at line 32 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_aec10b127ecff170686558e31136a65ff}\label{mlfg_8cpp_aec10b127ecff170686558e31136a65ff}} 
+\index{mlfg.cpp@{mlfg.cpp}!multiply@{multiply}}
+\index{multiply@{multiply}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{multiply}{multiply}}
+{\footnotesize\ttfamily \#define multiply(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                           \{c[1] = a[0]*b[1]+a[1]*b[0];\(\backslash\)}
+\DoxyCodeLine{                           c[1] += (\textcolor{keywordtype}{unsigned} int) (((\textcolor{keywordtype}{double})a[0]*(\textcolor{keywordtype}{double})b[0])\(\backslash\)}
+\DoxyCodeLine{                                                                *\mbox{\hyperlink{mlfg_8cpp_a8688ec0ea42227306cafa70026d302a6}{TWO\_M32}});\(\backslash\)}
+\DoxyCodeLine{                           c[0] = a[0]*b[0]; \mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(c,MASK64,c);\}}
+
+\end{DoxyCode}
+
+
+Definition at line 125 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}\label{mlfg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}} 
+\index{mlfg.cpp@{mlfg.cpp}!NDEBUG@{NDEBUG}}
+\index{NDEBUG@{NDEBUG}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NDEBUG}{NDEBUG}}
+{\footnotesize\ttfamily \#define NDEBUG}
+
+
+
+Definition at line 23 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a5b116849652d56c12807cf6e6f989e71}\label{mlfg_8cpp_a5b116849652d56c12807cf6e6f989e71}} 
+\index{mlfg.cpp@{mlfg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily \#define NGENS~mlfg\+\_\+\+NGENS}
+
+
+
+Definition at line 33 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a099a1ea25b57bb53787bc5c010ce8b6a}\label{mlfg_8cpp_a099a1ea25b57bb53787bc5c010ce8b6a}} 
+\index{mlfg.cpp@{mlfg.cpp}!notzero@{notzero}}
+\index{notzero@{notzero}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{notzero}{notzero}}
+{\footnotesize\ttfamily \#define notzero(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((a\mbox{[}0\mbox{]}==0 \&\& a\mbox{[}1\mbox{]}==0)?0\+:1)}
+
+
+
+Definition at line 124 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}\label{mlfg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}} 
+\index{mlfg.cpp@{mlfg.cpp}!NPARAMS@{NPARAMS}}
+\index{NPARAMS@{NPARAMS}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NPARAMS}{NPARAMS}}
+{\footnotesize\ttfamily \#define NPARAMS~11  /$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$/}
+
+
+
+Definition at line 40 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_ae36d945cb07a84165e77381954e58441}\label{mlfg_8cpp_ae36d945cb07a84165e77381954e58441}} 
+\index{mlfg.cpp@{mlfg.cpp}!Or@{Or}}
+\index{Or@{Or}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{Or}{Or}}
+{\footnotesize\ttfamily \#define Or(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~\{c\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]}$\vert$b\mbox{[}0\mbox{]}; c\mbox{[}1\mbox{]} = a\mbox{[}1\mbox{]}$\vert$b\mbox{[}1\mbox{]};\}}
+
+
+
+Definition at line 122 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a410cd29123f8a3042a128dc8f6c400f0}\label{mlfg_8cpp_a410cd29123f8a3042a128dc8f6c400f0}} 
+\index{mlfg.cpp@{mlfg.cpp}!RUNUP@{RUNUP}}
+\index{RUNUP@{RUNUP}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{RUNUP}{RUNUP}}
+{\footnotesize\ttfamily \#define RUNUP~(2$\ast$\mbox{\hyperlink{mlfg_8cpp_a9d2a7c69bd3fabc41e1ee87df2f283b3}{BITS}})  /$\ast$ Do RUNUP iterations after initialization $\ast$/}
+
+
+
+Definition at line 227 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_af1169f4ccb325c14fde7bba35de58ab7}\label{mlfg_8cpp_af1169f4ccb325c14fde7bba35de58ab7}} 
+\index{mlfg.cpp@{mlfg.cpp}!set@{set}}
+\index{set@{set}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{set}{set}}
+{\footnotesize\ttfamily \#define set(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~\{b\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]};b\mbox{[}1\mbox{]}=a\mbox{[}1\mbox{]};\mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(b,MASK64,b);\}}
+
+
+
+Definition at line 167 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a66c09e5b27b31e3a8f9271c4c02abf3e}\label{mlfg_8cpp_a66c09e5b27b31e3a8f9271c4c02abf3e}} 
+\index{mlfg.cpp@{mlfg.cpp}!seti@{seti}}
+\index{seti@{seti}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{seti}{seti}}
+{\footnotesize\ttfamily \#define seti(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~\{b\mbox{[}0\mbox{]} = a;b\mbox{[}1\mbox{]}=0;\} /$\ast$ b is an int $\ast$/}
+
+
+
+Definition at line 168 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a6ed2e22bfb6a906cedd7f81d3a25511c}\label{mlfg_8cpp_a6ed2e22bfb6a906cedd7f81d3a25511c}} 
+\index{mlfg.cpp@{mlfg.cpp}!seti2@{seti2}}
+\index{seti2@{seti2}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{seti2}{seti2}}
+{\footnotesize\ttfamily \#define seti2(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~\{c\mbox{[}1\mbox{]} = b; c\mbox{[}0\mbox{]} = a; \mbox{\hyperlink{mlfg_8cpp_a0eb3aab6cc8f3e63c7c934595a9ec345}{And}}(c,MASK64,c);\}/$\ast$a,b = +ve int$\ast$/}
+
+
+
+Definition at line 169 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a8688ec0ea42227306cafa70026d302a6}\label{mlfg_8cpp_a8688ec0ea42227306cafa70026d302a6}} 
+\index{mlfg.cpp@{mlfg.cpp}!TWO\_M32@{TWO\_M32}}
+\index{TWO\_M32@{TWO\_M32}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M32}{TWO\_M32}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M32~2.\+3283064365386962e-\/10 /$\ast$ 2$^\wedge$(-\/32) $\ast$/}
+
+
+
+Definition at line 119 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a4c22ab7e260c0964e60b28fcf4ee64a0}\label{mlfg_8cpp_a4c22ab7e260c0964e60b28fcf4ee64a0}} 
+\index{mlfg.cpp@{mlfg.cpp}!TWO\_M52@{TWO\_M52}}
+\index{TWO\_M52@{TWO\_M52}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M52}{TWO\_M52}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M52~2.\+2204460492503131e-\/16 /$\ast$ 2$^\wedge$(-\/52) $\ast$/}
+
+
+
+Definition at line 223 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}\label{mlfg_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}} 
+\index{mlfg.cpp@{mlfg.cpp}!TWO\_M64@{TWO\_M64}}
+\index{TWO\_M64@{TWO\_M64}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M64}{TWO\_M64}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M64~5.\+4210108624275222e-\/20 /$\ast$ 2$^\wedge$(-\/64) $\ast$/}
+
+
+
+Definition at line 224 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a1309d8d6e05efe3739cff9e4c528a29d}\label{mlfg_8cpp_a1309d8d6e05efe3739cff9e4c528a29d}} 
+\index{mlfg.cpp@{mlfg.cpp}!valid@{valid}}
+\index{valid@{valid}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily \#define valid~mlfg\+\_\+valid}
+
+
+
+Definition at line 34 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}\label{mlfg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}} 
+\index{mlfg.cpp@{mlfg.cpp}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily \#define VERSION~\char`\"{}00\char`\"{}}
+
+
+
+Definition at line 36 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_a0e57b1984ac963f6eeadee63e055742f}\label{mlfg_8cpp_a0e57b1984ac963f6eeadee63e055742f}} 
+\index{mlfg.cpp@{mlfg.cpp}!Xor@{Xor}}
+\index{Xor@{Xor}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{Xor}{Xor}}
+{\footnotesize\ttfamily \#define Xor(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~\{c\mbox{[}0\mbox{]} = a\mbox{[}0\mbox{]}$^\wedge$b\mbox{[}0\mbox{]}; c\mbox{[}1\mbox{]} = a\mbox{[}1\mbox{]}$^\wedge$b\mbox{[}1\mbox{]};\}}
+
+
+
+Definition at line 123 of file mlfg.\+cpp.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}\label{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}} 
+\index{mlfg.cpp@{mlfg.cpp}!uint64@{uint64}}
+\index{uint64@{uint64}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{uint64}{uint64}}
+{\footnotesize\ttfamily typedef unsigned int uint64\mbox{[}2\mbox{]}}
+
+
+
+Definition at line 111 of file mlfg.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mlfg_8cpp_a3dbd5450b178a4ec5a55e9ac253304ef}\label{mlfg_8cpp_a3dbd5450b178a4ec5a55e9ac253304ef}} 
+\index{mlfg.cpp@{mlfg.cpp}!load\_uint64@{load\_uint64}}
+\index{load\_uint64@{load\_uint64}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_uint64()}{load\_uint64()}}
+{\footnotesize\ttfamily int load\+\_\+uint64 (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{c,  }\item[{\mbox{\hyperlink{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}{uint64}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Definition at line 200 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_ac62465482c46f6fb109d19aa5d76febe}\label{mlfg_8cpp_ac62465482c46f6fb109d19aa5d76febe}} 
+\index{mlfg.cpp@{mlfg.cpp}!load\_uint64array@{load\_uint64array}}
+\index{load\_uint64array@{load\_uint64array}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_uint64array()}{load\_uint64array()}}
+{\footnotesize\ttfamily int load\+\_\+uint64array (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{c,  }\item[{int}]{n,  }\item[{\mbox{\hyperlink{mlfg_8cpp_aec2c05017ecdcdb9a6f761dc12b0d340}{uint64}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+Definition at line 211 of file mlfg.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mlfg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}\label{mlfg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}} 
+\index{mlfg.cpp@{mlfg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily int MAX\+\_\+\+STREAMS = 0x7fffffff}
+
+
+
+Definition at line 41 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}\label{mlfg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}} 
+\index{mlfg.cpp@{mlfg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily int NGENS = 0}
+
+
+
+Definition at line 253 of file mlfg.\+cpp.
+
+\mbox{\Hypertarget{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}\label{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}} 
+\index{mlfg.cpp@{mlfg.cpp}!valid@{valid}}
+\index{valid@{valid}!mlfg.cpp@{mlfg.cpp}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structvstruct}{vstruct}} valid\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \{ 17, 5, 1, 10 \},}
+\DoxyCodeLine{    \{ 31, 6, 1, 2 \},}
+\DoxyCodeLine{    \{ 55, 24, 1, 11 \},}
+\DoxyCodeLine{    \{ 63, 31, 1, 14 \},}
+\DoxyCodeLine{    \{ 127, 97, 1, 21 \},}
+\DoxyCodeLine{    \{ 521, 353, 1, 100 \},}
+\DoxyCodeLine{    \{ 521, 168, 1, 83 \},}
+\DoxyCodeLine{    \{ 607, 334, 1, 166 \},}
+\DoxyCodeLine{    \{ 607, 273, 1, 105 \},}
+\DoxyCodeLine{    \{ 1279, 418, 1, 208 \},}
+\DoxyCodeLine{    \{ 1279, 861, 1, 233 \} \}}
+
+\end{DoxyCode}
+
+
+Definition at line 41 of file mlfg.\+cpp.
+

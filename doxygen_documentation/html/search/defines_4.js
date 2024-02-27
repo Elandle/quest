@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['dblgen_3095',['DBLGEN',['../SRC_2sprng__f_8h.html#aa4ed296bde876cd736b90359ba72dab7',1,'DBLGEN():&#160;sprng_f.h'],['../include_2sprng__f_8h.html#aa4ed296bde876cd736b90359ba72dab7',1,'DBLGEN():&#160;sprng_f.h']]],
+  ['decrement_3096',['decrement',['../mlfg_8cpp.html#a5d44893d0c2171bf811bd9ac2751c8b2',1,'mlfg.cpp']]],
+  ['default_5frng_5ftype_3097',['DEFAULT_RNG_TYPE',['../include_2sprng_8h.html#a2da2b233e2afdf11e25067f4192778b8',1,'DEFAULT_RNG_TYPE():&#160;sprng.h'],['../include_2sprng__f_8h.html#a2da2b233e2afdf11e25067f4192778b8',1,'DEFAULT_RNG_TYPE():&#160;sprng_f.h'],['../SRC_2sprng_8h.html#a2da2b233e2afdf11e25067f4192778b8',1,'DEFAULT_RNG_TYPE():&#160;sprng.h'],['../SRC_2sprng__f_8h.html#a2da2b233e2afdf11e25067f4192778b8',1,'DEFAULT_RNG_TYPE():&#160;sprng_f.h']]],
+  ['defaultint_3098',['DEFAULTINT',['../include_2sprng__f_8h.html#aa0eabb74247c83b5c7e349e516d414e3',1,'DEFAULTINT():&#160;sprng_f.h'],['../SRC_2sprng__f_8h.html#aa0eabb74247c83b5c7e349e516d414e3',1,'DEFAULTINT():&#160;sprng_f.h']]],
+  ['dgemm_3099',['DGEMM',['../kernel__cpu_8h.html#a74fa51f18b2db70dcd4feb53bffdde09',1,'kernel_cpu.h']]],
+  ['diff_3100',['diff',['../cmrg_2check__gen_8cpp.html#a7b34058bf678838aa41a8e8f470a526b',1,'diff():&#160;check_gen.cpp'],['../pmlcg_2check__gen_8cpp.html#a7b34058bf678838aa41a8e8f470a526b',1,'diff():&#160;check_gen.cpp'],['../mlfg_2check__gen_8cpp.html#a7b34058bf678838aa41a8e8f470a526b',1,'diff():&#160;check_gen.cpp'],['../lfg_2check__gen_8cpp.html#a7b34058bf678838aa41a8e8f470a526b',1,'diff():&#160;check_gen.cpp'],['../lcg64_2check__gen_8cpp.html#a7b34058bf678838aa41a8e8f470a526b',1,'diff():&#160;check_gen.cpp'],['../lcg_2check__gen_8cpp.html#a7b34058bf678838aa41a8e8f470a526b',1,'diff():&#160;check_gen.cpp']]],
+  ['drand48_3101',['DRAND48',['../include_2sprng_8h.html#a369da4336c00b7905b3efec6986f3579',1,'DRAND48():&#160;sprng.h'],['../include_2sprng__f_8h.html#a369da4336c00b7905b3efec6986f3579',1,'DRAND48():&#160;sprng_f.h'],['../SRC_2sprng_8h.html#a369da4336c00b7905b3efec6986f3579',1,'DRAND48():&#160;sprng.h'],['../SRC_2sprng__f_8h.html#a369da4336c00b7905b3efec6986f3579',1,'DRAND48():&#160;sprng_f.h']]]
+];

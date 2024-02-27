@@ -1,0 +1,110 @@
+\hypertarget{mpitests_2fft_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/mpitests/fft.cpp File Reference}
+\label{mpitests_2fft_8cpp}\index{SRC/sprng5/TESTS/mpitests/fft.cpp@{SRC/sprng5/TESTS/mpitests/fft.cpp}}
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include \char`\"{}sprng.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for fft.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mpitests_2fft_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mpitests_2fft_8cpp_ad44993b35c3ac8dc1346540567c4626e}{Analyze}} (int nstreams, int nruns, int n)
+\item 
+void \mbox{\hyperlink{mpitests_2fft_8cpp_aab7e3c840e616486fd991445aba81848}{FFTCalc}} (int nstreams, int nruns, int n)
+\item 
+int \mbox{\hyperlink{mpitests_2fft_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSprng}{Sprng}} $\ast$$\ast$ \mbox{\hyperlink{mpitests_2fft_8cpp_a6c6cbc7bbd237ba38e2e0025b963ea2d}{streams}}
+\item 
+int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}
+\item 
+double $\ast$ \mbox{\hyperlink{mpitests_2fft_8cpp_abf80bcde0f800749cad01f76011d157d}{means}}
+\item 
+double $\ast$ \mbox{\hyperlink{mpitests_2fft_8cpp_ae521acd28cc5565edc28b7f409d6ae3a}{FFTcoeffs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpitests_2fft_8cpp_ad44993b35c3ac8dc1346540567c4626e}\label{mpitests_2fft_8cpp_ad44993b35c3ac8dc1346540567c4626e}} 
+\index{fft.cpp@{fft.cpp}!Analyze@{Analyze}}
+\index{Analyze@{Analyze}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{Analyze()}{Analyze()}}
+{\footnotesize\ttfamily void Analyze (\begin{DoxyParamCaption}\item[{int}]{nstreams,  }\item[{int}]{nruns,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 126 of file fft.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2fft_8cpp_aab7e3c840e616486fd991445aba81848}\label{mpitests_2fft_8cpp_aab7e3c840e616486fd991445aba81848}} 
+\index{fft.cpp@{fft.cpp}!FFTCalc@{FFTCalc}}
+\index{FFTCalc@{FFTCalc}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{FFTCalc()}{FFTCalc()}}
+{\footnotesize\ttfamily void FFTCalc (\begin{DoxyParamCaption}\item[{int}]{nstreams,  }\item[{int}]{nruns,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 212 of file fft.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2fft_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{mpitests_2fft_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{fft.cpp@{fft.cpp}!main@{main}}
+\index{main@{main}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file fft.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mpitests_2fft_8cpp_ae521acd28cc5565edc28b7f409d6ae3a}\label{mpitests_2fft_8cpp_ae521acd28cc5565edc28b7f409d6ae3a}} 
+\index{fft.cpp@{fft.cpp}!FFTcoeffs@{FFTcoeffs}}
+\index{FFTcoeffs@{FFTcoeffs}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{FFTcoeffs}{FFTcoeffs}}
+{\footnotesize\ttfamily double $\ast$ FFTcoeffs}
+
+
+
+Definition at line 51 of file fft.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}\label{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}} 
+\index{fft.cpp@{fft.cpp}!lda@{lda}}
+\index{lda@{lda}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{lda}{lda}}
+{\footnotesize\ttfamily int lda}
+
+
+
+Definition at line 50 of file fft.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2fft_8cpp_abf80bcde0f800749cad01f76011d157d}\label{mpitests_2fft_8cpp_abf80bcde0f800749cad01f76011d157d}} 
+\index{fft.cpp@{fft.cpp}!means@{means}}
+\index{means@{means}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{means}{means}}
+{\footnotesize\ttfamily double$\ast$ means}
+
+
+
+Definition at line 51 of file fft.\+cpp.
+
+\mbox{\Hypertarget{mpitests_2fft_8cpp_a6c6cbc7bbd237ba38e2e0025b963ea2d}\label{mpitests_2fft_8cpp_a6c6cbc7bbd237ba38e2e0025b963ea2d}} 
+\index{fft.cpp@{fft.cpp}!streams@{streams}}
+\index{streams@{streams}!fft.cpp@{fft.cpp}}
+\doxysubsubsection{\texorpdfstring{streams}{streams}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSprng}{Sprng}}$\ast$$\ast$ streams}
+
+
+
+Definition at line 49 of file fft.\+cpp.
+

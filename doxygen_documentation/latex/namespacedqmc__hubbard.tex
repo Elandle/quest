@@ -1,0 +1,367 @@
+\hypertarget{namespacedqmc__hubbard}{}\doxysection{dqmc\+\_\+hubbard Module Reference}
+\label{namespacedqmc__hubbard}\index{dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ad8392f4369e615321bafda40e702ef32}{dqmc\+\_\+hub\+\_\+config}} (Hub, cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a3d38aa0f6bd90185faf792979e489bae}{dqmc\+\_\+hub\+\_\+init}} (Hub, U, t\+\_\+up, t\+\_\+dn, mu\+\_\+up, mu\+\_\+dn, L, n\+\_\+t, n\+\_\+U, n\+\_\+mu, dtau, HSF\+\_\+\+IPT, n\+Warm, n\+Pass, n\+Meas, n\+Try, n\+Bin, ntausk, seed, n\+Orth, n\+Wrap, fixw, errrate, difflim, gamma, accept, reject, delta1, delta2, ssxx, HSFtype, omega)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a3398f881b6f1581f7f224de9518131ca}{dqmc\+\_\+hub\+\_\+free}} (Hub)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ad50d0d8428a72287246f97800c9b12a1}{dqmc\+\_\+hub\+\_\+output\+\_\+hsf}} (Hub, restore, slice, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_afe3fa97328264ebbae9ac1f30fb9e1e4}{dqmc\+\_\+hub\+\_\+input\+\_\+hsf}} (Hub, restore, slice, IPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ae5400af71c3cd5f6d4b53c6f705b71fd}{dqmc\+\_\+hub\+\_\+outputparam}} (Hub, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a40186c6cab9cd40703ec20c517b8d26e}{dqmc\+\_\+hub\+\_\+print}} (Hub, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a4cffdcbd9d33ef32664a87b95c5f8d63}{dqmc\+\_\+hub\+\_\+sweep}} (Hub, n\+Meas0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_adef8e2660d978606a9301d137199587b}{dqmc\+\_\+hub\+\_\+sweep2}} (Hub, num\+Try)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_af2462cdc5b89587c1984b273a50c7883}{dqmc\+\_\+hub\+\_\+sweep\+\_\+cont}} (Hub, n\+Meas0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a69f24c65067b50ed40ab855a77409aef}{dqmc\+\_\+hub\+\_\+sweep2\+\_\+cont}} (Hub, num\+Try)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a69683cd9fa09df6e1ee5a6173102ead1}{dqmc\+\_\+hol\+\_\+sweep3\+\_\+cont}} (Hub, num\+Try)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a32241e08e816431fcfc9266ef10a58dd}{dqmc\+\_\+hub\+\_\+run}} (Hub, Info)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a6a2f862d26cbbba6fb19ed0e0d71a23c}{dqmc\+\_\+hub\+\_\+fullmeas}} (Hub, nnb, A\+\_\+up, A\+\_\+dn, sgn\+\_\+up, sgn\+\_\+dn)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a6f03b7f2a0d1f1ed79acb12f23cb6688}{dqmc\+\_\+hub\+\_\+meas}} (Hub, slice)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a9dd5a4a41829da1cbccc4636f94dca74}{dqmc\+\_\+hub\+\_\+init\+\_\+vmat}} (Hub)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ab9b14c1e5b466a399ec9f7b8947a0b2b}{dqmc\+\_\+hub\+\_\+init}} (Hub, U, t\+\_\+up, t\+\_\+dn, mu\+\_\+up, mu\+\_\+dn, L, n\+\_\+t, n\+\_\+U, n\+\_\+mu, dtau, HSF\+\_\+\+IPT, n\+Warm, n\+Pass, n\+Meas, n\+Try, n\+Bin, ntausk, seed, n\+Orth, n\+Wrap, fixw, errrate, difflim, gamma, accept, reject, delta1, delta2, ssxx, HSFtype)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ae4540a74244eb45d4653b220ecda10ec}{no\+\_\+meas0}} = -\/1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_a8b3ed511a7b30f9920dad7ae41b223e0}{hsf\+\_\+output\+\_\+unit}} = 28
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_abb0695564f86b980e0ae506dacbd76b4}{hsf\+\_\+input\+\_\+unit}} = 27
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_a30ac681836a0faa495c606fa65b2456d}{hsf\+\_\+random\+\_\+gen}} = -\/1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_abb0c6c1c5fc8b5abb9216636bc0a8141}{hsf\+\_\+from\+\_\+file}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ac1ebc6566b982a4b737a6bb87ec9e0e8}{hsf\+\_\+restore}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ade1626cabb42aaf68fd457c8f9380586}{hsf\+\_\+from\+\_\+memory}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_a71852b8904a97ef6a6b657e86a9bd800}{hsf\+\_\+disc}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ad5b49b70e9e782db6b08c563ac65f77d}{hsf\+\_\+cont}} = 1
+\item 
+integer \mbox{\hyperlink{namespacedqmc__hubbard_a19ab7db6878794a32a2794b9e99f1e2e}{simtype}}
+\item 
+real(wp) \mbox{\hyperlink{namespacedqmc__hubbard_a848aa2a01814ee61abcc71d16a49ee3c}{chsf0}}
+\item 
+real(wp), dimension(2) \mbox{\hyperlink{namespacedqmc__hubbard_a0066d36fdf50995ff715f4538f9cb366}{norm\+\_\+phonon}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__hubbard_a69683cd9fa09df6e1ee5a6173102ead1}\label{namespacedqmc__hubbard_a69683cd9fa09df6e1ee5a6173102ead1}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hol\_sweep3\_cont@{dqmc\_hol\_sweep3\_cont}}
+\index{dqmc\_hol\_sweep3\_cont@{dqmc\_hol\_sweep3\_cont}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hol\_sweep3\_cont()}{dqmc\_hol\_sweep3\_cont()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hol\+\_\+sweep3\+\_\+cont (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{integer, intent(in)}]{num\+Try }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2154 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ad8392f4369e615321bafda40e702ef32}\label{namespacedqmc__hubbard_ad8392f4369e615321bafda40e702ef32}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_config@{dqmc\_hub\_config}}
+\index{dqmc\_hub\_config@{dqmc\_hub\_config}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_config()}{dqmc\_hub\_config()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+config (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{type(\mbox{\hyperlink{structdqmc__cfg_1_1config}{config}}), intent(inout)}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a3398f881b6f1581f7f224de9518131ca}\label{namespacedqmc__hubbard_a3398f881b6f1581f7f224de9518131ca}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_free@{dqmc\_hub\_free}}
+\index{dqmc\_hub\_free@{dqmc\_hub\_free}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_free()}{dqmc\_hub\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub }\end{DoxyParamCaption})}
+
+
+
+Definition at line 643 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a6a2f862d26cbbba6fb19ed0e0d71a23c}\label{namespacedqmc__hubbard_a6a2f862d26cbbba6fb19ed0e0d71a23c}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_fullmeas@{dqmc\_hub\_fullmeas}}
+\index{dqmc\_hub\_fullmeas@{dqmc\_hub\_fullmeas}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_fullmeas()}{dqmc\_hub\_fullmeas()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+fullmeas (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{integer, intent(in)}]{nnb,  }\item[{real(wp), dimension(nnb, nnb), intent(in)}]{A\+\_\+up,  }\item[{real(wp), dimension(nnb, nnb), intent(in)}]{A\+\_\+dn,  }\item[{real(wp), intent(in)}]{sgn\+\_\+up,  }\item[{real(wp), intent(in)}]{sgn\+\_\+dn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2487 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ab9b14c1e5b466a399ec9f7b8947a0b2b}\label{namespacedqmc__hubbard_ab9b14c1e5b466a399ec9f7b8947a0b2b}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_init@{dqmc\_hub\_init}}
+\index{dqmc\_hub\_init@{dqmc\_hub\_init}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_init()}{dqmc\_hub\_init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+init (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{real(wp), dimension(\+:), intent(in)}]{U,  }\item[{real(wp), dimension(\+:), intent(in)}]{t\+\_\+up,  }\item[{real(wp), dimension(\+:), intent(in)}]{t\+\_\+dn,  }\item[{real(wp), dimension(\+:), intent(in)}]{mu\+\_\+up,  }\item[{real(wp), dimension(\+:), intent(in)}]{mu\+\_\+dn,  }\item[{integer, intent(in)}]{L,  }\item[{integer, intent(in)}]{n\+\_\+t,  }\item[{integer, intent(in)}]{n\+\_\+U,  }\item[{integer, intent(in)}]{n\+\_\+mu,  }\item[{real(wp), intent(in)}]{dtau,  }\item[{integer, intent(in)}]{HSF\+\_\+\+IPT,  }\item[{integer, intent(in)}]{n\+Warm,  }\item[{integer, intent(in)}]{n\+Pass,  }\item[{integer, intent(in)}]{n\+Meas,  }\item[{integer, intent(in)}]{n\+Try,  }\item[{integer, intent(in)}]{n\+Bin,  }\item[{integer, intent(in)}]{ntausk,  }\item[{integer, intent(in)}]{seed,  }\item[{integer, intent(in)}]{n\+Orth,  }\item[{integer, intent(in)}]{n\+Wrap,  }\item[{integer, intent(in)}]{fixw,  }\item[{real(wp), intent(in)}]{errrate,  }\item[{real(wp), intent(in)}]{difflim,  }\item[{real(wp), intent(in)}]{gamma,  }\item[{integer, intent(in)}]{accept,  }\item[{integer, intent(in)}]{reject,  }\item[{real(wp), intent(in)}]{delta1,  }\item[{real(wp), intent(in)}]{delta2,  }\item[{integer, intent(in)}]{ssxx,  }\item[{integer, intent(in)}]{HSFtype }\end{DoxyParamCaption})}
+
+
+
+Definition at line 278 of file dqmc\+\_\+hubbard.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a3d38aa0f6bd90185faf792979e489bae}\label{namespacedqmc__hubbard_a3d38aa0f6bd90185faf792979e489bae}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_init@{dqmc\_hub\_init}}
+\index{dqmc\_hub\_init@{dqmc\_hub\_init}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_init()}{dqmc\_hub\_init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+init (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{real(wp), dimension(\+:), intent(in)}]{U,  }\item[{real(wp), dimension(\+:), intent(in)}]{t\+\_\+up,  }\item[{real(wp), dimension(\+:), intent(in)}]{t\+\_\+dn,  }\item[{real(wp), dimension(\+:), intent(in)}]{mu\+\_\+up,  }\item[{real(wp), dimension(\+:), intent(in)}]{mu\+\_\+dn,  }\item[{integer, intent(in)}]{L,  }\item[{integer, intent(in)}]{n\+\_\+t,  }\item[{integer, intent(in)}]{n\+\_\+U,  }\item[{integer, intent(in)}]{n\+\_\+mu,  }\item[{real(wp), intent(in)}]{dtau,  }\item[{integer, intent(in)}]{HSF\+\_\+\+IPT,  }\item[{integer, intent(in)}]{n\+Warm,  }\item[{integer, intent(in)}]{n\+Pass,  }\item[{integer, intent(in)}]{n\+Meas,  }\item[{integer, intent(in)}]{n\+Try,  }\item[{integer, intent(in)}]{n\+Bin,  }\item[{integer, intent(in)}]{ntausk,  }\item[{integer, intent(in)}]{seed,  }\item[{integer, intent(in)}]{n\+Orth,  }\item[{integer, intent(in)}]{n\+Wrap,  }\item[{integer, intent(in)}]{fixw,  }\item[{real(wp), intent(in)}]{errrate,  }\item[{real(wp), intent(in)}]{difflim,  }\item[{real(wp), intent(in)}]{gamma,  }\item[{integer, intent(in)}]{accept,  }\item[{integer, intent(in)}]{reject,  }\item[{real(wp), intent(in)}]{delta1,  }\item[{real(wp), intent(in)}]{delta2,  }\item[{integer, intent(in)}]{ssxx,  }\item[{integer, intent(in)}]{HSFtype,  }\item[{real(wp), intent(in)}]{omega }\end{DoxyParamCaption})}
+
+
+
+Definition at line 299 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a9dd5a4a41829da1cbccc4636f94dca74}\label{namespacedqmc__hubbard_a9dd5a4a41829da1cbccc4636f94dca74}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_init\_vmat@{dqmc\_hub\_init\_vmat}}
+\index{dqmc\_hub\_init\_vmat@{dqmc\_hub\_init\_vmat}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_init\_vmat()}{dqmc\_hub\_init\_vmat()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+init\+\_\+vmat (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2656 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_afe3fa97328264ebbae9ac1f30fb9e1e4}\label{namespacedqmc__hubbard_afe3fa97328264ebbae9ac1f30fb9e1e4}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_input\_hsf@{dqmc\_hub\_input\_hsf}}
+\index{dqmc\_hub\_input\_hsf@{dqmc\_hub\_input\_hsf}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_input\_hsf()}{dqmc\_hub\_input\_hsf()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+input\+\_\+hsf (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{logical, intent(in)}]{restore,  }\item[{integer, intent(out)}]{slice,  }\item[{integer, intent(in)}]{IPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 834 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a6f03b7f2a0d1f1ed79acb12f23cb6688}\label{namespacedqmc__hubbard_a6f03b7f2a0d1f1ed79acb12f23cb6688}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_meas@{dqmc\_hub\_meas}}
+\index{dqmc\_hub\_meas@{dqmc\_hub\_meas}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_meas()}{dqmc\_hub\_meas()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+meas (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{integer, intent(inout)}]{slice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2578 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ad50d0d8428a72287246f97800c9b12a1}\label{namespacedqmc__hubbard_ad50d0d8428a72287246f97800c9b12a1}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_output\_hsf@{dqmc\_hub\_output\_hsf}}
+\index{dqmc\_hub\_output\_hsf@{dqmc\_hub\_output\_hsf}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_output\_hsf()}{dqmc\_hub\_output\_hsf()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+output\+\_\+hsf (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(in)}]{Hub,  }\item[{logical, intent(in)}]{restore,  }\item[{integer, intent(in)}]{slice,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 685 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ae5400af71c3cd5f6d4b53c6f705b71fd}\label{namespacedqmc__hubbard_ae5400af71c3cd5f6d4b53c6f705b71fd}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_outputparam@{dqmc\_hub\_outputparam}}
+\index{dqmc\_hub\_outputparam@{dqmc\_hub\_outputparam}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_outputparam()}{dqmc\_hub\_outputparam()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+outputparam (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(in)}]{Hub,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 920 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a40186c6cab9cd40703ec20c517b8d26e}\label{namespacedqmc__hubbard_a40186c6cab9cd40703ec20c517b8d26e}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_print@{dqmc\_hub\_print}}
+\index{dqmc\_hub\_print@{dqmc\_hub\_print}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_print()}{dqmc\_hub\_print()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+print (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(in)}]{Hub,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1028 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a32241e08e816431fcfc9266ef10a58dd}\label{namespacedqmc__hubbard_a32241e08e816431fcfc9266ef10a58dd}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_run@{dqmc\_hub\_run}}
+\index{dqmc\_hub\_run@{dqmc\_hub\_run}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_run()}{dqmc\_hub\_run()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+run (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{integer}]{Info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2422 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a4cffdcbd9d33ef32664a87b95c5f8d63}\label{namespacedqmc__hubbard_a4cffdcbd9d33ef32664a87b95c5f8d63}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_sweep@{dqmc\_hub\_sweep}}
+\index{dqmc\_hub\_sweep@{dqmc\_hub\_sweep}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_sweep()}{dqmc\_hub\_sweep()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout), target}]{Hub,  }\item[{integer, intent(in)}]{n\+Meas0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1054 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_adef8e2660d978606a9301d137199587b}\label{namespacedqmc__hubbard_adef8e2660d978606a9301d137199587b}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_sweep2@{dqmc\_hub\_sweep2}}
+\index{dqmc\_hub\_sweep2@{dqmc\_hub\_sweep2}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_sweep2()}{dqmc\_hub\_sweep2()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep2 (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{integer, intent(in)}]{num\+Try }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1356 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a69f24c65067b50ed40ab855a77409aef}\label{namespacedqmc__hubbard_a69f24c65067b50ed40ab855a77409aef}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_sweep2\_cont@{dqmc\_hub\_sweep2\_cont}}
+\index{dqmc\_hub\_sweep2\_cont@{dqmc\_hub\_sweep2\_cont}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_sweep2\_cont()}{dqmc\_hub\_sweep2\_cont()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep2\+\_\+cont (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout)}]{Hub,  }\item[{integer, intent(in)}]{num\+Try }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1866 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_af2462cdc5b89587c1984b273a50c7883}\label{namespacedqmc__hubbard_af2462cdc5b89587c1984b273a50c7883}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!dqmc\_hub\_sweep\_cont@{dqmc\_hub\_sweep\_cont}}
+\index{dqmc\_hub\_sweep\_cont@{dqmc\_hub\_sweep\_cont}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{dqmc\_hub\_sweep\_cont()}{dqmc\_hub\_sweep\_cont()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep\+\_\+cont (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{hubbard}}), intent(inout), target}]{Hub,  }\item[{integer, intent(in)}]{n\+Meas0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1559 of file dqmc\+\_\+holstein.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__hubbard_a848aa2a01814ee61abcc71d16a49ee3c}\label{namespacedqmc__hubbard_a848aa2a01814ee61abcc71d16a49ee3c}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!chsf0@{chsf0}}
+\index{chsf0@{chsf0}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{chsf0}{chsf0}}
+{\footnotesize\ttfamily real(wp) dqmc\+\_\+hubbard\+::chsf0}
+
+
+
+Definition at line 160 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ad5b49b70e9e782db6b08c563ac65f77d}\label{namespacedqmc__hubbard_ad5b49b70e9e782db6b08c563ac65f77d}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_cont@{hsf\_cont}}
+\index{hsf\_cont@{hsf\_cont}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_cont}{hsf\_cont}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+cont = 1}
+
+
+
+Definition at line 155 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a71852b8904a97ef6a6b657e86a9bd800}\label{namespacedqmc__hubbard_a71852b8904a97ef6a6b657e86a9bd800}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_disc@{hsf\_disc}}
+\index{hsf\_disc@{hsf\_disc}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_disc}{hsf\_disc}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+disc = 0}
+
+
+
+Definition at line 154 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_abb0c6c1c5fc8b5abb9216636bc0a8141}\label{namespacedqmc__hubbard_abb0c6c1c5fc8b5abb9216636bc0a8141}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_from\_file@{hsf\_from\_file}}
+\index{hsf\_from\_file@{hsf\_from\_file}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_from\_file}{hsf\_from\_file}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+from\+\_\+file = 1}
+
+
+
+Definition at line 150 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ade1626cabb42aaf68fd457c8f9380586}\label{namespacedqmc__hubbard_ade1626cabb42aaf68fd457c8f9380586}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_from\_memory@{hsf\_from\_memory}}
+\index{hsf\_from\_memory@{hsf\_from\_memory}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_from\_memory}{hsf\_from\_memory}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+from\+\_\+memory = 0}
+
+
+
+Definition at line 152 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_abb0695564f86b980e0ae506dacbd76b4}\label{namespacedqmc__hubbard_abb0695564f86b980e0ae506dacbd76b4}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_input\_unit@{hsf\_input\_unit}}
+\index{hsf\_input\_unit@{hsf\_input\_unit}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_input\_unit}{hsf\_input\_unit}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+input\+\_\+unit = 27}
+
+
+
+Definition at line 148 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a8b3ed511a7b30f9920dad7ae41b223e0}\label{namespacedqmc__hubbard_a8b3ed511a7b30f9920dad7ae41b223e0}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_output\_unit@{hsf\_output\_unit}}
+\index{hsf\_output\_unit@{hsf\_output\_unit}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_output\_unit}{hsf\_output\_unit}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+output\+\_\+unit = 28}
+
+
+
+Definition at line 147 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a30ac681836a0faa495c606fa65b2456d}\label{namespacedqmc__hubbard_a30ac681836a0faa495c606fa65b2456d}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_random\_gen@{hsf\_random\_gen}}
+\index{hsf\_random\_gen@{hsf\_random\_gen}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_random\_gen}{hsf\_random\_gen}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+random\+\_\+gen = -\/1}
+
+
+
+Definition at line 149 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ac1ebc6566b982a4b737a6bb87ec9e0e8}\label{namespacedqmc__hubbard_ac1ebc6566b982a4b737a6bb87ec9e0e8}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!hsf\_restore@{hsf\_restore}}
+\index{hsf\_restore@{hsf\_restore}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{hsf\_restore}{hsf\_restore}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::hsf\+\_\+restore = 2}
+
+
+
+Definition at line 151 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_ae4540a74244eb45d4653b220ecda10ec}\label{namespacedqmc__hubbard_ae4540a74244eb45d4653b220ecda10ec}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!no\_meas0@{no\_meas0}}
+\index{no\_meas0@{no\_meas0}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{no\_meas0}{no\_meas0}}
+{\footnotesize\ttfamily integer parameter dqmc\+\_\+hubbard\+::no\+\_\+meas0 = -\/1}
+
+
+
+Definition at line 144 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a0066d36fdf50995ff715f4538f9cb366}\label{namespacedqmc__hubbard_a0066d36fdf50995ff715f4538f9cb366}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!norm\_phonon@{norm\_phonon}}
+\index{norm\_phonon@{norm\_phonon}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{norm\_phonon}{norm\_phonon}}
+{\footnotesize\ttfamily real(wp), dimension(2) dqmc\+\_\+hubbard\+::norm\+\_\+phonon}
+
+
+
+Definition at line 161 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__hubbard_a19ab7db6878794a32a2794b9e99f1e2e}\label{namespacedqmc__hubbard_a19ab7db6878794a32a2794b9e99f1e2e}} 
+\index{dqmc\_hubbard@{dqmc\_hubbard}!simtype@{simtype}}
+\index{simtype@{simtype}!dqmc\_hubbard@{dqmc\_hubbard}}
+\doxysubsubsection{\texorpdfstring{simtype}{simtype}}
+{\footnotesize\ttfamily integer dqmc\+\_\+hubbard\+::simtype}
+
+
+
+Definition at line 157 of file dqmc\+\_\+holstein.\+F90.
+

@@ -1,0 +1,356 @@
+\hypertarget{metropolis_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/metropolis.cpp File Reference}
+\label{metropolis_8cpp}\index{SRC/sprng5/TESTS/metropolis.cpp@{SRC/sprng5/TESTS/metropolis.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}sprng\+\_\+cpp.\+h\char`\"{}}\newline
+Include dependency graph for metropolis.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{metropolis_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{metropolis_8cpp_adb2d9505bae635c86de4a47561d7d930}{PARALLEL}}
+\item 
+\#define \mbox{\hyperlink{metropolis_8cpp_a9ac82e856c7683e23553431e5224d5f4}{SYNC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_ad61c523967cd39c2f627ac68b5addcae}{RNG}} ()
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_af4df1535e554ab5d82ef82795c53bfac}{diff}} (int Ispin)
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_a79bb605fdde10f9cd1343594380f34fb}{energy\+\_\+difference}} (int site)
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_a4e9bdf4a3ab5e3f6a60aa0d7d0afce52}{System\+\_\+\+Energy}} ()
+\item 
+void \mbox{\hyperlink{metropolis_8cpp_af72e02c081746cc1eefa8ac04beac995}{compute}} (int i)
+\item 
+void \mbox{\hyperlink{metropolis_8cpp_ac262e0f2f6589fa4ddb5bdbee9e7b14b}{metropolis}} (int block\+\_\+size, int use\+\_\+blocks)
+\item 
+void \mbox{\hyperlink{metropolis_8cpp_afb83e9b4ee52fa44537b2796ca424db0}{minitialize}} (int rng\+\_\+type, int seed, int param, int use\+\_\+blocks)
+\item 
+void \mbox{\hyperlink{metropolis_8cpp_a7f2cfbf7aa6cb28af7df62557b618963}{check\+\_\+arguments}} (int \mbox{\hyperlink{wolfftest_8cpp_a98a79fece1cc30677d6678a14b02ef1e}{lattice\+\_\+size}}, int block\+\_\+size, int discard\+\_\+blocks, int use\+\_\+blocks)
+\item 
+void \mbox{\hyperlink{metropolis_8cpp_a9b90292287fc9173e8c85cd33b31894f}{thermalize}} (int block\+\_\+size, int discard\+\_\+blocks)
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_a98a79fece1cc30677d6678a14b02ef1e}{lattice\+\_\+size}}
+\item 
+int $\ast$ \mbox{\hyperlink{metropolis_8cpp_a139c1100ae8a7cd401cbef783e50fd62}{spin}}
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_aceeee4f75cb2381f9521b30092609b1c}{nsites}}
+\item 
+\mbox{\hyperlink{classSprng}{Sprng}} $\ast$$\ast$ \mbox{\hyperlink{metropolis_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}{genptr}}
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_ab15e6c2526a1d35231ff95f2eb782d84}{exponent}}
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_ab77cc972f3ee899689ba053015472ccd}{mask}}
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_aa2e6cdab200874e2972d1b8138b03a3f}{prob}}
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_abd7a82d6a2b12df3c3fc2d0e9a2984b6}{Energy}} \mbox{[}10\mbox{]}\mbox{[}10\mbox{]}
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_a3a31bf3eb8155012bf1aae03d8f48d95}{Cv}} \mbox{[}10\mbox{]}\mbox{[}10\mbox{]}
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_a229fe836529a54bc8a7d390148d7a488}{J}} = 0.\+4406868
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_af2972cf005bea616615b7a562b0c762e}{exp\+Jarray}} \mbox{[}17\mbox{]}
+\item 
+double $\ast$ \mbox{\hyperlink{metropolis_8cpp_a7ad41d294ad061dc454d08c8ec29da6f}{expJ}}
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_a07014bcab37624bcae852dc56b2c8c35}{exact\+\_\+energy}} = -\/1.\+4530649029
+\item 
+double \mbox{\hyperlink{metropolis_8cpp_a2dfc8b54d77dfc83f144c758aa1df192}{exact\+\_\+\+Cv}} = 1.\+4987048885
+\item 
+int \mbox{\hyperlink{metropolis_8cpp_a779037c8964d2a661768f45729b9161d}{neighbor}} \mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{metropolis_8cpp_adb2d9505bae635c86de4a47561d7d930}\label{metropolis_8cpp_adb2d9505bae635c86de4a47561d7d930}} 
+\index{metropolis.cpp@{metropolis.cpp}!PARALLEL@{PARALLEL}}
+\index{PARALLEL@{PARALLEL}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{PARALLEL}{PARALLEL}}
+{\footnotesize\ttfamily \#define PARALLEL}
+
+
+
+Definition at line 14 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a9ac82e856c7683e23553431e5224d5f4}\label{metropolis_8cpp_a9ac82e856c7683e23553431e5224d5f4}} 
+\index{metropolis.cpp@{metropolis.cpp}!SYNC@{SYNC}}
+\index{SYNC@{SYNC}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{SYNC}{SYNC}}
+{\footnotesize\ttfamily \#define SYNC}
+
+
+
+Definition at line 15 of file metropolis.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{metropolis_8cpp_a7f2cfbf7aa6cb28af7df62557b618963}\label{metropolis_8cpp_a7f2cfbf7aa6cb28af7df62557b618963}} 
+\index{metropolis.cpp@{metropolis.cpp}!check\_arguments@{check\_arguments}}
+\index{check\_arguments@{check\_arguments}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_arguments()}{check\_arguments()}}
+{\footnotesize\ttfamily void check\+\_\+arguments (\begin{DoxyParamCaption}\item[{int}]{lattice\+\_\+size,  }\item[{int}]{block\+\_\+size,  }\item[{int}]{discard\+\_\+blocks,  }\item[{int}]{use\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 269 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_af72e02c081746cc1eefa8ac04beac995}\label{metropolis_8cpp_af72e02c081746cc1eefa8ac04beac995}} 
+\index{metropolis.cpp@{metropolis.cpp}!compute@{compute}}
+\index{compute@{compute}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily void compute (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_af4df1535e554ab5d82ef82795c53bfac}\label{metropolis_8cpp_af4df1535e554ab5d82ef82795c53bfac}} 
+\index{metropolis.cpp@{metropolis.cpp}!diff@{diff}}
+\index{diff@{diff}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily int diff (\begin{DoxyParamCaption}\item[{int}]{Ispin }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a79bb605fdde10f9cd1343594380f34fb}\label{metropolis_8cpp_a79bb605fdde10f9cd1343594380f34fb}} 
+\index{metropolis.cpp@{metropolis.cpp}!energy\_difference@{energy\_difference}}
+\index{energy\_difference@{energy\_difference}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{energy\_difference()}{energy\_difference()}}
+{\footnotesize\ttfamily int energy\+\_\+difference (\begin{DoxyParamCaption}\item[{int}]{site }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{metropolis_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{metropolis.cpp@{metropolis.cpp}!main@{main}}
+\index{main@{main}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 339 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_ac262e0f2f6589fa4ddb5bdbee9e7b14b}\label{metropolis_8cpp_ac262e0f2f6589fa4ddb5bdbee9e7b14b}} 
+\index{metropolis.cpp@{metropolis.cpp}!metropolis@{metropolis}}
+\index{metropolis@{metropolis}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{metropolis()}{metropolis()}}
+{\footnotesize\ttfamily void metropolis (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+size,  }\item[{int}]{use\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 150 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_afb83e9b4ee52fa44537b2796ca424db0}\label{metropolis_8cpp_afb83e9b4ee52fa44537b2796ca424db0}} 
+\index{metropolis.cpp@{metropolis.cpp}!minitialize@{minitialize}}
+\index{minitialize@{minitialize}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{minitialize()}{minitialize()}}
+{\footnotesize\ttfamily void minitialize (\begin{DoxyParamCaption}\item[{int}]{rng\+\_\+type,  }\item[{int}]{seed,  }\item[{int}]{param,  }\item[{int}]{use\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 218 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_ad61c523967cd39c2f627ac68b5addcae}\label{metropolis_8cpp_ad61c523967cd39c2f627ac68b5addcae}} 
+\index{metropolis.cpp@{metropolis.cpp}!RNG@{RNG}}
+\index{RNG@{RNG}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{RNG()}{RNG()}}
+{\footnotesize\ttfamily int RNG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a4e9bdf4a3ab5e3f6a60aa0d7d0afce52}\label{metropolis_8cpp_a4e9bdf4a3ab5e3f6a60aa0d7d0afce52}} 
+\index{metropolis.cpp@{metropolis.cpp}!System\_Energy@{System\_Energy}}
+\index{System\_Energy@{System\_Energy}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{System\_Energy()}{System\_Energy()}}
+{\footnotesize\ttfamily int System\+\_\+\+Energy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a9b90292287fc9173e8c85cd33b31894f}\label{metropolis_8cpp_a9b90292287fc9173e8c85cd33b31894f}} 
+\index{metropolis.cpp@{metropolis.cpp}!thermalize@{thermalize}}
+\index{thermalize@{thermalize}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{thermalize()}{thermalize()}}
+{\footnotesize\ttfamily void thermalize (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+size,  }\item[{int}]{discard\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 316 of file metropolis.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{metropolis_8cpp_a3a31bf3eb8155012bf1aae03d8f48d95}\label{metropolis_8cpp_a3a31bf3eb8155012bf1aae03d8f48d95}} 
+\index{metropolis.cpp@{metropolis.cpp}!Cv@{Cv}}
+\index{Cv@{Cv}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{Cv}{Cv}}
+{\footnotesize\ttfamily double Cv\mbox{[}10\mbox{]}\mbox{[}10\mbox{]}}
+
+
+
+Definition at line 21 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_abd7a82d6a2b12df3c3fc2d0e9a2984b6}\label{metropolis_8cpp_abd7a82d6a2b12df3c3fc2d0e9a2984b6}} 
+\index{metropolis.cpp@{metropolis.cpp}!Energy@{Energy}}
+\index{Energy@{Energy}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{Energy}{Energy}}
+{\footnotesize\ttfamily double Energy\mbox{[}10\mbox{]}\mbox{[}10\mbox{]}}
+
+
+
+Definition at line 21 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a2dfc8b54d77dfc83f144c758aa1df192}\label{metropolis_8cpp_a2dfc8b54d77dfc83f144c758aa1df192}} 
+\index{metropolis.cpp@{metropolis.cpp}!exact\_Cv@{exact\_Cv}}
+\index{exact\_Cv@{exact\_Cv}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{exact\_Cv}{exact\_Cv}}
+{\footnotesize\ttfamily double exact\+\_\+\+Cv = 1.\+4987048885}
+
+
+
+Definition at line 23 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a07014bcab37624bcae852dc56b2c8c35}\label{metropolis_8cpp_a07014bcab37624bcae852dc56b2c8c35}} 
+\index{metropolis.cpp@{metropolis.cpp}!exact\_energy@{exact\_energy}}
+\index{exact\_energy@{exact\_energy}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{exact\_energy}{exact\_energy}}
+{\footnotesize\ttfamily double exact\+\_\+energy = -\/1.\+4530649029}
+
+
+
+Definition at line 23 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a7ad41d294ad061dc454d08c8ec29da6f}\label{metropolis_8cpp_a7ad41d294ad061dc454d08c8ec29da6f}} 
+\index{metropolis.cpp@{metropolis.cpp}!expJ@{expJ}}
+\index{expJ@{expJ}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{expJ}{expJ}}
+{\footnotesize\ttfamily double $\ast$ expJ}
+
+
+
+Definition at line 22 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_af2972cf005bea616615b7a562b0c762e}\label{metropolis_8cpp_af2972cf005bea616615b7a562b0c762e}} 
+\index{metropolis.cpp@{metropolis.cpp}!expJarray@{expJarray}}
+\index{expJarray@{expJarray}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{expJarray}{expJarray}}
+{\footnotesize\ttfamily double exp\+Jarray\mbox{[}17\mbox{]}}
+
+
+
+Definition at line 22 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_ab15e6c2526a1d35231ff95f2eb782d84}\label{metropolis_8cpp_ab15e6c2526a1d35231ff95f2eb782d84}} 
+\index{metropolis.cpp@{metropolis.cpp}!exponent@{exponent}}
+\index{exponent@{exponent}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{exponent}{exponent}}
+{\footnotesize\ttfamily int exponent}
+
+
+
+Definition at line 19 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}\label{metropolis_8cpp_a9f3e3cc991439ccb63901880ecb4df8f}} 
+\index{metropolis.cpp@{metropolis.cpp}!genptr@{genptr}}
+\index{genptr@{genptr}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{genptr}{genptr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSprng}{Sprng}}$\ast$$\ast$ genptr}
+
+
+
+Definition at line 18 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a229fe836529a54bc8a7d390148d7a488}\label{metropolis_8cpp_a229fe836529a54bc8a7d390148d7a488}} 
+\index{metropolis.cpp@{metropolis.cpp}!J@{J}}
+\index{J@{J}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{J}{J}}
+{\footnotesize\ttfamily double J = 0.\+4406868}
+
+
+
+Definition at line 21 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a98a79fece1cc30677d6678a14b02ef1e}\label{metropolis_8cpp_a98a79fece1cc30677d6678a14b02ef1e}} 
+\index{metropolis.cpp@{metropolis.cpp}!lattice\_size@{lattice\_size}}
+\index{lattice\_size@{lattice\_size}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{lattice\_size}{lattice\_size}}
+{\footnotesize\ttfamily int lattice\+\_\+size}
+
+
+
+Definition at line 17 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_ab77cc972f3ee899689ba053015472ccd}\label{metropolis_8cpp_ab77cc972f3ee899689ba053015472ccd}} 
+\index{metropolis.cpp@{metropolis.cpp}!mask@{mask}}
+\index{mask@{mask}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{mask}{mask}}
+{\footnotesize\ttfamily int mask}
+
+
+
+Definition at line 19 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a779037c8964d2a661768f45729b9161d}\label{metropolis_8cpp_a779037c8964d2a661768f45729b9161d}} 
+\index{metropolis.cpp@{metropolis.cpp}!neighbor@{neighbor}}
+\index{neighbor@{neighbor}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{neighbor}{neighbor}}
+{\footnotesize\ttfamily int neighbor\mbox{[}4\mbox{]}}
+
+
+
+Definition at line 40 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_aceeee4f75cb2381f9521b30092609b1c}\label{metropolis_8cpp_aceeee4f75cb2381f9521b30092609b1c}} 
+\index{metropolis.cpp@{metropolis.cpp}!nsites@{nsites}}
+\index{nsites@{nsites}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{nsites}{nsites}}
+{\footnotesize\ttfamily int nsites}
+
+
+
+Definition at line 17 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_aa2e6cdab200874e2972d1b8138b03a3f}\label{metropolis_8cpp_aa2e6cdab200874e2972d1b8138b03a3f}} 
+\index{metropolis.cpp@{metropolis.cpp}!prob@{prob}}
+\index{prob@{prob}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{prob}{prob}}
+{\footnotesize\ttfamily double prob}
+
+
+
+Definition at line 20 of file metropolis.\+cpp.
+
+\mbox{\Hypertarget{metropolis_8cpp_a139c1100ae8a7cd401cbef783e50fd62}\label{metropolis_8cpp_a139c1100ae8a7cd401cbef783e50fd62}} 
+\index{metropolis.cpp@{metropolis.cpp}!spin@{spin}}
+\index{spin@{spin}!metropolis.cpp@{metropolis.cpp}}
+\doxysubsubsection{\texorpdfstring{spin}{spin}}
+{\footnotesize\ttfamily int $\ast$ spin}
+
+
+
+Definition at line 17 of file metropolis.\+cpp.
+

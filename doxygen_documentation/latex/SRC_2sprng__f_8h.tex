@@ -1,0 +1,614 @@
+\hypertarget{SRC_2sprng__f_8h}{}\doxysection{SRC/sprng5/\+SRC/sprng\+\_\+f.h File Reference}
+\label{SRC_2sprng__f_8h}\index{SRC/sprng5/SRC/sprng\_f.h@{SRC/sprng5/SRC/sprng\_f.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_af93225864f0327c5b8c302ed1c3fcb8e}{SPRNG\+\_\+\+LFG}}~0
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a7f2fd8a7588be922308a2920f9350e86}{SPRNG\+\_\+\+LCG}}~1
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ae2a12ade7c0faf0d8d91972bb4d402b8}{SPRNG\+\_\+\+LCG64}}~2
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a6d0c3fca11b718d42d9dd3b4f794d78f}{SPRNG\+\_\+\+CMRG}}~3
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a597628c757e16bd043c9e44bd4eabf0b}{SPRNG\+\_\+\+MLFG}}~4
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a9a9c194bab2c047e1d5725e507e333e9}{SPRNG\+\_\+\+PMLCG}}~5
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a2da2b233e2afdf11e25067f4192778b8}{DEFAULT\+\_\+\+RNG\+\_\+\+TYPE}}~\mbox{\hyperlink{SRC_2sprng__f_8h_af93225864f0327c5b8c302ed1c3fcb8e}{SPRNG\+\_\+\+LFG}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_acf9f1e5947d71b7a1d3f2923c56f42f8}{SPRNG\+\_\+\+DEFAULT}}~0
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ae02947928208e4a2eddd00e7f8a95186}{CRAYLCG}}~0
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a369da4336c00b7905b3efec6986f3579}{DRAND48}}~1
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a172da4f75cc35c92fbaf62fb28ec8673}{FISH1}}~2
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ab96b171d57b37b5e6e9142fe8652214b}{FISH2}}~3
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_aec2b2d23b490fcfceffdace88785d961}{FISH3}}~4
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a8680b56c28e7a63a6c19d4c5fbc67e57}{FISH4}}~5
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ac11341107c794a3741ba3d635100e55d}{FISH5}}~6
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ac3e3cf0ee07c555287b6598d9f69826a}{LECU1}}~0
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ac0f0f6176318af0d52926bfe0234220d}{LECU2}}~1
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_aa6a18fa649492c4ef83532f891c343a2}{LECU3}}~2
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a37abf63dddb5b18958dabfb5bf0966df}{LAG1279}}~0
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a7cb1af83860cc753a41ff9dc460942a9}{LAG17}}~1
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_aef2fa844f9cdaafea100c4a51f23ae1a}{LAG31}}~2
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a902998c6fe5a07af3703edc272f78dfb}{LAG55}}~3
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_afcd8d1398b8bab354e909c77fdb7dbb3}{LAG63}}~4
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a1560384e9742d3ef436d3d336ebfa13c}{LAG127}}~5
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_acae2d03b4817db76f6d61baa0c8dbb3e}{LAG521}}~6
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ad6053fee1fc5baae6ee652a3b3960e22}{LAG521B}}~7
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a1d91897e02d2eb939089299271c7d8e7}{LAG607}}~8
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ac7e32ee2881b4a50b421732cabfcb599}{LAG607B}}~9
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a75580647ca5b688b2f9350a56748d817}{LAG1279B}}~10
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a7e61e690656ea0db29fb8c49916148f4}{MAX\+\_\+\+PACKED\+\_\+\+LENGTH}}~24000
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_af2223bad632c5174e73b1810645ce71a}{SPRNG\+\_\+\+POINTER}}~integer$\ast$4
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a9a249e37d0a6c0ae44c51e02818bdba0}{make\+\_\+sprng\+\_\+seed}}~fmake\+\_\+new\+\_\+seed
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_aa0eabb74247c83b5c7e349e516d414e3}{DEFAULTINT}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_aa4ed296bde876cd736b90359ba72dab7}{DBLGEN}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ad83bdf7deba77c1cb75d4bc1904469fe}{isprng}}~\mbox{\hyperlink{SRC_2sprng__f_8h_a02c285a2c8750a8a7c72eaa8d07fbf7b}{fget\+\_\+rn\+\_\+int}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a3b743796498b8ec2c375134e6bfe85e6}{free\+\_\+sprng}}~\mbox{\hyperlink{SRC_2sprng__f_8h_ab6912e54f3db25cd80de0309a9ba67ac}{ffree\+\_\+rng}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a2e0e31010c5eaf6960c9a07171b54aec}{spawn\+\_\+sprng}}~\mbox{\hyperlink{SRC_2sprng__f_8h_afec9a44943bcddb15b1aa2e215a73679}{fspawn\+\_\+rng}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ac618bbcb6e4a7d8a037b04919a9cfa3a}{pack\+\_\+sprng}}~\mbox{\hyperlink{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}{fpack\+\_\+rng}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a61d5d95cb0d8fec1ab925281d319d768}{unpack\+\_\+sprng}}~\mbox{\hyperlink{SRC_2sprng__f_8h_a141b5598fa5caef428ada8bda8f1fb12}{funpack\+\_\+rng}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a386d0a5406cd4321e44cb7af6caffe7c}{init\+\_\+sprng}}~\mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}}
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_af0776c3906e2cd5f436e9ccce893298a}{print\+\_\+sprng}}~fprint\+\_\+rng
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_ac9e15fcf464697fd0b31f813e6c03802}{sprng}}~fget\+\_\+rn\+\_\+dbl
+\item 
+\#define \mbox{\hyperlink{SRC_2sprng__f_8h_a10ff14fa3f041e304afe3f5427a23398}{\+\_\+sprngf\+\_\+h\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+external \mbox{\hyperlink{SRC_2sprng__f_8h_a02c285a2c8750a8a7c72eaa8d07fbf7b}{fget\+\_\+rn\+\_\+int}}
+\item 
+external \mbox{\hyperlink{SRC_2sprng__f_8h_a51b3a324e6fc262782c9a0aa8aba90a5}{fget\+\_\+rn\+\_\+flt}}
+\item 
+external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_afec9a44943bcddb15b1aa2e215a73679}{fspawn\+\_\+rng}}
+\item 
+external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_ab6912e54f3db25cd80de0309a9ba67ac}{ffree\+\_\+rng}}
+\item 
+external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external \mbox{\hyperlink{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}{fpack\+\_\+rng}}
+\item 
+external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external \mbox{\hyperlink{SRC_2sprng__f_8h_a141b5598fa5caef428ada8bda8f1fb12}{funpack\+\_\+rng}}
+\item 
+external fget\+\_\+rn\+\_\+dbl external finit\+\_\+rng external fprint\+\_\+rng integer \mbox{\hyperlink{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}{fpack\+\_\+rng}} \mbox{\hyperlink{SRC_2sprng__f_8h_af2223bad632c5174e73b1810645ce71a}{SPRNG\+\_\+\+POINTER}} \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a10ff14fa3f041e304afe3f5427a23398}\label{SRC_2sprng__f_8h_a10ff14fa3f041e304afe3f5427a23398}} 
+\index{sprng\_f.h@{sprng\_f.h}!\_sprngf\_h\_@{\_sprngf\_h\_}}
+\index{\_sprngf\_h\_@{\_sprngf\_h\_}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{\_sprngf\_h\_}{\_sprngf\_h\_}}
+{\footnotesize\ttfamily \#define \+\_\+sprngf\+\_\+h\+\_\+}
+
+
+
+Definition at line 141 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ae02947928208e4a2eddd00e7f8a95186}\label{SRC_2sprng__f_8h_ae02947928208e4a2eddd00e7f8a95186}} 
+\index{sprng\_f.h@{sprng\_f.h}!CRAYLCG@{CRAYLCG}}
+\index{CRAYLCG@{CRAYLCG}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{CRAYLCG}{CRAYLCG}}
+{\footnotesize\ttfamily \#define CRAYLCG~0}
+
+
+
+Definition at line 12 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_aa4ed296bde876cd736b90359ba72dab7}\label{SRC_2sprng__f_8h_aa4ed296bde876cd736b90359ba72dab7}} 
+\index{sprng\_f.h@{sprng\_f.h}!DBLGEN@{DBLGEN}}
+\index{DBLGEN@{DBLGEN}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{DBLGEN}{DBLGEN}}
+{\footnotesize\ttfamily \#define DBLGEN}
+
+
+
+Definition at line 65 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a2da2b233e2afdf11e25067f4192778b8}\label{SRC_2sprng__f_8h_a2da2b233e2afdf11e25067f4192778b8}} 
+\index{sprng\_f.h@{sprng\_f.h}!DEFAULT\_RNG\_TYPE@{DEFAULT\_RNG\_TYPE}}
+\index{DEFAULT\_RNG\_TYPE@{DEFAULT\_RNG\_TYPE}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_RNG\_TYPE}{DEFAULT\_RNG\_TYPE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+RNG\+\_\+\+TYPE~\mbox{\hyperlink{SRC_2sprng__f_8h_af93225864f0327c5b8c302ed1c3fcb8e}{SPRNG\+\_\+\+LFG}}}
+
+
+
+Definition at line 9 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_aa0eabb74247c83b5c7e349e516d414e3}\label{SRC_2sprng__f_8h_aa0eabb74247c83b5c7e349e516d414e3}} 
+\index{sprng\_f.h@{sprng\_f.h}!DEFAULTINT@{DEFAULTINT}}
+\index{DEFAULTINT@{DEFAULTINT}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULTINT}{DEFAULTINT}}
+{\footnotesize\ttfamily \#define DEFAULTINT}
+
+
+
+Definition at line 62 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a369da4336c00b7905b3efec6986f3579}\label{SRC_2sprng__f_8h_a369da4336c00b7905b3efec6986f3579}} 
+\index{sprng\_f.h@{sprng\_f.h}!DRAND48@{DRAND48}}
+\index{DRAND48@{DRAND48}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{DRAND48}{DRAND48}}
+{\footnotesize\ttfamily \#define DRAND48~1}
+
+
+
+Definition at line 13 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a172da4f75cc35c92fbaf62fb28ec8673}\label{SRC_2sprng__f_8h_a172da4f75cc35c92fbaf62fb28ec8673}} 
+\index{sprng\_f.h@{sprng\_f.h}!FISH1@{FISH1}}
+\index{FISH1@{FISH1}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{FISH1}{FISH1}}
+{\footnotesize\ttfamily \#define FISH1~2}
+
+
+
+Definition at line 14 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ab96b171d57b37b5e6e9142fe8652214b}\label{SRC_2sprng__f_8h_ab96b171d57b37b5e6e9142fe8652214b}} 
+\index{sprng\_f.h@{sprng\_f.h}!FISH2@{FISH2}}
+\index{FISH2@{FISH2}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{FISH2}{FISH2}}
+{\footnotesize\ttfamily \#define FISH2~3}
+
+
+
+Definition at line 15 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_aec2b2d23b490fcfceffdace88785d961}\label{SRC_2sprng__f_8h_aec2b2d23b490fcfceffdace88785d961}} 
+\index{sprng\_f.h@{sprng\_f.h}!FISH3@{FISH3}}
+\index{FISH3@{FISH3}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{FISH3}{FISH3}}
+{\footnotesize\ttfamily \#define FISH3~4}
+
+
+
+Definition at line 16 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a8680b56c28e7a63a6c19d4c5fbc67e57}\label{SRC_2sprng__f_8h_a8680b56c28e7a63a6c19d4c5fbc67e57}} 
+\index{sprng\_f.h@{sprng\_f.h}!FISH4@{FISH4}}
+\index{FISH4@{FISH4}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{FISH4}{FISH4}}
+{\footnotesize\ttfamily \#define FISH4~5}
+
+
+
+Definition at line 17 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ac11341107c794a3741ba3d635100e55d}\label{SRC_2sprng__f_8h_ac11341107c794a3741ba3d635100e55d}} 
+\index{sprng\_f.h@{sprng\_f.h}!FISH5@{FISH5}}
+\index{FISH5@{FISH5}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{FISH5}{FISH5}}
+{\footnotesize\ttfamily \#define FISH5~6}
+
+
+
+Definition at line 18 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a3b743796498b8ec2c375134e6bfe85e6}\label{SRC_2sprng__f_8h_a3b743796498b8ec2c375134e6bfe85e6}} 
+\index{sprng\_f.h@{sprng\_f.h}!free\_sprng@{free\_sprng}}
+\index{free\_sprng@{free\_sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{free\_sprng}{free\_sprng}}
+{\footnotesize\ttfamily \#define free\+\_\+sprng~\mbox{\hyperlink{SRC_2sprng__f_8h_ab6912e54f3db25cd80de0309a9ba67ac}{ffree\+\_\+rng}}}
+
+
+
+Definition at line 125 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a386d0a5406cd4321e44cb7af6caffe7c}\label{SRC_2sprng__f_8h_a386d0a5406cd4321e44cb7af6caffe7c}} 
+\index{sprng\_f.h@{sprng\_f.h}!init\_sprng@{init\_sprng}}
+\index{init\_sprng@{init\_sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{init\_sprng}{init\_sprng}}
+{\footnotesize\ttfamily \#define init\+\_\+sprng~\mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}}}
+
+
+
+Definition at line 129 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ad83bdf7deba77c1cb75d4bc1904469fe}\label{SRC_2sprng__f_8h_ad83bdf7deba77c1cb75d4bc1904469fe}} 
+\index{sprng\_f.h@{sprng\_f.h}!isprng@{isprng}}
+\index{isprng@{isprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{isprng}{isprng}}
+{\footnotesize\ttfamily \#define isprng~\mbox{\hyperlink{SRC_2sprng__f_8h_a02c285a2c8750a8a7c72eaa8d07fbf7b}{fget\+\_\+rn\+\_\+int}}}
+
+
+
+Definition at line 124 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a1560384e9742d3ef436d3d336ebfa13c}\label{SRC_2sprng__f_8h_a1560384e9742d3ef436d3d336ebfa13c}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG127@{LAG127}}
+\index{LAG127@{LAG127}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG127}{LAG127}}
+{\footnotesize\ttfamily \#define LAG127~5}
+
+
+
+Definition at line 27 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a37abf63dddb5b18958dabfb5bf0966df}\label{SRC_2sprng__f_8h_a37abf63dddb5b18958dabfb5bf0966df}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG1279@{LAG1279}}
+\index{LAG1279@{LAG1279}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG1279}{LAG1279}}
+{\footnotesize\ttfamily \#define LAG1279~0}
+
+
+
+Definition at line 22 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a75580647ca5b688b2f9350a56748d817}\label{SRC_2sprng__f_8h_a75580647ca5b688b2f9350a56748d817}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG1279B@{LAG1279B}}
+\index{LAG1279B@{LAG1279B}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG1279B}{LAG1279B}}
+{\footnotesize\ttfamily \#define LAG1279B~10}
+
+
+
+Definition at line 32 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a7cb1af83860cc753a41ff9dc460942a9}\label{SRC_2sprng__f_8h_a7cb1af83860cc753a41ff9dc460942a9}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG17@{LAG17}}
+\index{LAG17@{LAG17}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG17}{LAG17}}
+{\footnotesize\ttfamily \#define LAG17~1}
+
+
+
+Definition at line 23 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_aef2fa844f9cdaafea100c4a51f23ae1a}\label{SRC_2sprng__f_8h_aef2fa844f9cdaafea100c4a51f23ae1a}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG31@{LAG31}}
+\index{LAG31@{LAG31}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG31}{LAG31}}
+{\footnotesize\ttfamily \#define LAG31~2}
+
+
+
+Definition at line 24 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_acae2d03b4817db76f6d61baa0c8dbb3e}\label{SRC_2sprng__f_8h_acae2d03b4817db76f6d61baa0c8dbb3e}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG521@{LAG521}}
+\index{LAG521@{LAG521}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG521}{LAG521}}
+{\footnotesize\ttfamily \#define LAG521~6}
+
+
+
+Definition at line 28 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ad6053fee1fc5baae6ee652a3b3960e22}\label{SRC_2sprng__f_8h_ad6053fee1fc5baae6ee652a3b3960e22}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG521B@{LAG521B}}
+\index{LAG521B@{LAG521B}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG521B}{LAG521B}}
+{\footnotesize\ttfamily \#define LAG521B~7}
+
+
+
+Definition at line 29 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a902998c6fe5a07af3703edc272f78dfb}\label{SRC_2sprng__f_8h_a902998c6fe5a07af3703edc272f78dfb}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG55@{LAG55}}
+\index{LAG55@{LAG55}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG55}{LAG55}}
+{\footnotesize\ttfamily \#define LAG55~3}
+
+
+
+Definition at line 25 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a1d91897e02d2eb939089299271c7d8e7}\label{SRC_2sprng__f_8h_a1d91897e02d2eb939089299271c7d8e7}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG607@{LAG607}}
+\index{LAG607@{LAG607}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG607}{LAG607}}
+{\footnotesize\ttfamily \#define LAG607~8}
+
+
+
+Definition at line 30 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ac7e32ee2881b4a50b421732cabfcb599}\label{SRC_2sprng__f_8h_ac7e32ee2881b4a50b421732cabfcb599}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG607B@{LAG607B}}
+\index{LAG607B@{LAG607B}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG607B}{LAG607B}}
+{\footnotesize\ttfamily \#define LAG607B~9}
+
+
+
+Definition at line 31 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_afcd8d1398b8bab354e909c77fdb7dbb3}\label{SRC_2sprng__f_8h_afcd8d1398b8bab354e909c77fdb7dbb3}} 
+\index{sprng\_f.h@{sprng\_f.h}!LAG63@{LAG63}}
+\index{LAG63@{LAG63}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LAG63}{LAG63}}
+{\footnotesize\ttfamily \#define LAG63~4}
+
+
+
+Definition at line 26 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ac3e3cf0ee07c555287b6598d9f69826a}\label{SRC_2sprng__f_8h_ac3e3cf0ee07c555287b6598d9f69826a}} 
+\index{sprng\_f.h@{sprng\_f.h}!LECU1@{LECU1}}
+\index{LECU1@{LECU1}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LECU1}{LECU1}}
+{\footnotesize\ttfamily \#define LECU1~0}
+
+
+
+Definition at line 19 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ac0f0f6176318af0d52926bfe0234220d}\label{SRC_2sprng__f_8h_ac0f0f6176318af0d52926bfe0234220d}} 
+\index{sprng\_f.h@{sprng\_f.h}!LECU2@{LECU2}}
+\index{LECU2@{LECU2}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LECU2}{LECU2}}
+{\footnotesize\ttfamily \#define LECU2~1}
+
+
+
+Definition at line 20 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_aa6a18fa649492c4ef83532f891c343a2}\label{SRC_2sprng__f_8h_aa6a18fa649492c4ef83532f891c343a2}} 
+\index{sprng\_f.h@{sprng\_f.h}!LECU3@{LECU3}}
+\index{LECU3@{LECU3}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{LECU3}{LECU3}}
+{\footnotesize\ttfamily \#define LECU3~2}
+
+
+
+Definition at line 21 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a9a249e37d0a6c0ae44c51e02818bdba0}\label{SRC_2sprng__f_8h_a9a249e37d0a6c0ae44c51e02818bdba0}} 
+\index{sprng\_f.h@{sprng\_f.h}!make\_sprng\_seed@{make\_sprng\_seed}}
+\index{make\_sprng\_seed@{make\_sprng\_seed}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{make\_sprng\_seed}{make\_sprng\_seed}}
+{\footnotesize\ttfamily \#define make\+\_\+sprng\+\_\+seed~fmake\+\_\+new\+\_\+seed}
+
+
+
+Definition at line 48 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a7e61e690656ea0db29fb8c49916148f4}\label{SRC_2sprng__f_8h_a7e61e690656ea0db29fb8c49916148f4}} 
+\index{sprng\_f.h@{sprng\_f.h}!MAX\_PACKED\_LENGTH@{MAX\_PACKED\_LENGTH}}
+\index{MAX\_PACKED\_LENGTH@{MAX\_PACKED\_LENGTH}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PACKED\_LENGTH}{MAX\_PACKED\_LENGTH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PACKED\+\_\+\+LENGTH~24000}
+
+
+
+Definition at line 33 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ac618bbcb6e4a7d8a037b04919a9cfa3a}\label{SRC_2sprng__f_8h_ac618bbcb6e4a7d8a037b04919a9cfa3a}} 
+\index{sprng\_f.h@{sprng\_f.h}!pack\_sprng@{pack\_sprng}}
+\index{pack\_sprng@{pack\_sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{pack\_sprng}{pack\_sprng}}
+{\footnotesize\ttfamily \#define pack\+\_\+sprng~\mbox{\hyperlink{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}{fpack\+\_\+rng}}}
+
+
+
+Definition at line 127 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_af0776c3906e2cd5f436e9ccce893298a}\label{SRC_2sprng__f_8h_af0776c3906e2cd5f436e9ccce893298a}} 
+\index{sprng\_f.h@{sprng\_f.h}!print\_sprng@{print\_sprng}}
+\index{print\_sprng@{print\_sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{print\_sprng}{print\_sprng}}
+{\footnotesize\ttfamily \#define print\+\_\+sprng~fprint\+\_\+rng}
+
+
+
+Definition at line 130 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a2e0e31010c5eaf6960c9a07171b54aec}\label{SRC_2sprng__f_8h_a2e0e31010c5eaf6960c9a07171b54aec}} 
+\index{sprng\_f.h@{sprng\_f.h}!spawn\_sprng@{spawn\_sprng}}
+\index{spawn\_sprng@{spawn\_sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{spawn\_sprng}{spawn\_sprng}}
+{\footnotesize\ttfamily \#define spawn\+\_\+sprng~\mbox{\hyperlink{SRC_2sprng__f_8h_afec9a44943bcddb15b1aa2e215a73679}{fspawn\+\_\+rng}}}
+
+
+
+Definition at line 126 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ac9e15fcf464697fd0b31f813e6c03802}\label{SRC_2sprng__f_8h_ac9e15fcf464697fd0b31f813e6c03802}} 
+\index{sprng\_f.h@{sprng\_f.h}!sprng@{sprng}}
+\index{sprng@{sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{sprng}{sprng}}
+{\footnotesize\ttfamily \#define sprng~fget\+\_\+rn\+\_\+dbl}
+
+
+
+Definition at line 134 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a6d0c3fca11b718d42d9dd3b4f794d78f}\label{SRC_2sprng__f_8h_a6d0c3fca11b718d42d9dd3b4f794d78f}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_CMRG@{SPRNG\_CMRG}}
+\index{SPRNG\_CMRG@{SPRNG\_CMRG}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_CMRG}{SPRNG\_CMRG}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+CMRG~3}
+
+
+
+Definition at line 6 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_acf9f1e5947d71b7a1d3f2923c56f42f8}\label{SRC_2sprng__f_8h_acf9f1e5947d71b7a1d3f2923c56f42f8}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_DEFAULT@{SPRNG\_DEFAULT}}
+\index{SPRNG\_DEFAULT@{SPRNG\_DEFAULT}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_DEFAULT}{SPRNG\_DEFAULT}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+DEFAULT~0}
+
+
+
+Definition at line 11 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a7f2fd8a7588be922308a2920f9350e86}\label{SRC_2sprng__f_8h_a7f2fd8a7588be922308a2920f9350e86}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_LCG@{SPRNG\_LCG}}
+\index{SPRNG\_LCG@{SPRNG\_LCG}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_LCG}{SPRNG\_LCG}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+LCG~1}
+
+
+
+Definition at line 4 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ae2a12ade7c0faf0d8d91972bb4d402b8}\label{SRC_2sprng__f_8h_ae2a12ade7c0faf0d8d91972bb4d402b8}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_LCG64@{SPRNG\_LCG64}}
+\index{SPRNG\_LCG64@{SPRNG\_LCG64}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_LCG64}{SPRNG\_LCG64}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+LCG64~2}
+
+
+
+Definition at line 5 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_af93225864f0327c5b8c302ed1c3fcb8e}\label{SRC_2sprng__f_8h_af93225864f0327c5b8c302ed1c3fcb8e}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_LFG@{SPRNG\_LFG}}
+\index{SPRNG\_LFG@{SPRNG\_LFG}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_LFG}{SPRNG\_LFG}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+LFG~0}
+
+
+
+Definition at line 3 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a597628c757e16bd043c9e44bd4eabf0b}\label{SRC_2sprng__f_8h_a597628c757e16bd043c9e44bd4eabf0b}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_MLFG@{SPRNG\_MLFG}}
+\index{SPRNG\_MLFG@{SPRNG\_MLFG}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_MLFG}{SPRNG\_MLFG}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+MLFG~4}
+
+
+
+Definition at line 7 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a9a9c194bab2c047e1d5725e507e333e9}\label{SRC_2sprng__f_8h_a9a9c194bab2c047e1d5725e507e333e9}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_PMLCG@{SPRNG\_PMLCG}}
+\index{SPRNG\_PMLCG@{SPRNG\_PMLCG}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_PMLCG}{SPRNG\_PMLCG}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+PMLCG~5}
+
+
+
+Definition at line 8 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_af2223bad632c5174e73b1810645ce71a}\label{SRC_2sprng__f_8h_af2223bad632c5174e73b1810645ce71a}} 
+\index{sprng\_f.h@{sprng\_f.h}!SPRNG\_POINTER@{SPRNG\_POINTER}}
+\index{SPRNG\_POINTER@{SPRNG\_POINTER}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{SPRNG\_POINTER}{SPRNG\_POINTER}}
+{\footnotesize\ttfamily \#define SPRNG\+\_\+\+POINTER~integer$\ast$4}
+
+
+
+Definition at line 42 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a61d5d95cb0d8fec1ab925281d319d768}\label{SRC_2sprng__f_8h_a61d5d95cb0d8fec1ab925281d319d768}} 
+\index{sprng\_f.h@{sprng\_f.h}!unpack\_sprng@{unpack\_sprng}}
+\index{unpack\_sprng@{unpack\_sprng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{unpack\_sprng}{unpack\_sprng}}
+{\footnotesize\ttfamily \#define unpack\+\_\+sprng~\mbox{\hyperlink{SRC_2sprng__f_8h_a141b5598fa5caef428ada8bda8f1fb12}{funpack\+\_\+rng}}}
+
+
+
+Definition at line 128 of file sprng\+\_\+f.\+h.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{SRC_2sprng__f_8h_ab6912e54f3db25cd80de0309a9ba67ac}\label{SRC_2sprng__f_8h_ab6912e54f3db25cd80de0309a9ba67ac}} 
+\index{sprng\_f.h@{sprng\_f.h}!ffree\_rng@{ffree\_rng}}
+\index{ffree\_rng@{ffree\_rng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{ffree\_rng}{ffree\_rng}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external fprint\+\_\+rng integer ffree\+\_\+rng}
+
+
+
+Definition at line 114 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a51b3a324e6fc262782c9a0aa8aba90a5}\label{SRC_2sprng__f_8h_a51b3a324e6fc262782c9a0aa8aba90a5}} 
+\index{sprng\_f.h@{sprng\_f.h}!fget\_rn\_flt@{fget\_rn\_flt}}
+\index{fget\_rn\_flt@{fget\_rn\_flt}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_flt}{fget\_rn\_flt}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+flt}
+
+
+
+Definition at line 113 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a02c285a2c8750a8a7c72eaa8d07fbf7b}\label{SRC_2sprng__f_8h_a02c285a2c8750a8a7c72eaa8d07fbf7b}} 
+\index{sprng\_f.h@{sprng\_f.h}!fget\_rn\_int@{fget\_rn\_int}}
+\index{fget\_rn\_int@{fget\_rn\_int}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{fget\_rn\_int}{fget\_rn\_int}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external fprint\+\_\+rng integer fget\+\_\+rn\+\_\+int}
+
+
+
+Definition at line 113 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}\label{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}} 
+\index{sprng\_f.h@{sprng\_f.h}!finit\_rng@{finit\_rng}}
+\index{finit\_rng@{finit\_rng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{finit\_rng}{finit\_rng}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+dbl external finit\+\_\+rng external fprint\+\_\+rng integer \mbox{\hyperlink{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}{fpack\+\_\+rng}} \mbox{\hyperlink{SRC_2sprng__f_8h_af2223bad632c5174e73b1810645ce71a}{SPRNG\+\_\+\+POINTER}} finit\+\_\+rng}
+
+
+
+Definition at line 118 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}\label{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}} 
+\index{sprng\_f.h@{sprng\_f.h}!fpack\_rng@{fpack\_rng}}
+\index{fpack\_rng@{fpack\_rng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{fpack\_rng}{fpack\_rng}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external fpack\+\_\+rng}
+
+
+
+Definition at line 115 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_afec9a44943bcddb15b1aa2e215a73679}\label{SRC_2sprng__f_8h_afec9a44943bcddb15b1aa2e215a73679}} 
+\index{sprng\_f.h@{sprng\_f.h}!fspawn\_rng@{fspawn\_rng}}
+\index{fspawn\_rng@{fspawn\_rng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{fspawn\_rng}{fspawn\_rng}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external fprint\+\_\+rng integer \mbox{\hyperlink{SRC_2sprng__f_8h_a87ee5f7cac63d02514939f1ee59cde65}{fpack\+\_\+rng}} \mbox{\hyperlink{SRC_2sprng__f_8h_af2223bad632c5174e73b1810645ce71a}{SPRNG\+\_\+\+POINTER}} \mbox{\hyperlink{SRC_2sprng__f_8h_a141b5598fa5caef428ada8bda8f1fb12}{funpack\+\_\+rng}} integer fspawn\+\_\+rng}
+
+
+
+Definition at line 114 of file sprng\+\_\+f.\+h.
+
+\mbox{\Hypertarget{SRC_2sprng__f_8h_a141b5598fa5caef428ada8bda8f1fb12}\label{SRC_2sprng__f_8h_a141b5598fa5caef428ada8bda8f1fb12}} 
+\index{sprng\_f.h@{sprng\_f.h}!funpack\_rng@{funpack\_rng}}
+\index{funpack\_rng@{funpack\_rng}!sprng\_f.h@{sprng\_f.h}}
+\doxysubsubsection{\texorpdfstring{funpack\_rng}{funpack\_rng}}
+{\footnotesize\ttfamily external fget\+\_\+rn\+\_\+dbl external \mbox{\hyperlink{SRC_2sprng__f_8h_a9d0cebe015d71c283ad2a1b72119710f}{finit\+\_\+rng}} external funpack\+\_\+rng}
+
+
+
+Definition at line 115 of file sprng\+\_\+f.\+h.
+

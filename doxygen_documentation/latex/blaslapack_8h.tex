@@ -1,0 +1,500 @@
+\hypertarget{blaslapack_8h}{}\doxysection{SRC/blaslapack.h File Reference}
+\label{blaslapack_8h}\index{SRC/blaslapack.h@{SRC/blaslapack.h}}
+{\ttfamily \#include $<$exception$>$}\newline
+Include dependency graph for blaslapack.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{blaslapack_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{blaslapack_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlapack__exception}{lapack\+\_\+exception}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{blaslapack_8h_aeac010292261ed9691b4d61fd513a68c}{blas\+\_\+dcopy\+\_\+}} (int $\ast$n, double $\ast$sx, int $\ast$incx, double $\ast$sy, int $\ast$incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a44a0f80eb186b788905d2d9ac89ec816}{blas\+\_\+daxpy\+\_\+}} (int $\ast$n, double $\ast$sa, double $\ast$sx, int $\ast$incx, double $\ast$sy, int $\ast$incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a6717bc446f95db3b84978e058bf8c58d}{blas\+\_\+dscal\+\_\+}} (int $\ast$n, double $\ast$sa, double $\ast$sx, int $\ast$incx)
+\item 
+double \mbox{\hyperlink{blaslapack_8h_a56d52ebebce0f1083b05b402d7d80936}{blas\+\_\+ddot\+\_\+}} (int $\ast$n, double $\ast$sx, int $\ast$incx, double $\ast$sy, int $\ast$incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_ad93efa9eea9b5917c529ef887d75e22e}{blas\+\_\+dgemv\+\_\+}} (const char $\ast$trans, int $\ast$m, int $\ast$n, double $\ast$alpha, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, int $\ast$incx, double $\ast$beta, double $\ast$y, int $\ast$incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a45fb7d43c57f8f904114fd8c87b3f774}{blas\+\_\+dgemm\+\_\+}} (const char $\ast$transa, const char $\ast$transb, int $\ast$m, int $\ast$n, int $\ast$k, double $\ast$alpha, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int $\ast$ldb, double $\ast$beta, double $\ast$c, int $\ast$ldc)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_af3ca578348933677b3d25c2c8dfe2ee1}{blas\+\_\+dtrmm\+\_\+}} (const char $\ast$side, const char $\ast$uplo, const char $\ast$transa, const char $\ast$diag, int $\ast$m, int $\ast$n, double $\ast$alpha, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int $\ast$ldb)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a77f57c9cb968dd76745fb7d9ee7abc8f}{blas\+\_\+dtrsm\+\_\+}} (const char $\ast$side, const char $\ast$uplo, const char $\ast$transa, const char $\ast$diag, int $\ast$m, int $\ast$n, double $\ast$alpha, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int $\ast$ldb)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a63505dcc4aed7d3af61442d11da06a4a}{lapack\+\_\+dsyev\+\_\+}} (const char $\ast$jobz, const char $\ast$uplo, int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$w, double $\ast$work, int $\ast$lwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a2c623f07b6351e0e5b1c110bc21afd21}{lapack\+\_\+dgesv\+\_\+}} (int $\ast$n, int $\ast$nrhs, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv, double $\ast$b, int $\ast$ldb, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_aa7ea307c43ecf18941a30a33a4a79fdf}{lapack\+\_\+dgeqp3\+\_\+}} (int $\ast$m, int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$jpvt, double $\ast$tau, double $\ast$work, int $\ast$lwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a0398907778baa328a6760507924dda4e}{lapack\+\_\+dorgqr\+\_\+}} (int $\ast$m, int $\ast$n, int $\ast$k, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$tau, double $\ast$work, int $\ast$lwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_ada9935a42498141c82eff5f5583f1481}{lapack\+\_\+dormqr\+\_\+}} (const char $\ast$side, const char $\ast$trans, int $\ast$m, int $\ast$n, int $\ast$k, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$tau, double $\ast$c, int $\ast$ldc, double $\ast$work, int $\ast$lwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a43ef21c8aaf3abcaa272f7760ec769dc}{lapack\+\_\+dgetrf\+\_\+}} (int $\ast$m, int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a56dd58210971ac1b89b53c41de4aa779}{lapack\+\_\+dgetri\+\_\+}} (int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv, double $\ast$work, int $\ast$lwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_ac972ac0d4b35746819183a58ef1a46e6}{lapack\+\_\+dgetrs\+\_\+}} (const char $\ast$trans, int $\ast$n, int $\ast$nrhs, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv, double $\ast$b, int $\ast$ldb, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_aa4c36385800d8dbeec80021eff57e3a4}{lapack\+\_\+dgejsv\+\_\+}} (const char $\ast$joba, const char $\ast$jobu, const char $\ast$jobv, const char $\ast$jobr, const char $\ast$jobt, const char $\ast$jobp, int $\ast$m, int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$sva, double $\ast$u, int $\ast$ldu, double $\ast$v, int $\ast$ldv, double $\ast$work, int $\ast$lwork, int $\ast$iwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a5bf9de6fa73687415e7d5759ca4e9bd9}{lapack\+\_\+dgerfsx\+\_\+}} (const char $\ast$trans, const char $\ast$equed, int $\ast$n, int $\ast$nrhs, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$af, int $\ast$ldaf, int $\ast$ipiv, double $\ast$r, double $\ast$c, double $\ast$b, int $\ast$ldb, double $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, int $\ast$ldx, double $\ast$rcond, double $\ast$berr, int $\ast$n\+\_\+err\+\_\+bnds, double $\ast$err\+\_\+bnds\+\_\+norm, double $\ast$err\+\_\+bnds\+\_\+comp, int $\ast$nparams, double $\ast$params, double $\ast$work, int $\ast$iwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a838b597c2944bf2ba7e16ebdc8ef874c}{lapack\+\_\+dgeqrf\+\_\+}} (int $\ast$m, int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$tau, double $\ast$work, int $\ast$lwork, int $\ast$info)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_abe5d917cbcbac2d63f7fe00f7b51b994}{lapack\+\_\+dlarft\+\_\+}} (const char $\ast$direct, const char $\ast$storev, int $\ast$n, int $\ast$k, double $\ast$v, int $\ast$ldv, double $\ast$tau, double $\ast$t, int $\ast$ldt)
+\item 
+double \mbox{\hyperlink{blaslapack_8h_a79b4a366cf61e5c1b2e013511630c3c7}{dlange\+\_\+}} (const char $\ast$norm, int $\ast$m, int $\ast$n, double $\ast$a, int $\ast$\mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$work)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a496e3967f60f4d8d91d7c0e01c73e67a}{blas\+\_\+dcopy}} (int n, double $\ast$sx, int incx, double $\ast$sy, int incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a27cefa7185e0b7de4384a6aeb6359722}{blas\+\_\+daxpy}} (int n, double sa, double $\ast$sx, int incx, double $\ast$sy, int incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_aea88bb4213d299003114c4178c77b0ba}{blas\+\_\+dscal}} (int n, double sa, double $\ast$sx, int incx)
+\item 
+double \mbox{\hyperlink{blaslapack_8h_a7ff06cfeab63bddded8cfc39a8bee624}{blas\+\_\+ddot}} (int n, double $\ast$sx, int incx, double $\ast$sy, int incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a06dd2346d35b23422b4a20dbd277c085}{blas\+\_\+dgemv}} (const char $\ast$trans, int m, int n, double alpha, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$\mbox{\hyperlink{_8vtemplate_8cpp_a69bf0237253cf28a9de66969ab9b2fc2}{x}}, int incx, double beta, double $\ast$y, int incy)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a2e6751471dc88a7c224974d8b65079b6}{blas\+\_\+dgemm}} (const char $\ast$tab, int m, int n, int k, double alpha, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int ldb, double beta, double $\ast$c, int ldc)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a0bf265474bff7df9a6a0c6c409f814b2}{blas\+\_\+dtrmm}} (const char $\ast$sutd, int m, int n, double alpha, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int ldb)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_ae5ae1f5e3364c933464cdaf30d192dbf}{blas\+\_\+dtrsm}} (const char $\ast$sutd, int m, int n, double alpha, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$b, int ldb)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_ae2fbf37b89ed8dbba5ef404edefc386b}{lapack\+\_\+dgeqrf}} (int m, int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$tau, double $\ast$work, int lwork)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a522d4af3d84a5d1be97cd44775ad96af}{lapack\+\_\+dorgqr}} (int m, int n, int k, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$tau, double $\ast$work, int lwork)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a5a6613488a2c34b18e22a9cbf5b42e82}{lapack\+\_\+dlarft}} (const char $\ast$ds, int n, int k, double $\ast$v, int ldv, double $\ast$tau, double $\ast$t, int ldt)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_aec5bdb34b5c5faaa489010612e9fb81a}{lapack\+\_\+dgetrf}} (int m, int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a5f7ef921f47fee69a24a8c509d4007bd}{lapack\+\_\+dgetri}} (int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv, double $\ast$work, int lwork)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a596f6388c4c463b6029fc7c29047a5d0}{lapack\+\_\+dgeqp3}} (int m, int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$jpvt, double $\ast$tau, double $\ast$work, int lwork)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a80359b87a8f1f6e5691bf4d0f48ddb7f}{lapack\+\_\+dormqr}} (const char $\ast$st, int m, int n, int k, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$tau, double $\ast$c, int ldc, double $\ast$work, int lwork)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_ae79cc29103b68006e25674e40754517c}{lapack\+\_\+dgetrs}} (const char $\ast$trans, int n, int nrhs, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, int $\ast$ipiv, double $\ast$b, int ldb)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a5f3a348e8eddb7832ad2294d44421d70}{lapack\+\_\+dgejsv}} (const char $\ast$job, int m, int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$sva, double $\ast$u, int ldu, double $\ast$v, int ldv, double $\ast$work, int lwork, int $\ast$iwork)
+\item 
+void \mbox{\hyperlink{blaslapack_8h_a9f1a6db0680b5eba17cdf0636f42632d}{lapack\+\_\+dsyev}} (const char $\ast$ju, int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$w, double $\ast$work, int lwork)
+\item 
+double \mbox{\hyperlink{blaslapack_8h_af0443517513103c5f1f06181b932212e}{lapack\+\_\+dlange}} (const char $\ast$norm, int m, int n, double $\ast$a, int \mbox{\hyperlink{mpitests_2fft_8cpp_a7a0a60cb139002ab957eb1c2ffa43dae}{lda}}, double $\ast$work)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{blaslapack_8h_a27cefa7185e0b7de4384a6aeb6359722}\label{blaslapack_8h_a27cefa7185e0b7de4384a6aeb6359722}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_daxpy@{blas\_daxpy}}
+\index{blas\_daxpy@{blas\_daxpy}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_daxpy()}{blas\_daxpy()}}
+{\footnotesize\ttfamily void blas\+\_\+daxpy (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{sa,  }\item[{double $\ast$}]{sx,  }\item[{int}]{incx,  }\item[{double $\ast$}]{sy,  }\item[{int}]{incy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 45 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a44a0f80eb186b788905d2d9ac89ec816}\label{blaslapack_8h_a44a0f80eb186b788905d2d9ac89ec816}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_daxpy\_@{blas\_daxpy\_}}
+\index{blas\_daxpy\_@{blas\_daxpy\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_daxpy\_()}{blas\_daxpy\_()}}
+{\footnotesize\ttfamily void blas\+\_\+daxpy\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{sa,  }\item[{double $\ast$}]{sx,  }\item[{int $\ast$}]{incx,  }\item[{double $\ast$}]{sy,  }\item[{int $\ast$}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a496e3967f60f4d8d91d7c0e01c73e67a}\label{blaslapack_8h_a496e3967f60f4d8d91d7c0e01c73e67a}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dcopy@{blas\_dcopy}}
+\index{blas\_dcopy@{blas\_dcopy}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dcopy()}{blas\_dcopy()}}
+{\footnotesize\ttfamily void blas\+\_\+dcopy (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{sx,  }\item[{int}]{incx,  }\item[{double $\ast$}]{sy,  }\item[{int}]{incy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 41 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_aeac010292261ed9691b4d61fd513a68c}\label{blaslapack_8h_aeac010292261ed9691b4d61fd513a68c}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dcopy\_@{blas\_dcopy\_}}
+\index{blas\_dcopy\_@{blas\_dcopy\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dcopy\_()}{blas\_dcopy\_()}}
+{\footnotesize\ttfamily void blas\+\_\+dcopy\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{sx,  }\item[{int $\ast$}]{incx,  }\item[{double $\ast$}]{sy,  }\item[{int $\ast$}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a7ff06cfeab63bddded8cfc39a8bee624}\label{blaslapack_8h_a7ff06cfeab63bddded8cfc39a8bee624}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_ddot@{blas\_ddot}}
+\index{blas\_ddot@{blas\_ddot}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_ddot()}{blas\_ddot()}}
+{\footnotesize\ttfamily double blas\+\_\+ddot (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{sx,  }\item[{int}]{incx,  }\item[{double $\ast$}]{sy,  }\item[{int}]{incy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 53 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a56d52ebebce0f1083b05b402d7d80936}\label{blaslapack_8h_a56d52ebebce0f1083b05b402d7d80936}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_ddot\_@{blas\_ddot\_}}
+\index{blas\_ddot\_@{blas\_ddot\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_ddot\_()}{blas\_ddot\_()}}
+{\footnotesize\ttfamily double blas\+\_\+ddot\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{sx,  }\item[{int $\ast$}]{incx,  }\item[{double $\ast$}]{sy,  }\item[{int $\ast$}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a2e6751471dc88a7c224974d8b65079b6}\label{blaslapack_8h_a2e6751471dc88a7c224974d8b65079b6}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dgemm@{blas\_dgemm}}
+\index{blas\_dgemm@{blas\_dgemm}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dgemm()}{blas\_dgemm()}}
+{\footnotesize\ttfamily void blas\+\_\+dgemm (\begin{DoxyParamCaption}\item[{const char $\ast$}]{tab,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{k,  }\item[{double}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int}]{ldb,  }\item[{double}]{beta,  }\item[{double $\ast$}]{c,  }\item[{int}]{ldc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 61 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a45fb7d43c57f8f904114fd8c87b3f774}\label{blaslapack_8h_a45fb7d43c57f8f904114fd8c87b3f774}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dgemm\_@{blas\_dgemm\_}}
+\index{blas\_dgemm\_@{blas\_dgemm\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dgemm\_()}{blas\_dgemm\_()}}
+{\footnotesize\ttfamily void blas\+\_\+dgemm\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{transa,  }\item[{const char $\ast$}]{transb,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{k,  }\item[{double $\ast$}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{ldb,  }\item[{double $\ast$}]{beta,  }\item[{double $\ast$}]{c,  }\item[{int $\ast$}]{ldc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a06dd2346d35b23422b4a20dbd277c085}\label{blaslapack_8h_a06dd2346d35b23422b4a20dbd277c085}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dgemv@{blas\_dgemv}}
+\index{blas\_dgemv@{blas\_dgemv}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dgemv()}{blas\_dgemv()}}
+{\footnotesize\ttfamily void blas\+\_\+dgemv (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{double}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{x,  }\item[{int}]{incx,  }\item[{double}]{beta,  }\item[{double $\ast$}]{y,  }\item[{int}]{incy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 57 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_ad93efa9eea9b5917c529ef887d75e22e}\label{blaslapack_8h_ad93efa9eea9b5917c529ef887d75e22e}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dgemv\_@{blas\_dgemv\_}}
+\index{blas\_dgemv\_@{blas\_dgemv\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dgemv\_()}{blas\_dgemv\_()}}
+{\footnotesize\ttfamily void blas\+\_\+dgemv\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{x,  }\item[{int $\ast$}]{incx,  }\item[{double $\ast$}]{beta,  }\item[{double $\ast$}]{y,  }\item[{int $\ast$}]{incy }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_aea88bb4213d299003114c4178c77b0ba}\label{blaslapack_8h_aea88bb4213d299003114c4178c77b0ba}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dscal@{blas\_dscal}}
+\index{blas\_dscal@{blas\_dscal}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dscal()}{blas\_dscal()}}
+{\footnotesize\ttfamily void blas\+\_\+dscal (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double}]{sa,  }\item[{double $\ast$}]{sx,  }\item[{int}]{incx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 49 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a6717bc446f95db3b84978e058bf8c58d}\label{blaslapack_8h_a6717bc446f95db3b84978e058bf8c58d}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dscal\_@{blas\_dscal\_}}
+\index{blas\_dscal\_@{blas\_dscal\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dscal\_()}{blas\_dscal\_()}}
+{\footnotesize\ttfamily void blas\+\_\+dscal\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{sa,  }\item[{double $\ast$}]{sx,  }\item[{int $\ast$}]{incx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a0bf265474bff7df9a6a0c6c409f814b2}\label{blaslapack_8h_a0bf265474bff7df9a6a0c6c409f814b2}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dtrmm@{blas\_dtrmm}}
+\index{blas\_dtrmm@{blas\_dtrmm}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dtrmm()}{blas\_dtrmm()}}
+{\footnotesize\ttfamily void blas\+\_\+dtrmm (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sutd,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{double}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int}]{ldb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 65 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_af3ca578348933677b3d25c2c8dfe2ee1}\label{blaslapack_8h_af3ca578348933677b3d25c2c8dfe2ee1}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dtrmm\_@{blas\_dtrmm\_}}
+\index{blas\_dtrmm\_@{blas\_dtrmm\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dtrmm\_()}{blas\_dtrmm\_()}}
+{\footnotesize\ttfamily void blas\+\_\+dtrmm\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{side,  }\item[{const char $\ast$}]{uplo,  }\item[{const char $\ast$}]{transa,  }\item[{const char $\ast$}]{diag,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{ldb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_ae5ae1f5e3364c933464cdaf30d192dbf}\label{blaslapack_8h_ae5ae1f5e3364c933464cdaf30d192dbf}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dtrsm@{blas\_dtrsm}}
+\index{blas\_dtrsm@{blas\_dtrsm}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dtrsm()}{blas\_dtrsm()}}
+{\footnotesize\ttfamily void blas\+\_\+dtrsm (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sutd,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{double}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int}]{ldb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 69 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a77f57c9cb968dd76745fb7d9ee7abc8f}\label{blaslapack_8h_a77f57c9cb968dd76745fb7d9ee7abc8f}} 
+\index{blaslapack.h@{blaslapack.h}!blas\_dtrsm\_@{blas\_dtrsm\_}}
+\index{blas\_dtrsm\_@{blas\_dtrsm\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{blas\_dtrsm\_()}{blas\_dtrsm\_()}}
+{\footnotesize\ttfamily void blas\+\_\+dtrsm\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{side,  }\item[{const char $\ast$}]{uplo,  }\item[{const char $\ast$}]{transa,  }\item[{const char $\ast$}]{diag,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{alpha,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{ldb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a79b4a366cf61e5c1b2e013511630c3c7}\label{blaslapack_8h_a79b4a366cf61e5c1b2e013511630c3c7}} 
+\index{blaslapack.h@{blaslapack.h}!dlange\_@{dlange\_}}
+\index{dlange\_@{dlange\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{dlange\_()}{dlange\_()}}
+{\footnotesize\ttfamily double dlange\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{norm,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{work }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{blaslapack_8h_a5f3a348e8eddb7832ad2294d44421d70}\label{blaslapack_8h_a5f3a348e8eddb7832ad2294d44421d70}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgejsv@{lapack\_dgejsv}}
+\index{lapack\_dgejsv@{lapack\_dgejsv}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgejsv()}{lapack\_dgejsv()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgejsv (\begin{DoxyParamCaption}\item[{const char $\ast$}]{job,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{sva,  }\item[{double $\ast$}]{u,  }\item[{int}]{ldu,  }\item[{double $\ast$}]{v,  }\item[{int}]{ldv,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork,  }\item[{int $\ast$}]{iwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 127 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_aa4c36385800d8dbeec80021eff57e3a4}\label{blaslapack_8h_aa4c36385800d8dbeec80021eff57e3a4}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgejsv\_@{lapack\_dgejsv\_}}
+\index{lapack\_dgejsv\_@{lapack\_dgejsv\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgejsv\_()}{lapack\_dgejsv\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgejsv\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{joba,  }\item[{const char $\ast$}]{jobu,  }\item[{const char $\ast$}]{jobv,  }\item[{const char $\ast$}]{jobr,  }\item[{const char $\ast$}]{jobt,  }\item[{const char $\ast$}]{jobp,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{sva,  }\item[{double $\ast$}]{u,  }\item[{int $\ast$}]{ldu,  }\item[{double $\ast$}]{v,  }\item[{int $\ast$}]{ldv,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{iwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 166 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a596f6388c4c463b6029fc7c29047a5d0}\label{blaslapack_8h_a596f6388c4c463b6029fc7c29047a5d0}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgeqp3@{lapack\_dgeqp3}}
+\index{lapack\_dgeqp3@{lapack\_dgeqp3}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgeqp3()}{lapack\_dgeqp3()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgeqp3 (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{int $\ast$}]{jpvt,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 106 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_aa7ea307c43ecf18941a30a33a4a79fdf}\label{blaslapack_8h_aa7ea307c43ecf18941a30a33a4a79fdf}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgeqp3\_@{lapack\_dgeqp3\_}}
+\index{lapack\_dgeqp3\_@{lapack\_dgeqp3\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgeqp3\_()}{lapack\_dgeqp3\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgeqp3\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{int $\ast$}]{jpvt,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_ae2fbf37b89ed8dbba5ef404edefc386b}\label{blaslapack_8h_ae2fbf37b89ed8dbba5ef404edefc386b}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgeqrf@{lapack\_dgeqrf}}
+\index{lapack\_dgeqrf@{lapack\_dgeqrf}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgeqrf()}{lapack\_dgeqrf()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgeqrf (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 73 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a838b597c2944bf2ba7e16ebdc8ef874c}\label{blaslapack_8h_a838b597c2944bf2ba7e16ebdc8ef874c}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgeqrf\_@{lapack\_dgeqrf\_}}
+\index{lapack\_dgeqrf\_@{lapack\_dgeqrf\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgeqrf\_()}{lapack\_dgeqrf\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgeqrf\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 180 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a5bf9de6fa73687415e7d5759ca4e9bd9}\label{blaslapack_8h_a5bf9de6fa73687415e7d5759ca4e9bd9}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgerfsx\_@{lapack\_dgerfsx\_}}
+\index{lapack\_dgerfsx\_@{lapack\_dgerfsx\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgerfsx\_()}{lapack\_dgerfsx\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgerfsx\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{const char $\ast$}]{equed,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{nrhs,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{af,  }\item[{int $\ast$}]{ldaf,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{r,  }\item[{double $\ast$}]{c,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{ldb,  }\item[{double $\ast$}]{x,  }\item[{int $\ast$}]{ldx,  }\item[{double $\ast$}]{rcond,  }\item[{double $\ast$}]{berr,  }\item[{int $\ast$}]{n\+\_\+err\+\_\+bnds,  }\item[{double $\ast$}]{err\+\_\+bnds\+\_\+norm,  }\item[{double $\ast$}]{err\+\_\+bnds\+\_\+comp,  }\item[{int $\ast$}]{nparams,  }\item[{double $\ast$}]{params,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{iwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{blaslapack_8h_a2c623f07b6351e0e5b1c110bc21afd21}\label{blaslapack_8h_a2c623f07b6351e0e5b1c110bc21afd21}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgesv\_@{lapack\_dgesv\_}}
+\index{lapack\_dgesv\_@{lapack\_dgesv\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgesv\_()}{lapack\_dgesv\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgesv\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{nrhs,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{ldb,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_aec5bdb34b5c5faaa489010612e9fb81a}\label{blaslapack_8h_aec5bdb34b5c5faaa489010612e9fb81a}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgetrf@{lapack\_dgetrf}}
+\index{lapack\_dgetrf@{lapack\_dgetrf}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgetrf()}{lapack\_dgetrf()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgetrf (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{int $\ast$}]{ipiv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 92 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a43ef21c8aaf3abcaa272f7760ec769dc}\label{blaslapack_8h_a43ef21c8aaf3abcaa272f7760ec769dc}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgetrf\_@{lapack\_dgetrf\_}}
+\index{lapack\_dgetrf\_@{lapack\_dgetrf\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgetrf\_()}{lapack\_dgetrf\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgetrf\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{int $\ast$}]{ipiv,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 148 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a5f7ef921f47fee69a24a8c509d4007bd}\label{blaslapack_8h_a5f7ef921f47fee69a24a8c509d4007bd}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgetri@{lapack\_dgetri}}
+\index{lapack\_dgetri@{lapack\_dgetri}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgetri()}{lapack\_dgetri()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgetri (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 99 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a56dd58210971ac1b89b53c41de4aa779}\label{blaslapack_8h_a56dd58210971ac1b89b53c41de4aa779}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgetri\_@{lapack\_dgetri\_}}
+\index{lapack\_dgetri\_@{lapack\_dgetri\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgetri\_()}{lapack\_dgetri\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgetri\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 154 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_ae79cc29103b68006e25674e40754517c}\label{blaslapack_8h_ae79cc29103b68006e25674e40754517c}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgetrs@{lapack\_dgetrs}}
+\index{lapack\_dgetrs@{lapack\_dgetrs}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgetrs()}{lapack\_dgetrs()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgetrs (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{int}]{n,  }\item[{int}]{nrhs,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{b,  }\item[{int}]{ldb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 120 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_ac972ac0d4b35746819183a58ef1a46e6}\label{blaslapack_8h_ac972ac0d4b35746819183a58ef1a46e6}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dgetrs\_@{lapack\_dgetrs\_}}
+\index{lapack\_dgetrs\_@{lapack\_dgetrs\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dgetrs\_()}{lapack\_dgetrs\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dgetrs\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{trans,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{nrhs,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{int $\ast$}]{ipiv,  }\item[{double $\ast$}]{b,  }\item[{int $\ast$}]{ldb,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_af0443517513103c5f1f06181b932212e}\label{blaslapack_8h_af0443517513103c5f1f06181b932212e}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dlange@{lapack\_dlange}}
+\index{lapack\_dlange@{lapack\_dlange}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dlange()}{lapack\_dlange()}}
+{\footnotesize\ttfamily double lapack\+\_\+dlange (\begin{DoxyParamCaption}\item[{const char $\ast$}]{norm,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 144 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a5a6613488a2c34b18e22a9cbf5b42e82}\label{blaslapack_8h_a5a6613488a2c34b18e22a9cbf5b42e82}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dlarft@{lapack\_dlarft}}
+\index{lapack\_dlarft@{lapack\_dlarft}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dlarft()}{lapack\_dlarft()}}
+{\footnotesize\ttfamily void lapack\+\_\+dlarft (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ds,  }\item[{int}]{n,  }\item[{int}]{k,  }\item[{double $\ast$}]{v,  }\item[{int}]{ldv,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{t,  }\item[{int}]{ldt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 87 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_abe5d917cbcbac2d63f7fe00f7b51b994}\label{blaslapack_8h_abe5d917cbcbac2d63f7fe00f7b51b994}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dlarft\_@{lapack\_dlarft\_}}
+\index{lapack\_dlarft\_@{lapack\_dlarft\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dlarft\_()}{lapack\_dlarft\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dlarft\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{direct,  }\item[{const char $\ast$}]{storev,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{k,  }\item[{double $\ast$}]{v,  }\item[{int $\ast$}]{ldv,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{t,  }\item[{int $\ast$}]{ldt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 186 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a522d4af3d84a5d1be97cd44775ad96af}\label{blaslapack_8h_a522d4af3d84a5d1be97cd44775ad96af}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dorgqr@{lapack\_dorgqr}}
+\index{lapack\_dorgqr@{lapack\_dorgqr}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dorgqr()}{lapack\_dorgqr()}}
+{\footnotesize\ttfamily void lapack\+\_\+dorgqr (\begin{DoxyParamCaption}\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{k,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 80 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a0398907778baa328a6760507924dda4e}\label{blaslapack_8h_a0398907778baa328a6760507924dda4e}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dorgqr\_@{lapack\_dorgqr\_}}
+\index{lapack\_dorgqr\_@{lapack\_dorgqr\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dorgqr\_()}{lapack\_dorgqr\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dorgqr\+\_\+ (\begin{DoxyParamCaption}\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{k,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a80359b87a8f1f6e5691bf4d0f48ddb7f}\label{blaslapack_8h_a80359b87a8f1f6e5691bf4d0f48ddb7f}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dormqr@{lapack\_dormqr}}
+\index{lapack\_dormqr@{lapack\_dormqr}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dormqr()}{lapack\_dormqr()}}
+{\footnotesize\ttfamily void lapack\+\_\+dormqr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{st,  }\item[{int}]{m,  }\item[{int}]{n,  }\item[{int}]{k,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{c,  }\item[{int}]{ldc,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 113 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_ada9935a42498141c82eff5f5583f1481}\label{blaslapack_8h_ada9935a42498141c82eff5f5583f1481}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dormqr\_@{lapack\_dormqr\_}}
+\index{lapack\_dormqr\_@{lapack\_dormqr\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dormqr\_()}{lapack\_dormqr\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dormqr\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{side,  }\item[{const char $\ast$}]{trans,  }\item[{int $\ast$}]{m,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{k,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{tau,  }\item[{double $\ast$}]{c,  }\item[{int $\ast$}]{ldc,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file blaslapack.\+c++.
+
+\mbox{\Hypertarget{blaslapack_8h_a9f1a6db0680b5eba17cdf0636f42632d}\label{blaslapack_8h_a9f1a6db0680b5eba17cdf0636f42632d}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dsyev@{lapack\_dsyev}}
+\index{lapack\_dsyev@{lapack\_dsyev}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dsyev()}{lapack\_dsyev()}}
+{\footnotesize\ttfamily void lapack\+\_\+dsyev (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ju,  }\item[{int}]{n,  }\item[{double $\ast$}]{a,  }\item[{int}]{lda,  }\item[{double $\ast$}]{w,  }\item[{double $\ast$}]{work,  }\item[{int}]{lwork }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 136 of file blaslapack.\+h.
+
+\mbox{\Hypertarget{blaslapack_8h_a63505dcc4aed7d3af61442d11da06a4a}\label{blaslapack_8h_a63505dcc4aed7d3af61442d11da06a4a}} 
+\index{blaslapack.h@{blaslapack.h}!lapack\_dsyev\_@{lapack\_dsyev\_}}
+\index{lapack\_dsyev\_@{lapack\_dsyev\_}!blaslapack.h@{blaslapack.h}}
+\doxysubsubsection{\texorpdfstring{lapack\_dsyev\_()}{lapack\_dsyev\_()}}
+{\footnotesize\ttfamily void lapack\+\_\+dsyev\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{jobz,  }\item[{const char $\ast$}]{uplo,  }\item[{int $\ast$}]{n,  }\item[{double $\ast$}]{a,  }\item[{int $\ast$}]{lda,  }\item[{double $\ast$}]{w,  }\item[{double $\ast$}]{work,  }\item[{int $\ast$}]{lwork,  }\item[{int $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 114 of file blaslapack.\+c++.
+

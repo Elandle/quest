@@ -1,0 +1,165 @@
+\hypertarget{collisions_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/collisions.cpp File Reference}
+\label{collisions_8cpp}\index{SRC/sprng5/TESTS/collisions.cpp@{SRC/sprng5/TESTS/collisions.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for collisions.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{collisions_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{collisions_8cpp_a7a9d2db9587b814bc7c7b7c97b4aef6b}{MIN\+\_\+\+CHISQ\+\_\+\+NTESTS}}~50
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{collisions_8cpp_ac8410ac930974357b043fc0feb319ce0}{init\+\_\+collision}} (long n, int logmd, int logd)
+\item 
+long \mbox{\hyperlink{collisions_8cpp_ac50c18e747d4bbd21cfc6c655b5d8701}{collision}} (long n, int logmd, int logd)
+\item 
+double \mbox{\hyperlink{collisions_8cpp_a9f0013d5f33cbce38c5e8b213f39616f}{identity}} (double d)
+\item 
+void \mbox{\hyperlink{collisions_8cpp_aadd44fe3997aa08c5f4573bfeea231b5}{compute\+\_\+probability}} (double $\ast$A, int n, int m)
+\item 
+int \mbox{\hyperlink{collisions_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{collisions_8cpp_a38a47cc3669331dd90dc0d880bf86ffd}{the\+Array}}
+\item 
+int $\ast$ \mbox{\hyperlink{collisions_8cpp_a041d0ffda3912a3d7b9dacffd174f0c7}{mask}}
+\item 
+int \mbox{\hyperlink{collisions_8cpp_ad34544d7ec3e6e19bbc12a41fcbf2f0d}{arraysize}}
+\item 
+int \mbox{\hyperlink{collisions_8cpp_a57102fe28df56d1916508e25aba3469d}{intsize}}
+\item 
+double $\ast$ \mbox{\hyperlink{collisions_8cpp_ab67a99ca3cdfa29c165a262d945e10df}{probability}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{collisions_8cpp_a7a9d2db9587b814bc7c7b7c97b4aef6b}\label{collisions_8cpp_a7a9d2db9587b814bc7c7b7c97b4aef6b}} 
+\index{collisions.cpp@{collisions.cpp}!MIN\_CHISQ\_NTESTS@{MIN\_CHISQ\_NTESTS}}
+\index{MIN\_CHISQ\_NTESTS@{MIN\_CHISQ\_NTESTS}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{MIN\_CHISQ\_NTESTS}{MIN\_CHISQ\_NTESTS}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+CHISQ\+\_\+\+NTESTS~50}
+
+
+
+Definition at line 19 of file collisions.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{collisions_8cpp_ac50c18e747d4bbd21cfc6c655b5d8701}\label{collisions_8cpp_ac50c18e747d4bbd21cfc6c655b5d8701}} 
+\index{collisions.cpp@{collisions.cpp}!collision@{collision}}
+\index{collision@{collision}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{collision()}{collision()}}
+{\footnotesize\ttfamily long collision (\begin{DoxyParamCaption}\item[{long}]{n,  }\item[{int}]{logmd,  }\item[{int}]{logd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 215 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_aadd44fe3997aa08c5f4573bfeea231b5}\label{collisions_8cpp_aadd44fe3997aa08c5f4573bfeea231b5}} 
+\index{collisions.cpp@{collisions.cpp}!compute\_probability@{compute\_probability}}
+\index{compute\_probability@{compute\_probability}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{compute\_probability()}{compute\_probability()}}
+{\footnotesize\ttfamily void compute\+\_\+probability (\begin{DoxyParamCaption}\item[{double $\ast$}]{A,  }\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line 164 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_a9f0013d5f33cbce38c5e8b213f39616f}\label{collisions_8cpp_a9f0013d5f33cbce38c5e8b213f39616f}} 
+\index{collisions.cpp@{collisions.cpp}!identity@{identity}}
+\index{identity@{identity}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{identity()}{identity()}}
+{\footnotesize\ttfamily double identity (\begin{DoxyParamCaption}\item[{double}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line 131 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_ac8410ac930974357b043fc0feb319ce0}\label{collisions_8cpp_ac8410ac930974357b043fc0feb319ce0}} 
+\index{collisions.cpp@{collisions.cpp}!init\_collision@{init\_collision}}
+\index{init\_collision@{init\_collision}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{init\_collision()}{init\_collision()}}
+{\footnotesize\ttfamily void init\+\_\+collision (\begin{DoxyParamCaption}\item[{long}]{n,  }\item[{int}]{logmd,  }\item[{int}]{logd }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{collisions_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{collisions.cpp@{collisions.cpp}!main@{main}}
+\index{main@{main}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file collisions.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{collisions_8cpp_ad34544d7ec3e6e19bbc12a41fcbf2f0d}\label{collisions_8cpp_ad34544d7ec3e6e19bbc12a41fcbf2f0d}} 
+\index{collisions.cpp@{collisions.cpp}!arraysize@{arraysize}}
+\index{arraysize@{arraysize}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{arraysize}{arraysize}}
+{\footnotesize\ttfamily int arraysize}
+
+
+
+Definition at line 22 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_a57102fe28df56d1916508e25aba3469d}\label{collisions_8cpp_a57102fe28df56d1916508e25aba3469d}} 
+\index{collisions.cpp@{collisions.cpp}!intsize@{intsize}}
+\index{intsize@{intsize}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{intsize}{intsize}}
+{\footnotesize\ttfamily int intsize}
+
+
+
+Definition at line 22 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_a041d0ffda3912a3d7b9dacffd174f0c7}\label{collisions_8cpp_a041d0ffda3912a3d7b9dacffd174f0c7}} 
+\index{collisions.cpp@{collisions.cpp}!mask@{mask}}
+\index{mask@{mask}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{mask}{mask}}
+{\footnotesize\ttfamily int $\ast$ mask}
+
+
+
+Definition at line 21 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_ab67a99ca3cdfa29c165a262d945e10df}\label{collisions_8cpp_ab67a99ca3cdfa29c165a262d945e10df}} 
+\index{collisions.cpp@{collisions.cpp}!probability@{probability}}
+\index{probability@{probability}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{probability}{probability}}
+{\footnotesize\ttfamily double$\ast$ probability}
+
+
+
+Definition at line 23 of file collisions.\+cpp.
+
+\mbox{\Hypertarget{collisions_8cpp_a38a47cc3669331dd90dc0d880bf86ffd}\label{collisions_8cpp_a38a47cc3669331dd90dc0d880bf86ffd}} 
+\index{collisions.cpp@{collisions.cpp}!theArray@{theArray}}
+\index{theArray@{theArray}!collisions.cpp@{collisions.cpp}}
+\doxysubsubsection{\texorpdfstring{theArray}{theArray}}
+{\footnotesize\ttfamily int$\ast$ the\+Array}
+
+
+
+Definition at line 21 of file collisions.\+cpp.
+

@@ -1,0 +1,122 @@
+\hypertarget{coupon_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/coupon.cpp File Reference}
+\label{coupon_8cpp}\index{SRC/sprng5/TESTS/coupon.cpp@{SRC/sprng5/TESTS/coupon.cpp}}
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for coupon.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{coupon_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{coupon_8cpp_ae5892e07b61a7fa629fd5dee1c618ffd}{init\+\_\+coupon}} (long n, int t, int d)
+\item 
+double \mbox{\hyperlink{coupon_8cpp_a102487d56b82b6b92b28838f23e531ef}{coupon}} (long n, int t, int d)
+\item 
+double \mbox{\hyperlink{coupon_8cpp_a750e17d9de0c3074a187955603cc1adc}{stirling}} (int n, int m)
+\item 
+int \mbox{\hyperlink{coupon_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{coupon_8cpp_a0eb481843f7385f840fde843e82797a1}{occurs}}
+\item 
+int \mbox{\hyperlink{coupon_8cpp_af7f08a380e19c5396ecfd39d681719f7}{Bins\+\_\+used}} = 0
+\item 
+long $\ast$ \mbox{\hyperlink{coupon_8cpp_ab86407066c45de50b2559fc1b0702b44}{count}}
+\item 
+double $\ast$ \mbox{\hyperlink{coupon_8cpp_ab67a99ca3cdfa29c165a262d945e10df}{probability}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{coupon_8cpp_a102487d56b82b6b92b28838f23e531ef}\label{coupon_8cpp_a102487d56b82b6b92b28838f23e531ef}} 
+\index{coupon.cpp@{coupon.cpp}!coupon@{coupon}}
+\index{coupon@{coupon}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{coupon()}{coupon()}}
+{\footnotesize\ttfamily double coupon (\begin{DoxyParamCaption}\item[{long}]{n,  }\item[{int}]{t,  }\item[{int}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line 109 of file coupon.\+cpp.
+
+\mbox{\Hypertarget{coupon_8cpp_ae5892e07b61a7fa629fd5dee1c618ffd}\label{coupon_8cpp_ae5892e07b61a7fa629fd5dee1c618ffd}} 
+\index{coupon.cpp@{coupon.cpp}!init\_coupon@{init\_coupon}}
+\index{init\_coupon@{init\_coupon}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{init\_coupon()}{init\_coupon()}}
+{\footnotesize\ttfamily void init\+\_\+coupon (\begin{DoxyParamCaption}\item[{long}]{n,  }\item[{int}]{t,  }\item[{int}]{d }\end{DoxyParamCaption})}
+
+
+
+Definition at line 84 of file coupon.\+cpp.
+
+\mbox{\Hypertarget{coupon_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{coupon_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{coupon.cpp@{coupon.cpp}!main@{main}}
+\index{main@{main}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file coupon.\+cpp.
+
+\mbox{\Hypertarget{coupon_8cpp_a750e17d9de0c3074a187955603cc1adc}\label{coupon_8cpp_a750e17d9de0c3074a187955603cc1adc}} 
+\index{coupon.cpp@{coupon.cpp}!stirling@{stirling}}
+\index{stirling@{stirling}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{stirling()}{stirling()}}
+{\footnotesize\ttfamily double stirling (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file stirling.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{coupon_8cpp_af7f08a380e19c5396ecfd39d681719f7}\label{coupon_8cpp_af7f08a380e19c5396ecfd39d681719f7}} 
+\index{coupon.cpp@{coupon.cpp}!Bins\_used@{Bins\_used}}
+\index{Bins\_used@{Bins\_used}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{Bins\_used}{Bins\_used}}
+{\footnotesize\ttfamily int Bins\+\_\+used = 0}
+
+
+
+Definition at line 19 of file coupon.\+cpp.
+
+\mbox{\Hypertarget{coupon_8cpp_ab86407066c45de50b2559fc1b0702b44}\label{coupon_8cpp_ab86407066c45de50b2559fc1b0702b44}} 
+\index{coupon.cpp@{coupon.cpp}!count@{count}}
+\index{count@{count}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily long$\ast$ count}
+
+
+
+Definition at line 20 of file coupon.\+cpp.
+
+\mbox{\Hypertarget{coupon_8cpp_a0eb481843f7385f840fde843e82797a1}\label{coupon_8cpp_a0eb481843f7385f840fde843e82797a1}} 
+\index{coupon.cpp@{coupon.cpp}!occurs@{occurs}}
+\index{occurs@{occurs}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{occurs}{occurs}}
+{\footnotesize\ttfamily int$\ast$ occurs}
+
+
+
+Definition at line 19 of file coupon.\+cpp.
+
+\mbox{\Hypertarget{coupon_8cpp_ab67a99ca3cdfa29c165a262d945e10df}\label{coupon_8cpp_ab67a99ca3cdfa29c165a262d945e10df}} 
+\index{coupon.cpp@{coupon.cpp}!probability@{probability}}
+\index{probability@{probability}!coupon.cpp@{coupon.cpp}}
+\doxysubsubsection{\texorpdfstring{probability}{probability}}
+{\footnotesize\ttfamily double$\ast$ probability}
+
+
+
+Definition at line 21 of file coupon.\+cpp.
+

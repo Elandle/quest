@@ -1,0 +1,248 @@
+\hypertarget{structdqmc__reclatt_1_1recip__lattice__t}{}\doxysection{dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t Type Reference}
+\label{structdqmc__reclatt_1_1recip__lattice__t}\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a37414ad73dbd44b35bcb563575a669c3}{ndim}}
+\item 
+integer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_ab7aafd299fda133989f3cff2a125af9e}{nkpts}}
+\item 
+real $\ast$8, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_accb81697d817b30e63d674e438e6767f}{klist}}
+\item 
+real $\ast$8, dimension(rdim) \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a1abe718b3a6d36dd2455f4aeabf1465b}{kpoint}}
+\item 
+real $\ast$8, dimension(rdim) \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a9b76baafb3d5093b624a002c5a85c7b8}{ktwist}}
+\item 
+real $\ast$8, dimension(rdim, rdim) \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a003720287db262370cb32960333c117c}{kcs}}
+\item 
+real $\ast$8, dimension(rdim, rdim) \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_ac90b45da6628537bde222e18d5568f18}{ks}}
+\item 
+real $\ast$8, dimension(rdim, rdim) \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a4586df980b42b93fee25c05bb9a62b11}{kc}}
+\item 
+integer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_ad1bc047a6c0984062d4d97457f8e01f5}{nmomenta}}
+\item 
+real $\ast$8, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a41a4aaf7c285992421f0290596193f75}{ksum}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_ac687465faf2968a935e55a106c1bbae7}{kmate}}
+\item 
+integer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a1d8f6d6ade853b6c790e8612a496966f}{nclass\+\_\+k}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_afda65e6dbc94733034d150f20e4fbe28}{myclass\+\_\+k}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a6b497cecd08de98dff074e1b3e24f601}{class\+\_\+size\+\_\+k}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a0736fe35351234b7ae5031a7c0363f58}{class\+\_\+repr\+\_\+k}}
+\item 
+complex $\ast$16, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a9a184a4f07cc1ba10d4ea4981d9c588e}{fourierc}}
+\item 
+logical \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a57d875c193964ed7dcde04d9b44b29ed}{initialized}}
+\item 
+logical \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_ad57a5e3c97c188f33d710b3f250cf721}{constructed}}
+\item 
+logical \mbox{\hyperlink{structdqmc__reclatt_1_1recip__lattice__t_a9dc9c481e457e18326d73ef150abc47e}{analyzed}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 8 of file dqmc\+\_\+reclatt.\+F90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a9dc9c481e457e18326d73ef150abc47e}\label{structdqmc__reclatt_1_1recip__lattice__t_a9dc9c481e457e18326d73ef150abc47e}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!analyzed@{analyzed}}
+\index{analyzed@{analyzed}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{analyzed}{analyzed}}
+{\footnotesize\ttfamily logical dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::analyzed}
+
+
+
+Definition at line 33 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a0736fe35351234b7ae5031a7c0363f58}\label{structdqmc__reclatt_1_1recip__lattice__t_a0736fe35351234b7ae5031a7c0363f58}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!class\_repr\_k@{class\_repr\_k}}
+\index{class\_repr\_k@{class\_repr\_k}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{class\_repr\_k}{class\_repr\_k}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::class\+\_\+repr\+\_\+k}
+
+
+
+Definition at line 27 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a6b497cecd08de98dff074e1b3e24f601}\label{structdqmc__reclatt_1_1recip__lattice__t_a6b497cecd08de98dff074e1b3e24f601}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!class\_size\_k@{class\_size\_k}}
+\index{class\_size\_k@{class\_size\_k}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{class\_size\_k}{class\_size\_k}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::class\+\_\+size\+\_\+k}
+
+
+
+Definition at line 26 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_ad57a5e3c97c188f33d710b3f250cf721}\label{structdqmc__reclatt_1_1recip__lattice__t_ad57a5e3c97c188f33d710b3f250cf721}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!constructed@{constructed}}
+\index{constructed@{constructed}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{constructed}{constructed}}
+{\footnotesize\ttfamily logical dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::constructed}
+
+
+
+Definition at line 32 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a9a184a4f07cc1ba10d4ea4981d9c588e}\label{structdqmc__reclatt_1_1recip__lattice__t_a9a184a4f07cc1ba10d4ea4981d9c588e}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!fourierc@{fourierc}}
+\index{fourierc@{fourierc}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{fourierc}{fourierc}}
+{\footnotesize\ttfamily complex$\ast$16, dimension(\+:,\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::fourierc}
+
+
+
+Definition at line 29 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a57d875c193964ed7dcde04d9b44b29ed}\label{structdqmc__reclatt_1_1recip__lattice__t_a57d875c193964ed7dcde04d9b44b29ed}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!initialized@{initialized}}
+\index{initialized@{initialized}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{initialized}{initialized}}
+{\footnotesize\ttfamily logical dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::initialized}
+
+
+
+Definition at line 31 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a4586df980b42b93fee25c05bb9a62b11}\label{structdqmc__reclatt_1_1recip__lattice__t_a4586df980b42b93fee25c05bb9a62b11}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!kc@{kc}}
+\index{kc@{kc}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{kc}{kc}}
+{\footnotesize\ttfamily real$\ast$8, dimension(rdim,rdim) dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::kc}
+
+
+
+Definition at line 16 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a003720287db262370cb32960333c117c}\label{structdqmc__reclatt_1_1recip__lattice__t_a003720287db262370cb32960333c117c}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!kcs@{kcs}}
+\index{kcs@{kcs}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{kcs}{kcs}}
+{\footnotesize\ttfamily real$\ast$8, dimension(rdim,rdim) dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::kcs}
+
+
+
+Definition at line 14 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_accb81697d817b30e63d674e438e6767f}\label{structdqmc__reclatt_1_1recip__lattice__t_accb81697d817b30e63d674e438e6767f}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!klist@{klist}}
+\index{klist@{klist}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{klist}{klist}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:,\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::klist}
+
+
+
+Definition at line 11 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_ac687465faf2968a935e55a106c1bbae7}\label{structdqmc__reclatt_1_1recip__lattice__t_ac687465faf2968a935e55a106c1bbae7}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!kmate@{kmate}}
+\index{kmate@{kmate}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{kmate}{kmate}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::kmate}
+
+
+
+Definition at line 21 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a1abe718b3a6d36dd2455f4aeabf1465b}\label{structdqmc__reclatt_1_1recip__lattice__t_a1abe718b3a6d36dd2455f4aeabf1465b}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!kpoint@{kpoint}}
+\index{kpoint@{kpoint}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{kpoint}{kpoint}}
+{\footnotesize\ttfamily real$\ast$8, dimension(rdim) dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::kpoint}
+
+
+
+Definition at line 12 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_ac90b45da6628537bde222e18d5568f18}\label{structdqmc__reclatt_1_1recip__lattice__t_ac90b45da6628537bde222e18d5568f18}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!ks@{ks}}
+\index{ks@{ks}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{ks}{ks}}
+{\footnotesize\ttfamily real$\ast$8, dimension(rdim,rdim) dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::ks}
+
+
+
+Definition at line 15 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a41a4aaf7c285992421f0290596193f75}\label{structdqmc__reclatt_1_1recip__lattice__t_a41a4aaf7c285992421f0290596193f75}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!ksum@{ksum}}
+\index{ksum@{ksum}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{ksum}{ksum}}
+{\footnotesize\ttfamily real$\ast$8, dimension(\+:,\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::ksum}
+
+
+
+Definition at line 20 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a9b76baafb3d5093b624a002c5a85c7b8}\label{structdqmc__reclatt_1_1recip__lattice__t_a9b76baafb3d5093b624a002c5a85c7b8}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!ktwist@{ktwist}}
+\index{ktwist@{ktwist}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{ktwist}{ktwist}}
+{\footnotesize\ttfamily real$\ast$8, dimension(rdim) dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::ktwist}
+
+
+
+Definition at line 13 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_afda65e6dbc94733034d150f20e4fbe28}\label{structdqmc__reclatt_1_1recip__lattice__t_afda65e6dbc94733034d150f20e4fbe28}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!myclass\_k@{myclass\_k}}
+\index{myclass\_k@{myclass\_k}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{myclass\_k}{myclass\_k}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::myclass\+\_\+k}
+
+
+
+Definition at line 25 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a1d8f6d6ade853b6c790e8612a496966f}\label{structdqmc__reclatt_1_1recip__lattice__t_a1d8f6d6ade853b6c790e8612a496966f}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!nclass\_k@{nclass\_k}}
+\index{nclass\_k@{nclass\_k}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{nclass\_k}{nclass\_k}}
+{\footnotesize\ttfamily integer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::nclass\+\_\+k}
+
+
+
+Definition at line 24 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_a37414ad73dbd44b35bcb563575a669c3}\label{structdqmc__reclatt_1_1recip__lattice__t_a37414ad73dbd44b35bcb563575a669c3}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!ndim@{ndim}}
+\index{ndim@{ndim}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{ndim}{ndim}}
+{\footnotesize\ttfamily integer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::ndim}
+
+
+
+Definition at line 9 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_ab7aafd299fda133989f3cff2a125af9e}\label{structdqmc__reclatt_1_1recip__lattice__t_ab7aafd299fda133989f3cff2a125af9e}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!nkpts@{nkpts}}
+\index{nkpts@{nkpts}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{nkpts}{nkpts}}
+{\footnotesize\ttfamily integer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::nkpts}
+
+
+
+Definition at line 10 of file dqmc\+\_\+reclatt.\+F90.
+
+\mbox{\Hypertarget{structdqmc__reclatt_1_1recip__lattice__t_ad1bc047a6c0984062d4d97457f8e01f5}\label{structdqmc__reclatt_1_1recip__lattice__t_ad1bc047a6c0984062d4d97457f8e01f5}} 
+\index{dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}!nmomenta@{nmomenta}}
+\index{nmomenta@{nmomenta}!dqmc\_reclatt::recip\_lattice\_t@{dqmc\_reclatt::recip\_lattice\_t}}
+\doxysubsubsection{\texorpdfstring{nmomenta}{nmomenta}}
+{\footnotesize\ttfamily integer dqmc\+\_\+reclatt\+::recip\+\_\+lattice\+\_\+t\+::nmomenta}
+
+
+
+Definition at line 19 of file dqmc\+\_\+reclatt.\+F90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SRC/\mbox{\hyperlink{dqmc__reclatt_8F90}{dqmc\+\_\+reclatt.\+F90}}\end{DoxyCompactItemize}

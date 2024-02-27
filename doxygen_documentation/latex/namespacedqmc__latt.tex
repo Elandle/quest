@@ -1,0 +1,109 @@
+\hypertarget{namespacedqmc__latt}{}\doxysection{dqmc\+\_\+latt Module Reference}
+\label{namespacedqmc__latt}\index{dqmc\_latt@{dqmc\_latt}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__latt_af43b8540c28ca416465a744b3f64d60a}{free\+\_\+lattice}} (latt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__latt_a8ac4e33280bdb09487fbf84ef00f2129}{init\+\_\+lattice}} (lattice, SOP)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__latt_a608f505dc3bf546d20e9b57b434becb5}{construct\+\_\+lattice}} (lattice, SOP)
+\item 
+integer function \mbox{\hyperlink{namespacedqmc__latt_a5d816bd9dedc44468f911e2c817ceefe}{count\+\_\+atom}} ()
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__latt_a2c74686ac9ab64c91bf2ed62f18639b5}{convert\+\_\+to\+\_\+fractional}} (xat, ainv)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__latt_a8deca4273c5abf259b220afd96eda0f9}{assign\+\_\+phase}} (lattice)
+\item 
+integer function \mbox{\hyperlink{namespacedqmc__latt_a27d40fe24bfdfff0ecad18ebad13aaac}{hoptowho}} (iat, delta, jat, lattice)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__latt_a52735e9fc3e67a9bc4f3af432c24a739}{assign\+\_\+gf\+\_\+phase}} (lattice, twist)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__latt_a52735e9fc3e67a9bc4f3af432c24a739}\label{namespacedqmc__latt_a52735e9fc3e67a9bc4f3af432c24a739}} 
+\index{dqmc\_latt@{dqmc\_latt}!assign\_gf\_phase@{assign\_gf\_phase}}
+\index{assign\_gf\_phase@{assign\_gf\_phase}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{assign\_gf\_phase()}{assign\_gf\_phase()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+latt\+::assign\+\_\+gf\+\_\+phase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(inout)}]{lattice,  }\item[{real$\ast$8, dimension(3), intent(in)}]{twist }\end{DoxyParamCaption})}
+
+
+
+Definition at line 468 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_a8deca4273c5abf259b220afd96eda0f9}\label{namespacedqmc__latt_a8deca4273c5abf259b220afd96eda0f9}} 
+\index{dqmc\_latt@{dqmc\_latt}!assign\_phase@{assign\_phase}}
+\index{assign\_phase@{assign\_phase}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{assign\_phase()}{assign\_phase()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+latt\+::assign\+\_\+phase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}})}]{lattice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 340 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_a608f505dc3bf546d20e9b57b434becb5}\label{namespacedqmc__latt_a608f505dc3bf546d20e9b57b434becb5}} 
+\index{dqmc\_latt@{dqmc\_latt}!construct\_lattice@{construct\_lattice}}
+\index{construct\_lattice@{construct\_lattice}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{construct\_lattice()}{construct\_lattice()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+latt\+::construct\+\_\+lattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(inout), target}]{lattice,  }\item[{integer, intent(in)}]{SOP }\end{DoxyParamCaption})}
+
+
+
+Definition at line 173 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_a2c74686ac9ab64c91bf2ed62f18639b5}\label{namespacedqmc__latt_a2c74686ac9ab64c91bf2ed62f18639b5}} 
+\index{dqmc\_latt@{dqmc\_latt}!convert\_to\_fractional@{convert\_to\_fractional}}
+\index{convert\_to\_fractional@{convert\_to\_fractional}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_fractional()}{convert\_to\_fractional()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+latt\+::convert\+\_\+to\+\_\+fractional (\begin{DoxyParamCaption}\item[{real$\ast$8, dimension(rdim), intent(inout)}]{xat,  }\item[{real$\ast$8, dimension(rdim, rdim), intent(in)}]{ainv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 317 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_a5d816bd9dedc44468f911e2c817ceefe}\label{namespacedqmc__latt_a5d816bd9dedc44468f911e2c817ceefe}} 
+\index{dqmc\_latt@{dqmc\_latt}!count\_atom@{count\_atom}}
+\index{count\_atom@{count\_atom}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{count\_atom()}{count\_atom()}}
+{\footnotesize\ttfamily integer function dqmc\+\_\+latt\+::count\+\_\+atom}
+
+
+
+Definition at line 290 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_af43b8540c28ca416465a744b3f64d60a}\label{namespacedqmc__latt_af43b8540c28ca416465a744b3f64d60a}} 
+\index{dqmc\_latt@{dqmc\_latt}!free\_lattice@{free\_lattice}}
+\index{free\_lattice@{free\_lattice}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{free\_lattice()}{free\_lattice()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+latt\+::free\+\_\+lattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(inout)}]{latt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_a27d40fe24bfdfff0ecad18ebad13aaac}\label{namespacedqmc__latt_a27d40fe24bfdfff0ecad18ebad13aaac}} 
+\index{dqmc\_latt@{dqmc\_latt}!hoptowho@{hoptowho}}
+\index{hoptowho@{hoptowho}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{hoptowho()}{hoptowho()}}
+{\footnotesize\ttfamily integer function dqmc\+\_\+latt\+::hoptowho (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{iat,  }\item[{real$\ast$8, dimension(rdim), intent(in)}]{delta,  }\item[{integer, intent(in)}]{jat,  }\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), intent(in)}]{lattice }\end{DoxyParamCaption})}
+
+
+
+Definition at line 431 of file dqmc\+\_\+latt.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__latt_a8ac4e33280bdb09487fbf84ef00f2129}\label{namespacedqmc__latt_a8ac4e33280bdb09487fbf84ef00f2129}} 
+\index{dqmc\_latt@{dqmc\_latt}!init\_lattice@{init\_lattice}}
+\index{init\_lattice@{init\_lattice}!dqmc\_latt@{dqmc\_latt}}
+\doxysubsubsection{\texorpdfstring{init\_lattice()}{init\_lattice()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+latt\+::init\+\_\+lattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__latt_1_1lattice__t}{lattice\+\_\+t}}), target}]{lattice,  }\item[{integer, intent(in)}]{SOP }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file dqmc\+\_\+latt.\+F90.
+

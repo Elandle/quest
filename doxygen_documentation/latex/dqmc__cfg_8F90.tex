@@ -1,0 +1,121 @@
+\hypertarget{dqmc__cfg_8F90}{}\doxysection{SRC/dqmc\+\_\+cfg.F90 File Reference}
+\label{dqmc__cfg_8F90}\index{SRC/dqmc\_cfg.F90@{SRC/dqmc\_cfg.F90}}
+
+
+Holds the \mbox{\hyperlink{namespacedqmc__cfg}{dqmc\+\_\+cfg}} module. This module contains subroutines and datatypes for reading and holding the data of input config (cfg) files.  
+
+
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__cfg_1_1param}{dqmc\+\_\+cfg\+::param}}
+\begin{DoxyCompactList}\small\item\em Data type for describing parameters, stores information such as a parameters name and value(s). \end{DoxyCompactList}\item 
+type \mbox{\hyperlink{structdqmc__cfg_1_1config}{dqmc\+\_\+cfg\+::config}}
+\begin{DoxyCompactList}\small\item\em Data type for holding the configuration (config/cfg) of a simulation. Implemented as a linked list of {\ttfamily Param} data types. \end{DoxyCompactList}\item 
+interface \mbox{\hyperlink{interfacedqmc__cfg_1_1cfg__set}{dqmc\+\_\+cfg\+::cfg\+\_\+set}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__cfg_1_1cfg__get}{dqmc\+\_\+cfg\+::cfg\+\_\+get}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__cfg}{dqmc\+\_\+cfg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_afad06a3f34e69125bb9d7a4ca6a8b472}{dqmc\+\_\+cfg\+::dqmc\+\_\+readln}} (str, IPT, status)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_aef9a5dd82c2ad291bcb86ace11b36a19}{dqmc\+\_\+cfg\+::dqmc\+\_\+default\+\_\+def}} (cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_aa72becc856dcde89d71808409708493e}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+free}} (cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a97fc65a963cfc7f748a7b404ad392cba}{dqmc\+\_\+cfg\+::dqmc\+\_\+read\+\_\+def}} (cfg, IPT)
+\begin{DoxyCompactList}\small\item\em Reads in parameters from a .def input file to a config (cfg) data type. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a2daa0a387cf89a79e0295586a01b94d4}{dqmc\+\_\+cfg\+::dqmc\+\_\+print\+\_\+def}} (cfg, OPT)
+\item 
+integer function \mbox{\hyperlink{namespacedqmc__cfg_a411e5d82f9fea2c3ddb27b3114a0f82b}{dqmc\+\_\+cfg\+::dqmc\+\_\+find\+\_\+param}} (cfg, pname)
+\item 
+character(len=len(string)) function \mbox{\hyperlink{dqmc__cfg_8F90_a82989ee063ce5650acf237631ced6f7f}{uppercase}} (string)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a8d8b28e6c7732506add91ae56748c817}{dqmc\+\_\+cfg\+::dqmc\+\_\+read\+\_\+config}} (cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a6993013482bccbdd686ff3f056da8f44}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+seti}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a3130ce15e208d29abf0f3f4ae7d4ea8d}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+setr}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_af579027ebaabaa3203e717de884cf19a}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+setpr}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a87607d85cc3727a974e49b9b2484434e}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+setpi}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a7a6de9f853f1d8d1321dba2bcedc12f5}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+sets}} (cfg, name, value)
+\item 
+logical function \mbox{\hyperlink{namespacedqmc__cfg_a435ea3c02c34b71009b568fb7796fac3}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+isset}} (cfg, name)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_afada4a4adf481f23ada8280a8903acf3}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+geti}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_ae0fa5dc3d24814ed2fc30771a557dc37}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+getr}} (cfg, name, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_aacc82eb52a68a4b72e3ff9eb35e31126}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+getpr}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a0ddf533cabb7be857d4b5e23b82ee343}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+getpi}} (cfg, name, n, value)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__cfg_a7986318190e0742f4bdcd451f4fd576a}{dqmc\+\_\+cfg\+::dqmc\+\_\+config\+\_\+gets}} (cfg, name, value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+character, parameter \mbox{\hyperlink{namespacedqmc__cfg_a1f056ebdc445184fe5d25f35840ed19c}{dqmc\+\_\+cfg\+::comment}} = \char`\"{}\#\char`\"{}
+\begin{DoxyCompactList}\small\item\em What character denotes the start of a comment in input files. \end{DoxyCompactList}\item 
+character, parameter \mbox{\hyperlink{namespacedqmc__cfg_a8b17ff053f5e9966931f781437a8e44b}{dqmc\+\_\+cfg\+::separat}} = \char`\"{}=\char`\"{}
+\begin{DoxyCompactList}\small\item\em What character denotes parameter definition (equality) in input files. \end{DoxyCompactList}\item 
+character, parameter \mbox{\hyperlink{namespacedqmc__cfg_aefada4cb546e57dd14c7612b2e856cab}{dqmc\+\_\+cfg\+::comma}} = \char`\"{},\char`\"{}
+\begin{DoxyCompactList}\small\item\em What character denotes separation on the same line in input files. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_aa1255b9a43d4fc4e21bfd6b6c90fe0ac}{dqmc\+\_\+cfg\+::slen}} = 60
+\begin{DoxyCompactList}\small\item\em Maximum line length (characters) for input files. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a71e87982cc8d1b06f2d5b5a77903bce8}{dqmc\+\_\+cfg\+::llen}} = 256
+\begin{DoxyCompactList}\small\item\em Maximum amount of lines for input files. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a867f2ec16aa67001f084f1a811af38ee}{dqmc\+\_\+cfg\+::alen}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a60dd988b94b8b7ec538d805c38118dd9}{dqmc\+\_\+cfg\+::stat\+\_\+eof}} = -\/1
+\begin{DoxyCompactList}\small\item\em Stores the value denoting that the end of a file has been reached. For use when setting the status of parameter read-\/in looping. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a566ba00f9c0cc52c2651b636138d7efb}{dqmc\+\_\+cfg\+::stat\+\_\+comment}} = 0
+\begin{DoxyCompactList}\small\item\em Stores the value denoting that a comment has been reached. For use when setting the status of parameter read-\/in looping. \end{DoxyCompactList}\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_ade560577b11988c21594101028191928}{dqmc\+\_\+cfg\+::stat\+\_\+normal}} = 1
+\begin{DoxyCompactList}\small\item\em Stores the value denoting that a valid parameter definition has been stated. For use when setting the status of parameter read-\/in looping. \end{DoxyCompactList}\item 
+character(8), dimension(3), parameter \mbox{\hyperlink{namespacedqmc__cfg_a096836211d281a1a06011df00ca26ad9}{dqmc\+\_\+cfg\+::type\+\_\+str}} =(/\char`\"{}Real$\ast$8 \char`\"{},\char`\"{}Integer \char`\"{},\char`\"{}Char(60)\char`\"{}/)
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a44f3034b223a5e9fd6c271ebceb70bfe}{dqmc\+\_\+cfg\+::type\+\_\+real}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_ad4c623836b68f9b905ce1ba2d51005db}{dqmc\+\_\+cfg\+::type\+\_\+integer}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_aed463252c63b9271476df44a82f1d179}{dqmc\+\_\+cfg\+::type\+\_\+string}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__cfg_a0c59804b3798b0a31b6fc50f5e6d0ec6}{dqmc\+\_\+cfg\+::n\+\_\+param}} = 40
+\begin{DoxyCompactList}\small\item\em Number of parameters. \end{DoxyCompactList}\item 
+character(len= $\ast$), dimension(n\+\_\+param), parameter \mbox{\hyperlink{namespacedqmc__cfg_a498a6f2fe1366f0a5c13899a5eca2a2b}{dqmc\+\_\+cfg\+::param\+\_\+name}} = (/\char`\"{}HSF \char`\"{}, \char`\"{}HSFin \char`\"{}, \char`\"{}HSFout \char`\"{}, \char`\"{}HSFtype\char`\"{}, \char`\"{}L \char`\"{}, \char`\"{}U \char`\"{}, \char`\"{}accept \char`\"{}, \char`\"{}bcond \char`\"{}, \char`\"{}debug \char`\"{}, \char`\"{}delta1 \char`\"{}, \char`\"{}delta2 \char`\"{}, \char`\"{}difflim\char`\"{}, \char`\"{}dmu \char`\"{}, \char`\"{}dtau \char`\"{}, \char`\"{}errrate\char`\"{}, \char`\"{}fixwrap\char`\"{}, \char`\"{}gamma \char`\"{}, \char`\"{}gfile \char`\"{}, \char`\"{}mu\+\_\+dn \char`\"{}, \char`\"{}mu\+\_\+up \char`\"{}, \char`\"{}n \char`\"{}, \char`\"{}nbin \char`\"{}, \char`\"{}nhist \char`\"{}, \char`\"{}nitvl \char`\"{}, \char`\"{}north \char`\"{}, \char`\"{}npass \char`\"{}, \char`\"{}ntry \char`\"{}, \char`\"{}nwarm \char`\"{}, \char`\"{}nwrap \char`\"{}, \char`\"{}nx \char`\"{}, \char`\"{}ny \char`\"{}, \char`\"{}nz \char`\"{}, \char`\"{}ofile \char`\"{}, \char`\"{}reject \char`\"{}, \char`\"{}seed \char`\"{}, \char`\"{}ssxx \char`\"{}, \char`\"{}t\+\_\+dn \char`\"{}, \char`\"{}t\+\_\+up \char`\"{}, \char`\"{}tausk \char`\"{}, \char`\"{}tdm \char`\"{}/)
+\begin{DoxyCompactList}\small\item\em Stores the names of input parameters. \end{DoxyCompactList}\item 
+character(len= $\ast$), dimension(n\+\_\+param), parameter \mbox{\hyperlink{namespacedqmc__cfg_add38f34a0c23681ebc16a6c5ce3becef}{dqmc\+\_\+cfg\+::param\+\_\+dval}} = (/\char`\"{}-\/1 \char`\"{}, \char`\"{}HSF.\+in \char`\"{}, \char`\"{}HSF.\+out \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0,0,0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}0.\+001 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0.\+125 \char`\"{}, \char`\"{}0.\+001 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}geom.\+def\char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}0.\+0 \char`\"{}, \char`\"{}16 \char`\"{}, \char`\"{}10 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}5000 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1000 \char`\"{}, \char`\"{}12 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}4 \char`\"{}, \char`\"{}2 \char`\"{}, \char`\"{}quest \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}1.\+0 \char`\"{}, \char`\"{}10 \char`\"{}, \char`\"{}0 \char`\"{}/)
+\item 
+integer, dimension(n\+\_\+param), parameter \mbox{\hyperlink{namespacedqmc__cfg_ab03aa5ddc519a21f2afd0e7d9ad66c03}{dqmc\+\_\+cfg\+::param\+\_\+type}} = (/TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+STRING, TYPE\+\_\+\+STRING, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL , TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+STRING, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+STRING, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+REAL, TYPE\+\_\+\+REAL, TYPE\+\_\+\+INTEGER, TYPE\+\_\+\+INTEGER/)
+\item 
+logical, dimension(n\+\_\+param), parameter \mbox{\hyperlink{namespacedqmc__cfg_abb2796473311bce0843ee5b39b0a29f5}{dqmc\+\_\+cfg\+::param\+\_\+array}} = (/.false., .false., .false., .false., .false., .true. , .false., .true. , .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .true. , .true. , .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .false., .true. , .true. , .false., .false./)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds the \mbox{\hyperlink{namespacedqmc__cfg}{dqmc\+\_\+cfg}} module. This module contains subroutines and datatypes for reading and holding the data of input config (cfg) files. 
+
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{dqmc__cfg_8F90_a82989ee063ce5650acf237631ced6f7f}\label{dqmc__cfg_8F90_a82989ee063ce5650acf237631ced6f7f}} 
+\index{dqmc\_cfg.F90@{dqmc\_cfg.F90}!uppercase@{uppercase}}
+\index{uppercase@{uppercase}!dqmc\_cfg.F90@{dqmc\_cfg.F90}}
+\doxysubsubsection{\texorpdfstring{uppercase()}{uppercase()}}
+{\footnotesize\ttfamily character(len=len(string)) function dqmc\+\_\+find\+\_\+param\+::uppercase (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})}
+
+
+
+Definition at line 660 of file dqmc\+\_\+cfg.\+F90.
+

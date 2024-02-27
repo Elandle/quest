@@ -1,0 +1,112 @@
+\hypertarget{computeg_8c_09_09}{}\doxysection{SRC/computeg.c++ File Reference}
+\label{computeg_8c_09_09}\index{SRC/computeg.c++@{SRC/computeg.c++}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include \char`\"{}blaslapack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}profile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kernel\+\_\+cpu.\+h\char`\"{}}\newline
+Include dependency graph for computeg.\+c++\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{computeg_8c_09_09__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgfun}{gfun}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_a3a5537985cc556e18f743eba667063cc}{cpp\+\_\+gfun\+\_\+init\+\_\+}} (long $\ast$cpp\+\_\+data, int $\ast$n, int $\ast$L, int $\ast$n\+Wrap, int $\ast$fixw)
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_a6ba974f43ad5ce2434fd09ad7467cd6f}{cpp\+\_\+gfun\+\_\+computeg\+\_\+}} (long $\ast$cpp\+\_\+data, int $\ast$il, double $\ast$\mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}}, double $\ast$G, double $\ast$h, double $\ast$B, int $\ast$n\+Orth, double $\ast$det)
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_a0eb240fc0e89a03743b84f14c7400452}{cpp\+\_\+gfun\+\_\+free\+\_\+}} (long $\ast$cpp\+\_\+data)
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_aabca73b43426997aeb5ca5977c537d3a}{cpp\+\_\+gfun\+\_\+swapg\+\_\+}} (long $\ast$cpp\+\_\+data, double $\ast$B, double $\ast$Bi, double $\ast$h, double $\ast$G)
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_ac8aa0c5ad2d4920fe6ccd9da638e0757}{cpp\+\_\+gfun\+\_\+invalid\+\_\+cache\+\_\+}} (long $\ast$cpp\+\_\+data, int $\ast$j)
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_a2f43858a969eb5f57d8401c4b49554e8}{sgndet}} (int n, double $\ast$\mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, int ldm, int $\ast$ipiv, double \&\mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}}, double \&det)
+\item 
+void \mbox{\hyperlink{computeg_8c_09_09_a7469545c91cf450e90778f12593456c1}{compute\+\_\+M}} (int n, double $\ast$B, int L, double $\ast$h, int \&il, int k, double $\ast$\mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, double $\ast$work)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{computeg_8c_09_09_a7469545c91cf450e90778f12593456c1}\label{computeg_8c_09_09_a7469545c91cf450e90778f12593456c1}} 
+\index{computeg.c++@{computeg.c++}!compute\_M@{compute\_M}}
+\index{compute\_M@{compute\_M}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{compute\_M()}{compute\_M()}}
+{\footnotesize\ttfamily void compute\+\_\+M (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{B,  }\item[{int}]{L,  }\item[{double $\ast$}]{h,  }\item[{int \&}]{il,  }\item[{int}]{k,  }\item[{double $\ast$}]{M,  }\item[{double $\ast$}]{work }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file computeg.\+c++.
+
+\mbox{\Hypertarget{computeg_8c_09_09_a6ba974f43ad5ce2434fd09ad7467cd6f}\label{computeg_8c_09_09_a6ba974f43ad5ce2434fd09ad7467cd6f}} 
+\index{computeg.c++@{computeg.c++}!cpp\_gfun\_computeg\_@{cpp\_gfun\_computeg\_}}
+\index{cpp\_gfun\_computeg\_@{cpp\_gfun\_computeg\_}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{cpp\_gfun\_computeg\_()}{cpp\_gfun\_computeg\_()}}
+{\footnotesize\ttfamily void cpp\+\_\+gfun\+\_\+computeg\+\_\+ (\begin{DoxyParamCaption}\item[{long $\ast$}]{cpp\+\_\+data,  }\item[{int $\ast$}]{il,  }\item[{double $\ast$}]{sgn,  }\item[{double $\ast$}]{G,  }\item[{double $\ast$}]{h,  }\item[{double $\ast$}]{B,  }\item[{int $\ast$}]{n\+Orth,  }\item[{double $\ast$}]{det }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file computeg.\+c++.
+
+\mbox{\Hypertarget{computeg_8c_09_09_a0eb240fc0e89a03743b84f14c7400452}\label{computeg_8c_09_09_a0eb240fc0e89a03743b84f14c7400452}} 
+\index{computeg.c++@{computeg.c++}!cpp\_gfun\_free\_@{cpp\_gfun\_free\_}}
+\index{cpp\_gfun\_free\_@{cpp\_gfun\_free\_}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{cpp\_gfun\_free\_()}{cpp\_gfun\_free\_()}}
+{\footnotesize\ttfamily void cpp\+\_\+gfun\+\_\+free\+\_\+ (\begin{DoxyParamCaption}\item[{long $\ast$}]{cpp\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file computeg.\+c++.
+
+\mbox{\Hypertarget{computeg_8c_09_09_a3a5537985cc556e18f743eba667063cc}\label{computeg_8c_09_09_a3a5537985cc556e18f743eba667063cc}} 
+\index{computeg.c++@{computeg.c++}!cpp\_gfun\_init\_@{cpp\_gfun\_init\_}}
+\index{cpp\_gfun\_init\_@{cpp\_gfun\_init\_}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{cpp\_gfun\_init\_()}{cpp\_gfun\_init\_()}}
+{\footnotesize\ttfamily void cpp\+\_\+gfun\+\_\+init\+\_\+ (\begin{DoxyParamCaption}\item[{long $\ast$}]{cpp\+\_\+data,  }\item[{int $\ast$}]{n,  }\item[{int $\ast$}]{L,  }\item[{int $\ast$}]{n\+Wrap,  }\item[{int $\ast$}]{fixw }\end{DoxyParamCaption})}
+
+
+
+Definition at line 73 of file computeg.\+c++.
+
+\mbox{\Hypertarget{computeg_8c_09_09_ac8aa0c5ad2d4920fe6ccd9da638e0757}\label{computeg_8c_09_09_ac8aa0c5ad2d4920fe6ccd9da638e0757}} 
+\index{computeg.c++@{computeg.c++}!cpp\_gfun\_invalid\_cache\_@{cpp\_gfun\_invalid\_cache\_}}
+\index{cpp\_gfun\_invalid\_cache\_@{cpp\_gfun\_invalid\_cache\_}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{cpp\_gfun\_invalid\_cache\_()}{cpp\_gfun\_invalid\_cache\_()}}
+{\footnotesize\ttfamily void cpp\+\_\+gfun\+\_\+invalid\+\_\+cache\+\_\+ (\begin{DoxyParamCaption}\item[{long $\ast$}]{cpp\+\_\+data,  }\item[{int $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 115 of file computeg.\+c++.
+
+\mbox{\Hypertarget{computeg_8c_09_09_aabca73b43426997aeb5ca5977c537d3a}\label{computeg_8c_09_09_aabca73b43426997aeb5ca5977c537d3a}} 
+\index{computeg.c++@{computeg.c++}!cpp\_gfun\_swapg\_@{cpp\_gfun\_swapg\_}}
+\index{cpp\_gfun\_swapg\_@{cpp\_gfun\_swapg\_}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{cpp\_gfun\_swapg\_()}{cpp\_gfun\_swapg\_()}}
+{\footnotesize\ttfamily void cpp\+\_\+gfun\+\_\+swapg\+\_\+ (\begin{DoxyParamCaption}\item[{long $\ast$}]{cpp\+\_\+data,  }\item[{double $\ast$}]{B,  }\item[{double $\ast$}]{Bi,  }\item[{double $\ast$}]{h,  }\item[{double $\ast$}]{G }\end{DoxyParamCaption})}
+
+
+
+Definition at line 105 of file computeg.\+c++.
+
+\mbox{\Hypertarget{computeg_8c_09_09_a2f43858a969eb5f57d8401c4b49554e8}\label{computeg_8c_09_09_a2f43858a969eb5f57d8401c4b49554e8}} 
+\index{computeg.c++@{computeg.c++}!sgndet@{sgndet}}
+\index{sgndet@{sgndet}!computeg.c++@{computeg.c++}}
+\doxysubsubsection{\texorpdfstring{sgndet()}{sgndet()}}
+{\footnotesize\ttfamily void sgndet (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{double $\ast$}]{M,  }\item[{int}]{ldm,  }\item[{int $\ast$}]{ipiv,  }\item[{double \&}]{sgn,  }\item[{double \&}]{det }\end{DoxyParamCaption})}
+
+
+
+Definition at line 126 of file computeg.\+c++.
+

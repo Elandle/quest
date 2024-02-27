@@ -1,0 +1,344 @@
+\hypertarget{lfg_8cpp}{}\doxysection{SRC/sprng5/\+SRC/lfg/lfg.cpp File Reference}
+\label{lfg_8cpp}\index{SRC/sprng5/SRC/lfg/lfg.cpp@{SRC/sprng5/SRC/lfg/lfg.cpp}}
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}sprng.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}store.\+h\char`\"{}}\newline
+Include dependency graph for lfg.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lfg_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvstruct}{vstruct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}{NDEBUG}}
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_aafca2468cd801509d93676ca7d75357d}{gseed}}~lfg\+\_\+gseed
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_ab60a102468a6df8e77b7a692bb94cdd5}{lv}}~lfg\+\_\+lv
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_ae0329d9b4dc00f9c8ebb2d36f588c638}{kv}}~lfg\+\_\+kv
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}{MAX\+\_\+\+STREAMS}}~lfg\+\_\+\+MAX\+\_\+\+STREAMS
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a5b116849652d56c12807cf6e6f989e71}{NGENS}}~lfg\+\_\+\+NEGS
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a1309d8d6e05efe3739cff9e4c528a29d}{valid}}~lfg\+\_\+valid
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}{BITS\+\_\+\+IN\+\_\+\+INT\+\_\+\+GEN}}~32
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a42c1c27574bf6ef2c26770d95bd031a8}{INT\+\_\+\+MOD\+\_\+\+MASK}}~0xffffffff
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a9a335369bcee17253c1db77a61fb64fc}{FLT\+\_\+\+MULT}}~(0.\+25/(unsigned)(1$<$$<$30))
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a9a7a8873f792b1c6a824696c82256342}{INT\+\_\+\+MASK}}~((unsigned)\mbox{\hyperlink{lfg_8cpp_a42c1c27574bf6ef2c26770d95bd031a8}{INT\+\_\+\+MOD\+\_\+\+MASK}}$>$$>$1)
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}{MAX\+\_\+\+BIT\+\_\+\+INT}}~(\mbox{\hyperlink{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}{BITS\+\_\+\+IN\+\_\+\+INT\+\_\+\+GEN}}-\/2)
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a07cf168ce4c13745d9478db011aa5154}{INTX2\+\_\+\+MASK}}~((1$<$$<$\mbox{\hyperlink{mlfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}{MAX\+\_\+\+BIT\+\_\+\+INT}})-\/1)
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a410cd29123f8a3042a128dc8f6c400f0}{RUNUP}}~(2$\ast$\mbox{\hyperlink{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}{BITS\+\_\+\+IN\+\_\+\+INT\+\_\+\+GEN}})
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a3547c69793eb36540810e8f9394c5a9c}{GS0}}~0x372f05ac
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a53710c070ef78ae1f3d2557ee4249587}{TOOMANY}}~\char`\"{}generator has branched maximum number of times;\textbackslash{}nindependence of \mbox{\hyperlink{mpisprng_2genf__types__menu_8h_a48bb282219affd30cdf13c1f53c71dac}{generators}} no longer guaranteed\char`\"{}
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}}~\char`\"{}00\char`\"{}
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_abde7219dfdfc8895b93fba0919e697f3}{GENTYPE}}~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Additive Lagged Fibonacci Generator\char`\"{}
+\item 
+\#define \mbox{\hyperlink{lfg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}~11
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{lfg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}{MAX\+\_\+\+STREAMS}} =0x7fffffff
+\item 
+const struct \mbox{\hyperlink{structvstruct}{vstruct}} \mbox{\hyperlink{lfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{lfg_8cpp_a5dfc28e73ea3e6c8b3fd21fec3613637}{gseed}} =0
+\item 
+int \mbox{\hyperlink{lfg_8cpp_a23835040a612b724e256f1c57de6125e}{lv}} =0
+\item 
+int \mbox{\hyperlink{lfg_8cpp_af59597daf52972ab61551495c3d7e6cd}{kv}} =0
+\item 
+int \mbox{\hyperlink{lfg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}{NGENS}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}\label{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}} 
+\index{lfg.cpp@{lfg.cpp}!BITS\_IN\_INT\_GEN@{BITS\_IN\_INT\_GEN}}
+\index{BITS\_IN\_INT\_GEN@{BITS\_IN\_INT\_GEN}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{BITS\_IN\_INT\_GEN}{BITS\_IN\_INT\_GEN}}
+{\footnotesize\ttfamily \#define BITS\+\_\+\+IN\+\_\+\+INT\+\_\+\+GEN~32}
+
+
+
+Definition at line 93 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a9a335369bcee17253c1db77a61fb64fc}\label{lfg_8cpp_a9a335369bcee17253c1db77a61fb64fc}} 
+\index{lfg.cpp@{lfg.cpp}!FLT\_MULT@{FLT\_MULT}}
+\index{FLT\_MULT@{FLT\_MULT}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{FLT\_MULT}{FLT\_MULT}}
+{\footnotesize\ttfamily \#define FLT\+\_\+\+MULT~(0.\+25/(unsigned)(1$<$$<$30))}
+
+
+
+Definition at line 103 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_abde7219dfdfc8895b93fba0919e697f3}\label{lfg_8cpp_abde7219dfdfc8895b93fba0919e697f3}} 
+\index{lfg.cpp@{lfg.cpp}!GENTYPE@{GENTYPE}}
+\index{GENTYPE@{GENTYPE}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{GENTYPE}{GENTYPE}}
+{\footnotesize\ttfamily \#define GENTYPE~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Additive Lagged Fibonacci Generator\char`\"{}}
+
+
+
+Definition at line 129 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a3547c69793eb36540810e8f9394c5a9c}\label{lfg_8cpp_a3547c69793eb36540810e8f9394c5a9c}} 
+\index{lfg.cpp@{lfg.cpp}!GS0@{GS0}}
+\index{GS0@{GS0}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{GS0}{GS0}}
+{\footnotesize\ttfamily \#define GS0~0x372f05ac}
+
+
+
+Definition at line 124 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_aafca2468cd801509d93676ca7d75357d}\label{lfg_8cpp_aafca2468cd801509d93676ca7d75357d}} 
+\index{lfg.cpp@{lfg.cpp}!gseed@{gseed}}
+\index{gseed@{gseed}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{gseed}{gseed}}
+{\footnotesize\ttfamily \#define gseed~lfg\+\_\+gseed}
+
+
+
+Definition at line 80 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a9a7a8873f792b1c6a824696c82256342}\label{lfg_8cpp_a9a7a8873f792b1c6a824696c82256342}} 
+\index{lfg.cpp@{lfg.cpp}!INT\_MASK@{INT\_MASK}}
+\index{INT\_MASK@{INT\_MASK}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{INT\_MASK}{INT\_MASK}}
+{\footnotesize\ttfamily \#define INT\+\_\+\+MASK~((unsigned)\mbox{\hyperlink{lfg_8cpp_a42c1c27574bf6ef2c26770d95bd031a8}{INT\+\_\+\+MOD\+\_\+\+MASK}}$>$$>$1)}
+
+
+
+Definition at line 111 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a42c1c27574bf6ef2c26770d95bd031a8}\label{lfg_8cpp_a42c1c27574bf6ef2c26770d95bd031a8}} 
+\index{lfg.cpp@{lfg.cpp}!INT\_MOD\_MASK@{INT\_MOD\_MASK}}
+\index{INT\_MOD\_MASK@{INT\_MOD\_MASK}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{INT\_MOD\_MASK}{INT\_MOD\_MASK}}
+{\footnotesize\ttfamily \#define INT\+\_\+\+MOD\+\_\+\+MASK~0xffffffff}
+
+
+
+Definition at line 102 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a07cf168ce4c13745d9478db011aa5154}\label{lfg_8cpp_a07cf168ce4c13745d9478db011aa5154}} 
+\index{lfg.cpp@{lfg.cpp}!INTX2\_MASK@{INTX2\_MASK}}
+\index{INTX2\_MASK@{INTX2\_MASK}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{INTX2\_MASK}{INTX2\_MASK}}
+{\footnotesize\ttfamily \#define INTX2\+\_\+\+MASK~((1$<$$<$\mbox{\hyperlink{mlfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}{MAX\+\_\+\+BIT\+\_\+\+INT}})-\/1)}
+
+
+
+Definition at line 116 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_ae0329d9b4dc00f9c8ebb2d36f588c638}\label{lfg_8cpp_ae0329d9b4dc00f9c8ebb2d36f588c638}} 
+\index{lfg.cpp@{lfg.cpp}!kv@{kv}}
+\index{kv@{kv}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{kv}{kv}}
+{\footnotesize\ttfamily \#define kv~lfg\+\_\+kv}
+
+
+
+Definition at line 82 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_ab60a102468a6df8e77b7a692bb94cdd5}\label{lfg_8cpp_ab60a102468a6df8e77b7a692bb94cdd5}} 
+\index{lfg.cpp@{lfg.cpp}!lv@{lv}}
+\index{lv@{lv}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{lv}{lv}}
+{\footnotesize\ttfamily \#define lv~lfg\+\_\+lv}
+
+
+
+Definition at line 81 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}\label{lfg_8cpp_a7854ca819129cb96fd7b908ddbd03b3a}} 
+\index{lfg.cpp@{lfg.cpp}!MAX\_BIT\_INT@{MAX\_BIT\_INT}}
+\index{MAX\_BIT\_INT@{MAX\_BIT\_INT}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_BIT\_INT}{MAX\_BIT\_INT}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+BIT\+\_\+\+INT~(\mbox{\hyperlink{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}{BITS\+\_\+\+IN\+\_\+\+INT\+\_\+\+GEN}}-\/2)}
+
+
+
+Definition at line 114 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}\label{lfg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}} 
+\index{lfg.cpp@{lfg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+STREAMS~lfg\+\_\+\+MAX\+\_\+\+STREAMS}
+
+
+
+Definition at line 84 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}\label{lfg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}} 
+\index{lfg.cpp@{lfg.cpp}!NDEBUG@{NDEBUG}}
+\index{NDEBUG@{NDEBUG}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NDEBUG}{NDEBUG}}
+{\footnotesize\ttfamily \#define NDEBUG}
+
+
+
+Definition at line 73 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a5b116849652d56c12807cf6e6f989e71}\label{lfg_8cpp_a5b116849652d56c12807cf6e6f989e71}} 
+\index{lfg.cpp@{lfg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily \#define NGENS~lfg\+\_\+\+NEGS}
+
+
+
+Definition at line 85 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}\label{lfg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}} 
+\index{lfg.cpp@{lfg.cpp}!NPARAMS@{NPARAMS}}
+\index{NPARAMS@{NPARAMS}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NPARAMS}{NPARAMS}}
+{\footnotesize\ttfamily \#define NPARAMS~11}
+
+
+
+Definition at line 150 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a410cd29123f8a3042a128dc8f6c400f0}\label{lfg_8cpp_a410cd29123f8a3042a128dc8f6c400f0}} 
+\index{lfg.cpp@{lfg.cpp}!RUNUP@{RUNUP}}
+\index{RUNUP@{RUNUP}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{RUNUP}{RUNUP}}
+{\footnotesize\ttfamily \#define RUNUP~(2$\ast$\mbox{\hyperlink{lfg_8cpp_acd98c3f0e96a1421cf10c6d832daf37f}{BITS\+\_\+\+IN\+\_\+\+INT\+\_\+\+GEN}})}
+
+
+
+Definition at line 120 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a53710c070ef78ae1f3d2557ee4249587}\label{lfg_8cpp_a53710c070ef78ae1f3d2557ee4249587}} 
+\index{lfg.cpp@{lfg.cpp}!TOOMANY@{TOOMANY}}
+\index{TOOMANY@{TOOMANY}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{TOOMANY}{TOOMANY}}
+{\footnotesize\ttfamily \#define TOOMANY~\char`\"{}generator has branched maximum number of times;\textbackslash{}nindependence of \mbox{\hyperlink{mpisprng_2genf__types__menu_8h_a48bb282219affd30cdf13c1f53c71dac}{generators}} no longer guaranteed\char`\"{}}
+
+
+
+Definition at line 125 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a1309d8d6e05efe3739cff9e4c528a29d}\label{lfg_8cpp_a1309d8d6e05efe3739cff9e4c528a29d}} 
+\index{lfg.cpp@{lfg.cpp}!valid@{valid}}
+\index{valid@{valid}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily \#define valid~lfg\+\_\+valid}
+
+
+
+Definition at line 86 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}\label{lfg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}} 
+\index{lfg.cpp@{lfg.cpp}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily \#define VERSION~\char`\"{}00\char`\"{}}
+
+
+
+Definition at line 127 of file lfg.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{lfg_8cpp_a5dfc28e73ea3e6c8b3fd21fec3613637}\label{lfg_8cpp_a5dfc28e73ea3e6c8b3fd21fec3613637}} 
+\index{lfg.cpp@{lfg.cpp}!gseed@{gseed}}
+\index{gseed@{gseed}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{gseed}{gseed}}
+{\footnotesize\ttfamily int gseed =0}
+
+
+
+Definition at line 152 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_af59597daf52972ab61551495c3d7e6cd}\label{lfg_8cpp_af59597daf52972ab61551495c3d7e6cd}} 
+\index{lfg.cpp@{lfg.cpp}!kv@{kv}}
+\index{kv@{kv}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{kv}{kv}}
+{\footnotesize\ttfamily int kv =0}
+
+
+
+Definition at line 152 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a23835040a612b724e256f1c57de6125e}\label{lfg_8cpp_a23835040a612b724e256f1c57de6125e}} 
+\index{lfg.cpp@{lfg.cpp}!lv@{lv}}
+\index{lv@{lv}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{lv}{lv}}
+{\footnotesize\ttfamily int lv =0}
+
+
+
+Definition at line 152 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}\label{lfg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}} 
+\index{lfg.cpp@{lfg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily int MAX\+\_\+\+STREAMS =0x7fffffff}
+
+
+
+Definition at line 137 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}\label{lfg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}} 
+\index{lfg.cpp@{lfg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily int NGENS = 0}
+
+
+
+Definition at line 153 of file lfg.\+cpp.
+
+\mbox{\Hypertarget{lfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}\label{lfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}} 
+\index{lfg.cpp@{lfg.cpp}!valid@{valid}}
+\index{valid@{valid}!lfg.cpp@{lfg.cpp}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structvstruct}{vstruct}} valid\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{1279,861,1,233\}, \{17,5,1,10\}, \{31,6,1,2\},}
+\DoxyCodeLine{\{55,24,1,11\}, \{63,31,1,14\}, \{127,97,1,21\}, \{521,353,1,100\},}
+\DoxyCodeLine{\{521,168,1,83\}, \{607,334,1,166\}, \{607,273,1,105\}, \{1279,418,1,208\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 137 of file lfg.\+cpp.
+

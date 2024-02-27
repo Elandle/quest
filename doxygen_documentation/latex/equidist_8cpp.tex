@@ -1,0 +1,107 @@
+\hypertarget{equidist_8cpp}{}\doxysection{SRC/sprng5/\+TESTS/equidist.cpp File Reference}
+\label{equidist_8cpp}\index{SRC/sprng5/TESTS/equidist.cpp@{SRC/sprng5/TESTS/equidist.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include \char`\"{}tests.\+h\char`\"{}}\newline
+Include dependency graph for equidist.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{equidist_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{equidist_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}{NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM}}~2
+\item 
+\#define \mbox{\hyperlink{equidist_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}{FATAL\+\_\+\+ABORT}}~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)
+\item 
+\#define \mbox{\hyperlink{equidist_8cpp_a2bf0553b04ddcea2052be239f02d0131}{PROC\+\_\+\+ONE\+\_\+\+NUMBER}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{equidist_8cpp_a2063d6cc56c92823c5f798b77030e853}{init\+Test}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{equidist_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}{deinit\+Test}} (void)
+\item 
+int \mbox{\hyperlink{equidist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{equidist_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}\label{equidist_8cpp_a515eeffd1ae75edd0e7b4b278ca98c3a}} 
+\index{equidist.cpp@{equidist.cpp}!FATAL\_ABORT@{FATAL\_ABORT}}
+\index{FATAL\_ABORT@{FATAL\_ABORT}!equidist.cpp@{equidist.cpp}}
+\doxysubsubsection{\texorpdfstring{FATAL\_ABORT}{FATAL\_ABORT}}
+{\footnotesize\ttfamily \#define FATAL\+\_\+\+ABORT~\mbox{\hyperlink{mpisprng_2gen__types__menu_8h_a9054946135b3c3e98308e3848c845ae0}{printf}}(\char`\"{}Program terminated.\textbackslash{}n\char`\"{}); exit(0)}
+
+
+
+Definition at line 31 of file equidist.\+cpp.
+
+\mbox{\Hypertarget{equidist_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}\label{equidist_8cpp_a25bbfecf97048fae1f7cb60882a77a6f}} 
+\index{equidist.cpp@{equidist.cpp}!NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}}
+\index{NUM\_TEST\_ENGIN\_PARAM@{NUM\_TEST\_ENGIN\_PARAM}!equidist.cpp@{equidist.cpp}}
+\doxysubsubsection{\texorpdfstring{NUM\_TEST\_ENGIN\_PARAM}{NUM\_TEST\_ENGIN\_PARAM}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+TEST\+\_\+\+ENGIN\+\_\+\+PARAM~2}
+
+
+
+Definition at line 16 of file equidist.\+cpp.
+
+\mbox{\Hypertarget{equidist_8cpp_a2bf0553b04ddcea2052be239f02d0131}\label{equidist_8cpp_a2bf0553b04ddcea2052be239f02d0131}} 
+\index{equidist.cpp@{equidist.cpp}!PROC\_ONE\_NUMBER@{PROC\_ONE\_NUMBER}}
+\index{PROC\_ONE\_NUMBER@{PROC\_ONE\_NUMBER}!equidist.cpp@{equidist.cpp}}
+\doxysubsubsection{\texorpdfstring{PROC\_ONE\_NUMBER}{PROC\_ONE\_NUMBER}}
+{\footnotesize\ttfamily \#define PROC\+\_\+\+ONE\+\_\+\+NUMBER}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \{                                       \(\backslash\)}
+\DoxyCodeLine{   long  binIndex;                                              \(\backslash\)}
+\DoxyCodeLine{                                                                \(\backslash\)}
+\DoxyCodeLine{   binIndex = \mbox{\hyperlink{init__tests_8cpp_a4b15bc6471422b9f579d561053eb7186}{get\_rn}}() * numDiv;                                \(\backslash\)}
+\DoxyCodeLine{   bins[binIndex]++;                                            \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 83 of file equidist.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{equidist_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}\label{equidist_8cpp_ac0d4a9b798d3e7790fe09379ce58fb35}} 
+\index{equidist.cpp@{equidist.cpp}!deinitTest@{deinitTest}}
+\index{deinitTest@{deinitTest}!equidist.cpp@{equidist.cpp}}
+\doxysubsubsection{\texorpdfstring{deinitTest()}{deinitTest()}}
+{\footnotesize\ttfamily void deinit\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file equidist.\+cpp.
+
+\mbox{\Hypertarget{equidist_8cpp_a2063d6cc56c92823c5f798b77030e853}\label{equidist_8cpp_a2063d6cc56c92823c5f798b77030e853}} 
+\index{equidist.cpp@{equidist.cpp}!initTest@{initTest}}
+\index{initTest@{initTest}!equidist.cpp@{equidist.cpp}}
+\doxysubsubsection{\texorpdfstring{initTest()}{initTest()}}
+{\footnotesize\ttfamily void init\+Test (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 34 of file equidist.\+cpp.
+
+\mbox{\Hypertarget{equidist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{equidist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{equidist.cpp@{equidist.cpp}!main@{main}}
+\index{main@{main}!equidist.cpp@{equidist.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file equidist.\+cpp.
+

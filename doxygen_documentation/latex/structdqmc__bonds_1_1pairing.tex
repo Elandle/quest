@@ -1,0 +1,188 @@
+\hypertarget{structdqmc__bonds_1_1pairing}{}\doxysection{dqmc\+\_\+bonds\+::pairing Type Reference}
+\label{structdqmc__bonds_1_1pairing}\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a00cee4781b581c1ff243248056ffd95c}{nwave}}
+\item 
+integer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a7488e205b4abe678bd8915fcb5f18437}{nbond}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a5cf04b39e31047f347a97a72d8f266c3}{nbondv}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a51de4018343ffe7d560ba8e38816a6e9}{bond\+\_\+origin}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_af1488dcef21d3a2886b07f6283ce55b2}{bond\+\_\+end}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a8e6073716e3089776bcbd07cd706bf42}{bond\+\_\+map}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a34ba565bcd7d03a5c77bdc7076b0c6b5}{pair\+\_\+map}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a6266d94f8b8235f702e1a05834666e51}{bond\+\_\+number}}
+\item 
+real(wp), dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a91d58d5d6c54c3eb7f299f7a716ec212}{bond\+\_\+wgt}}
+\item 
+character $\ast$20, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a96910226bcf0495153f8b48e883a5856}{wave\+\_\+label}}
+\item 
+integer, dimension(\+:,\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_ad207bbcd14c90233b71507822282a682}{myclass\+\_\+p}}
+\item 
+integer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a8c71b050e4fcec784405b3233dd61446}{nclass\+\_\+p}}
+\item 
+integer, dimension(\+:), pointer \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a66f998a61c7fe03fc6cc9678f8558d78}{class\+\_\+size\+\_\+p}}
+\item 
+logical \mbox{\hyperlink{structdqmc__bonds_1_1pairing_a34812c29c4ee2f4053adc445bc82ab99}{initialized}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 24 of file dqmc\+\_\+bonds.\+F90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_af1488dcef21d3a2886b07f6283ce55b2}\label{structdqmc__bonds_1_1pairing_af1488dcef21d3a2886b07f6283ce55b2}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!bond\_end@{bond\_end}}
+\index{bond\_end@{bond\_end}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{bond\_end}{bond\_end}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+bonds\+::pairing\+::bond\+\_\+end}
+
+
+
+Definition at line 29 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a8e6073716e3089776bcbd07cd706bf42}\label{structdqmc__bonds_1_1pairing_a8e6073716e3089776bcbd07cd706bf42}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!bond\_map@{bond\_map}}
+\index{bond\_map@{bond\_map}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{bond\_map}{bond\_map}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+bonds\+::pairing\+::bond\+\_\+map}
+
+
+
+Definition at line 30 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a6266d94f8b8235f702e1a05834666e51}\label{structdqmc__bonds_1_1pairing_a6266d94f8b8235f702e1a05834666e51}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!bond\_number@{bond\_number}}
+\index{bond\_number@{bond\_number}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{bond\_number}{bond\_number}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+bonds\+::pairing\+::bond\+\_\+number}
+
+
+
+Definition at line 33 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a51de4018343ffe7d560ba8e38816a6e9}\label{structdqmc__bonds_1_1pairing_a51de4018343ffe7d560ba8e38816a6e9}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!bond\_origin@{bond\_origin}}
+\index{bond\_origin@{bond\_origin}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{bond\_origin}{bond\_origin}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+bonds\+::pairing\+::bond\+\_\+origin}
+
+
+
+Definition at line 28 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a91d58d5d6c54c3eb7f299f7a716ec212}\label{structdqmc__bonds_1_1pairing_a91d58d5d6c54c3eb7f299f7a716ec212}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!bond\_wgt@{bond\_wgt}}
+\index{bond\_wgt@{bond\_wgt}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{bond\_wgt}{bond\_wgt}}
+{\footnotesize\ttfamily real(wp), dimension(\+:,\+:), pointer dqmc\+\_\+bonds\+::pairing\+::bond\+\_\+wgt}
+
+
+
+Definition at line 35 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a66f998a61c7fe03fc6cc9678f8558d78}\label{structdqmc__bonds_1_1pairing_a66f998a61c7fe03fc6cc9678f8558d78}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!class\_size\_p@{class\_size\_p}}
+\index{class\_size\_p@{class\_size\_p}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{class\_size\_p}{class\_size\_p}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+bonds\+::pairing\+::class\+\_\+size\+\_\+p}
+
+
+
+Definition at line 41 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a34812c29c4ee2f4053adc445bc82ab99}\label{structdqmc__bonds_1_1pairing_a34812c29c4ee2f4053adc445bc82ab99}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!initialized@{initialized}}
+\index{initialized@{initialized}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{initialized}{initialized}}
+{\footnotesize\ttfamily logical dqmc\+\_\+bonds\+::pairing\+::initialized}
+
+
+
+Definition at line 43 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_ad207bbcd14c90233b71507822282a682}\label{structdqmc__bonds_1_1pairing_ad207bbcd14c90233b71507822282a682}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!myclass\_p@{myclass\_p}}
+\index{myclass\_p@{myclass\_p}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{myclass\_p}{myclass\_p}}
+{\footnotesize\ttfamily integer, dimension(\+:,\+:), pointer dqmc\+\_\+bonds\+::pairing\+::myclass\+\_\+p}
+
+
+
+Definition at line 39 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a7488e205b4abe678bd8915fcb5f18437}\label{structdqmc__bonds_1_1pairing_a7488e205b4abe678bd8915fcb5f18437}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!nbond@{nbond}}
+\index{nbond@{nbond}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{nbond}{nbond}}
+{\footnotesize\ttfamily integer dqmc\+\_\+bonds\+::pairing\+::nbond}
+
+
+
+Definition at line 26 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a5cf04b39e31047f347a97a72d8f266c3}\label{structdqmc__bonds_1_1pairing_a5cf04b39e31047f347a97a72d8f266c3}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!nbondv@{nbondv}}
+\index{nbondv@{nbondv}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{nbondv}{nbondv}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+bonds\+::pairing\+::nbondv}
+
+
+
+Definition at line 27 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a8c71b050e4fcec784405b3233dd61446}\label{structdqmc__bonds_1_1pairing_a8c71b050e4fcec784405b3233dd61446}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!nclass\_p@{nclass\_p}}
+\index{nclass\_p@{nclass\_p}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{nclass\_p}{nclass\_p}}
+{\footnotesize\ttfamily integer dqmc\+\_\+bonds\+::pairing\+::nclass\+\_\+p}
+
+
+
+Definition at line 40 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a00cee4781b581c1ff243248056ffd95c}\label{structdqmc__bonds_1_1pairing_a00cee4781b581c1ff243248056ffd95c}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!nwave@{nwave}}
+\index{nwave@{nwave}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{nwave}{nwave}}
+{\footnotesize\ttfamily integer dqmc\+\_\+bonds\+::pairing\+::nwave}
+
+
+
+Definition at line 25 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a34ba565bcd7d03a5c77bdc7076b0c6b5}\label{structdqmc__bonds_1_1pairing_a34ba565bcd7d03a5c77bdc7076b0c6b5}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!pair\_map@{pair\_map}}
+\index{pair\_map@{pair\_map}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{pair\_map}{pair\_map}}
+{\footnotesize\ttfamily integer, dimension(\+:), pointer dqmc\+\_\+bonds\+::pairing\+::pair\+\_\+map}
+
+
+
+Definition at line 31 of file dqmc\+\_\+bonds.\+F90.
+
+\mbox{\Hypertarget{structdqmc__bonds_1_1pairing_a96910226bcf0495153f8b48e883a5856}\label{structdqmc__bonds_1_1pairing_a96910226bcf0495153f8b48e883a5856}} 
+\index{dqmc\_bonds::pairing@{dqmc\_bonds::pairing}!wave\_label@{wave\_label}}
+\index{wave\_label@{wave\_label}!dqmc\_bonds::pairing@{dqmc\_bonds::pairing}}
+\doxysubsubsection{\texorpdfstring{wave\_label}{wave\_label}}
+{\footnotesize\ttfamily character$\ast$20, dimension(\+:), pointer dqmc\+\_\+bonds\+::pairing\+::wave\+\_\+label}
+
+
+
+Definition at line 37 of file dqmc\+\_\+bonds.\+F90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+SRC/\mbox{\hyperlink{dqmc__bonds_8F90}{dqmc\+\_\+bonds.\+F90}}\end{DoxyCompactItemize}

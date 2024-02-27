@@ -1,0 +1,57 @@
+\hypertarget{dqmc__phy2_8F90}{}\doxysection{SRC/dqmc\+\_\+phy2.F90 File Reference}
+\label{dqmc__phy2_8F90}\index{SRC/dqmc\_phy2.F90@{SRC/dqmc\_phy2.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+phy2.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{dqmc__phy2_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__phy2_1_1phy2}{dqmc\+\_\+phy2\+::phy2}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__phy2_1_1dqmc__phy2__avg}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+avg}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__phy2_1_1dqmc__phy2__getirrep}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+getirrep}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__phy2}{dqmc\+\_\+phy2}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a54a69f56723759c52fa48320691b0f6f}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+init}} (P2, n\+Bin, S, WS, meas)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ab62ff9f9ebe964fddb19936d4e5c0148}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+free}} (P2)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_abb4bc99fedc22ba4a739b0654d39799b}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+meas}} (n, M1, \mbox{\hyperlink{blaslapack_8c_09_09_a2a187ef3afced0eb4c4cb99515e5429c}{M2}}, P2, Bond, G\+\_\+up, G\+\_\+dn, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}})
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a5e037c6aa936266ad365fcf39f4444aa}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+pair}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, up, dn, Bond)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a30563f4464d5eb6b8b6d08e4367bb3ef}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+avg\+\_\+wave}} (P2, W)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ac8a83622d0204a98c658d623c58caff0}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+avg\+\_\+symm}} (P2, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ad9aee920f4d9af79e6453ffe2a3cda45}{dqmc\+\_\+phy2\+::dqmc\+\_\+wave\+\_\+avg}} (nb, n\+Wave, W, T, I, O, factor, ldt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a13289ae98cba94f235fc00d2ec796b79}{dqmc\+\_\+phy2\+::dqmc\+\_\+pair\+\_\+symm}} (\mbox{\hyperlink{blaslapack_8c_09_09_a2a187ef3afced0eb4c4cb99515e5429c}{M2}}, M3, class\+\_\+b, size\+\_\+b, n, nclass, factor)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ac19abde066de54c4f3b2dc006b43fd4e}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+geterr}} (P2)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a8d230ebae981e980ecaafe72e8af6c54}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+getirrep\+\_\+full}} (P2, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ac0c7360e1594e1b5c896bf5153475ca7}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+getirrep\+\_\+connected}} (P2, G\+\_\+fun, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a93d28dcc4d012518d01b69b28133c607}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+geterrirrep}} (P2, G\+\_\+fun, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a301e596e20d27c13675bb026e2ea5ded}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+print}} (P2, wlabel, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a8a05d764e8b16399b0b189fb0ae79a27}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+wavesymm}} (S, P2, Symm)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a729aa86ae06f35c8766e251264a62a0e}{dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+printsymm}} (S, P2, OPT)
+\end{DoxyCompactItemize}

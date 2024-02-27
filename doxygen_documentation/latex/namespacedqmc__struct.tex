@@ -1,0 +1,465 @@
+\hypertarget{namespacedqmc__struct}{}\doxysection{dqmc\+\_\+struct Module Reference}
+\label{namespacedqmc__struct}\index{dqmc\_struct@{dqmc\_struct}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}
+\item 
+type \mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_ae9b435a187e16e9cd13a14dc2511881c}{dqmc\+\_\+ccs\+\_\+free}} (sparA)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_ad82b2851e2ad651bbecde42dab8cbe49}{dqmc\+\_\+ccs\+\_\+print}} (sparA, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_aedb8059fe5fed118eda91b264a4219c8}{dqmc\+\_\+ccs\+\_\+compress}} (n, nnz, A, sparA)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a254b70cffa74312ef402cda33a832ffd}{dqmc\+\_\+ccs\+\_\+fill}} (n, A, sparA)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_aae5ab98a288c4b6ad666dd7f7bb7562e}{dqmc\+\_\+struct\+\_\+free}} (S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a2d881d4be7e008a684f808443ce60818}{dqmc\+\_\+geom\+\_\+read\+\_\+def}} (S, gfile, table\+Format)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a403f6ce3397f9b5e7dc69cacb421f7e1}{dqmc\+\_\+geom\+\_\+discover\+\_\+f}} (n, D, F)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_a3bfe4f2800171c4529c08ea244f8df0e}{dqmc\+\_\+geom\+\_\+discover\+\_\+map}} (n, D, F, Map, idx)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__struct_accd76cfe5dbc13e4f281dfd1a4b13f96}{dqmc\+\_\+geom\+\_\+print}} (S, OPT)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a76be6210fb36f9553eb29d674a79a080}{n\+\_\+checklist}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a6fbb6998e7a58637d374d85899ca05c4}{struct\+\_\+init}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a966009d1fdb99aaebd3bc38348efdc51}{struct\+\_\+dim}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a575c428393b6c03439f4e3a462736329}{struct\+\_\+adj}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a7d684ad07029e980dfcf3e8e59081637}{struct\+\_\+class}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_af1fbd94ac047b06c175c63ca87e27b9d}{struct\+\_\+wave}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a54b998733cb6a99ec668c0f208d17915}{struct\+\_\+bond}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a8cb65a8177b62db9cb3875766c353d98}{struct\+\_\+phase}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a83bf608ca6d9ddbf21dc0d76b688537b}{struct\+\_\+ft}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a773c416dbde7b48071c28827c42dcb6c}{label\+\_\+len}} = 47
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a8858f795a492f5ed3b3cb660411ef23e}{gname\+\_\+len}} = 80
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_ad85e135e8866e5a4dd987779fa3efd55}{n\+\_\+geo\+\_\+param}} = 15
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a50b7f28a8ebd727632c2d8fcdfc5a65a}{gemo\+\_\+b}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a1063d019bae98fbf2f15bfa4d39087d1}{gemo\+\_\+d}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a200dc792d120d769fef7ff1e79dd54b1}{gemo\+\_\+ft}} = 3
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_acf20a5df5e76be9521f5e2d1ed58b05e}{gemo\+\_\+p}} = 4
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a749e395df3d9b8669741b4e667977ac6}{gemo\+\_\+t}} = 5
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a0858adb96d09f3a5cba6c343ae337543}{gemo\+\_\+w}} = 6
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a4f6c9a3ec377d6810cb7c95ce527477b}{gemo\+\_\+clabel}} = 7
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a4793514b312b41ca34ab7da75968feac}{gemo\+\_\+dim}} = 8
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a8050e1aaf91dd5e6e266d7ac6136c88d}{gemo\+\_\+nclass}} = 9
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_aea216f8d48157260e648792bd5fb71a2}{gemo\+\_\+nsite}} = 10
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_aa56153d2e8859a70e3e4e23ef74521b7}{gemo\+\_\+nwave}} = 11
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_ade66bee9b3737609818be6a9f48ee264}{gemo\+\_\+n\+\_\+b}} = 12
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_adc054b628799f5114fb1da5ffd40bbbb}{gemo\+\_\+n\+\_\+t}} = 13
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_ab400768faf2be6401dd8ce50de058963}{gemo\+\_\+name}} = 14
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__struct_a0dca76d11b3efbcc7f870b7875423f0d}{gemo\+\_\+wlabel}} = 15
+\item 
+character(len= $\ast$), dimension(\mbox{\hyperlink{namespacedqmc__struct_ad85e135e8866e5a4dd987779fa3efd55}{n\+\_\+geo\+\_\+param}}), parameter \mbox{\hyperlink{namespacedqmc__struct_ab8b590b5271ab920eed8b33c2c571d68}{geo\+\_\+param}} = (/\char`\"{}B \char`\"{}, \char`\"{}D \char`\"{}, \char`\"{}FT \char`\"{}, \char`\"{}P \char`\"{}, \char`\"{}T \char`\"{}, \char`\"{}W \char`\"{}, \char`\"{}c\+Label \char`\"{}, \char`\"{}dim \char`\"{}, \char`\"{}n\+Class \char`\"{}, \char`\"{}n\+Site \char`\"{}, \char`\"{}n\+Wave \char`\"{}, \char`\"{}n\+\_\+b \char`\"{}, \char`\"{}n\+\_\+t \char`\"{}, \char`\"{}name \char`\"{}, \char`\"{}w\+Label \char`\"{}/)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__struct_aedb8059fe5fed118eda91b264a4219c8}\label{namespacedqmc__struct_aedb8059fe5fed118eda91b264a4219c8}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_ccs\_compress@{dqmc\_ccs\_compress}}
+\index{dqmc\_ccs\_compress@{dqmc\_ccs\_compress}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_ccs\_compress()}{dqmc\_ccs\_compress()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+compress (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, intent(in)}]{nnz,  }\item[{integer, dimension(\+:, \+:), intent(in)}]{A,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(inout)}]{sparA }\end{DoxyParamCaption})}
+
+
+
+Definition at line 210 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a254b70cffa74312ef402cda33a832ffd}\label{namespacedqmc__struct_a254b70cffa74312ef402cda33a832ffd}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_ccs\_fill@{dqmc\_ccs\_fill}}
+\index{dqmc\_ccs\_fill@{dqmc\_ccs\_fill}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_ccs\_fill()}{dqmc\_ccs\_fill()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+fill (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, dimension(\+:, \+:), intent(inout)}]{A,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{sparA }\end{DoxyParamCaption})}
+
+
+
+Definition at line 274 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_ae9b435a187e16e9cd13a14dc2511881c}\label{namespacedqmc__struct_ae9b435a187e16e9cd13a14dc2511881c}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_ccs\_free@{dqmc\_ccs\_free}}
+\index{dqmc\_ccs\_free@{dqmc\_ccs\_free}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_ccs\_free()}{dqmc\_ccs\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(inout)}]{sparA }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_ad82b2851e2ad651bbecde42dab8cbe49}\label{namespacedqmc__struct_ad82b2851e2ad651bbecde42dab8cbe49}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_ccs\_print@{dqmc\_ccs\_print}}
+\index{dqmc\_ccs\_print@{dqmc\_ccs\_print}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_ccs\_print()}{dqmc\_ccs\_print()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+ccs\+\_\+print (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{sparA,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 183 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a403f6ce3397f9b5e7dc69cacb421f7e1}\label{namespacedqmc__struct_a403f6ce3397f9b5e7dc69cacb421f7e1}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_geom\_discover\_f@{dqmc\_geom\_discover\_f}}
+\index{dqmc\_geom\_discover\_f@{dqmc\_geom\_discover\_f}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_geom\_discover\_f()}{dqmc\_geom\_discover\_f()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+discover\+\_\+f (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, dimension(\+:, \+:), intent(in)}]{D,  }\item[{integer, dimension(\+:), intent(inout)}]{F }\end{DoxyParamCaption})}
+
+
+
+Definition at line 639 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a3bfe4f2800171c4529c08ea244f8df0e}\label{namespacedqmc__struct_a3bfe4f2800171c4529c08ea244f8df0e}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_geom\_discover\_map@{dqmc\_geom\_discover\_map}}
+\index{dqmc\_geom\_discover\_map@{dqmc\_geom\_discover\_map}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_geom\_discover\_map()}{dqmc\_geom\_discover\_map()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+discover\+\_\+map (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, dimension(\+:, \+:), intent(in)}]{D,  }\item[{integer, dimension(\+:), intent(inout)}]{F,  }\item[{integer, dimension(\+:), intent(inout)}]{Map,  }\item[{integer, intent(out)}]{idx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 669 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_accd76cfe5dbc13e4f281dfd1a4b13f96}\label{namespacedqmc__struct_accd76cfe5dbc13e4f281dfd1a4b13f96}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_geom\_print@{dqmc\_geom\_print}}
+\index{dqmc\_geom\_print@{dqmc\_geom\_print}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_geom\_print()}{dqmc\_geom\_print()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+print (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(in)}]{S,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 707 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a2d881d4be7e008a684f808443ce60818}\label{namespacedqmc__struct_a2d881d4be7e008a684f808443ce60818}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_geom\_read\_def@{dqmc\_geom\_read\_def}}
+\index{dqmc\_geom\_read\_def@{dqmc\_geom\_read\_def}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_geom\_read\_def()}{dqmc\_geom\_read\_def()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+geom\+\_\+read\+\_\+def (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(inout)}]{S,  }\item[{character($\ast$), intent(in)}]{gfile,  }\item[{logical, intent(out)}]{table\+Format }\end{DoxyParamCaption})}
+
+
+
+Definition at line 331 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_aae5ab98a288c4b6ad666dd7f7bb7562e}\label{namespacedqmc__struct_aae5ab98a288c4b6ad666dd7f7bb7562e}} 
+\index{dqmc\_struct@{dqmc\_struct}!dqmc\_struct\_free@{dqmc\_struct\_free}}
+\index{dqmc\_struct\_free@{dqmc\_struct\_free}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{dqmc\_struct\_free()}{dqmc\_struct\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+struct\+::dqmc\+\_\+struct\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(inout)}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line 303 of file dqmc\+\_\+struct.\+F90.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedqmc__struct_a50b7f28a8ebd727632c2d8fcdfc5a65a}\label{namespacedqmc__struct_a50b7f28a8ebd727632c2d8fcdfc5a65a}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_b@{gemo\_b}}
+\index{gemo\_b@{gemo\_b}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_b}{gemo\_b}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+b = 1}
+
+
+
+Definition at line 120 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a4f6c9a3ec377d6810cb7c95ce527477b}\label{namespacedqmc__struct_a4f6c9a3ec377d6810cb7c95ce527477b}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_clabel@{gemo\_clabel}}
+\index{gemo\_clabel@{gemo\_clabel}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_clabel}{gemo\_clabel}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+clabel = 7}
+
+
+
+Definition at line 126 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a1063d019bae98fbf2f15bfa4d39087d1}\label{namespacedqmc__struct_a1063d019bae98fbf2f15bfa4d39087d1}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_d@{gemo\_d}}
+\index{gemo\_d@{gemo\_d}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_d}{gemo\_d}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+d = 2}
+
+
+
+Definition at line 121 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a4793514b312b41ca34ab7da75968feac}\label{namespacedqmc__struct_a4793514b312b41ca34ab7da75968feac}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_dim@{gemo\_dim}}
+\index{gemo\_dim@{gemo\_dim}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_dim}{gemo\_dim}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+dim = 8}
+
+
+
+Definition at line 127 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a200dc792d120d769fef7ff1e79dd54b1}\label{namespacedqmc__struct_a200dc792d120d769fef7ff1e79dd54b1}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_ft@{gemo\_ft}}
+\index{gemo\_ft@{gemo\_ft}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_ft}{gemo\_ft}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+ft = 3}
+
+
+
+Definition at line 122 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_ade66bee9b3737609818be6a9f48ee264}\label{namespacedqmc__struct_ade66bee9b3737609818be6a9f48ee264}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_n\_b@{gemo\_n\_b}}
+\index{gemo\_n\_b@{gemo\_n\_b}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_n\_b}{gemo\_n\_b}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+n\+\_\+b = 12}
+
+
+
+Definition at line 131 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_adc054b628799f5114fb1da5ffd40bbbb}\label{namespacedqmc__struct_adc054b628799f5114fb1da5ffd40bbbb}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_n\_t@{gemo\_n\_t}}
+\index{gemo\_n\_t@{gemo\_n\_t}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_n\_t}{gemo\_n\_t}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+n\+\_\+t = 13}
+
+
+
+Definition at line 132 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_ab400768faf2be6401dd8ce50de058963}\label{namespacedqmc__struct_ab400768faf2be6401dd8ce50de058963}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_name@{gemo\_name}}
+\index{gemo\_name@{gemo\_name}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_name}{gemo\_name}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+name = 14}
+
+
+
+Definition at line 133 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a8050e1aaf91dd5e6e266d7ac6136c88d}\label{namespacedqmc__struct_a8050e1aaf91dd5e6e266d7ac6136c88d}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_nclass@{gemo\_nclass}}
+\index{gemo\_nclass@{gemo\_nclass}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_nclass}{gemo\_nclass}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+nclass = 9}
+
+
+
+Definition at line 128 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_aea216f8d48157260e648792bd5fb71a2}\label{namespacedqmc__struct_aea216f8d48157260e648792bd5fb71a2}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_nsite@{gemo\_nsite}}
+\index{gemo\_nsite@{gemo\_nsite}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_nsite}{gemo\_nsite}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+nsite = 10}
+
+
+
+Definition at line 129 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_aa56153d2e8859a70e3e4e23ef74521b7}\label{namespacedqmc__struct_aa56153d2e8859a70e3e4e23ef74521b7}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_nwave@{gemo\_nwave}}
+\index{gemo\_nwave@{gemo\_nwave}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_nwave}{gemo\_nwave}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+nwave = 11}
+
+
+
+Definition at line 130 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_acf20a5df5e76be9521f5e2d1ed58b05e}\label{namespacedqmc__struct_acf20a5df5e76be9521f5e2d1ed58b05e}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_p@{gemo\_p}}
+\index{gemo\_p@{gemo\_p}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_p}{gemo\_p}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+p = 4}
+
+
+
+Definition at line 123 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a749e395df3d9b8669741b4e667977ac6}\label{namespacedqmc__struct_a749e395df3d9b8669741b4e667977ac6}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_t@{gemo\_t}}
+\index{gemo\_t@{gemo\_t}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_t}{gemo\_t}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+t = 5}
+
+
+
+Definition at line 124 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a0858adb96d09f3a5cba6c343ae337543}\label{namespacedqmc__struct_a0858adb96d09f3a5cba6c343ae337543}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_w@{gemo\_w}}
+\index{gemo\_w@{gemo\_w}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_w}{gemo\_w}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+w = 6}
+
+
+
+Definition at line 125 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a0dca76d11b3efbcc7f870b7875423f0d}\label{namespacedqmc__struct_a0dca76d11b3efbcc7f870b7875423f0d}} 
+\index{dqmc\_struct@{dqmc\_struct}!gemo\_wlabel@{gemo\_wlabel}}
+\index{gemo\_wlabel@{gemo\_wlabel}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gemo\_wlabel}{gemo\_wlabel}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gemo\+\_\+wlabel = 15}
+
+
+
+Definition at line 134 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_ab8b590b5271ab920eed8b33c2c571d68}\label{namespacedqmc__struct_ab8b590b5271ab920eed8b33c2c571d68}} 
+\index{dqmc\_struct@{dqmc\_struct}!geo\_param@{geo\_param}}
+\index{geo\_param@{geo\_param}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{geo\_param}{geo\_param}}
+{\footnotesize\ttfamily character(len=$\ast$), dimension(\mbox{\hyperlink{namespacedqmc__struct_ad85e135e8866e5a4dd987779fa3efd55}{n\+\_\+geo\+\_\+param}}), parameter dqmc\+\_\+struct\+::geo\+\_\+param = (/\char`\"{}B \char`\"{}, \char`\"{}D \char`\"{}, \char`\"{}FT \char`\"{}, \char`\"{}P \char`\"{}, \char`\"{}T \char`\"{}, \char`\"{}W \char`\"{}, \char`\"{}c\+Label \char`\"{}, \char`\"{}dim \char`\"{}, \char`\"{}n\+Class \char`\"{}, \char`\"{}n\+Site \char`\"{}, \char`\"{}n\+Wave \char`\"{}, \char`\"{}n\+\_\+b \char`\"{}, \char`\"{}n\+\_\+t \char`\"{}, \char`\"{}name \char`\"{}, \char`\"{}w\+Label \char`\"{}/)}
+
+
+
+Definition at line 136 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a8858f795a492f5ed3b3cb660411ef23e}\label{namespacedqmc__struct_a8858f795a492f5ed3b3cb660411ef23e}} 
+\index{dqmc\_struct@{dqmc\_struct}!gname\_len@{gname\_len}}
+\index{gname\_len@{gname\_len}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{gname\_len}{gname\_len}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::gname\+\_\+len = 80}
+
+
+
+Definition at line 73 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a773c416dbde7b48071c28827c42dcb6c}\label{namespacedqmc__struct_a773c416dbde7b48071c28827c42dcb6c}} 
+\index{dqmc\_struct@{dqmc\_struct}!label\_len@{label\_len}}
+\index{label\_len@{label\_len}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{label\_len}{label\_len}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::label\+\_\+len = 47}
+
+
+
+Definition at line 72 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a76be6210fb36f9553eb29d674a79a080}\label{namespacedqmc__struct_a76be6210fb36f9553eb29d674a79a080}} 
+\index{dqmc\_struct@{dqmc\_struct}!n\_checklist@{n\_checklist}}
+\index{n\_checklist@{n\_checklist}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{n\_checklist}{n\_checklist}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::n\+\_\+checklist = 8}
+
+
+
+Definition at line 62 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_ad85e135e8866e5a4dd987779fa3efd55}\label{namespacedqmc__struct_ad85e135e8866e5a4dd987779fa3efd55}} 
+\index{dqmc\_struct@{dqmc\_struct}!n\_geo\_param@{n\_geo\_param}}
+\index{n\_geo\_param@{n\_geo\_param}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{n\_geo\_param}{n\_geo\_param}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::n\+\_\+geo\+\_\+param = 15}
+
+
+
+Definition at line 119 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a575c428393b6c03439f4e3a462736329}\label{namespacedqmc__struct_a575c428393b6c03439f4e3a462736329}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_adj@{struct\_adj}}
+\index{struct\_adj@{struct\_adj}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_adj}{struct\_adj}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+adj = 3}
+
+
+
+Definition at line 65 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a54b998733cb6a99ec668c0f208d17915}\label{namespacedqmc__struct_a54b998733cb6a99ec668c0f208d17915}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_bond@{struct\_bond}}
+\index{struct\_bond@{struct\_bond}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_bond}{struct\_bond}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+bond = 6}
+
+
+
+Definition at line 68 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a7d684ad07029e980dfcf3e8e59081637}\label{namespacedqmc__struct_a7d684ad07029e980dfcf3e8e59081637}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_class@{struct\_class}}
+\index{struct\_class@{struct\_class}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_class}{struct\_class}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+class = 4}
+
+
+
+Definition at line 66 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a966009d1fdb99aaebd3bc38348efdc51}\label{namespacedqmc__struct_a966009d1fdb99aaebd3bc38348efdc51}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_dim@{struct\_dim}}
+\index{struct\_dim@{struct\_dim}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_dim}{struct\_dim}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+dim = 2}
+
+
+
+Definition at line 64 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a83bf608ca6d9ddbf21dc0d76b688537b}\label{namespacedqmc__struct_a83bf608ca6d9ddbf21dc0d76b688537b}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_ft@{struct\_ft}}
+\index{struct\_ft@{struct\_ft}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_ft}{struct\_ft}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+ft = 8}
+
+
+
+Definition at line 70 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a6fbb6998e7a58637d374d85899ca05c4}\label{namespacedqmc__struct_a6fbb6998e7a58637d374d85899ca05c4}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_init@{struct\_init}}
+\index{struct\_init@{struct\_init}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_init}{struct\_init}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+init = 1}
+
+
+
+Definition at line 63 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_a8cb65a8177b62db9cb3875766c353d98}\label{namespacedqmc__struct_a8cb65a8177b62db9cb3875766c353d98}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_phase@{struct\_phase}}
+\index{struct\_phase@{struct\_phase}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_phase}{struct\_phase}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+phase = 7}
+
+
+
+Definition at line 69 of file dqmc\+\_\+struct.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__struct_af1fbd94ac047b06c175c63ca87e27b9d}\label{namespacedqmc__struct_af1fbd94ac047b06c175c63ca87e27b9d}} 
+\index{dqmc\_struct@{dqmc\_struct}!struct\_wave@{struct\_wave}}
+\index{struct\_wave@{struct\_wave}!dqmc\_struct@{dqmc\_struct}}
+\doxysubsubsection{\texorpdfstring{struct\_wave}{struct\_wave}}
+{\footnotesize\ttfamily integer, parameter dqmc\+\_\+struct\+::struct\+\_\+wave = 5}
+
+
+
+Definition at line 67 of file dqmc\+\_\+struct.\+F90.
+

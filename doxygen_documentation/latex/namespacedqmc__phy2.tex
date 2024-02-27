@@ -1,0 +1,197 @@
+\hypertarget{namespacedqmc__phy2}{}\doxysection{dqmc\+\_\+phy2 Module Reference}
+\label{namespacedqmc__phy2}\index{dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__phy2_1_1dqmc__phy2__avg}{dqmc\+\_\+phy2\+\_\+avg}}
+\item 
+interface \mbox{\hyperlink{interfacedqmc__phy2_1_1dqmc__phy2__getirrep}{dqmc\+\_\+phy2\+\_\+getirrep}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a54a69f56723759c52fa48320691b0f6f}{dqmc\+\_\+phy2\+\_\+init}} (P2, n\+Bin, S, WS, meas)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ab62ff9f9ebe964fddb19936d4e5c0148}{dqmc\+\_\+phy2\+\_\+free}} (P2)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_abb4bc99fedc22ba4a739b0654d39799b}{dqmc\+\_\+phy2\+\_\+meas}} (n, M1, \mbox{\hyperlink{blaslapack_8c_09_09_a2a187ef3afced0eb4c4cb99515e5429c}{M2}}, P2, Bond, G\+\_\+up, G\+\_\+dn, \mbox{\hyperlink{random__walk_8cpp_a8221a73afef8803de3702ee63ab54607}{sgn}})
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a5e037c6aa936266ad365fcf39f4444aa}{dqmc\+\_\+phy2\+\_\+pair}} (n, \mbox{\hyperlink{blaslapack_8c_09_09_a52037c938e3c1b126c6277da5ca689d0}{M}}, up, dn, Bond)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a30563f4464d5eb6b8b6d08e4367bb3ef}{dqmc\+\_\+phy2\+\_\+avg\+\_\+wave}} (P2, W)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ac8a83622d0204a98c658d623c58caff0}{dqmc\+\_\+phy2\+\_\+avg\+\_\+symm}} (P2, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ad9aee920f4d9af79e6453ffe2a3cda45}{dqmc\+\_\+wave\+\_\+avg}} (nb, n\+Wave, W, T, I, O, factor, ldt)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a13289ae98cba94f235fc00d2ec796b79}{dqmc\+\_\+pair\+\_\+symm}} (\mbox{\hyperlink{blaslapack_8c_09_09_a2a187ef3afced0eb4c4cb99515e5429c}{M2}}, M3, class\+\_\+b, size\+\_\+b, n, nclass, factor)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ac19abde066de54c4f3b2dc006b43fd4e}{dqmc\+\_\+phy2\+\_\+geterr}} (P2)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a8d230ebae981e980ecaafe72e8af6c54}{dqmc\+\_\+phy2\+\_\+getirrep\+\_\+full}} (P2, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_ac0c7360e1594e1b5c896bf5153475ca7}{dqmc\+\_\+phy2\+\_\+getirrep\+\_\+connected}} (P2, G\+\_\+fun, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a93d28dcc4d012518d01b69b28133c607}{dqmc\+\_\+phy2\+\_\+geterrirrep}} (P2, G\+\_\+fun, S)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a301e596e20d27c13675bb026e2ea5ded}{dqmc\+\_\+phy2\+\_\+print}} (P2, wlabel, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a8a05d764e8b16399b0b189fb0ae79a27}{dqmc\+\_\+phy2\+\_\+wavesymm}} (S, P2, Symm)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__phy2_a729aa86ae06f35c8766e251264a62a0e}{dqmc\+\_\+phy2\+\_\+printsymm}} (S, P2, OPT)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedqmc__phy2_a13289ae98cba94f235fc00d2ec796b79}\label{namespacedqmc__phy2_a13289ae98cba94f235fc00d2ec796b79}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_pair\_symm@{dqmc\_pair\_symm}}
+\index{dqmc\_pair\_symm@{dqmc\_pair\_symm}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_pair\_symm()}{dqmc\_pair\_symm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+pair\+\_\+symm (\begin{DoxyParamCaption}\item[{real(wp), dimension(n,n), intent(in)}]{M2,  }\item[{real(wp), dimension(nclass), intent(out)}]{M3,  }\item[{integer, dimension(n,n), intent(in)}]{class\+\_\+b,  }\item[{integer, dimension(nclass), intent(in)}]{size\+\_\+b,  }\item[{integer, intent(in)}]{n,  }\item[{integer, intent(in)}]{nclass,  }\item[{real(wp), intent(in)}]{factor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 367 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_ac8a83622d0204a98c658d623c58caff0}\label{namespacedqmc__phy2_ac8a83622d0204a98c658d623c58caff0}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_avg\_symm@{dqmc\_phy2\_avg\_symm}}
+\index{dqmc\_phy2\_avg\_symm@{dqmc\_phy2\_avg\_symm}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_avg\_symm()}{dqmc\_phy2\_avg\_symm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+avg\+\_\+symm (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(in)}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line 294 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a30563f4464d5eb6b8b6d08e4367bb3ef}\label{namespacedqmc__phy2_a30563f4464d5eb6b8b6d08e4367bb3ef}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_avg\_wave@{dqmc\_phy2\_avg\_wave}}
+\index{dqmc\_phy2\_avg\_wave@{dqmc\_phy2\_avg\_wave}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_avg\_wave()}{dqmc\_phy2\_avg\_wave()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+avg\+\_\+wave (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{real(wp), dimension(p2\%nb, p2\%nwave), intent(in)}]{W }\end{DoxyParamCaption})}
+
+
+
+Definition at line 259 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_ab62ff9f9ebe964fddb19936d4e5c0148}\label{namespacedqmc__phy2_ab62ff9f9ebe964fddb19936d4e5c0148}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_free@{dqmc\_phy2\_free}}
+\index{dqmc\_phy2\_free@{dqmc\_phy2\_free}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_free()}{dqmc\_phy2\_free()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+free (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_ac19abde066de54c4f3b2dc006b43fd4e}\label{namespacedqmc__phy2_ac19abde066de54c4f3b2dc006b43fd4e}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_geterr@{dqmc\_phy2\_geterr}}
+\index{dqmc\_phy2\_geterr@{dqmc\_phy2\_geterr}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_geterr()}{dqmc\_phy2\_geterr()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+geterr (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 404 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a93d28dcc4d012518d01b69b28133c607}\label{namespacedqmc__phy2_a93d28dcc4d012518d01b69b28133c607}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_geterrirrep@{dqmc\_phy2\_geterrirrep}}
+\index{dqmc\_phy2\_geterrirrep@{dqmc\_phy2\_geterrirrep}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_geterrirrep()}{dqmc\_phy2\_geterrirrep()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+geterrirrep (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{real(wp), dimension(s\%nclass,p2\%err), intent(in)}]{G\+\_\+fun,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(in)}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line 573 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_ac0c7360e1594e1b5c896bf5153475ca7}\label{namespacedqmc__phy2_ac0c7360e1594e1b5c896bf5153475ca7}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_getirrep\_connected@{dqmc\_phy2\_getirrep\_connected}}
+\index{dqmc\_phy2\_getirrep\_connected@{dqmc\_phy2\_getirrep\_connected}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_getirrep\_connected()}{dqmc\_phy2\_getirrep\_connected()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+getirrep\+\_\+connected (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{real(wp), dimension(s\%nclass), intent(in)}]{G\+\_\+fun,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(inout)}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line 521 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a8d230ebae981e980ecaafe72e8af6c54}\label{namespacedqmc__phy2_a8d230ebae981e980ecaafe72e8af6c54}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_getirrep\_full@{dqmc\_phy2\_getirrep\_full}}
+\index{dqmc\_phy2\_getirrep\_full@{dqmc\_phy2\_getirrep\_full}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_getirrep\_full()}{dqmc\_phy2\_getirrep\_full()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+getirrep\+\_\+full (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(inout)}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line 483 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a54a69f56723759c52fa48320691b0f6f}\label{namespacedqmc__phy2_a54a69f56723759c52fa48320691b0f6f}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_init@{dqmc\_phy2\_init}}
+\index{dqmc\_phy2\_init@{dqmc\_phy2\_init}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_init()}{dqmc\_phy2\_init()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+init (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{integer, intent(in)}]{n\+Bin,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(in)}]{S,  }\item[{type(\mbox{\hyperlink{structdqmc__wspace_1_1wspace}{wspace}}), intent(in), target}]{WS,  }\item[{logical, intent(out)}]{meas }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_abb4bc99fedc22ba4a739b0654d39799b}\label{namespacedqmc__phy2_abb4bc99fedc22ba4a739b0654d39799b}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_meas@{dqmc\_phy2\_meas}}
+\index{dqmc\_phy2\_meas@{dqmc\_phy2\_meas}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_meas()}{dqmc\_phy2\_meas()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+meas (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(\+:, \+:), intent(inout)}]{M1,  }\item[{real(wp), dimension(\+:, \+:), intent(inout)}]{M2,  }\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{Bond,  }\item[{real(wp), dimension(n,n), intent(in)}]{G\+\_\+up,  }\item[{real(wp), dimension(n,n), intent(in)}]{G\+\_\+dn,  }\item[{real(wp), intent(in)}]{sgn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 164 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a5e037c6aa936266ad365fcf39f4444aa}\label{namespacedqmc__phy2_a5e037c6aa936266ad365fcf39f4444aa}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_pair@{dqmc\_phy2\_pair}}
+\index{dqmc\_phy2\_pair@{dqmc\_phy2\_pair}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_pair()}{dqmc\_phy2\_pair()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+pair (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{real(wp), dimension(\+:, \+:), intent(inout)}]{M,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{up,  }\item[{real(wp), dimension(\+:,\+:), intent(in)}]{dn,  }\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1ccs}{ccs}}), intent(in)}]{Bond }\end{DoxyParamCaption})}
+
+
+
+Definition at line 207 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a301e596e20d27c13675bb026e2ea5ded}\label{namespacedqmc__phy2_a301e596e20d27c13675bb026e2ea5ded}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_print@{dqmc\_phy2\_print}}
+\index{dqmc\_phy2\_print@{dqmc\_phy2\_print}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_print()}{dqmc\_phy2\_print()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+print (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(in)}]{P2,  }\item[{character($\ast$), dimension(\+:), intent(in)}]{wlabel,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 664 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a729aa86ae06f35c8766e251264a62a0e}\label{namespacedqmc__phy2_a729aa86ae06f35c8766e251264a62a0e}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_printsymm@{dqmc\_phy2\_printsymm}}
+\index{dqmc\_phy2\_printsymm@{dqmc\_phy2\_printsymm}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_printsymm()}{dqmc\_phy2\_printsymm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+printsymm (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(inout)}]{S,  }\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{integer, intent(in)}]{OPT }\end{DoxyParamCaption})}
+
+
+
+Definition at line 842 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_a8a05d764e8b16399b0b189fb0ae79a27}\label{namespacedqmc__phy2_a8a05d764e8b16399b0b189fb0ae79a27}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_phy2\_wavesymm@{dqmc\_phy2\_wavesymm}}
+\index{dqmc\_phy2\_wavesymm@{dqmc\_phy2\_wavesymm}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_phy2\_wavesymm()}{dqmc\_phy2\_wavesymm()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+phy2\+\_\+wavesymm (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdqmc__struct_1_1struct}{struct}}), intent(inout)}]{S,  }\item[{type(\mbox{\hyperlink{structdqmc__phy2_1_1phy2}{phy2}}), intent(inout)}]{P2,  }\item[{type(\mbox{\hyperlink{structdqmc__symm_1_1symm__operations}{symm\+\_\+operations}}), intent(in)}]{Symm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 702 of file dqmc\+\_\+phy2.\+F90.
+
+\mbox{\Hypertarget{namespacedqmc__phy2_ad9aee920f4d9af79e6453ffe2a3cda45}\label{namespacedqmc__phy2_ad9aee920f4d9af79e6453ffe2a3cda45}} 
+\index{dqmc\_phy2@{dqmc\_phy2}!dqmc\_wave\_avg@{dqmc\_wave\_avg}}
+\index{dqmc\_wave\_avg@{dqmc\_wave\_avg}!dqmc\_phy2@{dqmc\_phy2}}
+\doxysubsubsection{\texorpdfstring{dqmc\_wave\_avg()}{dqmc\_wave\_avg()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+phy2\+::dqmc\+\_\+wave\+\_\+avg (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{nb,  }\item[{integer, intent(in)}]{n\+Wave,  }\item[{real(wp), dimension(nb, nwave), intent(in)}]{W,  }\item[{real(wp), dimension(ldt, nwave), intent(in)}]{T,  }\item[{real(wp), dimension(nb, nb), intent(in)}]{I,  }\item[{real(wp), dimension(\+:), intent(inout)}]{O,  }\item[{real(wp), intent(in)}]{factor,  }\item[{integer, intent(in)}]{ldt }\end{DoxyParamCaption})}
+
+
+
+Definition at line 327 of file dqmc\+\_\+phy2.\+F90.
+

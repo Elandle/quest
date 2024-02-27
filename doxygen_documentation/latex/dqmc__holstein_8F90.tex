@@ -1,0 +1,109 @@
+\hypertarget{dqmc__holstein_8F90}{}\doxysection{SRC/dqmc\+\_\+holstein.F90 File Reference}
+\label{dqmc__holstein_8F90}\index{SRC/dqmc\_holstein.F90@{SRC/dqmc\_holstein.F90}}
+{\ttfamily \#include \char`\"{}dqmc\+\_\+include.\+h\char`\"{}}\newline
+Include dependency graph for dqmc\+\_\+holstein.\+F90\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{dqmc__holstein_8F90__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdqmc__hubbard_1_1hubbard}{dqmc\+\_\+hubbard\+::hubbard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \mbox{\hyperlink{namespacedqmc__hubbard}{dqmc\+\_\+hubbard}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ad8392f4369e615321bafda40e702ef32}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+config}} (Hub, cfg)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a3d38aa0f6bd90185faf792979e489bae}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+init}} (Hub, U, t\+\_\+up, t\+\_\+dn, mu\+\_\+up, mu\+\_\+dn, L, n\+\_\+t, n\+\_\+U, n\+\_\+mu, dtau, HSF\+\_\+\+IPT, n\+Warm, n\+Pass, n\+Meas, n\+Try, n\+Bin, ntausk, seed, n\+Orth, n\+Wrap, fixw, errrate, difflim, gamma, accept, reject, delta1, delta2, ssxx, HSFtype, omega)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a3398f881b6f1581f7f224de9518131ca}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+free}} (Hub)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ad50d0d8428a72287246f97800c9b12a1}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+output\+\_\+hsf}} (Hub, restore, slice, OPT)
+\item 
+subroutine \mbox{\hyperlink{dqmc__holstein_8F90_afbbc97490de343e110d72d6c8d6a0d46}{pack\+\_\+fields}}
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_afe3fa97328264ebbae9ac1f30fb9e1e4}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+input\+\_\+hsf}} (Hub, restore, slice, IPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_ae5400af71c3cd5f6d4b53c6f705b71fd}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+outputparam}} (Hub, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a40186c6cab9cd40703ec20c517b8d26e}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+print}} (Hub, OPT)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a4cffdcbd9d33ef32664a87b95c5f8d63}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep}} (Hub, n\+Meas0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_adef8e2660d978606a9301d137199587b}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep2}} (Hub, num\+Try)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_af2462cdc5b89587c1984b273a50c7883}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep\+\_\+cont}} (Hub, n\+Meas0)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a69f24c65067b50ed40ab855a77409aef}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+sweep2\+\_\+cont}} (Hub, num\+Try)
+\item 
+subroutine \mbox{\hyperlink{dqmc__holstein_8F90_a29917db9f4e8ed2ba0e4da70ae4fe8a1}{phonon\+\_\+action}} (L, norm, x, Sb)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a69683cd9fa09df6e1ee5a6173102ead1}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hol\+\_\+sweep3\+\_\+cont}} (Hub, num\+Try)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a32241e08e816431fcfc9266ef10a58dd}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+run}} (Hub, Info)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a6a2f862d26cbbba6fb19ed0e0d71a23c}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+fullmeas}} (Hub, nnb, A\+\_\+up, A\+\_\+dn, sgn\+\_\+up, sgn\+\_\+dn)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a6f03b7f2a0d1f1ed79acb12f23cb6688}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+meas}} (Hub, slice)
+\item 
+subroutine \mbox{\hyperlink{namespacedqmc__hubbard_a9dd5a4a41829da1cbccc4636f94dca74}{dqmc\+\_\+hubbard\+::dqmc\+\_\+hub\+\_\+init\+\_\+vmat}} (Hub)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ae4540a74244eb45d4653b220ecda10ec}{dqmc\+\_\+hubbard\+::no\+\_\+meas0}} = -\/1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_a8b3ed511a7b30f9920dad7ae41b223e0}{dqmc\+\_\+hubbard\+::hsf\+\_\+output\+\_\+unit}} = 28
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_abb0695564f86b980e0ae506dacbd76b4}{dqmc\+\_\+hubbard\+::hsf\+\_\+input\+\_\+unit}} = 27
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_a30ac681836a0faa495c606fa65b2456d}{dqmc\+\_\+hubbard\+::hsf\+\_\+random\+\_\+gen}} = -\/1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_abb0c6c1c5fc8b5abb9216636bc0a8141}{dqmc\+\_\+hubbard\+::hsf\+\_\+from\+\_\+file}} = 1
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ac1ebc6566b982a4b737a6bb87ec9e0e8}{dqmc\+\_\+hubbard\+::hsf\+\_\+restore}} = 2
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ade1626cabb42aaf68fd457c8f9380586}{dqmc\+\_\+hubbard\+::hsf\+\_\+from\+\_\+memory}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_a71852b8904a97ef6a6b657e86a9bd800}{dqmc\+\_\+hubbard\+::hsf\+\_\+disc}} = 0
+\item 
+integer, parameter \mbox{\hyperlink{namespacedqmc__hubbard_ad5b49b70e9e782db6b08c563ac65f77d}{dqmc\+\_\+hubbard\+::hsf\+\_\+cont}} = 1
+\item 
+integer \mbox{\hyperlink{namespacedqmc__hubbard_a19ab7db6878794a32a2794b9e99f1e2e}{dqmc\+\_\+hubbard\+::simtype}}
+\item 
+real(wp) \mbox{\hyperlink{namespacedqmc__hubbard_a848aa2a01814ee61abcc71d16a49ee3c}{dqmc\+\_\+hubbard\+::chsf0}}
+\item 
+real(wp), dimension(2) \mbox{\hyperlink{namespacedqmc__hubbard_a0066d36fdf50995ff715f4538f9cb366}{dqmc\+\_\+hubbard\+::norm\+\_\+phonon}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{dqmc__holstein_8F90_afbbc97490de343e110d72d6c8d6a0d46}\label{dqmc__holstein_8F90_afbbc97490de343e110d72d6c8d6a0d46}} 
+\index{dqmc\_holstein.F90@{dqmc\_holstein.F90}!pack\_fields@{pack\_fields}}
+\index{pack\_fields@{pack\_fields}!dqmc\_holstein.F90@{dqmc\_holstein.F90}}
+\doxysubsubsection{\texorpdfstring{pack\_fields()}{pack\_fields()}}
+{\footnotesize\ttfamily subroutine dqmc\+\_\+hub\+\_\+output\+\_\+hsf\+::pack\+\_\+fields}
+
+
+
+Definition at line 813 of file dqmc\+\_\+holstein.\+F90.
+
+\mbox{\Hypertarget{dqmc__holstein_8F90_a29917db9f4e8ed2ba0e4da70ae4fe8a1}\label{dqmc__holstein_8F90_a29917db9f4e8ed2ba0e4da70ae4fe8a1}} 
+\index{dqmc\_holstein.F90@{dqmc\_holstein.F90}!phonon\_action@{phonon\_action}}
+\index{phonon\_action@{phonon\_action}!dqmc\_holstein.F90@{dqmc\_holstein.F90}}
+\doxysubsubsection{\texorpdfstring{phonon\_action()}{phonon\_action()}}
+{\footnotesize\ttfamily subroutine phonon\+\_\+action (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{L,  }\item[{real(wp), dimension(2), intent(in)}]{norm,  }\item[{real(wp), dimension(l), intent(in)}]{x,  }\item[{real(wp), intent(inout)}]{Sb }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2130 of file dqmc\+\_\+holstein.\+F90.
+

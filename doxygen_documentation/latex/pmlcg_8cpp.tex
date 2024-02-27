@@ -1,0 +1,162 @@
+\hypertarget{pmlcg_8cpp}{}\doxysection{SRC/sprng5/\+SRC/pmlcg/pmlcg.cpp File Reference}
+\label{pmlcg_8cpp}\index{SRC/sprng5/SRC/pmlcg/pmlcg.cpp@{SRC/sprng5/SRC/pmlcg/pmlcg.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}store.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sprng.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pmlcg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bignum.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bigrat.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}longlong.\+h\char`\"{}}\newline
+Include dependency graph for pmlcg.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pmlcg_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}{NDEBUG}}
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}{MAX\+\_\+\+STREAMS}}~pmlcg\+\_\+\+MAX\+\_\+\+STREAMS
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_a5b116849652d56c12807cf6e6f989e71}{NGENS}}~pmlcg\+\_\+\+NGENS
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}}~\char`\"{}00\char`\"{}
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_abde7219dfdfc8895b93fba0919e697f3}{GENTYPE}}~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Prime modulus \mbox{\hyperlink{classLCG}{LCG}}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}~1  /$\ast$$\ast$$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{pmlcg_8cpp_aa91883499316e8b6dfe8d1fbf7af3f73}{limbsize}}~4
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPMLCG}{PMLCG}} $\ast$$\ast$ \mbox{\hyperlink{pmlcg_8cpp_a0b9a5c0d97f0f9ecd0d7b7e6f8f4e270}{initialize}} (int ngen, \mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$old\+\_\+si, int seed, int param)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{pmlcg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}{MAX\+\_\+\+STREAMS}} = (1 $<$$<$ 30)
+\item 
+int \mbox{\hyperlink{pmlcg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}{NGENS}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pmlcg_8cpp_abde7219dfdfc8895b93fba0919e697f3}\label{pmlcg_8cpp_abde7219dfdfc8895b93fba0919e697f3}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!GENTYPE@{GENTYPE}}
+\index{GENTYPE@{GENTYPE}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{GENTYPE}{GENTYPE}}
+{\footnotesize\ttfamily \#define GENTYPE~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Prime modulus \mbox{\hyperlink{classLCG}{LCG}}\char`\"{}}
+
+
+
+Definition at line 76 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_aa91883499316e8b6dfe8d1fbf7af3f73}\label{pmlcg_8cpp_aa91883499316e8b6dfe8d1fbf7af3f73}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!limbsize@{limbsize}}
+\index{limbsize@{limbsize}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{limbsize}{limbsize}}
+{\footnotesize\ttfamily \#define limbsize~4}
+
+
+
+Definition at line 87 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}\label{pmlcg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+STREAMS~pmlcg\+\_\+\+MAX\+\_\+\+STREAMS}
+
+
+
+Definition at line 42 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}\label{pmlcg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!NDEBUG@{NDEBUG}}
+\index{NDEBUG@{NDEBUG}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{NDEBUG}{NDEBUG}}
+{\footnotesize\ttfamily \#define NDEBUG}
+
+
+
+Definition at line 30 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_a5b116849652d56c12807cf6e6f989e71}\label{pmlcg_8cpp_a5b116849652d56c12807cf6e6f989e71}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily \#define NGENS~pmlcg\+\_\+\+NGENS}
+
+
+
+Definition at line 43 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}\label{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!NPARAMS@{NPARAMS}}
+\index{NPARAMS@{NPARAMS}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{NPARAMS}{NPARAMS}}
+{\footnotesize\ttfamily \#define NPARAMS~1  /$\ast$$\ast$$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$$\ast$$\ast$/}
+
+
+
+Definition at line 78 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}\label{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily \#define VERSION~\char`\"{}00\char`\"{}}
+
+
+
+Definition at line 74 of file pmlcg.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pmlcg_8cpp_a0b9a5c0d97f0f9ecd0d7b7e6f8f4e270}\label{pmlcg_8cpp_a0b9a5c0d97f0f9ecd0d7b7e6f8f4e270}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!initialize@{initialize}}
+\index{initialize@{initialize}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPMLCG}{PMLCG}}$\ast$$\ast$ initialize (\begin{DoxyParamCaption}\item[{int}]{ngen,  }\item[{\mbox{\hyperlink{classBigNum}{Big\+Num}} $\ast$}]{old\+\_\+si,  }\item[{int}]{seed,  }\item[{int}]{param }\end{DoxyParamCaption})}
+
+
+
+Definition at line 149 of file pmlcg.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{pmlcg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}\label{pmlcg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily int MAX\+\_\+\+STREAMS = (1 $<$$<$ 30)}
+
+
+
+Definition at line 79 of file pmlcg.\+cpp.
+
+\mbox{\Hypertarget{pmlcg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}\label{pmlcg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}} 
+\index{pmlcg.cpp@{pmlcg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!pmlcg.cpp@{pmlcg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily int NGENS = 0}
+
+
+
+Definition at line 82 of file pmlcg.\+cpp.
+

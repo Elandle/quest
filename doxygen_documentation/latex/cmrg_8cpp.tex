@@ -1,0 +1,365 @@
+\hypertarget{cmrg_8cpp}{}\doxysection{SRC/sprng5/\+SRC/cmrg/cmrg.cpp File Reference}
+\label{cmrg_8cpp}\index{SRC/sprng5/SRC/cmrg/cmrg.cpp@{SRC/sprng5/SRC/cmrg/cmrg.cpp}}
+{\ttfamily \#include $<$iostream.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sprng.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmrg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}primes\+\_\+64.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}store.\+h\char`\"{}}\newline
+Include dependency graph for cmrg.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cmrg_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}{NDEBUG}}
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}{MAX\+\_\+\+STREAMS}}~cmrg\+\_\+\+MAX\+\_\+\+STREAMS
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a5b116849652d56c12807cf6e6f989e71}{NGENS}}~cmrg\+\_\+\+NGENS
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a13602473e09442186741707f56c04991}{PARAMLIST}}~cmrg\+\_\+\+PARAMLIST
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}}~\char`\"{}00\char`\"{}
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_abde7219dfdfc8895b93fba0919e697f3}{GENTYPE}}~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Combined multiple recursive generator\char`\"{}
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}~3  /$\ast$$\ast$$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$$\ast$$\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_ae9a304c1e5055905dd082826f4966c50}{INIT\+\_\+\+SEED1}}~0x2bc6ffffU
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a8d2183cf08c1d3783414f54091d0d3c6}{INIT\+\_\+\+SEED0}}~0x8cfe166dU
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a2d4ad26c03f36d5a08e9b0b817b6f7ed}{TWO\+\_\+\+M22}}~2.\+384185791015625e-\/07 /$\ast$ 2$^\wedge$(-\/22) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_ae20c22e2e57bef58b4af09a9a7b68c4e}{TWO\+\_\+\+P22}}~4194304  /$\ast$ 2$^\wedge$(22) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_ab4797afa52edffd7548301ced91bd29e}{TWO\+\_\+\+M20}}~9.\+5367431640625e-\/07 /$\ast$ 2$^\wedge$(-\/20) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_afc511e5ad28ab2156ecdfaa4a5b5c223}{TWO\+\_\+\+P20}}~1048576 /$\ast$ 2$^\wedge$(20) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a76ae6bf8cbcb67413347f5e9a535d00f}{TWO\+\_\+\+M42}}~2.\+273736754432321e-\/13 /$\ast$ 2$^\wedge$(-\/42) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}{TWO\+\_\+\+M64}}~5.\+4210108624275222e-\/20 /$\ast$ 2$^\wedge$(-\/64) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a112fa29c92065d6624349eb69f35f0fb}{m1}}~2147483647
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_aa42b800f0f58b50bc7604c67cc2853ab}{a0}}~107374182               /$\ast$ first \mbox{\hyperlink{lcg_8cpp_a471b598e520eb8a316404063b965eb61}{multiplier}} in y(n)  $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a2b8a642c7d03d9500f5ebb221499ce79}{a4}}~104480                  /$\ast$ second \mbox{\hyperlink{lcg_8cpp_a471b598e520eb8a316404063b965eb61}{multiplier}} in y(n) $\ast$/
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_ac61556e19676a2bd8cefe184427ad84e}{q0}}~20
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_af28497f0af3104684cbad938788637f5}{q4}}~20554
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_af8ef4632fb5325a43f9c31778135d450}{r0}}~7
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_ac2da134ec3ab777999b1d3cb16f35f49}{r4}}~1727
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a839671370d55b209d3330e6c8e9bda7a}{EXPO}}~0x3ff00000
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}{MSB}}~0
+\item 
+\#define \mbox{\hyperlink{cmrg_8cpp_a525d3ca9955b22e489a749a548831a1d}{LSB}}~(1-\/\mbox{\hyperlink{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}{MSB}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cmrg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}{MAX\+\_\+\+STREAMS}} = (146138719)
+\item 
+unsigned int \mbox{\hyperlink{cmrg_8cpp_ad3d1649ca0fbd90252939f07b36871d8}{PARAMLIST}} \mbox{[}\mbox{\hyperlink{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}\mbox{]}\mbox{[}2\mbox{]}
+\item 
+int \mbox{\hyperlink{cmrg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}{NGENS}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cmrg_8cpp_aa42b800f0f58b50bc7604c67cc2853ab}\label{cmrg_8cpp_aa42b800f0f58b50bc7604c67cc2853ab}} 
+\index{cmrg.cpp@{cmrg.cpp}!a0@{a0}}
+\index{a0@{a0}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{a0}{a0}}
+{\footnotesize\ttfamily \#define a0~107374182               /$\ast$ first \mbox{\hyperlink{lcg_8cpp_a471b598e520eb8a316404063b965eb61}{multiplier}} in y(n)  $\ast$/}
+
+
+
+Definition at line 346 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a2b8a642c7d03d9500f5ebb221499ce79}\label{cmrg_8cpp_a2b8a642c7d03d9500f5ebb221499ce79}} 
+\index{cmrg.cpp@{cmrg.cpp}!a4@{a4}}
+\index{a4@{a4}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{a4}{a4}}
+{\footnotesize\ttfamily \#define a4~104480                  /$\ast$ second \mbox{\hyperlink{lcg_8cpp_a471b598e520eb8a316404063b965eb61}{multiplier}} in y(n) $\ast$/}
+
+
+
+Definition at line 347 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a839671370d55b209d3330e6c8e9bda7a}\label{cmrg_8cpp_a839671370d55b209d3330e6c8e9bda7a}} 
+\index{cmrg.cpp@{cmrg.cpp}!EXPO@{EXPO}}
+\index{EXPO@{EXPO}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{EXPO}{EXPO}}
+{\footnotesize\ttfamily \#define EXPO~0x3ff00000}
+
+\mbox{\Hypertarget{cmrg_8cpp_abde7219dfdfc8895b93fba0919e697f3}\label{cmrg_8cpp_abde7219dfdfc8895b93fba0919e697f3}} 
+\index{cmrg.cpp@{cmrg.cpp}!GENTYPE@{GENTYPE}}
+\index{GENTYPE@{GENTYPE}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{GENTYPE}{GENTYPE}}
+{\footnotesize\ttfamily \#define GENTYPE~\mbox{\hyperlink{pmlcg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}{VERSION}} \char`\"{}Combined multiple recursive generator\char`\"{}}
+
+
+
+Definition at line 40 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a8d2183cf08c1d3783414f54091d0d3c6}\label{cmrg_8cpp_a8d2183cf08c1d3783414f54091d0d3c6}} 
+\index{cmrg.cpp@{cmrg.cpp}!INIT\_SEED0@{INIT\_SEED0}}
+\index{INIT\_SEED0@{INIT\_SEED0}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{INIT\_SEED0}{INIT\_SEED0}}
+{\footnotesize\ttfamily \#define INIT\+\_\+\+SEED0~0x8cfe166dU}
+
+
+
+Definition at line 76 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ae9a304c1e5055905dd082826f4966c50}\label{cmrg_8cpp_ae9a304c1e5055905dd082826f4966c50}} 
+\index{cmrg.cpp@{cmrg.cpp}!INIT\_SEED1@{INIT\_SEED1}}
+\index{INIT\_SEED1@{INIT\_SEED1}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{INIT\_SEED1}{INIT\_SEED1}}
+{\footnotesize\ttfamily \#define INIT\+\_\+\+SEED1~0x2bc6ffffU}
+
+
+
+Definition at line 75 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a525d3ca9955b22e489a749a548831a1d}\label{cmrg_8cpp_a525d3ca9955b22e489a749a548831a1d}} 
+\index{cmrg.cpp@{cmrg.cpp}!LSB@{LSB}}
+\index{LSB@{LSB}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{LSB}{LSB}}
+{\footnotesize\ttfamily \#define LSB~(1-\/\mbox{\hyperlink{lcg64_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}{MSB}})}
+
+\mbox{\Hypertarget{cmrg_8cpp_a112fa29c92065d6624349eb69f35f0fb}\label{cmrg_8cpp_a112fa29c92065d6624349eb69f35f0fb}} 
+\index{cmrg.cpp@{cmrg.cpp}!m1@{m1}}
+\index{m1@{m1}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{m1}{m1}}
+{\footnotesize\ttfamily \#define m1~2147483647}
+
+
+
+Definition at line 345 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}\label{cmrg_8cpp_a4a1e12ec49840b798c6413a8f6c947a9}} 
+\index{cmrg.cpp@{cmrg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+STREAMS~cmrg\+\_\+\+MAX\+\_\+\+STREAMS}
+
+
+
+Definition at line 34 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}\label{cmrg_8cpp_a11f27b3b63dfc15c4b4fbb665a3ce3fe}} 
+\index{cmrg.cpp@{cmrg.cpp}!MSB@{MSB}}
+\index{MSB@{MSB}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{MSB}{MSB}}
+{\footnotesize\ttfamily \#define MSB~0}
+
+\mbox{\Hypertarget{cmrg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}\label{cmrg_8cpp_a8de3ed741dadc9c979a4ff17c0a9116e}} 
+\index{cmrg.cpp@{cmrg.cpp}!NDEBUG@{NDEBUG}}
+\index{NDEBUG@{NDEBUG}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{NDEBUG}{NDEBUG}}
+{\footnotesize\ttfamily \#define NDEBUG}
+
+
+
+Definition at line 26 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a5b116849652d56c12807cf6e6f989e71}\label{cmrg_8cpp_a5b116849652d56c12807cf6e6f989e71}} 
+\index{cmrg.cpp@{cmrg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily \#define NGENS~cmrg\+\_\+\+NGENS}
+
+
+
+Definition at line 35 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}\label{cmrg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}} 
+\index{cmrg.cpp@{cmrg.cpp}!NPARAMS@{NPARAMS}}
+\index{NPARAMS@{NPARAMS}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{NPARAMS}{NPARAMS}}
+{\footnotesize\ttfamily \#define NPARAMS~3  /$\ast$$\ast$$\ast$ number of \mbox{\hyperlink{mlfg_8cpp_af1ec3052fc0e7f03425f7ddfaac969c5}{valid}} parameters $\ast$$\ast$$\ast$/}
+
+
+
+Definition at line 43 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a13602473e09442186741707f56c04991}\label{cmrg_8cpp_a13602473e09442186741707f56c04991}} 
+\index{cmrg.cpp@{cmrg.cpp}!PARAMLIST@{PARAMLIST}}
+\index{PARAMLIST@{PARAMLIST}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAMLIST}{PARAMLIST}}
+{\footnotesize\ttfamily \#define PARAMLIST~cmrg\+\_\+\+PARAMLIST}
+
+
+
+Definition at line 36 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ac61556e19676a2bd8cefe184427ad84e}\label{cmrg_8cpp_ac61556e19676a2bd8cefe184427ad84e}} 
+\index{cmrg.cpp@{cmrg.cpp}!q0@{q0}}
+\index{q0@{q0}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{q0}{q0}}
+{\footnotesize\ttfamily \#define q0~20}
+
+
+
+Definition at line 348 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_af28497f0af3104684cbad938788637f5}\label{cmrg_8cpp_af28497f0af3104684cbad938788637f5}} 
+\index{cmrg.cpp@{cmrg.cpp}!q4@{q4}}
+\index{q4@{q4}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{q4}{q4}}
+{\footnotesize\ttfamily \#define q4~20554}
+
+
+
+Definition at line 349 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_af8ef4632fb5325a43f9c31778135d450}\label{cmrg_8cpp_af8ef4632fb5325a43f9c31778135d450}} 
+\index{cmrg.cpp@{cmrg.cpp}!r0@{r0}}
+\index{r0@{r0}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{r0}{r0}}
+{\footnotesize\ttfamily \#define r0~7}
+
+
+
+Definition at line 350 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ac2da134ec3ab777999b1d3cb16f35f49}\label{cmrg_8cpp_ac2da134ec3ab777999b1d3cb16f35f49}} 
+\index{cmrg.cpp@{cmrg.cpp}!r4@{r4}}
+\index{r4@{r4}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{r4}{r4}}
+{\footnotesize\ttfamily \#define r4~1727}
+
+
+
+Definition at line 351 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ab4797afa52edffd7548301ced91bd29e}\label{cmrg_8cpp_ab4797afa52edffd7548301ced91bd29e}} 
+\index{cmrg.cpp@{cmrg.cpp}!TWO\_M20@{TWO\_M20}}
+\index{TWO\_M20@{TWO\_M20}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M20}{TWO\_M20}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M20~9.\+5367431640625e-\/07 /$\ast$ 2$^\wedge$(-\/20) $\ast$/}
+
+
+
+Definition at line 80 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a2d4ad26c03f36d5a08e9b0b817b6f7ed}\label{cmrg_8cpp_a2d4ad26c03f36d5a08e9b0b817b6f7ed}} 
+\index{cmrg.cpp@{cmrg.cpp}!TWO\_M22@{TWO\_M22}}
+\index{TWO\_M22@{TWO\_M22}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M22}{TWO\_M22}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M22~2.\+384185791015625e-\/07 /$\ast$ 2$^\wedge$(-\/22) $\ast$/}
+
+
+
+Definition at line 78 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a76ae6bf8cbcb67413347f5e9a535d00f}\label{cmrg_8cpp_a76ae6bf8cbcb67413347f5e9a535d00f}} 
+\index{cmrg.cpp@{cmrg.cpp}!TWO\_M42@{TWO\_M42}}
+\index{TWO\_M42@{TWO\_M42}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M42}{TWO\_M42}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M42~2.\+273736754432321e-\/13 /$\ast$ 2$^\wedge$(-\/42) $\ast$/}
+
+
+
+Definition at line 82 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}\label{cmrg_8cpp_aa855cf05b1c29b3bf1534c43bcaa930d}} 
+\index{cmrg.cpp@{cmrg.cpp}!TWO\_M64@{TWO\_M64}}
+\index{TWO\_M64@{TWO\_M64}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_M64}{TWO\_M64}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+M64~5.\+4210108624275222e-\/20 /$\ast$ 2$^\wedge$(-\/64) $\ast$/}
+
+
+
+Definition at line 84 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_afc511e5ad28ab2156ecdfaa4a5b5c223}\label{cmrg_8cpp_afc511e5ad28ab2156ecdfaa4a5b5c223}} 
+\index{cmrg.cpp@{cmrg.cpp}!TWO\_P20@{TWO\_P20}}
+\index{TWO\_P20@{TWO\_P20}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_P20}{TWO\_P20}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+P20~1048576 /$\ast$ 2$^\wedge$(20) $\ast$/}
+
+
+
+Definition at line 81 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ae20c22e2e57bef58b4af09a9a7b68c4e}\label{cmrg_8cpp_ae20c22e2e57bef58b4af09a9a7b68c4e}} 
+\index{cmrg.cpp@{cmrg.cpp}!TWO\_P22@{TWO\_P22}}
+\index{TWO\_P22@{TWO\_P22}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{TWO\_P22}{TWO\_P22}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+P22~4194304  /$\ast$ 2$^\wedge$(22) $\ast$/}
+
+
+
+Definition at line 79 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}\label{cmrg_8cpp_a1c6d5de492ac61ad29aec7aa9a436bbf}} 
+\index{cmrg.cpp@{cmrg.cpp}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily \#define VERSION~\char`\"{}00\char`\"{}}
+
+
+
+Definition at line 38 of file cmrg.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cmrg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}\label{cmrg_8cpp_a7d153f01faf2abd3753614ba45c3bdad}} 
+\index{cmrg.cpp@{cmrg.cpp}!MAX\_STREAMS@{MAX\_STREAMS}}
+\index{MAX\_STREAMS@{MAX\_STREAMS}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_STREAMS}{MAX\_STREAMS}}
+{\footnotesize\ttfamily int MAX\+\_\+\+STREAMS = (146138719)}
+
+
+
+Definition at line 42 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}\label{cmrg_8cpp_af9a26b69cfc52806e9f0f1ef0d4c04d8}} 
+\index{cmrg.cpp@{cmrg.cpp}!NGENS@{NGENS}}
+\index{NGENS@{NGENS}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{NGENS}{NGENS}}
+{\footnotesize\ttfamily int NGENS = 0}
+
+
+
+Definition at line 89 of file cmrg.\+cpp.
+
+\mbox{\Hypertarget{cmrg_8cpp_ad3d1649ca0fbd90252939f07b36871d8}\label{cmrg_8cpp_ad3d1649ca0fbd90252939f07b36871d8}} 
+\index{cmrg.cpp@{cmrg.cpp}!PARAMLIST@{PARAMLIST}}
+\index{PARAMLIST@{PARAMLIST}!cmrg.cpp@{cmrg.cpp}}
+\doxysubsubsection{\texorpdfstring{PARAMLIST}{PARAMLIST}}
+{\footnotesize\ttfamily unsigned int PARAMLIST\mbox{[}\mbox{\hyperlink{pmlcg_8cpp_ae468832efa6adf5e9a96cabd8f878b47}{NPARAMS}}\mbox{]}\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{  \{}
+\DoxyCodeLine{    \{ 0x87b0b0fdU, 0x27bb2ee6U \},}
+\DoxyCodeLine{    \{ 0xe78b6955U, 0x2c6fe96eU \},}
+\DoxyCodeLine{    \{ 0x31a53f85U, 0x369dea0fU \} \}}
+
+\end{DoxyCode}
+
+
+Definition at line 66 of file cmrg.\+cpp.
+
