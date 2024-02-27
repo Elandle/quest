@@ -1,6 +1,7 @@
 .SUFFIXES : .mod .o .F90
 
 FLAGS = $(FC_FLAGS) $(PRG_FLAGS)
+SPRNG_INC = -I/sprng5/include
 
 ifdef FLAG_CKB
 InitB = dqmc_checkerboard.F90 

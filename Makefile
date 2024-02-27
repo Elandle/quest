@@ -16,7 +16,7 @@ MKLPATH   = $(MKLROOT)/include/intel64/ilp64
 MAGMAPATH = 
 
 # nVidia CUDA installation path
-CUDAPATH  = 
+CUDAPATH  = #/usr/lib/nvidia-cuda-toolkit
 
 # Checkboard decomposition
 FLAG_CKB  = #-DDQMC_CKB
@@ -52,7 +52,8 @@ endif
 ifeq ($(COMPILER), intel)
   FC        = ifort
   CXX       = icpx
-  FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays
+  #FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays -heap-arrays
+  FC_FLAGS  = -qopenmp -m64 -warn all -unroll -heap-arrays -g -debug all
   #FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
   #CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
   CXX_FLAGS = -m64 -Wall -O3 -unroll $(CUDAINC) $(MAGMAINC)
@@ -186,6 +187,7 @@ export
 all : libdqmc example
 
 libdqmc :
+	(cd SRC/sprng5; ./configure; $(MAKE))
 	(cd SRC; $(MAKE))
 example : libdqmc
 	(cd EXAMPLE; $(MAKE))
@@ -200,3 +202,4 @@ clean :
 	(cd $(QUEST_DIR)/SRC; $(MAKE) clean)
 	(cd $(QUEST_DIR)/EXAMPLE; $(MAKE) clean)
 	(rm -f $(QUEST_DIR)/$(DQMCLIB))
+	(cd $(QUEST_DIR)/SRC/sprng5; $(MAKE) clean)
