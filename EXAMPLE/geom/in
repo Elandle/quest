@@ -3,7 +3,7 @@
 # ==========================
 
 ofile  = test
-gfile  = square.geom
+gfile  = square2.geom
 
 # ==========================
 # Hubbard model
@@ -11,8 +11,8 @@ gfile  = square.geom
 
 mu_up  =  0.00
 mu_dn  =  0.00
-L      = 10
-dtau   = 0.1
+L      = 100
+dtau   = 0.125
 HSF    = -1
 bcond  =  0.0, 0.0, 0.0
 
@@ -20,8 +20,8 @@ bcond  =  0.0, 0.0, 0.0
 # Met's algorithm
 # ==========================
 
-nwarm  = 10 
-npass  = 40 
+nwarm  = 100 
+npass  = 1000 
 ntry   = 0
 tausk  = 1
 tdm    = 1
@@ -30,7 +30,7 @@ tdm    = 1
 # Measurements
 # ==========================
 
-nbin   = 4
+nbin   = 10
 nhist  = 0
 seed   = 1234567
 
@@ -38,8 +38,8 @@ seed   = 1234567
 # numerical
 # ==========================
 
-north  = 5
-nwrap  = 5 
+north  = 4
+nwrap  = 4 
 fixwrap = 1
-errrate = 0.01
-difflim = 0.01
+errrate = 0.001
+difflim = 0.001
