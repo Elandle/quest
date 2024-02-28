@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DPTEQR + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dpteqr.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dpteqr.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dpteqr.f"> 
+*> Download DPTEQR + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dpteqr.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dpteqr.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dpteqr.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DPTEQR( COMPZ, N, D, E, Z, LDZ, WORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          COMPZ
 *       INTEGER            INFO, LDZ, N
@@ -27,7 +27,7 @@
 *       .. Array Arguments ..
 *       DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -123,8 +123,8 @@
 *>          < 0:  if INFO = -i, the i-th argument had an illegal value.
 *>          > 0:  if INFO = i, and i is:
 *>                <= N  the Cholesky factorization of the matrix could
-*>                      not be performed because the i-th principal minor
-*>                      was not positive definite.
+*>                      not be performed because the leading principal
+*>                      minor of order i was not positive.
 *>                > N   the SVD algorithm failed to converge;
 *>                      if INFO = N+i, i off-diagonal elements of the
 *>                      bidiagonal factor did not converge to zero.
@@ -133,22 +133,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date September 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup doublePTcomputational
 *
 *  =====================================================================
       SUBROUTINE DPTEQR( COMPZ, N, D, E, Z, LDZ, WORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          COMPZ

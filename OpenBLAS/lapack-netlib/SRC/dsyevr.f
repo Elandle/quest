@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DSYEVR + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsyevr.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsyevr.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsyevr.f"> 
+*> Download DSYEVR + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsyevr.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsyevr.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsyevr.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE DSYEVR( JOBZ, RANGE, UPLO, N, A, LDA, VL, VU, IL, IU,
 *                          ABSTOL, M, W, Z, LDZ, ISUPPZ, WORK, LWORK,
 *                          IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, LDA, LDZ, LIWORK, LWORK, M, N
@@ -31,7 +31,7 @@
 *       INTEGER            ISUPPZ( * ), IWORK( * )
 *       DOUBLE PRECISION   A( LDA, * ), W( * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -88,7 +88,7 @@
 *>
 *> Note 1 : DSYEVR calls DSTEMR when the full spectrum is requested
 *> on machines which conform to the ieee-754 floating point standard.
-*> DSYEVR calls DSTEBZ and SSTEIN on non-ieee machines and
+*> DSYEVR calls DSTEBZ and DSTEIN on non-ieee machines and
 *> when partial spectrum requests are made.
 *>
 *> Normal execution of DSTEMR may create NaNs and infinities and
@@ -153,12 +153,15 @@
 *> \param[in] VL
 *> \verbatim
 *>          VL is DOUBLE PRECISION
+*>          If RANGE='V', the lower bound of the interval to
+*>          be searched for eigenvalues. VL < VU.
+*>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
 *>          VU is DOUBLE PRECISION
-*>          If RANGE='V', the lower and upper bounds of the interval to
+*>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
@@ -166,13 +169,17 @@
 *> \param[in] IL
 *> \verbatim
 *>          IL is INTEGER
+*>          If RANGE='I', the index of the
+*>          smallest eigenvalue to be returned.
+*>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+*>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
 *>
 *> \param[in] IU
 *> \verbatim
 *>          IU is INTEGER
-*>          If RANGE='I', the indices (in ascending order) of the
-*>          smallest and largest eigenvalues to be returned.
+*>          If RANGE='I', the index of the
+*>          largest eigenvalue to be returned.
 *>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
 *>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
@@ -249,7 +256,9 @@
 *>          The support of the eigenvectors in Z, i.e., the indices
 *>          indicating the nonzero elements in Z. The i-th eigenvector
 *>          is nonzero only in elements ISUPPZ( 2*i-1 ) through
-*>          ISUPPZ( 2*i ).
+*>          ISUPPZ( 2*i ). This is an output of DSTEMR (tridiagonal
+*>          matrix). The support of the eigenvectors of A is typically
+*>          1:N because of the orthogonal transformations applied by DORMTR.
 *>          Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
 *> \endverbatim
 *>
@@ -262,7 +271,8 @@
 *> \param[in] LWORK
 *> \verbatim
 *>          LWORK is INTEGER
-*>          The dimension of the array WORK.  LWORK >= max(1,26*N).
+*>          The dimension of the array WORK.
+*>          If N <= 1, LWORK >= 1, else LWORK >= 26*N.
 *>          For optimal efficiency, LWORK >= (NB+6)*N,
 *>          where NB is the max of the blocksize for DSYTRD and DORMTR
 *>          returned by ILAENV.
@@ -276,13 +286,14 @@
 *> \param[out] IWORK
 *> \verbatim
 *>          IWORK is INTEGER array, dimension (MAX(1,LIWORK))
-*>          On exit, if INFO = 0, IWORK(1) returns the optimal LWORK.
+*>          On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.
 *> \endverbatim
 *>
 *> \param[in] LIWORK
 *> \verbatim
 *>          LIWORK is INTEGER
-*>          The dimension of the array IWORK.  LIWORK >= max(1,10*N).
+*>          The dimension of the array IWORK.
+*>          If N <= 1, LIWORK >= 1, else LIWORK >= 10*N.
 *>
 *>          If LIWORK = -1, then a workspace query is assumed; the
 *>          routine only calculates the optimal size of the IWORK array,
@@ -301,14 +312,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup doubleSYeigen
+*> \ingroup heevr
 *
 *> \par Contributors:
 *  ==================
@@ -325,10 +334,9 @@
      $                   ABSTOL, M, W, Z, LDZ, ISUPPZ, WORK, LWORK,
      $                   IWORK, LIWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.2) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
@@ -384,8 +392,13 @@
 *
       LQUERY = ( ( LWORK.EQ.-1 ) .OR. ( LIWORK.EQ.-1 ) )
 *
-      LWMIN = MAX( 1, 26*N )
-      LIWMIN = MAX( 1, 10*N )
+      IF( N.LE.1 ) THEN
+         LWMIN  = 1
+         LIWMIN = 1
+      ELSE
+         LWMIN  = 26*N
+         LIWMIN = 10*N
+      END IF
 *
       INFO = 0
       IF( .NOT.( WANTZ .OR. LSAME( JOBZ, 'N' ) ) ) THEN
@@ -444,7 +457,7 @@
       END IF
 *
       IF( N.EQ.1 ) THEN
-         WORK( 1 ) = 7
+         WORK( 1 ) = 1
          IF( ALLEIG .OR. INDEIG ) THEN
             M = 1
             W( 1 ) = A( 1, 1 )
@@ -573,7 +586,7 @@
 *
 *
 *        Apply orthogonal matrix used in reduction to tridiagonal
-*        form to eigenvectors returned by DSTEIN.
+*        form to eigenvectors returned by DSTEMR.
 *
             IF( WANTZ .AND. INFO.EQ.0 ) THEN
                INDWKN = INDE

@@ -61,7 +61,7 @@
 #define	N	r4
 #define	K	r5
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
 #define A	r6
 #define	B	r7
@@ -172,38 +172,38 @@
 
 	stw	r0,  FZERO
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifdef __64BIT__
-	ld	LDC,    112 + STACKSIZE(SP)
+	ld	LDC, FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifdef __64BIT__
-	ld	LDC,    112 + STACKSIZE(SP)
+	ld	LDC, FRAMESLOT(0) + STACKSIZE(SP)
 #else
 #ifdef DOUBLE
-	lwz	B,       56 + STACKSIZE(SP)
-	lwz	C,       60 + STACKSIZE(SP)
-	lwz	LDC,     64 + STACKSIZE(SP)
+	lwz	B,   FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	C,   FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	LDC, FRAMESLOT(2) + STACKSIZE(SP)
 #else
-	lwz	LDC,     56 + STACKSIZE(SP)
+	lwz	LDC, FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 #endif
 #endif
 
-#if defined(linux) && defined(__64BIT__)
-	ld	OFFSET,  120 + STACKSIZE(SP)
+#if (defined(linux) || defined(__FreeBSD__)) && defined(__64BIT__)
+	ld	OFFSET,  FRAMESLOT(1) + STACKSIZE(SP)
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifdef __64BIT__
-	ld	OFFSET,  120 + STACKSIZE(SP)
+	ld	OFFSET,  FRAMESLOT(1) + STACKSIZE(SP)
 #else
 #ifdef DOUBLE
-	lwz	OFFSET,   68 + STACKSIZE(SP)
+	lwz	OFFSET,  FRAMESLOT(3) + STACKSIZE(SP)
 #else
-	lwz	OFFSET,   60 + STACKSIZE(SP)
+	lwz	OFFSET,  FRAMESLOT(1) + STACKSIZE(SP)
 #endif
 #endif
 #endif

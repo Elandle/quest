@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE SCKCSD( NM, MVAL, PVAL, QVAL, NMATS, ISEED, THRESH,
 *                          MMAX, X, XF, U1, U2, V1T, V2T, THETA, IWORK,
 *                          WORK, RWORK, NIN, NOUT, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, NIN, NM, NMATS, MMAX, NOUT
 *       REAL               THRESH
@@ -23,7 +23,7 @@
 *       REAL               U1( * ), U2( * ), V1T( * ), V2T( * ),
 *      $                   WORK( * ), X( * ), XF( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -170,12 +170,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_eig
 *
@@ -184,10 +182,9 @@
      $                   MMAX, X, XF, U1, U2, V1T, V2T, THETA, IWORK,
      $                   WORK, RWORK, NIN, NOUT, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, NIN, NM, NMATS, MMAX, NOUT
@@ -208,11 +205,11 @@
       PARAMETER          ( NTESTS = 15 )
       INTEGER            NTYPES
       PARAMETER          ( NTYPES = 4 )
-      REAL               GAPDIGIT, ONE, ORTH, PIOVER2, TEN, ZERO
+      REAL               GAPDIGIT, ONE, ORTH, TEN, ZERO
       PARAMETER          ( GAPDIGIT = 10.0E0, ONE = 1.0E0,
-     $                     ORTH = 1.0E-4,
-     $                     PIOVER2 = 1.57079632679489662E0,
-     $                     TEN = 10.0E0, ZERO = 0.0E0 )
+     $                     ORTH = 1.0E-4, TEN = 10.0E0, ZERO = 0.0E0 )
+      REAL               PIOVER2
+      PARAMETER ( PIOVER2 = 1.57079632679489661923132169163975144210E0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            FIRSTT
@@ -226,7 +223,7 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ALAHDG, ALAREQ, ALASUM, SCSDTS, SLACSG, SLAROR,
-     $                   SLASET
+     $                   SLASET, SROT
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MIN

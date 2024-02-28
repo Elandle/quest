@@ -1,5 +1,5 @@
 /*****************************************************************************
-Copyright (c) 2011, Lab of Parallel Software and Computational Science,ICSAS
+Copyright (c) 2011-2014, The OpenBLAS Project
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -13,9 +13,10 @@ met:
       notice, this list of conditions and the following disclaimer in
       the documentation and/or other materials provided with the
       distribution.
-   3. Neither the name of the ISCAS nor the names of its contributors may
-      be used to endorse or promote products derived from this software
-      without specific prior written permission.
+   3. Neither the name of the OpenBLAS project nor the names of 
+      its contributors may be used to endorse or promote products 
+      derived from this software without specific prior written 
+      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,7 +28,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
 USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 **********************************************************************************/
 
 /*********************************************************************/
@@ -71,67 +71,44 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef COMMON_MIPS64
 #define COMMON_MIPS64
 
-#define MB
-#define WMB
+#define MB  __sync_synchronize()
+#define WMB __sync_synchronize()
+#define RMB __sync_synchronize()
 
 #define INLINE inline
 
 #ifndef ASSEMBLER
 
-static void INLINE blas_lock(volatile unsigned long *address){
-
-  long int ret, val = 1;
-
-  do {
-    while (*address) {YIELDING;};
-
-    __asm__ __volatile__(
-			 "1:	ll	%0, %3\n"
-			 "	ori	%2, %0, 1\n"
-			 "	sc	%2, %1\n"
-			 "	beqz	%2, 1b\n"
-			 "	 andi	%2, %0, 1\n"
-			 "	sync\n"
-			 : "=&r" (val), "=m" (address), "=&r" (ret)
-			 : "m" (address)
-			 : "memory");
-
-  } while (ret);
-}
-
 static inline unsigned int rpcc(void){
   unsigned long ret;
-#if defined(LOONGSON3A) || defined(LOONGSON3B)
+
   //  unsigned long long tmp;
   //__asm__ __volatile__("dmfc0 %0, $25, 1": "=r"(tmp):: "memory");
   //ret=tmp;
   __asm__ __volatile__(".set push \n"
+#if !defined(__mips_isa_rev) || __mips_isa_rev < 2
                        ".set mips32r2\n"
+#endif
                        "rdhwr %0, $2\n"
                        ".set pop": "=r"(ret):: "memory");
 
-#else
-  __asm__ __volatile__(".set   push    \n"
-          ".set   mips32r2\n"
-          "rdhwr %0, $30  \n"
-          ".set pop" : "=r"(ret) : : "memory");
-#endif
   return ret;
 }
+#define RPCC_DEFINED
 
-#if defined(LOONGSON3A) || defined(LOONGSON3B)
 #ifndef NO_AFFINITY
-#define WHEREAMI
+//#define WHEREAMI
 static inline int WhereAmI(void){
   int ret=0;
   __asm__ __volatile__(".set push \n"
+#if !defined(__mips_isa_rev) || __mips_isa_rev < 2
                        ".set mips32r2\n"
+#endif
                        "rdhwr %0, $0\n"
                        ".set pop": "=r"(ret):: "memory");
   return ret;
 
 }
-#endif
 #endif
 
 static inline int blas_quickdivide(blasint x, blasint y){
@@ -224,9 +201,15 @@ static inline int blas_quickdivide(blasint x, blasint y){
 
 #if defined(ASSEMBLER) && !defined(NEEDPARAM)
 
+#if defined(__mips_isa_rev) && __mips_isa_rev >= 6
+#define ASSEMBLER_ARCH mips64r6
+#else
+#define ASSEMBLER_ARCH mips64
+#endif
+
 #define PROLOGUE \
 	.text ;\
-	.set	mips64 ;\
+	.set	ASSEMBLER_ARCH ;\
 	.align 5 ;\
 	.globl	REALNAME ;\
 	.ent	REALNAME ;\
@@ -254,14 +237,9 @@ REALNAME: ;\
 
 #define SEEK_ADDRESS
 
-#define BUFFER_SIZE     ( 32 << 20)
+#define BUFFER_SIZE     ( 32 << 21)
 
-#if defined(LOONGSON3A)
-#define PAGESIZE	(16UL << 10)
-#define FIXED_PAGESIZE	(16UL << 10)
-#endif
-
-#if defined(LOONGSON3B)
+#if defined(LOONGSON3R3) || defined(LOONGSON3R4)
 #define PAGESIZE	(16UL << 10)
 #define FIXED_PAGESIZE	(16UL << 10)
 #endif
@@ -277,7 +255,7 @@ REALNAME: ;\
 #define MAP_ANONYMOUS MAP_ANON
 #endif
 
-#if defined(LOONGSON3A) || defined(LOONGSON3B)
+#if defined(LOONGSON3R3) || defined(LOONGSON3R4)
 #define PREFETCHD_(x) ld $0, x
 #define PREFETCHD(x)  PREFETCHD_(x)
 #else

@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CSYSVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/csysvx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/csysvx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/csysvx.f"> 
+*> Download CSYSVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/csysvx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/csysvx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/csysvx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE CSYSVX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV, B,
 *                          LDB, X, LDX, RCOND, FERR, BERR, WORK, LWORK,
 *                          RWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          FACT, UPLO
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, LWORK, N, NRHS
@@ -33,7 +33,7 @@
 *       COMPLEX            A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -271,24 +271,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date April 2012
-*
-*> \ingroup complexSYsolve
+*> \ingroup hesvx
 *
 *  =====================================================================
       SUBROUTINE CSYSVX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV, B,
      $                   LDB, X, LDX, RCOND, FERR, BERR, WORK, LWORK,
      $                   RWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          FACT, UPLO
@@ -316,8 +313,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               CLANSY, SLAMCH
-      EXTERNAL           ILAENV, LSAME, CLANSY, SLAMCH
+      REAL               CLANSY, SLAMCH, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, LSAME, CLANSY, SLAMCH, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           CLACPY, CSYCON, CSYRFS, CSYTRF, CSYTRS, XERBLA
@@ -359,7 +356,7 @@
             NB = ILAENV( 1, 'CSYTRF', UPLO, N, -1, -1, -1 )
             LWKOPT = MAX( LWKOPT, N*NB )
          END IF
-         WORK( 1 ) = LWKOPT
+         WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -408,7 +405,7 @@
       IF( RCOND.LT.SLAMCH( 'Epsilon' ) )
      $   INFO = N + 1
 *
-      WORK( 1 ) = LWKOPT
+      WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 *
       RETURN
 *

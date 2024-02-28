@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZCHKPB( DOTYPE, NN, NVAL, NNB, NBVAL, NNS, NSVAL,
 *                          THRESH, TSTERR, NMAX, A, AFAC, AINV, B, X,
 *                          XACT, WORK, RWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NMAX, NN, NNB, NNS, NOUT
@@ -24,7 +24,7 @@
 *       COMPLEX*16         A( * ), AFAC( * ), AINV( * ), B( * ),
 *      $                   WORK( * ), X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -65,7 +65,7 @@
 *>
 *> \param[in] NBVAL
 *> \verbatim
-*>          NBVAL is INTEGER array, dimension (NBVAL)
+*>          NBVAL is INTEGER array, dimension (NNB)
 *>          The values of the blocksize NB.
 *> \endverbatim
 *>
@@ -154,12 +154,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -168,10 +166,9 @@
      $                   THRESH, TSTERR, NMAX, A, AFAC, AINV, B, X,
      $                   XACT, WORK, RWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR

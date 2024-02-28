@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE DDRVGB( DOTYPE, NN, NVAL, NRHS, THRESH, TSTERR, A, LA,
 *                          AFB, LAFB, ASAV, B, BSAV, X, XACT, S, WORK,
 *                          RWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            LA, LAFB, NN, NOUT, NRHS
@@ -24,7 +24,7 @@
 *      $                   RWORK( * ), S( * ), WORK( * ), X( * ),
 *      $                   XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -141,7 +141,7 @@
 *> \param[out] RWORK
 *> \verbatim
 *>          RWORK is DOUBLE PRECISION array, dimension
-*>                      (max(NMAX,2*NRHS))
+*>                      (NMAX+2*NRHS)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -158,12 +158,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_lin
 *
@@ -172,10 +170,9 @@
      $                   AFB, LAFB, ASAV, B, BSAV, X, XACT, S, WORK,
      $                   RWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -585,7 +582,8 @@
      $                                        WORK, LDB )
                                  CALL DGBT02( 'No transpose', N, N, KL,
      $                                        KU, NRHS, A, LDA, X, LDB,
-     $                                        WORK, LDB, RESULT( 2 ) )
+     $                                        WORK, LDB, RWORK,
+     $                                        RESULT( 2 ) )
 *
 *                                Check solution from generated exact
 *                                solution.
@@ -702,6 +700,7 @@
      $                                     WORK, LDB )
                               CALL DGBT02( TRANS, N, N, KL, KU, NRHS,
      $                                     ASAV, LDA, X, LDB, WORK, LDB,
+     $                                     RWORK( 2*NRHS+1 ),
      $                                     RESULT( 2 ) )
 *
 *                             Check solution from generated exact
@@ -758,7 +757,7 @@
                                     NFAIL = NFAIL + 1
                                  END IF
    80                         CONTINUE
-                              NRUN = NRUN + 7 - K1
+                              NRUN = NRUN + NTESTS - K1 + 1
                            ELSE
                               IF( RESULT( 1 ).GE.THRESH .AND. .NOT.
      $                            PREFAC ) THEN

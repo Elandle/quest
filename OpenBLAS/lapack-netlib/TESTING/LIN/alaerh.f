@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ALAERH( PATH, SUBNAM, INFO, INFOE, OPTS, M, N, KL, KU,
 *                          N5, IMAT, NFAIL, NERRS, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       CHARACTER*( * )    SUBNAM
@@ -18,7 +18,7 @@
 *       INTEGER            IMAT, INFO, INFOE, KL, KU, M, N, N5, NERRS,
 *      $                   NFAIL, NOUT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -134,12 +134,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2013
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup aux_lin
 *
@@ -147,10 +145,9 @@
       SUBROUTINE ALAERH( PATH, SUBNAM, INFO, INFOE, OPTS, M, N, KL, KU,
      $                   N5, IMAT, NFAIL, NERRS, NOUT )
 *
-*  -- LAPACK test routine (version 3.5.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2013
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -489,17 +486,28 @@
 *
       ELSE IF( LSAMEN( 2, P2, 'SY' )
      $         .OR. LSAMEN( 2, P2, 'SR' )
+     $         .OR. LSAMEN( 2, P2, 'SK' )
      $         .OR. LSAMEN( 2, P2, 'HE' )
-     $         .OR. LSAMEN( 2, P2, 'HR' ) ) THEN
+     $         .OR. LSAMEN( 2, P2, 'HR' )
+     $         .OR. LSAMEN( 2, P2, 'HK' )
+     $         .OR. LSAMEN( 2, P2, 'HA' ) ) THEN
 *
 *        xSY: symmetric indefinite matrices
 *             with partial (Bunch-Kaufman) pivoting;
 *        xSR: symmetric indefinite matrices
 *             with rook (bounded Bunch-Kaufman) pivoting;
+*        xSK: symmetric indefinite matrices
+*             with rook (bounded Bunch-Kaufman) pivoting,
+*             new storage format;
 *        xHE: Hermitian indefinite matrices
 *             with partial (Bunch-Kaufman) pivoting.
 *        xHR: Hermitian indefinite matrices
 *             with rook (bounded Bunch-Kaufman) pivoting;
+*        xHK: Hermitian indefinite matrices
+*             with rook (bounded Bunch-Kaufman) pivoting,
+*             new storage format;
+*        xHA: Hermitian matrices
+*             Aasen Algorithm
 *
          UPLO = OPTS( 1: 1 )
          IF( LSAMEN( 3, C3, 'TRF' ) ) THEN
@@ -784,6 +792,18 @@
 *
          IF( LSAMEN( 3, C3, 'QRS' ) ) THEN
             WRITE( NOUT, FMT = 9974 )
+     $     SUBNAM(1:LEN_TRIM( SUBNAM )), INFO, M, N, KL, N5, IMAT
+         ELSE IF( LSAMEN( 5, SUBNAM( 2: 6 ), 'LATMS' ) ) THEN
+            WRITE( NOUT, FMT = 9978 )
+     $     SUBNAM(1:LEN_TRIM( SUBNAM )), INFO, M, N, IMAT
+         END IF
+*
+      ELSE IF( LSAMEN( 2, P2, 'QK' ) ) THEN
+*
+*        xQK:  truncated QR factorization with pivoting
+*
+         IF( LSAMEN( 7, SUBNAM( 2: 8 ), 'GEQP3RK' )  ) THEN
+            WRITE( NOUT, FMT = 9930 )
      $     SUBNAM(1:LEN_TRIM( SUBNAM )), INFO, M, N, KL, N5, IMAT
          ELSE IF( LSAMEN( 5, SUBNAM( 2: 6 ), 'LATMS' ) ) THEN
             WRITE( NOUT, FMT = 9978 )
@@ -1139,6 +1159,11 @@
 *     What we do next
 *
  9949 FORMAT( ' ==> Doing only the condition estimate for this case' )
+*
+*     SUBNAM, INFO, M, N, NB, IMAT
+*
+ 9930 FORMAT( ' *** Error code from ', A, '=', I5, / ' ==> M =', I5,
+     $      ', N =', I5, ', NX =', I5, ', NB =', I4, ', type ', I2 )
 *
       RETURN
 *

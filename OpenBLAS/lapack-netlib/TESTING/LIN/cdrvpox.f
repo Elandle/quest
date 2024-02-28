@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE CDRVPO( DOTYPE, NN, NVAL, NRHS, THRESH, TSTERR, NMAX,
 *                          A, AFAC, ASAV, B, BSAV, X, XACT, S, WORK,
 *                          RWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NMAX, NN, NOUT, NRHS
@@ -24,7 +24,7 @@
 *       COMPLEX            A( * ), AFAC( * ), ASAV( * ), B( * ),
 *      $                   BSAV( * ), WORK( * ), X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -148,12 +148,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2013
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -162,10 +160,9 @@
      $                   A, AFAC, ASAV, B, BSAV, X, XACT, S, WORK,
      $                   RWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.5.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2013
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -734,6 +731,6 @@
      $      G12.5 )
       RETURN
 *
-*     End of CDRVPO
+*     End of CDRVPOX
 *
       END

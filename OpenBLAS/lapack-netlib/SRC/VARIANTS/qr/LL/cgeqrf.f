@@ -2,28 +2,28 @@ C> \brief \b CGEQRF VARIANT: left-looking Level 3 BLAS version of the algorithm.
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CGEQRF ( M, N, A, LDA, TAU, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
 *       COMPLEX            A( LDA, * ), TAU( * ), WORK( * )
 *       ..
-*  
+*
 *  Purpose
 *  =======
 *
 C>\details \b Purpose:
 C>\verbatim
 C>
-C> CGEQRF computes a QR factorization of a real M-by-N matrix A:
+C> CGEQRF computes a QR factorization of a complex M-by-N matrix A:
 C> A = Q * R.
 C>
 C> This is the left-looking Level 3 BLAS version of the algorithm.
@@ -81,15 +81,16 @@ C> \verbatim
 C>          LWORK is INTEGER
 C> \endverbatim
 C> \verbatim
-C>          The dimension of the array WORK. The dimension can be divided into three parts.
+C>          The dimension of the array WORK. LWORK >= 1 if MIN(M,N) = 0,
+C>          otherwise the dimension can be divided into three parts.
 C> \endverbatim
 C> \verbatim
-C>          1) The part for the triangular factor T. If the very last T is not bigger 
-C>             than any of the rest, then this part is NB x ceiling(K/NB), otherwise, 
-C>             NB x (K-NT), where K = min(M,N) and NT is the dimension of the very last T              
+C>          1) The part for the triangular factor T. If the very last T is not bigger
+C>             than any of the rest, then this part is NB x ceiling(K/NB), otherwise,
+C>             NB x (K-NT), where K = min(M,N) and NT is the dimension of the very last T
 C> \endverbatim
 C> \verbatim
-C>          2) The part for the very last T when T is bigger than any of the rest T. 
+C>          2) The part for the very last T when T is bigger than any of the rest T.
 C>             The size of this part is NT x NT, where NT = K - ceiling ((K-NX)/NB) x NB,
 C>             where K = min(M,N), NX is calculated by
 C>                   NX = MAX( 0, ILAENV( 3, 'CGEQRF', ' ', M, N, -1, -1 ) )
@@ -118,12 +119,12 @@ C>
 *  Authors:
 *  ========
 *
-C> \author Univ. of Tennessee 
-C> \author Univ. of California Berkeley 
-C> \author Univ. of Colorado Denver 
-C> \author NAG Ltd. 
+C> \author Univ. of Tennessee
+C> \author Univ. of California Berkeley
+C> \author Univ. of Colorado Denver
+C> \author NAG Ltd.
 *
-C> \date November 2011
+C> \date December 2016
 *
 C> \ingroup variantsGEcomputational
 *
@@ -149,10 +150,9 @@ C>
 *  =====================================================================
       SUBROUTINE CGEQRF ( M, N, A, LDA, TAU, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.1) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LWORK, M, N
@@ -172,12 +172,12 @@ C>
       EXTERNAL           CGEQR2, CLARFB, CLARFT, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          MAX, MIN
+      INTRINSIC          CEILING, MAX, MIN, REAL
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      REAL               SCEIL
-      EXTERNAL           ILAENV, SCEIL
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           ILAENV, SROUNDUP_LWORK
 *     ..
 *     .. Executable Statements ..
 
@@ -198,35 +198,41 @@ C>
 *     Get NT, the size of the very last T, which is the left-over from in-between K-NX and K to K, eg.:
 *
 *            NB=3     2NB=6       K=10
-*            |        |           |    
+*            |        |           |
 *      1--2--3--4--5--6--7--8--9--10
 *                  |     \________/
 *               K-NX=5      NT=4
 *
 *     So here 4 x 4 is the last T stored in the workspace
 *
-      NT = K-SCEIL(REAL(K-NX)/REAL(NB))*NB
+      NT = K-CEILING(REAL(K-NX)/REAL(NB))*NB
 
 *
 *     optimal workspace = space for dlarfb + space for normal T's + space for the last T
 *
       LLWORK = MAX (MAX((N-M)*K, (N-M)*NB), MAX(K*NB, NB*NB))
-      LLWORK = SCEIL(REAL(LLWORK)/REAL(NB))
+      LLWORK = CEILING(REAL(LLWORK)/REAL(NB))
 
-      IF ( NT.GT.NB ) THEN
+      IF( K.EQ.0 ) THEN
 
-          LBWORK = K-NT 
+         LBWORK = 0
+         LWKOPT = 1
+         WORK( 1 ) = LWKOPT
+
+      ELSE IF ( NT.GT.NB ) THEN
+
+          LBWORK = K-NT
 *
 *         Optimal workspace for dlarfb = MAX(1,N)*NT
 *
           LWKOPT = (LBWORK+LLWORK)*NB
-          WORK( 1 ) = (LWKOPT+NT*NT)
+          WORK( 1 ) = SROUNDUP_LWORK(LWKOPT+NT*NT)
 
       ELSE
 
-          LBWORK = SCEIL(REAL(K)/REAL(NB))*NB
-          LWKOPT = (LBWORK+LLWORK-NB)*NB 
-          WORK( 1 ) = LWKOPT
+          LBWORK = CEILING(REAL(K)/REAL(NB))*NB
+          LWKOPT = (LBWORK+LLWORK-NB)*NB
+          WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 
       END IF
 
@@ -240,8 +246,9 @@ C>
          INFO = -2
       ELSE IF( LDA.LT.MAX( 1, M ) ) THEN
          INFO = -4
-      ELSE IF( LWORK.LT.MAX( 1, N ) .AND. .NOT.LQUERY ) THEN
-         INFO = -7
+      ELSE IF ( .NOT.LQUERY ) THEN
+         IF( LWORK.LE.0 .OR. ( M.GT.0 .AND. LWORK.LT.MAX( 1, N ) ) )
+     $      INFO = -7
       END IF
       IF( INFO.NE.0 ) THEN
          CALL XERBLA( 'CGEQRF', -INFO )
@@ -253,7 +260,6 @@ C>
 *     Quick return if possible
 *
       IF( K.EQ.0 ) THEN
-         WORK( 1 ) = 1
          RETURN
       END IF
 *
@@ -301,16 +307,16 @@ C>
 *
                CALL CLARFB( 'Left', 'Transpose', 'Forward',
      $                      'Columnwise', M-J+1, IB, NB,
-     $                      A( J, J ), LDA, WORK(J), LBWORK, 
+     $                      A( J, J ), LDA, WORK(J), LBWORK,
      $                      A( J, I ), LDA, WORK(LBWORK*NB+NT*NT+1),
      $                      IB)
 
-20          CONTINUE   
+20          CONTINUE
 *
 *           Compute the QR factorization of the current block
 *           A(I:M,I:I+IB-1)
 *
-            CALL CGEQR2( M-I+1, IB, A( I, I ), LDA, TAU( I ), 
+            CALL CGEQR2( M-I+1, IB, A( I, I ), LDA, TAU( I ),
      $                        WORK(LBWORK*NB+NT*NT+1), IINFO )
 
             IF( I+IB.LE.N ) THEN
@@ -319,7 +325,7 @@ C>
 *              H = H(i) H(i+1) . . . H(i+ib-1)
 *
                CALL CLARFT( 'Forward', 'Columnwise', M-I+1, IB,
-     $                      A( I, I ), LDA, TAU( I ), 
+     $                      A( I, I ), LDA, TAU( I ),
      $                      WORK(I), LBWORK )
 *
             END IF
@@ -331,7 +337,7 @@ C>
 *     Use unblocked code to factor the last or only block.
 *
       IF( I.LE.K ) THEN
-         
+
          IF ( I .NE. 1 )   THEN
 
              DO 30 J = 1, I - NB, NB
@@ -340,19 +346,19 @@ C>
 *
                  CALL CLARFB( 'Left', 'Transpose', 'Forward',
      $                       'Columnwise', M-J+1, K-I+1, NB,
-     $                       A( J, J ), LDA, WORK(J), LBWORK, 
+     $                       A( J, J ), LDA, WORK(J), LBWORK,
      $                       A( J, I ), LDA, WORK(LBWORK*NB+NT*NT+1),
      $                       K-I+1)
-30           CONTINUE   
+30           CONTINUE
 
-             CALL CGEQR2( M-I+1, K-I+1, A( I, I ), LDA, TAU( I ), 
+             CALL CGEQR2( M-I+1, K-I+1, A( I, I ), LDA, TAU( I ),
      $                   WORK(LBWORK*NB+NT*NT+1),IINFO )
 
          ELSE
 *
 *        Use unblocked code to factor the last or only block.
 *
-         CALL CGEQR2( M-I+1, N-I+1, A( I, I ), LDA, TAU( I ), 
+         CALL CGEQR2( M-I+1, N-I+1, A( I, I ), LDA, TAU( I ),
      $               WORK,IINFO )
 
          END IF
@@ -372,7 +378,7 @@ C>
      $                     A( I, I ), LDA, TAU( I ), WORK(I), LBWORK )
           ELSE
                CALL CLARFT( 'Forward', 'Columnwise', M-I+1, K-I+1,
-     $                     A( I, I ), LDA, TAU( I ), 
+     $                     A( I, I ), LDA, TAU( I ),
      $                     WORK(LBWORK*NB+1), NT )
           END IF
 
@@ -385,30 +391,30 @@ C>
 
                CALL CLARFB( 'Left', 'Transpose', 'Forward',
      $                     'Columnwise', M-J+1, N-M, IB,
-     $                     A( J, J ), LDA, WORK(J), LBWORK, 
+     $                     A( J, J ), LDA, WORK(J), LBWORK,
      $                     A( J, M+1 ), LDA, WORK(LBWORK*NB+NT*NT+1),
      $                     N-M)
 
-40       CONTINUE   
-         
+40       CONTINUE
+
          IF ( NT.LE.NB ) THEN
              CALL CLARFB( 'Left', 'Transpose', 'Forward',
      $                   'Columnwise', M-J+1, N-M, K-J+1,
-     $                   A( J, J ), LDA, WORK(J), LBWORK, 
+     $                   A( J, J ), LDA, WORK(J), LBWORK,
      $                   A( J, M+1 ), LDA, WORK(LBWORK*NB+NT*NT+1),
      $                   N-M)
-         ELSE 
+         ELSE
              CALL CLARFB( 'Left', 'Transpose', 'Forward',
      $                   'Columnwise', M-J+1, N-M, K-J+1,
-     $                   A( J, J ), LDA, 
-     $                   WORK(LBWORK*NB+1), 
+     $                   A( J, J ), LDA,
+     $                   WORK(LBWORK*NB+1),
      $                   NT, A( J, M+1 ), LDA, WORK(LBWORK*NB+NT*NT+1),
      $                   N-M)
          END IF
-          
+
       END IF
 
-      WORK( 1 ) = IWS
+      WORK( 1 ) = SROUNDUP_LWORK(IWS)
       RETURN
 *
 *     End of CGEQRF

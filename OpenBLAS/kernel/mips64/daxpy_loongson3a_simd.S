@@ -1,5 +1,5 @@
 /*****************************************************************************
-Copyright (c) 2011, Lab of Parallel Software and Computational Science,ICSAS
+Copyright (c) 2011-2014, The OpenBLAS Project
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -13,9 +13,10 @@ met:
       notice, this list of conditions and the following disclaimer in
       the documentation and/or other materials provided with the
       distribution.
-   3. Neither the name of the ISCAS nor the names of its contributors may
-      be used to endorse or promote products derived from this software
-      without specific prior written permission.
+   3. Neither the name of the OpenBLAS project nor the names of 
+      its contributors may be used to endorse or promote products 
+      derived from this software without specific prior written 
+      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -561,6 +562,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //INCX!=1 or INCY != 1
 .L20:
+	beq	INCY, $0, .L27
 	dsra	I, N, 3
 	move	YY, Y
 
@@ -753,5 +755,18 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	j	$31
 	NOP
+	.align  3
+.L27:
+	LD	b1,  0 * SIZE(Y)
 
+.L28:
+	daddiu	N, N, -1
+	LD	a1,  0 * SIZE(X)
+	daddu	X, X, INCX
+	bgtz	N, .L28
+	MADD	b1, b1, ALPHA, a1
+
+	j	.L999
+	ST	b1,  0 * SIZE(Y)
+	
 	EPILOGUE

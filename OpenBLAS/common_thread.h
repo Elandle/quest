@@ -59,12 +59,19 @@ extern int blas_omp_linked;
 #define BLAS_PTHREAD	0x4000U
 #define BLAS_NODE	0x2000U
 
-#define BLAS_PREC	0x0003U
-#define BLAS_SINGLE	0x0000U
-#define BLAS_DOUBLE	0x0001U
-#define BLAS_XDOUBLE	0x0002U
-#define BLAS_REAL	0x0000U
-#define BLAS_COMPLEX	0x0004U
+#define BLAS_PREC       0x000FU
+#define BLAS_INT8       0x0000U
+#define BLAS_BFLOAT16   0x0001U
+#define BLAS_SINGLE     0x0002U
+#define BLAS_DOUBLE     0x0003U
+#define BLAS_XDOUBLE    0x0004U
+#define BLAS_STOBF16    0x0008U
+#define BLAS_DTOBF16    0x0009U
+#define BLAS_BF16TOS    0x000AU
+#define BLAS_BF16TOD    0x000BU
+
+#define BLAS_REAL       0x0000U
+#define BLAS_COMPLEX    0x1000U
 
 #define BLAS_TRANSA	0x0030U	/* 2bit */
 #define BLAS_TRANSA_N	0x0000U
@@ -104,8 +111,9 @@ typedef struct blas_queue {
   struct blas_queue *next;
 
 #if defined( __WIN32__) || defined(__CYGWIN32__) || defined(_WIN32) || defined(__CYGWIN__)
-  CRITICAL_SECTION lock;
-  HANDLE finish;
+  // CRITICAL_SECTION lock;
+  // HANDLE finish;
+  volatile int finished;
 #else
   pthread_mutex_t	 lock;
   pthread_cond_t	 finished;
@@ -128,23 +136,31 @@ typedef struct blas_queue {
 #ifdef SMP_SERVER
 
 extern int blas_server_avail;
+extern int blas_omp_number_max;
 
 static __inline int num_cpu_avail(int level) {
 
 #ifdef USE_OPENMP
-	int openmp_nthreads=0;
+int openmp_nthreads;
+	openmp_nthreads=omp_get_max_threads();
 #endif
 
+#ifndef USE_OPENMP 
   if (blas_cpu_number == 1
-
-#ifdef USE_OPENMP
-      || omp_in_parallel()
 #endif
-      ) return 1;
+#ifdef USE_OPENMP
+     if (openmp_nthreads == 1 || omp_in_parallel()
+#endif
+      ) return 1;        
 
 #ifdef USE_OPENMP
-  openmp_nthreads=omp_get_max_threads();
-  if (blas_cpu_number != openmp_nthreads) {
+     if (openmp_nthreads > blas_omp_number_max){
+#ifdef DEBUG
+     fprintf(stderr,"WARNING - more OpenMP threads requested (%d) than available (%d)\n",openmp_nthreads,blas_omp_number_max);
+#endif
+     openmp_nthreads = blas_omp_number_max;
+     }
+     if (blas_cpu_number != openmp_nthreads) {
 	  goto_set_num_threads(openmp_nthreads);
   }
 #endif
@@ -177,31 +193,27 @@ int exec_blas(BLASLONG num_cpu, blas_param_t *param, void *buffer);
 int blas_level1_thread(int mode, BLASLONG m, BLASLONG n, BLASLONG k, void *alpha,
 		       void *a, BLASLONG lda,
 		       void *b, BLASLONG ldb,
-		       void *c, BLASLONG ldc, int (*function)(), int threads);
+		       void *c, BLASLONG ldc, int (*function)(void), int threads);
 
-int gemm_thread_m (int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(), void *, void *, BLASLONG);
+int gemm_thread_m (int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(blas_arg_t*, BLASLONG*, BLASLONG*,FLOAT *, FLOAT *, BLASLONG ), void *, void *, BLASLONG);
 
-int gemm_thread_n (int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(), void *, void *, BLASLONG);
+int gemm_thread_n (int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(blas_arg_t*, BLASLONG*, BLASLONG*,FLOAT*, FLOAT*, BLASLONG), void *, void *, BLASLONG);
 
-int gemm_thread_mn(int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(), void *, void *, BLASLONG);
+int gemm_thread_mn(int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(blas_arg_t*, BLASLONG*, BLASLONG*,FLOAT *, FLOAT *, BLASLONG), void *, void *, BLASLONG);
 
-int gemm_thread_variable(int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(), void *, void *, BLASLONG, BLASLONG);
+int gemm_thread_variable(int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(blas_arg_t*, BLASLONG*, BLASLONG*,FLOAT *, FLOAT *, BLASLONG), void *, void *, BLASLONG, BLASLONG);
 
 int trsm_thread(int mode, BLASLONG m, BLASLONG n,
 		double alpha_r, double alpha_i,
 		void *a, BLASLONG lda,
-		void *c, BLASLONG ldc, int (*function)(), void *buffer);
+		void *c, BLASLONG ldc, int (*function)(void), void *buffer);
 
-int syrk_thread(int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(), void *, void *, BLASLONG);
-
-int beta_thread(int mode, BLASLONG m, BLASLONG n,
-		double alpha_r, double alpha_i,
-		void *c, BLASLONG ldc, int (*fuction)());
+int syrk_thread(int mode, blas_arg_t *, BLASLONG *, BLASLONG *, int (*function)(blas_arg_t*, BLASLONG*, BLASLONG*, FLOAT *, FLOAT *, BLASLONG), void*, void*, BLASLONG);
 
 int getrf_thread(int mode, BLASLONG m, BLASLONG n, BLASLONG k,
 		 void *offsetA, BLASLONG lda,
 		 void *offsetB, BLASLONG jb,
-		 void *ipiv, BLASLONG offset, int (*function)(), void *buffer);
+		 void *ipiv, BLASLONG offset, int (*function)(void), void *buffer);
 
 #endif  /* ENDIF ASSEMBLER */
 

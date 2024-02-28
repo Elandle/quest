@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       LOGICAL          FUNCTION DLCTES( ZR, ZI, D )
-* 
+*
 *       .. Scalar Arguments ..
 *       DOUBLE PRECISION   D, ZI, ZR
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -26,7 +26,7 @@
 *> .FALSE..
 *>
 *> It is used by the test routine DDRGES to test whether the driver
-*> routine DGGES succesfully sorts eigenvalues.
+*> routine DGGES successfully sorts eigenvalues.
 *> \endverbatim
 *
 *  Arguments:
@@ -56,22 +56,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_eig
 *
 *  =====================================================================
       LOGICAL          FUNCTION DLCTES( ZR, ZI, D )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       DOUBLE PRECISION   D, ZI, ZR

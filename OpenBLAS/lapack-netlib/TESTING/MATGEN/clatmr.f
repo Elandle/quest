@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -12,7 +12,7 @@
 *                          RSIGN, GRADE, DL, MODEL, CONDL, DR, MODER,
 *                          CONDR, PIVTNG, IPIVOT, KL, KU, SPARSE, ANORM,
 *                          PACK, A, LDA, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          DIST, GRADE, PACK, PIVTNG, RSIGN, SYM
 *       INTEGER            INFO, KL, KU, LDA, M, MODE, MODEL, MODER, N
@@ -23,7 +23,7 @@
 *       INTEGER            IPIVOT( * ), ISEED( 4 ), IWORK( * )
 *       COMPLEX            A( LDA, * ), D( * ), DL( * ), DR( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -316,20 +316,6 @@
 *>           Not referenced if PIVTNG = 'N'. Not modified.
 *> \endverbatim
 *>
-*> \param[in] SPARSE
-*> \verbatim
-*>          SPARSE is REAL
-*>           On entry specifies the sparsity of the matrix if a sparse
-*>           matrix is to be generated. SPARSE should lie between
-*>           0 and 1. To generate a sparse matrix, for each matrix entry
-*>           a uniform ( 0, 1 ) random number x is generated and
-*>           compared to SPARSE; if x is larger the matrix entry
-*>           is unchanged and if x is smaller the entry is set
-*>           to zero. Thus on the average a fraction SPARSE of the
-*>           entries will be set to zero.
-*>           Not modified.
-*> \endverbatim
-*>
 *> \param[in] KL
 *> \verbatim
 *>          KL is INTEGER
@@ -347,6 +333,20 @@
 *>           example, KU=0 implies lower triangular, KU=1 implies lower
 *>           Hessenberg, and KU at least N-1 implies the matrix is not
 *>           banded. Must equal KL if matrix is symmetric or Hermitian.
+*>           Not modified.
+*> \endverbatim
+*>
+*> \param[in] SPARSE
+*> \verbatim
+*>          SPARSE is REAL
+*>           On entry specifies the sparsity of the matrix if a sparse
+*>           matrix is to be generated. SPARSE should lie between
+*>           0 and 1. To generate a sparse matrix, for each matrix entry
+*>           a uniform ( 0, 1 ) random number x is generated and
+*>           compared to SPARSE; if x is larger the matrix entry
+*>           is unchanged and if x is smaller the entry is set
+*>           to zero. Thus on the average a fraction SPARSE of the
+*>           entries will be set to zero.
 *>           Not modified.
 *> \endverbatim
 *>
@@ -416,7 +416,7 @@
 *>           If PACK='C' or 'R', LDA must be at least 1.
 *>           If PACK='B', or 'Q', LDA must be MIN ( KU+1, N )
 *>           If PACK='Z', LDA must be at least KUU+KLL+1, where
-*>           KUU = MIN ( KU, N-1 ) and KLL = MIN ( KL, N-1 )
+*>           KUU = MIN ( KU, N-1 ) and KLL = MIN ( KL, M-1 )
 *>           Not modified.
 *> \endverbatim
 *>
@@ -475,12 +475,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_matgen
 *
@@ -490,10 +488,9 @@
      $                   CONDR, PIVTNG, IPIVOT, KL, KU, SPARSE, ANORM,
      $                   PACK, A, LDA, IWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          DIST, GRADE, PACK, PIVTNG, RSIGN, SYM

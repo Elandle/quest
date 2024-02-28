@@ -1,27 +1,27 @@
-*> \brief \b ZLAED8 used by sstedc. Merges eigenvalues and deflates secular equation. Used when the original matrix is dense.
+*> \brief \b ZLAED8 used by ZSTEDC. Merges eigenvalues and deflates secular equation. Used when the original matrix is dense.
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZLAED8 + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zlaed8.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zlaed8.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zlaed8.f"> 
+*> Download ZLAED8 + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zlaed8.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zlaed8.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zlaed8.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
-*       SUBROUTINE ZLAED8( K, N, QSIZ, Q, LDQ, D, RHO, CUTPNT, Z, DLAMDA,
+*       SUBROUTINE ZLAED8( K, N, QSIZ, Q, LDQ, D, RHO, CUTPNT, Z, DLAMBDA,
 *                          Q2, LDQ2, W, INDXP, INDX, INDXQ, PERM, GIVPTR,
 *                          GIVCOL, GIVNUM, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            CUTPNT, GIVPTR, INFO, K, LDQ, LDQ2, N, QSIZ
 *       DOUBLE PRECISION   RHO
@@ -29,11 +29,11 @@
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( 2, * ), INDX( * ), INDXP( * ),
 *      $                   INDXQ( * ), PERM( * )
-*       DOUBLE PRECISION   D( * ), DLAMDA( * ), GIVNUM( 2, * ), W( * ),
+*       DOUBLE PRECISION   D( * ), DLAMBDA( * ), GIVNUM( 2, * ), W( * ),
 *      $                   Z( * )
 *       COMPLEX*16         Q( LDQ, * ), Q2( LDQ2, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -122,9 +122,9 @@
 *>         destroyed during the updating process.
 *> \endverbatim
 *>
-*> \param[out] DLAMDA
+*> \param[out] DLAMBDA
 *> \verbatim
-*>          DLAMDA is DOUBLE PRECISION array, dimension (N)
+*>          DLAMBDA is DOUBLE PRECISION array, dimension (N)
 *>         Contains a copy of the first K eigenvalues which will be used
 *>         by DLAED3 to form the secular equation.
 *> \endverbatim
@@ -214,24 +214,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date September 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16OTHERcomputational
 *
 *  =====================================================================
-      SUBROUTINE ZLAED8( K, N, QSIZ, Q, LDQ, D, RHO, CUTPNT, Z, DLAMDA,
+      SUBROUTINE ZLAED8( K, N, QSIZ, Q, LDQ, D, RHO, CUTPNT, Z, DLAMBDA,
      $                   Q2, LDQ2, W, INDXP, INDX, INDXQ, PERM, GIVPTR,
      $                   GIVCOL, GIVNUM, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            CUTPNT, GIVPTR, INFO, K, LDQ, LDQ2, N, QSIZ
@@ -240,7 +237,7 @@
 *     .. Array Arguments ..
       INTEGER            GIVCOL( 2, * ), INDX( * ), INDXP( * ),
      $                   INDXQ( * ), PERM( * )
-      DOUBLE PRECISION   D( * ), DLAMDA( * ), GIVNUM( 2, * ), W( * ),
+      DOUBLE PRECISION   D( * ), DLAMBDA( * ), GIVNUM( 2, * ), W( * ),
      $                   Z( * )
       COMPLEX*16         Q( LDQ, * ), Q2( LDQ2, * )
 *     ..
@@ -291,8 +288,8 @@
       END IF
 *
 *     Need to initialize GIVPTR to O here in case of quick exit
-*     to prevent an unspecified code behavior (usually sigfault) 
-*     when IWORK array on entry to *stedc is not zeroed 
+*     to prevent an unspecified code behavior (usually sigfault)
+*     when IWORK array on entry to *stedc is not zeroed
 *     (or at least some IWORK entries which used in *laed7 for GIVPTR).
 *
       GIVPTR = 0
@@ -325,14 +322,14 @@
          INDXQ( I ) = INDXQ( I ) + CUTPNT
    20 CONTINUE
       DO 30 I = 1, N
-         DLAMDA( I ) = D( INDXQ( I ) )
+         DLAMBDA( I ) = D( INDXQ( I ) )
          W( I ) = Z( INDXQ( I ) )
    30 CONTINUE
       I = 1
       J = CUTPNT + 1
-      CALL DLAMRG( N1, N2, DLAMDA, 1, 1, INDX )
+      CALL DLAMRG( N1, N2, DLAMBDA, 1, 1, INDX )
       DO 40 I = 1, N
-         D( I ) = DLAMDA( INDX( I ) )
+         D( I ) = DLAMBDA( INDX( I ) )
          Z( I ) = W( INDX( I ) )
    40 CONTINUE
 *
@@ -441,7 +438,7 @@
          ELSE
             K = K + 1
             W( K ) = Z( JLAM )
-            DLAMDA( K ) = D( JLAM )
+            DLAMBDA( K ) = D( JLAM )
             INDXP( K ) = JLAM
             JLAM = J
          END IF
@@ -453,19 +450,19 @@
 *
       K = K + 1
       W( K ) = Z( JLAM )
-      DLAMDA( K ) = D( JLAM )
+      DLAMBDA( K ) = D( JLAM )
       INDXP( K ) = JLAM
 *
   100 CONTINUE
 *
-*     Sort the eigenvalues and corresponding eigenvectors into DLAMDA
+*     Sort the eigenvalues and corresponding eigenvectors into DLAMBDA
 *     and Q2 respectively.  The eigenvalues/vectors which were not
-*     deflated go into the first K slots of DLAMDA and Q2 respectively,
+*     deflated go into the first K slots of DLAMBDA and Q2 respectively,
 *     while those which were deflated go into the last N - K slots.
 *
       DO 110 J = 1, N
          JP = INDXP( J )
-         DLAMDA( J ) = D( JP )
+         DLAMBDA( J ) = D( JP )
          PERM( J ) = INDXQ( INDX( JP ) )
          CALL ZCOPY( QSIZ, Q( 1, PERM( J ) ), 1, Q2( 1, J ), 1 )
   110 CONTINUE
@@ -474,7 +471,7 @@
 *     into the last N - K slots of D and Q respectively.
 *
       IF( K.LT.N ) THEN
-         CALL DCOPY( N-K, DLAMDA( K+1 ), 1, D( K+1 ), 1 )
+         CALL DCOPY( N-K, DLAMBDA( K+1 ), 1, D( K+1 ), 1 )
          CALL ZLACPY( 'A', QSIZ, N-K, Q2( 1, K+1 ), LDQ2, Q( 1, K+1 ),
      $                LDQ )
       END IF

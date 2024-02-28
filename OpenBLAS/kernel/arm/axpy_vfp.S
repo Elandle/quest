@@ -38,10 +38,51 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define STACKSIZE 256
 
+#if !defined(__ARM_PCS_VFP)
+
+#if !defined(COMPLEX)
+
+#if !defined(DOUBLE)
+#define	OLD_ALPHA	r3
+#define	OLD_X		[fp, #0 ]
+#define	OLD_INC_X	[fp, #4 ]
+#define	OLD_Y		[fp, #8 ]
+#define	OLD_INC_Y	[fp, #12 ]
+#else
+#define	OLD_ALPHA	[fp, #0]
+#define	OLD_X		[fp, #8 ]
+#define	OLD_INC_X	[fp, #12 ]
+#define	OLD_Y		[fp, #16 ]
+#define	OLD_INC_Y	[fp, #20 ]
+#endif
+
+#else //COMPLEX
+
+#if !defined(DOUBLE)
+#define	OLD_ALPHAR	r3
+#define	OLD_ALPHAI	[fp, #0 ]
+#define	OLD_X		[fp, #4 ]
+#define	OLD_INC_X	[fp, #8 ]
+#define	OLD_Y		[fp, #12 ]
+#define	OLD_INC_Y	[fp, #16 ]
+#else
+#define	OLD_ALPHAR	[fp, #0]
+#define	OLD_ALPHAI	[fp, #8]
+#define	OLD_X		[fp, #16 ]
+#define	OLD_INC_X	[fp, #20 ]
+#define	OLD_Y		[fp, #24 ]
+#define	OLD_INC_Y	[fp, #28 ]
+#endif
+
+#endif //!defined(COMPLEX)
+
+#else //__ARM_PCS_VFP
+
 #define	OLD_INC_X	[fp, #0 ]
 #define	OLD_Y		[fp, #4 ]
 #define	OLD_INC_Y	[fp, #8 ]
 
+#endif //!defined(__ARM_PCS_VFP)
 
 #define	N	r0
 #define Y	r1
@@ -64,14 +105,14 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #if defined(DOUBLE)
 
 #define	FMAC_R1	fmacd
-#define FMAC_R2 fnmacd
+#define FMAC_R2 vmls.f64
 #define	FMAC_I1	fmacd
 #define FMAC_I2 fmacd
 
 #else
 
 #define	FMAC_R1	fmacs
-#define FMAC_R2 fnmacs
+#define FMAC_R2 vmls.f32
 #define	FMAC_I1	fmacs
 #define FMAC_I2 fmacs
 
@@ -83,14 +124,14 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define	FMAC_R1	fmacd
 #define FMAC_R2 fmacd
-#define	FMAC_I1	fnmacd
+#define	FMAC_I1	vmls.f64
 #define FMAC_I2 fmacd
 
 #else
 
 #define	FMAC_R1	fmacs
 #define FMAC_R2 fmacs
-#define	FMAC_I1	fnmacs
+#define	FMAC_I1	vmls.f32
 #define FMAC_I2 fmacs
 
 #endif
@@ -105,17 +146,17 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE ]
-	fldmiad		X!,  { d4 - d7  }
+	vldmia.f64		X!,  { d4 - d7  }
 	pld	[ Y, #X_PRE ]
-	fldmiad		Y ,  { d8 - d11 }
+	vldmia.f64		Y ,  { d8 - d11 }
 	fmacd   	d8 , d0, d4
-	fstmiad		Y!, { d8 }
+	vstmia.f64		Y!, { d8 }
 	fmacd   	d9 , d0, d5
-	fstmiad		Y!, { d9 }
+	vstmia.f64		Y!, { d9 }
 	fmacd   	d10, d0, d6
-	fstmiad		Y!, { d10 }
+	vstmia.f64		Y!, { d10 }
 	fmacd   	d11, d0, d7
-	fstmiad		Y!, { d11 }
+	vstmia.f64		Y!, { d11 }
 
 
 .endm
@@ -123,19 +164,19 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmiad		X!,  { d4 }
-	fldmiad		Y ,  { d8 }
+	vldmia.f64		X!,  { d4 }
+	vldmia.f64		Y ,  { d8 }
 	fmacd   	d8 , d0, d4
-	fstmiad		Y!, { d8 }
+	vstmia.f64		Y!, { d8 }
 
 .endm
 
 .macro KERNEL_S1
 
-	fldmiad		X ,  { d4 }
-	fldmiad		Y ,  { d8 }
+	vldmia.f64		X ,  { d4 }
+	vldmia.f64		Y ,  { d8 }
 	fmacd   	d8 , d0, d4
-	fstmiad		Y , { d8 }
+	vstmia.f64		Y , { d8 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
@@ -145,16 +186,16 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F4
 
-	fldmias		X!,  { s4 - s7  }
-	fldmias		Y ,  { s8 - s11 }
+	vldmia.f32		X!,  { s4 - s7  }
+	vldmia.f32		Y ,  { s8 - s11 }
 	fmacs   	s8 , s0, s4
-	fstmias		Y!, { s8 }
+	vstmia.f32		Y!, { s8 }
 	fmacs   	s9 , s0, s5
-	fstmias		Y!, { s9 }
+	vstmia.f32		Y!, { s9 }
 	fmacs   	s10, s0, s6
-	fstmias		Y!, { s10 }
+	vstmia.f32		Y!, { s10 }
 	fmacs   	s11, s0, s7
-	fstmias		Y!, { s11 }
+	vstmia.f32		Y!, { s11 }
 
 
 .endm
@@ -162,19 +203,19 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias		X!,  { s4 }
-	fldmias		Y ,  { s8 }
+	vldmia.f32		X!,  { s4 }
+	vldmia.f32		Y ,  { s8 }
 	fmacs   	s8 , s0, s4
-	fstmias		Y!, { s8 }
+	vstmia.f32		Y!, { s8 }
 
 .endm
 
 .macro KERNEL_S1
 
-	fldmias		X ,  { s4 }
-	fldmias		Y ,  { s8 }
+	vldmia.f32		X ,  { s4 }
+	vldmia.f32		Y ,  { s8 }
 	fmacs   	s8 , s0, s4
-	fstmias		Y , { s8 }
+	vstmia.f32		Y , { s8 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
@@ -190,42 +231,42 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE ]
-	fldmiad		X!,  { d4 - d7  }
+	vldmia.f64		X!,  { d4 - d7  }
 	pld	[ Y, #X_PRE ]
-	fldmiad		Y ,  { d8 - d11 }
+	vldmia.f64		Y ,  { d8 - d11 }
 
 	FMAC_R1		d8 , d0, d4
 	FMAC_R2		d8 , d1, d5
 	FMAC_I1		d9 , d0, d5
 	FMAC_I2		d9 , d1, d4
-	fstmiad		Y!, { d8 }
-	fstmiad		Y!, { d9 }
+	vstmia.f64		Y!, { d8 }
+	vstmia.f64		Y!, { d9 }
 
 	FMAC_R1		d10, d0, d6
 	FMAC_R2		d10, d1, d7
 	FMAC_I1		d11, d0, d7
 	FMAC_I2		d11, d1, d6
-	fstmiad		Y!, { d10 }
-	fstmiad		Y!, { d11 }
+	vstmia.f64		Y!, { d10 }
+	vstmia.f64		Y!, { d11 }
 
 	pld	[ X, #X_PRE ]
-	fldmiad		X!,  { d4 - d7  }
+	vldmia.f64		X!,  { d4 - d7  }
 	pld	[ Y, #X_PRE ]
-	fldmiad		Y ,  { d8 - d11 }
+	vldmia.f64		Y ,  { d8 - d11 }
 
 	FMAC_R1		d8 , d0, d4
 	FMAC_R2		d8 , d1, d5
 	FMAC_I1		d9 , d0, d5
 	FMAC_I2		d9 , d1, d4
-	fstmiad		Y!, { d8 }
-	fstmiad		Y!, { d9 }
+	vstmia.f64		Y!, { d8 }
+	vstmia.f64		Y!, { d9 }
 
 	FMAC_R1		d10, d0, d6
 	FMAC_R2		d10, d1, d7
 	FMAC_I1		d11, d0, d7
 	FMAC_I2		d11, d1, d6
-	fstmiad		Y!, { d10 }
-	fstmiad		Y!, { d11 }
+	vstmia.f64		Y!, { d10 }
+	vstmia.f64		Y!, { d11 }
 
 
 
@@ -236,15 +277,15 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmiad		X!,  { d4 - d5  }
-	fldmiad		Y ,  { d8 - d9 }
+	vldmia.f64		X!,  { d4 - d5  }
+	vldmia.f64		Y ,  { d8 - d9 }
 
 	FMAC_R1		d8 , d0, d4
 	FMAC_R2		d8 , d1, d5
 	FMAC_I1		d9 , d0, d5
 	FMAC_I2		d9 , d1, d4
-	fstmiad		Y!, { d8 }
-	fstmiad		Y!, { d9 }
+	vstmia.f64		Y!, { d8 }
+	vstmia.f64		Y!, { d9 }
 
 
 
@@ -252,14 +293,14 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmiad		X ,  { d4 - d5 }
-	fldmiad		Y ,  { d8 - d9 }
+	vldmia.f64		X ,  { d4 - d5 }
+	vldmia.f64		Y ,  { d8 - d9 }
 
 	FMAC_R1		d8 , d0, d4
 	FMAC_R2		d8 , d1, d5
 	FMAC_I1		d9 , d0, d5
 	FMAC_I2		d9 , d1, d4
-	fstmiad		Y  , { d8 - d9 }
+	vstmia.f64		Y  , { d8 - d9 }
 
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
@@ -273,40 +314,40 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE ]
-	fldmias		X!,  { s4 - s7  }
+	vldmia.f32		X!,  { s4 - s7  }
 	pld	[ Y, #X_PRE ]
-	fldmias		Y ,  { s8 - s11 }
+	vldmia.f32		Y ,  { s8 - s11 }
 
 	FMAC_R1		s8 , s0, s4
 	FMAC_R2		s8 , s1, s5
 	FMAC_I1		s9 , s0, s5
 	FMAC_I2		s9 , s1, s4
-	fstmias		Y!, { s8 }
-	fstmias		Y!, { s9 }
+	vstmia.f32		Y!, { s8 }
+	vstmia.f32		Y!, { s9 }
 
 	FMAC_R1		s10, s0, s6
 	FMAC_R2		s10, s1, s7
 	FMAC_I1		s11, s0, s7
 	FMAC_I2		s11, s1, s6
-	fstmias		Y!, { s10 }
-	fstmias		Y!, { s11 }
+	vstmia.f32		Y!, { s10 }
+	vstmia.f32		Y!, { s11 }
 
-	fldmias		X!,  { s4 - s7  }
-	fldmias		Y ,  { s8 - s11 }
+	vldmia.f32		X!,  { s4 - s7  }
+	vldmia.f32		Y ,  { s8 - s11 }
 
 	FMAC_R1		s8 , s0, s4
 	FMAC_R2		s8 , s1, s5
 	FMAC_I1		s9 , s0, s5
 	FMAC_I2		s9 , s1, s4
-	fstmias		Y!, { s8 }
-	fstmias		Y!, { s9 }
+	vstmia.f32		Y!, { s8 }
+	vstmia.f32		Y!, { s9 }
 
 	FMAC_R1		s10, s0, s6
 	FMAC_R2		s10, s1, s7
 	FMAC_I1		s11, s0, s7
 	FMAC_I2		s11, s1, s6
-	fstmias		Y!, { s10 }
-	fstmias		Y!, { s11 }
+	vstmia.f32		Y!, { s10 }
+	vstmia.f32		Y!, { s11 }
 
 
 
@@ -317,15 +358,15 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias		X!,  { s4 - s5  }
-	fldmias		Y ,  { s8 - s9 }
+	vldmia.f32		X!,  { s4 - s5  }
+	vldmia.f32		Y ,  { s8 - s9 }
 
 	FMAC_R1		s8 , s0, s4
 	FMAC_R2		s8 , s1, s5
 	FMAC_I1		s9 , s0, s5
 	FMAC_I2		s9 , s1, s4
-	fstmias		Y!, { s8 }
-	fstmias		Y!, { s9 }
+	vstmia.f32		Y!, { s8 }
+	vstmia.f32		Y!, { s9 }
 
 
 
@@ -333,14 +374,14 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmias		X ,  { s4 - s5 }
-	fldmias		Y ,  { s8 - s9 }
+	vldmia.f32		X ,  { s4 - s5 }
+	vldmia.f32		Y ,  { s8 - s9 }
 
 	FMAC_R1		s8 , s0, s4
 	FMAC_R2		s8 , s1, s5
 	FMAC_I1		s9 , s0, s5
 	FMAC_I2		s9 , s1, s4
-	fstmias		Y  , { s8 - s9 }
+	vstmia.f32		Y  , { s8 - s9 }
 
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
@@ -363,6 +404,28 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         add     fp, sp, #8
 	sub     sp, sp, #STACKSIZE                              // reserve stack
 
+#if !defined(__ARM_PCS_VFP)
+#if !defined(COMPLEX)
+#if !defined(DOUBLE)
+	vmov	s0, OLD_ALPHA
+	ldr	X, OLD_X
+#else
+	vldr	d0, OLD_ALPHA
+	ldr	X, OLD_X
+#endif
+#else //COMPLEX
+#if !defined(DOUBLE)
+	vmov	s0, OLD_ALPHAR
+	vldr	s1, OLD_ALPHAI
+	ldr	X, OLD_X
+#else
+	vldr	d0, OLD_ALPHAR
+	vldr	d1, OLD_ALPHAI
+	ldr     X, OLD_X
+#endif
+#endif
+#endif
+
 	ldr    INC_X , OLD_INC_X
 	ldr         Y, OLD_Y
 	ldr    INC_Y , OLD_INC_Y
@@ -377,13 +440,13 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	cmp	N, #0
 	ble	axpy_kernel_L999
-
+/*
 	cmp	INC_X, #0
 	beq	axpy_kernel_L999
 
 	cmp	INC_Y, #0
 	beq	axpy_kernel_L999
-
+*/
 	cmp	INC_X, #1
 	bne	axpy_kernel_S_BEGIN
 

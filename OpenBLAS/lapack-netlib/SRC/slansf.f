@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SLANSF + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slansf.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slansf.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slansf.f"> 
+*> Download SLANSF + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slansf.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slansf.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slansf.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       REAL FUNCTION SLANSF( NORM, TRANSR, UPLO, N, A, WORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM, TRANSR, UPLO
 *       INTEGER            N
@@ -27,7 +27,7 @@
 *       .. Array Arguments ..
 *       REAL               A( 0: * ), WORK( 0: * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -110,12 +110,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date September 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup realOTHERcomputational
 *
@@ -209,10 +207,9 @@
 *  =====================================================================
       REAL FUNCTION SLANSF( NORM, TRANSR, UPLO, N, A, WORK )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          NORM, TRANSR, UPLO
@@ -300,7 +297,7 @@
                DO J = 0, K - 1
                   DO I = 0, N - 1
                      TEMP = ABS( A( I+J*LDA ) )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END DO
@@ -309,7 +306,7 @@
                DO J = 0, N - 1
                   DO I = 0, K - 1
                      TEMP = ABS( A( I+J*LDA ) )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END DO
@@ -321,7 +318,7 @@
                DO J = 0, K - 1
                   DO I = 0, N
                      TEMP = ABS( A( I+J*LDA ) )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END DO
@@ -330,7 +327,7 @@
                DO J = 0, N
                   DO I = 0, K - 1
                      TEMP = ABS( A( I+J*LDA ) )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END DO
@@ -380,7 +377,7 @@
                   VALUE = WORK( 0 )
                   DO I = 1, N-1
                      TEMP = WORK( I )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                ELSE
@@ -422,7 +419,7 @@
                   VALUE = WORK( 0 )
                   DO I = 1, N-1
                      TEMP = WORK( I )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END IF
@@ -460,7 +457,7 @@
                   VALUE = WORK( 0 )
                   DO I = 1, N-1
                      TEMP = WORK( I )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                ELSE
@@ -498,7 +495,7 @@
                   VALUE = WORK( 0 )
                   DO I = 1, N-1
                      TEMP = WORK( I )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END IF
@@ -564,7 +561,7 @@
                   VALUE = WORK( 0 )
                   DO I = 1, N-1
                      TEMP = WORK( I )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                ELSE
@@ -629,7 +626,7 @@
                   VALUE = WORK( 0 )
                   DO I = 1, N-1
                      TEMP = WORK( I )
-                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) ) 
+                     IF( VALUE .LT. TEMP .OR. SISNAN( TEMP ) )
      $                    VALUE = TEMP
                   END DO
                END IF

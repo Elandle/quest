@@ -2,16 +2,16 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SDRVLS( DOTYPE, NM, MVAL, NN, NVAL, NNS, NSVAL, NNB,
 *                          NBVAL, NXVAL, THRESH, TSTERR, A, COPYA, B,
-*                          COPYB, C, S, COPYS, WORK, IWORK, NOUT )
-* 
+*                          COPYB, C, S, COPYS, NOUT )
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NM, NN, NNB, NNS, NOUT
@@ -19,20 +19,20 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            DOTYPE( * )
-*       INTEGER            IWORK( * ), MVAL( * ), NBVAL( * ), NSVAL( * ),
+*       INTEGER            MVAL( * ), NBVAL( * ), NSVAL( * ),
 *      $                   NVAL( * ), NXVAL( * )
 *       REAL               A( * ), B( * ), C( * ), COPYA( * ), COPYB( * ),
-*      $                   COPYS( * ), S( * ), WORK( * )
+*      $                   COPYS( * ), S( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*> SDRVLS tests the least squares driver routines SGELS, SGELSS, SGELSX,
-*> SGELSY and SGELSD.
+*> SDRVLS tests the least squares driver routines SGELS, SGELST,
+*> SGETSLS, SGELSS, SGELSY and SGELSD.
 *> \endverbatim
 *
 *  Arguments:
@@ -46,14 +46,14 @@
 *>          .TRUE.; if DOTYPE(j) = .FALSE., then type j is not used.
 *>          The matrix of type j is generated as follows:
 *>          j=1: A = U*D*V where U and V are random orthogonal matrices
-*>               and D has random entries (> 0.1) taken from a uniform 
+*>               and D has random entries (> 0.1) taken from a uniform
 *>               distribution (0,1). A is full rank.
 *>          j=2: The same of 1, but A is scaled up.
 *>          j=3: The same of 1, but A is scaled down.
 *>          j=4: A = U*D*V where U and V are random orthogonal matrices
 *>               and D has 3*min(M,N)/4 random entries (> 0.1) taken
 *>               from a uniform distribution (0,1) and the remaining
-*>               entries set to 0. A is rank-deficient. 
+*>               entries set to 0. A is rank-deficient.
 *>          j=5: The same of 4, but A is scaled up.
 *>          j=6: The same of 5, but A is scaled down.
 *> \endverbatim
@@ -169,17 +169,6 @@
 *>                      (min(MMAX,NMAX))
 *> \endverbatim
 *>
-*> \param[out] WORK
-*> \verbatim
-*>          WORK is REAL array,
-*>                      dimension (MMAX*NMAX + 4*NMAX + MMAX).
-*> \endverbatim
-*>
-*> \param[out] IWORK
-*> \verbatim
-*>          IWORK is INTEGER array, dimension (15*NMAX)
-*> \endverbatim
-*>
 *> \param[in] NOUT
 *> \verbatim
 *>          NOUT is INTEGER
@@ -189,24 +178,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
 *  =====================================================================
       SUBROUTINE SDRVLS( DOTYPE, NM, MVAL, NN, NVAL, NNS, NSVAL, NNB,
      $                   NBVAL, NXVAL, THRESH, TSTERR, A, COPYA, B,
-     $                   COPYB, C, S, COPYS, WORK, IWORK, NOUT )
+     $                   COPYB, C, S, COPYS, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -215,10 +201,10 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            DOTYPE( * )
-      INTEGER            IWORK( * ), MVAL( * ), NBVAL( * ), NSVAL( * ),
+      INTEGER            MVAL( * ), NBVAL( * ), NSVAL( * ),
      $                   NVAL( * ), NXVAL( * )
       REAL               A( * ), B( * ), C( * ), COPYA( * ), COPYB( * ),
-     $                   COPYS( * ), S( * ), WORK( * )
+     $                   COPYS( * ), S( * )
 *     ..
 *
 *  =====================================================================
@@ -234,15 +220,22 @@
 *     .. Local Scalars ..
       CHARACTER          TRANS
       CHARACTER*3        PATH
-      INTEGER            CRANK, I, IM, IN, INB, INFO, INS, IRANK, 
-     $                   ISCALE, ITRAN, ITYPE, J, K, LDA, LDB, LDWORK, 
-     $                   LWLSY, LWORK, M, MNMIN, N, NB, NCOLS, NERRS, 
-     $                   NFAIL, NLVL, NRHS, NROWS, NRUN, RANK
+      INTEGER            CRANK, I, IM, IMB, IN, INB, INFO, INS, IRANK,
+     $                   ISCALE, ITRAN, ITYPE, J, K, LDA, LDB, LDWORK,
+     $                   LWLSY, LWORK, M, MNMIN, N, NB, NCOLS, NERRS,
+     $                   NFAIL, NRHS, NROWS, NRUN, RANK, MB,
+     $                   MMAX, NMAX, NSMAX, LIWORK,
+     $                   LWORK_SGELS, LWORK_SGELST, LWORK_SGETSLS,
+     $                   LWORK_SGELSS, LWORK_SGELSY, LWORK_SGELSD
       REAL               EPS, NORMA, NORMB, RCOND
 *     ..
 *     .. Local Arrays ..
-      INTEGER            ISEED( 4 ), ISEEDY( 4 )
-      REAL               RESULT( NTESTS )
+      INTEGER            ISEED( 4 ), ISEEDY( 4 ), IWQ( 1 )
+      REAL               RESULT( NTESTS ), WQ( 1 )
+*     ..
+*     .. Allocatable Arrays ..
+      REAL, ALLOCATABLE :: WORK (:)
+      INTEGER, ALLOCATABLE :: IWORK (:)
 *     ..
 *     .. External Functions ..
       REAL               SASUM, SLAMCH, SQRT12, SQRT14, SQRT17
@@ -250,12 +243,12 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ALAERH, ALAHD, ALASVM, SAXPY, SERRLS, SGELS,
-     $                   SGELSD, SGELSS, SGELSX, SGELSY, SGEMM, SLACPY,
-     $                   SLARNV, SQRT13, SQRT15, SQRT16, SSCAL,
-     $                   XLAENV
+     $                   SGELSD, SGELSS, SGELST, SGELSY, SGEMM,
+     $                   SGETSLS, SLACPY, SLARNV, SQRT13, SQRT15,
+     $                   SQRT16, SSCAL, XLAENV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          INT, LOG, MAX, MIN, REAL, SQRT
+      INTRINSIC          INT, MAX, MIN, REAL, SQRT
 *     ..
 *     .. Scalars in Common ..
       LOGICAL            LERR, OK
@@ -273,7 +266,7 @@
 *
 *     Initialize constants and the random number seed.
 *
-      PATH( 1: 1 ) = 'Single precision'
+      PATH( 1: 1 ) = 'SINGLE PRECISION'
       PATH( 2: 3 ) = 'LS'
       NRUN = 0
       NFAIL = 0
@@ -299,6 +292,111 @@
       IF( ( NM.EQ.0 .OR. NN.EQ.0 ) .AND. THRESH.EQ.ZERO )
      $   CALL ALAHD( NOUT, PATH )
       INFOT = 0
+      CALL XLAENV( 2, 2 )
+      CALL XLAENV( 9, SMLSIZ )
+*
+*     Compute maximal workspace needed for all routines
+*
+      NMAX = 0
+      MMAX = 0
+      NSMAX = 0
+      DO I = 1, NM
+         IF ( MVAL( I ).GT.MMAX ) THEN
+            MMAX = MVAL( I )
+         END IF
+      ENDDO
+      DO I = 1, NN
+         IF ( NVAL( I ).GT.NMAX ) THEN
+            NMAX = NVAL( I )
+         END IF
+      ENDDO
+      DO I = 1, NNS
+         IF ( NSVAL( I ).GT.NSMAX ) THEN
+            NSMAX = NSVAL( I )
+         END IF
+      ENDDO
+      M = MMAX
+      N = NMAX
+      NRHS = NSMAX
+      MNMIN = MAX( MIN( M, N ), 1 )
+*
+*     Compute workspace needed for routines
+*     SQRT14, SQRT17 (two side cases), SQRT15 and SQRT12
+*
+      LWORK = MAX( 1, ( M+N )*NRHS,
+     $      ( N+NRHS )*( M+2 ), ( M+NRHS )*( N+2 ),
+     $      MAX( M+MNMIN, NRHS*MNMIN,2*N+M ),
+     $      MAX( M*N+4*MNMIN+MAX(M,N), M*N+2*MNMIN+4*N ) )
+      LIWORK = 1
+*
+*     Iterate through all test cases and compute necessary workspace
+*     sizes for ?GELS, ?GELST, ?GETSLS, ?GELSY, ?GELSS and ?GELSD
+*     routines.
+*
+      DO IM = 1, NM
+         M = MVAL( IM )
+         LDA = MAX( 1, M )
+         DO IN = 1, NN
+            N = NVAL( IN )
+            MNMIN = MAX(MIN( M, N ),1)
+            LDB = MAX( 1, M, N )
+            DO INS = 1, NNS
+               NRHS = NSVAL( INS )
+               DO IRANK = 1, 2
+                  DO ISCALE = 1, 3
+                     ITYPE = ( IRANK-1 )*3 + ISCALE
+                     IF( DOTYPE( ITYPE ) ) THEN
+                        IF( IRANK.EQ.1 ) THEN
+                           DO ITRAN = 1, 2
+                              IF( ITRAN.EQ.1 ) THEN
+                                 TRANS = 'N'
+                              ELSE
+                                 TRANS = 'T'
+                              END IF
+*
+*                             Compute workspace needed for SGELS
+                              CALL SGELS( TRANS, M, N, NRHS, A, LDA,
+     $                                    B, LDB, WQ( 1 ), -1, INFO )
+                              LWORK_SGELS = INT ( WQ( 1 ) )
+*                             Compute workspace needed for SGELST
+                              CALL SGELST( TRANS, M, N, NRHS, A, LDA,
+     $                                    B, LDB, WQ, -1, INFO )
+                              LWORK_SGELST = INT ( WQ ( 1 ) )
+*                             Compute workspace needed for SGETSLS
+                              CALL SGETSLS( TRANS, M, N, NRHS, A, LDA,
+     $                                      B, LDB, WQ( 1 ), -1, INFO )
+                              LWORK_SGETSLS = INT( WQ( 1 ) )
+                           ENDDO
+                        END IF
+*                       Compute workspace needed for SGELSY
+                        CALL SGELSY( M, N, NRHS, A, LDA, B, LDB, IWQ,
+     $                               RCOND, CRANK, WQ, -1, INFO )
+                        LWORK_SGELSY = INT( WQ( 1 ) )
+*                       Compute workspace needed for SGELSS
+                        CALL SGELSS( M, N, NRHS, A, LDA, B, LDB, S,
+     $                               RCOND, CRANK, WQ, -1 , INFO )
+                        LWORK_SGELSS = INT( WQ( 1 ) )
+*                       Compute workspace needed for SGELSD
+                        CALL SGELSD( M, N, NRHS, A, LDA, B, LDB, S,
+     $                               RCOND, CRANK, WQ, -1, IWQ, INFO )
+                        LWORK_SGELSD = INT( WQ( 1 ) )
+*                       Compute LIWORK workspace needed for SGELSY and SGELSD
+                        LIWORK = MAX( LIWORK, N, IWQ( 1 ) )
+*                       Compute LWORK workspace needed for all functions
+                        LWORK = MAX( LWORK, LWORK_SGELS, LWORK_SGELST,
+     $                               LWORK_SGETSLS, LWORK_SGELSY,
+     $                               LWORK_SGELSS, LWORK_SGELSD )
+                     END IF
+                  ENDDO
+               ENDDO
+            ENDDO
+         ENDDO
+      ENDDO
+*
+      LWLSY = LWORK
+*
+      ALLOCATE( WORK( LWORK ) )
+      ALLOCATE( IWORK( LIWORK ) )
 *
       DO 150 IM = 1, NM
          M = MVAL( IM )
@@ -306,37 +404,38 @@
 *
          DO 140 IN = 1, NN
             N = NVAL( IN )
-            MNMIN = MIN( M, N )
+            MNMIN = MAX(MIN( M, N ),1)
             LDB = MAX( 1, M, N )
+            MB = (MNMIN+1)
 *
             DO 130 INS = 1, NNS
                NRHS = NSVAL( INS )
-               NLVL = MAX( INT( LOG( MAX( ONE, REAL( MNMIN ) ) /
-     $                REAL( SMLSIZ+1 ) ) / LOG( TWO ) ) + 1, 0 )
-               LWORK = MAX( 1, ( M+NRHS )*( N+2 ), ( N+NRHS )*( M+2 ),
-     $                 M*N+4*MNMIN+MAX( M, N ), 12*MNMIN+2*MNMIN*SMLSIZ+
-     $                 8*MNMIN*NLVL+MNMIN*NRHS+(SMLSIZ+1)**2 )
 *
                DO 120 IRANK = 1, 2
                   DO 110 ISCALE = 1, 3
                      ITYPE = ( IRANK-1 )*3 + ISCALE
                      IF( .NOT.DOTYPE( ITYPE ) )
      $                  GO TO 110
-*
+*                 =====================================================
+*                       Begin test SGELS
+*                 =====================================================
                      IF( IRANK.EQ.1 ) THEN
-*
-*                       Test SGELS
 *
 *                       Generate a matrix of scaling type ISCALE
 *
                         CALL SQRT13( ISCALE, M, N, COPYA, LDA, NORMA,
      $                               ISEED )
-                        DO 40 INB = 1, NNB
+*
+*                       Loop for testing different block sizes.
+*
+                        DO INB = 1, NNB
                            NB = NBVAL( INB )
                            CALL XLAENV( 1, NB )
                            CALL XLAENV( 3, NXVAL( INB ) )
 *
-                           DO 30 ITRAN = 1, 2
+*                          Loop for testing non-transposed and transposed.
+*
+                           DO ITRAN = 1, 2
                               IF( ITRAN.EQ.1 ) THEN
                                  TRANS = 'N'
                                  NROWS = M
@@ -380,9 +479,11 @@
      $                                        ITYPE, NFAIL, NERRS,
      $                                        NOUT )
 *
-*                             Check correctness of results
+*                             Test 1: Check correctness of results
+*                             for SGELS, compute the residual:
+*                             RESID = norm(B - A*X) /
+*                             / ( max(m,n) * norm(A) * norm(X) * EPS )
 *
-                              LDWORK = MAX( 1, NROWS )
                               IF( NROWS.GT.0 .AND. NRHS.GT.0 )
      $                           CALL SLACPY( 'Full', NROWS, NRHS,
      $                                        COPYB, LDB, C, LDB )
@@ -390,10 +491,15 @@
      $                                     LDA, B, LDB, C, LDB, WORK,
      $                                     RESULT( 1 ) )
 *
+*                             Test 2: Check correctness of results
+*                             for SGELS.
+*
                               IF( ( ITRAN.EQ.1 .AND. M.GE.N ) .OR.
      $                            ( ITRAN.EQ.2 .AND. M.LT.N ) ) THEN
 *
-*                                Solving LS system
+*                                Solving LS system, compute:
+*                                r = norm((B- A*X)**T * A) /
+*                                 / (norm(A)*norm(B)*max(M,N,NRHS)*EPS)
 *
                                  RESULT( 2 ) = SQRT17( TRANS, 1, M, N,
      $                                         NRHS, COPYA, LDA, B, LDB,
@@ -411,7 +517,7 @@
 *                             Print information about the tests that
 *                             did not pass the threshold.
 *
-                              DO 20 K = 1, 2
+                              DO K = 1, 2
                                  IF( RESULT( K ).GE.THRESH ) THEN
                                     IF( NFAIL.EQ.0 .AND. NERRS.EQ.0 )
      $                                 CALL ALAHD( NOUT, PATH )
@@ -420,11 +526,259 @@
      $                                 RESULT( K )
                                     NFAIL = NFAIL + 1
                                  END IF
-   20                         CONTINUE
+                              END DO
                               NRUN = NRUN + 2
-   30                      CONTINUE
-   40                   CONTINUE
+                           END DO
+                        END DO
                      END IF
+*                 =====================================================
+*                       End test SGELS
+*                 =====================================================
+*                 =====================================================
+*                       Begin test SGELST
+*                 =====================================================
+                     IF( IRANK.EQ.1 ) THEN
+*
+*                       Generate a matrix of scaling type ISCALE
+*
+                        CALL SQRT13( ISCALE, M, N, COPYA, LDA, NORMA,
+     $                               ISEED )
+*
+*                       Loop for testing different block sizes.
+*
+                        DO INB = 1, NNB
+                           NB = NBVAL( INB )
+                           CALL XLAENV( 1, NB )
+*
+*                          Loop for testing non-transposed and transposed.
+*
+                           DO ITRAN = 1, 2
+                              IF( ITRAN.EQ.1 ) THEN
+                                 TRANS = 'N'
+                                 NROWS = M
+                                 NCOLS = N
+                              ELSE
+                                 TRANS = 'T'
+                                 NROWS = N
+                                 NCOLS = M
+                              END IF
+                              LDWORK = MAX( 1, NCOLS )
+*
+*                             Set up a consistent rhs
+*
+                              IF( NCOLS.GT.0 ) THEN
+                                 CALL SLARNV( 2, ISEED, NCOLS*NRHS,
+     $                                        WORK )
+                                 CALL SSCAL( NCOLS*NRHS,
+     $                                       ONE / REAL( NCOLS ), WORK,
+     $                                       1 )
+                              END IF
+                              CALL SGEMM( TRANS, 'No transpose', NROWS,
+     $                                    NRHS, NCOLS, ONE, COPYA, LDA,
+     $                                    WORK, LDWORK, ZERO, B, LDB )
+                              CALL SLACPY( 'Full', NROWS, NRHS, B, LDB,
+     $                                     COPYB, LDB )
+*
+*                             Solve LS or overdetermined system
+*
+                              IF( M.GT.0 .AND. N.GT.0 ) THEN
+                                 CALL SLACPY( 'Full', M, N, COPYA, LDA,
+     $                                        A, LDA )
+                                 CALL SLACPY( 'Full', NROWS, NRHS,
+     $                                        COPYB, LDB, B, LDB )
+                              END IF
+                              SRNAMT = 'SGELST'
+                              CALL SGELST( TRANS, M, N, NRHS, A, LDA, B,
+     $                                     LDB, WORK, LWORK, INFO )
+                              IF( INFO.NE.0 )
+     $                           CALL ALAERH( PATH, 'SGELST', INFO, 0,
+     $                                        TRANS, M, N, NRHS, -1, NB,
+     $                                        ITYPE, NFAIL, NERRS,
+     $                                        NOUT )
+*
+*                             Test 3: Check correctness of results
+*                             for SGELST, compute the residual:
+*                             RESID = norm(B - A*X) /
+*                             / ( max(m,n) * norm(A) * norm(X) * EPS )
+*
+                              IF( NROWS.GT.0 .AND. NRHS.GT.0 )
+     $                           CALL SLACPY( 'Full', NROWS, NRHS,
+     $                                        COPYB, LDB, C, LDB )
+                              CALL SQRT16( TRANS, M, N, NRHS, COPYA,
+     $                                     LDA, B, LDB, C, LDB, WORK,
+     $                                     RESULT( 3 ) )
+*
+*                             Test 4: Check correctness of results
+*                             for SGELST.
+*
+                              IF( ( ITRAN.EQ.1 .AND. M.GE.N ) .OR.
+     $                            ( ITRAN.EQ.2 .AND. M.LT.N ) ) THEN
+*
+*                                Solving LS system, compute:
+*                                r = norm((B- A*X)**T * A) /
+*                                 / (norm(A)*norm(B)*max(M,N,NRHS)*EPS)
+*
+                                 RESULT( 4 ) = SQRT17( TRANS, 1, M, N,
+     $                                         NRHS, COPYA, LDA, B, LDB,
+     $                                         COPYB, LDB, C, WORK,
+     $                                         LWORK )
+                              ELSE
+*
+*                                Solving overdetermined system
+*
+                                 RESULT( 4 ) = SQRT14( TRANS, M, N,
+     $                                         NRHS, COPYA, LDA, B, LDB,
+     $                                         WORK, LWORK )
+                              END IF
+*
+*                             Print information about the tests that
+*                             did not pass the threshold.
+*
+                              DO K = 3, 4
+                                 IF( RESULT( K ).GE.THRESH ) THEN
+                                    IF( NFAIL.EQ.0 .AND. NERRS.EQ.0 )
+     $                                 CALL ALAHD( NOUT, PATH )
+                                    WRITE( NOUT, FMT = 9999 ) TRANS, M,
+     $                                 N, NRHS, NB, ITYPE, K,
+     $                                 RESULT( K )
+                                    NFAIL = NFAIL + 1
+                                 END IF
+                              END DO
+                              NRUN = NRUN + 2
+                           END DO
+                        END DO
+                     END IF
+*                 =====================================================
+*                       End test SGELST
+*                 =====================================================
+*                 =====================================================
+*                       Begin test SGETSLS
+*                 =====================================================
+                     IF( IRANK.EQ.1 ) THEN
+*
+*                       Generate a matrix of scaling type ISCALE
+*
+                        CALL SQRT13( ISCALE, M, N, COPYA, LDA, NORMA,
+     $                               ISEED )
+*
+*                       Loop for testing different block sizes MB.
+*
+                        DO IMB = 1, NNB
+                           MB = NBVAL( IMB )
+                           CALL XLAENV( 1, MB )
+*
+*                          Loop for testing different block sizes NB.
+*
+                           DO INB = 1, NNB
+                              NB = NBVAL( INB )
+                              CALL XLAENV( 2, NB )
+*
+*                             Loop for testing non-transposed
+*                             and transposed.
+*
+                              DO ITRAN = 1, 2
+                                 IF( ITRAN.EQ.1 ) THEN
+                                    TRANS = 'N'
+                                    NROWS = M
+                                    NCOLS = N
+                                 ELSE
+                                    TRANS = 'T'
+                                    NROWS = N
+                                    NCOLS = M
+                                 END IF
+                                 LDWORK = MAX( 1, NCOLS )
+*
+*                                Set up a consistent rhs
+*
+                                 IF( NCOLS.GT.0 ) THEN
+                                    CALL SLARNV( 2, ISEED, NCOLS*NRHS,
+     $                                           WORK )
+                                    CALL SSCAL( NCOLS*NRHS,
+     $                                          ONE / REAL( NCOLS ),
+     $                                          WORK, 1 )
+                                 END IF
+                                 CALL SGEMM( TRANS, 'No transpose',
+     $                                       NROWS, NRHS, NCOLS, ONE,
+     $                                       COPYA, LDA, WORK, LDWORK,
+     $                                       ZERO, B, LDB )
+                                 CALL SLACPY( 'Full', NROWS, NRHS,
+     $                                        B, LDB, COPYB, LDB )
+*
+*                                Solve LS or overdetermined system
+*
+                                 IF( M.GT.0 .AND. N.GT.0 ) THEN
+                                    CALL SLACPY( 'Full', M, N,
+     $                                           COPYA, LDA, A, LDA )
+                                    CALL SLACPY( 'Full', NROWS, NRHS,
+     $                                           COPYB, LDB, B, LDB )
+                                 END IF
+                                 SRNAMT = 'SGETSLS'
+                                 CALL SGETSLS( TRANS, M, N, NRHS,
+     $                                    A, LDA, B, LDB, WORK, LWORK,
+     $                                    INFO )
+                                 IF( INFO.NE.0 )
+     $                              CALL ALAERH( PATH, 'SGETSLS', INFO,
+     $                                           0, TRANS, M, N, NRHS,
+     $                                           -1, NB, ITYPE, NFAIL,
+     $                                           NERRS, NOUT )
+*
+*                             Test 5: Check correctness of results
+*                             for SGETSLS, compute the residual:
+*                             RESID = norm(B - A*X) /
+*                             / ( max(m,n) * norm(A) * norm(X) * EPS )
+*
+                                 IF( NROWS.GT.0 .AND. NRHS.GT.0 )
+     $                              CALL SLACPY( 'Full', NROWS, NRHS,
+     $                                           COPYB, LDB, C, LDB )
+                                 CALL SQRT16( TRANS, M, N, NRHS,
+     $                                        COPYA, LDA, B, LDB,
+     $                                        C, LDB, WORK,
+     $                                        RESULT( 5 ) )
+*
+*                             Test 6: Check correctness of results
+*                             for SGETSLS.
+*
+                                 IF( ( ITRAN.EQ.1 .AND. M.GE.N ) .OR.
+     $                               ( ITRAN.EQ.2 .AND. M.LT.N ) ) THEN
+*
+*                                   Solving LS system, compute:
+*                                   r = norm((B- A*X)**T * A) /
+*                                 / (norm(A)*norm(B)*max(M,N,NRHS)*EPS)
+*
+                                    RESULT( 6 ) = SQRT17( TRANS, 1, M,
+     $                                             N, NRHS, COPYA, LDA,
+     $                                             B, LDB, COPYB, LDB,
+     $                                             C, WORK, LWORK )
+                                 ELSE
+*
+*                                   Solving overdetermined system
+*
+                                    RESULT( 6 ) = SQRT14( TRANS, M, N,
+     $                                             NRHS, COPYA, LDA,
+     $                                             B, LDB, WORK, LWORK )
+                                 END IF
+*
+*                                Print information about the tests that
+*                                did not pass the threshold.
+*
+                                 DO K = 5, 6
+                                    IF( RESULT( K ).GE.THRESH ) THEN
+                                       IF( NFAIL.EQ.0 .AND. NERRS.EQ.0 )
+     $                                    CALL ALAHD( NOUT, PATH )
+                                       WRITE( NOUT, FMT = 9997 ) TRANS,
+     $                                    M, N, NRHS, MB, NB, ITYPE,
+     $                                    K, RESULT( K )
+                                       NFAIL = NFAIL + 1
+                                    END IF
+                                 END DO
+                                 NRUN = NRUN + 2
+                              END DO
+                           END DO
+                        END DO
+                     END IF
+*                 =====================================================
+*                       End test SGETSLS
+*                 =====================================================
 *
 *                    Generate a matrix of scaling type ISCALE and rank
 *                    type IRANK.
@@ -435,79 +789,7 @@
 *
 *                    workspace used: MAX(M+MIN(M,N),NRHS*MIN(M,N),2*N+M)
 *
-*                    Initialize vector IWORK.
-*
-                     DO 50 J = 1, N
-                        IWORK( J ) = 0
-   50                CONTINUE
                      LDWORK = MAX( 1, M )
-*
-*                    Test SGELSX
-*
-*                    SGELSX:  Compute the minimum-norm solution X
-*                    to min( norm( A * X - B ) ) using a complete
-*                    orthogonal factorization.
-*
-                     CALL SLACPY( 'Full', M, N, COPYA, LDA, A, LDA )
-                     CALL SLACPY( 'Full', M, NRHS, COPYB, LDB, B, LDB )
-*
-                     SRNAMT = 'SGELSX'
-                     CALL SGELSX( M, N, NRHS, A, LDA, B, LDB, IWORK,
-     $                            RCOND, CRANK, WORK, INFO )
-                     IF( INFO.NE.0 )
-     $                  CALL ALAERH( PATH, 'SGELSX', INFO, 0, ' ', M, N,
-     $                               NRHS, -1, NB, ITYPE, NFAIL, NERRS,
-     $                               NOUT )
-*
-*                    workspace used: MAX( MNMIN+3*N, 2*MNMIN+NRHS )
-*
-*                    Test 3:  Compute relative error in svd
-*                             workspace: M*N + 4*MIN(M,N) + MAX(M,N)
-*
-                     RESULT( 3 ) = SQRT12( CRANK, CRANK, A, LDA, COPYS,
-     $                             WORK, LWORK )
-*
-*                    Test 4:  Compute error in solution
-*                             workspace:  M*NRHS + M
-*
-                     CALL SLACPY( 'Full', M, NRHS, COPYB, LDB, WORK,
-     $                            LDWORK )
-                     CALL SQRT16( 'No transpose', M, N, NRHS, COPYA,
-     $                            LDA, B, LDB, WORK, LDWORK,
-     $                            WORK( M*NRHS+1 ), RESULT( 4 ) )
-*
-*                    Test 5:  Check norm of r'*A
-*                             workspace: NRHS*(M+N)
-*
-                     RESULT( 5 ) = ZERO
-                     IF( M.GT.CRANK )
-     $                  RESULT( 5 ) = SQRT17( 'No transpose', 1, M, N,
-     $                                NRHS, COPYA, LDA, B, LDB, COPYB,
-     $                                LDB, C, WORK, LWORK )
-*
-*                    Test 6:  Check if x is in the rowspace of A
-*                             workspace: (M+NRHS)*(N+2)
-*
-                     RESULT( 6 ) = ZERO
-*
-                     IF( N.GT.CRANK )
-     $                  RESULT( 6 ) = SQRT14( 'No transpose', M, N,
-     $                                NRHS, COPYA, LDA, B, LDB, WORK,
-     $                                LWORK )
-*
-*                    Print information about the tests that did not
-*                    pass the threshold.
-*
-                     DO 60 K = 3, 6
-                        IF( RESULT( K ).GE.THRESH ) THEN
-                           IF( NFAIL.EQ.0 .AND. NERRS.EQ.0 )
-     $                        CALL ALAHD( NOUT, PATH )
-                           WRITE( NOUT, FMT = 9998 )M, N, NRHS, NB,
-     $                        ITYPE, K, RESULT( K )
-                           NFAIL = NFAIL + 1
-                        END IF
-   60                CONTINUE
-                     NRUN = NRUN + 4
 *
 *                    Loop for testing different block sizes.
 *
@@ -528,11 +810,6 @@
                         DO 70 J = 1, N
                            IWORK( J ) = 0
    70                   CONTINUE
-*
-*                       Set LWLSY to the adequate value.
-*
-                        LWLSY = MAX( 1, MNMIN+2*N+NB*( N+1 ),
-     $                          2*MNMIN+NB*NRHS )
 *
                         CALL SLACPY( 'Full', M, N, COPYA, LDA, A, LDA )
                         CALL SLACPY( 'Full', M, NRHS, COPYB, LDB, B,
@@ -577,8 +854,8 @@
 *
                         IF( N.GT.CRANK )
      $                     RESULT( 10 ) = SQRT14( 'No transpose', M, N,
-     $                                    NRHS, COPYA, LDA, B, LDB,
-     $                                    WORK, LWORK )
+     $                                   NRHS, COPYA, LDA, B, LDB,
+     $                                   WORK, LWORK )
 *
 *                       Test SGELSS
 *
@@ -605,8 +882,8 @@
                         IF( RANK.GT.0 ) THEN
                            CALL SAXPY( MNMIN, -ONE, COPYS, 1, S, 1 )
                            RESULT( 11 ) = SASUM( MNMIN, S, 1 ) /
-     $                                    SASUM( MNMIN, COPYS, 1 ) /
-     $                                    ( EPS*REAL( MNMIN ) )
+     $                                   SASUM( MNMIN, COPYS, 1 ) /
+     $                                   ( EPS*REAL( MNMIN ) )
                         ELSE
                            RESULT( 11 ) = ZERO
                         END IF
@@ -624,8 +901,8 @@
                         RESULT( 13 ) = ZERO
                         IF( M.GT.CRANK )
      $                     RESULT( 13 ) = SQRT17( 'No transpose', 1, M,
-     $                                    N, NRHS, COPYA, LDA, B, LDB,
-     $                                    COPYB, LDB, C, WORK, LWORK )
+     $                                   N, NRHS, COPYA, LDA, B, LDB,
+     $                                   COPYB, LDB, C, WORK, LWORK )
 *
 *                       Test 14:  Check if x is in the rowspace of A
 *
@@ -698,7 +975,7 @@
 *                       Print information about the tests that did not
 *                       pass the threshold.
 *
-                        DO 90 K = 7, NTESTS
+                        DO 90 K = 7, 18
                            IF( RESULT( K ).GE.THRESH ) THEN
                               IF( NFAIL.EQ.0 .AND. NERRS.EQ.0 )
      $                           CALL ALAHD( NOUT, PATH )
@@ -707,7 +984,7 @@
                               NFAIL = NFAIL + 1
                            END IF
    90                   CONTINUE
-                        NRUN = NRUN + 12 
+                        NRUN = NRUN + 12
 *
   100                CONTINUE
   110             CONTINUE
@@ -724,6 +1001,12 @@
      $      ', NB=', I4, ', type', I2, ', test(', I2, ')=', G12.5 )
  9998 FORMAT( ' M=', I5, ', N=', I5, ', NRHS=', I4, ', NB=', I4,
      $      ', type', I2, ', test(', I2, ')=', G12.5 )
+ 9997 FORMAT( ' TRANS=''', A1,' M=', I5, ', N=', I5, ', NRHS=', I4,
+     $      ', MB=', I4,', NB=', I4,', type', I2,
+     $      ', test(', I2, ')=', G12.5 )
+*
+      DEALLOCATE( WORK )
+      DEALLOCATE( IWORK )
       RETURN
 *
 *     End of SDRVLS

@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SPTT01( N, D, E, DF, EF, WORK, RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            N
 *       REAL               RESID
@@ -17,7 +17,7 @@
 *       .. Array Arguments ..
 *       REAL               D( * ), DF( * ), E( * ), EF( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -35,7 +35,7 @@
 *
 *> \param[in] N
 *> \verbatim
-*>          N is INTEGTER
+*>          N is INTEGER
 *>          The order of the matrix A.
 *> \endverbatim
 *>
@@ -79,22 +79,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
 *  =====================================================================
       SUBROUTINE SPTT01( N, D, E, DF, EF, WORK, RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            N

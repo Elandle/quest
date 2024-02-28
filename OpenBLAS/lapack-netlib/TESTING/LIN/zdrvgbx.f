@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZDRVGB( DOTYPE, NN, NVAL, NRHS, THRESH, TSTERR, A, LA,
 *                          AFB, LAFB, ASAV, B, BSAV, X, XACT, S, WORK,
 *                          RWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            LA, LAFB, NN, NOUT, NRHS
@@ -24,7 +24,7 @@
 *       COMPLEX*16         A( * ), AFB( * ), ASAV( * ), B( * ), BSAV( * ),
 *      $                   WORK( * ), X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -144,7 +144,7 @@
 *> \param[out] RWORK
 *> \verbatim
 *>          RWORK is DOUBLE PRECISION array, dimension
-*>                      (max(NMAX,2*NRHS))
+*>                      (max(2*NMAX,NMAX+2*NRHS))
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -161,12 +161,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -175,10 +173,9 @@
      $                   AFB, LAFB, ASAV, B, BSAV, X, XACT, S, WORK,
      $                   RWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -593,7 +590,8 @@
      $                                        WORK, LDB )
                                  CALL ZGBT02( 'No transpose', N, N, KL,
      $                                        KU, NRHS, A, LDA, X, LDB,
-     $                                        WORK, LDB, RESULT( 2 ) )
+     $                                        WORK, LDB, RWORK,
+     $                                        RESULT( 2 ) )
 *
 *                                Check solution from generated exact
 *                                solution.
@@ -711,6 +709,7 @@
      $                                     WORK, LDB )
                               CALL ZGBT02( TRANS, N, N, KL, KU, NRHS,
      $                                     ASAV, LDA, X, LDB, WORK, LDB,
+     $                                     RWORK( 2*NRHS+1 ),
      $                                     RESULT( 2 ) )
 *
 *                             Check solution from generated exact
@@ -900,7 +899,8 @@ c                     write(*,*) 'begin zgbsvxx testing'
                         CALL ZLACPY( 'Full', N, NRHS, BSAV, LDB, WORK,
      $                               LDB )
                         CALL ZGBT02( TRANS, N, N, KL, KU, NRHS, ASAV,
-     $                       LDA, X, LDB, WORK, LDB, RESULT( 2 ) )
+     $                               LDA, X, LDB, WORK, LDB, RWORK,
+     $                               RESULT( 2 ) )
 *
 *                       Check solution from generated exact solution.
 *
@@ -1030,6 +1030,6 @@ c                     write(*,*) 'begin zgbsvxx testing'
 *
       RETURN
 *
-*     End of ZDRVGB
+*     End of ZDRVGBX
 *
       END

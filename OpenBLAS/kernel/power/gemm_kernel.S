@@ -59,7 +59,7 @@
 #define	N	r4
 #define	K	r5
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
 #define A	r6
 #define	B	r7
@@ -179,25 +179,25 @@
 
 #if defined(_AIX) || defined(__APPLE__)
 #if !defined(__64BIT__) && defined(DOUBLE)
-	lwz	LDC,    56 + STACKSIZE(SP)
+	lwz	LDC, FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 #endif
 
 	slwi	LDC, LDC, BASE_SHIFT
 
 #if defined(TRMMKERNEL)
-#if defined(linux) && defined(__64BIT__)
-	ld	OFFSET,   112 + STACKSIZE(SP)
+#if (defined(linux) || defined(__FreeBSD__)) && defined(__64BIT__)
+	ld	OFFSET,   FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifdef __64BIT__
-	ld	OFFSET,  112 + STACKSIZE(SP)
+	ld	OFFSET,  FRAMESLOT(0) + STACKSIZE(SP)
 #else
 #ifdef DOUBLE
-	lwz	OFFSET,   60 + STACKSIZE(SP)
+	lwz	OFFSET,  FRAMESLOT(1) + STACKSIZE(SP)
 #else
-	lwz	OFFSET,   56 + STACKSIZE(SP)
+	lwz	OFFSET,  FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 #endif
 #endif
@@ -228,32 +228,32 @@
 
 #else
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
 	mr	PREA,  r10
-	lwz	PREB,   8 + STACKSIZE(SP)
-	lwz	PREC,  12 + STACKSIZE(SP)
+	lwz	PREB,  FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	PREC,  FRAMESLOT(1) + STACKSIZE(SP)
 #else
-	ld	PREA,  112 + STACKSIZE(SP)
-	ld	PREB,  120 + STACKSIZE(SP)
-	ld	PREC,  128 + STACKSIZE(SP)
+	ld	PREA,  FRAMESLOT(0) + STACKSIZE(SP)
+	ld	PREB,  FRAMESLOT(1) + STACKSIZE(SP)
+	ld	PREC,  FRAMESLOT(2) + STACKSIZE(SP)
 #endif
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifdef __64BIT__
-	ld	PREA,  112 + STACKSIZE(SP)
-	ld	PREB,  120 + STACKSIZE(SP)
-	ld	PREC,  128 + STACKSIZE(SP)
+	ld	PREA,  FRAMESLOT(0) + STACKSIZE(SP)
+	ld	PREB,  FRAMESLOT(1) + STACKSIZE(SP)
+	ld	PREC,  FRAMESLOT(2) + STACKSIZE(SP)
 #else
 #ifdef DOUBLE
-	lwz	PREA,   60 + STACKSIZE(SP)
-	lwz	PREB,   64 + STACKSIZE(SP)
-	lwz	PREC,   68 + STACKSIZE(SP)
+	lwz	PREA,  FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	PREB,  FRAMESLOT(2) + STACKSIZE(SP)
+	lwz	PREC,  FRAMESLOT(3) + STACKSIZE(SP)
 #else
-	lwz	PREA,   56 + STACKSIZE(SP)
-	lwz	PREB,   60 + STACKSIZE(SP)
-	lwz	PREC,   64 + STACKSIZE(SP)
+	lwz	PREA,  FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	PREB,  FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	PREC,  FRAMESLOT(2) + STACKSIZE(SP)
 #endif
 #endif
 #endif

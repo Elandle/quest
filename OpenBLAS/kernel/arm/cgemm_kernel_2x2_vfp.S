@@ -57,12 +57,25 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define N	[fp, #-260 ]
 #define K	[fp, #-264 ]
 
+#define FP_ZERO [fp, #-240]
+#define FP_ZERO_0 [fp, # -240]
+#define FP_ZERO_1 [fp, # -236]
+
 #define ALPHA_I	[fp, #-272]
 #define ALPHA_R	[fp, #-280]
 
+#if !defined(__ARM_PCS_VFP)
+#define OLD_ALPHAR_SOFTFP	r3
+#define OLD_ALPHAI_SOFTFP	[fp, #4]
+#define OLD_A_SOFTFP	[fp, #8 ]
+#define B	[fp, #12 ]
+#define C	[fp, #16 ]
+#define OLD_LDC	[fp, #20 ]
+#else
 #define B	[fp, #4 ]
 #define C	[fp, #8 ]
 #define OLD_LDC	[fp, #12 ]
+#endif
 
 #define I	r0
 #define J	r1
@@ -90,42 +103,42 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #if defined(NN) || defined(NT) || defined(TN) || defined(TT)
 
-	#define	KMAC_R	fnmacs
+	#define	KMAC_R	vmls.f32
 	#define	KMAC_I	fmacs
 
 	#define	FMAC_R1	fmacs
-	#define	FMAC_R2	fnmacs
+	#define	FMAC_R2	vmls.f32
 	#define	FMAC_I1	fmacs
 	#define	FMAC_I2	fmacs
 
 #elif defined(CN) || defined(CT)
 
 	#define	KMAC_R	fmacs
-	#define	KMAC_I	fnmacs
+	#define	KMAC_I	vmls.f32
 
 	#define	FMAC_R1	fmacs
-	#define	FMAC_R2	fnmacs
+	#define	FMAC_R2	vmls.f32
 	#define	FMAC_I1	fmacs
 	#define	FMAC_I2	fmacs
 
 #elif defined(NC) || defined(TC)
 
 	#define	KMAC_R	fmacs
-	#define	KMAC_I	fnmacs
+	#define	KMAC_I	vmls.f32
 
 	#define	FMAC_R1	fmacs
 	#define	FMAC_R2	fmacs
-	#define	FMAC_I1	fnmacs
+	#define	FMAC_I1	vmls.f32
 	#define	FMAC_I2	fmacs
 
 #else
 
-	#define	KMAC_R  fnmacs
+	#define	KMAC_R  vmls.f32
 	#define	KMAC_I	fmacs
 
 	#define	FMAC_R1	fmacs
 	#define	FMAC_R2	fmacs
-	#define	FMAC_I1	fnmacs
+	#define	FMAC_I1	vmls.f32
 	#define	FMAC_I2	fmacs
 
 #endif
@@ -138,7 +151,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT2x2
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9 , s8
 	vmov.f32		s10, s8
 	vmov.f32		s11, s8
@@ -152,9 +165,9 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL2x2_I
 
 	pld	[ AO, #A_PRE ]
-	fldmias	AO!, { s0 - s3 }
+	vldmia.f32	AO!, { s0 - s3 }
 	pld	[ BO, #B_PRE ]
-	fldmias	BO!, { s4 - s7 }
+	vldmia.f32	BO!, { s4 - s7 }
 
 
 	fmuls	s8  , s0,  s4
@@ -184,9 +197,9 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL2x2_M1
 
 	pld	[ AO, #A_PRE ]
-	fldmias	AO!, { s0 - s3 }
+	vldmia.f32	AO!, { s0 - s3 }
 	pld	[ BO, #B_PRE ]
-	fldmias	BO!, { s4 - s7 }
+	vldmia.f32	BO!, { s4 - s7 }
 
 	fmacs	s8  , s0,  s4
 	fmacs	s9  , s0,  s5
@@ -212,8 +225,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL2x2_M2
 
-	fldmias	AO!, { s0 - s3 }
-	fldmias	BO!, { s4 - s7 }
+	vldmia.f32	AO!, { s0 - s3 }
+	vldmia.f32	BO!, { s4 - s7 }
 
 	fmacs	s8  , s0,  s4
 	fmacs	s9  , s0,  s5
@@ -241,8 +254,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL2x2_E
 
-	fldmias	AO!, { s0 - s3 }
-	fldmias	BO!, { s4 - s7 }
+	vldmia.f32	AO!, { s0 - s3 }
+	vldmia.f32	BO!, { s4 - s7 }
 
 	fmacs	s8  , s0,  s4
 	fmacs	s9  , s0,  s5
@@ -269,8 +282,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL2x2_SUB
 
-	fldmias	AO!, { s0 - s3 }
-	fldmias	BO!, { s4 - s7 }
+	vldmia.f32	AO!, { s0 - s3 }
+	vldmia.f32	BO!, { s4 - s7 }
 
 	fmacs	s8  , s0,  s4
 	fmacs	s9  , s0,  s5
@@ -304,7 +317,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	flds		s0, ALPHA_R
 	flds		s1, ALPHA_I
 
-	fldmias CO1, { s4 - s7 }
+	vldmia.f32 CO1, { s4 - s7 }
 
 	FMAC_R1 s4 , s0 , s8
 	FMAC_I1 s5 , s0 , s9
@@ -316,9 +329,9 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	FMAC_R2 s6 , s1 , s11
 	FMAC_I2	s7 , s1 , s10
 
-	fstmias CO1, { s4 - s7 }
+	vstmia.f32 CO1, { s4 - s7 }
 
-	fldmias CO2, { s4 - s7 }
+	vldmia.f32 CO2, { s4 - s7 }
 
 	FMAC_R1 s4 , s0 , s12
 	FMAC_I1 s5 , s0 , s13
@@ -330,7 +343,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	FMAC_R2 s6 , s1 , s15
 	FMAC_I2	s7 , s1 , s14
 
-	fstmias CO2, { s4 - s7 }
+	vstmia.f32 CO2, { s4 - s7 }
 
 	add	CO1, CO1, #16
 
@@ -340,7 +353,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT1x2
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9 , s8
 	vmov.f32		s12, s8
 	vmov.f32		s13, s8
@@ -487,23 +500,23 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	flds		s0, ALPHA_R
 	flds		s1, ALPHA_I
 
-	fldmias CO1, { s4 - s5 }
+	vldmia.f32 CO1, { s4 - s5 }
 
 	FMAC_R1 s4 , s0 , s8
 	FMAC_I1 s5 , s0 , s9
 	FMAC_R2 s4 , s1 , s9
 	FMAC_I2	s5 , s1 , s8
 
-	fstmias CO1, { s4 - s5 }
+	vstmia.f32 CO1, { s4 - s5 }
 
-	fldmias CO2, { s4 - s5 }
+	vldmia.f32 CO2, { s4 - s5 }
 
 	FMAC_R1 s4 , s0 , s12
 	FMAC_I1 s5 , s0 , s13
 	FMAC_R2 s4 , s1 , s13
 	FMAC_I2	s5 , s1 , s12
 
-	fstmias CO2, { s4 - s5 }
+	vstmia.f32 CO2, { s4 - s5 }
 
 	add	CO1, CO1, #8
 
@@ -514,7 +527,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT2x1
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9 , s8
 	vmov.f32		s10, s8
 	vmov.f32		s11, s8
@@ -658,7 +671,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	flds		s0, ALPHA_R
 	flds		s1, ALPHA_I
 
-	fldmias CO1, { s4 - s7 }
+	vldmia.f32 CO1, { s4 - s7 }
 
 	FMAC_R1 s4 , s0 , s8
 	FMAC_I1 s5 , s0 , s9
@@ -670,7 +683,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	FMAC_R2 s6 , s1 , s11
 	FMAC_I2	s7 , s1 , s10
 
-	fstmias CO1, { s4 - s7 }
+	vstmia.f32 CO1, { s4 - s7 }
 
 	add	CO1, CO1, #16
 
@@ -681,7 +694,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT1x1
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9 , s8
 
 .endm
@@ -787,14 +800,14 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	flds		s0, ALPHA_R
 	flds		s1, ALPHA_I
 
-	fldmias CO1, { s4 - s5 }
+	vldmia.f32 CO1, { s4 - s5 }
 
 	FMAC_R1 s4 , s0 , s8
 	FMAC_I1 s5 , s0 , s9
 	FMAC_R2 s4 , s1 , s9
 	FMAC_I2	s5 , s1 , s8
 
-	fstmias CO1, { s4 - s5 }
+	vstmia.f32 CO1, { s4 - s5 }
 
 	add	CO1, CO1, #8
 
@@ -812,6 +825,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	add	fp, sp, #24
 	sub	sp, sp, #STACKSIZE				// reserve stack
 
+#if !defined(__ARM_PCS_VFP)
+	vmov	OLD_ALPHA_R, OLD_ALPHAR_SOFTFP
+	vldr	OLD_ALPHA_I, OLD_ALPHAI_SOFTFP
+	ldr	OLD_A, OLD_A_SOFTFP
+#endif
 	str	OLD_M, M
 	str	OLD_N, N
 	str	OLD_K, K
@@ -821,6 +839,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	sub	r3, fp, #128
 	vstm	r3, { s8 - s15} 				// store floating point registers
+
+        movs    r4, #0
+        str     r4, FP_ZERO
+        str     r4, FP_ZERO_1
 
 	ldr	r3, OLD_LDC
 	lsl	r3, r3, #3					// ldc = ldc * 4 * 2

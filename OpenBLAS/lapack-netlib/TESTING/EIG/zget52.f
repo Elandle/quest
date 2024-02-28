@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZGET52( LEFT, N, A, LDA, B, LDB, E, LDE, ALPHA, BETA,
 *                          WORK, RWORK, RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            LEFT
 *       INTEGER            LDA, LDB, LDE, N
@@ -20,7 +20,7 @@
 *       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), E( LDE, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -47,7 +47,7 @@
 *> supposed to be normalized so that the maximum "absolute value"
 *> of its elements is 1, where in this case, "absolute value"
 *> of a complex value x is  |Re(x)| + |Im(x)| ; let us call this
-*> maximum "absolute value" norm of a vector v  M(v).  
+*> maximum "absolute value" norm of a vector v  M(v).
 *> If a(i)=b(i)=0, then the eigenvector is set to be the jth coordinate
 *> vector. The normalization test is:
 *>
@@ -149,12 +149,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
@@ -162,10 +160,9 @@
       SUBROUTINE ZGET52( LEFT, N, A, LDA, B, LDB, E, LDE, ALPHA, BETA,
      $                   WORK, RWORK, RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            LEFT
@@ -238,7 +235,7 @@
       BETMAX = SAFMAX / MAX( ONE, ANORM )
 *
 *     Compute error matrix.
-*     Column i = ( b(i) A - a(i) B ) E(i) / max( |a(i) B| |b(i) A| )
+*     Column i = ( b(i) A - a(i) B ) E(i) / max( |a(i) B|, |b(i) A| )
 *
       DO 10 JVEC = 1, N
          ALPHAI = ALPHA( JVEC )
@@ -278,7 +275,7 @@
          DO 20 J = 1, N
             TEMP1 = MAX( TEMP1, ABS1( E( J, JVEC ) ) )
    20    CONTINUE
-         ENRMER = MAX( ENRMER, TEMP1-ONE )
+         ENRMER = MAX( ENRMER, ABS( TEMP1-ONE ) )
    30 CONTINUE
 *
 *     Compute RESULT(2) : the normalization error in E.

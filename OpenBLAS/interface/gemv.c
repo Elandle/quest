@@ -38,6 +38,7 @@
 
 #include <stdio.h>
 #include "common.h"
+#include "l1param.h"
 #ifdef FUNCTION_PROFILE
 #include "functable.h"
 #endif
@@ -78,6 +79,7 @@ void NAME(char *TRANS, blasint *M, blasint *N,
   FLOAT alpha = *ALPHA;
   FLOAT beta  = *BETA;
   FLOAT *buffer;
+  int buffer_size;
 #ifdef SMP
   int nthreads;
 #endif
@@ -130,7 +132,7 @@ void CNAME(enum CBLAS_ORDER order,
 
   FLOAT *buffer;
   blasint lenx, leny;
-  int trans;
+  int trans, buffer_size;
   blasint info, t;
 #ifdef SMP
   int nthreads;
@@ -189,7 +191,6 @@ void CNAME(enum CBLAS_ORDER order,
   }
 
 #endif
-
   if ((m==0) || (n==0)) return;
 
   lenx = n;
@@ -197,10 +198,17 @@ void CNAME(enum CBLAS_ORDER order,
   if (trans) lenx = m;
   if (trans) leny = n;
 
-  if (beta != ONE) SCAL_K(leny, 0, 0, beta, y, abs(incy), NULL, 0, NULL, 0);
+  if (beta != ONE) SCAL_K(leny, 0, 0, beta, y, blasabs(incy), NULL, 0, NULL, 0);
 
   if (alpha == ZERO) return;
-
+	
+#if 0
+/* this optimization causes stack corruption on x86_64 under OSX, Windows and FreeBSD */	
+  if (trans == 0 && incx == 1 && incy == 1 && m*n < 2304 *GEMM_MULTITHREAD_THRESHOLD) {
+    GEMV_N(m, n, 0, alpha, a, lda, x, incx, y, incy, NULL);
+    return;
+  }    
+#endif
   IDEBUG_START;
 
   FUNCTION_PROFILE_START();
@@ -208,10 +216,20 @@ void CNAME(enum CBLAS_ORDER order,
   if (incx < 0) x -= (lenx - 1) * incx;
   if (incy < 0) y -= (leny - 1) * incy;
 
-  buffer = (FLOAT *)blas_memory_alloc(1);
+  buffer_size = m + n + 128 / sizeof(FLOAT);
+#ifdef WINDOWS_ABI
+  buffer_size += 160 / sizeof(FLOAT) ;
+#endif
+  // for alignment
+  buffer_size = (buffer_size + 3) & ~3;
+  STACK_ALLOC(buffer_size, FLOAT, buffer);
 
 #ifdef SMP
-  nthreads = num_cpu_avail(2);
+
+  if ( 1L * m * n < 2304L * GEMM_MULTITHREAD_THRESHOLD )
+    nthreads = 1;
+  else
+    nthreads = num_cpu_avail(2);
 
   if (nthreads == 1) {
 #endif
@@ -226,8 +244,7 @@ void CNAME(enum CBLAS_ORDER order,
   }
 #endif
 
-  blas_memory_free(buffer);
-
+  STACK_FREE(buffer);
   FUNCTION_PROFILE_END(1, m * n + m + n,  2 * m * n);
 
   IDEBUG_END;

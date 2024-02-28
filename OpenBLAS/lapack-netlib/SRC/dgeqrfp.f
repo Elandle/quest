@@ -2,39 +2,49 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DGEQRFP + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgeqrfp.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgeqrfp.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgeqrfp.f"> 
+*> Download DGEQRFP + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgeqrfp.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgeqrfp.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgeqrfp.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGEQRFP( M, N, A, LDA, TAU, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
 *       DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*> DGEQRFP computes a QR factorization of a real M-by-N matrix A:
-*> A = Q * R.
+*> DGEQR2P computes a QR factorization of a real M-by-N matrix A:
+*>
+*>    A = Q * ( R ),
+*>            ( 0 )
+*>
+*> where:
+*>
+*>    Q is a M-by-M orthogonal matrix;
+*>    R is an upper-triangular N-by-N matrix with nonnegative diagonal
+*>    entries;
+*>    0 is a (M-N)-by-N zero matrix, if M > N.
+*>
 *> \endverbatim
 *
 *  Arguments:
@@ -58,7 +68,8 @@
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the elements on and above the diagonal of the array
 *>          contain the min(M,N)-by-N upper trapezoidal matrix R (R is
-*>          upper triangular if m >= n); the elements below the diagonal,
+*>          upper triangular if m >= n). The diagonal entries of R
+*>          are nonnegative; the elements below the diagonal,
 *>          with the array TAU, represent the orthogonal matrix Q as a
 *>          product of min(m,n) elementary reflectors (see Further
 *>          Details).
@@ -86,7 +97,8 @@
 *> \param[in] LWORK
 *> \verbatim
 *>          LWORK is INTEGER
-*>          The dimension of the array WORK.  LWORK >= max(1,N).
+*>          The dimension of the array WORK.
+*>          LWORK >= 1, if MIN(M,N) = 0, and LWORK >= N, otherwise.
 *>          For optimum performance LWORK >= N*NB, where NB is
 *>          the optimal blocksize.
 *>
@@ -106,14 +118,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup doubleGEcomputational
+*> \ingroup geqrfp
 *
 *> \par Further Details:
 *  =====================
@@ -131,15 +141,16 @@
 *>  where tau is a real scalar, and v is a real vector with
 *>  v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i),
 *>  and tau in TAU(i).
+*>
+*> See Lapack Working Note 203 for details
 *> \endverbatim
 *>
 *  =====================================================================
       SUBROUTINE DGEQRFP( M, N, A, LDA, TAU, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LWORK, M, N
@@ -152,8 +163,8 @@
 *
 *     .. Local Scalars ..
       LOGICAL            LQUERY
-      INTEGER            I, IB, IINFO, IWS, K, LDWORK, LWKOPT, NB,
-     $                   NBMIN, NX
+      INTEGER            I, IB, IINFO, IWS, K, LDWORK, LWKMIN, LWKOPT,
+     $                   NB, NBMIN, NX
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEQR2P, DLARFB, DLARFT, XERBLA
@@ -171,8 +182,16 @@
 *
       INFO = 0
       NB = ILAENV( 1, 'DGEQRF', ' ', M, N, -1, -1 )
-      LWKOPT = N*NB
+      K = MIN( M, N )
+      IF( K.EQ.0 ) THEN
+         LWKMIN = 1
+         LWKOPT = 1
+      ELSE
+         LWKMIN = N
+         LWKOPT = N*NB
+      END IF
       WORK( 1 ) = LWKOPT
+*
       LQUERY = ( LWORK.EQ.-1 )
       IF( M.LT.0 ) THEN
          INFO = -1
@@ -180,7 +199,7 @@
          INFO = -2
       ELSE IF( LDA.LT.MAX( 1, M ) ) THEN
          INFO = -4
-      ELSE IF( LWORK.LT.MAX( 1, N ) .AND. .NOT.LQUERY ) THEN
+      ELSE IF( LWORK.LT.LWKMIN .AND. .NOT.LQUERY ) THEN
          INFO = -7
       END IF
       IF( INFO.NE.0 ) THEN
@@ -192,7 +211,6 @@
 *
 *     Quick return if possible
 *
-      K = MIN( M, N )
       IF( K.EQ.0 ) THEN
          WORK( 1 ) = 1
          RETURN
@@ -200,7 +218,7 @@
 *
       NBMIN = 2
       NX = 0
-      IWS = N
+      IWS = LWKMIN
       IF( NB.GT.1 .AND. NB.LT.K ) THEN
 *
 *        Determine when to cross over from blocked to unblocked code.

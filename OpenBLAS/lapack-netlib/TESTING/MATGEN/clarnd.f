@@ -2,21 +2,21 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       COMPLEX FUNCTION CLARND( IDIST, ISEED )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            IDIST
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISEED( 4 )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -53,12 +53,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_matgen
 *
@@ -75,10 +73,9 @@
 *  =====================================================================
       COMPLEX FUNCTION CLARND( IDIST, ISEED )
 *
-*  -- LAPACK auxiliary routine (version 3.4.0) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            IDIST
@@ -93,7 +90,7 @@
       REAL               ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0E+0, ONE = 1.0E+0, TWO = 2.0E+0 )
       REAL               TWOPI
-      PARAMETER          ( TWOPI = 6.2831853071795864769252867663E+0 )
+      PARAMETER  ( TWOPI = 6.28318530717958647692528676655900576839E+0 )
 *     ..
 *     .. Local Scalars ..
       REAL               T1, T2

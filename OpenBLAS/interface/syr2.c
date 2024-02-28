@@ -118,7 +118,7 @@ void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA,
 void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha, FLOAT *x, blasint incx, FLOAT *y, blasint incy, FLOAT *a, blasint lda) {
 
   FLOAT *buffer;
-  int trans, uplo;
+  int uplo;
   blasint info;
 #ifdef SMP
   int nthreads;
@@ -126,7 +126,6 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
 
   PRINT_DEBUG_CNAME;
 
-  trans = -1;
   uplo  = -1;
   info  =  0;
 
@@ -171,6 +170,25 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
 
   IDEBUG_START;
 
+  if (incx == 1 && incy == 1 && n < 100) {
+    blasint i;
+    if (!uplo) {
+      for (i = 0; i < n; i++){
+        AXPYU_K(i + 1, 0, 0, alpha * x[i], y,     1, a, 1, NULL, 0);
+        AXPYU_K(i + 1, 0, 0, alpha * y[i], x,     1, a, 1, NULL, 0);
+        a += lda;
+      }
+    } else {
+      for (i = 0; i < n; i++){
+        AXPYU_K(n - i, 0, 0, alpha * x[i], y + i, 1, a, 1, NULL, 0);
+        AXPYU_K(n - i, 0, 0, alpha * y[i], x + i, 1, a, 1, NULL, 0);
+        a += 1 + lda;
+      }
+    }
+    return;
+  }
+
+	  
   FUNCTION_PROFILE_START();
 
   if (incx < 0 ) x -= (n - 1) * incx;

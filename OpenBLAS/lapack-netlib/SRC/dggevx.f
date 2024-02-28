@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DGGEVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dggevx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dggevx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dggevx.f"> 
+*> Download DGGEVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dggevx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dggevx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dggevx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -22,7 +22,7 @@
 *                          ALPHAR, ALPHAI, BETA, VL, LDVL, VR, LDVR, ILO,
 *                          IHI, LSCALE, RSCALE, ABNRM, BBNRM, RCONDE,
 *                          RCONDV, WORK, LWORK, IWORK, BWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          BALANC, JOBVL, JOBVR, SENSE
 *       INTEGER            IHI, ILO, INFO, LDA, LDB, LDVL, LDVR, LWORK, N
@@ -36,7 +36,7 @@
 *      $                   RCONDE( * ), RCONDV( * ), RSCALE( * ),
 *      $                   VL( LDVL, * ), VR( LDVR, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -347,12 +347,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date April 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup doubleGEeigen
 *
@@ -391,10 +389,9 @@
      $                   IHI, LSCALE, RSCALE, ABNRM, BBNRM, RCONDE,
      $                   RCONDV, WORK, LWORK, IWORK, BWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          BALANC, JOBVL, JOBVR, SENSE
@@ -432,7 +429,7 @@
 *     .. External Subroutines ..
       EXTERNAL           DGEQRF, DGGBAK, DGGBAL, DGGHRD, DHGEQZ, DLABAD,
      $                   DLACPY, DLASCL, DLASET, DORGQR, DORMQR, DTGEVC,
-     $                   DTGSNA, XERBLA 
+     $                   DTGSNA, XERBLA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

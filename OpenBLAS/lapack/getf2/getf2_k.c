@@ -37,6 +37,7 @@
 /*********************************************************************/
 
 #include <stdio.h>
+#include <float.h>
 #include "common.h"
 
 static FLOAT dp1 =  1.;
@@ -94,19 +95,26 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
       GEMV_N(m - j, j, 0, dm1,  a + j, lda, b, 1, b + j, 1, sb);
 
       jp = j + IAMAX_K(m - j, b + j, 1);
+      if (jp>m) jp = m;        //avoid out of boundary when the iamax kernel does not cope with NaN in input, see gh issue 723
       ipiv[j + offset] = jp + offset;
       jp--;
       temp1 = *(b + jp);
 
       if (temp1 != ZERO) {
-	temp1 = dp1 / temp1;
+#if defined(DOUBLE)
+	if (fabs(temp1) >= DBL_MIN ) {
+#else
+	if (fabs(temp1) >= FLT_MIN ) {
+#endif
+  	  temp1 = dp1 / temp1;
 
-	if (jp != j) {
-	  SWAP_K(j + 1, 0, 0, ZERO, a + j, lda, a + jp, lda, NULL, 0);
-	}
-	if (j + 1 < m) {
-	  SCAL_K(m - j - 1, 0, 0, temp1, b + j + 1, 1, NULL, 0, NULL, 0);
-	}
+	  if (jp != j) {
+	    SWAP_K(j + 1, 0, 0, ZERO, a + j, lda, a + jp, lda, NULL, 0);
+	  }
+	  if (j + 1 < m) {
+	    SCAL_K(m - j - 1, 0, 0, temp1, b + j + 1, 1, NULL, 0, NULL, 0);
+	  }
+        }
       } else {
 	if (!info) info = j + 1;
       }

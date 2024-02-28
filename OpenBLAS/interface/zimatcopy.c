@@ -26,7 +26,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
 /***********************************************************
- * 2014/06/10 Saar
+ * 2014-06-10 Saar
+ * 2015-09-07 grisuthedragon 
 ***********************************************************/
 
 #include <stdio.h>
@@ -49,6 +50,9 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define BlasTransConj    2
 #define BlasConj         3
 
+#define NEW_IMATCOPY 
+
+#ifndef CBLAS
 void NAME( char* ORDER, char* TRANS, blasint *rows, blasint *cols, FLOAT *alpha, FLOAT *a, blasint *lda, blasint *ldb)
 {
 
@@ -71,76 +75,145 @@ void NAME( char* ORDER, char* TRANS, blasint *rows, blasint *cols, FLOAT *alpha,
 	if ( Trans == 'C' ) trans = BlasTransConj;
 	if ( Trans == 'R' ) trans = BlasConj;
 
+#else 
+void CNAME( enum CBLAS_ORDER CORDER, enum CBLAS_TRANSPOSE CTRANS, blasint crows, blasint ccols, FLOAT *alpha, FLOAT *a, blasint clda, blasint cldb)
+{
+
+	blasint *rows, *cols, *lda, *ldb; 
+	int order=-1,trans=-1;
+	blasint info = -1;
+	FLOAT *b;
+	size_t msize;
+
+	if ( CORDER == CblasColMajor ) order = BlasColMajor; 
+	if ( CORDER == CblasRowMajor ) order = BlasRowMajor; 
+
+	if ( CTRANS == CblasNoTrans) trans = BlasNoTrans; 
+	if ( CTRANS == CblasConjNoTrans ) trans = BlasConj; 
+	if ( CTRANS == CblasTrans) trans = BlasTrans; 
+	if ( CTRANS == CblasConjTrans) trans = BlasTransConj; 
+
+	rows = &crows; 
+	cols = &ccols; 
+	lda  = &clda; 
+	ldb  = &cldb; 
+#endif
+
 	if ( order == BlasColMajor)
 	{
-        	if ( trans == BlasNoTrans      &&  *ldb < *rows ) info = 9;
-        	if ( trans == BlasConj         &&  *ldb < *rows ) info = 9;
-        	if ( trans == BlasTrans        &&  *ldb < *cols ) info = 9;
-        	if ( trans == BlasTransConj    &&  *ldb < *cols ) info = 9;
+        	if ( trans == BlasNoTrans      &&  *ldb < MAX(1,*rows) ) info = 9;
+        	if ( trans == BlasConj         &&  *ldb < MAX(1,*rows) ) info = 9;
+        	if ( trans == BlasTrans        &&  *ldb < MAX(1,*cols) ) info = 9;
+        	if ( trans == BlasTransConj    &&  *ldb < MAX(1,*cols) ) info = 9;
 	}
 	if ( order == BlasRowMajor)
 	{
-        	if ( trans == BlasNoTrans    &&  *ldb < *cols ) info = 9;
-        	if ( trans == BlasConj       &&  *ldb < *cols ) info = 9;
-        	if ( trans == BlasTrans      &&  *ldb < *rows ) info = 9;
-        	if ( trans == BlasTransConj  &&  *ldb < *rows ) info = 9;
+        	if ( trans == BlasNoTrans    &&  *ldb < MAX(1,*cols) ) info = 9;
+        	if ( trans == BlasConj       &&  *ldb < MAX(1,*cols) ) info = 9;
+        	if ( trans == BlasTrans      &&  *ldb < MAX(1,*rows) ) info = 9;
+        	if ( trans == BlasTransConj  &&  *ldb < MAX(1,*rows) ) info = 9;
 	}
 
-	if ( order == BlasColMajor &&  *lda < *rows ) info = 7;
-	if ( order == BlasRowMajor &&  *lda < *cols ) info = 7;
-	if ( *cols <= 0 ) info = 4;
-	if ( *rows <= 0 ) info = 3;
-	if ( trans < 0  ) info = 2;
-	if ( order < 0  ) info = 1;
+	if ( order == BlasColMajor &&  *lda < MAX(1,*rows) ) info = 7;
+	if ( order == BlasRowMajor &&  *lda < MAX(1,*cols) ) info = 7;
+	if ( *cols < 0 ) info = 4;
+	if ( *rows < 0 ) info = 3;
+	if ( trans < 0 ) info = 2;
+	if ( order < 0 ) info = 1;
 
 	if (info >= 0) {
     		BLASFUNC(xerbla)(ERROR_NAME, &info, sizeof(ERROR_NAME));
     		return;
   	}
 
-	if ( *lda >  *ldb )
-                msize = (*lda) * (*ldb)  * sizeof(FLOAT) * 2;
-        else
-                msize = (*ldb) * (*ldb)  * sizeof(FLOAT) * 2;
+	if ((*rows == 0) || (*cols == 0)) return;
 
-        b = malloc(msize);
-        if ( b == NULL )
+#ifdef NEW_IMATCOPY
+    if (*lda == *ldb ) {
+        if ( order == BlasColMajor )
         {
-                printf("Memory alloc failed\n");
-                exit(1);
-        }
 
+            if ( trans == BlasNoTrans )
+            {
+                IMATCOPY_K_CN(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+            if ( trans == BlasConj )
+            {
+                IMATCOPY_K_CNC(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+            if ( trans == BlasTrans && *rows == *cols )
+            {
+                IMATCOPY_K_CT(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+            if ( trans == BlasTransConj && *rows == *cols )
+            {
+                IMATCOPY_K_CTC(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+
+        }
+        else
+        {
+
+            if ( trans == BlasNoTrans )
+            {
+                IMATCOPY_K_RN(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+            if ( trans == BlasConj )
+            {
+                IMATCOPY_K_RNC(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+            if ( trans == BlasTrans && *rows == *cols )
+            {
+                IMATCOPY_K_RT(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+            if ( trans == BlasTransConj && *rows == *cols )
+            {
+                IMATCOPY_K_RTC(*rows, *cols, alpha[0], alpha[1], a, *lda );
+                return;
+            }
+
+        }
+    }
+#endif
+
+	msize = (size_t)(*rows) * (*cols) * sizeof(FLOAT) * 2;
+
+	b = malloc(msize);
+	if ( b == NULL )
+	{
+		printf("Memory alloc failed in zimatcopy\n");
+		exit(1);
+	}
 
 	if ( order == BlasColMajor )
 	{
 
 		if ( trans == BlasNoTrans )
 		{
-	  		OMATCOPY_K_CN(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+	  		OMATCOPY_K_CN(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *rows );
+	  		OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *rows, a, *ldb );
 		}
-		if ( trans == BlasConj )
+		else if ( trans == BlasConj )
 		{
-			OMATCOPY_K_CNC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_CNC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *rows );
+	  		OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *rows, a, *ldb );
 		}
-		if ( trans == BlasTrans )
+		else if ( trans == BlasTrans )
 		{
-			OMATCOPY_K_CT(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_CT(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *cols );
+	  		OMATCOPY_K_CN(*cols, *rows, (FLOAT) 1.0, (FLOAT) 0.0 , b, *cols, a, *ldb );
 		}
-		if ( trans == BlasTransConj )
+		else if ( trans == BlasTransConj )
 		{
-			OMATCOPY_K_CTC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_CTC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *cols );
+	  		OMATCOPY_K_CN(*cols, *rows, (FLOAT) 1.0, (FLOAT) 0.0 , b, *cols, a, *ldb );
 		}
 
 	}
@@ -149,35 +222,28 @@ void NAME( char* ORDER, char* TRANS, blasint *rows, blasint *cols, FLOAT *alpha,
 
 		if ( trans == BlasNoTrans )
 		{
-			OMATCOPY_K_RN(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_RN(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *cols );
+	  		OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *cols, a, *ldb );
 		}
-		if ( trans == BlasConj )
+		else if ( trans == BlasConj )
 		{
-			OMATCOPY_K_RNC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_RNC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *cols );
+	  		OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *cols, a, *ldb );
 		}
-		if ( trans == BlasTrans )
+		else if ( trans == BlasTrans )
 		{
-			OMATCOPY_K_RT(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_RT(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *rows );
+	  		OMATCOPY_K_RN(*cols, *rows, (FLOAT) 1.0, (FLOAT) 0.0 , b, *rows, a, *ldb );
 		}
-		if ( trans == BlasTransConj )
+		else if ( trans == BlasTransConj )
 		{
-			OMATCOPY_K_RTC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *ldb );
-	  		OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, (FLOAT) 0.0 , b, *ldb, a, *ldb );
-			free(b);
-			return;
+			OMATCOPY_K_RTC(*rows, *cols, alpha[0], alpha[1], a, *lda, b, *rows );
+	  		OMATCOPY_K_RN(*cols, *rows, (FLOAT) 1.0, (FLOAT) 0.0 , b, *rows, a, *ldb );
 		}
 
 	}
 
+	free(b);
 	return;
 
 }

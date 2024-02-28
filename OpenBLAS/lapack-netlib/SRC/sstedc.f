@@ -1,26 +1,26 @@
-*> \brief \b SSTEBZ
+*> \brief \b SSTEDC
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SSTEDC + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sstedc.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sstedc.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sstedc.f"> 
+*> Download SSTEDC + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sstedc.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sstedc.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sstedc.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSTEDC( COMPZ, N, D, E, Z, LDZ, WORK, LWORK, IWORK,
 *                          LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          COMPZ
 *       INTEGER            INFO, LDZ, LIWORK, LWORK, N
@@ -29,7 +29,7 @@
 *       INTEGER            IWORK( * )
 *       REAL               D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -42,12 +42,6 @@
 *> found if SSYTRD or SSPTRD or SSBTRD has been used to reduce this
 *> matrix to tridiagonal form.
 *>
-*> This code makes very mild assumptions about floating point
-*> arithmetic. It will work on machines with a guard digit in
-*> add/subtract, or on those binary machines without guard digits
-*> which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or Cray-2.
-*> It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.  See SLAED3 for details.
 *> \endverbatim
 *
 *  Arguments:
@@ -168,14 +162,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup auxOTHERcomputational
+*> \ingroup stedc
 *
 *> \par Contributors:
 *  ==================
@@ -188,10 +180,9 @@
       SUBROUTINE SSTEDC( COMPZ, N, D, E, Z, LDZ, WORK, LWORK, IWORK,
      $                   LIWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          COMPZ
@@ -217,8 +208,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               SLAMCH, SLANST
-      EXTERNAL           ILAENV, LSAME, SLAMCH, SLANST
+      REAL               SLAMCH, SLANST, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, LSAME, SLAMCH, SLANST, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SGEMM, SLACPY, SLAED0, SLASCL, SLASET, SLASRT,
@@ -277,7 +268,7 @@
                LIWMIN = 3 + 5*N
             END IF
          END IF
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
          IWORK( 1 ) = LIWMIN
 *
          IF( LWORK.LT.LWMIN .AND. .NOT. LQUERY ) THEN
@@ -442,43 +433,37 @@
 *
 *        endwhile
 *
-*        If the problem split any number of times, then the eigenvalues
-*        will not be properly ordered.  Here we permute the eigenvalues
-*        (and the associated eigenvectors) into ascending order.
+         IF( ICOMPZ.EQ.0 ) THEN
 *
-         IF( M.NE.N ) THEN
-            IF( ICOMPZ.EQ.0 ) THEN
+*          Use Quick Sort
 *
-*              Use Quick Sort
+           CALL SLASRT( 'I', N, D, INFO )
 *
-               CALL SLASRT( 'I', N, D, INFO )
+         ELSE
 *
-            ELSE
+*          Use Selection Sort to minimize swaps of eigenvectors
 *
-*              Use Selection Sort to minimize swaps of eigenvectors
-*
-               DO 40 II = 2, N
-                  I = II - 1
-                  K = I
-                  P = D( I )
-                  DO 30 J = II, N
-                     IF( D( J ).LT.P ) THEN
-                        K = J
-                        P = D( J )
-                     END IF
-   30             CONTINUE
-                  IF( K.NE.I ) THEN
-                     D( K ) = D( I )
-                     D( I ) = P
-                     CALL SSWAP( N, Z( 1, I ), 1, Z( 1, K ), 1 )
-                  END IF
-   40          CONTINUE
-            END IF
+           DO 40 II = 2, N
+              I = II - 1
+              K = I
+              P = D( I )
+              DO 30 J = II, N
+                 IF( D( J ).LT.P ) THEN
+                    K = J
+                    P = D( J )
+                 END IF
+   30         CONTINUE
+              IF( K.NE.I ) THEN
+                 D( K ) = D( I )
+                 D( I ) = P
+                 CALL SSWAP( N, Z( 1, I ), 1, Z( 1, K ), 1 )
+              END IF
+   40      CONTINUE
          END IF
       END IF
 *
    50 CONTINUE
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       IWORK( 1 ) = LIWMIN
 *
       RETURN

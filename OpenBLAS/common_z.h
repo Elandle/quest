@@ -19,6 +19,7 @@
 #define	ZDOTC_K			zdotc_k
 #define	ZNRM2_K			znrm2_k
 #define	ZSCAL_K			zscal_k
+#define	ZSUM_K			zsum_k
 #define	ZSWAP_K			zswap_k
 #define	ZROT_K			zdrot_k
 
@@ -220,6 +221,18 @@
 #define ZOMATCOPY_K_CTC         zomatcopy_k_ctc
 #define ZOMATCOPY_K_RTC         zomatcopy_k_rtc
 
+#define ZIMATCOPY_K_CN          zimatcopy_k_cn
+#define ZIMATCOPY_K_RN          zimatcopy_k_rn
+#define ZIMATCOPY_K_CT          zimatcopy_k_ct
+#define ZIMATCOPY_K_RT          zimatcopy_k_rt
+#define ZIMATCOPY_K_CNC         zimatcopy_k_cnc
+#define ZIMATCOPY_K_RNC         zimatcopy_k_rnc
+#define ZIMATCOPY_K_CTC         zimatcopy_k_ctc
+#define ZIMATCOPY_K_RTC         zimatcopy_k_rtc
+
+#define ZGEADD_K                zgeadd_k 
+
+#define ZGEMM_SMALL_MATRIX_PERMIT	zgemm_small_matrix_permit
 
 #else
 
@@ -239,6 +252,7 @@
 #define	ZDOTC_K			gotoblas -> zdotc_k
 #define	ZNRM2_K			gotoblas -> znrm2_k
 #define	ZSCAL_K			gotoblas -> zscal_k
+#define	ZSUM_K			gotoblas -> zsum_k
 #define	ZSWAP_K			gotoblas -> zswap_k
 #define	ZROT_K			gotoblas -> zdrot_k
 
@@ -403,7 +417,61 @@
 #define ZOMATCOPY_K_CTC         gotoblas -> zomatcopy_k_ctc
 #define ZOMATCOPY_K_RTC         gotoblas -> zomatcopy_k_rtc
 
+#define ZIMATCOPY_K_CN          gotoblas -> zimatcopy_k_cn
+#define ZIMATCOPY_K_RN          gotoblas -> zimatcopy_k_rn
+#define ZIMATCOPY_K_CT          gotoblas -> zimatcopy_k_ct
+#define ZIMATCOPY_K_RT          gotoblas -> zimatcopy_k_rt
+#define ZIMATCOPY_K_CNC         gotoblas -> zimatcopy_k_cnc
+#define ZIMATCOPY_K_RNC         gotoblas -> zimatcopy_k_rnc
+#define ZIMATCOPY_K_CTC         gotoblas -> zimatcopy_k_ctc
+#define ZIMATCOPY_K_RTC         gotoblas -> zimatcopy_k_rtc
+
+#define ZGEADD_K                gotoblas -> zgeadd_k
+
+#define ZGEMM_SMALL_MATRIX_PERMIT	gotoblas -> zgemm_small_matrix_permit
+
 #endif
+
+#define ZGEMM_SMALL_KERNEL_NN		FUNC_OFFSET(zgemm_small_kernel_nn)
+#define ZGEMM_SMALL_KERNEL_NT		FUNC_OFFSET(zgemm_small_kernel_nt)
+#define ZGEMM_SMALL_KERNEL_NR		FUNC_OFFSET(zgemm_small_kernel_nr)
+#define ZGEMM_SMALL_KERNEL_NC		FUNC_OFFSET(zgemm_small_kernel_nc)
+
+#define ZGEMM_SMALL_KERNEL_TN		FUNC_OFFSET(zgemm_small_kernel_tn)
+#define ZGEMM_SMALL_KERNEL_TT		FUNC_OFFSET(zgemm_small_kernel_tt)
+#define ZGEMM_SMALL_KERNEL_TR		FUNC_OFFSET(zgemm_small_kernel_tr)
+#define ZGEMM_SMALL_KERNEL_TC		FUNC_OFFSET(zgemm_small_kernel_tc)
+
+#define ZGEMM_SMALL_KERNEL_RN		FUNC_OFFSET(zgemm_small_kernel_rn)
+#define ZGEMM_SMALL_KERNEL_RT		FUNC_OFFSET(zgemm_small_kernel_rt)
+#define ZGEMM_SMALL_KERNEL_RR		FUNC_OFFSET(zgemm_small_kernel_rr)
+#define ZGEMM_SMALL_KERNEL_RC		FUNC_OFFSET(zgemm_small_kernel_rc)
+
+#define ZGEMM_SMALL_KERNEL_CN		FUNC_OFFSET(zgemm_small_kernel_cn)
+#define ZGEMM_SMALL_KERNEL_CT		FUNC_OFFSET(zgemm_small_kernel_ct)
+#define ZGEMM_SMALL_KERNEL_CR		FUNC_OFFSET(zgemm_small_kernel_cr)
+#define ZGEMM_SMALL_KERNEL_CC		FUNC_OFFSET(zgemm_small_kernel_cc)
+
+#define ZGEMM_SMALL_KERNEL_B0_NN	FUNC_OFFSET(zgemm_small_kernel_b0_nn)
+#define ZGEMM_SMALL_KERNEL_B0_NT	FUNC_OFFSET(zgemm_small_kernel_b0_nt)
+#define ZGEMM_SMALL_KERNEL_B0_NR	FUNC_OFFSET(zgemm_small_kernel_b0_nr)
+#define ZGEMM_SMALL_KERNEL_B0_NC	FUNC_OFFSET(zgemm_small_kernel_b0_nc)
+
+#define ZGEMM_SMALL_KERNEL_B0_TN	FUNC_OFFSET(zgemm_small_kernel_b0_tn)
+#define ZGEMM_SMALL_KERNEL_B0_TT	FUNC_OFFSET(zgemm_small_kernel_b0_tt)
+#define ZGEMM_SMALL_KERNEL_B0_TR	FUNC_OFFSET(zgemm_small_kernel_b0_tr)
+#define ZGEMM_SMALL_KERNEL_B0_TC	FUNC_OFFSET(zgemm_small_kernel_b0_tc)
+
+#define ZGEMM_SMALL_KERNEL_B0_RN	FUNC_OFFSET(zgemm_small_kernel_b0_rn)
+#define ZGEMM_SMALL_KERNEL_B0_RT	FUNC_OFFSET(zgemm_small_kernel_b0_rt)
+#define ZGEMM_SMALL_KERNEL_B0_RR	FUNC_OFFSET(zgemm_small_kernel_b0_rr)
+#define ZGEMM_SMALL_KERNEL_B0_RC	FUNC_OFFSET(zgemm_small_kernel_b0_rc)
+
+#define ZGEMM_SMALL_KERNEL_B0_CN	FUNC_OFFSET(zgemm_small_kernel_b0_cn)
+#define ZGEMM_SMALL_KERNEL_B0_CT	FUNC_OFFSET(zgemm_small_kernel_b0_ct)
+#define ZGEMM_SMALL_KERNEL_B0_CR	FUNC_OFFSET(zgemm_small_kernel_b0_cr)
+#define ZGEMM_SMALL_KERNEL_B0_CC	FUNC_OFFSET(zgemm_small_kernel_b0_cc)
+
 
 #define	ZGEMM_NN		zgemm_nn
 #define	ZGEMM_CN		zgemm_cn

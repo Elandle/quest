@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SGEESX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgeesx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgeesx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgeesx.f"> 
+*> Download SGEESX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgeesx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgeesx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgeesx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE SGEESX( JOBVS, SORT, SELECT, SENSE, N, A, LDA, SDIM,
 *                          WR, WI, VS, LDVS, RCONDE, RCONDV, WORK, LWORK,
 *                          IWORK, LIWORK, BWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBVS, SENSE, SORT
 *       INTEGER            INFO, LDA, LDVS, LIWORK, LWORK, N, SDIM
@@ -37,7 +37,7 @@
 *       LOGICAL            SELECT
 *       EXTERNAL           SELECT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -90,7 +90,7 @@
 *>
 *> \param[in] SELECT
 *> \verbatim
-*>          SELECT is procedure) LOGICAL FUNCTION of two REAL arguments
+*>          SELECT is a LOGICAL FUNCTION of two REAL arguments
 *>          SELECT must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'S', SELECT is used to select eigenvalues to sort
 *>          to the top left of the Schur form.
@@ -267,24 +267,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realGEeigen
+*> \ingroup geesx
 *
 *  =====================================================================
       SUBROUTINE SGEESX( JOBVS, SORT, SELECT, SENSE, N, A, LDA, SDIM,
      $                   WR, WI, VS, LDVS, RCONDE, RCONDV, WORK, LWORK,
      $                   IWORK, LIWORK, BWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBVS, SENSE, SORT
@@ -320,14 +317,14 @@
       REAL               DUM( 1 )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           SCOPY, SGEBAK, SGEBAL, SGEHRD, SHSEQR, SLABAD,
+      EXTERNAL           SCOPY, SGEBAK, SGEBAL, SGEHRD, SHSEQR,
      $                   SLACPY, SLASCL, SORGHR, SSWAP, STRSEN, XERBLA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               SLAMCH, SLANGE
-      EXTERNAL           LSAME, ILAENV, SLAMCH, SLANGE
+      REAL               SLAMCH, SLANGE, SROUNDUP_LWORK
+      EXTERNAL           LSAME, ILAENV, SLAMCH, SLANGE, SROUNDUP_LWORK
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MAX, SQRT
@@ -385,7 +382,7 @@
 *
             CALL SHSEQR( 'S', JOBVS, N, 1, N, A, LDA, WR, WI, VS, LDVS,
      $             WORK, -1, IEVAL )
-            HSWORK = WORK( 1 )
+            HSWORK = INT( WORK( 1 ) )
 *
             IF( .NOT.WANTVS ) THEN
                MAXWRK = MAX( MAXWRK, N + HSWORK )
@@ -401,7 +398,7 @@
      $         LIWRK = ( N*N )/4
          END IF
          IWORK( 1 ) = LIWRK
-         WORK( 1 ) = LWRK
+         WORK( 1 ) = SROUNDUP_LWORK(LWRK)
 *
          IF( LWORK.LT.MINWRK .AND. .NOT.LQUERY ) THEN
             INFO = -16
@@ -429,7 +426,6 @@
       EPS = SLAMCH( 'P' )
       SMLNUM = SLAMCH( 'S' )
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
       SMLNUM = SQRT( SMLNUM ) / EPS
       BIGNUM = ONE / SMLNUM
 *
@@ -583,7 +579,9 @@
                      IF( N.GT.I+1 )
      $                  CALL SSWAP( N-I-1, A( I, I+2 ), LDA,
      $                              A( I+1, I+2 ), LDA )
-                     CALL SSWAP( N, VS( 1, I ), 1, VS( 1, I+1 ), 1 )
+                     IF( WANTVS ) THEN
+                       CALL SSWAP( N, VS( 1, I ), 1, VS( 1, I+1 ), 1 )
+                     END IF
                      A( I, I+1 ) = A( I+1, I )
                      A( I+1, I ) = ZERO
                   END IF
@@ -635,7 +633,7 @@
    30    CONTINUE
       END IF
 *
-      WORK( 1 ) = MAXWRK
+      WORK( 1 ) = SROUNDUP_LWORK(MAXWRK)
       IF( WANTSV .OR. WANTSB ) THEN
          IWORK( 1 ) = SDIM*(N-SDIM)
       ELSE

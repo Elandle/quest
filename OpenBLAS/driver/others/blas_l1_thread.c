@@ -43,15 +43,140 @@
 int blas_level1_thread(int mode, BLASLONG m, BLASLONG n, BLASLONG k, void *alpha,
 		       void *a, BLASLONG lda,
 		       void *b, BLASLONG ldb,
-		       void *c, BLASLONG ldc, int (*function)(), int nthreads){
+		       void *c, BLASLONG ldc, int (*function)(void), int nthreads){
 
   blas_queue_t queue[MAX_CPU_NUMBER];
   blas_arg_t   args [MAX_CPU_NUMBER];
 
   BLASLONG i, width, astride, bstride;
-  int num_cpu, calc_type;
+  int num_cpu, calc_type_a, calc_type_b;
 
-  calc_type = (mode & BLAS_PREC) + ((mode & BLAS_COMPLEX) != 0) + 2;
+  switch (mode & BLAS_PREC) {
+  case BLAS_INT8    :
+  case BLAS_BFLOAT16:
+  case BLAS_SINGLE  :
+  case BLAS_DOUBLE  :
+  case BLAS_XDOUBLE :
+    calc_type_a = calc_type_b = (mode & BLAS_PREC) + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_STOBF16 :
+    calc_type_a = 2 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 1 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_DTOBF16 :
+    calc_type_a = 3 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 1 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_BF16TOS :
+    calc_type_a = 1 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 2 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_BF16TOD :
+    calc_type_a = 1 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 3 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  default:
+    calc_type_a = calc_type_b = 0;
+    break;
+  }
+
+  if(!(mode & BLAS_PTHREAD)) mode |= BLAS_LEGACY;
+
+  for (i = 0; i < nthreads; i++) blas_queue_init(&queue[i]);
+
+  num_cpu = 0;
+  i = m;
+
+  while (i > 0){
+
+    /* Adjust Parameters */
+    width  = blas_quickdivide(i + nthreads - num_cpu - 1,
+			      nthreads - num_cpu);
+
+    i -= width;
+    if (i < 0) width = width + i;
+
+    astride = width * lda;
+
+    if (!(mode & BLAS_TRANSB_T)) {
+      bstride = width * ldb;
+    } else {
+      bstride = width;
+    }
+
+    astride <<= calc_type_a;
+    bstride <<= calc_type_b;
+
+    args[num_cpu].m = width;
+    args[num_cpu].n = n;
+    args[num_cpu].k = k;
+    args[num_cpu].a = (void *)a;
+    args[num_cpu].b = (void *)b;
+    args[num_cpu].c = (void *)c;
+    args[num_cpu].lda = lda;
+    args[num_cpu].ldb = ldb;
+    args[num_cpu].ldc = ldc;
+    args[num_cpu].alpha = alpha;
+
+    queue[num_cpu].mode    = mode;
+    queue[num_cpu].routine = function;
+    queue[num_cpu].args    = &args[num_cpu];
+    queue[num_cpu].next    = &queue[num_cpu + 1];
+
+    a = (void *)((BLASULONG)a + astride);
+    b = (void *)((BLASULONG)b + bstride);
+
+    num_cpu ++;
+  }
+
+  if (num_cpu) {
+    queue[num_cpu - 1].next = NULL;
+
+    exec_blas(num_cpu, queue);
+  }
+
+  return 0;
+}
+
+int blas_level1_thread_with_return_value(int mode, BLASLONG m, BLASLONG n, BLASLONG k, void *alpha,
+		       void *a, BLASLONG lda,
+		       void *b, BLASLONG ldb,
+		       void *c, BLASLONG ldc, int (*function)(void), int nthreads){
+
+  blas_queue_t queue[MAX_CPU_NUMBER];
+  blas_arg_t   args [MAX_CPU_NUMBER];
+
+  BLASLONG i, width, astride, bstride;
+  int num_cpu, calc_type_a, calc_type_b;
+
+  switch (mode & BLAS_PREC) {
+  case BLAS_INT8    :
+  case BLAS_BFLOAT16:
+  case BLAS_SINGLE  :
+  case BLAS_DOUBLE  :
+  case BLAS_XDOUBLE :
+    calc_type_a = calc_type_b = (mode & BLAS_PREC) + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_STOBF16 :
+    calc_type_a = 2 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 1 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_DTOBF16 :
+    calc_type_a = 3 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 1 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_BF16TOS :
+    calc_type_a = 1 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 2 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  case BLAS_BF16TOD :
+    calc_type_a = 1 + ((mode & BLAS_COMPLEX) != 0);
+    calc_type_b = 3 + ((mode & BLAS_COMPLEX) != 0);
+    break;
+  default:
+    calc_type_a = calc_type_b = 0;
+    break;
+  }
 
   mode |= BLAS_LEGACY;
 
@@ -77,15 +202,15 @@ int blas_level1_thread(int mode, BLASLONG m, BLASLONG n, BLASLONG k, void *alpha
       bstride = width;
     }
 
-    astride <<= calc_type;
-    bstride <<= calc_type;
+    astride <<= calc_type_a;
+    bstride <<= calc_type_b;
 
     args[num_cpu].m = width;
     args[num_cpu].n = n;
     args[num_cpu].k = k;
     args[num_cpu].a = (void *)a;
     args[num_cpu].b = (void *)b;
-    args[num_cpu].c = (void *)c;
+    args[num_cpu].c = (void *)((char *)c + num_cpu * sizeof(double)*2);
     args[num_cpu].lda = lda;
     args[num_cpu].ldb = ldb;
     args[num_cpu].ldc = ldc;

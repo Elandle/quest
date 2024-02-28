@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SPTT05( N, NRHS, D, E, B, LDB, X, LDX, XACT, LDXACT,
 *                          FERR, BERR, RESLTS )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDB, LDX, LDXACT, N, NRHS
 *       ..
@@ -19,7 +19,7 @@
 *      $                   FERR( * ), RESLTS( * ), X( LDX, * ),
 *      $                   XACT( LDXACT, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -137,12 +137,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
@@ -150,10 +148,9 @@
       SUBROUTINE SPTT05( N, NRHS, D, E, B, LDB, X, LDX, XACT, LDXACT,
      $                   FERR, BERR, RESLTS )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDB, LDX, LDXACT, N, NRHS

@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CSTEDC + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cstedc.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cstedc.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cstedc.f"> 
+*> Download CSTEDC + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cstedc.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cstedc.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cstedc.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CSTEDC( COMPZ, N, D, E, Z, LDZ, WORK, LWORK, RWORK,
 *                          LRWORK, IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          COMPZ
 *       INTEGER            INFO, LDZ, LIWORK, LRWORK, LWORK, N
@@ -30,7 +30,7 @@
 *       REAL               D( * ), E( * ), RWORK( * )
 *       COMPLEX            WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -43,12 +43,6 @@
 *> be found if CHETRD or CHPTRD or CHBTRD has been used to reduce this
 *> matrix to tridiagonal form.
 *>
-*> This code makes very mild assumptions about floating point
-*> arithmetic. It will work on machines with a guard digit in
-*> add/subtract, or on those binary machines without guard digits
-*> which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or Cray-2.
-*> It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.  See SLAED3 for details.
 *> \endverbatim
 *
 *  Arguments:
@@ -193,14 +187,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexOTHERcomputational
+*> \ingroup stedc
 *
 *> \par Contributors:
 *  ==================
@@ -212,10 +204,9 @@
       SUBROUTINE CSTEDC( COMPZ, N, D, E, Z, LDZ, WORK, LWORK, RWORK,
      $                   LRWORK, IWORK, LIWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          COMPZ
@@ -242,8 +233,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               SLAMCH, SLANST
-      EXTERNAL           ILAENV, LSAME, SLAMCH, SLANST
+      REAL               SLAMCH, SLANST, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, LSAME, SLAMCH, SLANST, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, CLACPY, CLACRM, CLAED0, CSTEQR, CSWAP,
@@ -304,7 +295,7 @@
             LRWMIN = 1 + 4*N + 2*N**2
             LIWMIN = 3 + 5*N
          END IF
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
          RWORK( 1 ) = LRWMIN
          IWORK( 1 ) = LIWMIN
 *
@@ -453,35 +444,29 @@
 *
 *        endwhile
 *
-*        If the problem split any number of times, then the eigenvalues
-*        will not be properly ordered.  Here we permute the eigenvalues
-*        (and the associated eigenvectors) into ascending order.
 *
-         IF( M.NE.N ) THEN
+*        Use Selection Sort to minimize swaps of eigenvectors
 *
-*           Use Selection Sort to minimize swaps of eigenvectors
-*
-            DO 60 II = 2, N
-               I = II - 1
-               K = I
-               P = D( I )
-               DO 50 J = II, N
-                  IF( D( J ).LT.P ) THEN
-                     K = J
-                     P = D( J )
-                  END IF
-   50          CONTINUE
-               IF( K.NE.I ) THEN
-                  D( K ) = D( I )
-                  D( I ) = P
-                  CALL CSWAP( N, Z( 1, I ), 1, Z( 1, K ), 1 )
-               END IF
-   60       CONTINUE
-         END IF
+         DO 60 II = 2, N
+           I = II - 1
+           K = I
+           P = D( I )
+           DO 50 J = II, N
+              IF( D( J ).LT.P ) THEN
+                 K = J
+                 P = D( J )
+              END IF
+   50      CONTINUE
+           IF( K.NE.I ) THEN
+              D( K ) = D( I )
+              D( I ) = P
+              CALL CSWAP( N, Z( 1, I ), 1, Z( 1, K ), 1 )
+           END IF
+   60    CONTINUE
       END IF
 *
    70 CONTINUE
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       RWORK( 1 ) = LRWMIN
       IWORK( 1 ) = LIWMIN
 *

@@ -47,6 +47,7 @@
 
 #define MB
 #define WMB
+#define RMB
 
 #ifdef __ECC
 #include <ia64intrin.h>
@@ -68,6 +69,7 @@ static __inline void blas_lock(volatile unsigned long *address){
 			  : "ar.ccv", "memory");
   } while (ret);
 }
+#define BLAS_LOCK_DEFINED
 
 static __inline unsigned long rpcc(void) {
   unsigned long clocks;
@@ -75,6 +77,7 @@ static __inline unsigned long rpcc(void) {
   __asm__ __volatile__ ("mov %0=ar.itc" : "=r"(clocks));
   return clocks;
 }
+#define RPCC_DEFINED
 
 
 static __inline unsigned long stmxcsr(void){
@@ -99,10 +102,12 @@ static __inline void blas_lock(volatile unsigned long *address){
   while (*address || _InterlockedCompareExchange((volatile int *) address,1,0))
     ;
 }
+#define BLAS_LOCK_DEFINED
 
 static __inline unsigned int rpcc(void) {
   return __getReg(_IA64_REG_AR_ITC);
 }
+#define RPCC_DEFINED
 
 static __inline unsigned int stmxcsr(void) {
   return __getReg(_IA64_REG_AR_FPSR);

@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE DCKLSE( NN, MVAL, PVAL, NVAL, NMATS, ISEED, THRESH,
 *                          NMAX, A, AF, B, BF, X, WORK, RWORK, NIN, NOUT,
 *                          INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, NIN, NMATS, NMAX, NN, NOUT
 *       DOUBLE PRECISION   THRESH
@@ -21,7 +21,7 @@
 *       DOUBLE PRECISION   A( * ), AF( * ), B( * ), BF( * ), RWORK( * ),
 *      $                   WORK( * ), X( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -153,12 +153,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_eig
 *
@@ -167,10 +165,9 @@
      $                   NMAX, A, AF, B, BF, X, WORK, RWORK, NIN, NOUT,
      $                   INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, NIN, NMATS, NMAX, NN, NOUT

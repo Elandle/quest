@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE CDRVGE( DOTYPE, NN, NVAL, NRHS, THRESH, TSTERR, NMAX,
 *                          A, AFAC, ASAV, B, BSAV, X, XACT, S, WORK,
 *                          RWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NMAX, NN, NOUT, NRHS
@@ -24,7 +24,7 @@
 *       COMPLEX            A( * ), AFAC( * ), ASAV( * ), B( * ),
 *      $                   BSAV( * ), WORK( * ), X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -153,12 +153,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date April 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -167,10 +165,9 @@
      $                   A, AFAC, ASAV, B, BSAV, X, XACT, S, WORK,
      $                   RWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.1) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -707,9 +704,10 @@
                      CALL CLACPY( 'Full', N, NRHS, BSAV, LDA, B, LDA )
 
                      IF( .NOT.PREFAC )
-     $                  CALL CLASET( 'Full', N, N, ZERO, ZERO, AFAC,
-     $                               LDA )
-                     CALL CLASET( 'Full', N, NRHS, ZERO, ZERO, X, LDA )
+     $                  CALL CLASET( 'Full', N, N, CMPLX( ZERO ),
+     $                               CMPLX( ZERO ), AFAC, LDA )
+                     CALL CLASET( 'Full', N, NRHS, CMPLX( ZERO ),
+     $                            CMPLX( ZERO ), X, LDA )
                      IF( IEQUED.GT.1 .AND. N.GT.0 ) THEN
 *
 *                       Equilibrate the matrix if FACT = 'F' and
@@ -891,6 +889,6 @@
      $      G12.5 )
       RETURN
 *
-*     End of CDRVGE
+*     End of CDRVGEX
 *
       END

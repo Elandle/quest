@@ -24,6 +24,9 @@ SPB    8               List types on next line if 0 < NTYPES <  8
 SPT   12               List types on next line if 0 < NTYPES < 12
 SSY   10               List types on next line if 0 < NTYPES < 10
 SSR   10               List types on next line if 0 < NTYPES < 10
+SSK   10               List types on next line if 0 < NTYPES < 10
+SSA   10               List types on next line if 0 < NTYPES < 10
+SS2   10               List types on next line if 0 < NTYPES < 10
 SSP   10               List types on next line if 0 < NTYPES < 10
 STR   18               List types on next line if 0 < NTYPES < 18
 STP   18               List types on next line if 0 < NTYPES < 18
@@ -33,8 +36,13 @@ SRQ    8               List types on next line if 0 < NTYPES <  8
 SLQ    8               List types on next line if 0 < NTYPES <  8
 SQL    8               List types on next line if 0 < NTYPES <  8
 SQP    6               List types on next line if 0 < NTYPES <  6
+SQK   19               List types on next line if 0 < NTYPES < 19
 STZ    3               List types on next line if 0 < NTYPES <  3
 SLS    6               List types on next line if 0 < NTYPES <  6
 SEQ
 SQT
 SQX
+SXQ
+STQ
+STS
+SHH

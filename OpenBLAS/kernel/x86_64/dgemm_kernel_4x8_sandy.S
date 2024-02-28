@@ -1,21 +1,22 @@
 /*****************************************************************************
-  Copyright (c) 2011,2012 Lab of Parallel Software and Computational Science,ISCAS
-  All rights reserved.
+Copyright (c) 2011-2014, The OpenBLAS Project
+All rights reserved.
 
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
 met:
 
-1. Redistributions of source code must retain the above copyright
-notice, this list of conditions and the following disclaimer.
+   1. Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
 
-2. Redistributions in binary form must reproduce the above copyright
-notice, this list of conditions and the following disclaimer in
-the documentation and/or other materials provided with the
-distribution.
-3. Neither the name of the ISCAS nor the names of its contributors may
-be used to endorse or promote products derived from this software
-without specific prior written permission.
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the
+      distribution.
+   3. Neither the name of the OpenBLAS project nor the names of 
+      its contributors may be used to endorse or promote products 
+      derived from this software without specific prior written 
+      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -276,7 +277,7 @@ LEAQ (, %rax, SIZE), %rax;
 LEAQ (ptrba, %rax, 8), ptrba;
 LEAQ (ptrbb, %rax, 4), ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 PREFETCH2	0*SIZE(prebb);
 XOR_DY yvec15, yvec15, yvec15;
 PREFETCH2	8*SIZE(prebb);
@@ -316,7 +317,7 @@ ALIGN_5;
 .L2_bodyB:;
 # Computing kernel
 
-#### Unroll times 1 ####
+//#### Unroll times 1 ####
 LD_DY	4*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 SHUF_DY	$0x03, yvec2, yvec2, yvec4;
@@ -344,7 +345,7 @@ MUL_DY	yvec1, yvec5, yvec7;
 ADD_DY	yvec10, yvec6, yvec10;
 ADD_DY	yvec8, yvec7, yvec8;
 
-#### Unroll times 2 ####
+//#### Unroll times 2 ####
 LD_DY	12*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 SHUF_DY	$0x03, yvec2, yvec2, yvec4;
@@ -372,7 +373,7 @@ MUL_DY	yvec1, yvec5, yvec7;
 ADD_DY	yvec10, yvec6, yvec10;
 ADD_DY	yvec8, yvec7, yvec8;
 
-#### Unroll times 3 ####
+//#### Unroll times 3 ####
 LD_DY	20*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 SHUF_DY	$0x03, yvec2, yvec2, yvec4;
@@ -401,7 +402,7 @@ MUL_DY	yvec1, yvec5, yvec7;
 ADD_DY	yvec10, yvec6, yvec10;
 ADD_DY	yvec8, yvec7, yvec8;
 
-#### Unroll times 4 ####
+//#### Unroll times 4 ####
 LD_DY	28*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 SHUF_DY	$0x03, yvec2, yvec2, yvec4;
@@ -445,7 +446,7 @@ TEST 	$2, %rax;
 JLE		.L3_loopE;
 ALIGN_5
 .L3_bodyB:
-#### Unroll times 1 ####
+//#### Unroll times 1 ####
 PREFETCH0	64*SIZE(ptrba)
 LD_DY	4*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
@@ -474,7 +475,7 @@ MUL_DY	yvec1, yvec5, yvec7;
 ADD_DY	yvec10, yvec6, yvec10;
 ADD_DY	yvec8, yvec7, yvec8;
 
-#### Unroll times 2 ####
+//#### Unroll times 2 ####
 PREFETCH0	72*SIZE(ptrba)
 LD_DY	12*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
@@ -515,7 +516,7 @@ TEST 	$1, %rax;
 JLE		.L4_loopE;
 ALIGN_5
 .L4_bodyB:;
-#### Unroll times 1 ####
+//#### Unroll times 1 ####
 PREFETCH0	64*SIZE(ptrba)
 LD_DY	4*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
@@ -543,9 +544,9 @@ ADD_DY	yvec10, yvec6, yvec10;
 ADD_DY	yvec8, yvec7, yvec8;
 
 .L4_loopE:;
-#### Load Alpha ####
+//#### Load Alpha ####
 BROAD_DY MEMALPHA,yvec7;
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 MUL_DY yvec7,yvec15,yvec15;
 MUL_DY yvec7,yvec14,yvec14;
 MUL_DY yvec7,yvec13,yvec13;
@@ -554,7 +555,7 @@ MUL_DY yvec7,yvec11,yvec11;
 MUL_DY yvec7,yvec10,yvec10;
 MUL_DY yvec7,yvec9,yvec9;
 MUL_DY yvec7,yvec8,yvec8;
-#### Reverse the Results ####
+//#### Reverse the Results ####
 MOV_DY yvec15,yvec7;
 REVS_DY $0x0a,yvec13,yvec15,yvec15;
 REVS_DY $0x0a,yvec7,yvec13,yvec13;
@@ -567,13 +568,13 @@ REVS_DY $0x0a,yvec7,yvec9,yvec9;
 MOV_DY yvec10,yvec7;
 REVS_DY $0x0a,yvec8,yvec10,yvec10;
 REVS_DY $0x0a,yvec7,yvec8,yvec8;
-#### Testing alignment ####
+//#### Testing alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE		.L4_loopEx;					# Unalign part write back
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 EXTRA_DY $1,yvec15,xvec7;
 EXTRA_DY $1,yvec14,xvec6;
 EXTRA_DY $1,yvec13,xvec5;
@@ -775,7 +776,7 @@ LEAQ (, %rax, SIZE), %rax;
 LEAQ (ptrba, %rax, 4), ptrba;
 LEAQ (ptrbb, %rax, 4), ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 XOR_DY	yvec15, yvec15, yvec15;
 XOR_DY 	yvec13, yvec13, yvec13;
 LD_DY	0*SIZE(ptrbb), yvec2;
@@ -804,7 +805,7 @@ ALIGN_5;
 .L6_bodyB:;
 # Computing kernel
 
-#### Untoll time 1 ####
+//#### Untoll time 1 ####
 LD_DY	4*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
@@ -820,7 +821,7 @@ VPERMILP_DY	$0x05, yvec2, yvec3;
 MUL_DY	yvec0, yvec5, yvec7;
 ADD_DY	yvec9, yvec7, yvec9;
 
-#### Untoll time 2 ####
+//#### Untoll time 2 ####
 LD_DY	8*SIZE(ptrba), yvec0;
 MUL_DY	yvec1, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
@@ -836,7 +837,7 @@ VPERMILP_DY	$0x05, yvec2, yvec3;
 MUL_DY	yvec1, yvec5, yvec7;
 ADD_DY	yvec9, yvec7, yvec9;
 
-#### Untoll time 3 ####
+//#### Untoll time 3 ####
 LD_DY	12*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
@@ -854,7 +855,7 @@ ADDQ	$16*SIZE, ptrbb;
 MUL_DY	yvec0, yvec5, yvec7;
 ADD_DY	yvec9, yvec7, yvec9;
 
-#### Untoll time 4 ####
+//#### Untoll time 4 ####
 LD_DY	0*SIZE(ptrba), yvec0;
 MUL_DY	yvec1, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
@@ -882,7 +883,7 @@ TEST $2, %rax;
 JLE .L7_loopE;
 ALIGN_5
 .L7_bodyB:;
-#### Untoll time 1 ####
+//#### Untoll time 1 ####
 LD_DY	4*SIZE(ptrba), yvec1;
 MUL_DY	yvec0, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
@@ -900,7 +901,7 @@ ADDQ	$8*SIZE, ptrbb;
 MUL_DY	yvec0, yvec5, yvec7;
 ADD_DY	yvec9, yvec7, yvec9;
 
-#### Untoll time 2 ####
+//#### Untoll time 2 ####
 LD_DY	0*SIZE(ptrba), yvec0;
 MUL_DY	yvec1, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
@@ -926,7 +927,7 @@ TEST $1, %rax;
 JLE .L8_loopE;
 ALIGN_5
 .L8_bodyB:;
-#### Untoll time 1 ####
+//#### Untoll time 1 ####
 MUL_DY	yvec0, yvec2, yvec6;
 ADD_DY	yvec15, yvec6, yvec15;
 SHUF_DY	$0x03, yvec2, yvec2, yvec4;
@@ -942,27 +943,27 @@ MUL_DY	yvec0, yvec5, yvec7;
 ADD_DY	yvec9, yvec7, yvec9;
 
 .L8_loopE:;
-#### Load Alpha ####
+//#### Load Alpha ####
 BROAD_DY	MEMALPHA, yvec7;
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 MUL_DY yvec7,yvec15,yvec15;
 MUL_DY yvec7,yvec13,yvec13;
 MUL_DY yvec7,yvec11,yvec11;
 MUL_DY yvec7,yvec9,yvec9;
-#### Reverse the Results ####
+//#### Reverse the Results ####
 MOV_DY	yvec15, yvec7;
 REVS_DY $0x0a,yvec13,yvec15,yvec15;
 REVS_DY $0x0a,yvec7,yvec13,yvec13;
 MOV_DY yvec11,yvec7;
 REVS_DY $0x0a,yvec9,yvec11,yvec11;
 REVS_DY $0x0a,yvec7,yvec9,yvec9;
-#### Testing alignment ####
+//#### Testing alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE		.L8_loopEx;					# Unalign part write back
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 EXTRA_DY $1,yvec15,xvec7;
 EXTRA_DY $1,yvec13,xvec5;
 EXTRA_DY $1,yvec11,xvec3;
@@ -1075,7 +1076,7 @@ LEAQ (, %rax, SIZE), %rax;
 LEAQ (ptrba, %rax, 2), ptrba;
 LEAQ (ptrbb, %rax, 4), ptrbb
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 LD_DX	0*SIZE(ptrbb), xvec2;
 XOR_DY yvec15, yvec15, yvec15;
 LD_DX	2*SIZE(ptrbb), xvec3;
@@ -1105,7 +1106,7 @@ ALIGN_5;
 .L10_bodyB:;
 # Computing kernel
 
-##### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	4*SIZE(ptrbb), xvec6;
 SHUF_DX	$0x4e, xvec3, xvec5;
 MUL_DX xvec0, xvec2, xvec2;
@@ -1122,7 +1123,7 @@ SHUF_DX	$0x4e, xvec6, xvec4;
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec9, xvec9;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	8*SIZE(ptrbb), xvec2;
 SHUF_DX	$0x4e, xvec7, xvec5;
 MUL_DX xvec1, xvec6, xvec6;
@@ -1139,7 +1140,7 @@ SHUF_DX	$0x4e, xvec2, xvec4;
 MUL_DX xvec1, xvec5, xvec5;
 ADD_DX xvec5, xvec9, xvec9;
 
-##### Unroll time 3 ####
+//#### Unroll time 3 ####
 LD_DX	12*SIZE(ptrbb), xvec6;
 SHUF_DX	$0x4e, xvec3, xvec5;
 MUL_DX xvec0, xvec2, xvec2;
@@ -1158,7 +1159,7 @@ ADDQ	$8*SIZE, ptrba;
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec9, xvec9;
 
-#### Unroll time 4 ####
+//#### Unroll time 4 ####
 LD_DX	0*SIZE(ptrbb), xvec2;
 SHUF_DX	$0x4e, xvec7, xvec5;
 MUL_DX xvec1, xvec6, xvec6;
@@ -1187,7 +1188,7 @@ TEST $2, %rax;
 JLE .L11_loopE;
 ALIGN_5
 .L11_bodyB:;
-##### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	4*SIZE(ptrbb), xvec6;
 SHUF_DX	$0x4e, xvec3, xvec5;
 MUL_DX xvec0, xvec2, xvec2;
@@ -1207,7 +1208,7 @@ ADDQ	$4*SIZE, ptrba;
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec9, xvec9;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	0*SIZE(ptrbb), xvec2;
 SHUF_DX	$0x4e, xvec7, xvec5;
 MUL_DX xvec1, xvec6, xvec6;
@@ -1250,27 +1251,27 @@ MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec9, xvec9;
 
 .L12_loopE:;
-#### Load Alpha ####
+//#### Load Alpha ####
 BROAD_DX MEMALPHA, xvec7;
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 MUL_DX xvec7, xvec15, xvec15;
 MUL_DX xvec7, xvec13, xvec13;
 MUL_DX xvec7, xvec11, xvec11;
 MUL_DX xvec7, xvec9, xvec9;
-#### Reverse the Results ####
+//#### Reverse the Results ####
 MOV_DX	xvec15, xvec6;
 REVS_DX xvec13, xvec15, xvec15;
 REVS_DX xvec6, xvec13, xvec13;
 MOV_DX	xvec11, xvec6;
 REVS_DX xvec9, xvec11, xvec11;
 REVS_DX xvec6, xvec9, xvec9;
-#### Testing Alignment ####
+//#### Testing Alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE		.L12_loopEx;
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 #ifndef	TRMMKERNEL
 ADD_DX 0*SIZE(C0), xvec13, xvec13;
 ADD_DX 0*SIZE(C0, ldc, 1), xvec15, xvec15;
@@ -1344,7 +1345,7 @@ LEAQ (,%rax, SIZE), %rax;
 ADDQ	%rax, ptrba;
 LEAQ (ptrbb, %rax, 4), ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 XOR_DY	yvec15, yvec15, yvec15;
 #ifndef	TRMMKERNEL
 MOVQ bk, k;
@@ -1428,11 +1429,11 @@ ADDQ	$1*SIZE, ptrba;
 ADDQ	$4*SIZE, ptrbb;
 
 .L16_loopE:
-#### Load Alpha ####
+//#### Load Alpha ####
 BROAD_DY MEMALPHA, yvec7;
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 MUL_DY	yvec15, yvec7, yvec15;
-#### Writing Back ####
+//#### Writing Back ####
 EXTRA_DY $1, yvec15, xvec7;
 #ifndef	TRMMKERNEL
 LDL_DX 0*SIZE(C0), xvec0, xvec0;
@@ -1496,7 +1497,7 @@ LEAQ (, %rax, SIZE), %rax;
 LEAQ (ptrba, %rax, 8), ptrba;
 LEAQ (ptrbb, %rax, 2), ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 XOR_DY yvec15, yvec15, yvec15;
 XOR_DY yvec14, yvec14, yvec14;
 XOR_DY yvec13, yvec13, yvec13;
@@ -1525,7 +1526,7 @@ JLE .L211_loopE;
 ALIGN_5;
 .L211_bodyB:
 # Computing kernel
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1562,7 +1563,7 @@ ADD_DX xvec6, xvec9, xvec9;
 MUL_DX xvec3, xvec7, xvec7;
 ADD_DX xvec7, xvec8, xvec8;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	8*SIZE(ptrba), xvec0;
 LD_DX	2*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1599,7 +1600,7 @@ ADD_DX xvec6, xvec9, xvec9;
 MUL_DX xvec3, xvec7, xvec7;
 ADD_DX xvec7, xvec8, xvec8;
 
-#### Unroll time 3 ####
+//#### Unroll time 3 ####
 LD_DX	16*SIZE(ptrba), xvec0;
 LD_DX	4*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1636,7 +1637,7 @@ ADD_DX xvec6, xvec9, xvec9;
 MUL_DX xvec3, xvec7, xvec7;
 ADD_DX xvec7, xvec8, xvec8;
 
-#### Unroll time 4 ####
+//#### Unroll time 4 ####
 LD_DX	24*SIZE(ptrba), xvec0;
 LD_DX	6*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1688,7 +1689,7 @@ JLE .L212_loopE;
 ALIGN_5;
 .L212_bodyB:
 # Computing kernel
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1725,7 +1726,7 @@ ADD_DX xvec6, xvec9, xvec9;
 MUL_DX xvec3, xvec7, xvec7;
 ADD_DX xvec7, xvec8, xvec8;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	8*SIZE(ptrba), xvec0;
 LD_DX	2*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1774,7 +1775,7 @@ TEST $1, %rax;
 JLE .L213_loopE;
 ALIGN_5
 .L213_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1814,7 +1815,7 @@ MUL_DX xvec3, xvec7, xvec7;
 ADD_DX xvec7, xvec8, xvec8;
 
 .L213_loopE:
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 BROAD_DX MEMALPHA, xvec7;
 MUL_DX xvec7, xvec15, xvec15;
 MUL_DX xvec7, xvec14, xvec14;
@@ -1824,7 +1825,7 @@ MUL_DX xvec7, xvec11, xvec11;
 MUL_DX xvec7, xvec10, xvec10;
 MUL_DX xvec7, xvec9, xvec9;
 MUL_DX xvec7, xvec8, xvec8;
-#### Reverse #####
+//#### Reverse ####
 MOV_DX	xvec15, xvec6;
 REVS_DX xvec11, xvec15, xvec15;
 REVS_DX xvec6, xvec11, xvec11;
@@ -1837,13 +1838,13 @@ REVS_DX xvec6, xvec9, xvec9;
 MOV_DX	xvec12, xvec6;
 REVS_DX xvec8, xvec12, xvec12;
 REVS_DX xvec6, xvec8, xvec8;
-#### Testing Alignment ####
+//#### Testing Alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE		.L213_loopEx;
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 #ifndef	TRMMKERNEL
 ADD_DX 0*SIZE(C0), xvec11, xvec11;
 ADD_DX 2*SIZE(C0), xvec10, xvec10;
@@ -1951,7 +1952,7 @@ LEAQ	(,%rax, SIZE), %rax;
 LEAQ	(ptrba, %rax, 4), ptrba;
 LEAQ	(ptrbb, %rax, 2), ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 XOR_DY yvec15, yvec15, yvec15;
 XOR_DY yvec14, yvec14, yvec14;
 XOR_DY yvec11, yvec11, yvec11;
@@ -1976,7 +1977,7 @@ JLE	.L221_loopE;
 ALIGN_5
 .L221_bodyB:;
 # Computing kernel
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -1995,7 +1996,7 @@ ADD_DX xvec4, xvec11, xvec11;
 MUL_DX xvec1, xvec5, xvec5;
 ADD_DX xvec5, xvec10, xvec10;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	4*SIZE(ptrba), xvec0;
 LD_DX	2*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -2014,7 +2015,7 @@ ADD_DX xvec4, xvec11, xvec11;
 MUL_DX xvec1, xvec5, xvec5;
 ADD_DX xvec5, xvec10, xvec10;
 
-#### Unroll time 3 ####
+//#### Unroll time 3 ####
 LD_DX	8*SIZE(ptrba), xvec0;
 LD_DX	4*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -2033,7 +2034,7 @@ ADD_DX xvec4, xvec11, xvec11;
 MUL_DX xvec1, xvec5, xvec5;
 ADD_DX xvec5, xvec10, xvec10;
 
-#### Unroll time 4 ####
+//#### Unroll time 4 ####
 LD_DX	12*SIZE(ptrba), xvec0;
 LD_DX	6*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -2066,7 +2067,7 @@ TEST $2, %rax;
 JLE .L222_loopE;
 ALIGN_5
 .L222_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -2085,7 +2086,7 @@ ADD_DX xvec4, xvec11, xvec11;
 MUL_DX xvec1, xvec5, xvec5;
 ADD_DX xvec5, xvec10, xvec10;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	4*SIZE(ptrba), xvec0;
 LD_DX	2*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -2115,7 +2116,7 @@ TEST $1, %rax;
 JLE .L223_loopE;
 ALIGN_5
 .L223_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 MOV_DX	xvec4, xvec5;
@@ -2137,26 +2138,26 @@ MUL_DX xvec1, xvec5, xvec5;
 ADD_DX xvec5, xvec10, xvec10;
 
 .L223_loopE:
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 BROAD_DX MEMALPHA, xvec7;
 MUL_DX xvec7, xvec15, xvec15;
 MUL_DX xvec7, xvec14, xvec14;
 MUL_DX xvec7, xvec11, xvec11;
 MUL_DX xvec7, xvec10, xvec10;
-#### Reverse #####
+//#### Reverse ####
 MOV_DX	xvec15, xvec6;
 REVS_DX xvec11, xvec15, xvec15;
 REVS_DX xvec6, xvec11, xvec11;
 MOV_DX	xvec14, xvec6;
 REVS_DX xvec10, xvec14, xvec14;
 REVS_DX xvec6, xvec10, xvec10;
-#### Testing Alignment ####
+//#### Testing Alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE		.L223_loopEx;
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 #ifndef	TRMMKERNEL
 ADD_DX 0*SIZE(C0), xvec11, xvec11;
 ADD_DX 2*SIZE(C0), xvec10, xvec10;
@@ -2219,7 +2220,7 @@ ADDQ	$4, kk
 ADDQ	$4*SIZE, C0;
 ADDQ	$4*SIZE, C1;
 .L22_loopE:;
-TEST $2, bm;				# Rm = 2
+TEST $2, bm;				// Rm = 2
 JLE .L23_loopE;
 ALIGN_5;
 .L23_bodyB:
@@ -2254,7 +2255,7 @@ JLE .L231_loopE;
 ALIGN_5
 .L231_bodyB:
 # Computing kernel
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2263,7 +2264,7 @@ ADD_DX xvec4, xvec15, xvec15;
 
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec11, xvec11;
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	2*SIZE(ptrba), xvec0;
 LD_DX	2*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2272,7 +2273,7 @@ ADD_DX xvec4, xvec15, xvec15;
 
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec11, xvec11;
-#### Unroll time 3 ####
+//#### Unroll time 3 ####
 LD_DX	4*SIZE(ptrba), xvec0;
 LD_DX	4*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2281,7 +2282,7 @@ ADD_DX xvec4, xvec15, xvec15;
 
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec11, xvec11;
-#### Unroll time 4 ####
+//#### Unroll time 4 ####
 LD_DX	6*SIZE(ptrba), xvec0;
 LD_DX	6*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2304,7 +2305,7 @@ TEST $2, %rax;
 JLE .L232_loopE;
 ALIGN_5
 .L232_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2313,7 +2314,7 @@ ADD_DX xvec4, xvec15, xvec15;
 
 MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec11, xvec11;
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DX	2*SIZE(ptrba), xvec0;
 LD_DX	2*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2333,7 +2334,7 @@ TEST $1, %rax;
 JLE .L233_loopE;
 ALIGN_5
 .L233_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DX	0*SIZE(ptrba), xvec0;
 LD_DX	0*SIZE(ptrbb), xvec4;
 SHUF_DX $0x4e, xvec4, xvec5;
@@ -2344,21 +2345,21 @@ MUL_DX xvec0, xvec5, xvec5;
 ADD_DX xvec5, xvec11, xvec11;
 ADDQ	$2*SIZE, ptrbb;
 .L233_loopE:
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 BROAD_DX MEMALPHA, xvec7;
 MUL_DX xvec7, xvec15, xvec15;
 MUL_DX xvec7, xvec11, xvec11;
-#### Reverse #####
+//#### Reverse ####
 MOV_DX	xvec15, xvec6;
 REVS_DX xvec11, xvec15, xvec15;
 REVS_DX xvec6, xvec11, xvec11;
-#### Testing Alignment ####
+//#### Testing Alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE		.L233_loopEx;
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 #ifndef	TRMMKERNEL
 ADD_DX 0*SIZE(C0), xvec11, xvec11;
 ADD_DX 0*SIZE(C1), xvec15, xvec15;
@@ -2407,7 +2408,7 @@ ADDQ	$2, kk;
 ADDQ	$2*SIZE, C0;
 ADDQ	$2*SIZE, C1;
 .L23_loopE:
-TEST $1, bm;				# Rm = 1
+TEST $1, bm;				// Rm = 1
 JLE .L24_loopE;
 ALIGN_5;
 .L24_bodyB:
@@ -2533,7 +2534,7 @@ SALQ $4, k;
 ADDQ k, bb;
 LEAQ (C, ldc, 2), C;
 .L20_loopE:;
-TEST $1, bn;					# Rn = 1
+TEST $1, bn;					// Rn = 1
 JLE .L30_loopE;
 ALIGN_5
 .L30_bodyB:
@@ -2557,7 +2558,7 @@ LEAQ (, %rax, SIZE), %rax;
 LEAQ (ptrba, %rax, 8), ptrba;
 ADDQ	%rax, ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 XOR_DY	yvec15, yvec15, yvec15;
 XOR_DY	yvec14, yvec14, yvec14;
 #ifndef	TRMMKERNEL
@@ -2579,7 +2580,7 @@ SARQ $2, k;
 JLE .L311_loopE;
 ALIGN_5
 .L311_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DY	0*SIZE(ptrba), yvec0;
 LD_DY	4*SIZE(ptrba), yvec1;
 BROAD_DY 0*SIZE(ptrbb), yvec2;
@@ -2588,7 +2589,7 @@ ADD_DY	yvec0, yvec15, yvec15;
 MUL_DY	yvec2, yvec1, yvec1;
 ADD_DY	yvec1, yvec14, yvec14;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DY	8*SIZE(ptrba), yvec3;
 LD_DY	12*SIZE(ptrba), yvec4;
 BROAD_DY 1*SIZE(ptrbb), yvec5;
@@ -2597,7 +2598,7 @@ ADD_DY	yvec3, yvec15, yvec15;
 MUL_DY	yvec5, yvec4, yvec4
 ADD_DY	yvec4, yvec14, yvec14;
 
-#### Unroll time 3 ####
+//#### Unroll time 3 ####
 LD_DY	16*SIZE(ptrba), yvec0;
 LD_DY	20*SIZE(ptrba), yvec1;
 BROAD_DY 2*SIZE(ptrbb), yvec2;
@@ -2606,7 +2607,7 @@ ADD_DY	yvec0, yvec15, yvec15;
 MUL_DY	yvec2, yvec1, yvec1;
 ADD_DY	yvec1, yvec14, yvec14;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DY	24*SIZE(ptrba), yvec3;
 LD_DY	28*SIZE(ptrba), yvec4;
 BROAD_DY 3*SIZE(ptrbb), yvec5;
@@ -2629,7 +2630,7 @@ TEST $2, %rax;
 JLE .L312_loopE;
 ALIGN_5
 .L312_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DY	0*SIZE(ptrba), yvec0;
 LD_DY	4*SIZE(ptrba), yvec1;
 BROAD_DY 0*SIZE(ptrbb), yvec2;
@@ -2638,7 +2639,7 @@ ADD_DY	yvec0, yvec15, yvec15;
 MUL_DY	yvec2, yvec1, yvec1;
 ADD_DY	yvec1, yvec14, yvec14;
 
-#### Unroll time 2 ####
+//#### Unroll time 2 ####
 LD_DY	8*SIZE(ptrba), yvec3;
 LD_DY	12*SIZE(ptrba), yvec4;
 BROAD_DY 1*SIZE(ptrbb), yvec5;
@@ -2659,7 +2660,7 @@ TEST $1, %rax;
 JLE .L313_loopE;
 ALIGN_5
 .L313_bodyB:
-#### Unroll time 1 ####
+//#### Unroll time 1 ####
 LD_DY	0*SIZE(ptrba), yvec0;
 LD_DY	4*SIZE(ptrba), yvec1;
 BROAD_DY 0*SIZE(ptrbb), yvec2;
@@ -2671,17 +2672,17 @@ ADD_DY	yvec1, yvec14, yvec14;
 ADDQ	$1*SIZE, ptrbb;
 
 .L313_loopE:
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 BROAD_DY MEMALPHA, yvec7;
 MUL_DY	yvec7, yvec15, yvec15;
 MUL_DY	yvec7, yvec14, yvec14;
-#### Testing Alignment ####
+//#### Testing Alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST 	$15, %rax;
 JNE		.L313_loopEx;
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 EXTRA_DY $1, yvec15, xvec13;
 EXTRA_DY $1, yvec14, xvec12;
 #ifndef	TRMMKERNEL
@@ -2761,7 +2762,7 @@ LEAQ (,%rax, SIZE), %rax;
 LEAQ (ptrba, %rax, 4), ptrba;
 ADDQ	%rax, ptrbb;
 #endif
-#### Initial Results Register ####
+//#### Initial Results Register ####
 XOR_DY	yvec15, yvec15, yvec15;
 #ifndef	TRMMKERNEL
 MOVQ bk, k;
@@ -2846,16 +2847,16 @@ ADDQ	$4*SIZE, ptrba;
 ADDQ	$1*SIZE, ptrbb;
 
 .L323_loopE:
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 BROAD_DY MEMALPHA, yvec7;
 MUL_DY	yvec7, yvec15, yvec15;
-#### Testing Alignment ####
+//#### Testing Alignment ####
 MOVQ	C0, %rax;
 OR		ldc, %rax;
 TEST	$15, %rax;
 JNE	.L323_loopEx;
 ALIGN_5
-#### Writing Back ####
+//#### Writing Back ####
 EXTRA_DY $1, yvec15, xvec14;
 #ifndef	TRMMKERNEL
 ADD_DX 0*SIZE(C0), xvec15, xvec15;
@@ -2877,7 +2878,7 @@ ADDQ	$4*SIZE, C0;
 JMP .L32_loopE;
 ALIGN_5
 .L323_loopEx:
-#### Writing Back ####
+//#### Writing Back ####
 EXTRA_DY $1, yvec15, xvec14;
 #ifndef	TRMMKERNEL
 LDL_DX 0*SIZE(C0), xvec13, xvec13;
@@ -2916,7 +2917,7 @@ LEAQ (, %rax, SIZE), %rax
 LEAQ (ptrba, %rax, 2), ptrba
 ADDQ %rax, ptrbb;
 #endif
-#### Initial Result ####
+//#### Initial Result ####
 XOR_DY	yvec15, yvec15, yvec15;
 #ifndef	TRMMKERNEL
 MOVQ bk, k;
@@ -2999,7 +3000,7 @@ ADD_DX xvec2, xvec15, xvec15;
 ADDQ	$2*SIZE, ptrba;
 ADDQ	$1*SIZE, ptrbb;
 .L333_loopE:
-#### Multiply Alpha ####
+//#### Multiply Alpha ####
 BROAD_DX MEMALPHA, xvec7;
 MUL_DX xvec7, xvec15, xvec15;
 #ifndef	TRMMKERNEL
@@ -3118,7 +3119,7 @@ addq	$1*SIZE, ptrba;
 addq	$1*SIZE, ptrbb;
 
 .L343_loopE:
-#### Writing Back ####
+//#### Writing Back ####
 vmovsd	MEMALPHA, xvec7;
 vmulsd	xvec7, xvec15, xvec15;
 #ifndef	TRMMKERNEL

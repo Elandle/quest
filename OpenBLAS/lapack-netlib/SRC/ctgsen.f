@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CTGSEN + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ctgsen.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ctgsen.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ctgsen.f"> 
+*> Download CTGSEN + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ctgsen.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ctgsen.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ctgsen.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE CTGSEN( IJOB, WANTQ, WANTZ, SELECT, N, A, LDA, B, LDB,
 *                          ALPHA, BETA, Q, LDQ, Z, LDZ, M, PL, PR, DIF,
 *                          WORK, LWORK, IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            WANTQ, WANTZ
 *       INTEGER            IJOB, INFO, LDA, LDB, LDQ, LDZ, LIWORK, LWORK,
@@ -35,7 +35,7 @@
 *       COMPLEX            A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), Q( LDQ, * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -72,7 +72,7 @@
 *
 *> \param[in] IJOB
 *> \verbatim
-*>          IJOB is integer
+*>          IJOB is INTEGER
 *>          Specifies whether condition numbers are required for the
 *>          cluster of eigenvalues (PL and PR) or the deflating subspaces
 *>          (Difu and Difl):
@@ -285,14 +285,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexOTHERcomputational
+*> \ingroup tgsen
 *
 *> \par Further Details:
 *  =====================
@@ -341,7 +339,7 @@
 *>            [ kron(In2, B11)  -kron(B22**H, In1) ].
 *>
 *>  Here, Inx is the identity matrix of size nx and A22**H is the
-*>  conjuguate transpose of A22. kron(X, Y) is the Kronecker product between
+*>  conjugate transpose of A22. kron(X, Y) is the Kronecker product between
 *>  the matrices X and Y.
 *>
 *>  When DIF(2) is small, small changes in (A, B) can cause large changes
@@ -433,10 +431,9 @@
      $                   ALPHA, BETA, Q, LDQ, Z, LDZ, M, PL, PR, DIF,
      $                   WORK, LWORK, IWORK, LIWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            WANTQ, WANTZ
@@ -470,8 +467,12 @@
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
 *     ..
+*     .. External Functions ..
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           SROUNDUP_LWORK
+*     ..
 *     .. External Subroutines ..
-      REAL               SLAMCH 
+      REAL               SLAMCH
       EXTERNAL           CLACN2, CLACPY, CLASSQ, CSCAL, CTGEXC, CTGSYL,
      $                   SLAMCH, XERBLA
 *     ..
@@ -515,6 +516,7 @@
 *     subspaces.
 *
       M = 0
+      IF( .NOT.LQUERY .OR. IJOB.NE.0 ) THEN
       DO 10 K = 1, N
          ALPHA( K ) = A( K, K )
          BETA( K ) = B( K, K )
@@ -526,6 +528,7 @@
      $         M = M + 1
          END IF
    10 CONTINUE
+      END IF
 *
       IF( IJOB.EQ.1 .OR. IJOB.EQ.2 .OR. IJOB.EQ.4 ) THEN
          LWMIN = MAX( 1, 2*M*(N-M) )
@@ -538,7 +541,7 @@
          LIWMIN = 1
       END IF
 *
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) =  SROUNDUP_LWORK(LWMIN)
       IWORK( 1 ) = LIWMIN
 *
       IF( LWORK.LT.LWMIN .AND. .NOT.LQUERY ) THEN
@@ -748,7 +751,7 @@
       END IF
 *
 *     If B(K,K) is complex, make it real and positive (normalization
-*     of the generalized Schur form) and Store the generalized 
+*     of the generalized Schur form) and Store the generalized
 *     eigenvalues of reordered pair (A, B)
 *
       DO 60 K = 1, N
@@ -772,7 +775,7 @@
 *
    70 CONTINUE
 *
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) =  SROUNDUP_LWORK(LWMIN)
       IWORK( 1 ) = LIWMIN
 *
       RETURN

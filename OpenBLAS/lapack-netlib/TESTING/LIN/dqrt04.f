@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DQRT04(M,N,NB,RESULT)
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER M, N, NB, LDT
 *       .. Return values ..
 *       DOUBLE PRECISION RESULT(6)
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -54,19 +54,17 @@
 *>          RESULT(2) = | I - Q^H Q |
 *>          RESULT(3) = | Q C - Q C |
 *>          RESULT(4) = | Q^H C - Q^H C |
-*>          RESULT(5) = | C Q - C Q | 
+*>          RESULT(5) = | C Q - C Q |
 *>          RESULT(6) = | C Q^H - C Q^H |
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date April 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_lin
 *
@@ -74,10 +72,9 @@
       SUBROUTINE DQRT04(M,N,NB,RESULT)
       IMPLICIT NONE
 *
-*  -- LAPACK test routine (version 3.4.1) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       INTEGER M, N, NB, LDT
@@ -87,9 +84,9 @@
 *  =====================================================================
 *
 *     ..
-*     .. Local allocatable arrays 
+*     .. Local allocatable arrays
       DOUBLE PRECISION, ALLOCATABLE :: AF(:,:), Q(:,:),
-     $  R(:,:), RWORK(:), WORK( : ), T(:,:), 
+     $  R(:,:), RWORK(:), WORK( : ), T(:,:),
      $  CF(:,:), DF(:,:), A(:,:), C(:,:), D(:,:)
 *
 *     .. Parameters ..
@@ -109,11 +106,11 @@
       EXTERNAL DLAMCH, DLANGE, DLANSY, LSAME
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC  MAX, MIN      
+      INTRINSIC  MAX, MIN
 *     ..
 *     .. Data statements ..
-      DATA ISEED / 1988, 1989, 1990, 1991 /      
-*      
+      DATA ISEED / 1988, 1989, 1990, 1991 /
+*
       EPS = DLAMCH( 'Epsilon' )
       K = MIN(M,N)
       L = MAX(M,N)
@@ -121,8 +118,8 @@
 *
 *     Dynamically allocate local arrays
 *
-      ALLOCATE ( A(M,N), AF(M,N), Q(M,M), R(M,L), RWORK(L), 
-     $           WORK(LWORK), T(NB,N), C(M,N), CF(M,N), 
+      ALLOCATE ( A(M,N), AF(M,N), Q(M,M), R(M,L), RWORK(L),
+     $           WORK(LWORK), T(NB,N), C(M,N), CF(M,N),
      $           D(N,M), DF(N,M) )
 *
 *     Put random numbers into A and copy to AF
@@ -140,7 +137,7 @@
 *     Generate the m-by-m matrix Q
 *
       CALL DLASET( 'Full', M, M, ZERO, ONE, Q, M )
-      CALL DGEMQRT( 'R', 'N', M, M, K, NB, AF, M, T, LDT, Q, M, 
+      CALL DGEMQRT( 'R', 'N', M, M, K, NB, AF, M, T, LDT, Q, M,
      $              WORK, INFO )
 *
 *     Copy R
@@ -176,7 +173,7 @@
 *
 *     Apply Q to C as Q*C
 *
-      CALL DGEMQRT( 'L', 'N', M, N, K, NB, AF, M, T, NB, CF, M, 
+      CALL DGEMQRT( 'L', 'N', M, N, K, NB, AF, M, T, NB, CF, M,
      $             WORK, INFO)
 *
 *     Compute |Q*C - Q*C| / |C|
@@ -195,7 +192,7 @@
 *
 *     Apply Q to C as QT*C
 *
-      CALL DGEMQRT( 'L', 'T', M, N, K, NB, AF, M, T, NB, CF, M, 
+      CALL DGEMQRT( 'L', 'T', M, N, K, NB, AF, M, T, NB, CF, M,
      $             WORK, INFO)
 *
 *     Compute |QT*C - QT*C| / |C|
@@ -206,7 +203,7 @@
          RESULT( 4 ) = RESID / (EPS*MAX(1,M)*CNORM)
       ELSE
          RESULT( 4 ) = ZERO
-      END IF     
+      END IF
 *
 *     Generate random n-by-m matrix D and a copy DF
 *
@@ -218,8 +215,8 @@
 *
 *     Apply Q to D as D*Q
 *
-      CALL DGEMQRT( 'R', 'N', N, M, K, NB, AF, M, T, NB, DF, N, 
-     $             WORK, INFO)      
+      CALL DGEMQRT( 'R', 'N', N, M, K, NB, AF, M, T, NB, DF, N,
+     $             WORK, INFO)
 *
 *     Compute |D*Q - D*Q| / |D|
 *
@@ -237,8 +234,8 @@
 *
 *     Apply Q to D as D*QT
 *
-      CALL DGEMQRT( 'R', 'T', N, M, K, NB, AF, M, T, NB, DF, N, 
-     $             WORK, INFO)      
+      CALL DGEMQRT( 'R', 'T', N, M, K, NB, AF, M, T, NB, DF, N,
+     $             WORK, INFO)
 *
 *     Compute |D*QT - D*QT| / |D|
 *

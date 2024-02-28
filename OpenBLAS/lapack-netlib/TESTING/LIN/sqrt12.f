@@ -2,21 +2,21 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       REAL             FUNCTION SQRT12( M, N, A, LDA, S, WORK, LWORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
 *       REAL               A( LDA, * ), S( * ), WORK( LWORK )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -26,7 +26,7 @@
 *> SQRT12 computes the singular values `svlues' of the upper trapezoid
 *> of A(1:M,1:N) and returns the ratio
 *>
-*>      || s - svlues||/(||svlues||*eps*max(M,N))
+*>      || svlues - s ||/(||s||*eps*max(M,N))
 *> \endverbatim
 *
 *  Arguments:
@@ -77,22 +77,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
 *  =====================================================================
       REAL             FUNCTION SQRT12( M, N, A, LDA, S, WORK, LWORK )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, LWORK, M, N
@@ -116,8 +113,7 @@
       EXTERNAL           SASUM, SLAMCH, SLANGE, SNRM2
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           SAXPY, SBDSQR, SGEBD2, SLABAD, SLASCL, SLASET,
-     $                   XERBLA
+      EXTERNAL           SAXPY, SBDSQR, SGEBD2, SLASCL, SLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MAX, MIN, REAL
@@ -148,17 +144,16 @@
 *     Copy upper triangle of A into work
 *
       CALL SLASET( 'Full', M, N, ZERO, ZERO, WORK, M )
-      DO 20 J = 1, N
-         DO 10 I = 1, MIN( J, M )
+      DO J = 1, N
+         DO I = 1, MIN( J, M )
             WORK( ( J-1 )*M+I ) = A( I, J )
-   10    CONTINUE
-   20 CONTINUE
+         END DO
+      END DO
 *
 *     Get machine parameters
 *
       SMLNUM = SLAMCH( 'S' ) / SLAMCH( 'P' )
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
 *
 *     Scale work if max entry outside range [SMLNUM,BIGNUM]
 *
@@ -202,9 +197,9 @@
 *
       ELSE
 *
-         DO 30 I = 1, MN
+         DO I = 1, MN
             WORK( M*N+I ) = ZERO
-   30    CONTINUE
+         END DO
       END IF
 *
 *     Compare s and singular values of work

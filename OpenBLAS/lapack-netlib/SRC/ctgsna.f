@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CTGSNA + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ctgsna.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ctgsna.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ctgsna.f"> 
+*> Download CTGSNA + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ctgsna.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ctgsna.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ctgsna.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE CTGSNA( JOB, HOWMNY, SELECT, N, A, LDA, B, LDB, VL,
 *                          LDVL, VR, LDVR, S, DIF, MM, M, WORK, LWORK,
 *                          IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          HOWMNY, JOB
 *       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, M, MM, N
@@ -33,7 +33,7 @@
 *       COMPLEX            A( LDA, * ), B( LDB, * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -208,14 +208,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexOTHERcomputational
+*> \ingroup tgsna
 *
 *> \par Further Details:
 *  =====================
@@ -311,10 +309,9 @@
      $                   LDVL, VR, LDVR, S, DIF, MM, M, WORK, LWORK,
      $                   IWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          HOWMNY, JOB
@@ -346,12 +343,13 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      REAL               SCNRM2, SLAMCH, SLAPY2
+      REAL               SCNRM2, SLAMCH, SLAPY2, SROUNDUP_LWORK
       COMPLEX            CDOTC
-      EXTERNAL           LSAME, SCNRM2, SLAMCH, SLAPY2, CDOTC
+      EXTERNAL           LSAME, SCNRM2, SLAMCH, SLAPY2, SROUNDUP_LWORK,
+     $                   CDOTC
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           CGEMV, CLACPY, CTGEXC, CTGSYL, SLABAD, XERBLA
+      EXTERNAL           CGEMV, CLACPY, CTGEXC, CTGSYL, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, CMPLX, MAX
@@ -405,7 +403,7 @@
          ELSE
             LWMIN = N
          END IF
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
 *
          IF( MM.LT.M ) THEN
             INFO = -15
@@ -431,7 +429,6 @@
       EPS = SLAMCH( 'P' )
       SMLNUM = SLAMCH( 'S' ) / EPS
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
       KS = 0
       DO 20 K = 1, N
 *
@@ -511,7 +508,7 @@
          END IF
 *
    20 CONTINUE
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       RETURN
 *
 *     End of CTGSNA

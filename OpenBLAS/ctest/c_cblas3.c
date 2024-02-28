@@ -88,6 +88,7 @@ void F77_cgemm(int *order, char *transpa, char *transpb, int *m, int *n,
      cblas_cgemm( UNDEFINED, transa, transb, *m, *n, *k, alpha, a, *lda,
                   b, *ldb, beta, c, *ldc );
 }
+
 void F77_chemm(int *order, char *rtlf, char *uplow, int *m, int *n,
         CBLAS_TEST_COMPLEX *alpha, CBLAS_TEST_COMPLEX *a, int *lda,
 	CBLAS_TEST_COMPLEX *b, int *ldb, CBLAS_TEST_COMPLEX *beta,
@@ -563,3 +564,6 @@ void F77_ctrsm(int *order, char *rtlf, char *uplow, char *transp, char *diagn,
      cblas_ctrsm(UNDEFINED, side, uplo, trans, diag, *m, *n, alpha,
 		   a, *lda, b, *ldb);
 }
+
+
+

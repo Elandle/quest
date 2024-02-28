@@ -19,6 +19,7 @@
 #define	CDOTC_K			cdotc_k
 #define	CNRM2_K			cnrm2_k
 #define	CSCAL_K			cscal_k
+#define	CSUM_K			csum_k
 #define	CSWAP_K			cswap_k
 #define	CROT_K			csrot_k
 
@@ -220,6 +221,18 @@
 #define COMATCOPY_K_CTC         comatcopy_k_ctc
 #define COMATCOPY_K_RTC         comatcopy_k_rtc
 
+#define CIMATCOPY_K_CN          cimatcopy_k_cn
+#define CIMATCOPY_K_RN          cimatcopy_k_rn
+#define CIMATCOPY_K_CT          cimatcopy_k_ct
+#define CIMATCOPY_K_RT          cimatcopy_k_rt
+#define CIMATCOPY_K_CNC         cimatcopy_k_cnc
+#define CIMATCOPY_K_RNC         cimatcopy_k_rnc
+#define CIMATCOPY_K_CTC         cimatcopy_k_ctc
+#define CIMATCOPY_K_RTC         cimatcopy_k_rtc
+
+#define CGEADD_K                cgeadd_k 
+
+#define CGEMM_SMALL_MATRIX_PERMIT	cgemm_small_matrix_permit
 
 #else
 
@@ -239,6 +252,7 @@
 #define	CDOTC_K			gotoblas -> cdotc_k
 #define	CNRM2_K			gotoblas -> cnrm2_k
 #define	CSCAL_K			gotoblas -> cscal_k
+#define	CSUM_K			gotoblas -> csum_k
 #define	CSWAP_K			gotoblas -> cswap_k
 #define	CROT_K			gotoblas -> csrot_k
 
@@ -403,7 +417,61 @@
 #define COMATCOPY_K_CTC         gotoblas -> comatcopy_k_ctc
 #define COMATCOPY_K_RTC         gotoblas -> comatcopy_k_rtc
 
+#define CIMATCOPY_K_CN          gotoblas -> cimatcopy_k_cn
+#define CIMATCOPY_K_RN          gotoblas -> cimatcopy_k_rn
+#define CIMATCOPY_K_CT          gotoblas -> cimatcopy_k_ct
+#define CIMATCOPY_K_RT          gotoblas -> cimatcopy_k_rt
+#define CIMATCOPY_K_CNC         gotoblas -> cimatcopy_k_cnc
+#define CIMATCOPY_K_RNC         gotoblas -> cimatcopy_k_rnc
+#define CIMATCOPY_K_CTC         gotoblas -> cimatcopy_k_ctc
+#define CIMATCOPY_K_RTC         gotoblas -> cimatcopy_k_rtc
+
+#define CGEADD_K                gotoblas -> cgeadd_k 
+
+#define CGEMM_SMALL_MATRIX_PERMIT	gotoblas -> cgemm_small_matrix_permit
+
 #endif
+
+#define CGEMM_SMALL_KERNEL_NN		FUNC_OFFSET(cgemm_small_kernel_nn)
+#define CGEMM_SMALL_KERNEL_NT		FUNC_OFFSET(cgemm_small_kernel_nt)
+#define CGEMM_SMALL_KERNEL_NR		FUNC_OFFSET(cgemm_small_kernel_nr)
+#define CGEMM_SMALL_KERNEL_NC		FUNC_OFFSET(cgemm_small_kernel_nc)
+
+#define CGEMM_SMALL_KERNEL_TN		FUNC_OFFSET(cgemm_small_kernel_tn)
+#define CGEMM_SMALL_KERNEL_TT		FUNC_OFFSET(cgemm_small_kernel_tt)
+#define CGEMM_SMALL_KERNEL_TR		FUNC_OFFSET(cgemm_small_kernel_tr)
+#define CGEMM_SMALL_KERNEL_TC		FUNC_OFFSET(cgemm_small_kernel_tc)
+
+#define CGEMM_SMALL_KERNEL_RN		FUNC_OFFSET(cgemm_small_kernel_rn)
+#define CGEMM_SMALL_KERNEL_RT		FUNC_OFFSET(cgemm_small_kernel_rt)
+#define CGEMM_SMALL_KERNEL_RR		FUNC_OFFSET(cgemm_small_kernel_rr)
+#define CGEMM_SMALL_KERNEL_RC		FUNC_OFFSET(cgemm_small_kernel_rc)
+
+#define CGEMM_SMALL_KERNEL_CN		FUNC_OFFSET(cgemm_small_kernel_cn)
+#define CGEMM_SMALL_KERNEL_CT		FUNC_OFFSET(cgemm_small_kernel_ct)
+#define CGEMM_SMALL_KERNEL_CR		FUNC_OFFSET(cgemm_small_kernel_cr)
+#define CGEMM_SMALL_KERNEL_CC		FUNC_OFFSET(cgemm_small_kernel_cc)
+
+#define CGEMM_SMALL_KERNEL_B0_NN	FUNC_OFFSET(cgemm_small_kernel_b0_nn)
+#define CGEMM_SMALL_KERNEL_B0_NT	FUNC_OFFSET(cgemm_small_kernel_b0_nt)
+#define CGEMM_SMALL_KERNEL_B0_NR	FUNC_OFFSET(cgemm_small_kernel_b0_nr)
+#define CGEMM_SMALL_KERNEL_B0_NC	FUNC_OFFSET(cgemm_small_kernel_b0_nc)
+
+#define CGEMM_SMALL_KERNEL_B0_TN	FUNC_OFFSET(cgemm_small_kernel_b0_tn)
+#define CGEMM_SMALL_KERNEL_B0_TT	FUNC_OFFSET(cgemm_small_kernel_b0_tt)
+#define CGEMM_SMALL_KERNEL_B0_TR	FUNC_OFFSET(cgemm_small_kernel_b0_tr)
+#define CGEMM_SMALL_KERNEL_B0_TC	FUNC_OFFSET(cgemm_small_kernel_b0_tc)
+
+#define CGEMM_SMALL_KERNEL_B0_RN	FUNC_OFFSET(cgemm_small_kernel_b0_rn)
+#define CGEMM_SMALL_KERNEL_B0_RT	FUNC_OFFSET(cgemm_small_kernel_b0_rt)
+#define CGEMM_SMALL_KERNEL_B0_RR	FUNC_OFFSET(cgemm_small_kernel_b0_rr)
+#define CGEMM_SMALL_KERNEL_B0_RC	FUNC_OFFSET(cgemm_small_kernel_b0_rc)
+
+#define CGEMM_SMALL_KERNEL_B0_CN	FUNC_OFFSET(cgemm_small_kernel_b0_cn)
+#define CGEMM_SMALL_KERNEL_B0_CT	FUNC_OFFSET(cgemm_small_kernel_b0_ct)
+#define CGEMM_SMALL_KERNEL_B0_CR	FUNC_OFFSET(cgemm_small_kernel_b0_cr)
+#define CGEMM_SMALL_KERNEL_B0_CC	FUNC_OFFSET(cgemm_small_kernel_b0_cc)
+
 
 #define	CGEMM_NN		cgemm_nn
 #define	CGEMM_CN		cgemm_cn

@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DERREC( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -23,7 +23,7 @@
 *>
 *> DERREC tests the error exits for the routines for eigen- condition
 *> estimation for DOUBLE PRECISION matrices:
-*>    DTRSYL, STREXC, STRSNA and STRSEN.
+*>    DTRSYL, DTRSYL3, DTREXC, DTRSNA and DTRSEN.
 *> \endverbatim
 *
 *  Arguments:
@@ -44,22 +44,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_eig
 *
 *  =====================================================================
       SUBROUTINE DERREC( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -85,7 +82,7 @@
      $                   WI( NMAX ), WORK( NMAX ), WR( NMAX )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           CHKXER, DTREXC, DTRSEN, DTRSNA, DTRSYL
+      EXTERNAL           CHKXER, DTREXC, DTRSEN, DTRSNA, DTRSYL, DTRSYL3
 *     ..
 *     .. Scalars in Common ..
       LOGICAL            LERR, OK
@@ -144,6 +141,43 @@
       CALL CHKXER( 'DTRSYL', INFOT, NOUT, LERR, OK )
       NT = NT + 8
 *
+*     Test DTRSYL3
+*
+      SRNAMT = 'DTRSYL3'
+      INFOT = 1
+      CALL DTRSYL3( 'X', 'N', 1, 0, 0, A, 1, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 2
+      CALL DTRSYL3( 'N', 'X', 1, 0, 0, A, 1, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 3
+      CALL DTRSYL3( 'N', 'N', 0, 0, 0, A, 1, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 4
+      CALL DTRSYL3( 'N', 'N', 1, -1, 0, A, 1, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 5
+      CALL DTRSYL3( 'N', 'N', 1, 0, -1, A, 1, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 7
+      CALL DTRSYL3( 'N', 'N', 1, 2, 0, A, 1, B, 1, C, 2, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 9
+      CALL DTRSYL3( 'N', 'N', 1, 0, 2, A, 1, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 11
+      CALL DTRSYL3( 'N', 'N', 1, 2, 0, A, 2, B, 1, C, 1, SCALE,
+     $              IWORK, NMAX, WORK, NMAX, INFO )
+      CALL CHKXER( 'DTRSYL3', INFOT, NOUT, LERR, OK )
+      NT = NT + 8
+*
 *     Test DTREXC
 *
       SRNAMT = 'DTREXC'
@@ -152,8 +186,8 @@
       INFOT = 1
       CALL DTREXC( 'X', 1, A, 1, B, 1, IFST, ILST, WORK, INFO )
       CALL CHKXER( 'DTREXC', INFOT, NOUT, LERR, OK )
-      INFOT = 7
-      CALL DTREXC( 'N', 0, A, 1, B, 1, IFST, ILST, WORK, INFO )
+      INFOT = 2
+      CALL DTREXC( 'N', -1, A, 1, B, 1, IFST, ILST, WORK, INFO )
       CALL CHKXER( 'DTREXC', INFOT, NOUT, LERR, OK )
       INFOT = 4
       ILST = 2

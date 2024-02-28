@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZHETRI2 + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zhetri2.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zhetri2.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zhetri2.f"> 
+*> Download ZHETRI2 + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zhetri2.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zhetri2.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zhetri2.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZHETRI2( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, LWORK, N
@@ -28,7 +28,7 @@
 *       INTEGER            IPIV( * )
 *       COMPLEX*16         A( LDA, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -62,7 +62,7 @@
 *> \param[in,out] A
 *> \verbatim
 *>          A is COMPLEX*16 array, dimension (LDA,N)
-*>          On entry, the NB diagonal matrix D and the multipliers
+*>          On entry, the block diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by ZHETRF.
 *>
 *>          On exit, if INFO = 0, the (symmetric) inverse of the original
@@ -82,25 +82,25 @@
 *> \param[in] IPIV
 *> \verbatim
 *>          IPIV is INTEGER array, dimension (N)
-*>          Details of the interchanges and the NB structure of D
+*>          Details of the interchanges and the block structure of D
 *>          as determined by ZHETRF.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N+NB+1)*(NB+3)
+*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK)).
 *> \endverbatim
 *>
 *> \param[in] LWORK
 *> \verbatim
 *>          LWORK is INTEGER
 *>          The dimension of the array WORK.
-*>          WORK is size >= (N+NB+1)*(NB+3)
-*>          If LDWORK = -1, then a workspace query is assumed; the routine
-*>           calculates:
+*>          If N = 0, LWORK >= 1, else LWORK >= (N+NB+1)*(NB+3).
+*>          If LWORK = -1, then a workspace query is assumed; the routine
+*>          calculates:
 *>              - the optimal size of the WORK array, returns
 *>          this value as the first entry of the WORK array,
-*>              - and no error message related to LDWORK is issued by XERBLA.
+*>              - and no error message related to LWORK is issued by XERBLA.
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -115,22 +115,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complex16HEcomputational
+*> \ingroup hetri2
 *
 *  =====================================================================
       SUBROUTINE ZHETRI2( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -153,7 +150,7 @@
       EXTERNAL           LSAME, ILAENV
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ZHETRI2X
+      EXTERNAL           ZHETRI2X, ZHETRI, XERBLA
 *     ..
 *     .. Executable Statements ..
 *
@@ -162,9 +159,13 @@
       INFO = 0
       UPPER = LSAME( UPLO, 'U' )
       LQUERY = ( LWORK.EQ.-1 )
+*
 *     Get blocksize
+*
       NBMAX = ILAENV( 1, 'ZHETRF', UPLO, N, -1, -1, -1 )
-      IF ( NBMAX .GE. N ) THEN
+      IF( N.EQ.0 ) THEN
+         MINSIZE = 1
+      ELSE IF( NBMAX.GE.N ) THEN
          MINSIZE = N
       ELSE
          MINSIZE = (N+NBMAX+1)*(NBMAX+3)
@@ -176,28 +177,29 @@
          INFO = -2
       ELSE IF( LDA.LT.MAX( 1, N ) ) THEN
          INFO = -4
-      ELSE IF (LWORK .LT. MINSIZE .AND. .NOT.LQUERY ) THEN
+      ELSE IF( LWORK.LT.MINSIZE .AND. .NOT.LQUERY ) THEN
          INFO = -7
       END IF
-*
-*     Quick return if possible
-*
 *
       IF( INFO.NE.0 ) THEN
          CALL XERBLA( 'ZHETRI2', -INFO )
          RETURN
       ELSE IF( LQUERY ) THEN
-         WORK(1)=MINSIZE
+         WORK( 1 ) = MINSIZE
          RETURN
       END IF
+*
+*     Quick return if possible
+*
       IF( N.EQ.0 )
      $   RETURN
-      
-      IF( NBMAX .GE. N ) THEN
+
+      IF( NBMAX.GE.N ) THEN
          CALL ZHETRI( UPLO, N, A, LDA, IPIV, WORK, INFO )
       ELSE
          CALL ZHETRI2X( UPLO, N, A, LDA, IPIV, WORK, NBMAX, INFO )
       END IF
+*
       RETURN
 *
 *     End of ZHETRI2

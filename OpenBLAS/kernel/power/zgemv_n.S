@@ -39,7 +39,7 @@
 #define ASSEMBLER
 #include "common.h"
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
 #define M	r3
 #define	N	r4
@@ -155,6 +155,11 @@
 #define PREFETCHSIZE_C  16
 #endif
 
+#ifdef POWER3
+#define PREFETCHSIZE_A  34
+#define PREFETCHSIZE_C  16
+#endif
+
 #ifdef POWER4
 #define PREFETCHSIZE_A  34
 #define PREFETCHSIZE_C  16
@@ -166,6 +171,11 @@
 #endif
 
 #ifdef POWER6
+#define PREFETCHSIZE_A  24
+#define PREFETCHSIZE_C  24
+#endif
+
+#ifdef POWER8
 #define PREFETCHSIZE_A  24
 #define PREFETCHSIZE_C  24
 #endif
@@ -245,33 +255,33 @@
 	stw	r22,   176(SP)
 #endif
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
-	lwz	INCY,	  8 + STACKSIZE(SP)
+	lwz	INCY,  FRAMESLOT(0) + STACKSIZE(SP)
 #else
-	ld	INCX,    112 + STACKSIZE(SP)
-	ld	Y,       120 + STACKSIZE(SP)
-	ld	INCY,    128 + STACKSIZE(SP)
+	ld	INCX,  FRAMESLOT(0) + STACKSIZE(SP)
+	ld	Y,     FRAMESLOT(1) + STACKSIZE(SP)
+	ld	INCY,  FRAMESLOT(2) + STACKSIZE(SP)
 #endif
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifndef __64BIT__
 #ifdef DOUBLE
-	lwz	LDA,     56 + STACKSIZE(SP)
-	lwz	X,       60 + STACKSIZE(SP)
-	lwz	INCX,    64 + STACKSIZE(SP)
-	lwz	Y,       68 + STACKSIZE(SP)
-	lwz	INCY,    72 + STACKSIZE(SP)
+	lwz	LDA,   FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	X,     FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	INCX,  FRAMESLOT(2) + STACKSIZE(SP)
+	lwz	Y,     FRAMESLOT(3) + STACKSIZE(SP)
+	lwz	INCY,  FRAMESLOT(4) + STACKSIZE(SP)
 #else
-	lwz	INCX,    56 + STACKSIZE(SP)
-	lwz	Y,       60 + STACKSIZE(SP)
-	lwz	INCY,    64 + STACKSIZE(SP)
+	lwz	INCX,  FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	Y,     FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	INCY,  FRAMESLOT(2) + STACKSIZE(SP)
 #endif
 #else
-	ld	INCX,    112 + STACKSIZE(SP)
-	ld	Y,       120 + STACKSIZE(SP)
-	ld	INCY,    128 + STACKSIZE(SP)
+	ld	INCX,  FRAMESLOT(0) + STACKSIZE(SP)
+	ld	Y,     FRAMESLOT(1) + STACKSIZE(SP)
+	ld	INCY,  FRAMESLOT(2) + STACKSIZE(SP)
 #endif
 #endif
 

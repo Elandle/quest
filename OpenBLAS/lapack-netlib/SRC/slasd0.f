@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SLASD0 + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slasd0.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slasd0.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slasd0.f"> 
+*> Download SLASD0 + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slasd0.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slasd0.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slasd0.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SLASD0( N, SQRE, D, E, U, LDU, VT, LDVT, SMLSIZ, IWORK,
 *                          WORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDU, LDVT, N, SMLSIZ, SQRE
 *       ..
@@ -29,7 +29,7 @@
 *       REAL               D( * ), E( * ), U( LDU, * ), VT( LDVT, * ),
 *      $                   WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -72,17 +72,18 @@
 *>         On exit D, if INFO = 0, contains its singular values.
 *> \endverbatim
 *>
-*> \param[in] E
+*> \param[in,out] E
 *> \verbatim
 *>          E is REAL array, dimension (M-1)
 *>         Contains the subdiagonal entries of the bidiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
-*> \param[out] U
+*> \param[in,out] U
 *> \verbatim
-*>          U is REAL array, dimension at least (LDQ, N)
-*>         On exit, U contains the left singular vectors.
+*>          U is REAL array, dimension (LDU, N)
+*>         On exit, U contains the left singular vectors,
+*>          if U passed in as (N, N) Identity.
 *> \endverbatim
 *>
 *> \param[in] LDU
@@ -91,10 +92,11 @@
 *>         On entry, leading dimension of U.
 *> \endverbatim
 *>
-*> \param[out] VT
+*> \param[in,out] VT
 *> \verbatim
-*>          VT is REAL array, dimension at least (LDVT, M)
-*>         On exit, VT**T contains the right singular vectors.
+*>          VT is REAL array, dimension (LDVT, M)
+*>         On exit, VT**T contains the right singular vectors,
+*>          if VT passed in as (M, M) Identity.
 *> \endverbatim
 *>
 *> \param[in] LDVT
@@ -131,14 +133,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup auxOTHERauxiliary
+*> \ingroup OTHERauxiliary
 *
 *> \par Contributors:
 *  ==================
@@ -150,10 +150,9 @@
       SUBROUTINE SLASD0( N, SQRE, D, E, U, LDU, VT, LDVT, SMLSIZ, IWORK,
      $                   WORK, INFO )
 *
-*  -- LAPACK auxiliary routine (version 3.4.2) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDU, LDVT, N, SMLSIZ, SQRE
@@ -300,6 +299,9 @@
             CALL SLASD1( NL, NR, SQREI, D( NLF ), ALPHA, BETA,
      $                   U( NLF, NLF ), LDU, VT( NLF, NLF ), LDVT,
      $                   IWORK( IDXQC ), IWORK( IWK ), WORK, INFO )
+*
+*     Report the possible convergence failure.
+*
             IF( INFO.NE.0 ) THEN
                RETURN
             END IF

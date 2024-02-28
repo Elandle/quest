@@ -80,10 +80,6 @@ static FLOAT dm1 = -1.;
 #define DIVIDE_RATE 2
 #endif
 
-#ifndef SWITCH_RATIO
-#define SWITCH_RATIO 2
-#endif
-
 #ifndef LOWER
 #define TRANS
 #endif
@@ -101,7 +97,12 @@ static FLOAT dm1 = -1.;
 #endif
 
 typedef struct {
-  volatile BLASLONG working[MAX_CPU_NUMBER][CACHE_LINE_SIZE * DIVIDE_RATE];
+#ifdef HAVE_C11
+  _Atomic 
+#else
+  volatile 
+#endif
+  BLASLONG working[MAX_CPU_NUMBER][CACHE_LINE_SIZE * DIVIDE_RATE];
 } job_t;
 
 
@@ -183,7 +184,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
   fprintf(stderr, "Thread[%ld]  m_from : %ld m_to : %ld\n",  mypos, m_from, m_to);
 #endif
 
-  div_n = ((m_to - m_from + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+  div_n = (((m_to - m_from + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 
   buffer[0] = (FLOAT *)((((BLASULONG)(sb + k * k * COMPSIZE) + GEMM_ALIGN) & ~GEMM_ALIGN) + GEMM_OFFSET_B);
   for (i = 1; i < DIVIDE_RATE; i++) {
@@ -248,7 +249,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
     min_i = GEMM_P;
   } else
     if (min_i > GEMM_P) {
-      min_i = ((min_i + 1) / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+      min_i = (((min_i + 1) / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
     }
 
 #ifndef LOWER
@@ -265,7 +266,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
   while (current >= 0)
 #endif
     {
-      div_n = ((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+      div_n = (((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 
       for (xxx = range_n[current], bufferside = 0; xxx < range_n[current + 1]; xxx += div_n, bufferside ++) {
 
@@ -296,7 +297,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
       min_i = GEMM_P;
     } else
       if (min_i > GEMM_P) {
-	min_i = ((min_i + 1) / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	min_i = (((min_i + 1) / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
       }
 
 #ifndef LOWER
@@ -313,7 +314,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
       while (current >= 0)
 #endif
 	{
-	  div_n = ((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	  div_n = (((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 
 	  for (xxx = range_n[current], bufferside = 0; xxx < range_n[current + 1]; xxx += div_n, bufferside ++) {
 
@@ -375,6 +376,9 @@ static int thread_driver(blas_arg_t *args, FLOAT *sa, FLOAT *sb){
 #elif defined(DOUBLE)
   mode  =  BLAS_DOUBLE  | BLAS_REAL;
   mask  = MAX(DGEMM_UNROLL_M, DGEMM_UNROLL_N) - 1;
+#elif defined(HALF)
+  mode  =  BLAS_HALF  | BLAS_REAL;
+  mask  = MAX(SBGEMM_UNROLL_M, SBGEMM_UNROLL_N) - 1;
 #else
   mode  =  BLAS_SINGLE  | BLAS_REAL;
   mask  = MAX(SGEMM_UNROLL_M, SGEMM_UNROLL_N) - 1;
@@ -429,9 +433,9 @@ static int thread_driver(blas_arg_t *args, FLOAT *sa, FLOAT *sb){
 
       double di   = (double)i;
 
-      width = (((BLASLONG)(sqrt(di * di + dnum) - di) + mask) & ~mask);
+      width = ((((BLASLONG)(sqrt(di * di + dnum) - di) + mask)/(mask+1)) * (mask+1));
 
-      if (num_cpu == 0) width = n - ((n - width) & ~mask);
+      if (num_cpu == 0) width = n - (((n - width)/(mask+1)) * (mask+1));
 
       if ((width > n - i) || (width < mask)) width = n - i;
 
@@ -471,7 +475,7 @@ static int thread_driver(blas_arg_t *args, FLOAT *sa, FLOAT *sb){
 
 	double di   = (double)i;
 
-	width = (((BLASLONG)(sqrt(di * di + dnum) - di) + mask) & ~mask);
+	width = ((((BLASLONG)(sqrt(di * di + dnum) - di) + mask)/(mask+1)) * (mask+1));
 
       if ((width > n - i) || (width < mask)) width = n - i;
 
@@ -582,7 +586,7 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
   newarg.beta = NULL;
   newarg.nthreads = args -> nthreads;
 
-  blocking = (n / 2 + GEMM_UNROLL_N - 1) & ~(GEMM_UNROLL_N - 1);
+  blocking = ((n / 2 + GEMM_UNROLL_N - 1)/GEMM_UNROLL_N) * GEMM_UNROLL_N;
   if (blocking > GEMM_Q) blocking = GEMM_Q;
 
   for (i = 0; i < n; i += blocking) {

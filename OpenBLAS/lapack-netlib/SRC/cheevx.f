@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CHEEVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cheevx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cheevx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cheevx.f"> 
+*> Download CHEEVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cheevx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cheevx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cheevx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE CHEEVX( JOBZ, RANGE, UPLO, N, A, LDA, VL, VU, IL, IU,
 *                          ABSTOL, M, W, Z, LDZ, WORK, LWORK, RWORK,
 *                          IWORK, IFAIL, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, LDA, LDZ, LWORK, M, N
@@ -32,7 +32,7 @@
 *       REAL               RWORK( * ), W( * )
 *       COMPLEX            A( LDA, * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -99,12 +99,15 @@
 *> \param[in] VL
 *> \verbatim
 *>          VL is REAL
+*>          If RANGE='V', the lower bound of the interval to
+*>          be searched for eigenvalues. VL < VU.
+*>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
 *>          VU is REAL
-*>          If RANGE='V', the lower and upper bounds of the interval to
+*>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
@@ -112,13 +115,17 @@
 *> \param[in] IL
 *> \verbatim
 *>          IL is INTEGER
+*>          If RANGE='I', the index of the
+*>          smallest eigenvalue to be returned.
+*>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+*>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
 *>
 *> \param[in] IU
 *> \verbatim
 *>          IU is INTEGER
-*>          If RANGE='I', the indices (in ascending order) of the
-*>          smallest and largest eigenvalues to be returned.
+*>          If RANGE='I', the index of the
+*>          largest eigenvalue to be returned.
 *>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
 *>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
@@ -238,24 +245,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexHEeigen
+*> \ingroup heevx
 *
 *  =====================================================================
       SUBROUTINE CHEEVX( JOBZ, RANGE, UPLO, N, A, LDA, VL, VU, IL, IU,
      $                   ABSTOL, M, W, Z, LDZ, WORK, LWORK, RWORK,
      $                   IWORK, IFAIL, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
@@ -290,8 +294,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               SLAMCH, CLANHE
-      EXTERNAL           LSAME, ILAENV, SLAMCH, CLANHE
+      REAL               SLAMCH, CLANHE, SROUNDUP_LWORK
+      EXTERNAL           LSAME, ILAENV, SLAMCH, CLANHE, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SCOPY, SSCAL, SSTEBZ, SSTERF, XERBLA, CSSCAL,
@@ -344,14 +348,14 @@
       IF( INFO.EQ.0 ) THEN
          IF( N.LE.1 ) THEN
             LWKMIN = 1
-            WORK( 1 ) = LWKMIN
+            LWKOPT = 1
          ELSE
             LWKMIN = 2*N
             NB = ILAENV( 1, 'CHETRD', UPLO, N, -1, -1, -1 )
             NB = MAX( NB, ILAENV( 1, 'CUNMTR', UPLO, N, -1, -1, -1 ) )
-            LWKOPT = MAX( 1, ( NB + 1 )*N )
-            WORK( 1 ) = LWKOPT
+            LWKOPT = ( NB + 1 )*N
          END IF
+         WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
 *
          IF( LWORK.LT.LWKMIN .AND. .NOT.LQUERY )
      $      INFO = -17
@@ -374,12 +378,12 @@
       IF( N.EQ.1 ) THEN
          IF( ALLEIG .OR. INDEIG ) THEN
             M = 1
-            W( 1 ) = A( 1, 1 )
+            W( 1 ) = REAL( A( 1, 1 ) )
          ELSE IF( VALEIG ) THEN
             IF( VL.LT.REAL( A( 1, 1 ) ) .AND. VU.GE.REAL( A( 1, 1 ) ) )
      $           THEN
                M = 1
-               W( 1 ) = A( 1, 1 )
+               W( 1 ) = REAL( A( 1, 1 ) )
             END IF
          END IF
          IF( WANTZ )
@@ -548,7 +552,7 @@
 *
 *     Set WORK(1) to optimal complex workspace size.
 *
-      WORK( 1 ) = LWKOPT
+      WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 *
       RETURN
 *

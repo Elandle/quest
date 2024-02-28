@@ -76,6 +76,9 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
   BLASLONG ls, is, js;
   BLASLONG min_l, min_i, min_j;
   BLASLONG jjs, min_jj;
+#if !((!defined(UPPER) && !defined(TRANSA)) || (defined(UPPER) && defined(TRANSA)))
+  BLASLONG start_is;
+#endif
 
   m = args -> m;
   n = args -> n;
@@ -128,7 +131,9 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = js; jjs < js + min_j; jjs += min_jj){
 	min_jj = min_j + js - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
 
 	GEMM_ONCOPY(min_l, min_jj, b + (ls + jjs * ldb) * COMPSIZE, ldb, sb + min_l * (jjs - js) * COMPSIZE);
 
@@ -176,8 +181,6 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
       }
     }
 #else
-    BLASLONG start_is;
-
     for(ls = m; ls > 0; ls -= GEMM_Q){
       min_l = ls;
       if (min_l > GEMM_Q) min_l = GEMM_Q;
@@ -194,7 +197,9 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = js; jjs < js + min_j; jjs += min_jj){
 	min_jj = min_j + js - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
 
 	GEMM_ONCOPY(min_l, min_jj, b + (ls - min_l + jjs * ldb) * COMPSIZE, ldb, sb + min_l * (jjs - js) * COMPSIZE);
 

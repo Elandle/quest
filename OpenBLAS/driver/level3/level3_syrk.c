@@ -158,9 +158,9 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
   if ((k == 0) || (alpha == NULL)) return 0;
 
-  if ((alpha[0] == ZERO)
+  if (alpha[0] == ZERO
 #if defined(COMPLEX) && !defined(HERK)
-      && (alpha[1] == ZERO)
+      && alpha[1] == ZERO
 #endif
       ) return 0;
 
@@ -198,7 +198,7 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 	min_i = GEMM_P;
       } else
 	if (min_i > GEMM_P) {
-	  min_i = (min_i / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	  min_i = ((min_i / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 	}
 
 #ifndef LOWER
@@ -239,7 +239,7 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 	    min_i = GEMM_P;
 	  } else
 	    if (min_i > GEMM_P) {
-	      min_i = (min_i / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	      min_i = ((min_i / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 	    }
 
 	  aa = sb + min_l * (is - js)  * COMPSIZE;
@@ -303,7 +303,7 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 	    min_i = GEMM_P;
 	  } else
 	    if (min_i > GEMM_P) {
-	      min_i = (min_i / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	      min_i = ((min_i / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 	    }
 
 	  START_RPCC();
@@ -375,7 +375,7 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 	    min_i = GEMM_P;
 	  } else
 	    if (min_i > GEMM_P) {
-	      min_i = (min_i / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	      min_i = ((min_i / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 	    }
 
 	  if (is  < js + min_j) {
@@ -460,7 +460,7 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 	    min_i = GEMM_P;
 	  } else
 	    if (min_i > GEMM_P) {
-	      min_i = (min_i / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	      min_i = ((min_i / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 	    }
 
 	  START_RPCC();

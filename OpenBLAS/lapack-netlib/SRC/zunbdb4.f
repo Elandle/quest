@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
 *> Download ZUNBDB4 + dependencies
@@ -21,7 +21,7 @@
 *       SUBROUTINE ZUNBDB4( M, P, Q, X11, LDX11, X21, LDX21, THETA, PHI,
 *                           TAUP1, TAUP2, TAUQ1, PHANTOM, WORK, LWORK,
 *                           INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
 *       ..
@@ -30,15 +30,15 @@
 *       COMPLEX*16         PHANTOM(*), TAUP1(*), TAUP2(*), TAUQ1(*),
 *      $                   WORK(*), X11(LDX11,*), X21(LDX21,*)
 *       ..
-*  
-* 
+*
+*
 *> \par Purpose:
-*> =============
+*  =============
 *>
 *>\verbatim
 *>
 *> ZUNBDB4 simultaneously bidiagonalizes the blocks of a tall and skinny
-*> matrix X with orthonomal columns:
+*> matrix X with orthonormal columns:
 *>
 *>                            [ B11 ]
 *>      [ X11 ]   [ P1 |    ] [  0  ]
@@ -124,14 +124,14 @@
 *>
 *> \param[out] TAUP1
 *> \verbatim
-*>          TAUP1 is COMPLEX*16 array, dimension (P)
+*>          TAUP1 is COMPLEX*16 array, dimension (M-Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           P1.
 *> \endverbatim
 *>
 *> \param[out] TAUP2
 *> \verbatim
-*>          TAUP2 is COMPLEX*16 array, dimension (M-P)
+*>          TAUP2 is COMPLEX*16 array, dimension (M-Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           P2.
 *> \endverbatim
@@ -161,7 +161,7 @@
 *> \verbatim
 *>          LWORK is INTEGER
 *>           The dimension of the array WORK. LWORK >= M-Q.
-*> 
+*>
 *>           If LWORK = -1, then a workspace query is assumed; the routine
 *>           only calculates the optimal size of the WORK array, returns
 *>           this value as the first entry of the WORK array, and no error
@@ -178,12 +178,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date July 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16OTHERcomputational
 *
@@ -213,10 +211,9 @@
      $                    TAUP1, TAUP2, TAUQ1, PHANTOM, WORK, LWORK,
      $                    INFO )
 *
-*  -- LAPACK computational routine (version 3.5.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     July 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
@@ -241,7 +238,8 @@
       LOGICAL            LQUERY
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ZLARF, ZLARFGP, ZUNBDB5, ZDROT, ZSCAL, XERBLA
+      EXTERNAL           ZLARF, ZLARFGP, ZUNBDB5, ZDROT, ZSCAL, ZLACGV,
+     $                   XERBLA
 *     ..
 *     .. External Functions ..
       DOUBLE PRECISION   DZNRM2
@@ -344,9 +342,8 @@
      $               X21(I+1,I), LDX21, WORK(ILARF) )
          CALL ZLACGV( Q-I+1, X21(I,I), LDX21 )
          IF( I .LT. M-Q ) THEN
-            S = SQRT( DZNRM2( P-I, X11(I+1,I), 1, X11(I+1,I),
-     $          1 )**2 + DZNRM2( M-P-I, X21(I+1,I), 1, X21(I+1,I),
-     $          1 )**2 )
+            S = SQRT( DZNRM2( P-I, X11(I+1,I), 1 )**2
+     $              + DZNRM2( M-P-I, X21(I+1,I), 1 )**2 )
             PHI(I) = ATAN2( S, C )
          END IF
 *

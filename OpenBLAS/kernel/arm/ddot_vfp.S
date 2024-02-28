@@ -31,6 +31,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 * 	 CTEST			: OK
 * 	 TEST			: OK
 *
+* 2016/01/23 Saar
+*        Bugfix for Refs #750 and #740
 **************************************************************************************/
 
 #define ASSEMBLER
@@ -65,26 +67,26 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE  ]
-	fldmiad	X!, { d8 }
+	vldmia.f64	X!, { d8 }
 	pld	[ Y, #X_PRE  ]
-	fldmiad	Y!, { d4 }
-	fldmiad	Y!, { d5 }
+	vldmia.f64	Y!, { d4 }
+	vldmia.f64	Y!, { d5 }
 	fmacd   d0  , d4,  d8
-	fldmiad	X!, { d9 }
-	fldmiad	Y!, { d6 }
+	vldmia.f64	X!, { d9 }
+	vldmia.f64	Y!, { d6 }
 	fmacd   d1  , d5,  d9
-	fldmiad	X!, { d10 }
-	fldmiad	X!, { d11 }
+	vldmia.f64	X!, { d10 }
+	vldmia.f64	X!, { d11 }
 	fmacd   d0  , d6,  d10
-	fldmiad	Y!, { d7 }
+	vldmia.f64	Y!, { d7 }
 	fmacd   d1  , d7,  d11
 
 .endm
 
 .macro KERNEL_F1
 
-	fldmiad	X!, { d4 }
-	fldmiad	Y!, { d8 }
+	vldmia.f64	X!, { d4 }
+	vldmia.f64	Y!, { d8 }
 	fmacd   d0  , d4,  d8
 
 .endm
@@ -95,26 +97,26 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_S4
 
 	nop
-	fldmiad	X, { d4 }
-	fldmiad	Y, { d8 }
+	vldmia.f64	X, { d4 }
+	vldmia.f64	Y, { d8 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacd   d0  , d4,  d8
 
-	fldmiad	X, { d5 }
-	fldmiad	Y, { d9 }
+	vldmia.f64	X, { d5 }
+	vldmia.f64	Y, { d9 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacd   d1  , d5,  d9
 
-	fldmiad	X, { d6 }
-	fldmiad	Y, { d10 }
+	vldmia.f64	X, { d6 }
+	vldmia.f64	Y, { d10 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacd   d0  , d6,  d10
 
-	fldmiad	X, { d7 }
-	fldmiad	Y, { d11 }
+	vldmia.f64	X, { d7 }
+	vldmia.f64	Y, { d11 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacd   d1  , d7,  d11
@@ -124,8 +126,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmiad	X, { d4 }
-	fldmiad	Y, { d8 }
+	vldmia.f64	X, { d4 }
+	vldmia.f64	Y, { d8 }
 	add	X, X, INC_X
 	fmacd   d0  , d4,  d8
 	add	Y, Y, INC_Y
@@ -152,17 +154,21 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	mov	Y, OLD_Y
 	ldr	INC_Y, OLD_INC_Y
 
-	vsub.f64                d0 , d0 , d0
-	vsub.f64                d1 , d1 , d1
+        movs    r4, #0                                          // clear floating point register
+        vmov    s0, r4
+        vmov    s1, r4
+        vcvt.f64.f32    d0, s0
+        vcvt.f64.f32    d1, s1
+
 
 	cmp	N, #0
 	ble	ddot_kernel_L999
 
-	cmp	INC_X, #0
-	beq	ddot_kernel_L999
+#	cmp	INC_X, #0
+#	beq	ddot_kernel_L999
 
-	cmp	INC_Y, #0
-	beq	ddot_kernel_L999
+#	cmp	INC_Y, #0
+#	beq	ddot_kernel_L999
 
 	cmp	INC_X, #1
 	bne	ddot_kernel_S_BEGIN
@@ -240,6 +246,9 @@ ddot_kernel_L999:
 	vldm	r3, { d8 - d15}					// restore floating point registers
 
 	vadd.f64	d0 , d0, d1				// set return value
+#if !defined(__ARM_PCS_VFP)
+	vmov	r0, r1, d0
+#endif
 	sub	sp, fp, #24
 	pop	{r4 - r9, fp}
 	bx	lr

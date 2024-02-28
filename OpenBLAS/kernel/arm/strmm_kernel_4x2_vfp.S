@@ -59,12 +59,25 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define K	[fp, #-264 ]
 #define A	[fp, #-268 ]
 
+#define FP_ZERO [fp, #-232]
+#define FP_ZERO_0 [fp, #-232]
+#define FP_ZERO_1 [fp, #-228]
+
 #define ALPHA	[fp, #-276 ]
 
+#if !defined(__ARM_PCS_VFP)
+#define OLD_ALPHA_SOFTFP	r3
+#define OLD_A_SOFTFP	[fp, #4 ]
+#define B	[fp, #8 ]
+#define OLD_C	[fp, #12 ]
+#define OLD_LDC	[fp, #16 ]
+#define OFFSET  [fp, #20 ]
+#else
 #define B	[fp, #4 ]
 #define OLD_C	[fp, #8 ]
 #define OLD_LDC	[fp, #12 ]
 #define OFFSET  [fp, #16 ]
+#endif
 
 #define I	r0
 #define J	r1
@@ -90,7 +103,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT4x2
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9, s8
 	vmov.f32		s10, s8
 	vmov.f32		s11, s8
@@ -105,8 +118,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL4x2_SUB
 
-	fldmias	AO!, { s0 - s3 }
-	fldmias	BO!, { s4 - s5 }
+	vldmia.f32	AO!, { s0 - s3 }
+	vldmia.f32	BO!, { s4 - s5 }
 
 	fmacs	s8  , s0,  s4
 	fmacs	s9  , s1,  s4
@@ -156,7 +169,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT2x2
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9, s8
 	vmov.f32		s12, s8
 	vmov.f32		s13, s8
@@ -211,7 +224,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT1x2
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s12, s8
 
 .endm
@@ -259,7 +272,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT4x1
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9, s8
 	vmov.f32		s10, s8
 	vmov.f32		s11, s8
@@ -309,7 +322,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT2x1
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 	vmov.f32		s9 , s8
 
 .endm
@@ -348,7 +361,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT1x1
 
-	vsub.f32		s8 , s8 , s8
+	flds			s8 , FP_ZERO
 
 .endm
 
@@ -391,6 +404,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	add	fp, sp, #24
 	sub	sp, sp, #STACKSIZE				// reserve stack
 
+#if !defined(__ARM_PCS_VFP)
+	vmov	OLD_ALPHA, OLD_ALPHA_SOFTFP
+	ldr	OLD_A, OLD_A_SOFTFP
+#endif
 	str	OLD_M, M
 	str	OLD_N, N
 	str	OLD_K, K
@@ -399,6 +416,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	sub	r3, fp, #128
 	vstm	r3, { s8 - s15} 				// store floating point registers
+
+        movs    r4, #0
+        str     r4, FP_ZERO
+        str     r4, FP_ZERO_1
 
 	ldr	r3, OLD_LDC
 	lsl	r3, r3, #2					// ldc = ldc * 4

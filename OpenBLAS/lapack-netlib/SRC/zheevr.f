@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZHEEVR + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zheevr.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zheevr.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zheevr.f"> 
+*> Download ZHEEVR + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zheevr.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zheevr.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zheevr.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE ZHEEVR( JOBZ, RANGE, UPLO, N, A, LDA, VL, VU, IL, IU,
 *                          ABSTOL, M, W, Z, LDZ, ISUPPZ, WORK, LWORK,
 *                          RWORK, LRWORK, IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, LDA, LDZ, LIWORK, LRWORK, LWORK,
@@ -33,7 +33,7 @@
 *       DOUBLE PRECISION   RWORK( * ), W( * )
 *       COMPLEX*16         A( LDA, * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -75,7 +75,7 @@
 *> The desired accuracy of the output can be specified by the input
 *> parameter ABSTOL.
 *>
-*> For more details, see DSTEMR's documentation and:
+*> For more details, see ZSTEMR's documentation and:
 *> - Inderjit S. Dhillon and Beresford N. Parlett: "Multiple representations
 *>   to compute orthogonal eigenvectors of symmetric tridiagonal matrices,"
 *>   Linear Algebra and its Applications, 387(1), pp. 1-28, August 2004.
@@ -155,12 +155,15 @@
 *> \param[in] VL
 *> \verbatim
 *>          VL is DOUBLE PRECISION
+*>          If RANGE='V', the lower bound of the interval to
+*>          be searched for eigenvalues. VL < VU.
+*>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
 *>          VU is DOUBLE PRECISION
-*>          If RANGE='V', the lower and upper bounds of the interval to
+*>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
@@ -168,13 +171,17 @@
 *> \param[in] IL
 *> \verbatim
 *>          IL is INTEGER
+*>          If RANGE='I', the index of the
+*>          smallest eigenvalue to be returned.
+*>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+*>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
 *>
 *> \param[in] IU
 *> \verbatim
 *>          IU is INTEGER
-*>          If RANGE='I', the indices (in ascending order) of the
-*>          smallest and largest eigenvalues to be returned.
+*>          If RANGE='I', the index of the
+*>          largest eigenvalue to be returned.
 *>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
 *>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
@@ -203,7 +210,7 @@
 *>          eigenvalues are computed to high relative accuracy when
 *>          possible in future releases.  The current code does not
 *>          make any guarantees about high relative accuracy, but
-*>          furutre releases will. See J. Barlow and J. Demmel,
+*>          future releases will. See J. Barlow and J. Demmel,
 *>          "Computing Accurate Eigensystems of Scaled Diagonally
 *>          Dominant Matrices", LAPACK Working Note #7, for a discussion
 *>          of which matrices define their eigenvalues to high relative
@@ -250,7 +257,9 @@
 *>          The support of the eigenvectors in Z, i.e., the indices
 *>          indicating the nonzero elements in Z. The i-th eigenvector
 *>          is nonzero only in elements ISUPPZ( 2*i-1 ) through
-*>          ISUPPZ( 2*i ).
+*>          ISUPPZ( 2*i ). This is an output of ZSTEMR (tridiagonal
+*>          matrix). The support of the eigenvectors of A is typically
+*>          1:N because of the unitary transformations applied by ZUNMTR.
 *>          Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1
 *> \endverbatim
 *>
@@ -263,7 +272,8 @@
 *> \param[in] LWORK
 *> \verbatim
 *>          LWORK is INTEGER
-*>          The length of the array WORK.  LWORK >= max(1,2*N).
+*>          The length of the array WORK.
+*>          If N <= 1, LWORK >= 1, else LWORK >= 2*N.
 *>          For optimal efficiency, LWORK >= (NB+1)*N,
 *>          where NB is the max of the blocksize for ZHETRD and for
 *>          ZUNMTR as returned by ILAENV.
@@ -285,7 +295,8 @@
 *> \param[in] LRWORK
 *> \verbatim
 *>          LRWORK is INTEGER
-*>          The length of the array RWORK.  LRWORK >= max(1,24*N).
+*>          The length of the array RWORK.
+*>          If N <= 1, LRWORK >= 1, else LRWORK >= 24*N.
 *>
 *>          If LRWORK = -1, then a workspace query is assumed; the
 *>          routine only calculates the optimal sizes of the WORK, RWORK
@@ -304,7 +315,8 @@
 *> \param[in] LIWORK
 *> \verbatim
 *>          LIWORK is INTEGER
-*>          The dimension of the array IWORK.  LIWORK >= max(1,10*N).
+*>          The dimension of the array IWORK.
+*>          If N <= 1, LIWORK >= 1, else LIWORK >= 10*N.
 *>
 *>          If LIWORK = -1, then a workspace query is assumed; the
 *>          routine only calculates the optimal sizes of the WORK, RWORK
@@ -324,14 +336,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup complex16HEeigen
+*> \ingroup heevr
 *
 *> \par Contributors:
 *  ==================
@@ -348,10 +358,9 @@
      $                   ABSTOL, M, W, Z, LDZ, ISUPPZ, WORK, LWORK,
      $                   RWORK, LRWORK, IWORK, LIWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.2) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
@@ -411,9 +420,15 @@
       LQUERY = ( ( LWORK.EQ.-1 ) .OR. ( LRWORK.EQ.-1 ) .OR.
      $         ( LIWORK.EQ.-1 ) )
 *
-      LRWMIN = MAX( 1, 24*N )
-      LIWMIN = MAX( 1, 10*N )
-      LWMIN = MAX( 1, 2*N )
+      IF( N.LE.1 ) THEN
+         LWMIN  = 1
+         LRWMIN = 1
+         LIWMIN = 1
+      ELSE
+         LWMIN  = 2*N
+         LRWMIN = 24*N
+         LIWMIN = 10*N
+      END IF
 *
       INFO = 0
       IF( .NOT.( WANTZ .OR. LSAME( JOBZ, 'N' ) ) ) THEN
@@ -448,7 +463,7 @@
          NB = ILAENV( 1, 'ZHETRD', UPLO, N, -1, -1, -1 )
          NB = MAX( NB, ILAENV( 1, 'ZUNMTR', UPLO, N, -1, -1, -1 ) )
          LWKOPT = MAX( ( NB+1 )*N, LWMIN )
-         WORK( 1 ) = LWKOPT
+         WORK( 1 )  = LWKOPT
          RWORK( 1 ) = LRWMIN
          IWORK( 1 ) = LIWMIN
 *
@@ -477,7 +492,7 @@
       END IF
 *
       IF( N.EQ.1 ) THEN
-         WORK( 1 ) = 2
+         WORK( 1 ) = 1
          IF( ALLEIG .OR. INDEIG ) THEN
             M = 1
             W( 1 ) = DBLE( A( 1, 1 ) )
@@ -617,7 +632,7 @@
      $                   IWORK, LIWORK, INFO )
 *
 *           Apply unitary matrix used in reduction to tridiagonal
-*           form to eigenvectors returned by ZSTEIN.
+*           form to eigenvectors returned by ZSTEMR.
 *
             IF( WANTZ .AND. INFO.EQ.0 ) THEN
                INDWKN = INDWK
@@ -704,7 +719,7 @@
 *
 *     Set WORK(1) to optimal workspace size.
 *
-      WORK( 1 ) = LWKOPT
+      WORK( 1 )  = LWKOPT
       RWORK( 1 ) = LRWMIN
       IWORK( 1 ) = LIWMIN
 *

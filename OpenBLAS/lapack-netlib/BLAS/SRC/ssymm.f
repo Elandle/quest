@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
-* 
+*
 *       .. Scalar Arguments ..
 *       REAL ALPHA,BETA
 *       INTEGER LDA,LDB,LDC,M,N
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       REAL A(LDA,*),B(LDB,*),C(LDC,*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -87,7 +87,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is REAL array of DIMENSION ( LDA, ka ), where ka is
+*>          A is REAL array, dimension ( LDA, ka ), where ka is
 *>           m  when  SIDE = 'L' or 'l'  and is  n otherwise.
 *>           Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
 *>           the array  A  must contain the  symmetric matrix,  such that
@@ -122,7 +122,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is REAL array of DIMENSION ( LDB, n ).
+*>          B is REAL array, dimension ( LDB, N )
 *>           Before entry, the leading  m by n part of the array  B  must
 *>           contain the matrix B.
 *> \endverbatim
@@ -144,7 +144,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is REAL array of DIMENSION ( LDC, n ).
+*>          C is REAL array, dimension ( LDC, N )
 *>           Before entry, the leading  m by n  part of the array  C must
 *>           contain the matrix  C,  except when  beta  is zero, in which
 *>           case C need not be set on entry.
@@ -163,12 +163,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date December 2016
 *
 *> \ingroup single_blas_level3
 *
@@ -189,10 +189,10 @@
 *  =====================================================================
       SUBROUTINE SSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
 *
-*  -- Reference BLAS level3 routine (version 3.4.0) --
+*  -- Reference BLAS level3 routine (version 3.7.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     December 2016
 *
 *     .. Scalar Arguments ..
       REAL ALPHA,BETA

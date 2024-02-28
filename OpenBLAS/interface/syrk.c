@@ -44,6 +44,7 @@
 #endif
 
 #ifndef COMPLEX
+#define SMP_THRESHOLD_MIN 109944.
 #ifdef XDOUBLE
 #define ERROR_NAME "QSYRK "
 #elif defined(DOUBLE)
@@ -52,6 +53,7 @@
 #define ERROR_NAME "SSYRK "
 #endif
 #else
+#define SMP_THRESHOLD_MIN 14824.
 #ifndef HEMM
 #ifdef XDOUBLE
 #define ERROR_NAME "XSYRK "
@@ -69,6 +71,10 @@
 #define ERROR_NAME "CHERK "
 #endif
 #endif
+#endif
+
+#ifndef GEMM_MULTITHREAD_THRESHOLD
+#define GEMM_MULTITHREAD_THRESHOLD 4
 #endif
 
 static int (*syrk[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *, BLASLONG) = {
@@ -101,6 +107,8 @@ void NAME(char *UPLO, char *TRANS,
   FLOAT *sa, *sb;
 
 #ifdef SMP
+  double NNK;
+#ifdef USE_SIMPLE_THREADED_LEVEL3
 #ifndef COMPLEX
 #ifdef XDOUBLE
   int mode  =  BLAS_XDOUBLE | BLAS_REAL;
@@ -116,6 +124,7 @@ void NAME(char *UPLO, char *TRANS,
   int mode  =  BLAS_DOUBLE  | BLAS_COMPLEX;
 #else
   int mode  =  BLAS_SINGLE  | BLAS_COMPLEX;
+#endif
 #endif
 #endif
 #endif
@@ -188,15 +197,32 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, enum CBLAS_TRANSPOSE Tr
 #if !defined(COMPLEX) || defined(HEMM)
 	   FLOAT alpha,
 #else
-	   FLOAT *alpha,
+	   void *valpha,
 #endif
+#if !defined(COMPLEX)
 	   FLOAT *a, blasint lda,
+#else
+	   void *va, blasint lda,
+#endif
 #if !defined(COMPLEX) || defined(HEMM)
 	   FLOAT beta,
 #else
-	   FLOAT *beta,
+	   void *vbeta,
 #endif
+#if !defined(COMPLEX)
 	   FLOAT *c, blasint ldc) {
+#else
+	   void *vc, blasint ldc) {
+#endif
+
+#ifdef COMPLEX
+#if !defined(HEMM)
+  FLOAT* alpha = (FLOAT*) valpha;
+  FLOAT* beta = (FLOAT*) vbeta;
+#endif
+  FLOAT* a = (FLOAT*) va;
+  FLOAT* c = (FLOAT*) vc;
+#endif
 
   blas_arg_t args;
   int uplo, trans;
@@ -206,6 +232,9 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, enum CBLAS_TRANSPOSE Tr
   FLOAT *sa, *sb;
 
 #ifdef SMP
+double NNK;
+
+#ifdef USE_SIMPLE_THREADED_LEVEL3
 #ifndef COMPLEX
 #ifdef XDOUBLE
   int mode  =  BLAS_XDOUBLE | BLAS_REAL;
@@ -221,6 +250,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, enum CBLAS_TRANSPOSE Tr
   int mode  =  BLAS_DOUBLE  | BLAS_COMPLEX;
 #else
   int mode  =  BLAS_SINGLE  | BLAS_COMPLEX;
+#endif
 #endif
 #endif
 #endif
@@ -323,16 +353,23 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, enum CBLAS_TRANSPOSE Tr
   sb = (FLOAT *)(((BLASLONG)sa + ((GEMM_P * GEMM_Q * COMPSIZE * SIZE + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
 
 #ifdef SMP
+#ifdef USE_SIMPLE_THREADED_LEVEL3
   if (!trans){
     mode |= (BLAS_TRANSA_N | BLAS_TRANSB_T);
   } else {
     mode |= (BLAS_TRANSA_T | BLAS_TRANSB_N);
   }
-
   mode |= (uplo  << BLAS_UPLO_SHIFT);
+#endif
 
   args.common = NULL;
+
+  NNK = (double)(args.n+1)*(double)args.n*(double)args.k;
+  if (NNK <= (SMP_THRESHOLD_MIN * GEMM_MULTITHREAD_THRESHOLD)) {
+  args.nthreads = 1;
+  } else {
   args.nthreads = num_cpu_avail(3);
+  }
 
   if (args.nthreads == 1) {
 #endif
@@ -340,7 +377,6 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, enum CBLAS_TRANSPOSE Tr
     (syrk[(uplo << 1) | trans ])(&args, NULL, NULL, sa, sb, 0);
 
 #ifdef SMP
-
   } else {
 
 #ifndef USE_SIMPLE_THREADED_LEVEL3

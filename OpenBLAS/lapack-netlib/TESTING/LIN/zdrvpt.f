@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZDRVPT( DOTYPE, NN, NVAL, NRHS, THRESH, TSTERR, A, D,
 *                          E, B, X, XACT, WORK, RWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NN, NOUT, NRHS
@@ -23,7 +23,7 @@
 *       COMPLEX*16         A( * ), B( * ), E( * ), WORK( * ), X( * ),
 *      $                   XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -127,12 +127,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -140,10 +138,9 @@
       SUBROUTINE ZDRVPT( DOTYPE, NN, NVAL, NRHS, THRESH, TSTERR, A, D,
      $                   E, B, X, XACT, WORK, RWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -269,12 +266,12 @@
 *
                IA = 1
                DO 20 I = 1, N - 1
-                  D( I ) = A( IA )
+                  D( I ) = DBLE( A( IA ) )
                   E( I ) = A( IA+1 )
                   IA = IA + 2
    20          CONTINUE
                IF( N.GT.0 )
-     $            D( N ) = A( IA )
+     $            D( N ) = DBLE( A( IA ) )
             ELSE
 *
 *              Type 7-12:  generate a diagonally dominant matrix with
@@ -336,13 +333,13 @@
                   Z( 2 ) = D( 1 )
                   D( 1 ) = ZERO
                   IF( N.GT.1 ) THEN
-                     Z( 3 ) = E( 1 )
+                     Z( 3 ) = DBLE( E( 1 ) )
                      E( 1 ) = ZERO
                   END IF
                ELSE IF( IMAT.EQ.9 ) THEN
                   IZERO = N
                   IF( N.GT.1 ) THEN
-                     Z( 1 ) = E( N-1 )
+                     Z( 1 ) = DBLE( E( N-1 ) )
                      E( N-1 ) = ZERO
                   END IF
                   Z( 2 ) = D( N )
@@ -350,9 +347,9 @@
                ELSE IF( IMAT.EQ.10 ) THEN
                   IZERO = ( N+1 ) / 2
                   IF( IZERO.GT.1 ) THEN
-                     Z( 1 ) = E( IZERO-1 )
+                     Z( 1 ) = DBLE( E( IZERO-1 ) )
                      E( IZERO-1 ) = ZERO
-                     Z( 3 ) = E( IZERO )
+                     Z( 3 ) = DBLE( E( IZERO ) )
                      E( IZERO ) = ZERO
                   END IF
                   Z( 2 ) = D( IZERO )

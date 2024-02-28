@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZLATTP( IMAT, UPLO, TRANS, DIAG, ISEED, N, AP, B, WORK,
 *                          RWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, TRANS, UPLO
 *       INTEGER            IMAT, INFO, N
@@ -20,7 +20,7 @@
 *       DOUBLE PRECISION   RWORK( * )
 *       COMPLEX*16         AP( * ), B( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -118,12 +118,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -131,10 +129,9 @@
       SUBROUTINE ZLATTP( IMAT, UPLO, TRANS, DIAG, ISEED, N, AP, B, WORK,
      $                   RWORK, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, TRANS, UPLO
@@ -339,7 +336,7 @@
                WORK( J+1 ) = PLUS2
                WORK( N+J+1 ) = ZERO
                PLUS1 = STAR1 / PLUS2
-               REXP = ZLARND( 2, ISEED )
+               REXP = DBLE( ZLARND( 2, ISEED ) )
                IF( REXP.LT.ZERO ) THEN
                   STAR1 = -SFAC**( ONE-REXP )*ZLARND( 5, ISEED )
                ELSE
@@ -793,7 +790,7 @@
             DO 460 J = 1, N / 2
                JL = JJ
                DO 450 I = J, N - J
-                  T = AP( JR-I+J )
+                  T = DBLE( AP( JR-I+J ) )
                   AP( JR-I+J ) = AP( JL )
                   AP( JL ) = T
                   JL = JL + I
@@ -807,7 +804,7 @@
             DO 480 J = 1, N / 2
                JR = JJ
                DO 470 I = J, N - J
-                  T = AP( JL+I-J )
+                  T = DBLE( AP( JL+I-J ) )
                   AP( JL+I-J ) = AP( JR )
                   AP( JR ) = T
                   JR = JR - I

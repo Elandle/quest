@@ -81,7 +81,7 @@ static int tpmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
 #ifndef COMPLEX
   FLOAT          result;
 #else
-  FLOAT _Complex result;
+  OPENBLAS_COMPLEX_FLOAT result;
 #endif
 #endif
 
@@ -112,7 +112,7 @@ static int tpmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
 #endif
 
     x = buffer;
-    buffer += ((COMPSIZE * args -> m + 1023) & ~1023);
+    // buffer += ((COMPSIZE * args -> m + 1023) & ~1023);
   }
 
 #ifndef TRANS
@@ -234,16 +234,12 @@ static int tpmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
   return 0;
 }
 
-#ifndef COMPLEX
 int CNAME(BLASLONG m, FLOAT *a, FLOAT *x, BLASLONG incx, FLOAT *buffer, int nthreads){
-#else
-int CNAME(BLASLONG m, FLOAT *a, FLOAT *x, BLASLONG incx, FLOAT *buffer, int nthreads){
-#endif
 
   blas_arg_t args;
   blas_queue_t queue[MAX_CPU_NUMBER];
   BLASLONG range_m[MAX_CPU_NUMBER + 1];
-  BLASLONG range_n[MAX_CPU_NUMBER];
+  BLASLONG range_n[MAX_CPU_NUMBER + 1];
 
   BLASLONG width, i, num_cpu;
 
@@ -307,7 +303,8 @@ int CNAME(BLASLONG m, FLOAT *a, FLOAT *x, BLASLONG incx, FLOAT *buffer, int nthr
 
     range_m[MAX_CPU_NUMBER - num_cpu - 1] = range_m[MAX_CPU_NUMBER - num_cpu] - width;
     range_n[num_cpu] = num_cpu * (((m + 15) & ~15) + 16);
-
+    if (range_n[num_cpu] > m * num_cpu) range_n[num_cpu] = m * num_cpu;
+    
     queue[num_cpu].mode    = mode;
     queue[num_cpu].routine = tpmv_kernel;
     queue[num_cpu].args    = &args;
@@ -346,6 +343,7 @@ int CNAME(BLASLONG m, FLOAT *a, FLOAT *x, BLASLONG incx, FLOAT *buffer, int nthr
 
     range_m[num_cpu + 1] = range_m[num_cpu] + width;
     range_n[num_cpu] = num_cpu * (((m + 15) & ~15) + 16);
+    if (range_n[num_cpu] > m * num_cpu) range_n[num_cpu] = m * num_cpu;
 
     queue[num_cpu].mode    = mode;
     queue[num_cpu].routine = tpmv_kernel;

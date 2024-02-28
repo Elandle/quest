@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CGGESX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cggesx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cggesx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cggesx.f"> 
+*> Download CGGESX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cggesx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cggesx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cggesx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -22,7 +22,7 @@
 *                          B, LDB, SDIM, ALPHA, BETA, VSL, LDVSL, VSR,
 *                          LDVSR, RCONDE, RCONDV, WORK, LWORK, RWORK,
 *                          IWORK, LIWORK, BWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBVSL, JOBVSR, SENSE, SORT
 *       INTEGER            INFO, LDA, LDB, LDVSL, LDVSR, LIWORK, LWORK, N,
@@ -40,7 +40,7 @@
 *       LOGICAL            SELCTG
 *       EXTERNAL           SELCTG
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -104,7 +104,7 @@
 *>
 *> \param[in] SELCTG
 *> \verbatim
-*>          SELCTG is procedure) LOGICAL FUNCTION of two COMPLEX arguments
+*>          SELCTG is a LOGICAL FUNCTION of two COMPLEX arguments
 *>          SELCTG must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'N', SELCTG is not referenced.
 *>          If SORT = 'S', SELCTG is used to select eigenvalues to sort
@@ -120,10 +120,10 @@
 *> \verbatim
 *>          SENSE is CHARACTER*1
 *>          Determines which reciprocal condition numbers are computed.
-*>          = 'N' : None are computed;
-*>          = 'E' : Computed for average of selected eigenvalues only;
-*>          = 'V' : Computed for selected deflating subspaces only;
-*>          = 'B' : Computed for both.
+*>          = 'N':  None are computed;
+*>          = 'E':  Computed for average of selected eigenvalues only;
+*>          = 'V':  Computed for selected deflating subspaces only;
+*>          = 'B':  Computed for both.
 *>          If SENSE = 'E', 'V', or 'B', SORT must equal 'S'.
 *> \endverbatim
 *>
@@ -315,14 +315,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexGEeigen
+*> \ingroup ggesx
 *
 *  =====================================================================
       SUBROUTINE CGGESX( JOBVSL, JOBVSR, SORT, SELCTG, SENSE, N, A, LDA,
@@ -330,10 +328,9 @@
      $                   LDVSR, RCONDE, RCONDV, WORK, LWORK, RWORK,
      $                   IWORK, LIWORK, BWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBVSL, JOBVSR, SENSE, SORT
@@ -376,14 +373,13 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           CGEQRF, CGGBAK, CGGBAL, CGGHRD, CHGEQZ, CLACPY,
-     $                   CLASCL, CLASET, CTGSEN, CUNGQR, CUNMQR, SLABAD,
-     $                   XERBLA
+     $                   CLASCL, CLASET, CTGSEN, CUNGQR, CUNMQR, XERBLA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               CLANGE, SLAMCH
-      EXTERNAL           LSAME, ILAENV, CLANGE, SLAMCH
+      REAL               CLANGE, SLAMCH, SROUNDUP_LWORK
+      EXTERNAL           LSAME, ILAENV, CLANGE, SLAMCH, SROUNDUP_LWORK
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MAX, SQRT
@@ -479,7 +475,7 @@
             MAXWRK = 1
             LWRK   = 1
          END IF
-         WORK( 1 ) = LWRK
+         WORK( 1 ) = SROUNDUP_LWORK(LWRK)
          IF( WANTSN .OR. N.EQ.0 ) THEN
             LIWMIN = 1
          ELSE
@@ -513,7 +509,6 @@
       EPS = SLAMCH( 'P' )
       SMLNUM = SLAMCH( 'S' )
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
       SMLNUM = SQRT( SMLNUM ) / EPS
       BIGNUM = ONE / SMLNUM
 *
@@ -708,7 +703,7 @@
 *
    40 CONTINUE
 *
-      WORK( 1 ) = MAXWRK
+      WORK( 1 ) = SROUNDUP_LWORK(MAXWRK)
       IWORK( 1 ) = LIWMIN
 *
       RETURN

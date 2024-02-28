@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZDRVAC( DOTYPE, NM, MVAL, NNS, NSVAL, THRESH, NMAX,
 *                          A, AFAC, B, X, WORK,
 *                          RWORK, SWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            NMAX, NM, NNS, NOUT
 *       DOUBLE PRECISION   THRESH
@@ -24,7 +24,7 @@
 *       COMPLEX*16         A( * ), AFAC( * ), B( * ),
 *      $                   WORK( * ), X( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -131,12 +131,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -145,10 +143,9 @@
      $                   A, AFAC, B, X, WORK,
      $                   RWORK, SWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            NMAX, NM, NNS, NOUT
@@ -178,7 +175,7 @@
       CHARACTER          DIST, TYPE, UPLO, XTYPE
       CHARACTER*3        PATH
       INTEGER            I, IM, IMAT, INFO, IOFF, IRHS, IUPLO,
-     $                   IZERO, KL, KU, LDA, MODE, N, 
+     $                   IZERO, KL, KU, LDA, MODE, N,
      $                   NERRS, NFAIL, NIMAT, NRHS, NRUN
       DOUBLE PRECISION   ANORM, CNDNUM
 *     ..
@@ -192,7 +189,7 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ALAERH, ZLACPY, ZLAIPD,
-     $                   ZLARHS, ZLATB4, ZLATMS, 
+     $                   ZLARHS, ZLATB4, ZLATMS,
      $                   ZPOT06, ZCPOSV
 *     ..
 *     .. Intrinsic Functions ..
@@ -333,7 +330,7 @@
                   SRNAMT = 'ZCPOSV '
                   KASE = KASE + 1
 *
-                  CALL ZLACPY( 'All', N, N, A, LDA, AFAC, LDA) 
+                  CALL ZLACPY( 'All', N, N, A, LDA, AFAC, LDA)
 *
                   CALL ZCPOSV( UPLO, N, NRHS, AFAC, LDA, B, LDA, X, LDA,
      $                         WORK, SWORK, RWORK, ITER, INFO )
@@ -370,11 +367,11 @@
                   CALL ZPOT06( UPLO, N, NRHS, A, LDA, X, LDA, WORK,
      $               LDA, RWORK, RESULT( 1 ) )
 *
-*                 Check if the test passes the tesing.
+*                 Check if the test passes the testing.
 *                 Print information about the tests that did not
 *                 pass the testing.
 *
-*                 If iterative refinement has been used and claimed to 
+*                 If iterative refinement has been used and claimed to
 *                 be successful (ITER>0), we want
 *                 NORM1(B - A*X)/(NORM1(A)*NORM1(X)*EPS*SRQT(N)) < 1
 *
@@ -452,7 +449,7 @@
      $      '( norm_1(A) * norm_1(X) * EPS * SQRT(N) ) > 1 if ITERREF',
      $      / 4x, 'or norm_1( B - A * X )  / ',
      $      '( norm_1(A) * norm_1(X) * EPS ) > THRES if ZPOTRF' )
-      
+
       RETURN
 *
 *     End of ZDRVAC

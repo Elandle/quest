@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       REAL             FUNCTION SRZT01( M, N, A, AF, LDA, TAU, WORK,
 *                        LWORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, LWORK, M, N
 *       ..
@@ -18,7 +18,7 @@
 *       REAL               A( LDA, * ), AF( LDA, * ), TAU( * ),
 *      $                   WORK( LWORK )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -85,12 +85,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
@@ -98,10 +96,9 @@
       REAL             FUNCTION SRZT01( M, N, A, AF, LDA, TAU, WORK,
      $                 LWORK )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, LWORK, M, N
@@ -161,7 +158,7 @@
 *
 *     R = R * P(1) * ... *P(m)
 *
-      CALL SORMRZ( 'Right', 'No tranpose', M, N, M, N-M, AF, LDA, TAU,
+      CALL SORMRZ( 'Right', 'No transpose', M, N, M, N-M, AF, LDA, TAU,
      $             WORK, M, WORK( M*N+1 ), LWORK-M*N, INFO )
 *
 *     R = R - A

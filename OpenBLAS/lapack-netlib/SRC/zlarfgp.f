@@ -1,25 +1,25 @@
-*> \brief \b ZLARFGP generates an elementary reflector (Householder matrix) with non-negatibe beta.
+*> \brief \b ZLARFGP generates an elementary reflector (Householder matrix) with non-negative beta.
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZLARFGP + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zlarfgp.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zlarfgp.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zlarfgp.f"> 
+*> Download ZLARFGP + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zlarfgp.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zlarfgp.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zlarfgp.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZLARFGP( N, ALPHA, X, INCX, TAU )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, N
 *       COMPLEX*16         ALPHA, TAU
@@ -27,7 +27,7 @@
 *       .. Array Arguments ..
 *       COMPLEX*16         X( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -92,22 +92,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup complex16OTHERauxiliary
+*> \ingroup larfgp
 *
 *  =====================================================================
       SUBROUTINE ZLARFGP( N, ALPHA, X, INCX, TAU )
 *
-*  -- LAPACK auxiliary routine (version 3.4.2) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, N
@@ -125,7 +122,7 @@
 *     ..
 *     .. Local Scalars ..
       INTEGER            J, KNT
-      DOUBLE PRECISION   ALPHI, ALPHR, BETA, BIGNUM, SMLNUM, XNORM
+      DOUBLE PRECISION   ALPHI, ALPHR, BETA, BIGNUM, EPS, SMLNUM, XNORM
       COMPLEX*16         SAVEALPHA
 *     ..
 *     .. External Functions ..
@@ -146,11 +143,12 @@
          RETURN
       END IF
 *
+      EPS = DLAMCH( 'Precision' )
       XNORM = DZNRM2( N-1, X, INCX )
       ALPHR = DBLE( ALPHA )
       ALPHI = DIMAG( ALPHA )
 *
-      IF( XNORM.EQ.ZERO ) THEN
+      IF( XNORM.LE.EPS*ABS(ALPHA) ) THEN
 *
 *        H  =  [1-alpha/abs(alpha) 0; 0 I], sign chosen so ALPHA >= 0.
 *
@@ -197,7 +195,7 @@
             BETA = BETA*BIGNUM
             ALPHI = ALPHI*BIGNUM
             ALPHR = ALPHR*BIGNUM
-            IF( ABS( BETA ).LT.SMLNUM )
+            IF( (ABS( BETA ).LT.SMLNUM) .AND. (KNT .LT. 20) )
      $         GO TO 10
 *
 *           New BETA is at most 1, at least SMLNUM
@@ -222,7 +220,7 @@
          IF ( ABS(TAU).LE.SMLNUM ) THEN
 *
 *           In the case where the computed TAU ends up being a denormalized number,
-*           it loses relative accuracy. This is a BIG problem. Solution: flush TAU 
+*           it loses relative accuracy. This is a BIG problem. Solution: flush TAU
 *           to ZERO (or TWO or whatever makes a nonnegative real number for BETA).
 *
 *           (Bug report provided by Pat Quillen from MathWorks on Jul 29, 2009.)
@@ -238,7 +236,7 @@
                   DO J = 1, N-1
                      X( 1 + (J-1)*INCX ) = ZERO
                   END DO
-                  BETA = -SAVEALPHA
+                  BETA = DBLE( -SAVEALPHA )
                END IF
             ELSE
                XNORM = DLAPY2( ALPHR, ALPHI )
@@ -249,7 +247,7 @@
                BETA = XNORM
             END IF
 *
-         ELSE 
+         ELSE
 *
 *           This is the general case.
 *

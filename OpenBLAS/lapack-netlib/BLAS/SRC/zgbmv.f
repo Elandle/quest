@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
-* 
+*
 *       .. Scalar Arguments ..
 *       COMPLEX*16 ALPHA,BETA
 *       INTEGER INCX,INCY,KL,KU,LDA,M,N
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       COMPLEX*16 A(LDA,*),X(*),Y(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -87,7 +87,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array of DIMENSION ( LDA, n ).
+*>          A is COMPLEX*16 array, dimension ( LDA, N )
 *>           Before entry, the leading ( kl + ku + 1 ) by n part of the
 *>           array A must contain the matrix of coefficients, supplied
 *>           column by column, with the leading diagonal of the matrix in
@@ -118,7 +118,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array of DIMENSION at least
+*>          X is COMPLEX*16 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
 *>           and at least
 *>           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
@@ -142,7 +142,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array of DIMENSION at least
+*>          Y is COMPLEX*16 array, dimension at least
 *>           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
 *>           and at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
@@ -160,12 +160,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date December 2016
 *
 *> \ingroup complex16_blas_level2
 *
@@ -187,10 +187,10 @@
 *  =====================================================================
       SUBROUTINE ZGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
 *
-*  -- Reference BLAS level2 routine (version 3.4.0) --
+*  -- Reference BLAS level2 routine (version 3.7.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     December 2016
 *
 *     .. Scalar Arguments ..
       COMPLEX*16 ALPHA,BETA
@@ -319,26 +319,22 @@
           JX = KX
           IF (INCY.EQ.1) THEN
               DO 60 J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*X(JX)
-                      K = KUP1 - J
-                      DO 50 I = MAX(1,J-KU),MIN(M,J+KL)
-                          Y(I) = Y(I) + TEMP*A(K+I,J)
-   50                 CONTINUE
-                  END IF
+                  TEMP = ALPHA*X(JX)
+                  K = KUP1 - J
+                  DO 50 I = MAX(1,J-KU),MIN(M,J+KL)
+                      Y(I) = Y(I) + TEMP*A(K+I,J)
+   50             CONTINUE
                   JX = JX + INCX
    60         CONTINUE
           ELSE
               DO 80 J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*X(JX)
-                      IY = KY
-                      K = KUP1 - J
-                      DO 70 I = MAX(1,J-KU),MIN(M,J+KL)
-                          Y(IY) = Y(IY) + TEMP*A(K+I,J)
-                          IY = IY + INCY
-   70                 CONTINUE
-                  END IF
+                  TEMP = ALPHA*X(JX)
+                  IY = KY
+                  K = KUP1 - J
+                  DO 70 I = MAX(1,J-KU),MIN(M,J+KL)
+                      Y(IY) = Y(IY) + TEMP*A(K+I,J)
+                      IY = IY + INCY
+   70             CONTINUE
                   JX = JX + INCX
                   IF (J.GT.KU) KY = KY + INCY
    80         CONTINUE

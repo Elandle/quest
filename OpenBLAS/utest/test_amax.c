@@ -1,5 +1,5 @@
 /*****************************************************************************
-Copyright (c) 2011-2012, Lab of Parallel Software and Computational Science,ICSAS
+Copyright (c) 2011-2016, The OpenBLAS Project
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -13,9 +13,10 @@ met:
       notice, this list of conditions and the following disclaimer in
       the documentation and/or other materials provided with the
       distribution.
-   3. Neither the name of the ISCAS nor the names of its contributors may
-      be used to endorse or promote products derived from this software
-      without specific prior written permission.
+   3. Neither the name of the OpenBLAS project nor the names of 
+      its contributors may be used to endorse or promote products 
+      derived from this software without specific prior written 
+      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -30,17 +31,30 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 **********************************************************************************/
 
-#include "common_utest.h"
+#include "openblas_utest.h"
 
-void test_samax()
-{
-  int N=3, inc=1;
+#ifdef BUILD_SINGLE
+CTEST(amax, samax){
+  blasint N=3, inc=1;
   float te_max=0.0, tr_max=0.0;
   float x[]={-1.1, 2.2, -3.3};
 
   te_max=BLASFUNC(samax)(&N, x, &inc);
+  tr_max=3.3;
 
-  tr_max=BLASFUNC_REF(samax)(&N, x, &inc);
-
-  CU_ASSERT_DOUBLE_EQUAL(te_max, tr_max, CHECK_EPS);
+  ASSERT_DBL_NEAR_TOL((double)(tr_max), (double)(te_max), SINGLE_EPS);
 }
+#endif
+#ifdef BUILD_DOUBLE
+CTEST(amax, damax){
+  blasint N=3, inc=1;
+  double te_max=0.0, tr_max=0.0;
+  double x[]={-1.1, 2.2, -3.3};
+
+  te_max=BLASFUNC(damax)(&N, x, &inc);
+  tr_max=3.3;
+
+  ASSERT_DBL_NEAR_TOL((double)(tr_max), (double)(te_max), DOUBLE_EPS);
+}
+#endif
+

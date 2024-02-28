@@ -44,6 +44,7 @@
 #endif
 
 #ifndef COMPLEX
+#define SMP_THRESHOLD_MIN 65536.
 #ifdef XDOUBLE
 #define ERROR_NAME "QSYMM "
 #elif defined(DOUBLE)
@@ -52,6 +53,7 @@
 #define ERROR_NAME "SSYMM "
 #endif
 #else
+#define SMP_THRESHOLD_MIN 8192.
 #ifndef GEMM3M
 #ifndef HEMM
 #ifdef XDOUBLE
@@ -87,6 +89,31 @@
 #else
 #define ERROR_NAME "CHEMM3M "
 #endif
+#endif
+#endif
+#endif
+
+#ifndef GEMM_MULTITHREAD_THRESHOLD
+#define GEMM_MULTITHREAD_THRESHOLD 4
+#endif
+
+
+#ifdef SMP
+#ifndef COMPLEX
+#ifdef XDOUBLE
+#define MODE	(BLAS_XDOUBLE | BLAS_REAL)
+#elif defined(DOUBLE)
+#define MODE	(BLAS_DOUBLE  | BLAS_REAL)
+#else
+#define MODE	(BLAS_SINGLE  | BLAS_REAL)
+#endif
+#else
+#ifdef XDOUBLE
+#define MODE	(BLAS_XDOUBLE | BLAS_COMPLEX)
+#elif defined(DOUBLE)
+#define MODE	(BLAS_DOUBLE  | BLAS_COMPLEX)
+#else
+#define MODE	(BLAS_SINGLE  | BLAS_COMPLEX)
 #endif
 #endif
 #endif
@@ -135,30 +162,12 @@ void NAME(char *SIDE, char *UPLO,
   FLOAT *buffer;
   FLOAT *sa, *sb;
 
-#ifdef SMP
-#ifndef COMPLEX
-#ifdef XDOUBLE
-  int mode  =  BLAS_XDOUBLE | BLAS_REAL;
-#elif defined(DOUBLE)
-  int mode  =  BLAS_DOUBLE  | BLAS_REAL;
-#else
-  int mode  =  BLAS_SINGLE  | BLAS_REAL;
-#endif
-#else
-#ifdef XDOUBLE
-  int mode  =  BLAS_XDOUBLE | BLAS_COMPLEX;
-#elif defined(DOUBLE)
-  int mode  =  BLAS_DOUBLE  | BLAS_COMPLEX;
-#else
-  int mode  =  BLAS_SINGLE  | BLAS_COMPLEX;
-#endif
-#endif
-#endif
-
 #if defined(SMP) && !defined(NO_AFFINITY)
   int nodes;
 #endif
-
+# if defined(SMP)
+  double MN;
+#endif
   blasint info;
   int side;
   int uplo;
@@ -227,17 +236,22 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_SIDE Side, enum CBLAS_UPLO Uplo,
 	   blasint m, blasint n,
 #ifndef COMPLEX
 	   FLOAT alpha,
-#else
-	   FLOAT *alpha,
-#endif
 	   FLOAT *a, blasint lda,
 	   FLOAT *b, blasint ldb,
-#ifndef COMPLEX
 	   FLOAT beta,
-#else
-	   FLOAT *beta,
-#endif
 	   FLOAT *c, blasint ldc) {
+#else
+	   void *valpha,
+	   void *va, blasint lda,
+	   void *vb, blasint ldb,
+	   void *vbeta,
+	   void *vc, blasint ldc) {
+  FLOAT *alpha = (FLOAT*) valpha;
+  FLOAT *beta  = (FLOAT*) vbeta;
+  FLOAT *a = (FLOAT*) va;
+  FLOAT *b = (FLOAT*) vb;
+  FLOAT *c = (FLOAT*) vc;	   
+#endif
 
   blas_arg_t args;
   int side, uplo;
@@ -246,28 +260,11 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_SIDE Side, enum CBLAS_UPLO Uplo,
   FLOAT *buffer;
   FLOAT *sa, *sb;
 
-#ifdef SMP
-#ifndef COMPLEX
-#ifdef XDOUBLE
-  int mode  =  BLAS_XDOUBLE | BLAS_REAL;
-#elif defined(DOUBLE)
-  int mode  =  BLAS_DOUBLE  | BLAS_REAL;
-#else
-  int mode  =  BLAS_SINGLE  | BLAS_REAL;
-#endif
-#else
-#ifdef XDOUBLE
-  int mode  =  BLAS_XDOUBLE | BLAS_COMPLEX;
-#elif defined(DOUBLE)
-  int mode  =  BLAS_DOUBLE  | BLAS_COMPLEX;
-#else
-  int mode  =  BLAS_SINGLE  | BLAS_COMPLEX;
-#endif
-#endif
-#endif
-
 #if defined(SMP) && !defined(NO_AFFINITY)
   int nodes;
+#endif
+#if defined(SMP)
+  double MN;
 #endif
 
   PRINT_DEBUG_CNAME;
@@ -389,15 +386,18 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_SIDE Side, enum CBLAS_UPLO Uplo,
 
 #ifdef SMP
   args.common = NULL;
-  args.nthreads = num_cpu_avail(3);
-
+  MN = 2.* (double) args.m * (double)args.m * (double) args.n;
+  if (MN <= (SMP_THRESHOLD_MIN * (double) GEMM_MULTITHREAD_THRESHOLD) ) {
+	  args.nthreads = 1;
+  } else {
+	 args.nthreads = num_cpu_avail(3);
+  }
   if (args.nthreads == 1) {
 #endif
 
     (symm[(side << 1) | uplo ])(&args, NULL, NULL, sa, sb, 0);
 
 #ifdef SMP
-
   } else {
 
 #ifndef NO_AFFINITY
@@ -407,7 +407,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_SIDE Side, enum CBLAS_UPLO Uplo,
 
       args.nthreads /= nodes;
 
-      gemm_thread_mn(mode, &args, NULL, NULL,
+      gemm_thread_mn(MODE, &args, NULL, NULL,
 		     symm[4 | (side << 1) | uplo ], sa, sb, nodes);
 
     } else {
@@ -419,7 +419,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_SIDE Side, enum CBLAS_UPLO Uplo,
 
 #else
 
-      GEMM_THREAD(mode, &args, NULL, NULL, symm[(side << 1) | uplo ], sa, sb, args.nthreads);
+      GEMM_THREAD(MODE, &args, NULL, NULL, symm[(side << 1) | uplo ], sa, sb, args.nthreads);
 
 #endif
 

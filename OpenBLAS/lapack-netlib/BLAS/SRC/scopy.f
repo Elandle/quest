@@ -2,21 +2,21 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
 *       REAL SX(*),SY(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -27,15 +27,46 @@
 *>    uses unrolled loops for increments equal to 1.
 *> \endverbatim
 *
+*  Arguments:
+*  ==========
+*
+*> \param[in] N
+*> \verbatim
+*>          N is INTEGER
+*>         number of elements in input vector(s)
+*> \endverbatim
+*>
+*> \param[in] SX
+*> \verbatim
+*>          SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*> \endverbatim
+*>
+*> \param[in] INCX
+*> \verbatim
+*>          INCX is INTEGER
+*>         storage spacing between elements of SX
+*> \endverbatim
+*>
+*> \param[out] SY
+*> \verbatim
+*>          SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*> \endverbatim
+*>
+*> \param[in] INCY
+*> \verbatim
+*>          INCY is INTEGER
+*>         storage spacing between elements of SY
+*> \endverbatim
+*
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date November 2017
 *
 *> \ingroup single_blas_level1
 *
@@ -51,10 +82,10 @@
 *  =====================================================================
       SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)
 *
-*  -- Reference BLAS level1 routine (version 3.4.0) --
+*  -- Reference BLAS level1 routine (version 3.8.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     November 2017
 *
 *     .. Scalar Arguments ..
       INTEGER INCX,INCY,N
@@ -85,7 +116,7 @@
                SY(I) = SX(I)
             END DO
             IF (N.LT.7) RETURN
-         END IF   
+         END IF
          MP1 = M + 1
          DO I = MP1,N,7
             SY(I) = SX(I)
@@ -96,7 +127,7 @@
             SY(I+5) = SX(I+5)
             SY(I+6) = SX(I+6)
          END DO
-      ELSE      
+      ELSE
 *
 *        code for unequal increments or equal increments
 *          not equal to 1

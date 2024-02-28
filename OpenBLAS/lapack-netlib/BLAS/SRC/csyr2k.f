@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
-* 
+*
 *       .. Scalar Arguments ..
 *       COMPLEX ALPHA,BETA
 *       INTEGER K,LDA,LDB,LDC,N
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       COMPLEX A(LDA,*),B(LDB,*),C(LDC,*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -92,7 +92,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX array of DIMENSION ( LDA, ka ), where ka is
+*>          A is COMPLEX array, dimension ( LDA, ka ), where ka is
 *>           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
 *>           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
 *>           part of the array  A  must contain the matrix  A,  otherwise
@@ -111,7 +111,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX array of DIMENSION ( LDB, kb ), where kb is
+*>          B is COMPLEX array, dimension ( LDB, kb ), where kb is
 *>           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
 *>           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
 *>           part of the array  B  must contain the matrix  B,  otherwise
@@ -136,7 +136,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX array of DIMENSION ( LDC, n ).
+*>          C is COMPLEX array, dimension ( LDC, N )
 *>           Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
 *>           upper triangular part of the array C must contain the upper
 *>           triangular part  of the  symmetric matrix  and the strictly
@@ -162,12 +162,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date December 2016
 *
 *> \ingroup complex_blas_level3
 *
@@ -188,10 +188,10 @@
 *  =====================================================================
       SUBROUTINE CSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
 *
-*  -- Reference BLAS level3 routine (version 3.4.0) --
+*  -- Reference BLAS level3 routine (version 3.7.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     December 2016
 *
 *     .. Scalar Arguments ..
       COMPLEX ALPHA,BETA

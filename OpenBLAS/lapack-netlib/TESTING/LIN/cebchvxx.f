@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -84,12 +84,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -504,5 +502,7 @@ c$$$         WRITE(*,*)
 
  8000 FORMAT( ' C', A2, 'SVXX: N =', I2, ', INFO = ', I3,
      $     ', ORCOND = ', G12.5, ', real RCOND = ', G12.5 )
-
+*
+*     End of CEBCHVXX
+*
       END

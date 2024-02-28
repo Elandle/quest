@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZCHKGB( DOTYPE, NM, MVAL, NN, NVAL, NNB, NBVAL, NNS,
 *                          NSVAL, THRESH, TSTERR, A, LA, AFAC, LAFAC, B,
 *                          X, XACT, WORK, RWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            LA, LAFAC, NM, NN, NNB, NNS, NOUT
@@ -25,7 +25,7 @@
 *       COMPLEX*16         A( * ), AFAC( * ), B( * ), WORK( * ), X( * ),
 *      $                   XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -78,7 +78,7 @@
 *>
 *> \param[in] NBVAL
 *> \verbatim
-*>          NBVAL is INTEGER array, dimension (NBVAL)
+*>          NBVAL is INTEGER array, dimension (NNB)
 *>          The values of the blocksize NB.
 *> \endverbatim
 *>
@@ -160,7 +160,7 @@
 *> \param[out] RWORK
 *> \verbatim
 *>          RWORK is DOUBLE PRECISION array, dimension
-*>                      (max(NMAX,2*NSMAX))
+*>                      (NMAX+2*NSMAX)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -177,12 +177,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -191,10 +189,9 @@
      $                   NSVAL, THRESH, TSTERR, A, LA, AFAC, LAFAC, B,
      $                   X, XACT, WORK, RWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -566,7 +563,7 @@
                               END IF
 *
 *+    TEST 2:
-*                             Solve and compute residual for A * X = B.
+*                             Solve and compute residual for op(A) * X = B.
 *
                               SRNAMT = 'ZLARHS'
                               CALL ZLARHS( PATH, XTYPE, ' ', TRANS, N,
@@ -592,7 +589,7 @@
      $                                     WORK, LDB )
                               CALL ZGBT02( TRANS, M, N, KL, KU, NRHS, A,
      $                                     LDA, X, LDB, WORK, LDB,
-     $                                     RESULT( 2 ) )
+     $                                     RWORK, RESULT( 2 ) )
 *
 *+    TEST 3:
 *                             Check solution from generated exact

@@ -1,19 +1,19 @@
-*> \brief \b ZHBGST
+*> \brief \b ZHBGVX
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZHBGVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zhbgvx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zhbgvx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zhbgvx.f"> 
+*> Download ZHBGVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zhbgvx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zhbgvx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zhbgvx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE ZHBGVX( JOBZ, RANGE, UPLO, N, KA, KB, AB, LDAB, BB,
 *                          LDBB, Q, LDQ, VL, VU, IL, IU, ABSTOL, M, W, Z,
 *                          LDZ, WORK, RWORK, IWORK, IFAIL, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, KA, KB, LDAB, LDBB, LDQ, LDZ, M,
@@ -34,7 +34,7 @@
 *       COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), Q( LDQ, * ),
 *      $                   WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -153,13 +153,17 @@
 *> \param[in] VL
 *> \verbatim
 *>          VL is DOUBLE PRECISION
+*>
+*>          If RANGE='V', the lower bound of the interval to
+*>          be searched for eigenvalues. VL < VU.
+*>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
 *>          VU is DOUBLE PRECISION
 *>
-*>          If RANGE='V', the lower and upper bounds of the interval to
+*>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
@@ -167,14 +171,19 @@
 *> \param[in] IL
 *> \verbatim
 *>          IL is INTEGER
+*>
+*>          If RANGE='I', the index of the
+*>          smallest eigenvalue to be returned.
+*>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+*>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
 *>
 *> \param[in] IU
 *> \verbatim
 *>          IU is INTEGER
 *>
-*>          If RANGE='I', the indices (in ascending order) of the
-*>          smallest and largest eigenvalues to be returned.
+*>          If RANGE='I', the index of the
+*>          largest eigenvalue to be returned.
 *>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
 *>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
@@ -272,12 +281,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16OTHEReigen
 *
@@ -291,10 +298,9 @@
      $                   LDBB, Q, LDQ, VL, VU, IL, IU, ABSTOL, M, W, Z,
      $                   LDZ, WORK, RWORK, IWORK, IFAIL, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
@@ -321,7 +327,7 @@
 *     .. Local Scalars ..
       LOGICAL            ALLEIG, INDEIG, TEST, UPPER, VALEIG, WANTZ
       CHARACTER          ORDER, VECT
-      INTEGER            I, IINFO, INDD, INDE, INDEE, INDIBL, INDISP,
+      INTEGER            I, IINFO, INDD, INDE, INDEE, INDISP,
      $                   INDIWK, INDRWK, INDWRK, ITMP1, J, JJ, NSPLIT
       DOUBLE PRECISION   TMP1
 *     ..
@@ -464,17 +470,16 @@
       ELSE
          ORDER = 'E'
       END IF
-      INDIBL = 1
-      INDISP = INDIBL + N
+      INDISP = 1 + N
       INDIWK = INDISP + N
       CALL DSTEBZ( RANGE, ORDER, N, VL, VU, IL, IU, ABSTOL,
      $             RWORK( INDD ), RWORK( INDE ), M, NSPLIT, W,
-     $             IWORK( INDIBL ), IWORK( INDISP ), RWORK( INDRWK ),
+     $             IWORK( 1 ), IWORK( INDISP ), RWORK( INDRWK ),
      $             IWORK( INDIWK ), INFO )
 *
       IF( WANTZ ) THEN
          CALL ZSTEIN( N, RWORK( INDD ), RWORK( INDE ), M, W,
-     $                IWORK( INDIBL ), IWORK( INDISP ), Z, LDZ,
+     $                IWORK( 1 ), IWORK( INDISP ), Z, LDZ,
      $                RWORK( INDRWK ), IWORK( INDIWK ), IFAIL, INFO )
 *
 *        Apply unitary matrix used in reduction to tridiagonal
@@ -504,11 +509,11 @@
    40       CONTINUE
 *
             IF( I.NE.0 ) THEN
-               ITMP1 = IWORK( INDIBL+I-1 )
+               ITMP1 = IWORK( 1 + I-1 )
                W( I ) = W( J )
-               IWORK( INDIBL+I-1 ) = IWORK( INDIBL+J-1 )
+               IWORK( 1 + I-1 ) = IWORK( 1 + J-1 )
                W( J ) = TMP1
-               IWORK( INDIBL+J-1 ) = ITMP1
+               IWORK( 1 + J-1 ) = ITMP1
                CALL ZSWAP( N, Z( 1, I ), 1, Z( 1, J ), 1 )
                IF( INFO.NE.0 ) THEN
                   ITMP1 = IFAIL( I )

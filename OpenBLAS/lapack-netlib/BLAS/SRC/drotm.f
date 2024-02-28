@@ -2,21 +2,21 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DROTM(N,DX,INCX,DY,INCY,DPARAM)
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
 *       DOUBLE PRECISION DPARAM(5),DX(*),DY(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -51,8 +51,7 @@
 *>
 *> \param[in,out] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension N
-*>         double precision vector with N elements
+*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -63,8 +62,7 @@
 *>
 *> \param[in,out] DY
 *> \verbatim
-*>          DY is DOUBLE PRECISION array, dimension N
-*>         double precision vector with N elements
+*>          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -73,9 +71,9 @@
 *>         storage spacing between elements of DY
 *> \endverbatim
 *>
-*> \param[in,out] DPARAM
+*> \param[in] DPARAM
 *> \verbatim
-*>          DPARAM is DOUBLE PRECISION array, dimension 5
+*>          DPARAM is DOUBLE PRECISION array, dimension (5)
 *>     DPARAM(1)=DFLAG
 *>     DPARAM(2)=DH11
 *>     DPARAM(3)=DH21
@@ -86,22 +84,22 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date November 2017
 *
 *> \ingroup double_blas_level1
 *
 *  =====================================================================
       SUBROUTINE DROTM(N,DX,INCX,DY,INCY,DPARAM)
 *
-*  -- Reference BLAS level1 routine (version 3.4.0) --
+*  -- Reference BLAS level1 routine (version 3.8.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     November 2017
 *
 *     .. Scalar Arguments ..
       INTEGER INCX,INCY,N

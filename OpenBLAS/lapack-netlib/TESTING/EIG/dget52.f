@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGET52( LEFT, N, A, LDA, B, LDB, E, LDE, ALPHAR,
 *                          ALPHAI, BETA, WORK, RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            LEFT
 *       INTEGER            LDA, LDB, LDE, N
@@ -20,7 +20,7 @@
 *      $                   B( LDB, * ), BETA( * ), E( LDE, * ),
 *      $                   RESULT( 2 ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -186,12 +186,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_eig
 *
@@ -199,10 +197,9 @@
       SUBROUTINE DGET52( LEFT, N, A, LDA, B, LDB, E, LDE, ALPHAR,
      $                   ALPHAI, BETA, WORK, RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            LEFT
@@ -266,7 +263,7 @@
       BETMAX = SAFMAX / MAX( ONE, ANORM )
 *
 *     Compute error matrix.
-*     Column i = ( b(i) A - a(i) B ) E(i) / max( |a(i) B| |b(i) A| )
+*     Column i = ( b(i) A - a(i) B ) E(i) / max( |a(i) B|, |b(i) A| )
 *
       ILCPLX = .FALSE.
       DO 10 JVEC = 1, N
@@ -360,14 +357,14 @@
                DO 20 J = 1, N
                   TEMP1 = MAX( TEMP1, ABS( E( J, JVEC ) ) )
    20          CONTINUE
-               ENRMER = MAX( ENRMER, TEMP1-ONE )
+               ENRMER = MAX( ENRMER, ABS( TEMP1-ONE ) )
             ELSE
                ILCPLX = .TRUE.
                DO 30 J = 1, N
                   TEMP1 = MAX( TEMP1, ABS( E( J, JVEC ) )+
      $                    ABS( E( J, JVEC+1 ) ) )
    30          CONTINUE
-               ENRMER = MAX( ENRMER, TEMP1-ONE )
+               ENRMER = MAX( ENRMER, ABS( TEMP1-ONE ) )
             END IF
          END IF
    40 CONTINUE

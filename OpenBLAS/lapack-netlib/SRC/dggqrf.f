@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DGGQRF + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dggqrf.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dggqrf.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dggqrf.f"> 
+*> Download DGGQRF + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dggqrf.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dggqrf.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dggqrf.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGGQRF( N, M, P, A, LDA, TAUA, B, LDB, TAUB, WORK,
 *                          LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *       ..
@@ -28,7 +28,7 @@
 *       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
 *      $                   WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -168,14 +168,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup doubleOTHERcomputational
+*> \ingroup ggqrf
 *
 *> \par Further Details:
 *  =====================
@@ -215,10 +213,9 @@
       SUBROUTINE DGGQRF( N, M, P, A, LDA, TAUA, B, LDB, TAUB, WORK,
      $                   LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
@@ -253,7 +250,7 @@
       NB2 = ILAENV( 1, 'DGERQF', ' ', N, P, -1, -1 )
       NB3 = ILAENV( 1, 'DORMQR', ' ', N, M, P, -1 )
       NB = MAX( NB1, NB2, NB3 )
-      LWKOPT = MAX( N, M, P )*NB
+      LWKOPT = MAX( 1, MAX( N, M, P )*NB )
       WORK( 1 ) = LWKOPT
       LQUERY = ( LWORK.EQ.-1 )
       IF( N.LT.0 ) THEN
@@ -279,7 +276,7 @@
 *     QR factorization of N-by-M matrix A: A = Q*R
 *
       CALL DGEQRF( N, M, A, LDA, TAUA, WORK, LWORK, INFO )
-      LOPT = WORK( 1 )
+      LOPT = INT( WORK( 1 ) )
 *
 *     Update B := Q**T*B.
 *
@@ -290,6 +287,7 @@
 *     RQ factorization of N-by-P matrix B: B = T*Z.
 *
       CALL DGERQF( N, P, B, LDB, TAUB, WORK, LWORK, INFO )
+*
       WORK( 1 ) = MAX( LOPT, INT( WORK( 1 ) ) )
 *
       RETURN

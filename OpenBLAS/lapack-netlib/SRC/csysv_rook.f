@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CSYSV_ROOK + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/csysv_rook.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/csysv_rook.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/csysv_rook.f"> 
+*> Download CSYSV_ROOK + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/csysv_rook.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/csysv_rook.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/csysv_rook.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CSYSV_ROOK( UPLO, N, NRHS, A, LDA, IPIV, B, LDB, WORK,
 *                         LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, LDB, LWORK, N, NRHS
@@ -29,7 +29,7 @@
 *       INTEGER            IPIV( * )
 *       COMPLEX            A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -47,13 +47,13 @@
 *>    A = L * D * L**T,  if UPLO = 'L',
 *> where U (or L) is a product of permutation and unit upper (lower)
 *> triangular matrices, and D is symmetric and block diagonal with
-*> 1-by-1 and 2-by-2 diagonal blocks.  
+*> 1-by-1 and 2-by-2 diagonal blocks.
 *>
 *> CSYTRF_ROOK is called to compute the factorization of a complex
 *> symmetric matrix A using the bounded Bunch-Kaufman ("rook") diagonal
 *> pivoting method.
 *>
-*> The factored form of A is then used to solve the system 
+*> The factored form of A is then used to solve the system
 *> of equations A * X = B by calling CSYTRS_ROOK.
 *> \endverbatim
 *
@@ -154,7 +154,7 @@
 *>          The length of WORK.  LWORK >= 1, and for best performance
 *>          LWORK >= max(1,N*NB), where NB is the optimal blocksize for
 *>          CSYTRF_ROOK.
-*>          
+*>
 *>          TRS will be done with Level 2 BLAS
 *>
 *>          If LWORK = -1, then a workspace query is assumed; the routine
@@ -176,14 +176,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date April 2012
-*
-*> \ingroup complexSYsolve
+*> \ingroup hesv_rook
 *
 *> \par Contributors:
 *  ==================
@@ -204,10 +202,9 @@
       SUBROUTINE CSYSV_ROOK( UPLO, N, NRHS, A, LDA, IPIV, B, LDB, WORK,
      $                  LWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -226,7 +223,8 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      EXTERNAL           LSAME
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           LSAME, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, CSYTRF_ROOK, CSYTRS_ROOK
@@ -259,9 +257,9 @@
             LWKOPT = 1
          ELSE
             CALL CSYTRF_ROOK( UPLO, N, A, LDA, IPIV, WORK, -1, INFO )
-            LWKOPT = WORK(1)
+            LWKOPT = INT( WORK( 1 ) )
          END IF
-         WORK( 1 ) = LWKOPT
+         WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -284,7 +282,7 @@
 *
       END IF
 *
-      WORK( 1 ) = LWKOPT
+      WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 *
       RETURN
 *

@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SPPSVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sppsvx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sppsvx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sppsvx.f"> 
+*> Download SPPSVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sppsvx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sppsvx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sppsvx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SPPSVX( FACT, UPLO, N, NRHS, AP, AFP, EQUED, S, B, LDB,
 *                          X, LDX, RCOND, FERR, BERR, WORK, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, FACT, UPLO
 *       INTEGER            INFO, LDB, LDX, N, NRHS
@@ -31,7 +31,7 @@
 *       REAL               AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
 *      $                   FERR( * ), S( * ), WORK( * ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -69,7 +69,7 @@
 *>    where U is an upper triangular matrix and L is a lower triangular
 *>    matrix.
 *>
-*> 3. If the leading i-by-i principal minor is not positive definite,
+*> 3. If the leading principal minor of order i is not positive,
 *>    then the routine returns with INFO = i. Otherwise, the factored
 *>    form of A is used to estimate the condition number of the matrix
 *>    A.  If the reciprocal of the condition number is less than machine
@@ -147,8 +147,7 @@
 *>
 *> \param[in,out] AFP
 *> \verbatim
-*>          AFP is REAL array, dimension
-*>                            (N*(N+1)/2)
+*>          AFP is REAL array, dimension (N*(N+1)/2)
 *>          If FACT = 'F', then AFP is an input argument and on entry
 *>          contains the triangular factor U or L from the Cholesky
 *>          factorization A = U**T*U or A = L*L**T, in the same storage
@@ -263,10 +262,10 @@
 *>          = 0:  successful exit
 *>          < 0:  if INFO = -i, the i-th argument had an illegal value
 *>          > 0:  if INFO = i, and i is
-*>                <= N:  the leading minor of order i of A is
-*>                       not positive definite, so the factorization
-*>                       could not be completed, and the solution has not
-*>                       been computed. RCOND = 0 is returned.
+*>                <= N:  the leading principal minor of order i of A
+*>                       is not positive, so the factorization could not
+*>                       be completed, and the solution has not been
+*>                       computed. RCOND = 0 is returned.
 *>                = N+1: U is nonsingular, but RCOND is less than machine
 *>                       precision, meaning that the matrix is singular
 *>                       to working precision.  Nevertheless, the
@@ -279,12 +278,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date April 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup realOTHERsolve
 *
@@ -312,10 +309,9 @@
       SUBROUTINE SPPSVX( FACT, UPLO, N, NRHS, AP, AFP, EQUED, S, B, LDB,
      $                   X, LDX, RCOND, FERR, BERR, WORK, IWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, FACT, UPLO

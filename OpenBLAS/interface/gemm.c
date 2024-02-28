@@ -44,14 +44,18 @@
 #endif
 
 #ifndef COMPLEX
+#define SMP_THRESHOLD_MIN 65536.0
 #ifdef XDOUBLE
 #define ERROR_NAME "QGEMM "
 #elif defined(DOUBLE)
 #define ERROR_NAME "DGEMM "
+#elif defined(BFLOAT16)
+#define ERROR_NAME "SBGEMM "
 #else
 #define ERROR_NAME "SGEMM "
 #endif
 #else
+#define SMP_THRESHOLD_MIN 8192.0
 #ifndef GEMM3M
 #ifdef XDOUBLE
 #define ERROR_NAME "XGEMM "
@@ -75,7 +79,7 @@
 #define GEMM_MULTITHREAD_THRESHOLD 4
 #endif
 
-static int (*gemm[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *, BLASLONG) = {
+static int (*gemm[])(blas_arg_t *, BLASLONG *, BLASLONG *, IFLOAT *, IFLOAT *, BLASLONG) = {
 #ifndef GEMM3M
   GEMM_NN, GEMM_TN, GEMM_RN, GEMM_CN,
   GEMM_NT, GEMM_TT, GEMM_RT, GEMM_CT,
@@ -101,13 +105,79 @@ static int (*gemm[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *, BLA
 #endif
 };
 
+#if defined(SMALL_MATRIX_OPT) && !defined(GEMM3M) && !defined(XDOUBLE)
+#define USE_SMALL_MATRIX_OPT 1
+#else
+#define USE_SMALL_MATRIX_OPT 0
+#endif
+
+#if USE_SMALL_MATRIX_OPT
+#ifndef DYNAMIC_ARCH
+#define SMALL_KERNEL_ADDR(table, idx) ((void *)(table[idx]))
+#else
+#define SMALL_KERNEL_ADDR(table, idx) ((void *)(*(uintptr_t *)((char *)gotoblas + (size_t)(table[idx]))))
+#endif
+
+
+#ifndef COMPLEX
+static size_t gemm_small_kernel[] = {
+	GEMM_SMALL_KERNEL_NN, GEMM_SMALL_KERNEL_TN, 0, 0,
+	GEMM_SMALL_KERNEL_NT, GEMM_SMALL_KERNEL_TT, 0, 0,
+};
+
+
+static size_t gemm_small_kernel_b0[] = {
+	GEMM_SMALL_KERNEL_B0_NN, GEMM_SMALL_KERNEL_B0_TN, 0, 0,
+	GEMM_SMALL_KERNEL_B0_NT, GEMM_SMALL_KERNEL_B0_TT, 0, 0,
+};
+
+#define GEMM_SMALL_KERNEL_B0(idx) (int (*)(BLASLONG, BLASLONG, BLASLONG, IFLOAT *, BLASLONG, FLOAT, IFLOAT *, BLASLONG, FLOAT *, BLASLONG)) SMALL_KERNEL_ADDR(gemm_small_kernel_b0, (idx))
+#define GEMM_SMALL_KERNEL(idx) (int (*)(BLASLONG, BLASLONG, BLASLONG, IFLOAT *, BLASLONG, FLOAT, IFLOAT *, BLASLONG, FLOAT, FLOAT *, BLASLONG)) SMALL_KERNEL_ADDR(gemm_small_kernel, (idx))
+#else
+
+static size_t zgemm_small_kernel[] = {
+	GEMM_SMALL_KERNEL_NN, GEMM_SMALL_KERNEL_TN, GEMM_SMALL_KERNEL_RN, GEMM_SMALL_KERNEL_CN,
+	GEMM_SMALL_KERNEL_NT, GEMM_SMALL_KERNEL_TT, GEMM_SMALL_KERNEL_RT, GEMM_SMALL_KERNEL_CT,
+	GEMM_SMALL_KERNEL_NR, GEMM_SMALL_KERNEL_TR, GEMM_SMALL_KERNEL_RR, GEMM_SMALL_KERNEL_CR,
+	GEMM_SMALL_KERNEL_NC, GEMM_SMALL_KERNEL_TC, GEMM_SMALL_KERNEL_RC, GEMM_SMALL_KERNEL_CC,
+};
+
+static size_t zgemm_small_kernel_b0[] = {
+	GEMM_SMALL_KERNEL_B0_NN, GEMM_SMALL_KERNEL_B0_TN, GEMM_SMALL_KERNEL_B0_RN, GEMM_SMALL_KERNEL_B0_CN,
+	GEMM_SMALL_KERNEL_B0_NT, GEMM_SMALL_KERNEL_B0_TT, GEMM_SMALL_KERNEL_B0_RT, GEMM_SMALL_KERNEL_B0_CT,
+	GEMM_SMALL_KERNEL_B0_NR, GEMM_SMALL_KERNEL_B0_TR, GEMM_SMALL_KERNEL_B0_RR, GEMM_SMALL_KERNEL_B0_CR,
+	GEMM_SMALL_KERNEL_B0_NC, GEMM_SMALL_KERNEL_B0_TC, GEMM_SMALL_KERNEL_B0_RC, GEMM_SMALL_KERNEL_B0_CC,
+};
+
+#define ZGEMM_SMALL_KERNEL(idx) (int (*)(BLASLONG, BLASLONG, BLASLONG, FLOAT *, BLASLONG, FLOAT , FLOAT, FLOAT *, BLASLONG, FLOAT , FLOAT, FLOAT *, BLASLONG)) SMALL_KERNEL_ADDR(zgemm_small_kernel, (idx))
+#define ZGEMM_SMALL_KERNEL_B0(idx) (int (*)(BLASLONG, BLASLONG, BLASLONG, FLOAT *, BLASLONG, FLOAT , FLOAT, FLOAT *, BLASLONG, FLOAT *, BLASLONG)) SMALL_KERNEL_ADDR(zgemm_small_kernel_b0, (idx))
+#endif
+#endif
+
+#if defined(__linux__) && defined(__x86_64__) && defined(BFLOAT16)
+#define XFEATURE_XTILEDATA 18
+#define ARCH_REQ_XCOMP_PERM 0x1023
+static int openblas_amxtile_permission = 0;
+static int init_amxtile_permission() {
+  long status =
+      syscall(SYS_arch_prctl, ARCH_REQ_XCOMP_PERM, XFEATURE_XTILEDATA);
+  if (status != 0) {
+    fprintf(stderr, "XTILEDATA permission not granted in your device(Linux, "
+                    "Intel Sapphier Rapids), skip sbgemm calculation\n");
+    return -1;
+  }
+  openblas_amxtile_permission = 1;
+  return 0;
+}
+#endif
+
 #ifndef CBLAS
 
 void NAME(char *TRANSA, char *TRANSB,
 	  blasint *M, blasint *N, blasint *K,
 	  FLOAT *alpha,
-	  FLOAT *a, blasint *ldA,
-	  FLOAT *b, blasint *ldB,
+	  IFLOAT *a, blasint *ldA,
+	  IFLOAT *b, blasint *ldB,
 	  FLOAT *beta,
 	  FLOAT *c, blasint *ldC){
 
@@ -117,10 +187,12 @@ void NAME(char *TRANSA, char *TRANSB,
   blasint info;
 
   char transA, transB;
-  FLOAT *buffer;
-  FLOAT *sa, *sb;
+  IFLOAT *buffer;
+  IFLOAT *sa, *sb;
 
 #ifdef SMP
+  double MNK;
+#if defined(USE_SIMPLE_THREADED_LEVEL3) || !defined(NO_AFFINITY)
 #ifndef COMPLEX
 #ifdef XDOUBLE
   int mode  =  BLAS_XDOUBLE | BLAS_REAL;
@@ -136,6 +208,7 @@ void NAME(char *TRANSA, char *TRANSB,
   int mode  =  BLAS_DOUBLE  | BLAS_COMPLEX;
 #else
   int mode  =  BLAS_SINGLE  | BLAS_COMPLEX;
+#endif
 #endif
 #endif
 #endif
@@ -217,17 +290,22 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_TRANSPOSE TransA, enum CBLAS_TRANS
 	   blasint m, blasint n, blasint k,
 #ifndef COMPLEX
 	   FLOAT alpha,
-#else
-	   FLOAT *alpha,
-#endif
-	   FLOAT *a, blasint lda,
-	   FLOAT *b, blasint ldb,
-#ifndef COMPLEX
+	   IFLOAT *a, blasint lda,
+	   IFLOAT *b, blasint ldb,
 	   FLOAT beta,
-#else
-	   FLOAT *beta,
-#endif
 	   FLOAT *c, blasint ldc) {
+#else
+	   void *valpha,
+	   void *va, blasint lda,
+	   void *vb, blasint ldb,
+	   void *vbeta,
+	   void *vc, blasint ldc) {
+  FLOAT *alpha = (FLOAT*) valpha;
+  FLOAT *beta  = (FLOAT*) vbeta;
+  FLOAT *a = (FLOAT*) va;
+  FLOAT *b = (FLOAT*) vb;
+  FLOAT *c = (FLOAT*) vc;	   
+#endif
 
   blas_arg_t args;
   int transa, transb;
@@ -237,6 +315,8 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_TRANSPOSE TransA, enum CBLAS_TRANS
   XFLOAT *sa, *sb;
 
 #ifdef SMP
+  double MNK;
+#if defined(USE_SIMPLE_THREADED_LEVEL3) || !defined(NO_AFFINITY)
 #ifndef COMPLEX
 #ifdef XDOUBLE
   int mode  =  BLAS_XDOUBLE | BLAS_REAL;
@@ -255,12 +335,24 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_TRANSPOSE TransA, enum CBLAS_TRANS
 #endif
 #endif
 #endif
+#endif
 
 #if defined(SMP) && !defined(NO_AFFINITY) && !defined(USE_SIMPLE_THREADED_LEVEL3)
   int nodes;
 #endif
 
   PRINT_DEBUG_CNAME;
+
+#if !defined(COMPLEX) && !defined(DOUBLE) && !defined(BFLOAT16) && defined(USE_SGEMM_KERNEL_DIRECT)
+#ifdef DYNAMIC_ARCH
+ if (support_avx512() )
+#endif  
+  if (beta == 0 && alpha == 1.0 && order == CblasRowMajor && TransA == CblasNoTrans && TransB == CblasNoTrans && SGEMM_DIRECT_PERFORMANT(m,n,k)) {
+	SGEMM_DIRECT(m, n, k, a, lda, b, ldb, c, ldc);
+	return;
+  }
+
+#endif
 
 #ifndef COMPLEX
   args.alpha = (void *)&alpha;
@@ -380,6 +472,20 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_TRANSPOSE TransA, enum CBLAS_TRANS
 
 #endif
 
+#if defined(__linux__) && defined(__x86_64__) && defined(BFLOAT16)
+#if defined(DYNAMIC_ARCH)
+  if (gotoblas->need_amxtile_permission &&
+      openblas_amxtile_permission == 0 && init_amxtile_permission() == -1) {
+    return;
+  }
+#endif
+#if !defined(DYNAMIC_ARCH) && defined(SAPPHIRERAPIDS)
+  if (openblas_amxtile_permission == 0 && init_amxtile_permission() == -1) {
+    return;
+  }
+#endif
+#endif  // defined(__linux__) && defined(__x86_64__) && defined(BFLOAT16)
+
   if ((args.m == 0) || (args.n == 0)) return;
 
 #if 0
@@ -391,71 +497,45 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_TRANSPOSE TransA, enum CBLAS_TRANS
 
   FUNCTION_PROFILE_START();
 
+#if USE_SMALL_MATRIX_OPT
+#if !defined(COMPLEX)
+  if(GEMM_SMALL_MATRIX_PERMIT(transa, transb, args.m, args.n, args.k, *(FLOAT *)(args.alpha), *(FLOAT *)(args.beta))){
+	  if(*(FLOAT *)(args.beta) == 0.0){
+		(GEMM_SMALL_KERNEL_B0((transb << 2) | transa))(args.m, args.n, args.k, args.a, args.lda, *(FLOAT *)(args.alpha), args.b, args.ldb, args.c, args.ldc);
+	  }else{
+		(GEMM_SMALL_KERNEL((transb << 2) | transa))(args.m, args.n, args.k, args.a, args.lda, *(FLOAT *)(args.alpha), args.b, args.ldb, *(FLOAT *)(args.beta), args.c, args.ldc);
+	  }
+	  return;
+  }
+#else
+  if(GEMM_SMALL_MATRIX_PERMIT(transa, transb, args.m, args.n, args.k, alpha[0], alpha[1], beta[0], beta[1])){
+	  if(beta[0] == 0.0 && beta[1] == 0.0){
+		(ZGEMM_SMALL_KERNEL_B0((transb << 2) | transa))(args.m, args.n, args.k, args.a, args.lda, alpha[0], alpha[1], args.b, args.ldb, args.c, args.ldc);
+	  }else{
+		(ZGEMM_SMALL_KERNEL((transb << 2) | transa))(args.m, args.n, args.k, args.a, args.lda, alpha[0], alpha[1], args.b, args.ldb, beta[0], beta[1], args.c, args.ldc);
+	  }
+	  return;
+  }
+#endif
+#endif
+
   buffer = (XFLOAT *)blas_memory_alloc(0);
 
   sa = (XFLOAT *)((BLASLONG)buffer +GEMM_OFFSET_A);
   sb = (XFLOAT *)(((BLASLONG)sa + ((GEMM_P * GEMM_Q * COMPSIZE * SIZE + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
 
 #ifdef SMP
+#if defined(USE_SIMPLE_THREADED_LEVEL3) || !defined(NO_AFFINITY)
   mode |= (transa << BLAS_TRANSA_SHIFT);
   mode |= (transb << BLAS_TRANSB_SHIFT);
-
-  int nthreads_max = num_cpu_avail(3);
-  int nthreads_avail = nthreads_max;
-
-#ifndef COMPLEX
-  double MNK = (double) args.m * (double) args.n * (double) args.k;
-  if ( MNK <= (1024.0  * (double) GEMM_MULTITHREAD_THRESHOLD)  )
-	nthreads_max = 1;
-  else
-  {
-  	if ( MNK <= (65536.0 * (double) GEMM_MULTITHREAD_THRESHOLD) )
-	{
-		nthreads_max = 4;
-		if ( args.m < 16 * GEMM_MULTITHREAD_THRESHOLD )
-		{
-			nthreads_max = 2;
-			if ( args.m <     3 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 1;
-			if ( args.n <     1 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 1;
-			if ( args.k <     3 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 1;
-		}
-		else
-		{
-			if ( args.n <=    1 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 2;
-		}
-	}
-  }
-#else
-  double MNK = (double) args.m * (double) args.n * (double) args.k;
-  if ( MNK <= (256.0  * (double) GEMM_MULTITHREAD_THRESHOLD)  )
-	nthreads_max = 1;
-  else
-  {
-  	if ( MNK <= (16384.0 * (double) GEMM_MULTITHREAD_THRESHOLD) )
-	{
-		nthreads_max = 4;
-		if ( args.m < 3 * GEMM_MULTITHREAD_THRESHOLD )
-		{
-			nthreads_max = 2;
-			if ( args.m <=    1 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 1;
-			if ( args.n <     1 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 1;
-			if ( args.k <     1 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 1;
-		}
-		else
-		{
-				if ( args.n <     2 * GEMM_MULTITHREAD_THRESHOLD ) nthreads_max = 2;
-		}
-	}
-  }
-
 #endif
-  args.common = NULL;
 
-  if ( nthreads_max > nthreads_avail )
-  	args.nthreads = nthreads_avail;
+  MNK = (double) args.m * (double) args.n * (double) args.k;
+  if ( MNK <= (SMP_THRESHOLD_MIN  * (double) GEMM_MULTITHREAD_THRESHOLD)  )
+	args.nthreads = 1;
   else
-  	args.nthreads = nthreads_max;
-
+	args.nthreads = num_cpu_avail(3);
+  args.common = NULL;
 
  if (args.nthreads == 1) {
 #endif

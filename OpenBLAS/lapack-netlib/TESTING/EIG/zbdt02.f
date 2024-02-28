@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZBDT02( M, N, B, LDB, C, LDC, U, LDU, WORK, RWORK,
 *                          RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDB, LDC, LDU, M, N
 *       DOUBLE PRECISION   RESID
@@ -20,14 +20,15 @@
 *       COMPLEX*16         B( LDB, * ), C( LDC, * ), U( LDU, * ),
 *      $                   WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*> ZBDT02 tests the change of basis C = U' * B by computing the residual
+*> ZBDT02 tests the change of basis C = U**H * B by computing the
+*> residual
 *>
 *>    RESID = norm( B - U * C ) / ( max(m,n) * norm(B) * EPS ),
 *>
@@ -66,7 +67,7 @@
 *> \param[in] C
 *> \verbatim
 *>          C is COMPLEX*16 array, dimension (LDC,N)
-*>          The m by n matrix C, assumed to contain U' * B.
+*>          The m by n matrix C, assumed to contain U**H * B.
 *> \endverbatim
 *>
 *> \param[in] LDC
@@ -106,12 +107,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
@@ -119,10 +118,9 @@
       SUBROUTINE ZBDT02( M, N, B, LDB, C, LDC, U, LDU, WORK, RWORK,
      $                   RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDB, LDC, LDU, M, N

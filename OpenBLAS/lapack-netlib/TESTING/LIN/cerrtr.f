@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CERRTR( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -42,22 +42,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
 *  =====================================================================
       SUBROUTINE CERRTR( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -73,7 +70,7 @@
 *     .. Local Scalars ..
       CHARACTER*2        C2
       INTEGER            INFO
-      REAL               RCOND, SCALE
+      REAL               RCOND, SCALE, SCALES(0)
 *     ..
 *     .. Local Arrays ..
       REAL               R1( NMAX ), R2( NMAX ), RW( NMAX )
@@ -85,9 +82,10 @@
       EXTERNAL           LSAMEN
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALAESM, CHKXER, CLATBS, CLATPS, CLATRS, CTBCON,
-     $                   CTBRFS, CTBTRS, CTPCON, CTPRFS, CTPTRI, CTPTRS,
-     $                   CTRCON, CTRRFS, CTRTI2, CTRTRI, CTRTRS
+      EXTERNAL           ALAESM, CHKXER, CLATBS, CLATPS, CLATRS,
+     $                   CLATRS3, CTBCON, CTBRFS, CTBTRS, CTPCON,
+     $                   CTPRFS, CTPTRI, CTPTRS, CTRCON, CTRRFS, CTRTI2,
+     $                   CTRTRI, CTRTRS
 *     ..
 *     .. Scalars in Common ..
       LOGICAL            LERR, OK
@@ -242,6 +240,46 @@
          INFOT = 7
          CALL CLATRS( 'U', 'N', 'N', 'N', 2, A, 1, X, SCALE, RW, INFO )
          CALL CHKXER( 'CLATRS', INFOT, NOUT, LERR, OK )
+*
+*        CLATRS3
+*
+         SRNAMT = 'CLATRS3'
+         INFOT = 1
+         CALL CLATRS3( '/', 'N', 'N', 'N', 0, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 2
+         CALL CLATRS3( 'U', '/', 'N', 'N', 0, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 3
+         CALL CLATRS3( 'U', 'N', '/', 'N', 0, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 4
+         CALL CLATRS3( 'U', 'N', 'N', '/', 0, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 5
+         CALL CLATRS3( 'U', 'N', 'N', 'N', -1, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 6
+         CALL CLATRS3( 'U', 'N', 'N', 'N', 0, -1, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 8
+         CALL CLATRS3( 'U', 'N', 'N', 'N', 2, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 10
+         CALL CLATRS3( 'U', 'N', 'N', 'N', 2, 0, A, 2, X, 1, SCALES,
+     $                 RW, RW( 2 ), 1, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
+         INFOT = 14
+         CALL CLATRS3( 'U', 'N', 'N', 'N', 1, 0, A, 1, X, 1, SCALES,
+     $                 RW, RW( 2 ), 0, INFO )
+         CALL CHKXER( 'CLATRS3', INFOT, NOUT, LERR, OK )
 *
 *     Test error exits for the packed triangular routines.
 *

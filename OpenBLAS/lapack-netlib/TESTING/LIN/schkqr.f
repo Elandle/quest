@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE SCHKQR( DOTYPE, NM, MVAL, NN, NVAL, NNB, NBVAL, NXVAL,
 *                          NRHS, THRESH, TSTERR, NMAX, A, AF, AQ, AR, AC,
 *                          B, X, XACT, TAU, WORK, RWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NM, NMAX, NN, NNB, NOUT, NRHS
@@ -25,7 +25,7 @@
 *      $                   B( * ), RWORK( * ), TAU( * ), WORK( * ),
 *      $                   X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -187,12 +187,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
@@ -201,10 +199,9 @@
      $                   NRHS, THRESH, TSTERR, NMAX, A, AF, AQ, AR, AC,
      $                   B, X, XACT, TAU, WORK, RWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -247,7 +244,7 @@
       EXTERNAL           SGENND
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALAERH, ALAHD, ALASUM, SERRQR, SGEQRS, SGET02,
+      EXTERNAL           ALAERH, ALAHD, ALASUM, SERRQR, SGELS, SGET02,
      $                   SLACPY, SLARHS, SLATB4, SLATMS, SQRT01,
      $                   SQRT01P, SQRT02, SQRT03, XLAENV
 *     ..
@@ -391,7 +388,7 @@
      $                               WORK, LWORK, RWORK, RESULT( 3 ) )
                         NT = NT + 4
 *
-*                       If M>=N and K=N, call SGEQRS to solve a system
+*                       If M>=N and K=N, call SGELS to solve a system
 *                       with NRHS right hand sides and compute the
 *                       residual.
 *
@@ -408,14 +405,20 @@
 *
                            CALL SLACPY( 'Full', M, NRHS, B, LDA, X,
      $                                  LDA )
-                           SRNAMT = 'SGEQRS'
-                           CALL SGEQRS( M, N, NRHS, AF, LDA, TAU, X,
-     $                                  LDA, WORK, LWORK, INFO )
 *
-*                          Check error code from SGEQRS.
+*                          Reset AF to the original matrix. SGELS
+*                          factors the matrix before solving the system.
+*
+                           CALL SLACPY( 'Full', M, N, A, LDA, AF, LDA )
+*
+                           SRNAMT = 'SGELS'
+                           CALL SGELS( 'No transpose', M, N, NRHS, AF,
+     $                                 LDA, X, LDA, WORK, LWORK, INFO )
+*
+*                          Check error code from SGELS.
 *
                            IF( INFO.NE.0 )
-     $                        CALL ALAERH( PATH, 'SGEQRS', INFO, 0, ' ',
+     $                        CALL ALAERH( PATH, 'SGELS', INFO, 0, 'N',
      $                                     M, N, NRHS, -1, NB, IMAT,
      $                                     NFAIL, NERRS, NOUT )
 *
@@ -438,7 +441,7 @@
                            NFAIL = NFAIL + 1
                         END IF
    20                CONTINUE
-                     NRUN = NRUN + NT
+                     NRUN = NRUN + NTESTS
    30             CONTINUE
    40          CONTINUE
    50       CONTINUE

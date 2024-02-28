@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CERRLQ( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -43,22 +43,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
 *  =====================================================================
       SUBROUTINE CERRLQ( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -79,7 +76,7 @@
      $                   W( NMAX ), X( NMAX )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALAESM, CGELQ2, CGELQF, CGELQS, CHKXER, CUNGL2,
+      EXTERNAL           ALAESM, CGELQ2, CGELQF, CHKXER, CUNGL2,
      $                   CUNGLQ, CUNML2, CUNMLQ
 *     ..
 *     .. Scalars in Common ..
@@ -142,31 +139,6 @@
       INFOT = 4
       CALL CGELQ2( 2, 1, A, 1, B, W, INFO )
       CALL CHKXER( 'CGELQ2', INFOT, NOUT, LERR, OK )
-*
-*     CGELQS
-*
-      SRNAMT = 'CGELQS'
-      INFOT = 1
-      CALL CGELQS( -1, 0, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 2
-      CALL CGELQS( 0, -1, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 2
-      CALL CGELQS( 2, 1, 0, A, 2, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 3
-      CALL CGELQS( 0, 0, -1, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 5
-      CALL CGELQS( 2, 2, 0, A, 1, X, B, 2, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 8
-      CALL CGELQS( 1, 2, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 10
-      CALL CGELQS( 1, 1, 2, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'CGELQS', INFOT, NOUT, LERR, OK )
 *
 *     CUNGLQ
 *

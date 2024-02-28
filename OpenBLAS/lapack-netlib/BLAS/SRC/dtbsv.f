@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DTBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER INCX,K,LDA,N
 *       CHARACTER DIAG,TRANS,UPLO
@@ -17,7 +17,7 @@
 *       .. Array Arguments ..
 *       DOUBLE PRECISION A(LDA,*),X(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -94,7 +94,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array of DIMENSION ( LDA, n ).
+*>          A is DOUBLE PRECISION array, dimension ( LDA, N )
 *>           Before entry with UPLO = 'U' or 'u', the leading ( k + 1 )
 *>           by n part of the array A must contain the upper triangular
 *>           band part of the matrix of coefficients, supplied column by
@@ -146,7 +146,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array of dimension at least
+*>          X is DOUBLE PRECISION array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element right-hand side vector b. On exit, X is overwritten
@@ -163,12 +163,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date December 2016
 *
 *> \ingroup double_blas_level2
 *
@@ -189,10 +189,10 @@
 *  =====================================================================
       SUBROUTINE DTBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
 *
-*  -- Reference BLAS level2 routine (version 3.4.0) --
+*  -- Reference BLAS level2 routine (version 3.7.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     December 2016
 *
 *     .. Scalar Arguments ..
       INTEGER INCX,K,LDA,N

@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download STGSYL + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/stgsyl.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/stgsyl.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/stgsyl.f"> 
+*> Download STGSYL + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/stgsyl.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/stgsyl.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/stgsyl.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE STGSYL( TRANS, IJOB, M, N, A, LDA, B, LDB, C, LDC, D,
 *                          LDD, E, LDE, F, LDF, SCALE, DIF, WORK, LWORK,
 *                          IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF,
@@ -34,7 +34,7 @@
 *      $                   D( LDD, * ), E( LDE, * ), F( LDF, * ),
 *      $                   WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -88,20 +88,20 @@
 *> \param[in] TRANS
 *> \verbatim
 *>          TRANS is CHARACTER*1
-*>          = 'N', solve the generalized Sylvester equation (1).
-*>          = 'T', solve the 'transposed' system (3).
+*>          = 'N': solve the generalized Sylvester equation (1).
+*>          = 'T': solve the 'transposed' system (3).
 *> \endverbatim
 *>
 *> \param[in] IJOB
 *> \verbatim
 *>          IJOB is INTEGER
 *>          Specifies what kind of functionality to be performed.
-*>           =0: solve (1) only.
-*>           =1: The functionality of 0 and 3.
-*>           =2: The functionality of 0 and 4.
-*>           =3: Only an estimate of Dif[(A,D), (B,E)] is computed.
+*>          = 0: solve (1) only.
+*>          = 1: The functionality of 0 and 3.
+*>          = 2: The functionality of 0 and 4.
+*>          = 3: Only an estimate of Dif[(A,D), (B,E)] is computed.
 *>               (look ahead strategy IJOB  = 1 is used).
-*>           =4: Only an estimate of Dif[(A,D), (B,E)] is computed.
+*>          = 4: Only an estimate of Dif[(A,D), (B,E)] is computed.
 *>               ( SGECON on sub-systems is used ).
 *>          Not referenced if TRANS = 'T'.
 *> \endverbatim
@@ -256,14 +256,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realSYcomputational
+*> \ingroup tgsyl
 *
 *> \par Contributors:
 *  ==================
@@ -299,10 +297,9 @@
      $                   LDD, E, LDE, F, LDF, SCALE, DIF, WORK, LWORK,
      $                   IWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANS
@@ -334,7 +331,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      EXTERNAL           LSAME, ILAENV
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           LSAME, ILAENV, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SGEMM, SLACPY, SLASET, SSCAL, STGSY2, XERBLA
@@ -387,7 +385,7 @@
          ELSE
             LWMIN = 1
          END IF
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
 *
          IF( LWORK.LT.LWMIN .AND. .NOT.LQUERY ) THEN
             INFO = -20
@@ -673,7 +671,7 @@
 *
       END IF
 *
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
 *
       RETURN
 *

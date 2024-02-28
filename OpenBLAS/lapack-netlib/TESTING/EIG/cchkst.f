@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -13,7 +13,7 @@
 *                          WA1, WA2, WA3, WR, U, LDU, V, VP, TAU, Z, WORK,
 *                          LWORK, RWORK, LRWORK, IWORK, LIWORK, RESULT,
 *                          INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDU, LIWORK, LRWORK, LWORK, NOUNIT,
 *      $                   NSIZES, NTYPES
@@ -28,7 +28,7 @@
 *       COMPLEX            A( LDA, * ), AP( * ), TAU( * ), U( LDU, * ),
 *      $                   V( LDU, * ), VP( * ), WORK( * ), Z( LDU, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -167,7 +167,7 @@
 *>                                              CSTEMR('V', 'I')
 *>
 *> Tests 29 through 34 are disable at present because CSTEMR
-*> does not handle partial specturm requests.
+*> does not handle partial spectrum requests.
 *>
 *> (29)    | S - Z D Z* | / ( |S| n ulp )    CSTEMR('V', 'I')
 *>
@@ -364,7 +364,7 @@
 *> \verbatim
 *>          D1 is REAL array of
 *>                             dimension( max(NN) )
-*>          The eigenvalues of A, as computed by CSTEQR simlutaneously
+*>          The eigenvalues of A, as computed by CSTEQR simultaneously
 *>          with Z.  On exit, the eigenvalues in D1 correspond with the
 *>          matrix in A.
 *> \endverbatim
@@ -519,7 +519,7 @@
 *> \verbatim
 *>          LIWORK is INTEGER
 *>          The number of entries in IWORK.  This must be at least
-*>                  6 + 6*Nmax + 5 * Nmax * lg Nmax 
+*>                  6 + 6*Nmax + 5 * Nmax * lg Nmax
 *>          where Nmax = max( NN(j), 2 ) and lg = log base 2.
 *> \endverbatim
 *>
@@ -588,12 +588,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_eig
 *
@@ -604,10 +602,9 @@
      $                   LWORK, RWORK, LRWORK, IWORK, LIWORK, RESULT,
      $                   INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDU, LIWORK, LRWORK, LWORK, NOUNIT,
@@ -668,8 +665,7 @@
       EXTERNAL           CCOPY, CHET21, CHETRD, CHPT21, CHPTRD, CLACPY,
      $                   CLASET, CLATMR, CLATMS, CPTEQR, CSTEDC, CSTEMR,
      $                   CSTEIN, CSTEQR, CSTT21, CSTT22, CUNGTR, CUPGTR,
-     $                   SCOPY, SLABAD, SLASUM, SSTEBZ, SSTECH, SSTERF,
-     $                   XERBLA
+     $                   SCOPY, SLASUM, SSTEBZ, SSTECH, SSTERF, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, CONJG, INT, LOG, MAX, MIN, REAL, SQRT
@@ -736,7 +732,6 @@
 *
       UNFL = SLAMCH( 'Safe minimum' )
       OVFL = ONE / UNFL
-      CALL SLABAD( UNFL, OVFL )
       ULP = SLAMCH( 'Epsilon' )*SLAMCH( 'Base' )
       ULPINV = ONE / ULP
       LOG2UI = INT( LOG( ULPINV ) / LOG( TWO ) )

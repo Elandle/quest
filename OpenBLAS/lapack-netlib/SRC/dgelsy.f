@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DGELSY + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgelsy.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgelsy.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgelsy.f"> 
+*> Download DGELSY + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgelsy.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgelsy.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgelsy.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGELSY( M, N, NRHS, A, LDA, B, LDB, JPVT, RCOND, RANK,
 *                          WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
 *       DOUBLE PRECISION   RCOND
@@ -29,7 +29,7 @@
 *       INTEGER            JPVT( * )
 *       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -115,6 +115,7 @@
 *>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
 *>          On entry, the M-by-NRHS right hand side matrix B.
 *>          On exit, the N-by-NRHS solution matrix X.
+*>          If M = 0 or N = 0, B is not referenced.
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -147,6 +148,7 @@
 *>          The effective rank of A, i.e., the order of the submatrix
 *>          R11.  This is the same as the order of the submatrix T11
 *>          in the complete orthogonal factorization of A.
+*>          If NRHS = 0, RANK = 0 on output.
 *> \endverbatim
 *>
 *> \param[out] WORK
@@ -184,19 +186,17 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup doubleGEsolve
 *
 *> \par Contributors:
 *  ==================
 *>
-*>    A. Petitet, Computer Science Dept., Univ. of Tenn., Knoxville, USA \n 
+*>    A. Petitet, Computer Science Dept., Univ. of Tenn., Knoxville, USA \n
 *>    E. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain \n
 *>    G. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain \n
 *>
@@ -204,10 +204,9 @@
       SUBROUTINE DGELSY( M, N, NRHS, A, LDA, B, LDB, JPVT, RCOND, RANK,
      $                   WORK, LWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK

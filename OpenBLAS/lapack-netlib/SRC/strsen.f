@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download STRSEN + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/strsen.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/strsen.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/strsen.f"> 
+*> Download STRSEN + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/strsen.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/strsen.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/strsen.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE STRSEN( JOB, COMPQ, SELECT, N, T, LDT, Q, LDQ, WR, WI,
 *                          M, S, SEP, WORK, LWORK, IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          COMPQ, JOB
 *       INTEGER            INFO, LDQ, LDT, LIWORK, LWORK, M, N
@@ -32,7 +32,7 @@
 *       REAL               Q( LDQ, * ), T( LDT, * ), WI( * ), WORK( * ),
 *      $                   WR( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -226,14 +226,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date April 2012
-*
-*> \ingroup realOTHERcomputational
+*> \ingroup trsen
 *
 *> \par Further Details:
 *  =====================
@@ -314,10 +312,9 @@
       SUBROUTINE STRSEN( JOB, COMPQ, SELECT, N, T, LDT, Q, LDQ, WR, WI,
      $                   M, S, SEP, WORK, LWORK, IWORK, LIWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.1) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          COMPQ, JOB
@@ -349,8 +346,8 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      REAL               SLANGE
-      EXTERNAL           LSAME, SLANGE
+      REAL               SLANGE, SROUNDUP_LWORK
+      EXTERNAL           LSAME, SLANGE, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SLACN2, SLACPY, STREXC, STRSYL, XERBLA
@@ -430,7 +427,7 @@
       END IF
 *
       IF( INFO.EQ.0 ) THEN
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
          IWORK( 1 ) = LIWMIN
       END IF
 *
@@ -561,7 +558,7 @@
          END IF
    60 CONTINUE
 *
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       IWORK( 1 ) = LIWMIN
 *
       RETURN

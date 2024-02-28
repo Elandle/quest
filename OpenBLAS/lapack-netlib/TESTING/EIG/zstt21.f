@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZSTT21( N, KBAND, AD, AE, SD, SE, U, LDU, WORK, RWORK,
 *                          RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            KBAND, LDU, N
 *       ..
@@ -19,7 +19,7 @@
 *      $                   SD( * ), SE( * )
 *       COMPLEX*16         U( LDU, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -28,14 +28,15 @@
 *>
 *> ZSTT21  checks a decomposition of the form
 *>
-*>    A = U S UC>
-*> where * means conjugate transpose, A is real symmetric tridiagonal,
+*>    A = U S U**H
+*>
+*> where **H means conjugate transpose, A is real symmetric tridiagonal,
 *> U is unitary, and S is real and diagonal (if KBAND=0) or symmetric
 *> tridiagonal (if KBAND=1).  Two tests are performed:
 *>
-*>    RESULT(1) = | A - U S U* | / ( |A| n ulp )
+*>    RESULT(1) = | A - U S U**H | / ( |A| n ulp )
 *>
-*>    RESULT(2) = | I - UU* | / ( n ulp )
+*>    RESULT(2) = | I - U U**H | / ( n ulp )
 *> \endverbatim
 *
 *  Arguments:
@@ -119,12 +120,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
@@ -132,10 +131,9 @@
       SUBROUTINE ZSTT21( N, KBAND, AD, AE, SD, SE, U, LDU, WORK, RWORK,
      $                   RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            KBAND, LDU, N
@@ -228,7 +226,7 @@
 *
 *     Do Test 2
 *
-*     Compute  UU* - I
+*     Compute  U U**H - I
 *
       CALL ZGEMM( 'N', 'C', N, N, N, CONE, U, LDU, U, LDU, CZERO, WORK,
      $            N )

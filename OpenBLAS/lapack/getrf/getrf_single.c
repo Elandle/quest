@@ -51,7 +51,7 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
   BLASLONG jjs, min_jj;
   blasint *ipiv, iinfo, info;
   BLASLONG jb, mn, blocking;
-  FLOAT *a, *offsetA, *offsetB;
+  FLOAT *a, *offsetA; //, *offsetB;
   BLASLONG range_N[2];
 
   FLOAT *sbb;
@@ -74,13 +74,20 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
 
   mn = MIN(m, n);
 
-  blocking = (mn / 2 + GEMM_UNROLL_N - 1) & ~(GEMM_UNROLL_N - 1);
+  blocking = ((mn / 2 + GEMM_UNROLL_N - 1)/GEMM_UNROLL_N) * GEMM_UNROLL_N;
   if (blocking > GEMM_Q) blocking = GEMM_Q;
 
+#ifdef POWER8
+  if (blocking <= GEMM_UNROLL_N) {
+    info = GETF2(args, NULL, range_n, sa, sb, 0);
+    return info;
+  }
+#else
   if (blocking <= GEMM_UNROLL_N * 2) {
     info = GETF2(args, NULL, range_n, sa, sb, 0);
     return info;
   }
+#endif
 
   sbb = (FLOAT *)((((BLASULONG)(sb + blocking * blocking * COMPSIZE) + GEMM_ALIGN) & ~GEMM_ALIGN) + GEMM_OFFSET_B);
 
@@ -92,7 +99,7 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
     if (jb > blocking) jb = blocking;
 
     offsetA = a +  j       * lda * COMPSIZE;
-    offsetB = a + (j + jb) * lda * COMPSIZE;
+    // offsetB = a + (j + jb) * lda * COMPSIZE;
 
     range_N[0] = offset + j;
     range_N[1] = offset + j + jb;

@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZGETF2 + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zgetf2.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zgetf2.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zgetf2.f"> 
+*> Download ZGETF2 + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zgetf2.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zgetf2.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zgetf2.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZGETF2( M, N, A, LDA, IPIV, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, M, N
 *       ..
@@ -27,7 +27,7 @@
 *       INTEGER            IPIV( * )
 *       COMPLEX*16         A( LDA, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -96,22 +96,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup complex16GEcomputational
+*> \ingroup getf2
 *
 *  =====================================================================
       SUBROUTINE ZGETF2( M, N, A, LDA, IPIV, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, M, N
@@ -130,7 +127,7 @@
 *     ..
 *     .. Local Scalars ..
       DOUBLE PRECISION   SFMIN
-      INTEGER            I, J, JP
+      INTEGER            J, JP
 *     ..
 *     .. External Functions ..
       DOUBLE PRECISION   DLAMCH
@@ -138,7 +135,7 @@
       EXTERNAL           DLAMCH, IZAMAX
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           XERBLA, ZGERU, ZSCAL, ZSWAP
+      EXTERNAL           XERBLA, ZGERU, ZRSCL, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MAX, MIN
@@ -167,7 +164,7 @@
 *
 *     Compute machine safe minimum
 *
-      SFMIN = DLAMCH('S') 
+      SFMIN = DLAMCH('S')
 *
       DO 10 J = 1, MIN( M, N )
 *
@@ -184,15 +181,8 @@
 *
 *           Compute elements J+1:M of J-th column.
 *
-            IF( J.LT.M ) THEN
-               IF( ABS(A( J, J )) .GE. SFMIN ) THEN
-                  CALL ZSCAL( M-J, ONE / A( J, J ), A( J+1, J ), 1 )
-               ELSE
-                  DO 20 I = 1, M-J
-                     A( J+I, J ) = A( J+I, J ) / A( J, J )
-   20             CONTINUE
-               END IF
-            END IF
+            IF( J.LT.M )
+     $         CALL ZRSCL( M-J, A( J, J ), A( J+1, J ), 1 )
 *
          ELSE IF( INFO.EQ.0 ) THEN
 *

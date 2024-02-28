@@ -2,14 +2,14 @@ C> \brief \b DPOTRF VARIANT: top-looking block version of the algorithm, calling
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DPOTRF ( UPLO, N, A, LDA, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, N
@@ -17,7 +17,7 @@ C> \brief \b DPOTRF VARIANT: top-looking block version of the algorithm, calling
 *       .. Array Arguments ..
 *       DOUBLE PRECISION   A( LDA, * )
 *       ..
-*  
+*
 *  Purpose
 *  =======
 *
@@ -79,8 +79,8 @@ C> \verbatim
 C>          INFO is INTEGER
 C>          = 0:  successful exit
 C>          < 0:  if INFO = -i, the i-th argument had an illegal value
-C>          > 0:  if INFO = i, the leading minor of order i is not
-C>                positive definite, and the factorization could not be
+C>          > 0:  if INFO = i, the leading principal minor of order i
+C>                is not positive, and the factorization could not be
 C>                completed.
 C> \endverbatim
 C>
@@ -88,22 +88,21 @@ C>
 *  Authors:
 *  ========
 *
-C> \author Univ. of Tennessee 
-C> \author Univ. of California Berkeley 
-C> \author Univ. of Colorado Denver 
-C> \author NAG Ltd. 
+C> \author Univ. of Tennessee
+C> \author Univ. of California Berkeley
+C> \author Univ. of Colorado Denver
+C> \author NAG Ltd.
 *
-C> \date November 2011
+C> \date December 2016
 *
 C> \ingroup variantsPOcomputational
 *
 *  =====================================================================
       SUBROUTINE DPOTRF ( UPLO, N, A, LDA, INFO )
 *
-*  -- LAPACK computational routine (version 3.1) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -184,7 +183,7 @@ C> \ingroup variantsPOcomputational
      $                      A( 1, J ), LDA )
 
                CALL DSYRK( 'Upper', 'Transpose', JB, J-1, -ONE,
-     $                      A( 1, J ), LDA, 
+     $                      A( 1, J ), LDA,
      $                      ONE, A( J, J ), LDA )
 *
 *              Update and factorize the current diagonal block and test
@@ -210,10 +209,10 @@ C> \ingroup variantsPOcomputational
      $                     JB, J-1, ONE, A( 1, 1 ), LDA,
      $                     A( J, 1 ), LDA )
 
-               CALL DSYRK( 'Lower', 'No Transpose', JB, J-1, 
-     $                     -ONE, A( J, 1 ), LDA, 
+               CALL DSYRK( 'Lower', 'No Transpose', JB, J-1,
+     $                     -ONE, A( J, 1 ), LDA,
      $                     ONE, A( J, J ), LDA )
-               
+
 *
 *              Update and factorize the current diagonal block and test
 *              for non-positive-definiteness.

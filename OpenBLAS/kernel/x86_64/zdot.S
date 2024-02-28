@@ -55,6 +55,8 @@
 	PROFCODE
 
 #ifdef WINDOWS_ABI
+	emms
+
 	movq	40(%rsp), INCY
 #endif
 
@@ -244,9 +246,11 @@
 #ifndef CONJ
 	fsubp	%st, %st(3)
 	faddp	%st, %st(1)
+	fxch	%st(1)
 #else
 	faddp	%st, %st(3)
 	fsubp	%st, %st(1)
+	fxch	%st(1)
 #endif
 	ret
 	ALIGN_3

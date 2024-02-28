@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSBT21( UPLO, N, KA, KS, A, LDA, D, E, U, LDU, WORK,
 *                          RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            KA, KS, LDA, LDU, N
@@ -19,7 +19,7 @@
 *       REAL               A( LDA, * ), D( * ), E( * ), RESULT( 2 ),
 *      $                   U( LDU, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -28,15 +28,16 @@
 *>
 *> SSBT21  generally checks a decomposition of the form
 *>
-*>         A = U S U'
+*>         A = U S U**T
 *>
-*> where ' means transpose, A is symmetric banded, U is
+*> where **T means transpose, A is symmetric banded, U is
 *> orthogonal, and S is diagonal (if KS=0) or symmetric
 *> tridiagonal (if KS=1).
 *>
 *> Specifically:
 *>
-*>         RESULT(1) = | A - U S U' | / ( |A| n ulp ) *andC>         RESULT(2) = | I - UU' | / ( n ulp )
+*>         RESULT(1) = | A - U S U**T | / ( |A| n ulp ) and
+*>         RESULT(2) = | I - U U**T | / ( n ulp )
 *> \endverbatim
 *
 *  Arguments:
@@ -133,12 +134,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_eig
 *
@@ -146,10 +145,9 @@
       SUBROUTINE SSBT21( UPLO, N, KA, KS, A, LDA, D, E, U, LDU, WORK,
      $                   RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -214,7 +212,7 @@
 *
       ANORM = MAX( SLANSB( '1', CUPLO, N, IKA, A, LDA, WORK ), UNFL )
 *
-*     Compute error matrix:    Error = A - U S U'
+*     Compute error matrix:    Error = A - U S U**T
 *
 *     Copy A from SB to SP storage format.
 *
@@ -265,7 +263,7 @@
 *
 *     Do Test 2
 *
-*     Compute  UU' - I
+*     Compute  U U**T - I
 *
       CALL SGEMM( 'N', 'C', N, N, N, ONE, U, LDU, U, LDU, ZERO, WORK,
      $            N )

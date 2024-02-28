@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE SDRVSG( NSIZES, NN, NTYPES, DOTYPE, ISEED, THRESH,
 *                          NOUNIT, A, LDA, B, LDB, D, Z, LDZ, AB, BB, AP,
 *                          BP, WORK, NWORK, IWORK, LIWORK, RESULT, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LDZ, LIWORK, NOUNIT, NSIZES,
 *      $                   NTYPES, NWORK
@@ -24,7 +24,7 @@
 *      $                   B( LDB, * ), BB( LDB, * ), BP( * ), D( * ),
 *      $                   RESULT( * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -234,7 +234,7 @@
 *>
 *>  B       REAL array, dimension (LDB , max(NN))
 *>          Used to hold the symmetric positive definite matrix for
-*>          the generailzed problem.
+*>          the generalized problem.
 *>          On exit, B contains the last matrix actually
 *>          used.
 *>          Modified.
@@ -341,12 +341,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_eig
 *
@@ -355,10 +353,9 @@
      $                   NOUNIT, A, LDA, B, LDB, D, Z, LDZ, AB, BB, AP,
      $                   BP, WORK, NWORK, IWORK, LIWORK, RESULT, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LDZ, LIWORK, NOUNIT, NSIZES,
@@ -402,7 +399,7 @@
       EXTERNAL           LSAME, SLAMCH, SLARND
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           SLABAD, SLACPY, SLAFTS, SLASET, SLASUM, SLATMR,
+      EXTERNAL           SLACPY, SLAFTS, SLASET, SLASUM, SLATMR,
      $                   SLATMS, SSBGV, SSBGVD, SSBGVX, SSGT01, SSPGV,
      $                   SSPGVD, SSPGVX, SSYGV, SSYGVD, SSYGVX, XERBLA
 *     ..
@@ -463,7 +460,6 @@
 *
       UNFL = SLAMCH( 'Safe minimum' )
       OVFL = SLAMCH( 'Overflow' )
-      CALL SLABAD( UNFL, OVFL )
       ULP = SLAMCH( 'Epsilon' )*SLAMCH( 'Base' )
       ULPINV = ONE / ULP
       RTUNFL = SQRT( UNFL )
@@ -648,8 +644,8 @@
                IL = 1
                IU = N
             ELSE
-               IL = 1 + ( N-1 )*SLARND( 1, ISEED2 )
-               IU = 1 + ( N-1 )*SLARND( 1, ISEED2 )
+               IL = 1 + INT( ( N-1 )*SLARND( 1, ISEED2 ) )
+               IU = 1 + INT( ( N-1 )*SLARND( 1, ISEED2 ) )
                IF( IL.GT.IU ) THEN
                   ITEMP = IL
                   IL = IU

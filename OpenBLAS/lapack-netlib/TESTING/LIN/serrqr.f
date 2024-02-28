@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SERRQR( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -43,22 +43,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
 *  =====================================================================
       SUBROUTINE SERRQR( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -80,7 +77,7 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ALAESM, CHKXER, SGEQR2, SGEQR2P, SGEQRF,
-     $                   SGEQRFP, SGEQRS, SORG2R, SORGQR, SORM2R,
+     $                   SGEQRFP, SORG2R, SORGQR, SORM2R,
      $                   SORMQR
 *     ..
 *     .. Scalars in Common ..
@@ -172,31 +169,6 @@
       INFOT = 4
       CALL SGEQR2P( 2, 1, A, 1, B, W, INFO )
       CALL CHKXER( 'SGEQR2P', INFOT, NOUT, LERR, OK )
-*
-*     SGEQRS
-*
-      SRNAMT = 'SGEQRS'
-      INFOT = 1
-      CALL SGEQRS( -1, 0, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
-      INFOT = 2
-      CALL SGEQRS( 0, -1, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
-      INFOT = 2
-      CALL SGEQRS( 1, 2, 0, A, 2, X, B, 2, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
-      INFOT = 3
-      CALL SGEQRS( 0, 0, -1, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
-      INFOT = 5
-      CALL SGEQRS( 2, 1, 0, A, 1, X, B, 2, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
-      INFOT = 8
-      CALL SGEQRS( 2, 1, 0, A, 2, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
-      INFOT = 10
-      CALL SGEQRS( 1, 1, 2, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'SGEQRS', INFOT, NOUT, LERR, OK )
 *
 *     SORGQR
 *

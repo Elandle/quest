@@ -1,5 +1,6 @@
 /*********************************************************************/
 /* Copyright 2009, 2010 The University of Texas at Austin.           */
+/* Copyright 2023 The OpenBLAS Project.                              */
 /* All rights reserved.                                              */
 /*                                                                   */
 /* Redistribution and use in source and binary forms, with or        */
@@ -44,10 +45,6 @@
 #define DIVIDE_RATE 2
 #endif
 
-#ifndef SWITCH_RATIO
-#define SWITCH_RATIO 2
-#endif
-
 //The array of job_t may overflow the stack.
 //Instead, use malloc to alloc job_t.
 #if MAX_CPU_NUMBER > BLAS3_MEM_ALLOC_THRESHOLD
@@ -67,7 +64,12 @@
 #endif
 
 typedef struct {
-  volatile BLASLONG working[MAX_CPU_NUMBER][CACHE_LINE_SIZE * DIVIDE_RATE];
+#ifdef HAVE_C11
+_Atomic
+#else 
+  volatile
+#endif
+   BLASLONG working[MAX_CPU_NUMBER][CACHE_LINE_SIZE * DIVIDE_RATE];
 } job_t;
 
 
@@ -200,9 +202,9 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
 
   if ((k == 0) || (alpha == NULL)) return 0;
 
-  if ((alpha[0] == ZERO)
+  if (alpha[0] == ZERO
 #if defined(COMPLEX) && !defined(HERK)
-      && (alpha[1] == ZERO)
+      && alpha[1] == ZERO
 #endif
       ) return 0;
 
@@ -210,8 +212,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
   fprintf(stderr, "Thread[%ld]  m_from : %ld m_to : %ld n_from : %ld n_to : %ld\n",  mypos, m_from, m_to, n_from, n_to);
 #endif
 
-  div_n = ((m_to - m_from + DIVIDE_RATE - 1) / DIVIDE_RATE
-	                            + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+  div_n = (((m_to - m_from + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 
   buffer[0] = sb;
   for (i = 1; i < DIVIDE_RATE; i++) {
@@ -233,7 +234,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
       min_i = GEMM_P;
     } else {
       if (min_i > GEMM_P) {
-	min_i = (min_i / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	min_i = ((min_i / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
       }
     }
 
@@ -253,8 +254,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
 
     STOP_RPCC(copy_A);
 
-    div_n = ((m_to - m_from + DIVIDE_RATE - 1) / DIVIDE_RATE
-	                              + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+    div_n = (((m_to - m_from + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 
     for (xxx = m_from, bufferside = 0; xxx < m_to; xxx += div_n, bufferside ++) {
 
@@ -353,9 +353,8 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
     while (current >= 0) {
 #endif
 
-	div_n = ((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE
-		 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
-
+	div_n = (((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
+ 
 	for (xxx = range_n[current], bufferside = 0; xxx < range_n[current + 1]; xxx += div_n, bufferside ++) {
 
 	  START_RPCC();
@@ -412,7 +411,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
 	min_i = GEMM_P;
       } else
 	if (min_i > GEMM_P) {
-	  min_i = ((min_i + 1) / 2 + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	  min_i = (((min_i + 1) / 2 + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 	}
 
       START_RPCC();
@@ -425,8 +424,7 @@ static int inner_thread(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, 
 
       do {
 
-	div_n = ((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE
-		                                                     + GEMM_UNROLL_MN - 1) & ~(GEMM_UNROLL_MN - 1);
+	div_n = (((range_n[current + 1]  - range_n[current] + DIVIDE_RATE - 1) / DIVIDE_RATE + GEMM_UNROLL_MN - 1)/GEMM_UNROLL_MN) * GEMM_UNROLL_MN;
 
 	for (xxx = range_n[current], bufferside = 0; xxx < range_n[current + 1]; xxx += div_n, bufferside ++) {
 
@@ -525,9 +523,15 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
   BLASLONG width, i, j, k;
   BLASLONG n, n_from, n_to;
   int  mode, mask;
-  double dnum;
+  double dnum, di, dinum;
 
-  if ((nthreads  == 1) || (args -> n < nthreads * SWITCH_RATIO)) {
+#if defined(DYNAMIC_ARCH)
+  int switch_ratio = gotoblas->switch_ratio;
+#else
+  int switch_ratio = SWITCH_RATIO;
+#endif
+
+  if ((nthreads == 1) || (args->n < nthreads * switch_ratio)) {
     SYRK_LOCAL(args, range_m, range_n, sa, sb, 0);
     return 0;
   }
@@ -538,10 +542,10 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
   mask  = MAX(QGEMM_UNROLL_M, QGEMM_UNROLL_N) - 1;
 #elif defined(DOUBLE)
   mode  =  BLAS_DOUBLE  | BLAS_REAL;
-  mask  = MAX(DGEMM_UNROLL_M, DGEMM_UNROLL_N) - 1;
+  mask  = DGEMM_UNROLL_MN - 1;
 #else
   mode  =  BLAS_SINGLE  | BLAS_REAL;
-  mask  = MAX(SGEMM_UNROLL_M, SGEMM_UNROLL_N) - 1;
+  mask  = SGEMM_UNROLL_MN - 1;
 #endif
 #else
 #ifdef XDOUBLE
@@ -549,10 +553,10 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
   mask  = MAX(XGEMM_UNROLL_M, XGEMM_UNROLL_N) - 1;
 #elif defined(DOUBLE)
   mode  =  BLAS_DOUBLE  | BLAS_COMPLEX;
-  mask  = MAX(ZGEMM_UNROLL_M, ZGEMM_UNROLL_N) - 1;
+  mask  = ZGEMM_UNROLL_MN - 1;
 #else
   mode  =  BLAS_SINGLE  | BLAS_COMPLEX;
-  mask  = MAX(CGEMM_UNROLL_M, CGEMM_UNROLL_N) - 1;
+  mask  = CGEMM_UNROLL_MN - 1;
 #endif
 #endif
 
@@ -600,11 +604,16 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
     if (nthreads - num_cpu > 1) {
 
-      double di   = (double)i;
+      di   = (double)i;
 
-      width = (((BLASLONG)(sqrt(di * di + dnum) - di) + mask) & ~mask);
+      dinum = di * di + dnum;
 
-      if (num_cpu == 0) width = n - ((n - width) & ~mask);
+      if (dinum > 0)
+        width = (((BLASLONG)((sqrt(dinum) - di) + mask)/(mask+1)) * (mask+1) );
+      else
+        width = (((BLASLONG)(- di + mask)/(mask+1)) * (mask+1) );
+
+      if (num_cpu == 0) width = n - (((n - width)/(mask+1)) * (mask+1) );
 
       if ((width > n - i) || (width < mask)) width = n - i;
 
@@ -642,10 +651,15 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
     if (nthreads - num_cpu > 1) {
 
-	double di   = (double)i;
+	di   = (double)i;
 
-	width = (((BLASLONG)(sqrt(di * di + dnum) - di) + mask) & ~mask);
+	dinum = di * di +dnum;
 
+        if (dinum > 0)
+	  width = (((BLASLONG)((sqrt(di * di + dnum) - di) + mask)/(mask+1)) * (mask+1));
+        else
+          width = (((BLASLONG)(- di + mask)/(mask+1)) * (mask+1));
+      
       if ((width > n - i) || (width < mask)) width = n - i;
 
     } else {

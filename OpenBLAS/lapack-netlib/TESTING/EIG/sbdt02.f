@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SBDT02( M, N, B, LDB, C, LDC, U, LDU, WORK, RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDB, LDC, LDU, M, N
 *       REAL               RESID
@@ -18,14 +18,15 @@
 *       REAL               B( LDB, * ), C( LDC, * ), U( LDU, * ),
 *      $                   WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*> SBDT02 tests the change of basis C = U' * B by computing the residual
+*> SBDT02 tests the change of basis C = U**H * B by computing the
+*> residual
 *>
 *>    RESID = norm( B - U * C ) / ( max(m,n) * norm(B) * EPS ),
 *>
@@ -64,7 +65,7 @@
 *> \param[in] C
 *> \verbatim
 *>          C is REAL array, dimension (LDC,N)
-*>          The m by n matrix C, assumed to contain U' * B.
+*>          The m by n matrix C, assumed to contain U**H * B.
 *> \endverbatim
 *>
 *> \param[in] LDC
@@ -99,22 +100,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_eig
 *
 *  =====================================================================
       SUBROUTINE SBDT02( M, N, B, LDB, C, LDC, U, LDU, WORK, RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDB, LDC, LDU, M, N

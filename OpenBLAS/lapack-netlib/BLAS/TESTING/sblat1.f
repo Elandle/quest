@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       PROGRAM SBLAT1
-* 
+*
 *
 *> \par Purpose:
 *  =============
@@ -25,10 +25,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \date April 2012
 *
@@ -37,7 +37,7 @@
 *  =====================================================================
       PROGRAM SBLAT1
 *
-*  -- Reference BLAS test routine (version 3.4.1) --
+*  -- Reference BLAS test routine (version 3.8.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *     April 2012
@@ -139,7 +139,7 @@
       REAL              DA1(8), DATRUE(8), DB1(8), DBTRUE(8), DC1(8),
      +                  DS1(8), DAB(4,9), DTEMP(9), DTRUE(9,9)
 *     .. External Subroutines ..
-      EXTERNAL          SROTG, SROTMG, STEST1
+      EXTERNAL          SROTG, SROTMG, STEST, STEST1
 *     .. Common blocks ..
       COMMON            /COMBLA/ICASE, N, INCX, INCY, PASS
 *     .. Data statements ..
@@ -345,7 +345,7 @@
 *     .. Local Scalars ..
       REAL              SA
       INTEGER           I, J, KI, KN, KNI, KPAR, KSIZE, LENX, LENY,
-     $                  MX, MY 
+     $                  MX, MY
 *     .. Local Arrays ..
       REAL              DT10X(7,4,4), DT10Y(7,4,4), DT7(4,4),
      $                  DT8(7,4,4), DX1(7),
@@ -946,7 +946,7 @@
       SUBROUTINE STEST1(SCOMP1,STRUE1,SSIZE,SFAC)
 *     ************************* STEST1 *****************************
 *
-*     THIS IS AN INTERFACE SUBROUTINE TO ACCOMODATE THE FORTRAN
+*     THIS IS AN INTERFACE SUBROUTINE TO ACCOMMODATE THE FORTRAN
 *     REQUIREMENT THAT WHEN A DUMMY ARGUMENT IS AN ARRAY, THE
 *     ACTUAL ARGUMENT MUST ALSO BE AN ARRAY OR AN ARRAY ELEMENT.
 *

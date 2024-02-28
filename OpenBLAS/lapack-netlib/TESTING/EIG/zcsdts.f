@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZCSDTS( M, P, Q, X, XF, LDX, U1, LDU1, U2, LDU2, V1T,
 *                          LDV1T, V2T, LDV2T, THETA, IWORK, WORK, LWORK,
 *                          RWORK, RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDX, LDU1, LDU2, LDV1T, LDV2T, LWORK, M, P, Q
 *       ..
@@ -22,7 +22,7 @@
 *      $                   V2T( LDV2T, * ), WORK( LWORK ), X( LDX, * ),
 *      $                   XF( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -215,12 +215,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
@@ -229,10 +227,9 @@
      $                   LDV1T, V2T, LDV2T, THETA, IWORK, WORK, LWORK,
      $                   RWORK, RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDX, LDU1, LDU2, LDV1T, LDV2T, LWORK, M, P, Q
@@ -248,11 +245,12 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   PIOVER2, REALONE, REALZERO
-      PARAMETER          ( PIOVER2 = 1.57079632679489662D0,
-     $                     REALONE = 1.0D0, REALZERO = 0.0D0 )
+      DOUBLE PRECISION   REALONE, REALZERO
+      PARAMETER          ( REALONE = 1.0D0, REALZERO = 0.0D0 )
       COMPLEX*16         ZERO, ONE
       PARAMETER          ( ZERO = (0.0D0,0.0D0), ONE = (1.0D0,0.0D0) )
+      DOUBLE PRECISION   PIOVER2
+      PARAMETER ( PIOVER2 = 1.57079632679489661923132169163975144210D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, INFO, R
@@ -280,7 +278,7 @@
       CALL ZHERK( 'Upper', 'Conjugate transpose', M, M, -REALONE,
      $            X, LDX, REALONE, WORK, LDX )
       IF (M.GT.0) THEN
-         EPS2 = MAX( ULP, 
+         EPS2 = MAX( ULP,
      $               ZLANGE( '1', M, M, WORK, LDX, RWORK ) / DBLE( M ) )
       ELSE
          EPS2 = ULP
@@ -446,7 +444,7 @@
       CALL ZHERK( 'Upper', 'Conjugate transpose', Q, M, -REALONE,
      $            X, LDX, REALONE, WORK, LDX )
       IF (M.GT.0) THEN
-         EPS2 = MAX( ULP, 
+         EPS2 = MAX( ULP,
      $               ZLANGE( '1', Q, Q, WORK, LDX, RWORK ) / DBLE( M ) )
       ELSE
          EPS2 = ULP
@@ -553,7 +551,7 @@
       END DO
 *
       RETURN
-*      
+*
 *     End of ZCSDTS
 *
       END

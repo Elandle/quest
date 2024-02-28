@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SSYTRF_ROOK + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssytrf_rook.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssytrf_rook.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssytrf_rook.f"> 
+*> Download SSYTRF_ROOK + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssytrf_rook.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssytrf_rook.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssytrf_rook.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSYTRF_ROOK( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, LWORK, N
@@ -28,7 +28,7 @@
 *       INTEGER            IPIV( * )
 *       REAL               A( LDA, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -118,7 +118,7 @@
 *> \param[in] LWORK
 *> \verbatim
 *>          LWORK is INTEGER
-*>          The length of WORK.  LWORK >=1.  For best performance
+*>          The length of WORK.  LWORK >= 1.  For best performance
 *>          LWORK >= N*NB, where NB is the block size returned by ILAENV.
 *>
 *>          If LWORK = -1, then a workspace query is assumed; the routine
@@ -141,14 +141,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realSYcomputational
+*> \ingroup hetrf_rook
 *
 *> \par Further Details:
 *  =====================
@@ -195,7 +193,7 @@
 *>
 *> \verbatim
 *>
-*>   November 2011, Igor Kozachenko,
+*>   June 2016, Igor Kozachenko,
 *>                  Computer Science Division,
 *>                  University of California, Berkeley
 *>
@@ -208,10 +206,9 @@
 *  =====================================================================
       SUBROUTINE SSYTRF_ROOK( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -231,7 +228,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      EXTERNAL           LSAME, ILAENV
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           LSAME, ILAENV, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SLASYF_ROOK, SSYTF2_ROOK, XERBLA
@@ -261,8 +259,8 @@
 *        Determine the block size
 *
          NB = ILAENV( 1, 'SSYTRF_ROOK', UPLO, N, -1, -1, -1 )
-         LWKOPT = N*NB
-         WORK( 1 ) = LWKOPT
+         LWKOPT = MAX( 1, N*NB )
+         WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -321,7 +319,7 @@
 *        Set INFO on the first occurrence of a zero pivot
 *
          IF( INFO.EQ.0 .AND. IINFO.GT.0 )
-     $      INFO = IINFO     
+     $      INFO = IINFO
 *
 *        No need to adjust IPIV
 *
@@ -385,7 +383,8 @@
       END IF
 *
    40 CONTINUE
-      WORK( 1 ) = LWKOPT
+*
+      WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
       RETURN
 *
 *     End of SSYTRF_ROOK

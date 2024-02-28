@@ -2,39 +2,60 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       DOUBLE PRECISION FUNCTION DZASUM(N,ZX,INCX)
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
 *       COMPLEX*16 ZX(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*>    DZASUM takes the sum of the absolute values.
+*>    DZASUM takes the sum of the (|Re(.)| + |Im(.)|)'s of a complex vector and
+*>    returns a single precision result.
+*> \endverbatim
+*
+*  Arguments:
+*  ==========
+*
+*> \param[in] N
+*> \verbatim
+*>          N is INTEGER
+*>         number of elements in input vector(s)
+*> \endverbatim
+*>
+*> \param[in,out] ZX
+*> \verbatim
+*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*> \endverbatim
+*>
+*> \param[in] INCX
+*> \verbatim
+*>          INCX is INTEGER
+*>         storage spacing between elements of ZX
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date November 2017
 *
 *> \ingroup double_blas_level1
 *
@@ -51,10 +72,10 @@
 *  =====================================================================
       DOUBLE PRECISION FUNCTION DZASUM(N,ZX,INCX)
 *
-*  -- Reference BLAS level1 routine (version 3.4.0) --
+*  -- Reference BLAS level1 routine (version 3.8.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     November 2017
 *
 *     .. Scalar Arguments ..
       INTEGER INCX,N

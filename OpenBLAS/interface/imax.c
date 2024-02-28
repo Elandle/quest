@@ -136,6 +136,8 @@ blasint NAME(blasint *N, FLOAT *x, blasint *INCX){
 
   ret = (blasint)MAX_K(n, x, incx);
 
+  if(ret > n) ret=n;
+
   FUNCTION_PROFILE_END(COMPSIZE, n, 0);
 
   IDEBUG_END;
@@ -144,8 +146,12 @@ blasint NAME(blasint *N, FLOAT *x, blasint *INCX){
 }
 
 #else
-
+#ifdef COMPLEX
+CBLAS_INDEX CNAME(blasint n, void *vx, blasint incx){
+  FLOAT *x = (FLOAT*) vx;
+#else
 CBLAS_INDEX CNAME(blasint n, FLOAT *x, blasint incx){
+#endif
 
   CBLAS_INDEX ret;
 
@@ -158,6 +164,8 @@ CBLAS_INDEX CNAME(blasint n, FLOAT *x, blasint incx){
   FUNCTION_PROFILE_START();
 
   ret = MAX_K(n, x, incx);
+
+  if (ret > n) ret=n;
 
   if (ret) ret --;
 

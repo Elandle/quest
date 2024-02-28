@@ -59,12 +59,25 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define K	[fp, #-264 ]
 #define A	[fp, #-268 ]
 
+#define FP_ZERO [fp, #-232]
+#define FP_ZERO_0 [fp, #-232]
+#define FP_ZERO_1 [fp, #-228]
+
 #define ALPHA	[fp, #-276 ]
 
+#if !defined(__ARM_PCS_VFP)
+#define OLD_ALPHA_SOFTFP	[fp, #4]
+#define OLD_A_SOFTFP	[fp, #12 ]
+#define B	[fp, #16 ]
+#define OLD_C	[fp, #20 ]
+#define OLD_LDC	[fp, #24 ]
+#define OFFSET  [fp, #28 ]
+#else
 #define B	[fp, #4 ]
 #define OLD_C	[fp, #8 ]
 #define OLD_LDC	[fp, #12 ]
 #define OFFSET  [fp, #16 ]
+#endif
 
 #define I	r0
 #define J	r1
@@ -90,7 +103,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT4x2
 
-	vsub.f64		d8 , d8 , d8
+	fldd			d8 , FP_ZERO
 	vmov.f64		d9, d8
 	vmov.f64		d10, d8
 	vmov.f64		d11, d8
@@ -165,7 +178,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT2x2
 
-	vsub.f64		d8 , d8 , d8
+	fldd			d8 , FP_ZERO
 	vmov.f64		d9, d8
 	vmov.f64		d12, d8
 	vmov.f64		d13, d8
@@ -220,7 +233,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT1x2
 
-	vsub.f64		d8 , d8 , d8
+	fldd			d8 , FP_ZERO
 	vmov.f64		d12, d8
 
 .endm
@@ -268,7 +281,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT4x1
 
-	vsub.f64		d8 , d8 , d8
+	fldd			d8 , FP_ZERO
 	vmov.f64		d9, d8
 	vmov.f64		d10, d8
 	vmov.f64		d11, d8
@@ -318,7 +331,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT2x1
 
-	vsub.f64		d8 , d8 , d8
+	fldd			d8 , FP_ZERO
 	vmov.f64		d9 , d8
 
 .endm
@@ -357,7 +370,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro INIT1x1
 
-	vsub.f64		d8 , d8 , d8
+	fldd			d8 , FP_ZERO
 
 .endm
 
@@ -400,6 +413,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	add	fp, sp, #24
 	sub	sp, sp, #STACKSIZE				// reserve stack
 
+#if !defined(__ARM_PCS_VFP)
+	vldr	OLD_ALPHA, OLD_ALPHA_SOFTFP
+	ldr	OLD_A, OLD_A_SOFTFP
+#endif
 	str	OLD_M, M
 	str	OLD_N, N
 	str	OLD_K, K
@@ -408,6 +425,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	sub	r3, fp, #128
 	vstm	r3, { d8 - d15} 				// store floating point registers
+
+        movs    r4, #0
+        str     r4, FP_ZERO
+        str     r4, FP_ZERO_1
 
 	ldr	r3, OLD_LDC
 	lsl	r3, r3, #3					// ldc = ldc * 8

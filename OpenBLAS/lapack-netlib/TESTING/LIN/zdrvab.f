@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZDRVAB( DOTYPE, NM, MVAL, NNS,
 *                          NSVAL, THRESH, NMAX, A, AFAC, B,
 *                          X, WORK, RWORK, SWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            NM, NMAX, NNS, NOUT
 *       DOUBLE PRECISION   THRESH
@@ -24,7 +24,7 @@
 *       COMPLEX*16         A( * ), AFAC( * ), B( * ),
 *      $                   WORK( * ), X( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -138,12 +138,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -152,10 +150,9 @@
      $                   NSVAL, THRESH, NMAX, A, AFAC, B,
      $                   X, WORK, RWORK, SWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            NM, NMAX, NNS, NOUT
@@ -213,7 +210,7 @@
       COMMON             / SRNAMC / SRNAMT
 *     ..
 *     .. Data statements ..
-      DATA               ISEEDY / 2006, 2007, 2008, 2009 / 
+      DATA               ISEEDY / 2006, 2007, 2008, 2009 /
 *     ..
 *     .. Executable Statements ..
 *
@@ -321,7 +318,7 @@
                    CALL ZLACPY( 'Full', M, N, AFAC, LDA, A, LDA )
                ENDIF
 *
-*              Check error code from ZCGESV. This should be the same as 
+*              Check error code from ZCGESV. This should be the same as
 *              the one of DGETRF.
 *
                IF( INFO.NE.IZERO ) THEN
@@ -351,11 +348,11 @@
                CALL ZGET08( TRANS, N, N, NRHS, A, LDA, X, LDA, WORK,
      $                      LDA, RWORK, RESULT( 1 ) )
 *
-*              Check if the test passes the tesing.
+*              Check if the test passes the testing.
 *              Print information about the tests that did not
 *              pass the testing.
 *
-*              If iterative refinement has been used and claimed to 
+*              If iterative refinement has been used and claimed to
 *              be successful (ITER>0), we want
 *                NORMI(B - A*X)/(NORMI(A)*NORMI(X)*EPS*SRQT(N)) < 1
 *
@@ -425,7 +422,7 @@
      $      14X, '11. Scaled near overflow', / 4X,
      $      '6. Last column zero' )
  8960 FORMAT( 3X, I2, ': norm_1( B - A * X )  / ',
-     $      '( norm_1(A) * norm_1(X) * EPS * SQRT(N) ) > 1 if ITERREF', 
+     $      '( norm_1(A) * norm_1(X) * EPS * SQRT(N) ) > 1 if ITERREF',
      $      / 4x, 'or norm_1( B - A * X )  / ',
      $      '( norm_1(A) * norm_1(X) * EPS ) > THRES if DGETRF' )
       RETURN

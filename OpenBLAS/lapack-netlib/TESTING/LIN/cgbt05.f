@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CGBT05( TRANS, N, KL, KU, NRHS, AB, LDAB, B, LDB, X,
 *                          LDX, XACT, LDXACT, FERR, BERR, RESLTS )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            KL, KU, LDAB, LDB, LDX, LDXACT, N, NRHS
@@ -20,7 +20,7 @@
 *       COMPLEX            AB( LDAB, * ), B( LDB, * ), X( LDX, * ),
 *      $                   XACT( LDXACT, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -30,7 +30,7 @@
 *> CGBT05 tests the error bounds from iterative refinement for the
 *> computed solution to a system of equations op(A)*X = B, where A is a
 *> general band matrix of order n with kl subdiagonals and ku
-*> superdiagonals and op(A) = A or A**T, depending on TRANS.
+*> superdiagonals and op(A) = A, A**T, or A**H, depending on TRANS.
 *>
 *> RESLTS(1) = test of the error bound
 *>           = norm(X - XACT) / ( norm(X) * FERR )
@@ -163,12 +163,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -176,10 +174,9 @@
       SUBROUTINE CGBT05( TRANS, N, KL, KU, NRHS, AB, LDAB, B, LDB, X,
      $                   LDX, XACT, LDXACT, FERR, BERR, RESLTS )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANS

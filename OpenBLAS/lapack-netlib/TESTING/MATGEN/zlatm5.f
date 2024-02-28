@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZLATM5( PRTYPE, M, N, A, LDA, B, LDB, C, LDC, D, LDD,
 *                          E, LDE, F, LDF, R, LDR, L, LDL, ALPHA, QBLCKA,
 *                          QBLCKB )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, LDB, LDC, LDD, LDE, LDF, LDL, LDR, M, N,
 *      $                   PRTYPE, QBLCKA, QBLCKB
@@ -22,7 +22,7 @@
 *      $                   D( LDD, * ), E( LDE, * ), F( LDF, * ),
 *      $                   L( LDL, * ), R( LDR, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -48,8 +48,8 @@
 *> \param[in] PRTYPE
 *> \verbatim
 *>          PRTYPE is INTEGER
-*>          "Points" to a certian type of the matrices to generate
-*>          (see futher details).
+*>          "Points" to a certain type of the matrices to generate
+*>          (see further details).
 *> \endverbatim
 *>
 *> \param[in] M
@@ -187,12 +187,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_matgen
 *
@@ -268,10 +266,9 @@
      $                   E, LDE, F, LDF, R, LDR, L, LDL, ALPHA, QBLCKA,
      $                   QBLCKB )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, LDB, LDC, LDD, LDE, LDF, LDL, LDR, M, N,

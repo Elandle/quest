@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGTT01( N, DL, D, DU, DLF, DF, DUF, DU2, IPIV, WORK,
 *                          LDWORK, RWORK, RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDWORK, N
 *       DOUBLE PRECISION   RESID
@@ -21,7 +21,7 @@
 *      $                   DU2( * ), DUF( * ), RWORK( * ),
 *      $                   WORK( LDWORK, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -39,7 +39,7 @@
 *
 *> \param[in] N
 *> \verbatim
-*>          N is INTEGTER
+*>          N is INTEGER
 *>          The order of the matrix A.  N >= 0.
 *> \endverbatim
 *>
@@ -121,12 +121,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_lin
 *
@@ -134,10 +132,9 @@
       SUBROUTINE DGTT01( N, DL, D, DU, DLF, DF, DUF, DU2, IPIV, WORK,
      $                   LDWORK, RWORK, RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDWORK, N

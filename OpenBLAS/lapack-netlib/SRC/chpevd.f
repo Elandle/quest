@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CHPEVD + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chpevd.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chpevd.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chpevd.f"> 
+*> Download CHPEVD + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chpevd.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chpevd.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chpevd.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CHPEVD( JOBZ, UPLO, N, AP, W, Z, LDZ, WORK, LWORK,
 *                          RWORK, LRWORK, IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, UPLO
 *       INTEGER            INFO, LDZ, LIWORK, LRWORK, LWORK, N
@@ -30,7 +30,7 @@
 *       REAL               RWORK( * ), W( * )
 *       COMPLEX            AP( * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -41,12 +41,6 @@
 *> a complex Hermitian matrix A in packed storage.  If eigenvectors are
 *> desired, it uses a divide and conquer algorithm.
 *>
-*> The divide and conquer algorithm makes very mild assumptions about
-*> floating point arithmetic. It will work on machines with a guard
-*> digit in add/subtract, or on those binary machines without guard
-*> digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
-*> Cray-2. It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.
 *> \endverbatim
 *
 *  Arguments:
@@ -187,23 +181,20 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexOTHEReigen
+*> \ingroup hpevd
 *
 *  =====================================================================
       SUBROUTINE CHPEVD( JOBZ, UPLO, N, AP, W, Z, LDZ, WORK, LWORK,
      $                   RWORK, LRWORK, IWORK, LIWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, UPLO
@@ -232,8 +223,8 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      REAL               CLANHP, SLAMCH
-      EXTERNAL           LSAME, CLANHP, SLAMCH
+      REAL               CLANHP, SLAMCH, SROUNDUP_LWORK
+      EXTERNAL           LSAME, CLANHP, SLAMCH, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           CHPTRD, CSSCAL, CSTEDC, CUPMTR, SSCAL, SSTERF,
@@ -277,7 +268,7 @@
                LIWMIN = 1
             END IF
          END IF
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
          RWORK( 1 ) = LRWMIN
          IWORK( 1 ) = LIWMIN
 *
@@ -292,7 +283,7 @@
 *
       IF( INFO.NE.0 ) THEN
          CALL XERBLA( 'CHPEVD', -INFO )
-         RETURN 
+         RETURN
       ELSE IF( LQUERY ) THEN
          RETURN
       END IF
@@ -303,10 +294,10 @@
      $   RETURN
 *
       IF( N.EQ.1 ) THEN
-         W( 1 ) = AP( 1 )
+         W( 1 ) = REAL( AP( 1 ) )
          IF( WANTZ )
      $      Z( 1, 1 ) = CONE
-         RETURN 
+         RETURN
       END IF
 *
 *     Get machine constants.
@@ -368,7 +359,7 @@
          CALL SSCAL( IMAX, ONE / SIGMA, W, 1 )
       END IF
 *
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       RWORK( 1 ) = LRWMIN
       IWORK( 1 ) = LIWMIN
       RETURN

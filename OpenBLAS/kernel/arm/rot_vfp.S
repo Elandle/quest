@@ -40,6 +40,15 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define	OLD_INC_Y	[fp, #0 ]
 
+#if !defined(__ARM_PCS_VFP)
+#if !defined(DOUBLE)
+#define	OLD_C		[fp, #4]
+#define	OLD_S		[fp, #8]
+#else
+#define	OLD_C		[fp, #8]
+#define	OLD_S		[fp, #16]
+#endif
+#endif
 
 #define	N	r0
 #define X	r1
@@ -68,68 +77,68 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	pld	[ X, #X_PRE ]
 	pld	[ Y, #X_PRE ]
 
-	fldmiad	X,  { d4 }
-	fldmiad	Y,  { d5 }
+	vldmia.f64	X,  { d4 }
+	vldmia.f64	Y,  { d5 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d5
 	vmul.f64    d3 , d0, d5
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
-	fldmiad	X,  { d4 }
-	fldmiad	Y,  { d5 }
+	vldmia.f64	X,  { d4 }
+	vldmia.f64	Y,  { d5 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d5
 	vmul.f64    d3 , d0, d5
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
-	fldmiad	X,  { d4 }
-	fldmiad	Y,  { d5 }
+	vldmia.f64	X,  { d4 }
+	vldmia.f64	Y,  { d5 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d5
 	vmul.f64    d3 , d0, d5
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
-	fldmiad	X,  { d4 }
-	fldmiad	Y,  { d5 }
+	vldmia.f64	X,  { d4 }
+	vldmia.f64	Y,  { d5 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d5
 	vmul.f64    d3 , d0, d5
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
 .endm
 
 
 .macro KERNEL_F1
 
-	fldmiad	X,  { d4 }
-	fldmiad	Y,  { d5 }
+	vldmia.f64	X,  { d4 }
+	vldmia.f64	Y,  { d5 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d5
 	vmul.f64    d3 , d0, d5
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
 .endm
 
 .macro KERNEL_S1
 
-	fldmiad	X,  { d4 }
-	fldmiad	Y,  { d5 }
+	vldmia.f64	X,  { d4 }
+	vldmia.f64	Y,  { d5 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d5
 	vmul.f64    d3 , d0, d5
-	fnmacd      d3 , d1, d4
-	fstmiad	X, { d2 }
-	fstmiad	Y, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X, { d2 }
+	vstmia.f64	Y, { d3 }
 
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
@@ -140,68 +149,68 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F4
 
-	fldmias	X,  { s4 }
-	fldmias	Y,  { s5 }
+	vldmia.f32	X,  { s4 }
+	vldmia.f32	Y,  { s5 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s5
 	vmul.f32    s3 , s0, s5
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
-	fldmias	X,  { s4 }
-	fldmias	Y,  { s5 }
+	vldmia.f32	X,  { s4 }
+	vldmia.f32	Y,  { s5 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s5
 	vmul.f32    s3 , s0, s5
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
-	fldmias	X,  { s4 }
-	fldmias	Y,  { s5 }
+	vldmia.f32	X,  { s4 }
+	vldmia.f32	Y,  { s5 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s5
 	vmul.f32    s3 , s0, s5
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
-	fldmias	X,  { s4 }
-	fldmias	Y,  { s5 }
+	vldmia.f32	X,  { s4 }
+	vldmia.f32	Y,  { s5 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s5
 	vmul.f32    s3 , s0, s5
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
 .endm
 
 
 .macro KERNEL_F1
 
-	fldmias	X,  { s4 }
-	fldmias	Y,  { s5 }
+	vldmia.f32	X,  { s4 }
+	vldmia.f32	Y,  { s5 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s5
 	vmul.f32    s3 , s0, s5
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
 .endm
 
 .macro KERNEL_S1
 
-	fldmias	X,  { s4 }
-	fldmias	Y,  { s5 }
+	vldmia.f32	X,  { s4 }
+	vldmia.f32	Y,  { s5 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s5
 	vmul.f32    s3 , s0, s5
-	fnmacs      s3 , s1, s4
-	fstmias	X, { s2 }
-	fstmias	Y, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X, { s2 }
+	vstmia.f32	Y, { s3 }
 
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
@@ -221,106 +230,106 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	pld	[ X, #X_PRE ]
 	pld	[ Y, #X_PRE ]
 
-	fldmiad	X,  { d4 - d5 }
-	fldmiad	Y,  { d6 - d7 }
+	vldmia.f64	X,  { d4 - d5 }
+	vldmia.f64	Y,  { d6 - d7 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d6
 	vmul.f64    d3 , d0, d6
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 	vmul.f64    d2 , d0, d5
 	fmacd       d2 , d1, d7
 	vmul.f64    d3 , d0, d7
-	fnmacd      d3 , d1, d5
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d5
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
-	fldmiad	X,  { d4 - d5 }
-	fldmiad	Y,  { d6 - d7 }
+	vldmia.f64	X,  { d4 - d5 }
+	vldmia.f64	Y,  { d6 - d7 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d6
 	vmul.f64    d3 , d0, d6
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 	vmul.f64    d2 , d0, d5
 	fmacd       d2 , d1, d7
 	vmul.f64    d3 , d0, d7
-	fnmacd      d3 , d1, d5
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d5
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
 	pld	[ X, #X_PRE ]
 	pld	[ Y, #X_PRE ]
 
-	fldmiad	X,  { d4 - d5 }
-	fldmiad	Y,  { d6 - d7 }
+	vldmia.f64	X,  { d4 - d5 }
+	vldmia.f64	Y,  { d6 - d7 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d6
 	vmul.f64    d3 , d0, d6
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 	vmul.f64    d2 , d0, d5
 	fmacd       d2 , d1, d7
 	vmul.f64    d3 , d0, d7
-	fnmacd      d3 , d1, d5
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d5
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
-	fldmiad	X,  { d4 - d5 }
-	fldmiad	Y,  { d6 - d7 }
+	vldmia.f64	X,  { d4 - d5 }
+	vldmia.f64	Y,  { d6 - d7 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d6
 	vmul.f64    d3 , d0, d6
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 	vmul.f64    d2 , d0, d5
 	fmacd       d2 , d1, d7
 	vmul.f64    d3 , d0, d7
-	fnmacd      d3 , d1, d5
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d5
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
 .endm
 
 
 .macro KERNEL_F1
 
-	fldmiad	X,  { d4 - d5 }
-	fldmiad	Y,  { d6 - d7 }
+	vldmia.f64	X,  { d4 - d5 }
+	vldmia.f64	Y,  { d6 - d7 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d6
 	vmul.f64    d3 , d0, d6
-	fnmacd      d3 , d1, d4
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d4
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 	vmul.f64    d2 , d0, d5
 	fmacd       d2 , d1, d7
 	vmul.f64    d3 , d0, d7
-	fnmacd      d3 , d1, d5
-	fstmiad	X!, { d2 }
-	fstmiad	Y!, { d3 }
+	vmls.f64    d3 , d1, d5
+	vstmia.f64	X!, { d2 }
+	vstmia.f64	Y!, { d3 }
 
 
 .endm
 
 .macro KERNEL_S1
 
-	fldmiad	X,  { d4 - d5 }
-	fldmiad	Y,  { d6 - d7 }
+	vldmia.f64	X,  { d4 - d5 }
+	vldmia.f64	Y,  { d6 - d7 }
 	vmul.f64    d2 , d0, d4
 	fmacd       d2 , d1, d6
 	vmul.f64    d3 , d0, d6
-	fnmacd      d3 , d1, d4
+	vmls.f64    d3 , d1, d4
 	vstr	    d2 , [ X, #0 ]
 	vstr	    d3 , [ Y, #0 ]
 	vmul.f64    d2 , d0, d5
 	fmacd       d2 , d1, d7
 	vmul.f64    d3 , d0, d7
-	fnmacd      d3 , d1, d5
+	vmls.f64    d3 , d1, d5
 	vstr	    d2 , [ X, #8 ]
 	vstr	    d3 , [ Y, #8 ]
 
@@ -338,106 +347,106 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	pld	[ X, #X_PRE ]
 	pld	[ Y, #X_PRE ]
 
-	fldmias	X,  { s4 - s5 }
-	fldmias	Y,  { s6 - s7 }
+	vldmia.f32	X,  { s4 - s5 }
+	vldmia.f32	Y,  { s6 - s7 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s6
 	vmul.f32    s3 , s0, s6
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 	vmul.f32    s2 , s0, s5
 	fmacs       s2 , s1, s7
 	vmul.f32    s3 , s0, s7
-	fnmacs      s3 , s1, s5
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s5
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
-	fldmias	X,  { s4 - s5 }
-	fldmias	Y,  { s6 - s7 }
+	vldmia.f32	X,  { s4 - s5 }
+	vldmia.f32	Y,  { s6 - s7 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s6
 	vmul.f32    s3 , s0, s6
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 	vmul.f32    s2 , s0, s5
 	fmacs       s2 , s1, s7
 	vmul.f32    s3 , s0, s7
-	fnmacs      s3 , s1, s5
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s5
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
 	pld	[ X, #X_PRE ]
 	pld	[ Y, #X_PRE ]
 
-	fldmias	X,  { s4 - s5 }
-	fldmias	Y,  { s6 - s7 }
+	vldmia.f32	X,  { s4 - s5 }
+	vldmia.f32	Y,  { s6 - s7 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s6
 	vmul.f32    s3 , s0, s6
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 	vmul.f32    s2 , s0, s5
 	fmacs       s2 , s1, s7
 	vmul.f32    s3 , s0, s7
-	fnmacs      s3 , s1, s5
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s5
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
-	fldmias	X,  { s4 - s5 }
-	fldmias	Y,  { s6 - s7 }
+	vldmia.f32	X,  { s4 - s5 }
+	vldmia.f32	Y,  { s6 - s7 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s6
 	vmul.f32    s3 , s0, s6
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 	vmul.f32    s2 , s0, s5
 	fmacs       s2 , s1, s7
 	vmul.f32    s3 , s0, s7
-	fnmacs      s3 , s1, s5
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s5
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
 .endm
 
 
 .macro KERNEL_F1
 
-	fldmias	X,  { s4 - s5 }
-	fldmias	Y,  { s6 - s7 }
+	vldmia.f32	X,  { s4 - s5 }
+	vldmia.f32	Y,  { s6 - s7 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s6
 	vmul.f32    s3 , s0, s6
-	fnmacs      s3 , s1, s4
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s4
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 	vmul.f32    s2 , s0, s5
 	fmacs       s2 , s1, s7
 	vmul.f32    s3 , s0, s7
-	fnmacs      s3 , s1, s5
-	fstmias	X!, { s2 }
-	fstmias	Y!, { s3 }
+	vmls.f32    s3 , s1, s5
+	vstmia.f32	X!, { s2 }
+	vstmia.f32	Y!, { s3 }
 
 
 .endm
 
 .macro KERNEL_S1
 
-	fldmias	X,  { s4 - s5 }
-	fldmias	Y,  { s6 - s7 }
+	vldmia.f32	X,  { s4 - s5 }
+	vldmia.f32	Y,  { s6 - s7 }
 	vmul.f32    s2 , s0, s4
 	fmacs       s2 , s1, s6
 	vmul.f32    s3 , s0, s6
-	fnmacs      s3 , s1, s4
+	vmls.f32    s3 , s1, s4
 	vstr	    s2 , [ X, #0 ]
 	vstr	    s3 , [ Y, #0 ]
 	vmul.f32    s2 , s0, s5
 	fmacs       s2 , s1, s7
 	vmul.f32    s3 , s0, s7
-	fnmacs      s3 , s1, s5
+	vmls.f32    s3 , s1, s5
 	vstr	    s2 , [ X, #4 ]
 	vstr	    s3 , [ Y, #4 ]
 
@@ -462,17 +471,25 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         add     fp, sp, #8
 
 	ldr    INC_Y , OLD_INC_Y
-
+#if !defined(__ARM_PCS_VFP)
+#if !defined(DOUBLE)
+	vldr	s0, OLD_C
+	vldr	s1, OLD_S
+#else
+	vldr	d0, OLD_C
+	vldr	d1, OLD_S
+#endif
+#endif
 
 	cmp	N, #0
 	ble	rot_kernel_L999
-
+/*
 	cmp	INC_X, #0
 	beq	rot_kernel_L999
 
 	cmp	INC_Y, #0
 	beq	rot_kernel_L999
-
+*/
 	cmp	INC_X, #1
 	bne	rot_kernel_S_BEGIN
 
@@ -567,6 +584,12 @@ rot_kernel_S1:
 rot_kernel_S10:
 
 	KERNEL_S1
+	
+	cmp	INC_X, #0
+	beq	rot_kernel_L999
+
+	cmp	INC_Y, #0
+	beq	rot_kernel_L999
 
 	subs    I, I, #1
         bne     rot_kernel_S10

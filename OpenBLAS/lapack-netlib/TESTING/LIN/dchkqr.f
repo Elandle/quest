@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE DCHKQR( DOTYPE, NM, MVAL, NN, NVAL, NNB, NBVAL, NXVAL,
 *                          NRHS, THRESH, TSTERR, NMAX, A, AF, AQ, AR, AC,
 *                          B, X, XACT, TAU, WORK, RWORK, IWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NM, NMAX, NN, NNB, NOUT, NRHS
@@ -25,7 +25,7 @@
 *      $                   B( * ), RWORK( * ), TAU( * ), WORK( * ),
 *      $                   X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -187,12 +187,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_lin
 *
@@ -201,10 +199,9 @@
      $                   NRHS, THRESH, TSTERR, NMAX, A, AF, AQ, AR, AC,
      $                   B, X, XACT, TAU, WORK, RWORK, IWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -247,8 +244,8 @@
       EXTERNAL           DGENND
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALAERH, ALAHD, ALASUM, DERRQR, DGEQRS, DGET02,
-     $                   DLACPY, DLARHS, DLATB4, DLATMS, DQRT01, 
+      EXTERNAL           ALAERH, ALAHD, ALASUM, DERRQR, DGELS, DGET02,
+     $                   DLACPY, DLARHS, DLATB4, DLATMS, DQRT01,
      $                   DQRT01P, DQRT02, DQRT03, XLAENV
 *     ..
 *     .. Intrinsic Functions ..
@@ -375,7 +372,7 @@
                          IF( .NOT. DGENND( M, N, AF, LDA ) )
      $                       RESULT( 9 ) = 2*THRESH
                         NT = NT + 1
-                    ELSE IF( M.GE.N ) THEN
+                     ELSE IF( M.GE.N ) THEN
 *
 *                       Test DORGQR, using factorization
 *                       returned by DQRT01
@@ -392,7 +389,7 @@
      $                               WORK, LWORK, RWORK, RESULT( 3 ) )
                         NT = NT + 4
 *
-*                       If M>=N and K=N, call DGEQRS to solve a system
+*                       If M>=N and K=N, call DGELS to solve a system
 *                       with NRHS right hand sides and compute the
 *                       residual.
 *
@@ -409,14 +406,20 @@
 *
                            CALL DLACPY( 'Full', M, NRHS, B, LDA, X,
      $                                  LDA )
-                           SRNAMT = 'DGEQRS'
-                           CALL DGEQRS( M, N, NRHS, AF, LDA, TAU, X,
-     $                                  LDA, WORK, LWORK, INFO )
 *
-*                          Check error code from DGEQRS.
+*                          Reset AF. DGELS overwrites the matrix with
+*                          its factorization.
+*
+                           CALL DLACPY( 'Full', M, N, A, LDA, AF, LDA )
+*
+                           SRNAMT = 'DGELS'
+                           CALL DGELS( 'No transpose', M, N, NRHS, AF,
+     $                                 LDA, X, LDA, WORK, LWORK, INFO )
+*
+*                          Check error code from DGELS.
 *
                            IF( INFO.NE.0 )
-     $                        CALL ALAERH( PATH, 'DGEQRS', INFO, 0, ' ',
+     $                        CALL ALAERH( PATH, 'DGELS', INFO, 0, 'N',
      $                                     M, N, NRHS, -1, NB, IMAT,
      $                                     NFAIL, NERRS, NOUT )
 *
@@ -439,7 +442,7 @@
                            NFAIL = NFAIL + 1
                         END IF
    20                CONTINUE
-                     NRUN = NRUN + NT
+                     NRUN = NRUN + NTESTS
    30             CONTINUE
    40          CONTINUE
    50       CONTINUE

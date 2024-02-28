@@ -89,7 +89,7 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
   newarg.beta = NULL;
   newarg.nthreads = args -> nthreads;
 
-  blocking = (n / 2 + GEMM_UNROLL_N - 1) & ~(GEMM_UNROLL_N - 1);
+  blocking = ((n / 2 + GEMM_UNROLL_N - 1)/GEMM_UNROLL_N) * GEMM_UNROLL_N;
   if (blocking > GEMM_Q) blocking = GEMM_Q;
 
   for (i = 0; i < n; i += blocking) {
@@ -110,7 +110,7 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
       newarg.b = a + (i + bk + i * lda) * COMPSIZE;
 
       gemm_thread_m(mode | BLAS_RSIDE | BLAS_TRANSA_T | BLAS_UPLO,
-		    &newarg, NULL, NULL, (void *)TRSM_RCLN, sa, sb, args -> nthreads);
+		    &newarg, NULL, NULL, (int (*)(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *, BLASLONG))TRSM_RCLN, sa, sb, args -> nthreads);
 
       newarg.n = n - i - bk;
       newarg.k = bk;
@@ -121,7 +121,7 @@ blasint CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa,
       HERK_THREAD_LN(&newarg, NULL, NULL, sa, sb, 0);
 #else
       syrk_thread(mode | BLAS_TRANSA_N | BLAS_TRANSB_T | BLAS_UPLO,
-		  &newarg, NULL, NULL, (void *)HERK_LN, sa, sb, args -> nthreads);
+		  &newarg, NULL, NULL, (int (*)(void))HERK_LN, sa, sb, args -> nthreads);
 #endif
     }
   }

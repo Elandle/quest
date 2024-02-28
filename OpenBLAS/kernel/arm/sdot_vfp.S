@@ -31,6 +31,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 * 	 CTEST			: OK (no test for dsdot)
 * 	 TEST			: OK (no test for dsdot)
 *
+* 2016/01/23 Saar
+*	 Bugfix	for Refs #750 and #740
 **************************************************************************************/
 
 #define ASSEMBLER
@@ -66,26 +68,26 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F4
 
-	fldmias	X!, { s14 }
-	fldmias	Y!, { s15 }
+	vldmia.f32	X!, { s14 }
+	vldmia.f32	Y!, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
 
-	fldmias	X!, { s14 }
-	fldmias	Y!, { s15 }
+	vldmia.f32	X!, { s14 }
+	vldmia.f32	Y!, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
 
-	fldmias	X!, { s14 }
-	fldmias	Y!, { s15 }
+	vldmia.f32	X!, { s14 }
+	vldmia.f32	Y!, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
 
-	fldmias	X!, { s14 }
-	fldmias	Y!, { s15 }
+	vldmia.f32	X!, { s14 }
+	vldmia.f32	Y!, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
@@ -94,8 +96,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias	X!, { s14 }
-	fldmias	Y!, { s15 }
+	vldmia.f32	X!, { s14 }
+	vldmia.f32	Y!, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
@@ -107,32 +109,32 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	nop
 
-	fldmias	X, { s14 }
-	fldmias	Y, { s15 }
+	vldmia.f32	X, { s14 }
+	vldmia.f32	Y, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
-	fldmias	X, { s14 }
-	fldmias	Y, { s15 }
+	vldmia.f32	X, { s14 }
+	vldmia.f32	Y, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
-	fldmias	X, { s14 }
-	fldmias	Y, { s15 }
+	vldmia.f32	X, { s14 }
+	vldmia.f32	Y, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
-	fldmias	X, { s14 }
-	fldmias	Y, { s15 }
+	vldmia.f32	X, { s14 }
+	vldmia.f32	Y, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
@@ -144,8 +146,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmias	X, { s14 }
-	fldmias	Y, { s15 }
+	vldmia.f32	X, { s14 }
+	vldmia.f32	Y, { s15 }
 	vmul.f32   s15, s14, s15
 	vcvt.f64.f32	d4, s15
 	vadd.f64   d0  , d0,  d4
@@ -160,12 +162,12 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F4
 
-	fldmias	X!, { s8 - s9 }
-	fldmias	Y!, { s4 - s5}
+	vldmia.f32	X!, { s8 - s9 }
+	vldmia.f32	Y!, { s4 - s5}
 	fmacs   s0  , s4,  s8
-	fldmias	X!, { s10 - s11 }
+	vldmia.f32	X!, { s10 - s11 }
 	fmacs   s1  , s5,  s9
-	fldmias	Y!, { s6 - s7 }
+	vldmia.f32	Y!, { s6 - s7 }
 	fmacs   s0  , s6,  s10
 	fmacs   s1  , s7,  s11
 
@@ -173,8 +175,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias	X!, { s4 }
-	fldmias	Y!, { s8 }
+	vldmia.f32	X!, { s4 }
+	vldmia.f32	Y!, { s8 }
 	fmacs   s0  , s4,  s8
 
 .endm
@@ -183,26 +185,26 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_S4
 
 	nop
-	fldmias	X, { s4 }
-	fldmias	Y, { s8 }
+	vldmia.f32	X, { s4 }
+	vldmia.f32	Y, { s8 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacs   s0  , s4,  s8
 
-	fldmias	X, { s5 }
-	fldmias	Y, { s9 }
+	vldmia.f32	X, { s5 }
+	vldmia.f32	Y, { s9 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacs   s1  , s5,  s9
 
-	fldmias	X, { s6 }
-	fldmias	Y, { s10 }
+	vldmia.f32	X, { s6 }
+	vldmia.f32	Y, { s10 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacs   s0  , s6,  s10
 
-	fldmias	X, { s7 }
-	fldmias	Y, { s11 }
+	vldmia.f32	X, { s7 }
+	vldmia.f32	Y, { s11 }
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 	fmacs   s1  , s7,  s11
@@ -212,8 +214,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmias	X, { s4 }
-	fldmias	Y, { s8 }
+	vldmia.f32	X, { s4 }
+	vldmia.f32	Y, { s8 }
 	add	X, X, INC_X
 	fmacs   s0  , s4,  s8
 	add	Y, Y, INC_Y
@@ -240,26 +242,22 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	mov	Y, OLD_Y
 	ldr	INC_Y, OLD_INC_Y
 
+	movs	r4, #0						// clear floating point register
+	vmov	s0, r4
+	vmov	s1, r4
 #if	defined(DSDOT)
-
-	vsub.f64                d0 , d0 , d0
-	vsub.f64                d1 , d1 , d1
-
-#else
-
-	vsub.f32                s0 , s0 , s0
-	vsub.f32                s1 , s1 , s1
-
+	vcvt.f64.f32    d0, s0
+	vcvt.f64.f32    d1, s1
 #endif
 
 	cmp	N, #0
 	ble	sdot_kernel_L999
 
-	cmp	INC_X, #0
-	beq	sdot_kernel_L999
+#	cmp	INC_X, #0
+#	beq	sdot_kernel_L999
 
-	cmp	INC_Y, #0
-	beq	sdot_kernel_L999
+#	cmp	INC_Y, #0
+#	beq	sdot_kernel_L999
 
 	cmp	INC_X, #1
 	bne	sdot_kernel_S_BEGIN
@@ -331,14 +329,19 @@ sdot_kernel_L999:
 	vldm	r3, { s8 - s15}					// restore floating point registers
 
 #if	defined(DSDOT)
-
 	vadd.f64	d0 , d0, d1				// set return value
-
 #else
-
 	vadd.f32	s0 , s0, s1				// set return value
-
 #endif
+
+#if !defined(__ARM_PCS_VFP)
+#if defined(DSDOT)
+	vmov	r0, r1, d0
+#else
+	vmov	r0, s0
+#endif
+#endif
+
 	sub	sp, fp, #24
 	pop	{r4 - r9, fp}
 	bx	lr

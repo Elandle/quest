@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZROTG(CA,CB,C,S)
-* 
+*
 *       .. Scalar Arguments ..
 *       COMPLEX*16 CA,CB,S
 *       DOUBLE PRECISION C
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -24,25 +24,48 @@
 *>    ZROTG determines a double complex Givens rotation.
 *> \endverbatim
 *
+*  Arguments:
+*  ==========
+*
+*> \param[in] CA
+*> \verbatim
+*>          CA is COMPLEX*16
+*> \endverbatim
+*>
+*> \param[in] CB
+*> \verbatim
+*>          CB is COMPLEX*16
+*> \endverbatim
+*>
+*> \param[out] C
+*> \verbatim
+*>          C is DOUBLE PRECISION
+*> \endverbatim
+*>
+*> \param[out] S
+*> \verbatim
+*>          S is COMPLEX*16
+*> \endverbatim
+*
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date November 2017
 *
 *> \ingroup complex16_blas_level1
 *
 *  =====================================================================
       SUBROUTINE ZROTG(CA,CB,C,S)
 *
-*  -- Reference BLAS level1 routine (version 3.4.0) --
+*  -- Reference BLAS level1 routine (version 3.8.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     November 2017
 *
 *     .. Scalar Arguments ..
       COMPLEX*16 CA,CB,S

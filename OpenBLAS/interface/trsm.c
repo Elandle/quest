@@ -81,6 +81,12 @@
 #endif
 #endif
 
+#ifndef COMPLEX
+#define SMP_FACTOR 256
+#else
+#define SMP_FACTOR 128
+#endif
+
 static int (*trsm[])(blas_arg_t *, BLASLONG *, BLASLONG *, FLOAT *, FLOAT *, BLASLONG) = {
 #ifndef TRMM
   TRSM_LNUU, TRSM_LNUN, TRSM_LNLU, TRSM_LNLN,
@@ -198,7 +204,7 @@ void NAME(char *SIDE, char *UPLO, char *TRANS, char *DIAG,
   if (side  < 0)                info =  1;
 
   if (info != 0) {
-    BLASFUNC(xerbla)(ERROR_NAME, &info, sizeof(ERROR_NAME));
+    BLASFUNC(xerbla)(ERROR_NAME, &info, sizeof(ERROR_NAME)-1);
     return;
   }
 
@@ -210,11 +216,16 @@ void CNAME(enum CBLAS_ORDER order,
 	   blasint m, blasint n,
 #ifndef COMPLEX
 	   FLOAT alpha,
-#else
-	   FLOAT *alpha,
-#endif
 	   FLOAT *a, blasint lda,
 	   FLOAT *b, blasint ldb) {
+#else
+	   void *valpha,
+	   void *va, blasint lda,
+	   void *vb, blasint ldb) {
+  FLOAT *alpha = (FLOAT*) valpha;
+  FLOAT *a = (FLOAT*) va;
+  FLOAT *b = (FLOAT*) vb;
+#endif
 
   blas_arg_t args;
   int side, uplo, trans, unit;
@@ -361,7 +372,18 @@ void CNAME(enum CBLAS_ORDER order,
   mode |= (trans << BLAS_TRANSA_SHIFT);
   mode |= (side  << BLAS_RSIDE_SHIFT);
 
-  args.nthreads = num_cpu_avail(3);
+/*
+  if ( args.m < 2 * GEMM_MULTITHREAD_THRESHOLD )
+	args.nthreads = 1;
+  else
+	if ( args.n < 2 * GEMM_MULTITHREAD_THRESHOLD )
+		args.nthreads = 1;
+*/
+  if ( args.m * args.n < SMP_FACTOR * GEMM_MULTITHREAD_THRESHOLD)
+	args.nthreads = 1;
+  else
+	args.nthreads = num_cpu_avail(3);
+		
 
   if (args.nthreads == 1) {
 #endif

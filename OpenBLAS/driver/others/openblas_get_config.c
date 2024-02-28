@@ -1,5 +1,5 @@
 /*****************************************************************************
-Copyright (c) 2011,2012 Lab of Parallel Software and Computational Science,ISCAS
+Copyright (c) 2011-2014, The OpenBLAS Project
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -13,9 +13,10 @@ met:
       notice, this list of conditions and the following disclaimer in
       the documentation and/or other materials provided with the
       distribution.
-   3. Neither the name of the ISCAS nor the names of its contributors may
-      be used to endorse or promote products derived from this software
-      without specific prior written permission.
+   3. Neither the name of the OpenBLAS project nor the names of 
+      its contributors may be used to endorse or promote products 
+      derived from this software without specific prior written 
+      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -35,8 +36,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 
 static char* openblas_config_str=""
+"OpenBLAS "
+ VERSION
+" "
 #ifdef USE64BITINT
-  "USE64BITINT "
+  " USE64BITINT "
 #endif
 #ifdef NO_CBLAS
   "NO_CBLAS "
@@ -53,32 +57,44 @@ static char* openblas_config_str=""
 #ifdef NO_AFFINITY
   "NO_AFFINITY "
 #endif
+#ifdef USE_OPENMP
+  "USE_OPENMP "
+#endif
+#ifdef USE_TLS
+  "USE_TLS "
+#endif
 #ifndef DYNAMIC_ARCH
   CHAR_CORENAME
 #endif
   ;
 
 #ifdef DYNAMIC_ARCH
-char *gotoblas_corename();
+char *gotoblas_corename(void);
+#endif
+
 static char tmp_config_str[256];
-#endif
+int openblas_get_parallel(void);
 
-
-char* CNAME() {
-#ifndef DYNAMIC_ARCH
-  return openblas_config_str;
-#else
+char* CNAME(void) {
+char tmpstr[20];
   strcpy(tmp_config_str, openblas_config_str);
+#ifdef DYNAMIC_ARCH
   strcat(tmp_config_str, gotoblas_corename());
-  return tmp_config_str;
 #endif
+  if (openblas_get_parallel() == 0)
+    sprintf(tmpstr, " SINGLE_THREADED");
+  else 
+    snprintf(tmpstr,19," MAX_THREADS=%d",MAX_CPU_NUMBER);
+  strcat(tmp_config_str, tmpstr);
+  return tmp_config_str;
 }
 
 
-char* openblas_get_corename() {
+char* openblas_get_corename(void) {
 #ifndef DYNAMIC_ARCH 
   return CHAR_CORENAME;
 #else
   return gotoblas_corename();
 #endif
 }
+

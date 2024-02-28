@@ -166,7 +166,7 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
 
   if (n == 0) return;
 
-  if (beta != ONE) SCAL_K(n, 0, 0, beta, y, abs(incy), NULL, 0, NULL, 0);
+  if (beta != ONE) SCAL_K(n, 0, 0, beta, y, blasabs(incy), NULL, 0, NULL, 0);
 
   if (alpha == ZERO) return;
 
@@ -180,6 +180,9 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
   buffer = (FLOAT *)blas_memory_alloc(1);
 
 #ifdef SMP
+  if (n <200)
+	  nthreads=1;
+  else
   nthreads = num_cpu_avail(2);
 
   if (nthreads == 1) {

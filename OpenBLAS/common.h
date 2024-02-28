@@ -82,15 +82,33 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
-#ifdef OS_LINUX
+#if !defined(_MSC_VER)
+#include <unistd.h>
+#elif _MSC_VER < 1900
+#define snprintf _snprintf
+#endif
+#include <time.h>
+
+#if defined(OS_LINUX) || defined(OS_QNX)
 #include <malloc.h>
 #include <sched.h>
 #endif
 
-#if defined(OS_DARWIN) || defined(OS_FREEBSD) || defined(OS_NETBSD)
+#if defined(OS_DARWIN) || defined(OS_FREEBSD) || defined(OS_NETBSD) || defined(OS_OPENBSD) || defined(OS_DRAGONFLY) || defined(OS_ANDROID)
 #include <sched.h>
+#endif
+
+#ifdef OS_ANDROID
+#define NO_SYSV_IPC
+//Android NDK only supports complex.h since Android 5.0
+#if __ANDROID_API__ < 21
+#define FORCE_OPENBLAS_COMPLEX_STRUCT
+#endif
+#endif
+
+#if defined(OS_HAIKU) || defined(OS_QNX)
+#define NO_SYSV_IPC
 #endif
 
 #ifdef OS_WINDOWS
@@ -104,15 +122,21 @@ extern "C" {
 #define ATOM GOTO_ATOM
 #undef  GOTO_ATOM
 #endif
-#else
+#elif !defined(OS_EMBEDDED)
 #include <sys/mman.h>
+#ifndef NO_SYSV_IPC
 #include <sys/shm.h>
+#endif
 #include <sys/time.h>
+#include <time.h>
 #include <unistd.h>
 #include <math.h>
-#ifdef SMP
+#if defined(SMP) || defined(USE_LOCKING)
 #include <pthread.h>
 #endif
+#else
+#include <time.h>
+#include <math.h>
 #endif
 
 #if defined(OS_SUNOS)
@@ -164,7 +188,7 @@ extern "C" {
 
 #define ALLOCA_ALIGN 63UL
 
-#define NUM_BUFFERS (MAX_CPU_NUMBER * 2)
+#define NUM_BUFFERS MAX(50,(MAX_CPU_NUMBER * 2 * MAX_PARALLEL_NUMBER))
 
 #ifdef NEEDBUNDERSCORE
 #define BLASFUNC(FUNC) FUNC##_
@@ -179,7 +203,7 @@ extern "C" {
 #error "You can't specify both LOCK operation!"
 #endif
 
-#ifdef SMP
+#if defined(SMP) || defined(USE_LOCKING)
 #define USE_PTHREAD_LOCK
 #undef	USE_PTHREAD_SPINLOCK
 #endif
@@ -236,10 +260,22 @@ typedef long BLASLONG;
 typedef unsigned long BLASULONG;
 #endif
 
+#ifndef bfloat16
+#include <stdint.h>
+typedef uint16_t bfloat16;
+#define BFLOAT16CONVERSION 1
+#endif
+
 #ifdef USE64BITINT
 typedef BLASLONG blasint;
+#if defined(OS_WINDOWS) && defined(__64BIT__)
+#define blasabs(x) llabs(x)
+#else
+#define blasabs(x) labs(x)
+#endif
 #else
 typedef int blasint;
+#define blasabs(x) abs(x)
 #endif
 #else
 #ifdef USE64BITINT
@@ -270,6 +306,13 @@ typedef int blasint;
 #define SIZE	8
 #define  BASE_SHIFT 3
 #define ZBASE_SHIFT 4
+#elif defined(BFLOAT16)
+#define IFLOAT	bfloat16
+#define XFLOAT IFLOAT
+#define FLOAT	float
+#define SIZE   2
+#define BASE_SHIFT 1
+#define ZBASE_SHIFT 2
 #else
 #define FLOAT	float
 #define SIZE    4
@@ -281,19 +324,16 @@ typedef int blasint;
 #define XFLOAT	FLOAT
 #endif
 
+#ifndef IFLOAT
+#define IFLOAT	FLOAT
+#endif
+
 #ifndef COMPLEX
 #define COMPSIZE  1
 #else
 #define COMPSIZE  2
 #endif
 
-#if defined(C_PGI) || defined(C_SUN)
-#define CREAL(X)	(*((FLOAT *)&X + 0))
-#define CIMAG(X)	(*((FLOAT *)&X + 1))
-#else
-#define CREAL	__real__
-#define CIMAG	__imag__
-#endif
 
 #define Address_H(x) (((x)+(1<<15))>>16)
 #define Address_L(x) ((x)-((Address_H(x))<<16))
@@ -307,11 +347,15 @@ typedef int blasint;
 #endif
 
 #if defined(OS_WINDOWS)
+#if defined(_MSC_VER) && !defined(__clang__)
+#define YIELDING    YieldProcessor()
+#else
 #define YIELDING	SwitchToThread()
+#endif
 #endif
 
 #if defined(ARMV7) || defined(ARMV6) || defined(ARMV8) || defined(ARMV5)
-#define YIELDING        asm volatile ("nop;nop;nop;nop;nop;nop;nop;nop; \n");
+#define YIELDING        __asm__ __volatile__ ("nop;nop;nop;nop;nop;nop;nop;nop; \n");
 #endif
 
 #ifdef BULLDOZER
@@ -321,10 +365,30 @@ typedef int blasint;
 #endif
 
 
+#if defined(POWER8) || defined(POWER9) || defined(POWER10)
+#ifndef YIELDING
+#define YIELDING        __asm__ __volatile__ ("nop;nop;nop;nop;nop;nop;nop;nop;\n");
+#endif
+#endif
+
+/*
 #ifdef PILEDRIVER
 #ifndef YIELDING
 #define YIELDING        __asm__ __volatile__ ("nop;nop;nop;nop;nop;nop;nop;nop;\n");
 #endif
+#endif
+*/
+
+/*
+#ifdef STEAMROLLER
+#ifndef YIELDING
+#define YIELDING        __asm__ __volatile__ ("nop;nop;nop;nop;nop;nop;nop;nop;\n");
+#endif
+#endif
+*/
+
+#ifdef __EMSCRIPTEN__
+#define YIELDING
 #endif
 
 #ifndef YIELDING
@@ -345,7 +409,7 @@ please https://github.com/xianyi/OpenBLAS/issues/246
 #endif
 
 #ifndef BLAS3_MEM_ALLOC_THRESHOLD
-#define BLAS3_MEM_ALLOC_THRESHOLD 160
+#define BLAS3_MEM_ALLOC_THRESHOLD 32 
 #endif
 
 #ifdef QUAD_PRECISION
@@ -354,6 +418,15 @@ please https://github.com/xianyi/OpenBLAS/issues/246
 
 #ifdef ARCH_ALPHA
 #include "common_alpha.h"
+#endif
+
+#if (defined(ARCH_X86) || defined(ARCH_X86_64)) && defined(__CET__) && defined(__has_include)
+#if __has_include(<cet.h>)
+#include <cet.h>
+#endif
+#endif
+#ifndef _CET_ENDBR
+#define _CET_ENDBR
 #endif
 
 #ifdef ARCH_X86
@@ -376,6 +449,15 @@ please https://github.com/xianyi/OpenBLAS/issues/246
 #include "common_sparc.h"
 #endif
 
+#ifdef ARCH_MIPS
+#include "common_mips.h"
+#endif
+
+
+#ifdef ARCH_RISCV64
+#include "common_riscv64.h"
+#endif
+
 #ifdef ARCH_MIPS64
 #include "common_mips64.h"
 #endif
@@ -388,18 +470,85 @@ please https://github.com/xianyi/OpenBLAS/issues/246
 #include "common_arm64.h"
 #endif
 
+#ifdef ARCH_ZARCH
+#include "common_zarch.h"
+#endif
+
+#ifdef ARCH_LOONGARCH64
+#include "common_loongarch64.h"
+#endif
+
+#ifdef ARCH_E2K
+#include "common_e2k.h"
+#endif
+
 #ifndef ASSEMBLER
-#ifdef OS_WINDOWS
+#ifdef OS_WINDOWSSTORE
 typedef char env_var_t[MAX_PATH];
-#define readenv(p, n) GetEnvironmentVariable((n), (p), sizeof(p))
+#define readenv(p, n) 0
+#else
+#if defined(OS_WINDOWS) && !defined(OS_CYGWIN_NT)
+typedef char env_var_t[MAX_PATH];
+#define readenv(p, n) GetEnvironmentVariable((LPCTSTR)(n), (LPTSTR)(p), sizeof(p))
 #else
 typedef char* env_var_t;
 #define readenv(p, n) ((p)=getenv(n))
 #endif
 #endif
 
+#if !defined(RPCC_DEFINED) && !defined(OS_WINDOWS)
+#ifdef _POSIX_MONOTONIC_CLOCK
+#if defined(__GLIBC_PREREQ) // cut the if condition if two lines, otherwise will fail at __GLIBC_PREREQ(2, 17)
+#if __GLIBC_PREREQ(2, 17) // don't require -lrt
+#define USE_MONOTONIC
+#endif
+#elif defined(OS_ANDROID)
+#define USE_MONOTONIC
+#endif
+#endif
+/* use similar scale as x86 rdtsc for timeouts to work correctly */
+static inline unsigned long long rpcc(void){
+#ifdef USE_MONOTONIC
+  struct timespec ts;
+  clock_gettime(CLOCK_MONOTONIC, &ts);
+  return (unsigned long long)ts.tv_sec * 1000000000ull + ts.tv_nsec;
+#elif !defined(OS_EMBEDDED)
+  struct timeval tv;
+  gettimeofday(&tv,NULL);
+  return (unsigned long long)tv.tv_sec * 1000000000ull + tv.tv_usec * 1000;
+#else
+  return 0;
+#endif
+}
+#define RPCC_DEFINED
+#define RPCC64BIT
+#endif // !RPCC_DEFINED
+
+#if !defined(BLAS_LOCK_DEFINED) && defined(__GNUC__)
+static __inline void blas_lock(volatile BLASULONG *address){
+
+  do {
+    while (*address) {YIELDING;};
+
+  } while (!__sync_bool_compare_and_swap(address, 0, 1));
+}
+#define BLAS_LOCK_DEFINED
+#endif
+
+#ifndef RPCC_DEFINED
+#error "rpcc() implementation is missing for your platform"
+#endif
+#ifndef BLAS_LOCK_DEFINED
+#error "blas_lock() implementation is missing for your platform"
+#endif
+#endif // !ASSEMBLER
+
 #ifdef OS_LINUX
 #include "common_linux.h"
+#endif
+
+#ifdef OS_EMBEDDED
+#define DTB_DEFAULT_ENTRIES 64
 #endif
 
 #define MMAP_ACCESS (PROT_READ | PROT_WRITE)
@@ -408,6 +557,33 @@ typedef char* env_var_t;
 #define MMAP_POLICY (MAP_PRIVATE | MAP_ANON)
 #else
 #define MMAP_POLICY (MAP_PRIVATE | MAP_ANONYMOUS)
+#endif
+
+#ifndef ASSEMBLER
+/* C99 supports complex floating numbers natively, which GCC also offers as an
+   extension since version 3.0.  If neither are available, use a compatible
+   structure as fallback (see Clause 6.2.5.13 of the C99 standard). */
+#if ((defined(__STDC_IEC_559_COMPLEX__) || __STDC_VERSION__ >= 199901L || \
+      (__GNUC__ >= 3 && !defined(__cplusplus))) && !(defined(FORCE_OPENBLAS_COMPLEX_STRUCT))) && !defined(_MSC_VER)
+  #define OPENBLAS_COMPLEX_C99
+  #ifndef __cplusplus
+    #include <complex.h>
+  #endif
+  typedef float _Complex openblas_complex_float;
+  typedef double _Complex openblas_complex_double;
+  typedef xdouble _Complex openblas_complex_xdouble;
+  #define openblas_make_complex_float(real, imag)    ((real) + ((imag) * _Complex_I))
+  #define openblas_make_complex_double(real, imag)   ((real) + ((imag) * _Complex_I))
+  #define openblas_make_complex_xdouble(real, imag)  ((real) + ((imag) * _Complex_I))
+#else
+  #define OPENBLAS_COMPLEX_STRUCT
+  typedef struct { float real, imag; } openblas_complex_float;
+  typedef struct { double real, imag; } openblas_complex_double;
+  typedef struct { xdouble real, imag; } openblas_complex_xdouble;
+  #define openblas_make_complex_float(real, imag)    {(real), (imag)}
+  #define openblas_make_complex_double(real, imag)   {(real), (imag)}
+  #define openblas_make_complex_xdouble(real, imag)  {(real), (imag)}
+#endif
 #endif
 
 #include "param.h"
@@ -439,21 +615,35 @@ typedef char* env_var_t;
 #include <stdio.h>
 #endif  // NOINCLUDE
 
-/* C99 supports complex floating numbers natively, which GCC also offers as an
-   extension since version 3.0.  If neither are available, use a compatible
-   structure as fallback (see Clause 6.2.5.13 of the C99 standard). */
-#if (defined(__STDC_IEC_559_COMPLEX__) || __STDC_VERSION__ >= 199901L || \
-     (__GNUC__ >= 3 && !defined(__cplusplus)))
-  #define OPENBLAS_COMPLEX_C99
-  typedef float _Complex openblas_complex_float;
-  typedef double _Complex openblas_complex_double;
-  typedef xdouble _Complex openblas_complex_xdouble;
+#ifdef XDOUBLE
+#define OPENBLAS_COMPLEX_FLOAT openblas_complex_xdouble
+#define OPENBLAS_MAKE_COMPLEX_FLOAT(r,i) openblas_make_complex_xdouble(r,i)
+#elif defined(DOUBLE)
+#define OPENBLAS_COMPLEX_FLOAT openblas_complex_double
+#define OPENBLAS_MAKE_COMPLEX_FLOAT(r,i) openblas_make_complex_double(r,i)
 #else
-  #define OPENBLAS_COMPLEX_STRUCT
-  typedef struct { float real, imag; } openblas_complex_float;
-  typedef struct { double real, imag; } openblas_complex_double;
-  typedef struct { xdouble real, imag; } openblas_complex_xdouble;
+#define OPENBLAS_COMPLEX_FLOAT openblas_complex_float
+#define OPENBLAS_MAKE_COMPLEX_FLOAT(r,i) openblas_make_complex_float(r,i)
 #endif
+
+#if defined(C_PGI) || defined(C_SUN)
+  #if defined(__STDC_IEC_559_COMPLEX__)
+     #define CREAL(X)   creal(X)
+     #define CIMAG(X)   cimag(X)
+  #else
+     #define CREAL(X)	(*((FLOAT *)&X + 0))
+     #define CIMAG(X)	(*((FLOAT *)&X + 1))
+  #endif
+#else
+#ifdef OPENBLAS_COMPLEX_STRUCT
+#define CREAL(Z)	((Z).real)
+#define CIMAG(Z)	((Z).imag)
+#else
+#define CREAL	__real__
+#define CIMAG	__imag__
+#endif
+#endif
+
 #endif  // ASSEMBLER
 
 #ifndef IFLUSH
@@ -468,6 +658,10 @@ typedef char* env_var_t;
 #ifdef USE_OPENMP
 #undef USE_OPENMP
 #endif
+#endif
+
+#if defined(C_MSVC)
+#define inline __inline
 #endif
 
 #ifndef ASSEMBLER
@@ -491,6 +685,8 @@ void  blas_set_parameter(void);
 int   blas_get_cpu_number(void);
 void *blas_memory_alloc  (int);
 void  blas_memory_free   (void *);
+void *blas_memory_alloc_nolock  (int); //use malloc without blas_lock
+void  blas_memory_free_nolock   (void *);
 
 int  get_num_procs (void);
 
@@ -508,10 +704,33 @@ void gotoblas_dynamic_init(void);
 void gotoblas_dynamic_quit(void);
 void gotoblas_profile_init(void);
 void gotoblas_profile_quit(void);
+	
+int support_avx512(void);	
 
 #ifdef USE_OPENMP
+
+#ifndef C_MSVC
 int omp_in_parallel(void);
 int omp_get_num_procs(void);
+#else
+__declspec(dllimport) int __cdecl omp_in_parallel(void);
+__declspec(dllimport) int __cdecl omp_get_num_procs(void);
+#endif
+
+#ifdef HAVE_C11
+#if defined(C_GCC) && ( __GNUC__ < 7) 
+// workaround for GCC bug 65467
+#ifndef _Atomic
+#define _Atomic volatile
+#endif
+#endif
+#include <stdatomic.h>
+#else
+#ifndef _Atomic
+#define _Atomic volatile
+#endif
+#endif
+
 #else
 #ifdef __ELF__
 int omp_in_parallel  (void) __attribute__ ((weak));
@@ -524,11 +743,26 @@ static __inline void blas_unlock(volatile BLASULONG *address){
   *address = 0;
 }
 
+#ifdef OS_WINDOWSSTORE
+static __inline int readenv_atoi(char *env) {
+	return 0;
+}
+#else
+#ifdef OS_WINDOWS
 static __inline int readenv_atoi(char *env) {
   env_var_t p;
   return readenv(p,env) ? 0 : atoi(p);
 }
-
+#else
+static __inline int readenv_atoi(char *env) {
+  char *p;
+  if (( p = getenv(env) ))
+  	return (atoi(p));
+  else
+	return(0);
+}
+#endif
+#endif
 
 #if !defined(XDOUBLE) || !defined(QUAD_PRECISION)
 
@@ -612,6 +846,7 @@ typedef struct {
 #endif
 
 #ifndef ASSEMBLER
+#include "common_stackalloc.h"
 #if 0
 #include "symcopy.h"
 #endif

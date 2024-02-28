@@ -62,26 +62,26 @@
 	stfd	f31,   16(SP)
 	stw	r0,    24(SP)
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
-	lwz	LDC,      8 + STACKSIZE(SP)
+	lwz	LDC,    FRAMESLOT(0) + STACKSIZE(SP)
 #else
-	ld	C,      112 + STACKSIZE(SP)
-	ld	LDC,    120 + STACKSIZE(SP)
+	ld	C,      FRAMESLOT(0) + STACKSIZE(SP)
+	ld	LDC,    FRAMESLOT(1) + STACKSIZE(SP)
 #endif
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifdef __64BIT__
-	ld	C,      112 + STACKSIZE(SP)
-	ld	LDC,    120 + STACKSIZE(SP)
+	ld	C,      FRAMESLOT(0) + STACKSIZE(SP)
+	ld	LDC,    FRAMESLOT(1) + STACKSIZE(SP)
 #else
 #ifdef DOUBLE
-	lwz	C,       60 + STACKSIZE(SP)
-	lwz	LDC,     64 + STACKSIZE(SP)
+	lwz	C,      FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	LDC,    FRAMESLOT(2) + STACKSIZE(SP)
 #else
-	lwz	C,       56 + STACKSIZE(SP)
-	lwz	LDC,     60 + STACKSIZE(SP)
+	lwz	C,      FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	LDC,    FRAMESLOT(1) + STACKSIZE(SP)
 #endif
 #endif
 #endif
@@ -129,7 +129,7 @@ LL(12):
 	STFD	f0,  14 * SIZE(CO1)
 	STFD	f0,  15 * SIZE(CO1)
 
-	dcbst	PRE, CO1
+	dcbtst	PRE, CO1
 	addi	CO1, CO1,  16 * SIZE
 	bdnz	LL(12)
 	.align 4

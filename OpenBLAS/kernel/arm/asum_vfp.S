@@ -58,11 +58,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE  ]
-	fldmiad	X!, { d4 - d5 }
+	vldmia.f64	X!, { d4 - d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
-	fldmiad	X!, { d6 - d7 }
+	vldmia.f64	X!, { d6 - d7 }
 	vabs.f64   d6,  d6
 	vadd.f64   d1  , d1,  d5
 	vabs.f64   d7,  d7
@@ -73,7 +73,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmiad	X!, { d4 }
+	vldmia.f64	X!, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 
@@ -82,22 +82,22 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S4
 
-	fldmiad	X, { d4 }
+	vldmia.f64	X, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
 
-	fldmiad	X, { d4 }
+	vldmia.f64	X, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
 
-	fldmiad	X, { d4 }
+	vldmia.f64	X, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
 
-	fldmiad	X, { d4 }
+	vldmia.f64	X, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
@@ -107,7 +107,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmiad	X, { d4 }
+	vldmia.f64	X, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	add	X, X, INC_X
@@ -118,11 +118,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F4
 
-	fldmias	X!, { s4 - s5 }
+	vldmia.f32	X!, { s4 - s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
-	fldmias	X!, { s6 - s7 }
+	vldmia.f32	X!, { s6 - s7 }
 	vabs.f32   s6,  s6
 	vadd.f32   s1  , s1,  s5
 	vabs.f32   s7,  s7
@@ -133,7 +133,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias	X!, { s4 }
+	vldmia.f32	X!, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 
@@ -142,22 +142,22 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S4
 
-	fldmias	X, { s4 }
+	vldmia.f32	X, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	add	X, X, INC_X
 
-	fldmias	X, { s4 }
+	vldmia.f32	X, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	add	X, X, INC_X
 
-	fldmias	X, { s4 }
+	vldmia.f32	X, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	add	X, X, INC_X
 
-	fldmias	X, { s4 }
+	vldmia.f32	X, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	add	X, X, INC_X
@@ -167,7 +167,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmias	X, { s4 }
+	vldmia.f32	X, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	add	X, X, INC_X
@@ -184,11 +184,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE  ]
-	fldmiad	X!, { d4 - d5 }
+	vldmia.f64	X!, { d4 - d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
-	fldmiad	X!, { d6 - d7 }
+	vldmia.f64	X!, { d6 - d7 }
 	vabs.f64   d6,  d6
 	vadd.f64   d1  , d1,  d5
 	vabs.f64   d7,  d7
@@ -196,11 +196,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	vadd.f64   d1  , d1,  d7
 
 	pld	[ X, #X_PRE  ]
-	fldmiad	X!, { d4 - d5 }
+	vldmia.f64	X!, { d4 - d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
-	fldmiad	X!, { d6 - d7 }
+	vldmia.f64	X!, { d6 - d7 }
 	vabs.f64   d6,  d6
 	vadd.f64   d1  , d1,  d5
 	vabs.f64   d7,  d7
@@ -212,11 +212,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmiad	X!, { d4 }
+	vldmia.f64	X!, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 
-	fldmiad	X!, { d4 }
+	vldmia.f64	X!, { d4 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 
@@ -226,28 +226,28 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S4
 
-	fldmiad	X, { d4 -d5 }
+	vldmia.f64	X, { d4 -d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
 	vadd.f64   d0  , d0,  d5
 	add	X, X, INC_X
 
-	fldmiad	X, { d4 -d5 }
+	vldmia.f64	X, { d4 -d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
 	vadd.f64   d0  , d0,  d5
 	add	X, X, INC_X
 
-	fldmiad	X, { d4 -d5 }
+	vldmia.f64	X, { d4 -d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
 	vadd.f64   d0  , d0,  d5
 	add	X, X, INC_X
 
-	fldmiad	X, { d4 -d5 }
+	vldmia.f64	X, { d4 -d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
@@ -259,7 +259,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmiad	X, { d4 -d5 }
+	vldmia.f64	X, { d4 -d5 }
 	vabs.f64   d4,  d4
 	vadd.f64   d0  , d0,  d4
 	vabs.f64   d5,  d5
@@ -273,22 +273,22 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 .macro KERNEL_F4
 
 	pld	[ X, #X_PRE  ]
-	fldmias	X!, { s4 - s5 }
+	vldmia.f32	X!, { s4 - s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
-	fldmias	X!, { s6 - s7 }
+	vldmia.f32	X!, { s6 - s7 }
 	vabs.f32   s6,  s6
 	vadd.f32   s1  , s1,  s5
 	vabs.f32   s7,  s7
 	vadd.f32   s0  , s0,  s6
 	vadd.f32   s1  , s1,  s7
 
-	fldmias	X!, { s4 - s5 }
+	vldmia.f32	X!, { s4 - s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
-	fldmias	X!, { s6 - s7 }
+	vldmia.f32	X!, { s6 - s7 }
 	vabs.f32   s6,  s6
 	vadd.f32   s1  , s1,  s5
 	vabs.f32   s7,  s7
@@ -300,11 +300,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias	X!, { s4 }
+	vldmia.f32	X!, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 
-	fldmias	X!, { s4 }
+	vldmia.f32	X!, { s4 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 
@@ -313,28 +313,28 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S4
 
-	fldmias	X, { s4 -s5 }
+	vldmia.f32	X, { s4 -s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
 	vadd.f32   s0  , s0,  s5
 	add	X, X, INC_X
 
-	fldmias	X, { s4 -s5 }
+	vldmia.f32	X, { s4 -s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
 	vadd.f32   s0  , s0,  s5
 	add	X, X, INC_X
 
-	fldmias	X, { s4 -s5 }
+	vldmia.f32	X, { s4 -s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
 	vadd.f32   s0  , s0,  s5
 	add	X, X, INC_X
 
-	fldmias	X, { s4 -s5 }
+	vldmia.f32	X, { s4 -s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
@@ -346,7 +346,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmias	X, { s4 -s5 }
+	vldmia.f32	X, { s4 -s5 }
 	vabs.f32   s4,  s4
 	vadd.f32   s0  , s0,  s4
 	vabs.f32   s5,  s5
@@ -367,12 +367,12 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	.align 5
 
-#if defined(DOUBLE)
-	vsub.f64                d0 , d0 , d0
-	vsub.f64                d1 , d1 , d1
-#else
-	vsub.f32                s0 , s0 , s0
-	vsub.f32                s1 , s1 , s1
+        movs    r12, #0                                          // clear floating point register
+        vmov    s0, r12
+        vmov    s1, r12
+#if     defined(DOUBLE)
+        vcvt.f64.f32    d0, s0
+        vcvt.f64.f32    d1, s1
 #endif
 
 	cmp	N, #0
@@ -473,6 +473,14 @@ asum_kernel_L999:
 	vadd.f64	d0 , d0, d1				// set return value
 #else
 	vadd.f32	s0 , s0, s1				// set return value
+#endif
+
+#if !defined(__ARM_PCS_VFP)
+#if !defined(DOUBLE)
+	vmov	r0, s0
+#else
+	vmov	r0, r1, d0
+#endif
 #endif
 
 	bx	lr

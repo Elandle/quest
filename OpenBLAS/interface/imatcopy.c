@@ -26,7 +26,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
 /***********************************************************
- * 2014/06/10 Saar
+ * 2014-06-10 Saar
+ * 2015-09-07 grisuthedragon 
 ***********************************************************/
 
 #include <stdio.h>
@@ -50,6 +51,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #undef malloc
 #undef free
 
+/* Enables the New IMATCOPY code with inplace operation if lda == ldb   */
+#define NEW_IMATCOPY
+
+#ifndef CBLAS
 void NAME( char* ORDER, char* TRANS, blasint *rows, blasint *cols, FLOAT *alpha, FLOAT *a, blasint *lda, blasint *ldb)
 {
 
@@ -71,39 +76,90 @@ void NAME( char* ORDER, char* TRANS, blasint *rows, blasint *cols, FLOAT *alpha,
 	if ( Trans == 'R' ) trans = BlasNoTrans;
 	if ( Trans == 'T' ) trans = BlasTrans;
 	if ( Trans == 'C' ) trans = BlasTrans;
+#else 
+void CNAME( enum CBLAS_ORDER CORDER, enum CBLAS_TRANSPOSE CTRANS, blasint crows, blasint ccols, FLOAT calpha, FLOAT *a, blasint clda, blasint cldb)
+{
+	int order=-1,trans=-1;
+	blasint info = -1;
+	FLOAT *b;
+	size_t msize;
+	blasint *lda, *ldb, *rows, *cols; 
+	FLOAT *alpha; 
+
+	if ( CORDER == CblasColMajor) order = BlasColMajor; 
+	if ( CORDER == CblasRowMajor) order = BlasRowMajor; 
+	if ( CTRANS == CblasNoTrans || CTRANS == CblasConjNoTrans) trans = BlasNoTrans; 
+	if ( CTRANS == CblasTrans   || CTRANS == CblasConjTrans  ) trans = BlasTrans; 
+
+	rows = &crows; 
+	cols = &ccols; 
+	alpha = &calpha; 
+	lda = &clda; 
+	ldb = &cldb; 	
+#endif 
 
 	if ( order == BlasColMajor)
 	{
-        	if ( trans == BlasNoTrans  &&  *ldb < *rows ) info = 9;
-        	if ( trans == BlasTrans    &&  *ldb < *cols ) info = 9;
+        	if ( trans == BlasNoTrans  &&  *ldb < MAX(1,*rows) ) info = 8;
+        	if ( trans == BlasTrans    &&  *ldb < MAX(1,*cols) ) info = 8;
 	}
 	if ( order == BlasRowMajor)
 	{
-        	if ( trans == BlasNoTrans  &&  *ldb < *cols ) info = 9;
-        	if ( trans == BlasTrans    &&  *ldb < *rows ) info = 9;
+        	if ( trans == BlasNoTrans  &&  *ldb < MAX(1,*cols) ) info = 8;
+        	if ( trans == BlasTrans    &&  *ldb < MAX(1,*rows) ) info = 8;
 	}
 
-	if ( order == BlasColMajor &&  *lda < *rows ) info = 7;
-	if ( order == BlasRowMajor &&  *lda < *cols ) info = 7;
-	if ( *cols <= 0 ) info = 4;
-	if ( *rows <= 0 ) info = 3;
-	if ( trans < 0  ) info = 2;
-	if ( order < 0  ) info = 1;
+	if ( order == BlasColMajor &&  *lda < MAX(1,*rows) ) info = 7;
+	if ( order == BlasRowMajor &&  *lda < MAX(1,*cols) ) info = 7;
+	if ( *cols < 0 ) info = 4;
+	if ( *rows < 0 ) info = 3;
+	if ( trans < 0 ) info = 2;
+	if ( order < 0 ) info = 1;
 
 	if (info >= 0) {
     		BLASFUNC(xerbla)(ERROR_NAME, &info, sizeof(ERROR_NAME));
     		return;
   	}
 
-	if ( *lda >  *ldb )
-		msize = (*lda) * (*ldb)  * sizeof(FLOAT);
-	else
-		msize = (*ldb) * (*ldb)  * sizeof(FLOAT);
+	if ((*rows == 0) || (*cols == 0)) return;
+
+#ifdef NEW_IMATCOPY
+    if ( *lda == *ldb ) {
+        if ( order == BlasColMajor )
+        {
+            if ( trans == BlasNoTrans )
+            {
+                IMATCOPY_K_CN(*rows, *cols, *alpha, a, *lda );
+                return;
+            }
+            else if ( *rows == *cols )
+            {
+                IMATCOPY_K_CT(*rows, *cols, *alpha, a, *lda );
+                return;
+            }
+        }
+        else
+        {
+            if ( trans == BlasNoTrans )
+            {
+                IMATCOPY_K_RN(*rows, *cols, *alpha, a, *lda );
+                return;
+            }
+            else if ( *rows == *cols )
+            {
+                IMATCOPY_K_RT(*rows, *cols, *alpha, a, *lda );
+                return;
+            }
+        }
+    }
+#endif
+
+	msize = (size_t)(*rows) * (*cols) * sizeof(FLOAT);
 
 	b = malloc(msize);
 	if ( b == NULL )
 	{
-		printf("Memory alloc failed\n");
+		printf("Memory alloc failed in imatcopy\n");
 		exit(1);
 	}
 
@@ -111,26 +167,26 @@ void NAME( char* ORDER, char* TRANS, blasint *rows, blasint *cols, FLOAT *alpha,
 	{
 		if ( trans == BlasNoTrans )
 		{
-			OMATCOPY_K_CN(*rows, *cols, *alpha, a, *lda, b, *ldb );
-			OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0 , b, *ldb, a, *ldb );
+			OMATCOPY_K_CN(*rows, *cols, *alpha, a, *lda, b, *rows );
+			OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0 , b, *rows, a, *ldb );
 		}
 		else
 		{
-			OMATCOPY_K_CT(*rows, *cols, *alpha, a, *lda, b, *ldb );
-			OMATCOPY_K_CN(*rows, *cols, (FLOAT) 1.0, b, *ldb, a, *ldb );
+			OMATCOPY_K_CT(*rows, *cols, *alpha, a, *lda, b, *cols );
+			OMATCOPY_K_CN(*cols, *rows, (FLOAT) 1.0, b, *cols, a, *ldb );
 		}
 	}
 	else
 	{
 		if ( trans == BlasNoTrans )
 		{
-			OMATCOPY_K_RN(*rows, *cols, *alpha, a, *lda, b, *ldb );
-			OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, b, *ldb, a, *ldb );
+			OMATCOPY_K_RN(*rows, *cols, *alpha, a, *lda, b, *cols );
+			OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, b, *cols, a, *ldb );
 		}
 		else
 		{
-			OMATCOPY_K_RT(*rows, *cols, *alpha, a, *lda, b, *ldb );
-			OMATCOPY_K_RN(*rows, *cols, (FLOAT) 1.0, b, *ldb, a, *ldb );
+			OMATCOPY_K_RT(*rows, *cols, *alpha, a, *lda, b, *rows );
+			OMATCOPY_K_RN(*cols, *rows, (FLOAT) 1.0, b, *rows, a, *ldb );
 		}
 	}
 

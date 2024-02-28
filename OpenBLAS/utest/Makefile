@@ -1,56 +1,58 @@
 UTEST_CHECK = 1
 TOPDIR	= ..
 
-TARGET=openblas_utest
+override TARGET_ARCH=
+override TARGET_MACH=
+
+UTESTBIN=openblas_utest
 
 .PHONY : all
-.NOTPARALLEL : all run_test $(TARGET)
-
-CUNIT_URL=http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
-CUNIT_DIR=$(CURDIR)/CUnit-2.1-2
-
-CUNIT_LIB=$(CUNIT_DIR)/lib/libcunit.a
-
-CFLAGS +=-I$(CUNIT_DIR)/include
+.NOTPARALLEL : all run_test $(UTESTBIN)
 
 include $(TOPDIR)/Makefile.system
 
-OBJS=main.o test_rot.o test_swap.o test_axpy.o test_dotu.o test_rotmg.o test_dsdot.o test_amax.o test_fork.o
+OBJS=utest_main.o test_min.o test_amax.o test_ismin.o test_rotmg.o test_axpy.o test_dotu.o test_dsdot.o test_swap.o test_rot.o test_dnrm2.o
+#test_rot.o test_swap.o test_axpy.o test_dotu.o test_dsdot.o test_fork.o
+
+ifneq ($(NO_LAPACK), 1)
+OBJS += test_potrs.o
+ifneq ($(NO_CBLAS), 1)
+ifneq ($(NO_LAPACKE), 1)
+OBJS += test_kernel_regress.o
+endif
+endif
+endif
+
+#this does not work with OpenMP nor with native Windows or Android threads
+# FIXME TBD if this works on OSX, SunOS, POWER and zarch
+ifeq ($(OSNAME), $(filter $(OSNAME),Linux CYGWIN_NT))
+ifneq ($(USE_OPENMP), 1)
+OBJS += test_fork.o
+endif
+OBJS += test_post_fork.o
+endif
+
+ifeq ($(C_COMPILER), PGI)
+OBJS = utest_main2.o
+endif
+ifeq ($(C_COMPILER), SUN)
+OBJS = utest_main2.o
+endif
+ifeq ($(OSNAME), AIX)
+OBJS = utest_main2.o
+endif
 
 all : run_test
 
-CUnit-2.1-2-src.tar.bz2:
-ifeq ($(OSNAME), Darwin)
-	curl -O $(CUNIT_URL)
-else
-	wget $(CUNIT_URL)
+$(UTESTBIN): $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ ../$(LIBNAME) $(EXTRALIB) $(FEXTRALIB)
+
+run_test: $(UTESTBIN)
+ifneq ($(CROSS), 1)
+	./$(UTESTBIN)
 endif
 
-$(CUNIT_DIR): CUnit-2.1-2-src.tar.bz2
-	@if test `$(MD5SUM) CUnit-2.1-2-src.tar.bz2 | $(AWK) '{print $$1}'` = 31c62bd7a65007737ba28b7aafc44d3a; then \
-		echo $(TAR) xjf $< ;\
-		$(TAR) xjf $< ; \
-	else \
-		rm -rf $(CUNIT_DIR) ;\
-		echo "	Cannot download CUnit-2.1-2-src.tar.bz2 or the MD5 check sum is wrong (Please use orignal)."; \
-		exit 1; \
-	fi
-
-
-$(CUNIT_LIB): $(CUNIT_DIR)
-	(cd $(CUNIT_DIR); CC=$(CC) CFLAGS="$(CFLAGS)" ./configure --prefix=$(CUNIT_DIR))
-	$(MAKE) -C $(CUNIT_DIR)
-	$(MAKE) -C $(CUNIT_DIR) install
-
-$(TARGET): $(CUNIT_LIB) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ ../$(LIBNAME) $(CUNIT_LIB) $(EXTRALIB)
-
-run_test: $(TARGET)
-	./$(TARGET)
-
 clean:
-	-rm -f *.o $(TARGET)
-	-rm -rf $(CUNIT_DIR)
+	-rm -f *.o $(UTESTBIN)
 
 libs:
-

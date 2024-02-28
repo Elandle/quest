@@ -1,5 +1,5 @@
 /*****************************************************************************
-Copyright (c) 2011,2012 Lab of Parallel Software and Computational Science,ISCAS
+Copyright (c) 2011-2014, The OpenBLAS Project
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -13,9 +13,10 @@ met:
       notice, this list of conditions and the following disclaimer in
       the documentation and/or other materials provided with the
       distribution.
-   3. Neither the name of the ISCAS nor the names of its contributors may
-      be used to endorse or promote products derived from this software
-      without specific prior written permission.
+   3. Neither the name of the OpenBLAS project nor the names of 
+      its contributors may be used to endorse or promote products 
+      derived from this software without specific prior written 
+      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -25,7 +26,7 @@ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIA
 DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
 SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+kOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
 USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 **********************************************************************************/
@@ -77,6 +78,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <sys/sysinfo.h>
 #include <sys/syscall.h>
+#include <sys/types.h>
+#include <errno.h>
 #include <sys/shm.h>
 #include <fcntl.h>
 #include <sched.h>
@@ -85,8 +88,18 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <unistd.h>
 #include <string.h>
 
+#if defined(BIGNUMA)
+// max number of nodes as defined in numa.h
+// max cpus as defined in most sched.h
+// cannot use CPU_SETSIZE directly as some
+// Linux distributors set it to 4096 
+#define MAX_NODES	128
+#define MAX_CPUS	1024
+#else
 #define MAX_NODES	16
 #define MAX_CPUS	256
+#endif
+
 #define NCPUBITS        (8*sizeof(unsigned long))
 #define MAX_BITMASK_LEN (MAX_CPUS/NCPUBITS)
 #define CPUELT(cpu)	((cpu) / NCPUBITS)
@@ -224,7 +237,7 @@ static inline void get_cpumap(int node, unsigned long * node_info) {
     if(k!=0){
       name[k]='\0';
       affinity[count++] = strtoul(name, &dummy, 16);
-      k=0;
+      // k=0;
     }
     // 0-63bit -> node_info[0], 64-128bit -> node_info[1] ....
     // revert the sequence
@@ -280,7 +293,7 @@ static inline void get_share(int cpu, int level, unsigned long * share) {
     if(k!=0){
       name[k]='\0';
       affinity[count++] = strtoul(name, &dummy, 16);
-      k=0;
+      // k=0;
     }
     // 0-63bit -> node_info[0], 64-128bit -> node_info[1] ....
     // revert the sequence
@@ -345,6 +358,24 @@ static int numa_check(void) {
   return common -> num_nodes;
 }
 
+#if defined(__GLIBC_PREREQ)
+#if !__GLIBC_PREREQ(2, 6)
+int sched_getcpu(void)
+{
+int cpu;
+FILE *fp = NULL;
+if ( (fp = fopen("/proc/self/stat", "r")) == NULL)
+   return -1;
+if ( fscanf( fp, "%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%*s%d", &cpu) != 1) {
+  fclose (fp);
+  return -1;
+  }
+  fclose (fp);
+  return(cpu);
+}
+#endif
+#endif
+
 static void numa_mapping(void) {
 
   int node, cpu, core;
@@ -352,6 +383,9 @@ static void numa_mapping(void) {
   unsigned long work, bit;
   int count = 0;
   int bitmask_idx = 0;
+  int current_cpu;
+  int current_node = 0;
+  int cpu_count = 0;
 
   for (node = 0; node < common -> num_nodes; node ++) {
     core = 0;
@@ -373,33 +407,84 @@ static void numa_mapping(void) {
     fprintf(stderr, "CPU (%2d) : %08lx\n", cpu, common -> cpu_info[cpu]);
 #endif
 
-  h = 1;
+  current_cpu = sched_getcpu();
+  for (cpu = 0; cpu < count; cpu++) {
+    if (READ_CPU(common -> cpu_info[cpu]) == current_cpu) {
+      current_node = READ_NODE(common -> cpu_info[cpu]);
+      break;
+    }
+  }
+  for (i = 0; i < MAX_BITMASK_LEN; i++)
+    cpu_count += popcount(common -> node_info[current_node][i] & common -> avail[i]);
 
-  while (h < count) h = 2 * h + 1;
+  /*
+   * If all the processes can be accommodated in the
+   * in the current node itself, then bind to cores
+   * from the current node only
+   */
+  if (numprocs <= cpu_count) {
+    /*
+     * First sort all the cores in order from the current node.
+     * Then take remaining nodes one by one in order,
+     * and sort their cores in order.
+     */
+    for (i = 0; i < count; i++) {
+      for (j = 0; j < count - 1; j++) {
+        int node_1, node_2;
+        int core_1, core_2;
+        int swap = 0;
 
-  while (h > 1) {
-    h /= 2;
-    for (i = h; i < count; i++) {
-      work = common -> cpu_info[i];
-      bit  = CPU_ISSET(i, &cpu_orig_mask[0]);
-      j = i - h;
-      while (work < common -> cpu_info[j]) {
-	common -> cpu_info[j + h] = common -> cpu_info[j];
-	if (CPU_ISSET(j, &cpu_orig_mask[0])) {
-	  CPU_SET(j + h, &cpu_orig_mask[0]);
-	} else {
-	  CPU_CLR(j + h, &cpu_orig_mask[0]);
-	}
-	j -= h;
-	if (j < 0) break;
+        node_1 = READ_NODE(common -> cpu_info[j]);
+        node_2 = READ_NODE(common -> cpu_info[j + 1]);
+        core_1 = READ_CORE(common -> cpu_info[j]);
+        core_2 = READ_CORE(common -> cpu_info[j + 1]);
+
+        if (node_1 == node_2) {
+          if (core_1 > core_2)
+            swap = 1;
+        } else {
+          if ((node_2 == current_node) ||
+              ((node_1 != current_node) && (node_1 > node_2)))
+            swap = 1;
+        }
+        if (swap) {
+          unsigned long temp;
+
+          temp = common->cpu_info[j];
+          common->cpu_info[j] = common->cpu_info[j + 1];
+          common->cpu_info[j + 1] = temp;
+        }
       }
-      common -> cpu_info[j + h] = work;
-      if (bit) {
-	CPU_SET(j + h, &cpu_orig_mask[0]);
-      } else {
-	CPU_CLR(j + h, &cpu_orig_mask[0]);
-      }
+    }
+  } else {
+    h = 1;
 
+    while (h < count) h = 2 * h + 1;
+
+    while (h > 1) {
+      h /= 2;
+      for (i = h; i < count; i++) {
+        work = common -> cpu_info[i];
+        bit  = CPU_ISSET(i, &cpu_orig_mask[0]);
+        j = i - h;
+        while (work < common -> cpu_info[j]) {
+          common -> cpu_info[j + h] = common -> cpu_info[j];
+          if (CPU_ISSET(j, &cpu_orig_mask[0])) {
+            CPU_SET(j + h, &cpu_orig_mask[0]);
+          } else {
+            CPU_CLR(j + h, &cpu_orig_mask[0]);
+          }
+          j -= h;
+          if (j < 0) break;
+        }
+        common -> cpu_info[j + h] = work;
+        if (bit) {
+          CPU_SET(j + h, &cpu_orig_mask[0]);
+        } else {
+          CPU_CLR(j + h, &cpu_orig_mask[0]);
+        }
+
+      }
     }
   }
 
@@ -407,7 +492,10 @@ static void numa_mapping(void) {
   fprintf(stderr, "\nSorting ...\n\n");
 
   for (cpu = 0; cpu < count; cpu++)
-    fprintf(stderr, "CPU (%2d) : %08lx\n", cpu, common -> cpu_info[cpu]);
+    fprintf(stderr, "CPUINFO (%2d) : %08lx (CPU=%3lu CORE=%3lu NODE=%3lu)\n", cpu, common -> cpu_info[cpu],
+      READ_CPU(common -> cpu_info[cpu]),
+      READ_CORE(common -> cpu_info[cpu]),
+      READ_NODE(common -> cpu_info[cpu]));
 #endif
 
 }
@@ -544,46 +632,77 @@ static inline int is_dead(int id) {
 
   return shmctl(id, IPC_STAT, &ds);
 }
-static void open_shmem(void) {
+
+static int open_shmem(void) {
 
   int try = 0;
 
+  int err = 0;
+  
   do {
 
+#if defined(BIGNUMA)
+    // raised to 32768, enough for 128 nodes and 1024 cups
+    shmid = shmget(SH_MAGIC, 32768, 0666);
+#else
     shmid = shmget(SH_MAGIC, 4096, 0666);
+#endif
 
     if (shmid == -1) {
+#if defined(BIGNUMA)
+      shmid = shmget(SH_MAGIC, 32768, IPC_CREAT | 0666);
+#else
       shmid = shmget(SH_MAGIC, 4096, IPC_CREAT | 0666);
+#endif
     }
 
+    if (shmid == -1) err = errno;
+    
     try ++;
 
   } while ((try < 10) && (shmid == -1));
 
   if (shmid == -1) {
-    fprintf(stderr, "GotoBLAS : Can't open shared memory. Terminated.\n");
-    exit(1);
+    fprintf (stderr, "Obtaining shared memory segment failed in open_shmem: %s\n",strerror(err));
+    fprintf (stderr, "Setting CPU affinity not possible without shared memory access.\n");
+    return (1);
   }
 
-  if (shmid != -1) common = (shm_t *)shmat(shmid, NULL, 0);
-
+  if (shmid != -1) {
+    if ( (common = shmat(shmid, NULL, 0)) == (void*)-1) {
+      perror ("Attaching shared memory segment failed in open_shmem");
+      fprintf (stderr, "Setting CPU affinity not possible without shared memory access.\n");
+      return (1);
+    }
+  }
 #ifdef DEBUG
   fprintf(stderr, "Shared Memory id = %x  Address = %p\n", shmid, common);
 #endif
-
+  return (0);
 }
 
-static void create_pshmem(void) {
+static int create_pshmem(void) {
 
   pshmid = shmget(IPC_PRIVATE, 4096, IPC_CREAT | 0666);
 
-  paddr = shmat(pshmid, NULL, 0);
-
-  shmctl(pshmid, IPC_RMID, 0);
+  if (pshmid == -1) {
+    perror ("Obtaining shared memory segment failed in create_pshmem");
+    fprintf (stderr, "Setting CPU affinity not possible without shared memory access.\n");
+    return(1);
+  }
+  
+  if ( (paddr = shmat(pshmid, NULL, 0)) == (void*)-1) {
+    perror ("Attaching shared memory segment failed in create_pshmem");
+    fprintf (stderr, "Setting CPU affinity not possible without shared memory access.\n");
+    return (1);
+  }  
+  
+  if (shmctl(pshmid, IPC_RMID, 0) == -1) return (1);
 
 #ifdef DEBUG
   fprintf(stderr, "Private Shared Memory id = %x  Address = %p\n", pshmid, paddr);
 #endif
+  return(0);
 }
 
 static void local_cpu_map(void) {
@@ -646,7 +765,7 @@ int gotoblas_set_affinity(int pos) {
 
   int mynode = 1;
 
-  /* if number of threads is larger than inital condition */
+  /* if number of threads is larger than initial condition */
   if (pos < 0) {
       sched_setaffinity(0, sizeof(cpu_orig_mask), &cpu_orig_mask[0]);
       return 0;
@@ -704,6 +823,8 @@ void gotoblas_affinity_init(void) {
 
   if (numprocs == 0) numprocs = readenv_atoi("OMP_NUM_THREADS");
 
+  if (numprocs == 0) numprocs = readenv_atoi("OPENBLAS_DEFAULT_NUM_THREADS");
+
   numnodes = 1;
 
   if (numprocs == 1) {
@@ -711,17 +832,23 @@ void gotoblas_affinity_init(void) {
     return;
   }
 
-  create_pshmem();
-
-  open_shmem();
-
+  if (create_pshmem() != 0) {
+    disable_mapping = 1;
+    return;
+  }
+  
+  if (open_shmem() != 0) {
+    disable_mapping = 1;
+    return;
+  }
+  
   while ((common -> lock) && (common -> magic != SH_MAGIC)) {
     if (is_dead(common -> shmid)) {
       common -> lock = 0;
       common -> shmid = 0;
       common -> magic = 0;
     } else {
-      sched_yield();
+      YIELDING;
     }
   }
 
@@ -733,15 +860,65 @@ void gotoblas_affinity_init(void) {
 
   if (common -> magic != SH_MAGIC) {
 
+#if defined(__GLIBC_PREREQ)
+#if __GLIBC_PREREQ(2, 7)
+    cpu_set_t *cpusetp;
+#else
+    cpu_set_t cpuset;
+#endif
+#endif    
+    int nums;
+    int ret;
+
 #ifdef DEBUG
     fprintf(stderr, "Shared Memory Initialization.\n");
 #endif
 
     //returns the number of processors which are currently online
-    common -> num_procs = sysconf(_SC_NPROCESSORS_ONLN);;
 
+    nums = sysconf(_SC_NPROCESSORS_CONF);
+
+#if !defined(__GLIBC_PREREQ)
+    common->num_procs = nums >0 ? nums : 2;
+#else
+
+#if !__GLIBC_PREREQ(2, 3)
+    common->num_procs = nums >0 ? nums : 2;
+#elif __GLIBC_PREREQ(2, 7)
+    cpusetp = CPU_ALLOC(nums>0? nums:1024);
+    if (cpusetp == NULL) {
+        common->num_procs = nums>0 ? nums: 2;
+    } else {
+        size_t size;
+        size = CPU_ALLOC_SIZE(nums>0? nums: 1024);
+        ret = sched_getaffinity(0,size,cpusetp);
+        if (ret!=0)
+            common->num_procs = nums >0 ? nums : 1;
+        else
+            common->num_procs = CPU_COUNT_S(size,cpusetp);
+    }
+    CPU_FREE(cpusetp);
+#else
+    ret = sched_getaffinity(0,sizeof(cpu_set_t), &cpuset);
+    if (ret!=0) {
+        common->num_procs = nums >0 ? nums : 2;
+    } else {
+#if !__GLIBC_PREREQ(2, 6)
+    int i;
+    int n = 0;
+    for (i=0;i<(nums >0 ?nums:1024) ;i++)
+        if (CPU_ISSET(i,&cpuset)) n++;
+    common->num_procs = n;
+    }
+#else
+    common->num_procs = CPU_COUNT(&cpuset);
+    }
+#endif
+
+#endif
+#endif
     if(common -> num_procs > MAX_CPUS) {
-      fprintf(stderr, "\nOpenBLAS Warining : The number of CPU/Cores(%d) is beyond the limit(%d). Terminated.\n", common->num_procs, MAX_CPUS);
+      fprintf(stderr, "\nOpenBLAS Warning : The number of CPU/Cores(%d) is beyond the limit(%d). Terminated.\n", common->num_procs, MAX_CPUS);
       exit(1);
     }
 
@@ -754,7 +931,7 @@ void gotoblas_affinity_init(void) {
     if (common -> num_nodes > 1) numa_mapping();
 
     common -> final_num_procs = 0;
-    for(i = 0; i < common -> avail_count; i++) common -> final_num_procs += rcount(common -> avail[i]) + 1;   //Make the max cpu number.
+    for(i = 0; i < common -> avail_count; i++) common -> final_num_procs += rcount(common -> avail[i]) + 1;   //Make the max cpu number. 
 
     for (cpu = 0; cpu < common -> final_num_procs; cpu ++) common -> cpu_use[cpu] =  0;
 
@@ -847,7 +1024,7 @@ void gotoblas_set_affinity2(int threads) {};
 
 void gotoblas_affinity_reschedule(void) {};
 
-int get_num_procs(void) { return get_nprocs(); }
+int get_num_procs(void) { int num = sysconf(_SC_NPROCESSORS_CONF); return (nums >0 ? nums : 2); }
 
 int get_num_nodes(void) { return 1; }
 

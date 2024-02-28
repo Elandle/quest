@@ -122,7 +122,7 @@
 *> \param[in] LWORK
 *> \verbatim
 *>          LWORK is INTEGER
-*>          The length of WORK.  LWORK >=1.  For best performance
+*>          The length of WORK.  LWORK >= 1.  For best performance
 *>          LWORK >= N*NB, where NB is the block size returned by ILAENV.
 *>
 *>          If LWORK = -1, then a workspace query is assumed; the routine
@@ -150,9 +150,7 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date November 2013
-*
-*> \ingroup complex16HEcomputational
+*> \ingroup hetrf_rook
 *
 *> \par Further Details:
 *  =====================
@@ -199,7 +197,7 @@
 *>
 *> \verbatim
 *>
-*>  November 2013,  Igor Kozachenko,
+*>  June 2016,  Igor Kozachenko,
 *>                  Computer Science Division,
 *>                  University of California, Berkeley
 *>
@@ -212,10 +210,9 @@
 *  =====================================================================
       SUBROUTINE ZHETRF_ROOK( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.5.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2013
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -265,7 +262,7 @@
 *        Determine the block size
 *
          NB = ILAENV( 1, 'ZHETRF_ROOK', UPLO, N, -1, -1, -1 )
-         LWKOPT = N*NB
+         LWKOPT = MAX( 1, N*NB )
          WORK( 1 ) = LWKOPT
       END IF
 *

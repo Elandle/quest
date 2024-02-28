@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SLATM7( MODE, COND, IRSIGN, IDIST, ISEED, D, N,
 *                          RANK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       REAL               COND
 *       INTEGER            IDIST, INFO, IRSIGN, MODE, N, RANK
@@ -19,7 +19,7 @@
 *       REAL               D( * )
 *       INTEGER            ISEED( 4 )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -109,12 +109,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date September 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup real_matgen
 *
@@ -122,10 +120,9 @@
       SUBROUTINE SLATM7( MODE, COND, IRSIGN, IDIST, ISEED, D, N,
      $                   RANK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       REAL               COND

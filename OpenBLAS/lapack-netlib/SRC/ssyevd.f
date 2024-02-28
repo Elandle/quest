@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SSYEVD + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssyevd.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssyevd.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssyevd.f"> 
+*> Download SSYEVD + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssyevd.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssyevd.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssyevd.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSYEVD( JOBZ, UPLO, N, A, LDA, W, WORK, LWORK, IWORK,
 *                          LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, UPLO
 *       INTEGER            INFO, LDA, LIWORK, LWORK, N
@@ -29,7 +29,7 @@
 *       INTEGER            IWORK( * )
 *       REAL               A( LDA, * ), W( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -39,13 +39,6 @@
 *> SSYEVD computes all eigenvalues and, optionally, eigenvectors of a
 *> real symmetric matrix A. If eigenvectors are desired, it uses a
 *> divide and conquer algorithm.
-*>
-*> The divide and conquer algorithm makes very mild assumptions about
-*> floating point arithmetic. It will work on machines with a guard
-*> digit in add/subtract, or on those binary machines without guard
-*> digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
-*> Cray-2. It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.
 *>
 *> Because of large use of BLAS of level 3, SSYEVD needs N**2 more
 *> workspace than SSYEVX.
@@ -103,8 +96,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is REAL array,
-*>                                         dimension (LWORK)
+*>          WORK is REAL array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -114,7 +106,7 @@
 *>          The dimension of the array WORK.
 *>          If N <= 1,               LWORK must be at least 1.
 *>          If JOBZ = 'N' and N > 1, LWORK must be at least 2*N+1.
-*>          If JOBZ = 'V' and N > 1, LWORK must be at least 
+*>          If JOBZ = 'V' and N > 1, LWORK must be at least
 *>                                                1 + 6*N + 2*N**2.
 *>
 *>          If LWORK = -1, then a workspace query is assumed; the routine
@@ -162,14 +154,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realSYeigen
+*> \ingroup heevd
 *
 *> \par Contributors:
 *  ==================
@@ -183,10 +173,9 @@
       SUBROUTINE SSYEVD( JOBZ, UPLO, N, A, LDA, W, WORK, LWORK, IWORK,
      $                   LIWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, UPLO
@@ -214,8 +203,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               SLAMCH, SLANSY
-      EXTERNAL           ILAENV, LSAME, SLAMCH, SLANSY
+      REAL               SLAMCH, SLANSY, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, LSAME, SLAMCH, SLANSY, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SLACPY, SLASCL, SORMTR, SSCAL, SSTEDC, SSTERF,
@@ -258,10 +247,10 @@
                LWMIN = 2*N + 1
             END IF
             LOPT = MAX( LWMIN, 2*N +
-     $                  ILAENV( 1, 'SSYTRD', UPLO, N, -1, -1, -1 ) )
+     $                  N*ILAENV( 1, 'SSYTRD', UPLO, N, -1, -1, -1 ) )
             LIOPT = LIWMIN
          END IF
-         WORK( 1 ) = LOPT
+         WORK( 1 ) = SROUNDUP_LWORK( LOPT )
          IWORK( 1 ) = LIOPT
 *
          IF( LWORK.LT.LWMIN .AND. .NOT.LQUERY ) THEN
@@ -275,7 +264,7 @@
          CALL XERBLA( 'SSYEVD', -INFO )
          RETURN
       ELSE IF( LQUERY ) THEN
-         RETURN 
+         RETURN
       END IF
 *
 *     Quick return if possible
@@ -287,7 +276,7 @@
          W( 1 ) = A( 1, 1 )
          IF( WANTZ )
      $      A( 1, 1 ) = ONE
-         RETURN 
+         RETURN
       END IF
 *
 *     Get machine constants.
@@ -345,7 +334,7 @@
       IF( ISCALE.EQ.1 )
      $   CALL SSCAL( N, ONE / SIGMA, W, 1 )
 *
-      WORK( 1 ) = LOPT
+      WORK( 1 ) = SROUNDUP_LWORK( LOPT )
       IWORK( 1 ) = LIOPT
 *
       RETURN

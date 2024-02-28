@@ -116,7 +116,7 @@ void NAME(char *UPLO, blasint *N, FLOAT  *ALPHA,
 void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha, FLOAT *x, blasint incx, FLOAT *a, blasint lda) {
 
   FLOAT *buffer;
-  int trans, uplo;
+  int uplo;
   blasint info;
 #ifdef SMP
   int nthreads;
@@ -124,7 +124,6 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
 
   PRINT_DEBUG_CNAME;
 
-  trans = -1;
   uplo  = -1;
   info  =  0;
 
@@ -169,7 +168,28 @@ void CNAME(enum CBLAS_ORDER order, enum CBLAS_UPLO Uplo, blasint n, FLOAT alpha,
   IDEBUG_START;
 
   FUNCTION_PROFILE_START();
+#if 1
+  if (incx == 1 && n < 100) {
+    BLASLONG i;
 
+    if (uplo == 0) {
+      for (i = 0; i < n; i++){
+        if (x[i] != ZERO) {
+          AXPYU_K(i + 1, 0, 0, alpha * x[i], x,     1, a, 1, NULL, 0);
+        }
+        a += lda;
+      }  
+    } else {
+      for (i = 0; i < n; i++){
+        if (x[i] != ZERO) {
+          AXPYU_K(n - i, 0, 0, alpha * x[i], x + i, 1, a, 1, NULL, 0);
+        }
+        a += 1 + lda;
+      }
+    }
+    return;
+  } 
+#endif
   if (incx < 0 ) x -= (n - 1) * incx;
 
   buffer = (FLOAT *)blas_memory_alloc(1);

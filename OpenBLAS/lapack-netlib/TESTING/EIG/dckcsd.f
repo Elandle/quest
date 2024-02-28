@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE DCKCSD( NM, MVAL, PVAL, QVAL, NMATS, ISEED, THRESH,
 *                          MMAX, X, XF, U1, U2, V1T, V2T, THETA, IWORK,
 *                          WORK, RWORK, NIN, NOUT, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, NIN, NM, NMATS, MMAX, NOUT
 *       DOUBLE PRECISION   THRESH
@@ -23,7 +23,7 @@
 *       DOUBLE PRECISION   U1( * ), U2( * ), V1T( * ), V2T( * ),
 *      $                   WORK( * ), X( * ), XF( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -170,12 +170,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_eig
 *
@@ -184,10 +182,9 @@
      $                   MMAX, X, XF, U1, U2, V1T, V2T, THETA, IWORK,
      $                   WORK, RWORK, NIN, NOUT, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, NIN, NM, NMATS, MMAX, NOUT
@@ -208,11 +205,12 @@
       PARAMETER          ( NTESTS = 15 )
       INTEGER            NTYPES
       PARAMETER          ( NTYPES = 4 )
-      DOUBLE PRECISION   GAPDIGIT, ONE, ORTH, PIOVER2, TEN, ZERO
+      DOUBLE PRECISION   GAPDIGIT, ONE, ORTH, TEN, ZERO
       PARAMETER          ( GAPDIGIT = 18.0D0, ONE = 1.0D0,
      $                     ORTH = 1.0D-12,
-     $                     PIOVER2 = 1.57079632679489662D0,
      $                     TEN = 10.0D0, ZERO = 0.0D0 )
+      DOUBLE PRECISION   PIOVER2
+      PARAMETER ( PIOVER2 = 1.57079632679489661923132169163975144210D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            FIRSTT
@@ -226,7 +224,7 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ALAHDG, ALAREQ, ALASUM, DCSDTS, DLACSG, DLAROR,
-     $                   DLASET
+     $                   DLASET, DROT
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MIN

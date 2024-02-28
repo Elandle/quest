@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZTPT02( UPLO, TRANS, DIAG, N, NRHS, AP, X, LDX, B, LDB,
 *                          WORK, RWORK, RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, TRANS, UPLO
 *       INTEGER            LDB, LDX, N, NRHS
@@ -20,7 +20,7 @@
 *       DOUBLE PRECISION   RWORK( * )
 *       COMPLEX*16         AP( * ), B( LDB, * ), WORK( * ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -28,14 +28,12 @@
 *> \verbatim
 *>
 *> ZTPT02 computes the residual for the computed solution to a
-*> triangular system of linear equations  A*x = b,  A**T *x = b,  or
-*> A**H *x = b, when the triangular matrix A is stored in packed format.
-*> Here A**T denotes the transpose of A, A**H denotes the conjugate
-*> transpose of A, and x and b are N by NRHS matrices.  The test ratio
-*> is the maximum over the number of right hand sides of
-*> the maximum over the number of right hand sides of
-*>    norm(b - op(A)*x) / ( norm(op(A)) * norm(x) * EPS ),
-*> where op(A) denotes A, A**T, or A**H, and EPS is the machine epsilon.
+*> triangular system of linear equations op(A)*X = B, when the
+*> triangular matrix A is stored in packed format. The test ratio is
+*> the maximum over
+*>    norm(b - op(A)*x) / ( ||op(A)||_1 * norm(x) * EPS ),
+*> where op(A) = A, A**T, or A**H, b is the column of B, x is the
+*> solution vector, and EPS is the machine epsilon.
 *> \endverbatim
 *
 *  Arguments:
@@ -53,9 +51,9 @@
 *> \verbatim
 *>          TRANS is CHARACTER*1
 *>          Specifies the operation applied to A.
-*>          = 'N':  A *x = b     (No transpose)
-*>          = 'T':  A**T *x = b  (Transpose)
-*>          = 'C':  A**H *x = b  (Conjugate transpose)
+*>          = 'N':  A    * X = B  (No transpose)
+*>          = 'T':  A**T * X = B  (Transpose)
+*>          = 'C':  A**H * X = B  (Conjugate transpose)
 *> \endverbatim
 *>
 *> \param[in] DIAG
@@ -130,18 +128,16 @@
 *> \verbatim
 *>          RESID is DOUBLE PRECISION
 *>          The maximum over the number of right hand sides of
-*>          norm(op(A)*x - b) / ( norm(op(A)) * norm(x) * EPS ).
+*>          norm(op(A)*X - B) / ( norm(op(A)) * norm(X) * EPS ).
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -149,10 +145,9 @@
       SUBROUTINE ZTPT02( UPLO, TRANS, DIAG, N, NRHS, AP, X, LDX, B, LDB,
      $                   WORK, RWORK, RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, TRANS, UPLO
@@ -194,7 +189,7 @@
          RETURN
       END IF
 *
-*     Compute the 1-norm of A or A**H.
+*     Compute the 1-norm of op(A).
 *
       IF( LSAME( TRANS, 'N' ) ) THEN
          ANORM = ZLANTP( '1', UPLO, DIAG, N, AP, RWORK )
@@ -211,7 +206,7 @@
       END IF
 *
 *     Compute the maximum over the number of right hand sides of
-*        norm(op(A)*x - b) / ( norm(op(A)) * norm(x) * EPS ).
+*        norm(op(A)*X - B) / ( norm(op(A)) * norm(X) * EPS ).
 *
       RESID = ZERO
       DO 10 J = 1, NRHS

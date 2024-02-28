@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,20 +11,20 @@
 *       COMPLEX FUNCTION CLATM3( M, N, I, J, ISUB, JSUB, KL, KU, IDIST,
 *                                ISEED, D, IGRADE, DL, DR, IPVTNG, IWORK,
 *                                SPARSE )
-* 
+*
 *       .. Scalar Arguments ..
-*  
+*
 *       INTEGER            I, IDIST, IGRADE, IPVTNG, ISUB, J, JSUB, KL,
 *      $                   KU, M, N
 *       REAL               SPARSE
 *       ..
-*  
+*
 *       .. Array Arguments ..
-*  
+*
 *       INTEGER            ISEED( 4 ), IWORK( * )
 *       COMPLEX            D( * ), DL( * ), DR( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -32,7 +32,7 @@
 *> \verbatim
 *>
 *>    CLATM3 returns the (ISUB,JSUB) entry of a random matrix of
-*>    dimension (M, N) described by the other paramters. (ISUB,JSUB)
+*>    dimension (M, N) described by the other parameters. (ISUB,JSUB)
 *>    is the final position of the (I,J) entry after pivoting
 *>    according to IPVTNG and IWORK. CLATM3 is called by the
 *>    CLATMR routine in order to build random test matrices. No error
@@ -202,7 +202,7 @@
 *> \verbatim
 *>          SPARSE is REAL between 0. and 1.
 *>           On entry specifies the sparsity of the matrix
-*>           if sparse matix is to be generated.
+*>           if sparse matrix is to be generated.
 *>           SPARSE should lie between 0 and 1.
 *>           A uniform ( 0, 1 ) random number x is generated and
 *>           compared to SPARSE; if x is larger the matrix entry
@@ -215,12 +215,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_matgen
 *
@@ -229,10 +227,9 @@
      $                         ISEED, D, IGRADE, DL, DR, IPVTNG, IWORK,
      $                         SPARSE )
 *
-*  -- LAPACK auxiliary routine (version 3.4.0) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
 *

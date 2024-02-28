@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CHBT21( UPLO, N, KA, KS, A, LDA, D, E, U, LDU, WORK,
 *                          RWORK, RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            KA, KS, LDA, LDU, N
@@ -19,7 +19,7 @@
 *       REAL               D( * ), E( * ), RESULT( 2 ), RWORK( * )
 *       COMPLEX            A( LDA, * ), U( LDU, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -28,14 +28,16 @@
 *>
 *> CHBT21  generally checks a decomposition of the form
 *>
-*>         A = U S UC>
-*> where * means conjugate transpose, A is hermitian banded, U is
+*>         A = U S U**H
+*>
+*> where **H means conjugate transpose, A is hermitian banded, U is
 *> unitary, and S is diagonal (if KS=0) or symmetric
 *> tridiagonal (if KS=1).
 *>
 *> Specifically:
 *>
-*>         RESULT(1) = | A - U S U* | / ( |A| n ulp ) *andC>         RESULT(2) = | I - UU* | / ( n ulp )
+*>         RESULT(1) = | A - U S U**H | / ( |A| n ulp ) and
+*>         RESULT(2) = | I - U U**H | / ( n ulp )
 *> \endverbatim
 *
 *  Arguments:
@@ -137,12 +139,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_eig
 *
@@ -150,10 +150,9 @@
       SUBROUTINE CHBT21( UPLO, N, KA, KS, A, LDA, D, E, U, LDU, WORK,
      $                   RWORK, RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -220,7 +219,7 @@
 *
       ANORM = MAX( CLANHB( '1', CUPLO, N, IKA, A, LDA, RWORK ), UNFL )
 *
-*     Compute error matrix:    Error = A - U S U*
+*     Compute error matrix:    Error = A - U S U**H
 *
 *     Copy A from SB to SP storage format.
 *
@@ -271,7 +270,7 @@
 *
 *     Do Test 2
 *
-*     Compute  UU* - I
+*     Compute  U U**H - I
 *
       CALL CGEMM( 'N', 'C', N, N, N, CONE, U, LDU, U, LDU, CZERO, WORK,
      $            N )

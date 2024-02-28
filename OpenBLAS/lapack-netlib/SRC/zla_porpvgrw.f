@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZLA_PORPVGRW + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zla_porpvgrw.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zla_porpvgrw.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zla_porpvgrw.f"> 
+*> Download ZLA_PORPVGRW + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zla_porpvgrw.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zla_porpvgrw.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zla_porpvgrw.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF, 
+*       DOUBLE PRECISION FUNCTION ZLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
 *                                               LDAF, WORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*1        UPLO
 *       INTEGER            NCOLS, LDA, LDAF
@@ -29,14 +29,14 @@
 *       COMPLEX*16         A( LDA, * ), AF( LDAF, * )
 *       DOUBLE PRECISION   WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*> 
+*>
 *> ZLA_PORPVGRW computes the reciprocal pivot growth factor
 *> norm(A)/norm(U). The "max absolute element" norm is used. If this is
 *> much less than 1, the stability of the LU factorization of the
@@ -86,31 +86,28 @@
 *>     The leading dimension of the array AF.  LDAF >= max(1,N).
 *> \endverbatim
 *>
-*> \param[in] WORK
+*> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is DOUBLE PRECISION array, dimension (2*N)
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date September 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16POcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF, 
+      DOUBLE PRECISION FUNCTION ZLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
      $                                        LDAF, WORK )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER*1        UPLO
@@ -130,7 +127,7 @@
       COMPLEX*16         ZDUM
 *     ..
 *     .. External Functions ..
-      EXTERNAL           LSAME, ZLASET
+      EXTERNAL           LSAME
       LOGICAL            LSAME
 *     ..
 *     .. Intrinsic Functions ..
@@ -145,9 +142,9 @@
 *     .. Executable Statements ..
       UPPER = LSAME( 'Upper', UPLO )
 *
-*     DPOTRF will have factored only the NCOLSxNCOLS leading minor, so
-*     we restrict the growth search to that minor and use only the first
-*     2*NCOLS workspace entries.
+*     DPOTRF will have factored only the NCOLSxNCOLS leading submatrix,
+*     so we restrict the growth search to that submatrix and use only
+*     the first 2*NCOLS workspace entries.
 *
       RPVGRW = 1.0D+0
       DO I = 1, 2*NCOLS
@@ -215,4 +212,7 @@
       END IF
 
       ZLA_PORPVGRW = RPVGRW
+*
+*     End of ZLA_PORPVGRW
+*
       END

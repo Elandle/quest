@@ -36,6 +36,7 @@
 /* or implied, of The University of Texas at Austin.                 */
 /*********************************************************************/
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 //#include <sys/mman.h>
@@ -47,13 +48,58 @@
 
 #else
 
-int blas_server_avail = 0;
+#ifndef likely
+#ifdef __GNUC__
+#define likely(x) __builtin_expect(!!(x), 1)
+#else
+#define likely(x) (x)
+#endif
+#endif
+#ifndef unlikely
+#ifdef __GNUC__
+#define unlikely(x) __builtin_expect(!!(x), 0)
+#else
+#define unlikely(x) (x)
+#endif
+#endif
 
-static void * blas_thread_buffer[MAX_CPU_NUMBER];
+#ifndef OMP_SCHED
+#define OMP_SCHED static
+#endif
+
+int blas_server_avail = 0;
+int blas_omp_number_max = 0;
+
+extern int openblas_omp_adaptive_env(void);
+
+static void * blas_thread_buffer[MAX_PARALLEL_NUMBER][MAX_CPU_NUMBER];
+#ifdef HAVE_C11
+static atomic_bool blas_buffer_inuse[MAX_PARALLEL_NUMBER];
+#else
+static _Bool blas_buffer_inuse[MAX_PARALLEL_NUMBER];
+#endif
+
+static void adjust_thread_buffers(void) {
+
+  int i=0, j=0;
+
+  //adjust buffer for each thread
+  for(i=0; i < MAX_PARALLEL_NUMBER; i++) {
+    for(j=0; j < blas_cpu_number; j++){
+      if(blas_thread_buffer[i][j] == NULL){
+        blas_thread_buffer[i][j] = blas_memory_alloc(2);
+      }
+    }
+    for(; j < MAX_CPU_NUMBER; j++){
+      if(blas_thread_buffer[i][j] != NULL){
+        blas_memory_free(blas_thread_buffer[i][j]);
+        blas_thread_buffer[i][j] = NULL;
+      }
+    }
+  }
+}
 
 void goto_set_num_threads(int num_threads) {
-
-  int i=0;
 
   if (num_threads < 1) num_threads = blas_num_threads;
 
@@ -65,20 +111,7 @@ void goto_set_num_threads(int num_threads) {
 
   blas_cpu_number  = num_threads;
 
-  omp_set_num_threads(blas_cpu_number);
-
-  //adjust buffer for each thread
-  for(i=0; i<blas_cpu_number; i++){
-    if(blas_thread_buffer[i]==NULL){
-      blas_thread_buffer[i]=blas_memory_alloc(2);
-    }
-  }
-  for(; i<MAX_CPU_NUMBER; i++){
-    if(blas_thread_buffer[i]!=NULL){
-      blas_memory_free(blas_thread_buffer[i]);
-      blas_thread_buffer[i]=NULL;
-    }
-  }
+  adjust_thread_buffers();
 #if defined(ARCH_MIPS64)
   //set parameters for different number of threads.
   blas_set_parameter();
@@ -92,30 +125,36 @@ void openblas_set_num_threads(int num_threads) {
 
 int blas_thread_init(void){
 
-  int i=0;
+#if defined(__FreeBSD__) && defined(__clang__)
+extern int openblas_omp_num_threads_env(void);
+
+   if(blas_omp_number_max <= 0)
+	   blas_omp_number_max= openblas_omp_num_threads_env();
+   if (blas_omp_number_max <= 0) 
+	   blas_omp_number_max=MAX_CPU_NUMBER;
+#else
+    blas_omp_number_max = omp_get_max_threads();
+#endif
 
   blas_get_cpu_number();
 
-  blas_server_avail = 1;
+  adjust_thread_buffers();
 
-  for(i=0; i<blas_num_threads; i++){
-    blas_thread_buffer[i]=blas_memory_alloc(2);
-  }
-  for(; i<MAX_CPU_NUMBER; i++){
-      blas_thread_buffer[i]=NULL;
-  }
+  blas_server_avail = 1;
 
   return 0;
 }
 
 int BLASFUNC(blas_thread_shutdown)(void){
-  int i=0;
+  int i=0, j=0;
   blas_server_avail = 0;
 
-  for(i=0; i<MAX_CPU_NUMBER; i++){
-    if(blas_thread_buffer[i]!=NULL){
-      blas_memory_free(blas_thread_buffer[i]);
-      blas_thread_buffer[i]=NULL;
+  for(i=0; i<MAX_PARALLEL_NUMBER; i++) {
+    for(j=0; j<MAX_CPU_NUMBER; j++){
+      if(blas_thread_buffer[i][j]!=NULL){
+        blas_memory_free(blas_thread_buffer[i][j]);
+        blas_thread_buffer[i][j]=NULL;
+      }
     }
   }
 
@@ -126,7 +165,7 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 
       if (!(mode & BLAS_COMPLEX)){
 #ifdef EXPRECISION
-	if (mode & BLAS_XDOUBLE){
+	if ((mode & BLAS_PREC) == BLAS_XDOUBLE){
 	  /* REAL / Extended Double */
 	  void (*afunc)(BLASLONG, BLASLONG, BLASLONG, xdouble,
 			xdouble *, BLASLONG, xdouble *, BLASLONG,
@@ -139,7 +178,7 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 		args -> c, args -> ldc, sb);
 	} else
 #endif
-	  if (mode & BLAS_DOUBLE){
+	  if ((mode & BLAS_PREC) == BLAS_DOUBLE){
 	    /* REAL / Double */
 	    void (*afunc)(BLASLONG, BLASLONG, BLASLONG, double,
 			  double *, BLASLONG, double *, BLASLONG,
@@ -150,7 +189,7 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 		  args -> a, args -> lda,
 		  args -> b, args -> ldb,
 		  args -> c, args -> ldc, sb);
-	  } else {
+	  } else if ((mode & BLAS_PREC) == BLAS_SINGLE){
 	    /* REAL / Single */
 	    void (*afunc)(BLASLONG, BLASLONG, BLASLONG, float,
 			  float *, BLASLONG, float *, BLASLONG,
@@ -161,10 +200,47 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 		  args -> a, args -> lda,
 		  args -> b, args -> ldb,
 		  args -> c, args -> ldc, sb);
+#ifdef BUILD_BFLOAT16
+          } else if ((mode & BLAS_PREC) == BLAS_BFLOAT16){
+            /* REAL / BFLOAT16 */
+            void (*afunc)(BLASLONG, BLASLONG, BLASLONG, bfloat16,
+                          bfloat16 *, BLASLONG, bfloat16 *, BLASLONG,
+                          bfloat16 *, BLASLONG, void *) = func;
+
+            afunc(args -> m, args -> n, args -> k,
+                  ((bfloat16 *)args -> alpha)[0],
+                  args -> a, args -> lda,
+                  args -> b, args -> ldb,
+                  args -> c, args -> ldc, sb);
+          } else if ((mode & BLAS_PREC) == BLAS_STOBF16){
+            /* REAL / BLAS_STOBF16 */
+            void (*afunc)(BLASLONG, BLASLONG, BLASLONG, float,
+                          float *, BLASLONG, bfloat16 *, BLASLONG,
+                          float *, BLASLONG, void *) = func;
+
+            afunc(args -> m, args -> n, args -> k,
+                  ((float *)args -> alpha)[0],
+                  args -> a, args -> lda,
+                  args -> b, args -> ldb,
+                  args -> c, args -> ldc, sb);
+          } else if ((mode & BLAS_PREC) == BLAS_DTOBF16){
+            /* REAL / BLAS_DTOBF16 */
+            void (*afunc)(BLASLONG, BLASLONG, BLASLONG, double,
+                          double *, BLASLONG, bfloat16 *, BLASLONG,
+                          double *, BLASLONG, void *) = func;
+
+            afunc(args -> m, args -> n, args -> k,
+                  ((double *)args -> alpha)[0],
+                  args -> a, args -> lda,
+                  args -> b, args -> ldb,
+                  args -> c, args -> ldc, sb);
+#endif
+          } else {
+            /* REAL / Other types in future */
 	  }
       } else {
 #ifdef EXPRECISION
-	if (mode & BLAS_XDOUBLE){
+	if ((mode & BLAS_PREC) == BLAS_XDOUBLE){
 	  /* COMPLEX / Extended Double */
 	  void (*afunc)(BLASLONG, BLASLONG, BLASLONG, xdouble, xdouble,
 			xdouble *, BLASLONG, xdouble *, BLASLONG,
@@ -178,7 +254,7 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 		args -> c, args -> ldc, sb);
 	} else
 #endif
-	  if (mode & BLAS_DOUBLE){
+	  if ((mode & BLAS_PREC) == BLAS_DOUBLE){
 	    /* COMPLEX / Double */
 	  void (*afunc)(BLASLONG, BLASLONG, BLASLONG, double, double,
 			double *, BLASLONG, double *, BLASLONG,
@@ -190,7 +266,7 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 		args -> a, args -> lda,
 		args -> b, args -> ldb,
 		args -> c, args -> ldc, sb);
-	  } else {
+	  } else if ((mode & BLAS_PREC) == BLAS_SINGLE){
 	    /* COMPLEX / Single */
 	  void (*afunc)(BLASLONG, BLASLONG, BLASLONG, float, float,
 			float *, BLASLONG, float *, BLASLONG,
@@ -202,11 +278,13 @@ static void legacy_exec(void *func, int mode, blas_arg_t *args, void *sb){
 		args -> a, args -> lda,
 		args -> b, args -> ldb,
 		args -> c, args -> ldc, sb);
-	  }
-      }
+      } else {
+            /* COMPLEX / Other types in future */
+	 }
+   }
 }
 
-static void exec_threads(blas_queue_t *queue){
+static void exec_threads(blas_queue_t *queue, int buf_index){
 
   void *buffer, *sa, *sb;
   int pos=0, release_flag=0;
@@ -216,14 +294,18 @@ static void exec_threads(blas_queue_t *queue){
   sb = queue -> sb;
 
 #ifdef CONSISTENT_FPCSR
+#ifdef __aarch64__
+  __asm__ __volatile__ ("msr fpcr, %0" : : "r" (queue -> sse_mode));
+#else
   __asm__ __volatile__ ("ldmxcsr %0" : : "m" (queue -> sse_mode));
   __asm__ __volatile__ ("fldcw %0"   : : "m" (queue -> x87_mode));
+#endif
 #endif
 
   if ((sa == NULL) && (sb == NULL) && ((queue -> mode & BLAS_PTHREAD) == 0)) {
 
     pos = omp_get_thread_num();
-    buffer = blas_thread_buffer[pos];
+    buffer = blas_thread_buffer[buf_index][pos];
 
     //fallback
     if(buffer==NULL) {
@@ -239,32 +321,47 @@ static void exec_threads(blas_queue_t *queue){
     if (sb == NULL) {
       if (!(queue -> mode & BLAS_COMPLEX)){
 #ifdef EXPRECISION
-	if (queue -> mode & BLAS_XDOUBLE){
+	if ((queue -> mode & BLAS_PREC) == BLAS_XDOUBLE){
 	  sb = (void *)(((BLASLONG)sa + ((QGEMM_P * QGEMM_Q * sizeof(xdouble)
 					  + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
 	} else
 #endif
-	  if (queue -> mode & BLAS_DOUBLE){
+	  if ((queue -> mode & BLAS_PREC) == BLAS_DOUBLE){
+#if defined ( BUILD_DOUBLE) || defined (BUILD_COMPLEX16)
 	    sb = (void *)(((BLASLONG)sa + ((DGEMM_P * DGEMM_Q * sizeof(double)
 					    + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
-
-	  } else {
+#endif
+	  } else if ((queue -> mode & BLAS_PREC) == BLAS_SINGLE){
+#if defined (BUILD_SINGLE) || defined (BUILD_COMPLEX)
 	    sb = (void *)(((BLASLONG)sa + ((SGEMM_P * SGEMM_Q * sizeof(float)
 					    + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
+#endif
+	  } else {
+          /* Other types in future */
 	  }
       } else {
 #ifdef EXPRECISION
-	if (queue -> mode & BLAS_XDOUBLE){
+	if ((queue -> mode & BLAS_PREC) == BLAS_XDOUBLE){
 	  sb = (void *)(((BLASLONG)sa + ((XGEMM_P * XGEMM_Q * 2 * sizeof(xdouble)
 					  + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
 	} else
 #endif
-	  if (queue -> mode & BLAS_DOUBLE){
+	  if ((queue -> mode & BLAS_PREC) == BLAS_DOUBLE){
+#ifdef BUILD_COMPLEX16
 	    sb = (void *)(((BLASLONG)sa + ((ZGEMM_P * ZGEMM_Q * 2 * sizeof(double)
 					    + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
-	  } else {
+#else 
+fprintf(stderr,"UNHANDLED COMPLEX16\n");
+#endif
+	  } else if ((queue -> mode & BLAS_PREC) == BLAS_SINGLE) {
+#ifdef BUILD_COMPLEX
 	    sb = (void *)(((BLASLONG)sa + ((CGEMM_P * CGEMM_Q * 2 * sizeof(float)
 					    + GEMM_ALIGN) & ~GEMM_ALIGN)) + GEMM_OFFSET_B);
+#else 
+fprintf(stderr,"UNHANDLED COMPLEX\n");
+#endif
+	  } else {
+          /* Other types in future */
 	  }
       }
       queue->sb=sb;
@@ -291,26 +388,68 @@ static void exec_threads(blas_queue_t *queue){
 
 int exec_blas(BLASLONG num, blas_queue_t *queue){
 
-  BLASLONG i;
+  // Handle lazy re-init of the thread-pool after a POSIX fork
+  if (unlikely(blas_server_avail == 0)) blas_thread_init();
+
+  BLASLONG i, buf_index;
 
   if ((num <= 0) || (queue == NULL)) return 0;
 
 #ifdef CONSISTENT_FPCSR
   for (i = 0; i < num; i ++) {
+#ifdef __aarch64__
+    __asm__ __volatile__ ("mrs %0, fpcr" : "=r" (queue[i].sse_mode));
+#else
     __asm__ __volatile__ ("fnstcw %0"  : "=m" (queue[i].x87_mode));
     __asm__ __volatile__ ("stmxcsr %0" : "=m" (queue[i].sse_mode));
+#endif
   }
 #endif
 
-#pragma omp parallel for schedule(static)
+  while(true) {
+    for(i=0; i < MAX_PARALLEL_NUMBER; i++) {
+#ifdef HAVE_C11
+      _Bool inuse = false;
+      if(atomic_compare_exchange_weak(&blas_buffer_inuse[i], &inuse, true)) {
+#else
+      if(blas_buffer_inuse[i] == false) {
+        blas_buffer_inuse[i] = true;
+#endif
+        buf_index = i;
+        break;
+      }
+    }
+    if(i != MAX_PARALLEL_NUMBER)
+      break;
+  }
+
+if (openblas_omp_adaptive_env() != 0) {
+#pragma omp parallel for num_threads(num) schedule(OMP_SCHED)
   for (i = 0; i < num; i ++) {
 
 #ifndef USE_SIMPLE_THREADED_LEVEL3
     queue[i].position = i;
 #endif
 
-    exec_threads(&queue[i]);
+    exec_threads(&queue[i], buf_index);
   }
+} else {
+#pragma omp parallel for schedule(OMP_SCHED)
+  for (i = 0; i < num; i ++) {
+
+#ifndef USE_SIMPLE_THREADED_LEVEL3
+    queue[i].position = i;
+#endif
+
+    exec_threads(&queue[i], buf_index);
+  }
+}
+
+#ifdef HAVE_C11
+  atomic_store(&blas_buffer_inuse[buf_index], false);
+#else
+  blas_buffer_inuse[buf_index] = false;
+#endif
 
   return 0;
 }

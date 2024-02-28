@@ -164,6 +164,11 @@ void CNAME(enum CBLAS_ORDER order,
   if (m == 0 || n == 0) return;
   if (alpha == 0.) return;
 
+  if (incx == 1 && incy == 1 && 1L*m*n <= 2048 *GEMM_MULTITHREAD_THRESHOLD) {
+    GER(m, n, 0, alpha, x, incx, y, incy, a, lda, NULL);
+    return;
+  }  
+
   IDEBUG_START;
 
   FUNCTION_PROFILE_START();
@@ -171,11 +176,14 @@ void CNAME(enum CBLAS_ORDER order,
   if (incy < 0) y -= (n - 1) * incy;
   if (incx < 0) x -= (m - 1) * incx;
 
-  buffer = (FLOAT *)blas_memory_alloc(1);
+  STACK_ALLOC(m, FLOAT, buffer);
 
 #ifdef SMPTEST
-  nthreads = num_cpu_avail(2);
-
+  // Threshold chosen so that speed-up is > 1 on a Xeon E5-2630
+  if(1L * m * n > 2048L * GEMM_MULTITHREAD_THRESHOLD)
+    nthreads = num_cpu_avail(2);
+  else
+    nthreads = 1;
 
   if (nthreads == 1) {
 #endif
@@ -190,8 +198,7 @@ void CNAME(enum CBLAS_ORDER order,
   }
 #endif
 
-  blas_memory_free(buffer);
-
+  STACK_FREE(buffer);
   FUNCTION_PROFILE_END(1, m * n + m + n, 2 * m * n);
 
   IDEBUG_END;

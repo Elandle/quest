@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE SDRGSX( NSIZE, NCMAX, THRESH, NIN, NOUT, A, LDA, B,
 *                          AI, BI, Z, Q, ALPHAR, ALPHAI, BETA, C, LDC, S,
 *                          WORK, LWORK, IWORK, LIWORK, BWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDC, LIWORK, LWORK, NCMAX, NIN,
 *      $                   NOUT, NSIZE
@@ -25,7 +25,7 @@
 *      $                   BI( LDA, * ), C( LDC, * ), Q( LDA, * ), S( * ),
 *      $                   WORK( * ), Z( LDA, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -60,7 +60,7 @@
 *> to test SGGESX.
 *>
 *> For each matrix pair, the following tests will be performed and
-*> compared with the threshhold THRESH except for the tests (7) and (9):
+*> compared with the threshold THRESH except for the tests (7) and (9):
 *>
 *> (1)   | A - Q S Z' | / ( |A| n ulp )
 *>
@@ -345,12 +345,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_eig
 *
@@ -359,10 +357,9 @@
      $                   AI, BI, Z, Q, ALPHAR, ALPHAI, BETA, C, LDC, S,
      $                   WORK, LWORK, IWORK, LIWORK, BWORK, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDC, LIWORK, LWORK, NCMAX, NIN,
@@ -403,7 +400,7 @@
       EXTERNAL           SLCTSX, ILAENV, SLAMCH, SLANGE
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALASVM, SGESVD, SGET51, SGET53, SGGESX, SLABAD,
+      EXTERNAL           ALASVM, SGESVD, SGET51, SGET53, SGGESX,
      $                   SLACPY, SLAKF2, SLASET, SLATM5, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
@@ -482,7 +479,6 @@ c        MINWRK = MAX( 10*( NSIZE+1 ), 5*NSIZE*NSIZE / 2-2 )
       ULPINV = ONE / ULP
       SMLNUM = SLAMCH( 'S' ) / ULP
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
       THRSH2 = TEN*THRESH
       NTESTT = 0
       NERRS = 0
@@ -770,7 +766,7 @@ c        MINWRK = MAX( 10*( NSIZE+1 ), 5*NSIZE*NSIZE / 2-2 )
       CALL SLACPY( 'Full', MPLUSN, MPLUSN, AI, LDA, A, LDA )
       CALL SLACPY( 'Full', MPLUSN, MPLUSN, BI, LDA, B, LDA )
 *
-*     Compute the Schur factorization while swaping the
+*     Compute the Schur factorization while swapping the
 *     m-by-m (1,1)-blocks with n-by-n (2,2)-blocks.
 *
       CALL SGGESX( 'V', 'V', 'S', SLCTSX, 'B', MPLUSN, AI, LDA, BI, LDA,
@@ -988,7 +984,7 @@ c        MINWRK = MAX( 10*( NSIZE+1 ), 5*NSIZE*NSIZE / 2-2 )
      $      / '  2:  A and B are upper triangular matrices, ',
      $      / '  3:  A and B are as type 2, but each second diagonal ',
      $      'block in A_11 and ', /
-     $      '      each third diaongal block in A_22 are 2x2 blocks,',
+     $      '      each third diagonal block in A_22 are 2x2 blocks,',
      $      / '  4:  A and B are block diagonal matrices, ',
      $      / '  5:  (A,B) has potentially close or common ',
      $      'eigenvalues.', / )

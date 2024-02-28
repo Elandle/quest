@@ -30,20 +30,31 @@
 #define CPU_UNKNOWN     	0
 #define CPU_ARMV6       	1
 #define CPU_ARMV7       	2
-#define CPU_CORTEXA15       	3
+#define CPU_CORTEXA9       	3
+#define CPU_CORTEXA15       	4
 
 static char *cpuname[] = {
-  "UNKOWN",
+  "UNKNOWN",
   "ARMV6",
   "ARMV7",
+  "CORTEXA9",
   "CORTEXA15"
+};
+
+
+static char *cpuname_lower[] = {
+  "unknown",
+  "armv6",
+  "armv7",
+  "cortexa9",
+  "cortexa15"
 };
 
 
 int get_feature(char *search)
 {
 
-#ifdef linux
+#ifdef __linux
 	FILE *infile;
   	char buffer[2048], *p,*t;
   	p = (char *) NULL ;
@@ -63,7 +74,7 @@ int get_feature(char *search)
   	fclose(infile);
 
 
-	if( p == NULL ) return;
+	if( p == NULL ) return 0;
 
 	t = strtok(p," ");
 	while( t = strtok(NULL," "))
@@ -79,18 +90,44 @@ int get_feature(char *search)
 int detect(void)
 {
 
-#ifdef linux
+#ifdef __linux
 
 	FILE *infile;
   	char buffer[512], *p;
   	p = (char *) NULL ;
 
   	infile = fopen("/proc/cpuinfo", "r");
+	while (fgets(buffer, sizeof(buffer), infile))
+	{
+
+		if (!strncmp("CPU part", buffer, 8))
+		{
+			p = strchr(buffer, ':') + 2;
+			break;
+      		}
+  	}
+
+  	fclose(infile);
+  	if(p != NULL) {
+	  if (strstr(p, "0xc09")) {
+	    return CPU_CORTEXA9;
+	  }
+	  if (strstr(p, "0xc0f")) {
+	    return CPU_CORTEXA15;
+	  }
+	  if (strstr(p, "0xd07")) {
+	    return CPU_ARMV7;  //ARMV8 on 32-bit
+	  }
+
+	}
+
+  	p = (char *) NULL ;
+  	infile = fopen("/proc/cpuinfo", "r");
 
 	while (fgets(buffer, sizeof(buffer), infile))
 	{
 
-		if (!strncmp("model name", buffer, 10))
+		if ((!strncmp("model name", buffer, 10)) || (!strncmp("Processor", buffer, 9)))
 		{
 			p = strchr(buffer, ':') + 2;
 			break;
@@ -124,6 +161,27 @@ int detect(void)
 
 
 	}
+
+  	p = (char *) NULL ;
+  	infile = fopen("/proc/cpuinfo", "r");
+
+	while (fgets(buffer, sizeof(buffer), infile))
+	{
+
+		if ((!strncmp("CPU architecture", buffer, 16)))
+		{
+			p = strchr(buffer, ':') + 2;
+			break;
+      		}
+  	}
+  	fclose(infile);
+  	if(p != NULL) {
+	  if (strstr(p, "8")) {
+	    return CPU_ARMV7;  //ARMV8 on 32-bit
+	  }
+
+	}
+
 #endif
 
 	return CPU_UNKNOWN;
@@ -142,21 +200,7 @@ void get_architecture(void)
 void get_subarchitecture(void)
 {
 	int d = detect();
-	switch (d)
-	{
-
-		case CPU_ARMV7:
-			printf("ARMV7");
-			break;
-
-		case CPU_ARMV6:
-			printf("ARMV6");
-			break;
-
-		default:
-			printf("UNKNOWN");
-			break;
-	}
+	printf("%s", cpuname[d]);
 }
 
 void get_subdirname(void)
@@ -170,6 +214,38 @@ void get_cpuconfig(void)
 	int d = detect();
 	switch (d)
 	{
+	       case CPU_CORTEXA9:
+    			printf("#define CORTEXA9\n");
+    			printf("#define ARMV7\n");
+    			printf("#define HAVE_VFP\n");
+    			printf("#define HAVE_VFPV3\n");
+			if ( get_feature("neon"))	printf("#define HAVE_NEON\n");
+			if ( get_feature("vfpv4"))	printf("#define HAVE_VFPV4\n");
+    			printf("#define L1_DATA_SIZE 32768\n");
+    			printf("#define L1_DATA_LINESIZE 32\n");
+    			printf("#define L2_SIZE 1048576\n");
+    			printf("#define L2_LINESIZE 32\n");
+    			printf("#define DTB_DEFAULT_ENTRIES 128\n");
+    			printf("#define DTB_SIZE 4096\n");
+    			printf("#define L2_ASSOCIATIVE 4\n");
+			break;
+
+	       case CPU_CORTEXA15:
+    			printf("#define CORTEXA15\n");
+    			printf("#define ARMV7\n");
+    			printf("#define HAVE_VFP\n");
+    			printf("#define HAVE_VFPV3\n");
+			if ( get_feature("neon"))	printf("#define HAVE_NEON\n");
+			if ( get_feature("vfpv4"))	printf("#define HAVE_VFPV4\n");
+    			printf("#define L1_DATA_SIZE 32768\n");
+    			printf("#define L1_DATA_LINESIZE 32\n");
+    			printf("#define L2_SIZE 1048576\n");
+    			printf("#define L2_LINESIZE 32\n");
+    			printf("#define DTB_DEFAULT_ENTRIES 128\n");
+    			printf("#define DTB_SIZE 4096\n");
+    			printf("#define L2_ASSOCIATIVE 4\n");
+			break;
+
 
 		case CPU_ARMV7:
     			printf("#define ARMV7\n");
@@ -206,25 +282,14 @@ void get_libname(void)
 {
 
 	int d = detect();
-	switch (d)
-	{
-
-		case CPU_ARMV7:
-    			printf("armv7\n");
-			break;
-
-		case CPU_ARMV6:
-    			printf("armv6\n");
-			break;
-
-	}
+	printf("%s", cpuname_lower[d]);
 }
 
 
 void get_features(void)
 {
 
-#ifdef linux
+#ifdef __linux
 	FILE *infile;
   	char buffer[2048], *p,*t;
   	p = (char *) NULL ;

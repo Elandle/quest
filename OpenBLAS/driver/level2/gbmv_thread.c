@@ -64,7 +64,7 @@ static int gbmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
 #ifndef COMPLEX
   FLOAT result;
 #else
-  FLOAT _Complex result;
+  OPENBLAS_COMPLEX_FLOAT result;
 #endif
 #endif
 
@@ -96,7 +96,7 @@ static int gbmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
     COPY_K(args -> m, x, incx, buffer, 1);
 
     x = buffer;
-    buffer += ((COMPSIZE * args -> m  + 1023) & ~1023);
+    // buffer += ((COMPSIZE * args -> m  + 1023) & ~1023);
   }
 #endif
 
@@ -177,7 +177,7 @@ int CNAME(BLASLONG m, BLASLONG n, BLASLONG ku, BLASLONG kl, FLOAT *alpha, FLOAT 
 
   blas_arg_t args;
   blas_queue_t queue[MAX_CPU_NUMBER];
-  BLASLONG range_m[MAX_CPU_NUMBER];
+  BLASLONG range_m[MAX_CPU_NUMBER + 1];
   BLASLONG range_n[MAX_CPU_NUMBER + 1];
 
   BLASLONG width, i, num_cpu;
@@ -230,8 +230,10 @@ int CNAME(BLASLONG m, BLASLONG n, BLASLONG ku, BLASLONG kl, FLOAT *alpha, FLOAT 
 
 #ifndef TRANSA
     range_m[num_cpu] = num_cpu * ((m + 15) & ~15);
+    if (range_m[num_cpu] > m * num_cpu) range_m[num_cpu] = m * num_cpu;
 #else
     range_m[num_cpu] = num_cpu * ((n + 15) & ~15);
+    if (range_m[num_cpu] > n * num_cpu) range_m[num_cpu] = n * num_cpu;
 #endif
 
     queue[num_cpu].mode    = mode;

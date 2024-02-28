@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DPOSVXX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dposvxx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dposvxx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dposvxx.f"> 
+*> Download DPOSVXX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dposvxx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dposvxx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dposvxx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -22,7 +22,7 @@
 *                           S, B, LDB, X, LDX, RCOND, RPVGRW, BERR,
 *                           N_ERR_BNDS, ERR_BNDS_NORM, ERR_BNDS_COMP,
 *                           NPARAMS, PARAMS, WORK, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, FACT, UPLO
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, N, NRHS, NPARAMS,
@@ -37,7 +37,7 @@
 *      $                   ERR_BNDS_NORM( NRHS, * ),
 *      $                   ERR_BNDS_COMP( NRHS, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -88,7 +88,7 @@
 *>    where U is an upper triangular matrix and L is a lower triangular
 *>    matrix.
 *>
-*>    3. If the leading i-by-i principal minor is not positive definite,
+*>    3. If the leading principal minor of order i is not positive,
 *>    then the routine returns with INFO = i. Otherwise, the factored
 *>    form of A is used to estimate the condition number of the matrix
 *>    A (see argument RCOND).  If the reciprocal of the condition number
@@ -366,7 +366,7 @@
 *>     information as described below. There currently are up to three
 *>     pieces of information returned for each right-hand side. If
 *>     componentwise accuracy is not requested (PARAMS(3) = 0.0), then
-*>     ERR_BNDS_COMP is not accessed.  If N_ERR_BNDS .LT. 3, then at most
+*>     ERR_BNDS_COMP is not accessed.  If N_ERR_BNDS < 3, then at most
 *>     the first (:,N_ERR_BNDS) entries are returned.
 *>
 *>     The first index in ERR_BNDS_COMP(i,:) corresponds to the ith
@@ -402,14 +402,14 @@
 *> \param[in] NPARAMS
 *> \verbatim
 *>          NPARAMS is INTEGER
-*>     Specifies the number of parameters set in PARAMS.  If .LE. 0, the
+*>     Specifies the number of parameters set in PARAMS.  If <= 0, the
 *>     PARAMS array is never referenced and default values are used.
 *> \endverbatim
 *>
 *> \param[in,out] PARAMS
 *> \verbatim
 *>          PARAMS is DOUBLE PRECISION array, dimension NPARAMS
-*>     Specifies algorithm parameters.  If an entry is .LT. 0.0, then
+*>     Specifies algorithm parameters.  If an entry is < 0.0, then
 *>     that entry will be filled with default value used for that
 *>     parameter.  Only positions up to NPARAMS are accessed; defaults
 *>     are used for higher-numbered parameters.
@@ -417,9 +417,9 @@
 *>       PARAMS(LA_LINRX_ITREF_I = 1) : Whether to perform iterative
 *>            refinement or not.
 *>         Default: 1.0D+0
-*>            = 0.0 : No refinement is performed, and no error bounds are
+*>            = 0.0:  No refinement is performed, and no error bounds are
 *>                    computed.
-*>            = 1.0 : Use the extra-precise refinement algorithm.
+*>            = 1.0:  Use the extra-precise refinement algorithm.
 *>              (other values are reserved for future use)
 *>
 *>       PARAMS(LA_LINRX_ITHRESH_I = 2) : Maximum number of residual
@@ -479,12 +479,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date April 2012
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup doublePOsolve
 *
@@ -494,10 +492,9 @@
      $                    N_ERR_BNDS, ERR_BNDS_NORM, ERR_BNDS_COMP,
      $                    NPARAMS, PARAMS, WORK, IWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, FACT, UPLO

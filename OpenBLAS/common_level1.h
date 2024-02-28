@@ -46,13 +46,19 @@ float   sdot_k(BLASLONG, float   *, BLASLONG, float   *, BLASLONG);
 double dsdot_k(BLASLONG, float   *, BLASLONG, float *, BLASLONG);
 double  ddot_k(BLASLONG, double  *, BLASLONG, double  *, BLASLONG);
 xdouble qdot_k(BLASLONG, xdouble *, BLASLONG, xdouble *, BLASLONG);
+float  sbdot_k(BLASLONG, bfloat16 *, BLASLONG, bfloat16 *, BLASLONG);
 
-float   _Complex cdotc_k (BLASLONG, float  *, BLASLONG, float  *, BLASLONG);
-float   _Complex cdotu_k (BLASLONG, float  *, BLASLONG, float  *, BLASLONG);
-double  _Complex zdotc_k (BLASLONG, double *, BLASLONG, double *, BLASLONG);
-double  _Complex zdotu_k (BLASLONG, double *, BLASLONG, double *, BLASLONG);
-xdouble _Complex xdotc_k (BLASLONG, xdouble *, BLASLONG, xdouble *, BLASLONG);
-xdouble _Complex xdotu_k (BLASLONG, xdouble *, BLASLONG, xdouble *, BLASLONG);
+void   sbstobf16_k(BLASLONG, float    *, BLASLONG, bfloat16 *, BLASLONG);
+void   sbdtobf16_k(BLASLONG, double   *, BLASLONG, bfloat16 *, BLASLONG);
+void   sbf16tos_k (BLASLONG, bfloat16 *, BLASLONG, float    *, BLASLONG);
+void   dbf16tod_k (BLASLONG, bfloat16 *, BLASLONG, double   *, BLASLONG);
+
+openblas_complex_float cdotc_k (BLASLONG, float  *, BLASLONG, float  *, BLASLONG);
+openblas_complex_float cdotu_k (BLASLONG, float  *, BLASLONG, float  *, BLASLONG);
+openblas_complex_double zdotc_k (BLASLONG, double *, BLASLONG, double *, BLASLONG);
+openblas_complex_double zdotu_k (BLASLONG, double *, BLASLONG, double *, BLASLONG);
+openblas_complex_xdouble xdotc_k (BLASLONG, xdouble *, BLASLONG, xdouble *, BLASLONG);
+openblas_complex_xdouble xdotu_k (BLASLONG, xdouble *, BLASLONG, xdouble *, BLASLONG);
 
 int    saxpy_k (BLASLONG, BLASLONG, BLASLONG, float,
 	       float  *, BLASLONG, float  *, BLASLONG, float  *, BLASLONG);
@@ -99,6 +105,13 @@ xdouble qasum_k (BLASLONG, xdouble *, BLASLONG);
 float   casum_k (BLASLONG, float  *, BLASLONG);
 double  zasum_k (BLASLONG, double *, BLASLONG);
 xdouble xasum_k (BLASLONG, xdouble *, BLASLONG);
+
+float   ssum_k (BLASLONG, float  *, BLASLONG);
+double  dsum_k (BLASLONG, double *, BLASLONG);
+xdouble qsum_k (BLASLONG, xdouble *, BLASLONG);
+float   csum_k (BLASLONG, float  *, BLASLONG);
+double  zsum_k (BLASLONG, double *, BLASLONG);
+xdouble xsum_k (BLASLONG, xdouble *, BLASLONG);
 
 float   samax_k (BLASLONG, float  *, BLASLONG);
 double  damax_k (BLASLONG, double *, BLASLONG);

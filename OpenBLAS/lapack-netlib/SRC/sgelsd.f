@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SGELSD + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgelsd.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgelsd.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgelsd.f"> 
+*> Download SGELSD + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgelsd.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgelsd.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgelsd.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SGELSD( M, N, NRHS, A, LDA, B, LDB, S, RCOND,
 *                          RANK, WORK, LWORK, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
 *       REAL               RCOND
@@ -29,7 +29,7 @@
 *       INTEGER            IWORK( * )
 *       REAL               A( LDA, * ), B( LDB, * ), S( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -52,19 +52,13 @@
 *>     Householder transformations, reducing the original problem
 *>     into a "bidiagonal least squares problem" (BLS)
 *> (2) Solve the BLS using a divide and conquer approach.
-*> (3) Apply back all the Householder tranformations to solve
+*> (3) Apply back all the Householder transformations to solve
 *>     the original least squares problem.
 *>
 *> The effective rank of A is determined by treating as zero those
 *> singular values which are less than RCOND times the largest singular
 *> value.
 *>
-*> The divide and conquer algorithm makes very mild assumptions about
-*> floating point arithmetic. It will work on machines with a guard
-*> digit in add/subtract, or on those binary machines without guard
-*> digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
-*> Cray-2. It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.
 *> \endverbatim
 *
 *  Arguments:
@@ -89,7 +83,7 @@
 *>          of the matrices B and X. NRHS >= 0.
 *> \endverbatim
 *>
-*> \param[in] A
+*> \param[in,out] A
 *> \verbatim
 *>          A is REAL array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
@@ -190,14 +184,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realGEsolve
+*> \ingroup gelsd
 *
 *> \par Contributors:
 *  ==================
@@ -210,10 +202,9 @@
       SUBROUTINE SGELSD( M, N, NRHS, A, LDA, B, LDB, S, RCOND,
      $                   RANK, WORK, LWORK, IWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
@@ -238,13 +229,13 @@
       REAL               ANRM, BIGNUM, BNRM, EPS, SFMIN, SMLNUM
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           SGEBRD, SGELQF, SGEQRF, SLABAD, SLACPY, SLALSD,
-     $                   SLASCL, SLASET, SORMBR, SORMLQ, SORMQR, XERBLA
+      EXTERNAL           SGEBRD, SGELQF, SGEQRF, SLACPY, SLALSD, SLASCL,
+     $                   SLASET, SORMBR, SORMLQ, SORMQR, XERBLA
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      REAL               SLAMCH, SLANGE
-      EXTERNAL           SLAMCH, SLANGE, ILAENV
+      REAL               SLAMCH, SLANGE, SROUNDUP_LWORK
+      EXTERNAL           SLAMCH, SLANGE, ILAENV, SROUNDUP_LWORK
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          INT, LOG, MAX, MIN, REAL
@@ -357,7 +348,7 @@
             END IF
          END IF
          MINWRK = MIN( MINWRK, MAXWRK )
-         WORK( 1 ) = MAXWRK
+         WORK( 1 ) = SROUNDUP_LWORK(MAXWRK)
          IWORK( 1 ) = LIWORK
 *
          IF( LWORK.LT.MINWRK .AND. .NOT.LQUERY ) THEN
@@ -385,7 +376,6 @@
       SFMIN = SLAMCH( 'S' )
       SMLNUM = SFMIN / EPS
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
 *
 *     Scale A if max entry outside range [SMLNUM,BIGNUM].
 *
@@ -624,7 +614,7 @@
       END IF
 *
    10 CONTINUE
-      WORK( 1 ) = MAXWRK
+      WORK( 1 ) = SROUNDUP_LWORK(MAXWRK)
       IWORK( 1 ) = LIWORK
       RETURN
 *

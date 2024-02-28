@@ -60,7 +60,7 @@ static int sbmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
 #ifndef COMPLEX
   FLOAT result;
 #else
-  FLOAT _Complex result;
+  OPENBLAS_COMPLEX_FLOAT result;
 #endif
 
   a = (FLOAT *)args -> a;
@@ -91,7 +91,7 @@ static int sbmv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
     COPY_K(n, x, incx, buffer, 1);
 
     x = buffer;
-    buffer += ((COMPSIZE * n  + 1023) & ~1023);
+    // buffer += ((COMPSIZE * n  + 1023) & ~1023);
   }
 
   SCAL_K(n, 0, 0, ZERO,
@@ -177,7 +177,7 @@ int CNAME(BLASLONG n, BLASLONG k, FLOAT *alpha, FLOAT *a, BLASLONG lda, FLOAT *x
 #endif
 
   blas_arg_t args;
-  blas_queue_t queue[MAX_CPU_NUMBER];
+  blas_queue_t queue[MAX_CPU_NUMBER + 1];
   BLASLONG range_m[MAX_CPU_NUMBER + 1];
   BLASLONG range_n[MAX_CPU_NUMBER];
 
@@ -246,6 +246,7 @@ int CNAME(BLASLONG n, BLASLONG k, FLOAT *alpha, FLOAT *a, BLASLONG lda, FLOAT *x
 
       range_m[MAX_CPU_NUMBER - num_cpu - 1] = range_m[MAX_CPU_NUMBER - num_cpu] - width;
       range_n[num_cpu] = num_cpu * (((n + 15) & ~15) + 16);
+      if (range_n[num_cpu] > n * num_cpu) range_n[num_cpu] = n * num_cpu;
 
       queue[num_cpu].mode    = mode;
       queue[num_cpu].routine = sbmv_kernel;
@@ -285,6 +286,7 @@ int CNAME(BLASLONG n, BLASLONG k, FLOAT *alpha, FLOAT *a, BLASLONG lda, FLOAT *x
 
       range_m[num_cpu + 1] = range_m[num_cpu] + width;
       range_n[num_cpu] = num_cpu * (((n + 15) & ~15) + 16);
+      if (range_n[num_cpu] > n * num_cpu) range_n[num_cpu] = n * num_cpu;
 
       queue[num_cpu].mode    = mode;
       queue[num_cpu].routine = sbmv_kernel;
@@ -316,6 +318,7 @@ int CNAME(BLASLONG n, BLASLONG k, FLOAT *alpha, FLOAT *a, BLASLONG lda, FLOAT *x
       range_m[num_cpu + 1] = range_m[num_cpu] + width;
 
       range_n[num_cpu] = num_cpu * ((n + 15) & ~15);
+      if (range_n[num_cpu] > n * num_cpu) range_n[num_cpu] = n * num_cpu;
 
       queue[num_cpu].mode    = mode;
       queue[num_cpu].routine = sbmv_kernel;

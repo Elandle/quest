@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
-* 
+*
 *       .. Scalar Arguments ..
 *       COMPLEX*16 ALPHA,BETA
 *       INTEGER INCX,INCY,N
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       COMPLEX*16 AP(*),X(*),Y(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -65,7 +65,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array of DIMENSION at least
+*>          AP is COMPLEX*16 array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular part of the hermitian matrix
@@ -83,7 +83,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array of dimension at least
+*>          X is COMPLEX*16 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array of dimension at least
+*>          Y is COMPLEX*16 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array Y must contain the n
 *>           element vector y. On exit, Y is overwritten by the updated
@@ -122,12 +122,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date December 2016
 *
 *> \ingroup complex16_blas_level2
 *
@@ -149,10 +149,10 @@
 *  =====================================================================
       SUBROUTINE ZHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
 *
-*  -- Reference BLAS level2 routine (version 3.4.0) --
+*  -- Reference BLAS level2 routine (version 3.7.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     December 2016
 *
 *     .. Scalar Arguments ..
       COMPLEX*16 ALPHA,BETA

@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZLATMS( M, N, DIST, ISEED, SYM, D, MODE, COND, DMAX,
 *                          KL, KU, PACK, A, LDA, WORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          DIST, PACK, SYM
 *       INTEGER            INFO, KL, KU, LDA, M, MODE, N
@@ -21,7 +21,7 @@
 *       DOUBLE PRECISION   D( * )
 *       COMPLEX*16         A( LDA, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -319,12 +319,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_matgen
 *
@@ -332,10 +330,9 @@
       SUBROUTINE ZLATMS( M, N, DIST, ISEED, SYM, D, MODE, COND, DMAX,
      $                   KL, KU, PACK, A, LDA, WORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          DIST, PACK, SYM
@@ -358,7 +355,7 @@
       COMPLEX*16         CZERO
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
       DOUBLE PRECISION   TWOPI
-      PARAMETER          ( TWOPI = 6.2831853071795864769252867663D+0 )
+      PARAMETER  ( TWOPI = 6.28318530717958647692528676655900576839D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            GIVENS, ILEXTR, ILTEMP, TOPDWN, ZSYM

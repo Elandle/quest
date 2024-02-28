@@ -2,14 +2,14 @@ C> \brief \b ZPOTRF VARIANT: top-looking block version of the algorithm, calling
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZPOTRF ( UPLO, N, A, LDA, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, N
@@ -17,14 +17,14 @@ C> \brief \b ZPOTRF VARIANT: top-looking block version of the algorithm, calling
 *       .. Array Arguments ..
 *       COMPLEX*16         A( LDA, * )
 *       ..
-*  
+*
 *  Purpose
 *  =======
 *
 C>\details \b Purpose:
 C>\verbatim
 C>
-C> ZPOTRF computes the Cholesky factorization of a real symmetric
+C> ZPOTRF computes the Cholesky factorization of a complex Hermitian
 C> positive definite matrix A.
 C>
 C> The factorization has the form
@@ -55,7 +55,7 @@ C>
 C> \param[in,out] A
 C> \verbatim
 C>          A is COMPLEX*16 array, dimension (LDA,N)
-C>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+C>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 C>          N-by-N upper triangular part of A contains the upper
 C>          triangular part of the matrix A, and the strictly lower
 C>          triangular part of A is not referenced.  If UPLO = 'L', the
@@ -79,8 +79,8 @@ C> \verbatim
 C>          INFO is INTEGER
 C>          = 0:  successful exit
 C>          < 0:  if INFO = -i, the i-th argument had an illegal value
-C>          > 0:  if INFO = i, the leading minor of order i is not
-C>                positive definite, and the factorization could not be
+C>          > 0:  if INFO = i, the leading principal minor of order i
+C>                is not positive, and the factorization could not be
 C>                completed.
 C> \endverbatim
 C>
@@ -88,22 +88,21 @@ C>
 *  Authors:
 *  ========
 *
-C> \author Univ. of Tennessee 
-C> \author Univ. of California Berkeley 
-C> \author Univ. of Colorado Denver 
-C> \author NAG Ltd. 
+C> \author Univ. of Tennessee
+C> \author Univ. of California Berkeley
+C> \author Univ. of Colorado Denver
+C> \author NAG Ltd.
 *
-C> \date November 2011
+C> \date December 2016
 *
 C> \ingroup variantsPOcomputational
 *
 *  =====================================================================
       SUBROUTINE ZPOTRF ( UPLO, N, A, LDA, INFO )
 *
-*  -- LAPACK computational routine (version 3.1) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -180,11 +179,11 @@ C> \ingroup variantsPOcomputational
 *
 *              Compute the current block.
 *
-               CALL ZTRSM( 'Left', 'Upper', 'Conjugate Transpose', 
+               CALL ZTRSM( 'Left', 'Upper', 'Conjugate Transpose',
      $                      'Non-unit', J-1, JB, CONE, A( 1, 1 ), LDA,
      $                      A( 1, J ), LDA )
 
-               CALL ZHERK( 'Upper', 'Conjugate Transpose', JB, J-1, 
+               CALL ZHERK( 'Upper', 'Conjugate Transpose', JB, J-1,
      $                      -ONE, A( 1, J ), LDA, ONE, A( J, J ), LDA )
 *
 *              Update and factorize the current diagonal block and test
@@ -206,12 +205,12 @@ C> \ingroup variantsPOcomputational
 *
 *              Compute the current block.
 *
-               CALL ZTRSM( 'Right', 'Lower', 'Conjugate Transpose', 
+               CALL ZTRSM( 'Right', 'Lower', 'Conjugate Transpose',
      $                     'Non-unit', JB, J-1, CONE, A( 1, 1 ), LDA,
      $                     A( J, 1 ), LDA )
 
-               CALL ZHERK( 'Lower', 'No Transpose', JB, J-1, 
-     $                     -ONE, A( J, 1 ), LDA, 
+               CALL ZHERK( 'Lower', 'No Transpose', JB, J-1,
+     $                     -ONE, A( J, 1 ), LDA,
      $                     ONE, A( J, J ), LDA )
 *
 *              Update and factorize the current diagonal block and test

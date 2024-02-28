@@ -45,8 +45,12 @@ void  F77_z3chke(char *  rout) {
       F77_xerbla(cblas_rout,&cblas_info);
    }
 
+
+
+
+
    if (strncmp( sf,"cblas_zgemm"   ,11)==0) {
-      cblas_rout = "cblas_zgemm"   ;
+            cblas_rout = "cblas_zgemm"   ;
 
       cblas_info = 1;
       cblas_zgemm( INVALID,  CblasNoTrans, CblasNoTrans, 0, 0, 0,

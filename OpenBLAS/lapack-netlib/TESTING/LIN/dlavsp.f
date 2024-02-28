@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DLAVSP( UPLO, TRANS, DIAG, N, NRHS, A, IPIV, B, LDB,
 *                          INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, TRANS, UPLO
 *       INTEGER            INFO, LDB, N, NRHS
@@ -19,7 +19,7 @@
 *       INTEGER            IPIV( * )
 *       DOUBLE PRECISION   A( * ), B( LDB, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -117,12 +117,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_lin
 *
@@ -130,10 +128,9 @@
       SUBROUTINE DLAVSP( UPLO, TRANS, DIAG, N, NRHS, A, IPIV, B, LDB,
      $                   INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, TRANS, UPLO

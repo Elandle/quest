@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DSYSVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsysvx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsysvx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsysvx.f"> 
+*> Download DSYSVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsysvx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsysvx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsysvx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE DSYSVX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV, B,
 *                          LDB, X, LDX, RCOND, FERR, BERR, WORK, LWORK,
 *                          IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          FACT, UPLO
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, LWORK, N, NRHS
@@ -32,7 +32,7 @@
 *       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   BERR( * ), FERR( * ), WORK( * ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -270,24 +270,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date April 2012
-*
-*> \ingroup doubleSYsolve
+*> \ingroup hesvx
 *
 *  =====================================================================
       SUBROUTINE DSYSVX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV, B,
      $                   LDB, X, LDX, RCOND, FERR, BERR, WORK, LWORK,
      $                   IWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          FACT, UPLO
@@ -308,7 +305,7 @@
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, NOFACT
-      INTEGER            LWKOPT, NB
+      INTEGER            LWKMIN, LWKOPT, NB
       DOUBLE PRECISION   ANORM
 *     ..
 *     .. External Functions ..
@@ -330,6 +327,7 @@
       INFO = 0
       NOFACT = LSAME( FACT, 'N' )
       LQUERY = ( LWORK.EQ.-1 )
+      LWKMIN = MAX( 1, 3*N )
       IF( .NOT.NOFACT .AND. .NOT.LSAME( FACT, 'F' ) ) THEN
          INFO = -1
       ELSE IF( .NOT.LSAME( UPLO, 'U' ) .AND. .NOT.LSAME( UPLO, 'L' ) )
@@ -347,12 +345,12 @@
          INFO = -11
       ELSE IF( LDX.LT.MAX( 1, N ) ) THEN
          INFO = -13
-      ELSE IF( LWORK.LT.MAX( 1, 3*N ) .AND. .NOT.LQUERY ) THEN
+      ELSE IF( LWORK.LT.LWKMIN .AND. .NOT.LQUERY ) THEN
          INFO = -18
       END IF
 *
       IF( INFO.EQ.0 ) THEN
-         LWKOPT = MAX( 1, 3*N )
+         LWKOPT = LWKMIN
          IF( NOFACT ) THEN
             NB = ILAENV( 1, 'DSYTRF', UPLO, N, -1, -1, -1 )
             LWKOPT = MAX( LWKOPT, N*NB )

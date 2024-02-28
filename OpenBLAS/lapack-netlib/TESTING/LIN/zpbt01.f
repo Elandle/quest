@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZPBT01( UPLO, N, KD, A, LDA, AFAC, LDAFAC, RWORK,
 *                          RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            KD, LDA, LDAFAC, N
@@ -20,7 +20,7 @@
 *       DOUBLE PRECISION   RWORK( * )
 *       COMPLEX*16         A( LDA, * ), AFAC( LDAFAC, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -107,12 +107,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -120,10 +118,9 @@
       SUBROUTINE ZPBT01( UPLO, N, KD, A, LDA, AFAC, LDAFAC, RWORK,
      $                   RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -204,7 +201,8 @@
 *
 *           Compute the (K,K) element of the result.
 *
-            AKK = ZDOTC( KLEN+1, AFAC( KC, K ), 1, AFAC( KC, K ), 1 )
+            AKK = DBLE(
+     $         ZDOTC( KLEN+1, AFAC( KC, K ), 1, AFAC( KC, K ), 1 ) )
             AFAC( KD+1, K ) = AKK
 *
 *           Compute the rest of column K.
@@ -231,7 +229,7 @@
 *
 *           Scale column K by the diagonal element.
 *
-            AKK = AFAC( 1, K )
+            AKK = DBLE( AFAC( 1, K ) )
             CALL ZDSCAL( KLEN+1, AKK, AFAC( 1, K ), 1 )
 *
    40    CONTINUE

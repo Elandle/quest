@@ -2,14 +2,14 @@ C> \brief \b ZPOTRF VARIANT: right looking block version of the algorithm, calli
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZPOTRF ( UPLO, N, A, LDA, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, N
@@ -17,14 +17,14 @@ C> \brief \b ZPOTRF VARIANT: right looking block version of the algorithm, calli
 *       .. Array Arguments ..
 *       COMPLEX*16            A( LDA, * )
 *       ..
-*  
+*
 *  Purpose
 *  =======
 *
 C>\details \b Purpose:
 C>\verbatim
 C>
-C> ZPOTRF computes the Cholesky factorization of a real Hermitian
+C> ZPOTRF computes the Cholesky factorization of a complex Hermitian
 C> positive definite matrix A.
 C>
 C> The factorization has the form
@@ -79,8 +79,8 @@ C> \verbatim
 C>          INFO is INTEGER
 C>          = 0:  successful exit
 C>          < 0:  if INFO = -i, the i-th argument had an illegal value
-C>          > 0:  if INFO = i, the leading minor of order i is not
-C>                positive definite, and the factorization could not be
+C>          > 0:  if INFO = i, the leading principal minor of order i
+C>                is not positive, and the factorization could not be
 C>                completed.
 C> \endverbatim
 C>
@@ -88,22 +88,21 @@ C>
 *  Authors:
 *  ========
 *
-C> \author Univ. of Tennessee 
-C> \author Univ. of California Berkeley 
-C> \author Univ. of Colorado Denver 
-C> \author NAG Ltd. 
+C> \author Univ. of Tennessee
+C> \author Univ. of California Berkeley
+C> \author Univ. of Colorado Denver
+C> \author NAG Ltd.
 *
-C> \date November 2011
+C> \date December 2016
 *
 C> \ingroup variantsPOcomputational
 *
 *  =====================================================================
       SUBROUTINE ZPOTRF ( UPLO, N, A, LDA, INFO )
 *
-*  -- LAPACK computational routine (version 3.1) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -190,11 +189,11 @@ C> \ingroup variantsPOcomputational
 *
 *                 Updating the trailing submatrix.
 *
-                  CALL ZTRSM( 'Left', 'Upper', 'Conjugate Transpose', 
+                  CALL ZTRSM( 'Left', 'Upper', 'Conjugate Transpose',
      $                        'Non-unit', JB, N-J-JB+1, CONE, A( J, J ),
      $                        LDA, A( J, J+JB ), LDA )
-                  CALL ZHERK( 'Upper', 'Conjugate transpose', N-J-JB+1, 
-     $                        JB, -ONE, A( J, J+JB ), LDA, 
+                  CALL ZHERK( 'Upper', 'Conjugate transpose', N-J-JB+1,
+     $                        JB, -ONE, A( J, J+JB ), LDA,
      $                        ONE, A( J+JB, J+JB ), LDA )
                END IF
    10       CONTINUE
@@ -219,12 +218,12 @@ C> \ingroup variantsPOcomputational
 *
 *                Updating the trailing submatrix.
 *
-                 CALL ZTRSM( 'Right', 'Lower', 'Conjugate Transpose', 
+                 CALL ZTRSM( 'Right', 'Lower', 'Conjugate Transpose',
      $                       'Non-unit', N-J-JB+1, JB, CONE, A( J, J ),
      $                       LDA, A( J+JB, J ), LDA )
 
-                 CALL ZHERK( 'Lower', 'No Transpose', N-J-JB+1, JB, 
-     $                       -ONE, A( J+JB, J ), LDA, 
+                 CALL ZHERK( 'Lower', 'No Transpose', N-J-JB+1, JB,
+     $                       -ONE, A( J+JB, J ), LDA,
      $                       ONE, A( J+JB, J+JB ), LDA )
                END IF
    20       CONTINUE

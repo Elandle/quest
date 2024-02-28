@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SGEQP3 + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgeqp3.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgeqp3.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgeqp3.f"> 
+*> Download SGEQP3 + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgeqp3.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgeqp3.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgeqp3.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SGEQP3( M, N, A, LDA, JPVT, TAU, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LWORK, M, N
 *       ..
@@ -27,7 +27,7 @@
 *       INTEGER            JPVT( * )
 *       REAL               A( LDA, * ), TAU( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -115,14 +115,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup realGEcomputational
+*> \ingroup geqp3
 *
 *> \par Further Details:
 *  =====================
@@ -151,10 +149,9 @@
 *  =====================================================================
       SUBROUTINE SGEQP3( M, N, A, LDA, JPVT, TAU, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.2) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LWORK, M, N
@@ -180,13 +177,13 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      REAL               SNRM2
-      EXTERNAL           ILAENV, SNRM2
+      REAL               SNRM2, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, SNRM2, SROUNDUP_LWORK
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          INT, MAX, MIN
-*     ..
-*     .. Executable Statements ..
+*     Test input arguments
+*  ====================
 *
       INFO = 0
       LQUERY = ( LWORK.EQ.-1 )
@@ -208,7 +205,7 @@
             NB = ILAENV( INB, 'SGEQRF', ' ', M, N, -1, -1 )
             LWKOPT = 2*N + ( N + 1 )*NB
          END IF
-         WORK( 1 ) = LWKOPT
+         WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 *
          IF( ( LWORK.LT.IWS ) .AND. .NOT.LQUERY ) THEN
             INFO = -8
@@ -219,12 +216,6 @@
          CALL XERBLA( 'SGEQP3', -INFO )
          RETURN
       ELSE IF( LQUERY ) THEN
-         RETURN
-      END IF
-*
-*     Quick return if possible.
-*
-      IF( MINMN.EQ.0 ) THEN
          RETURN
       END IF
 *
@@ -356,7 +347,7 @@
 *
       END IF
 *
-      WORK( 1 ) = IWS
+      WORK( 1 ) = SROUNDUP_LWORK(IWS)
       RETURN
 *
 *     End of SGEQP3

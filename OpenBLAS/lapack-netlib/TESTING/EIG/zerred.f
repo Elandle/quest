@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZERRED( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -22,7 +22,7 @@
 *> \verbatim
 *>
 *> ZERRED tests the error exits for the eigenvalue driver routines for
-*> DOUBLE PRECISION matrices:
+*> DOUBLE COMPLEX PRECISION matrices:
 *>
 *> PATH  driver   description
 *> ----  ------   -----------
@@ -33,6 +33,11 @@
 *> ZBD   ZGESVD   compute SVD of an M-by-N matrix A
 *>       ZGESDD   compute SVD of an M-by-N matrix A(by divide and
 *>                conquer)
+*>       ZGEJSV   compute SVD of an M-by-N matrix A where M >= N
+*>       ZGESVDX  compute SVD of an M-by-N matrix A(by bisection
+*>                and inverse iteration)
+*>       ZGESVDQ  compute SVD of an M-by-N matrix A(with a 
+*>                QR-Preconditioned )
 *> \endverbatim
 *
 *  Arguments:
@@ -53,22 +58,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
 *  =====================================================================
       SUBROUTINE ZERRED( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -85,7 +87,7 @@
 *     ..
 *     .. Local Scalars ..
       CHARACTER*2        C2
-      INTEGER            I, IHI, ILO, INFO, J, NT, SDIM
+      INTEGER            I, IHI, ILO, INFO, J, NS, NT, SDIM
       DOUBLE PRECISION   ABNRM
 *     ..
 *     .. Local Arrays ..
@@ -94,11 +96,11 @@
       DOUBLE PRECISION   R1( NMAX ), R2( NMAX ), RW( LW ), S( NMAX )
       COMPLEX*16         A( NMAX, NMAX ), U( NMAX, NMAX ),
      $                   VL( NMAX, NMAX ), VR( NMAX, NMAX ),
-     $                   VT( NMAX, NMAX ), W( 4*NMAX ), X( NMAX )
+     $                   VT( NMAX, NMAX ), W( 10*NMAX ), X( NMAX )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           CHKXER, ZGEES, ZGEESX, ZGEEV, ZGEEVX, ZGESDD,
-     $                   ZGESVD
+      EXTERNAL           CHKXER, ZGEES, ZGEESX, ZGEEV, ZGEEVX, ZGESVJ,
+     $                   ZGESDD, ZGESVD, ZGESVDX, ZGESVDQ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAMEN, ZSLECT
@@ -361,6 +363,186 @@
      $                INFO )
          CALL CHKXER( 'ZGESDD', INFOT, NOUT, LERR, OK )
          NT = NT - 2
+         IF( OK ) THEN
+            WRITE( NOUT, FMT = 9999 )SRNAMT( 1:LEN_TRIM( SRNAMT ) ),
+     $           NT
+         ELSE
+            WRITE( NOUT, FMT = 9998 )
+         END IF
+*
+*        Test ZGEJSV
+*
+         SRNAMT = 'ZGEJSV'
+         INFOT = 1
+         CALL ZGEJSV( 'X', 'U', 'V', 'R', 'N', 'N',
+     $                 0, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 2
+         CALL ZGEJSV( 'G', 'X', 'V', 'R', 'N', 'N',
+     $                 0, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 3
+         CALL ZGEJSV( 'G', 'U', 'X', 'R', 'N', 'N',
+     $                 0, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 4
+         CALL ZGEJSV( 'G', 'U', 'V', 'X', 'N', 'N',
+     $                 0, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 5
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'X', 'N',
+     $                 0, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 6
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'N', 'X',
+     $                 0, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 7
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'N', 'N',
+     $                 -1, 0, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 8
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'N', 'N',
+     $                 0, -1, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 10
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'N', 'N',
+     $                 2, 1, A, 1, S, U, 1, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 13
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'N', 'N',
+     $                 2, 2, A, 2, S, U, 1, VT, 2,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         INFOT = 15
+         CALL ZGEJSV( 'G', 'U', 'V', 'R', 'N', 'N',
+     $                 2, 2, A, 2, S, U, 2, VT, 1,
+     $                 W, 1, RW, 1, IW, INFO)
+         CALL CHKXER( 'ZGEJSV', INFOT, NOUT, LERR, OK )
+         NT = 11
+         IF( OK ) THEN
+            WRITE( NOUT, FMT = 9999 )SRNAMT( 1:LEN_TRIM( SRNAMT ) ),
+     $           NT
+         ELSE
+            WRITE( NOUT, FMT = 9998 )
+         END IF
+*
+*        Test ZGESVDX
+*
+         SRNAMT = 'ZGESVDX'
+         INFOT = 1
+         CALL ZGESVDX( 'X', 'N', 'A', 0, 0, A, 1, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 2
+         CALL ZGESVDX( 'N', 'X', 'A', 0, 0, A, 1, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 3
+         CALL ZGESVDX( 'N', 'N', 'X', 0, 0, A, 1, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 4
+         CALL ZGESVDX( 'N', 'N', 'A', -1, 0, A, 1, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 5
+         CALL ZGESVDX( 'N', 'N', 'A', 0, -1, A, 1, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 7
+         CALL ZGESVDX( 'N', 'N', 'A', 2, 1, A, 1, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 8
+         CALL ZGESVDX( 'N', 'N', 'V', 2, 1, A, 2, -ONE, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 9
+         CALL ZGESVDX( 'N', 'N', 'V', 2, 1, A, 2, ONE, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 10
+         CALL ZGESVDX( 'N', 'N', 'I', 2, 2, A, 2, ZERO, ZERO,
+     $                 0, 1, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 11
+         CALL ZGESVDX( 'V', 'N', 'I', 2, 2, A, 2, ZERO, ZERO,
+     $                 1, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 15
+         CALL ZGESVDX( 'V', 'N', 'A', 2, 2, A, 2, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         INFOT = 17
+         CALL ZGESVDX( 'N', 'V', 'A', 2, 2, A, 2, ZERO, ZERO,
+     $                 0, 0, NS, S, U, 1, VT, 1, W, 1, RW, IW, INFO )
+         CALL CHKXER( 'ZGESVDX', INFOT, NOUT, LERR, OK )
+         NT = 12
+         IF( OK ) THEN
+            WRITE( NOUT, FMT = 9999 )SRNAMT( 1:LEN_TRIM( SRNAMT ) ),
+     $           NT
+         ELSE
+            WRITE( NOUT, FMT = 9998 )
+         END IF
+*
+*        Test ZGESVDQ
+*
+         SRNAMT = 'ZGESVDQ'
+         INFOT = 1
+         CALL ZGESVDQ( 'X', 'P', 'T', 'A', 'A', 0, 0, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 2
+         CALL ZGESVDQ( 'A', 'X', 'T', 'A', 'A', 0, 0, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 3
+         CALL ZGESVDQ( 'A', 'P', 'X', 'A', 'A', 0, 0, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 4
+         CALL ZGESVDQ( 'A', 'P', 'T', 'X', 'A', 0, 0, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 5
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'X', 0, 0, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 6
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'A', -1, 0, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 7
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'A', 0, 1, A, 1, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 9
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'A', 1, 1, A, 0, S, U,
+     $                 0, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 12
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'A', 1, 1, A, 1, S, U,
+     $                 -1, VT, 0, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 14
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'A', 1, 1, A, 1, S, U,
+     $                 1, VT, -1, NS, IW, 1, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         INFOT = 17
+         CALL ZGESVDQ( 'A', 'P', 'T', 'A', 'A', 1, 1, A, 1, S, U,
+     $                 1, VT, 1, NS, IW, -5, W, 1, RW, 1, INFO )
+         CALL CHKXER( 'ZGESVDQ', INFOT, NOUT, LERR, OK )
+         NT = 11
          IF( OK ) THEN
             WRITE( NOUT, FMT = 9999 )SRNAMT( 1:LEN_TRIM( SRNAMT ) ),
      $           NT

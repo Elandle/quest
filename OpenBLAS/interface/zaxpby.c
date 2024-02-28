@@ -48,17 +48,21 @@ void NAME(blasint *N, FLOAT *ALPHA, FLOAT *x, blasint *INCX, FLOAT *BETA, FLOAT 
 
 #else
 
-void CNAME(blasint n, FLOAT *ALPHA, FLOAT *x, blasint incx, FLOAT *BETA, FLOAT *y, blasint incy)
+void CNAME(blasint n, void *VALPHA, void *vx, blasint incx, void *VBETA, void *vy, blasint incy)
 {
+  FLOAT* ALPHA = (FLOAT*) VALPHA;
+  FLOAT* BETA = (FLOAT*) VBETA;
+  FLOAT* x = (FLOAT*) vx;
+  FLOAT* y = (FLOAT*) vy;
 
 #endif
-
-  if (n <= 0) return;
 
   FLOAT alpha_r = *(ALPHA + 0);
   FLOAT alpha_i = *(ALPHA + 1);
   FLOAT beta_r  = *(BETA  + 0);
   FLOAT beta_i  = *(BETA  + 1);
+
+  if (n <= 0) return;
 
   FUNCTION_PROFILE_START();
 

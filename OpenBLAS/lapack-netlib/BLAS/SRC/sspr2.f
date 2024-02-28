@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
-* 
+*
 *       .. Scalar Arguments ..
 *       REAL ALPHA
 *       INTEGER INCX,INCY,N
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       REAL AP(*),X(*),Y(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -65,7 +65,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is REAL array of dimension at least
+*>          X is REAL array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -80,7 +80,7 @@
 *>
 *> \param[in] Y
 *> \verbatim
-*>          Y is REAL array of dimension at least
+*>          Y is REAL array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array Y must contain the n
 *>           element vector y.
@@ -95,7 +95,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is REAL array of DIMENSION at least
+*>          AP is REAL array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with  UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular part of the symmetric matrix
@@ -116,12 +116,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date December 2016
 *
 *> \ingroup single_blas_level2
 *
@@ -142,10 +142,10 @@
 *  =====================================================================
       SUBROUTINE SSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
 *
-*  -- Reference BLAS level2 routine (version 3.4.0) --
+*  -- Reference BLAS level2 routine (version 3.7.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     December 2016
 *
 *     .. Scalar Arguments ..
       REAL ALPHA

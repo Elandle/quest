@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DGELSD + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgelsd.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgelsd.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgelsd.f"> 
+*> Download DGELSD + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgelsd.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgelsd.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgelsd.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGELSD( M, N, NRHS, A, LDA, B, LDB, S, RCOND, RANK,
 *                          WORK, LWORK, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
 *       DOUBLE PRECISION   RCOND
@@ -29,7 +29,7 @@
 *       INTEGER            IWORK( * )
 *       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), S( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -52,19 +52,13 @@
 *>     Householder transformations, reducing the original problem
 *>     into a "bidiagonal least squares problem" (BLS)
 *> (2) Solve the BLS using a divide and conquer approach.
-*> (3) Apply back all the Householder tranformations to solve
+*> (3) Apply back all the Householder transformations to solve
 *>     the original least squares problem.
 *>
 *> The effective rank of A is determined by treating as zero those
 *> singular values which are less than RCOND times the largest singular
 *> value.
 *>
-*> The divide and conquer algorithm makes very mild assumptions about
-*> floating point arithmetic. It will work on machines with a guard
-*> digit in add/subtract, or on those binary machines without guard
-*> digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
-*> Cray-2. It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.
 *> \endverbatim
 *
 *  Arguments:
@@ -89,7 +83,7 @@
 *>          of the matrices B and X. NRHS >= 0.
 *> \endverbatim
 *>
-*> \param[in] A
+*> \param[in,out] A
 *> \verbatim
 *>          A is DOUBLE PRECISION array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
@@ -189,14 +183,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup doubleGEsolve
+*> \ingroup gelsd
 *
 *> \par Contributors:
 *  ==================
@@ -209,10 +201,9 @@
       SUBROUTINE DGELSD( M, N, NRHS, A, LDA, B, LDB, S, RCOND, RANK,
      $                   WORK, LWORK, IWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
@@ -237,7 +228,7 @@
       DOUBLE PRECISION   ANRM, BIGNUM, BNRM, EPS, SFMIN, SMLNUM
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           DGEBRD, DGELQF, DGEQRF, DLABAD, DLACPY, DLALSD,
+      EXTERNAL           DGEBRD, DGELQF, DGEQRF, DLACPY, DLALSD,
      $                   DLASCL, DLASET, DORMBR, DORMLQ, DORMQR, XERBLA
 *     ..
 *     .. External Functions ..
@@ -285,7 +276,7 @@
      $       LOG( TWO ) ) + 1, 0 )
 *
       IF( INFO.EQ.0 ) THEN
-         MAXWRK = 0
+         MAXWRK = 1
          LIWORK = 3*MINMN*NLVL + 11*MINMN
          MM = M
          IF( M.GE.N .AND. M.GE.MNTHR ) THEN
@@ -381,7 +372,6 @@
       SFMIN = DLAMCH( 'S' )
       SMLNUM = SFMIN / EPS
       BIGNUM = ONE / SMLNUM
-      CALL DLABAD( SMLNUM, BIGNUM )
 *
 *     Scale A if max entry outside range [SMLNUM,BIGNUM].
 *

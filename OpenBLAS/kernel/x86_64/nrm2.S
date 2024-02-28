@@ -50,11 +50,15 @@
 	PROLOGUE
 	PROFCODE
 
+#ifdef WINDOWS_ABI
+	emms
+#endif
+
 	fldz
 	testq	M, M
 	jle	.L999
 	testq	INCX, INCX
-	jle	.L999
+	je	.L999
 
 	salq	$BASE_SHIFT, INCX
 

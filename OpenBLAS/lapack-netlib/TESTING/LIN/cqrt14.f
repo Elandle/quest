@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       REAL             FUNCTION CQRT14( TRANS, M, N, NRHS, A, LDA, X,
 *                        LDX, WORK, LWORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            LDA, LDX, LWORK, M, N, NRHS
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       COMPLEX            A( LDA, * ), WORK( LWORK ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -103,12 +103,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -116,10 +114,9 @@
       REAL             FUNCTION CQRT14( TRANS, M, N, NRHS, A, LDA, X,
      $                 LDX, WORK, LWORK )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANS
@@ -200,7 +197,6 @@
          IF( XNRM.NE.ZERO )
      $      CALL CLASCL( 'G', 0, 0, XNRM, ONE, M, NRHS,
      $                   WORK( N*LDWORK+1 ), LDWORK, INFO )
-         ANRM = CLANGE( 'One-norm', M, N+NRHS, WORK, LDWORK, RWORK )
 *
 *        Compute QR factorization of X
 *

@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SLATMT( M, N, DIST, ISEED, SYM, D, MODE, COND, DMAX,
 *                          RANK, KL, KU, PACK, A, LDA, WORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       REAL               COND, DMAX
 *       INTEGER            INFO, KL, KU, LDA, M, MODE, N, RANK
@@ -20,7 +20,7 @@
 *       REAL               A( LDA, * ), D( * ), WORK( * )
 *       INTEGER            ISEED( 4 )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -318,12 +318,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup real_matgen
 *
@@ -331,10 +329,9 @@
       SUBROUTINE SLATMT( M, N, DIST, ISEED, SYM, D, MODE, COND, DMAX,
      $                   RANK, KL, KU, PACK, A, LDA, WORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       REAL               COND, DMAX
@@ -354,7 +351,7 @@
       REAL               ONE
       PARAMETER          ( ONE = 1.0E0 )
       REAL               TWOPI
-      PARAMETER          ( TWOPI = 6.2831853071795864769252867663E+0 )
+      PARAMETER  ( TWOPI = 6.28318530717958647692528676655900576839E+0 )
 *     ..
 *     .. Local Scalars ..
       REAL               ALPHA, ANGLE, C, DUMMY, EXTRA, S, TEMP

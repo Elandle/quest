@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZERRLQ( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -43,22 +43,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
 *  =====================================================================
       SUBROUTINE ZERRLQ( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -79,7 +76,7 @@
      $                   W( NMAX ), X( NMAX )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALAESM, CHKXER, ZGELQ2, ZGELQF, ZGELQS, ZUNGL2,
+      EXTERNAL           ALAESM, CHKXER, ZGELQ2, ZGELQF, ZUNGL2,
      $                   ZUNGLQ, ZUNML2, ZUNMLQ
 *     ..
 *     .. Scalars in Common ..
@@ -144,31 +141,6 @@
       INFOT = 4
       CALL ZGELQ2( 2, 1, A, 1, B, W, INFO )
       CALL CHKXER( 'ZGELQ2', INFOT, NOUT, LERR, OK )
-*
-*     ZGELQS
-*
-      SRNAMT = 'ZGELQS'
-      INFOT = 1
-      CALL ZGELQS( -1, 0, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 2
-      CALL ZGELQS( 0, -1, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 2
-      CALL ZGELQS( 2, 1, 0, A, 2, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 3
-      CALL ZGELQS( 0, 0, -1, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 5
-      CALL ZGELQS( 2, 2, 0, A, 1, X, B, 2, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 8
-      CALL ZGELQS( 1, 2, 0, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
-      INFOT = 10
-      CALL ZGELQS( 1, 1, 2, A, 1, X, B, 1, W, 1, INFO )
-      CALL CHKXER( 'ZGELQS', INFOT, NOUT, LERR, OK )
 *
 *     ZUNGLQ
 *

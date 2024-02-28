@@ -39,7 +39,7 @@
 #define ASSEMBLER
 #include "common.h"
 
-#ifdef linux
+#if defined(linux) || defined(__FreeBSD__)
 #ifndef __64BIT__
 #define N	r3
 #define X	r6
@@ -123,20 +123,20 @@
 	stfd	f24,   80(SP)
 	stfd	f25,   88(SP)
 
-#if defined(linux) && defined(__64BIT__)
-        ld	INCY, 112 + STACKSIZE(SP)
+#if (defined(linux) || defined(__FreeBSD__)) && defined(__64BIT__)
+        ld	INCY, FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 
 #if defined(_AIX) || defined(__APPLE__)
 #ifdef __64BIT__
-	ld	INCY,   112 + STACKSIZE(SP)
+	ld	INCY, FRAMESLOT(0) + STACKSIZE(SP)
 #else
 #ifdef DOUBLE
-	lwz	INCX,    56 + STACKSIZE(SP)
-	lwz	Y,       60 + STACKSIZE(SP)
-	lwz	INCY,    64 + STACKSIZE(SP)
+	lwz	INCX, FRAMESLOT(0) + STACKSIZE(SP)
+	lwz	Y,    FRAMESLOT(1) + STACKSIZE(SP)
+	lwz	INCY, FRAMESLOT(2) + STACKSIZE(SP)
 #else
-	lwz	INCY,    56 + STACKSIZE(SP)
+	lwz	INCY, FRAMESLOT(0) + STACKSIZE(SP)
 #endif
 #endif
 #endif

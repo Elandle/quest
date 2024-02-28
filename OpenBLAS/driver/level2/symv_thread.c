@@ -55,7 +55,7 @@
 static int symv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *dummy1, FLOAT *buffer, BLASLONG pos){
 
   FLOAT *a, *x, *y;
-  BLASLONG lda, incx, incy;
+  BLASLONG lda, incx;
   BLASLONG m_from, m_to;
 
   a = (FLOAT *)args -> a;
@@ -64,7 +64,6 @@ static int symv_kernel(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, F
 
   lda  = args -> lda;
   incx = args -> ldb;
-  incy = args -> ldc;
 
   m_from = 0;
   m_to   = args -> m;
@@ -178,7 +177,8 @@ int CNAME(BLASLONG m, FLOAT *alpha, FLOAT *a, BLASLONG lda, FLOAT *x, BLASLONG i
 
     range_m[num_cpu + 1] = range_m[num_cpu] + width;
     range_n[num_cpu] = num_cpu * (((m + 15) & ~15) + 16);
-
+    if (range_n[num_cpu] > m * num_cpu) range_n[num_cpu] = m * num_cpu;
+    
     queue[MAX_CPU_NUMBER - num_cpu - 1].mode    = mode;
     queue[MAX_CPU_NUMBER - num_cpu - 1].routine = symv_kernel;
     queue[MAX_CPU_NUMBER - num_cpu - 1].args    = &args;
@@ -226,6 +226,7 @@ int CNAME(BLASLONG m, FLOAT *alpha, FLOAT *a, BLASLONG lda, FLOAT *x, BLASLONG i
 
     range_m[num_cpu + 1] = range_m[num_cpu] + width;
     range_n[num_cpu] = num_cpu * (((m + 15) & ~15) + 16);
+    if (range_n[num_cpu] > m * num_cpu) range_n[num_cpu] = m * num_cpu;
 
     queue[num_cpu].mode    = mode;
     queue[num_cpu].routine = symv_kernel;

@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SGELSY + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgelsy.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgelsy.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgelsy.f"> 
+*> Download SGELSY + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sgelsy.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sgelsy.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sgelsy.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SGELSY( M, N, NRHS, A, LDA, B, LDB, JPVT, RCOND, RANK,
 *                          WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
 *       REAL               RCOND
@@ -29,7 +29,7 @@
 *       INTEGER            JPVT( * )
 *       REAL               A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -115,6 +115,7 @@
 *>          B is REAL array, dimension (LDB,NRHS)
 *>          On entry, the M-by-NRHS right hand side matrix B.
 *>          On exit, the N-by-NRHS solution matrix X.
+*>          If M = 0 or N = 0, B is not referenced.
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -147,6 +148,7 @@
 *>          The effective rank of A, i.e., the order of the submatrix
 *>          R11.  This is the same as the order of the submatrix T11
 *>          in the complete orthogonal factorization of A.
+*>          If NRHS = 0, RANK = 0 on output.
 *> \endverbatim
 *>
 *> \param[out] WORK
@@ -184,19 +186,17 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realGEsolve
+*> \ingroup gelsy
 *
 *> \par Contributors:
 *  ==================
 *>
-*>    A. Petitet, Computer Science Dept., Univ. of Tenn., Knoxville, USA \n 
+*>    A. Petitet, Computer Science Dept., Univ. of Tenn., Knoxville, USA \n
 *>    E. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain \n
 *>    G. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain \n
 *>
@@ -204,10 +204,9 @@
       SUBROUTINE SGELSY( M, N, NRHS, A, LDA, B, LDB, JPVT, RCOND, RANK,
      $                   WORK, LWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
@@ -235,11 +234,11 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      REAL               SLAMCH, SLANGE
-      EXTERNAL           ILAENV, SLAMCH, SLANGE
+      REAL               SLAMCH, SLANGE, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, SLAMCH, SLANGE, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           SCOPY, SGEQP3, SLABAD, SLAIC1, SLASCL, SLASET,
+      EXTERNAL           SCOPY, SGEQP3, SLAIC1, SLASCL, SLASET,
      $                   SORMQR, SORMRZ, STRSM, STZRZF, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
@@ -283,7 +282,7 @@
             LWKOPT = MAX( LWKMIN,
      $                    MN + 2*N + NB*( N + 1 ), 2*MN + NB*NRHS )
          END IF
-         WORK( 1 ) = LWKOPT
+         WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 *
          IF( LWORK.LT.LWKMIN .AND. .NOT.LQUERY ) THEN
             INFO = -12
@@ -308,7 +307,6 @@
 *
       SMLNUM = SLAMCH( 'S' ) / SLAMCH( 'P' )
       BIGNUM = ONE / SMLNUM
-      CALL SLABAD( SMLNUM, BIGNUM )
 *
 *     Scale A, B if max entries outside range [SMLNUM,BIGNUM]
 *
@@ -470,7 +468,7 @@
       END IF
 *
    70 CONTINUE
-      WORK( 1 ) = LWKOPT
+      WORK( 1 ) = SROUNDUP_LWORK(LWKOPT)
 *
       RETURN
 *

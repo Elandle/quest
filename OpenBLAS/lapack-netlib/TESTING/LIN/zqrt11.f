@@ -2,21 +2,21 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       DOUBLE PRECISION FUNCTION ZQRT11( M, K, A, LDA, TAU, WORK, LWORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            K, LDA, LWORK, M
 *       ..
 *       .. Array Arguments ..
 *       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( LWORK )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -86,22 +86,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
 *  =====================================================================
       DOUBLE PRECISION FUNCTION ZQRT11( M, K, A, LDA, TAU, WORK, LWORK )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            K, LDA, LWORK, M
@@ -161,9 +158,9 @@
       CALL ZUNM2R( 'Left', 'Conjugate transpose', M, M, K, A, LDA, TAU,
      $             WORK, M, WORK( M*M+1 ), INFO )
 *
-      DO 10 J = 1, M
+      DO J = 1, M
          WORK( ( J-1 )*M+J ) = WORK( ( J-1 )*M+J ) - ONE
-   10 CONTINUE
+      END DO
 *
       ZQRT11 = ZLANGE( 'One-norm', M, M, WORK, M, RDUMMY ) /
      $         ( DBLE( M )*DLAMCH( 'Epsilon' ) )

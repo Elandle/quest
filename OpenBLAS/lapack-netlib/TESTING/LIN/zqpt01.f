@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       DOUBLE PRECISION FUNCTION ZQPT01( M, N, K, A, AF, LDA, TAU, JPVT,
 *                        WORK, LWORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            K, LDA, LWORK, M, N
 *       ..
@@ -19,7 +19,7 @@
 *       COMPLEX*16         A( LDA, * ), AF( LDA, * ), TAU( * ),
 *      $                   WORK( LWORK )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -33,7 +33,7 @@
 *> Householder vectors, and the rest of AF contains a partially updated
 *> matrix.
 *>
-*> This function returns ||A*P - Q*R||/(||norm(A)||*eps*M)
+*> This function returns ||A*P - Q*R|| / ( ||norm(A)||*eps*max(M,N) )
 *> \endverbatim
 *
 *  Arguments:
@@ -107,12 +107,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -120,10 +118,9 @@
       DOUBLE PRECISION FUNCTION ZQPT01( M, N, K, A, AF, LDA, TAU, JPVT,
      $                 WORK, LWORK )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            K, LDA, LWORK, M, N
@@ -175,28 +172,28 @@
 *
       NORMA = ZLANGE( 'One-norm', M, N, A, LDA, RWORK )
 *
-      DO 30 J = 1, K
-         DO 10 I = 1, MIN( J, M )
+      DO J = 1, K
+         DO I = 1, MIN( J, M )
             WORK( ( J-1 )*M+I ) = AF( I, J )
-   10    CONTINUE
-         DO 20 I = J + 1, M
+         END DO
+         DO I = J + 1, M
             WORK( ( J-1 )*M+I ) = ZERO
-   20    CONTINUE
-   30 CONTINUE
-      DO 40 J = K + 1, N
+         END DO
+      END DO
+      DO J = K + 1, N
          CALL ZCOPY( M, AF( 1, J ), 1, WORK( ( J-1 )*M+1 ), 1 )
-   40 CONTINUE
+      END DO
 *
       CALL ZUNMQR( 'Left', 'No transpose', M, N, K, AF, LDA, TAU, WORK,
      $             M, WORK( M*N+1 ), LWORK-M*N, INFO )
 *
-      DO 50 J = 1, N
+      DO J = 1, N
 *
 *        Compare i-th column of QR and jpvt(i)-th column of A
 *
          CALL ZAXPY( M, DCMPLX( -ONE ), A( 1, JPVT( J ) ), 1,
      $               WORK( ( J-1 )*M+1 ), 1 )
-   50 CONTINUE
+      END DO
 *
       ZQPT01 = ZLANGE( 'One-norm', M, N, WORK, M, RWORK ) /
      $         ( DBLE( MAX( M, N ) )*DLAMCH( 'Epsilon' ) )

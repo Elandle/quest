@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZCHKTP( DOTYPE, NN, NVAL, NNS, NSVAL, THRESH, TSTERR,
 *                          NMAX, AP, AINVP, B, X, XACT, WORK, RWORK,
 *                          NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NMAX, NN, NNS, NOUT
@@ -24,7 +24,7 @@
 *       COMPLEX*16         AINVP( * ), AP( * ), B( * ), WORK( * ), X( * ),
 *      $                   XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -87,7 +87,7 @@
 *> \verbatim
 *>          NMAX is INTEGER
 *>          The leading dimension of the work arrays.  NMAX >= the
-*>          maximumm value of N in NVAL.
+*>          maximum value of N in NVAL.
 *> \endverbatim
 *>
 *> \param[out] AP
@@ -137,12 +137,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -151,10 +149,9 @@
      $                   NMAX, AP, AINVP, B, X, XACT, WORK, RWORK,
      $                   NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR

@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 PLAT = _LINUX
-DRVOPTS  = $(OPTS)
-ARCHFLAGS= -ru
+DRVOPTS  = $(NOOPT)
+#ARCHFLAGS= $(ARFLAGS) -ru
 #RANLIB   = ranlib
 

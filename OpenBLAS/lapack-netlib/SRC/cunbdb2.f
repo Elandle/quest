@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
 *> Download CUNBDB2 + dependencies
@@ -20,7 +20,7 @@
 *
 *       SUBROUTINE CUNBDB2( M, P, Q, X11, LDX11, X21, LDX21, THETA, PHI,
 *                           TAUP1, TAUP2, TAUQ1, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
 *       ..
@@ -29,15 +29,15 @@
 *       COMPLEX            TAUP1(*), TAUP2(*), TAUQ1(*), WORK(*),
 *      $                   X11(LDX11,*), X21(LDX21,*)
 *       ..
-*  
-* 
+*
+*
 *> \par Purpose:
-*> =============
+*  =============
 *>
 *>\verbatim
 *>
 *> CUNBDB2 simultaneously bidiagonalizes the blocks of a tall and skinny
-*> matrix X with orthonomal columns:
+*> matrix X with orthonormal columns:
 *>
 *>                            [ B11 ]
 *>      [ X11 ]   [ P1 |    ] [  0  ]
@@ -122,14 +122,14 @@
 *>
 *> \param[out] TAUP1
 *> \verbatim
-*>          TAUP1 is COMPLEX array, dimension (P)
+*>          TAUP1 is COMPLEX array, dimension (P-1)
 *>           The scalar factors of the elementary reflectors that define
 *>           P1.
 *> \endverbatim
 *>
 *> \param[out] TAUP2
 *> \verbatim
-*>          TAUP2 is COMPLEX array, dimension (M-P)
+*>          TAUP2 is COMPLEX array, dimension (Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           P2.
 *> \endverbatim
@@ -150,7 +150,7 @@
 *> \verbatim
 *>          LWORK is INTEGER
 *>           The dimension of the array WORK. LWORK >= M-Q.
-*> 
+*>
 *>           If LWORK = -1, then a workspace query is assumed; the routine
 *>           only calculates the optimal size of the WORK array, returns
 *>           this value as the first entry of the WORK array, and no error
@@ -168,14 +168,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date July 2012
-*
-*> \ingroup complexOTHERcomputational
+*> \ingroup unbdb2
 *
 *> \par Further Details:
 *  =====================
@@ -202,10 +200,9 @@
       SUBROUTINE CUNBDB2( M, P, Q, X11, LDX11, X21, LDX21, THETA, PHI,
      $                    TAUP1, TAUP2, TAUQ1, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     July 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
@@ -230,11 +227,12 @@
       LOGICAL            LQUERY
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           CLARF, CLARFGP, CUNBDB5, CSROT, CSCAL, XERBLA
+      EXTERNAL           CLARF, CLARFGP, CUNBDB5, CSROT, CSCAL, CLACGV,
+     $                   XERBLA
 *     ..
 *     .. External Functions ..
-      REAL               SCNRM2
-      EXTERNAL           SCNRM2
+      REAL               SCNRM2, SROUNDUP_LWORK
+      EXTERNAL           SCNRM2, SROUNDUP_LWORK
 *     ..
 *     .. Intrinsic Function ..
       INTRINSIC          ATAN2, COS, MAX, SIN, SQRT
@@ -267,7 +265,7 @@
          LORBDB5 = Q-1
          LWORKOPT = MAX( ILARF+LLARF-1, IORBDB5+LORBDB5-1 )
          LWORKMIN = LWORKOPT
-         WORK(1) = LWORKOPT
+         WORK(1) = SROUNDUP_LWORK(LWORKOPT)
          IF( LWORK .LT. LWORKMIN .AND. .NOT.LQUERY ) THEN
            INFO = -14
          END IF
@@ -282,7 +280,7 @@
 *     Reduce rows 1, ..., P of X11 and X21
 *
       DO I = 1, P
-*      
+*
          IF( I .GT. 1 ) THEN
             CALL CSROT( Q-I+1, X11(I,I), LDX11, X21(I-1,I), LDX21, C,
      $                  S )
@@ -296,8 +294,8 @@
          CALL CLARF( 'R', M-P-I+1, Q-I+1, X11(I,I), LDX11, TAUQ1(I),
      $               X21(I,I), LDX21, WORK(ILARF) )
          CALL CLACGV( Q-I+1, X11(I,I), LDX11 )
-         S = SQRT( SCNRM2( P-I, X11(I+1,I), 1, X11(I+1,I),
-     $       1 )**2 + SCNRM2( M-P-I+1, X21(I,I), 1, X21(I,I), 1 )**2 )
+         S = SQRT( SCNRM2( P-I, X11(I+1,I), 1 )**2
+     $           + SCNRM2( M-P-I+1, X21(I,I), 1 )**2 )
          THETA(I) = ATAN2( S, C )
 *
          CALL CUNBDB5( P-I, M-P-I+1, Q-I, X11(I+1,I), 1, X21(I,I), 1,

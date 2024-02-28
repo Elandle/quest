@@ -70,6 +70,9 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
   BLASLONG ls, is, js;
   BLASLONG min_l, min_i, min_j;
   BLASLONG jjs, min_jj;
+#if !((!defined(UPPER) && !defined(TRANSA)) || (defined(UPPER) && defined(TRANSA)))
+  BLASLONG start_ls;
+#endif
 
   m = args -> m;
   n = args -> n;
@@ -119,8 +122,14 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = 0; jjs < ls - js; jjs += min_jj){
 	min_jj = ls - js - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
-
+#if defined(SKYLAKEX) || defined(COOPERLAKE) || defined(SAPPHIRERAPIDS)
+	/* the current AVX512 s/d/c/z GEMM kernel requires n>=6*GEMM_UNROLL_N to achieve the best performance */
+	if (min_jj >= 6*GEMM_UNROLL_N) min_jj = 6*GEMM_UNROLL_N;
+#else
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+#endif
 #ifndef TRANSA
 	GEMM_ONCOPY(min_l, min_jj, a + (ls + (js + jjs) * lda) * COMPSIZE, lda, sb + min_l * jjs * COMPSIZE);
 #else
@@ -137,8 +146,14 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = 0; jjs < min_l; jjs += min_jj){
 	min_jj = min_l - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
-
+#if defined(SKYLAKEX) || defined(COOPERLAKE) || defined(SAPPHIRERAPIDS)
+	/* the current AVX512 s/d/c/z GEMM kernel requires n>=6*GEMM_UNROLL_N to achieve the best performance */
+	if (min_jj >= 6*GEMM_UNROLL_N) min_jj = 6*GEMM_UNROLL_N;
+#else
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+#endif
 #ifndef TRANSA
 	TRMM_OLNCOPY(min_l, min_jj, a, lda, ls, ls + jjs, sb + min_l * (ls - js + jjs) * COMPSIZE);
 #else
@@ -188,8 +203,14 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = js; jjs < js + min_j; jjs += min_jj){
 	min_jj = min_j + js - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
-
+#if defined(SKYLAKEX) || defined(COOPERLAKE) || defined(SAPPHIRERAPIDS)
+	/* the current AVX512 s/d/c/z GEMM kernel requires n>=6*GEMM_UNROLL_N to achieve the best performance */
+	if (min_jj >= 6*GEMM_UNROLL_N) min_jj = 6*GEMM_UNROLL_N;
+#else
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+#endif
 #ifndef TRANSA
 	GEMM_ONCOPY(min_l, min_jj, a + (ls + jjs * lda) * COMPSIZE, lda, sb + min_l * (jjs - js) * COMPSIZE);
 #else
@@ -220,8 +241,6 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
   }
 
 #else
-  BLASLONG start_ls;
-
   for(js = n; js > 0; js -= GEMM_R){
     min_j = js;
     if (min_j > GEMM_R) min_j = GEMM_R;
@@ -239,8 +258,14 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = 0; jjs < min_l; jjs += min_jj){
 	min_jj = min_l - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
-
+#if defined(SKYLAKEX) || defined(COOPERLAKE) || defined(SAPPHIRERAPIDS)
+	/* the current AVX512 s/d/c/z GEMM kernel requires n>=6*GEMM_UNROLL_N to achieve the best performance */
+	if (min_jj >= 6*GEMM_UNROLL_N) min_jj = 6*GEMM_UNROLL_N;
+#else
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+#endif
 #ifndef TRANSA
 	TRMM_OUNCOPY(min_l, min_jj, a, lda, ls, ls + jjs, sb + min_l * jjs * COMPSIZE);
 #else
@@ -258,8 +283,14 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = 0; jjs < js - ls - min_l; jjs += min_jj){
 	min_jj = js - ls - min_l - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
-
+#if defined(SKYLAKEX) || defined(COOPERLAKE) || defined(SAPPHIRERAPIDS)
+	/* the current AVX512 s/d/c/z GEMM kernel requires n>=6*GEMM_UNROLL_N to achieve the best performance */
+	if (min_jj >= 6*GEMM_UNROLL_N) min_jj = 6*GEMM_UNROLL_N;
+#else
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+#endif
 #ifndef TRANSA
 	GEMM_ONCOPY(min_l, min_jj, a + (ls + (ls + min_l + jjs) * lda) * COMPSIZE, lda,
 		    sb + min_l * (min_l + jjs) * COMPSIZE);
@@ -313,8 +344,14 @@ int CNAME(blas_arg_t *args, BLASLONG *range_m, BLASLONG *range_n, FLOAT *sa, FLO
 
       for(jjs = js; jjs < js + min_j; jjs += min_jj){
 	min_jj = min_j + js - jjs;
-	if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
-
+#if defined(SKYLAKEX) || defined(COOPERLAKE) || defined(SAPPHIRERAPIDS)
+	/* the current AVX512 s/d/c/z GEMM kernel requires n>=6*GEMM_UNROLL_N to achieve the best performance */
+	if (min_jj >= 6*GEMM_UNROLL_N) min_jj = 6*GEMM_UNROLL_N;
+#else
+	if (min_jj >= GEMM_UNROLL_N*3) min_jj = GEMM_UNROLL_N*3;
+	else
+	  if (min_jj > GEMM_UNROLL_N) min_jj = GEMM_UNROLL_N;
+#endif
 #ifndef TRANSA
 	GEMM_ONCOPY(min_l, min_jj, a + (ls + (jjs - min_j) * lda) * COMPSIZE, lda, sb + min_l * (jjs - js) * COMPSIZE);
 #else

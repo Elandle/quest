@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DGGES + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgges.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgges.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgges.f"> 
+*> Download DGGES + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dgges.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dgges.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dgges.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE DGGES( JOBVSL, JOBVSR, SORT, SELCTG, N, A, LDA, B, LDB,
 *                         SDIM, ALPHAR, ALPHAI, BETA, VSL, LDVSL, VSR,
 *                         LDVSR, WORK, LWORK, BWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBVSL, JOBVSR, SORT
 *       INTEGER            INFO, LDA, LDB, LDVSL, LDVSR, LWORK, N, SDIM
@@ -36,7 +36,7 @@
 *       LOGICAL            SELCTG
 *       EXTERNAL           SELCTG
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -234,8 +234,8 @@
 *> \verbatim
 *>          LWORK is INTEGER
 *>          The dimension of the array WORK.
-*>          If N = 0, LWORK >= 1, else LWORK >= 8*N+16.
-*>          For good performance , LWORK must generally be larger.
+*>          If N = 0, LWORK >= 1, else LWORK >= MAX(8*N,6*N+16).
+*>          For good performance, LWORK must generally be larger.
 *>
 *>          If LWORK = -1, then a workspace query is assumed; the routine
 *>          only calculates the optimal size of the WORK array, returns
@@ -270,24 +270,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup doubleGEeigen
+*> \ingroup gges
 *
 *  =====================================================================
       SUBROUTINE DGGES( JOBVSL, JOBVSR, SORT, SELCTG, N, A, LDA, B, LDB,
      $                  SDIM, ALPHAR, ALPHAI, BETA, VSL, LDVSL, VSR,
      $                  LDVSR, WORK, LWORK, BWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBVSL, JOBVSR, SORT
@@ -324,9 +321,8 @@
       DOUBLE PRECISION   DIF( 2 )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           DGEQRF, DGGBAK, DGGBAL, DGGHRD, DHGEQZ, DLABAD,
-     $                   DLACPY, DLASCL, DLASET, DORGQR, DORMQR, DTGSEN,
-     $                   XERBLA
+      EXTERNAL           DGEQRF, DGGBAK, DGGBAL, DGGHRD, DHGEQZ, DLACPY,
+     $                   DLASCL, DLASET, DORGQR, DORMQR, DTGSEN, XERBLA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -434,7 +430,6 @@
       EPS = DLAMCH( 'P' )
       SAFMIN = DLAMCH( 'S' )
       SAFMAX = ONE / SAFMIN
-      CALL DLABAD( SAFMIN, SAFMAX )
       SMLNUM = SQRT( SAFMIN ) / EPS
       BIGNUM = ONE / SMLNUM
 *

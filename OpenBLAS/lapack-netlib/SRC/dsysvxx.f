@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DSYSVXX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsysvxx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsysvxx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsysvxx.f"> 
+*> Download DSYSVXX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsysvxx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsysvxx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsysvxx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -22,7 +22,7 @@
 *                           EQUED, S, B, LDB, X, LDX, RCOND, RPVGRW, BERR,
 *                           N_ERR_BNDS, ERR_BNDS_NORM, ERR_BNDS_COMP,
 *                           NPARAMS, PARAMS, WORK, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, FACT, UPLO
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, N, NRHS, NPARAMS,
@@ -37,7 +37,7 @@
 *      $                   ERR_BNDS_NORM( NRHS, * ),
 *      $                   ERR_BNDS_COMP( NRHS, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -377,7 +377,7 @@
 *>     information as described below. There currently are up to three
 *>     pieces of information returned for each right-hand side. If
 *>     componentwise accuracy is not requested (PARAMS(3) = 0.0), then
-*>     ERR_BNDS_COMP is not accessed.  If N_ERR_BNDS .LT. 3, then at most
+*>     ERR_BNDS_COMP is not accessed.  If N_ERR_BNDS < 3, then at most
 *>     the first (:,N_ERR_BNDS) entries are returned.
 *>
 *>     The first index in ERR_BNDS_COMP(i,:) corresponds to the ith
@@ -413,14 +413,14 @@
 *> \param[in] NPARAMS
 *> \verbatim
 *>          NPARAMS is INTEGER
-*>     Specifies the number of parameters set in PARAMS.  If .LE. 0, the
+*>     Specifies the number of parameters set in PARAMS.  If <= 0, the
 *>     PARAMS array is never referenced and default values are used.
 *> \endverbatim
 *>
 *> \param[in,out] PARAMS
 *> \verbatim
 *>          PARAMS is DOUBLE PRECISION array, dimension (NPARAMS)
-*>     Specifies algorithm parameters.  If an entry is .LT. 0.0, then
+*>     Specifies algorithm parameters.  If an entry is < 0.0, then
 *>     that entry will be filled with default value used for that
 *>     parameter.  Only positions up to NPARAMS are accessed; defaults
 *>     are used for higher-numbered parameters.
@@ -428,9 +428,9 @@
 *>       PARAMS(LA_LINRX_ITREF_I = 1) : Whether to perform iterative
 *>            refinement or not.
 *>         Default: 1.0D+0
-*>            = 0.0 : No refinement is performed, and no error bounds are
+*>            = 0.0:  No refinement is performed, and no error bounds are
 *>                    computed.
-*>            = 1.0 : Use the extra-precise refinement algorithm.
+*>            = 1.0:  Use the extra-precise refinement algorithm.
 *>              (other values are reserved for future use)
 *>
 *>       PARAMS(LA_LINRX_ITHRESH_I = 2) : Maximum number of residual
@@ -490,14 +490,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup doubleSYdriver
+*> \ingroup doubleSYsolve
 *
 *  =====================================================================
       SUBROUTINE DSYSVXX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV,
@@ -505,10 +503,9 @@
      $                    N_ERR_BNDS, ERR_BNDS_NORM, ERR_BNDS_COMP,
      $                    NPARAMS, PARAMS, WORK, IWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.2) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, FACT, UPLO
@@ -550,7 +547,7 @@
       DOUBLE PRECISION   DLAMCH, DLA_SYRPVGRW
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           DSYCON, DSYEQUB, DSYTRF, DSYTRS,
+      EXTERNAL           DSYEQUB, DSYTRF, DSYTRS,
      $                   DLACPY, DLAQSY, XERBLA, DLASCL2, DSYRFSX
 *     ..
 *     .. Intrinsic Functions ..
@@ -594,7 +591,7 @@
          INFO = -8
       ELSE IF( LSAME( FACT, 'F' ) .AND. .NOT.
      $        ( RCEQU .OR. LSAME( EQUED, 'N' ) ) ) THEN
-         INFO = -9
+         INFO = -10
       ELSE
          IF ( RCEQU ) THEN
             SMIN = BIGNUM
@@ -604,7 +601,7 @@
                SMAX = MAX( SMAX, S( J ) )
  10         CONTINUE
             IF( SMIN.LE.ZERO ) THEN
-               INFO = -10
+               INFO = -11
             ELSE IF( N.GT.0 ) THEN
                SCOND = MAX( SMIN, SMLNUM ) / MIN( SMAX, BIGNUM )
             ELSE
@@ -613,9 +610,9 @@
          END IF
          IF( INFO.EQ.0 ) THEN
             IF( LDB.LT.MAX( 1, N ) ) THEN
-               INFO = -12
+               INFO = -13
             ELSE IF( LDX.LT.MAX( 1, N ) ) THEN
-               INFO = -14
+               INFO = -15
             END IF
          END IF
       END IF

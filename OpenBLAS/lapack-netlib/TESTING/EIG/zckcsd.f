@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE ZCKCSD( NM, MVAL, PVAL, QVAL, NMATS, ISEED, THRESH,
 *                          MMAX, X, XF, U1, U2, V1T, V2T, THETA, IWORK,
 *                          WORK, RWORK, NIN, NOUT, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, NIN, NM, NMATS, MMAX, NOUT
 *       DOUBLE PRECISION   THRESH
@@ -23,7 +23,7 @@
 *       COMPLEX*16         U1( * ), U2( * ), V1T( * ), V2T( * ),
 *      $                   WORK( * ), X( * ), XF( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -170,12 +170,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
@@ -184,10 +182,9 @@
      $                   MMAX, X, XF, U1, U2, V1T, V2T, THETA, IWORK,
      $                   WORK, RWORK, NIN, NOUT, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, NIN, NM, NMATS, MMAX, NOUT
@@ -208,13 +205,14 @@
       PARAMETER          ( NTESTS = 15 )
       INTEGER            NTYPES
       PARAMETER          ( NTYPES = 4 )
-      DOUBLE PRECISION   GAPDIGIT, ORTH, PIOVER2, REALONE, REALZERO, TEN
+      DOUBLE PRECISION   GAPDIGIT, ORTH, REALONE, REALZERO, TEN
       PARAMETER          ( GAPDIGIT = 18.0D0, ORTH = 1.0D-12,
-     $                     PIOVER2 = 1.57079632679489662D0,
      $                     REALONE = 1.0D0, REALZERO = 0.0D0,
      $                     TEN = 10.0D0 )
       COMPLEX*16         ONE, ZERO
       PARAMETER          ( ONE = (1.0D0,0.0D0), ZERO = (0.0D0,0.0D0) )
+      DOUBLE PRECISION   PIOVER2
+      PARAMETER ( PIOVER2 = 1.57079632679489661923132169163975144210D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            FIRSTT
@@ -228,7 +226,7 @@
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ALAHDG, ALAREQ, ALASUM, ZCSDTS, ZLACSG, ZLAROR,
-     $                   ZLASET
+     $                   ZLASET, ZDROT
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MIN

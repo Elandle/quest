@@ -43,8 +43,9 @@
 
 #define MB  asm("mb")
 #define WMB asm("wmb")
+#define RMB asm("mb")
 
-static void __inline blas_lock(unsigned long *address){
+static __inline void blas_lock(unsigned long *address){
 #ifndef __DECC
   unsigned long tmp1, tmp2;
   asm volatile(
@@ -76,6 +77,7 @@ static void __inline blas_lock(unsigned long *address){
     "30:", address);
 #endif
 }
+#define BLAS_LOCK_DEFINED
 
 static __inline unsigned int rpcc(void){
 
@@ -89,6 +91,7 @@ static __inline unsigned int rpcc(void){
 
   return r0;
 }
+#define RPCC_DEFINED
 
 
 #define HALT 	ldq	$0, 0($0)

@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DGTT02( TRANS, N, NRHS, DL, D, DU, X, LDX, B, LDB,
 *                          RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            LDB, LDX, N, NRHS
@@ -20,7 +20,7 @@
 *       DOUBLE PRECISION   B( LDB, * ), D( * ), DL( * ), DU( * ),
 *      $                   X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -29,8 +29,9 @@
 *>
 *> DGTT02 computes the residual for the solution to a tridiagonal
 *> system of equations:
-*>    RESID = norm(B - op(A)*X) / (norm(A) * norm(X) * EPS),
+*>    RESID = norm(B - op(A)*X) / (norm(op(A)) * norm(X) * EPS),
 *> where EPS is the machine epsilon.
+*> The norm used is the 1-norm.
 *> \endverbatim
 *
 *  Arguments:
@@ -40,14 +41,14 @@
 *> \verbatim
 *>          TRANS is CHARACTER
 *>          Specifies the form of the residual.
-*>          = 'N':  B - A * X  (No transpose)
-*>          = 'T':  B - A'* X  (Transpose)
-*>          = 'C':  B - A'* X  (Conjugate transpose = Transpose)
+*>          = 'N':  B - A    * X  (No transpose)
+*>          = 'T':  B - A**T * X  (Transpose)
+*>          = 'C':  B - A**H * X  (Conjugate transpose = Transpose)
 *> \endverbatim
 *>
 *> \param[in] N
 *> \verbatim
-*>          N is INTEGTER
+*>          N is INTEGER
 *>          The order of the matrix A.  N >= 0.
 *> \endverbatim
 *>
@@ -105,18 +106,16 @@
 *> \param[out] RESID
 *> \verbatim
 *>          RESID is DOUBLE PRECISION
-*>          norm(B - op(A)*X) / (norm(A) * norm(X) * EPS)
+*>          norm(B - op(A)*X) / (norm(op(A)) * norm(X) * EPS)
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_lin
 *
@@ -124,10 +123,9 @@
       SUBROUTINE DGTT02( TRANS, N, NRHS, DL, D, DU, X, LDX, B, LDB,
      $                   RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANS
@@ -169,7 +167,7 @@
      $   RETURN
 *
 *     Compute the maximum over the number of right hand sides of
-*        norm(B - op(A)*X) / ( norm(A) * norm(X) * EPS ).
+*        norm(B - op(A)*X) / ( norm(op(A)) * norm(X) * EPS ).
 *
       IF( LSAME( TRANS, 'N' ) ) THEN
          ANORM = DLANGT( '1', N, DL, D, DU )
@@ -185,7 +183,7 @@
          RETURN
       END IF
 *
-*     Compute B - op(A)*X.
+*     Compute B - op(A)*X and store in B.
 *
       CALL DLAGTM( TRANS, N, NRHS, -ONE, DL, D, DU, X, LDX, ONE, B,
      $             LDB )

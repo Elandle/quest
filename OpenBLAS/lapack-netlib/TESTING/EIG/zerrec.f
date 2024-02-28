@@ -2,19 +2,19 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZERREC( PATH, NUNIT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*3        PATH
 *       INTEGER            NUNIT
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -23,7 +23,7 @@
 *>
 *> ZERREC tests the error exits for the routines for eigen- condition
 *> estimation for DOUBLE PRECISION matrices:
-*>    ZTRSYL, CTREXC, CTRSNA and CTRSEN.
+*>    ZTRSYL, ZTRSYL3, ZTREXC, ZTRSNA and ZTRSEN.
 *> \endverbatim
 *
 *  Arguments:
@@ -44,22 +44,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
 *  =====================================================================
       SUBROUTINE ZERREC( PATH, NUNIT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*3        PATH
@@ -80,7 +77,7 @@
 *     ..
 *     .. Local Arrays ..
       LOGICAL            SEL( NMAX )
-      DOUBLE PRECISION   RW( LW ), S( NMAX ), SEP( NMAX )
+      DOUBLE PRECISION   RW( LW ), S( NMAX ), SEP( NMAX ), SWORK( NMAX )
       COMPLEX*16         A( NMAX, NMAX ), B( NMAX, NMAX ),
      $                   C( NMAX, NMAX ), WORK( LW ), X( NMAX )
 *     ..
@@ -144,6 +141,43 @@
       CALL CHKXER( 'ZTRSYL', INFOT, NOUT, LERR, OK )
       NT = NT + 8
 *
+*     Test ZTRSYL3
+*
+      SRNAMT = 'ZTRSYL3'
+      INFOT = 1
+      CALL ZTRSYL3( 'X', 'N', 1, 0, 0, A, 1, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 2
+      CALL ZTRSYL3( 'N', 'X', 1, 0, 0, A, 1, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 3
+      CALL ZTRSYL3( 'N', 'N', 0, 0, 0, A, 1, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 4
+      CALL ZTRSYL3( 'N', 'N', 1, -1, 0, A, 1, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 5
+      CALL ZTRSYL3( 'N', 'N', 1, 0, -1, A, 1, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 7
+      CALL ZTRSYL3( 'N', 'N', 1, 2, 0, A, 1, B, 1, C, 2, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 9
+      CALL ZTRSYL3( 'N', 'N', 1, 0, 2, A, 1, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      INFOT = 11
+      CALL ZTRSYL3( 'N', 'N', 1, 2, 0, A, 2, B, 1, C, 1, SCALE,
+     $              SWORK, NMAX, INFO )
+      CALL CHKXER( 'ZTRSYL3', INFOT, NOUT, LERR, OK )
+      NT = NT + 8
+*
 *     Test ZTREXC
 *
       SRNAMT = 'ZTREXC'
@@ -152,8 +186,8 @@
       INFOT = 1
       CALL ZTREXC( 'X', 1, A, 1, B, 1, IFST, ILST, INFO )
       CALL CHKXER( 'ZTREXC', INFOT, NOUT, LERR, OK )
-      INFOT = 7
-      CALL ZTREXC( 'N', 0, A, 1, B, 1, IFST, ILST, INFO )
+      INFOT = 2
+      CALL ZTREXC( 'N', -1, A, 1, B, 1, IFST, ILST, INFO )
       CALL CHKXER( 'ZTREXC', INFOT, NOUT, LERR, OK )
       INFOT = 4
       ILST = 2

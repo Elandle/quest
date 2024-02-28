@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CGET22( TRANSA, TRANSE, TRANSW, N, A, LDA, E, LDE, W,
 *                          WORK, RWORK, RESULT )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANSA, TRANSE, TRANSW
 *       INTEGER            LDA, LDE, N
@@ -19,7 +19,7 @@
 *       REAL               RESULT( 2 ), RWORK( * )
 *       COMPLEX            A( LDA, * ), E( LDE, * ), W( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -125,17 +125,16 @@
 *>          RESULT is REAL array, dimension (2)
 *>          RESULT(1) = | A E  -  E W | / ( |A| |E| ulp )
 *>          RESULT(2) = max | m-norm(E(j)) - 1 | / ( n ulp )
+*>                       j
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_eig
 *
@@ -143,10 +142,9 @@
       SUBROUTINE CGET22( TRANSA, TRANSE, TRANSW, N, A, LDA, E, LDE, W,
      $                   WORK, RWORK, RESULT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANSA, TRANSE, TRANSW
@@ -299,7 +297,7 @@
          RESULT( 1 ) = ( ERRNRM / ANORM ) / ULP
       ELSE
          IF( ANORM.LT.ONE ) THEN
-            RESULT( 1 ) = ( MIN( ERRNRM, ANORM ) / ANORM ) / ULP
+            RESULT( 1 ) = ONE / ULP
          ELSE
             RESULT( 1 ) = MIN( ERRNRM / ANORM, ONE ) / ULP
          END IF

@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CLARHS( PATH, XTYPE, UPLO, TRANS, M, N, KL, KU, NRHS,
 *                          A, LDA, X, LDX, B, LDB, ISEED, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS, UPLO, XTYPE
 *       CHARACTER*3        PATH
@@ -20,7 +20,7 @@
 *       INTEGER            ISEED( 4 )
 *       COMPLEX            A( LDA, * ), B( LDB, * ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -30,8 +30,7 @@
 *> CLARHS chooses a set of NRHS random solution vectors and sets
 *> up the right hand sides for the linear system
 *>    op( A ) * X = B,
-*> where op( A ) may be A, A**T (transpose of A), or A**H (conjugate
-*> transpose of A).
+*> where op(A) = A, A**T or A**H, depending on TRANS.
 *> \endverbatim
 *
 *  Arguments:
@@ -85,9 +84,9 @@
 *>          TRANS is CHARACTER*1
 *>          Used only if A is nonsymmetric; specifies the operation
 *>          applied to the matrix A.
-*>          = 'N':  B := A    * X
-*>          = 'T':  B := A**T * X
-*>          = 'C':  B := A**H * X
+*>          = 'N':  B := A    * X  (No transpose)
+*>          = 'T':  B := A**T * X  (Transpose)
+*>          = 'C':  B := A**H * X  (Conjugate transpose)
 *> \endverbatim
 *>
 *> \param[in] M
@@ -189,19 +188,17 @@
 *> \param[out] INFO
 *> \verbatim
 *>          INFO is INTEGER
-*>          = 0:  successful exit
-*>          < 0:  if INFO = -i, the i-th argument had an illegal value
+*>          = 0: successful exit
+*>          < 0: if INFO = -i, the i-th argument had an illegal value
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_eig
 *
@@ -209,10 +206,9 @@
       SUBROUTINE CLARHS( PATH, XTYPE, UPLO, TRANS, M, N, KL, KU, NRHS,
      $                   A, LDA, X, LDX, B, LDB, ISEED, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANS, UPLO, XTYPE

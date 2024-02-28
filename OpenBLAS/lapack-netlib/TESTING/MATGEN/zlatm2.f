@@ -2,27 +2,27 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       COMPLEX*16   FUNCTION ZLATM2( M, N, I, J, KL, KU, IDIST,
 *                        ISEED, D, IGRADE, DL, DR, IPVTNG, IWORK, SPARSE )
-* 
+*
 *       .. Scalar Arguments ..
-*  
+*
 *       INTEGER            I, IDIST, IGRADE, IPVTNG, J, KL, KU, M, N
 *       DOUBLE PRECISION   SPARSE
 *       ..
-*  
+*
 *       .. Array Arguments ..
-*  
+*
 *       INTEGER            ISEED( 4 ), IWORK( * )
 *       COMPLEX*16         D( * ), DL( * ), DR( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -30,7 +30,7 @@
 *> \verbatim
 *>
 *>    ZLATM2 returns the (I,J) entry of a random matrix of dimension
-*>    (M, N) described by the other paramters. It is called by the
+*>    (M, N) described by the other parameters. It is called by the
 *>    ZLATMR routine in order to build random test matrices. No error
 *>    checking on parameters is done, because this routine is called in
 *>    a tight loop by ZLATMR which has already checked the parameters.
@@ -185,7 +185,7 @@
 *> \verbatim
 *>          SPARSE is DOUBLE PRECISION between 0. and 1.
 *>           On entry specifies the sparsity of the matrix
-*>           if sparse matix is to be generated.
+*>           if sparse matrix is to be generated.
 *>           SPARSE should lie between 0 and 1.
 *>           A uniform ( 0, 1 ) random number x is generated and
 *>           compared to SPARSE; if x is larger the matrix entry
@@ -198,12 +198,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_matgen
 *
@@ -211,10 +209,9 @@
       COMPLEX*16   FUNCTION ZLATM2( M, N, I, J, KL, KU, IDIST,
      $                 ISEED, D, IGRADE, DL, DR, IPVTNG, IWORK, SPARSE )
 *
-*  -- LAPACK auxiliary routine (version 3.4.0) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
 *

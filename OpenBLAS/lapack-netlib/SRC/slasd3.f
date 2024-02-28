@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SLASD3 + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slasd3.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slasd3.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slasd3.f"> 
+*> Download SLASD3 + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slasd3.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slasd3.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slasd3.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE SLASD3( NL, NR, SQRE, K, D, Q, LDQ, DSIGMA, U, LDU, U2,
 *                          LDU2, VT, LDVT, VT2, LDVT2, IDXC, CTOT, Z,
 *                          INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, K, LDQ, LDU, LDU2, LDVT, LDVT2, NL, NR,
 *      $                   SQRE
@@ -32,7 +32,7 @@
 *      $                   U2( LDU2, * ), VT( LDVT, * ), VT2( LDVT2, * ),
 *      $                   Z( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -43,13 +43,6 @@
 *> equation, as defined by the values in D and Z.  It makes the
 *> appropriate calls to SLASD4 and then updates the singular
 *> vectors by matrix multiplication.
-*>
-*> This code makes very mild assumptions about floating point
-*> arithmetic. It will work on machines with a guard digit in
-*> add/subtract, or on those binary machines without guard digits
-*> which subtract like the Cray XMP, Cray YMP, Cray C 90, or Cray 2.
-*> It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.
 *>
 *> SLASD3 is called from SLASD1.
 *> \endverbatim
@@ -94,8 +87,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is REAL array,
-*>                     dimension at least (LDQ,K).
+*>          Q is REAL array, dimension (LDQ,K)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -104,7 +96,7 @@
 *>         The leading dimension of the array Q.  LDQ >= K.
 *> \endverbatim
 *>
-*> \param[in,out] DSIGMA
+*> \param[in] DSIGMA
 *> \verbatim
 *>          DSIGMA is REAL array, dimension(K)
 *>         The first K elements of this array contain the old roots
@@ -205,14 +197,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date September 2012
-*
-*> \ingroup auxOTHERauxiliary
+*> \ingroup OTHERauxiliary
 *
 *> \par Contributors:
 *  ==================
@@ -225,10 +215,9 @@
      $                   LDU2, VT, LDVT, VT2, LDVT2, IDXC, CTOT, Z,
      $                   INFO )
 *
-*  -- LAPACK auxiliary routine (version 3.4.2) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     September 2012
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, K, LDQ, LDU, LDU2, LDVT, LDVT2, NL, NR,
@@ -253,8 +242,8 @@
       REAL               RHO, TEMP
 *     ..
 *     .. External Functions ..
-      REAL               SLAMC3, SNRM2
-      EXTERNAL           SLAMC3, SNRM2
+      REAL               SNRM2
+      EXTERNAL           SNRM2
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SCOPY, SGEMM, SLACPY, SLASCL, SLASD4, XERBLA
@@ -314,27 +303,6 @@
          RETURN
       END IF
 *
-*     Modify values DSIGMA(i) to make sure all DSIGMA(i)-DSIGMA(j) can
-*     be computed with high relative accuracy (barring over/underflow).
-*     This is a problem on machines without a guard digit in
-*     add/subtract (Cray XMP, Cray YMP, Cray C 90 and Cray 2).
-*     The following code replaces DSIGMA(I) by 2*DSIGMA(I)-DSIGMA(I),
-*     which on any of these machines zeros out the bottommost
-*     bit of DSIGMA(I) if it is 1; this makes the subsequent
-*     subtractions DSIGMA(I)-DSIGMA(J) unproblematic when cancellation
-*     occurs. On binary machines with a guard digit (almost all
-*     machines) it does not change DSIGMA(I) at all. On hexadecimal
-*     and decimal machines with a guard digit, it slightly
-*     changes the bottommost bits of DSIGMA(I). It does not account
-*     for hexadecimal or decimal machines without guard digits
-*     (we know of none). We use a subroutine call to compute
-*     2*DSIGMA(I) to prevent optimizing compilers from eliminating
-*     this code.
-*
-      DO 20 I = 1, K
-         DSIGMA( I ) = SLAMC3( DSIGMA( I ), DSIGMA( I ) ) - DSIGMA( I )
-   20 CONTINUE
-*
 *     Keep a copy of Z.
 *
       CALL SCOPY( K, Z, 1, Q, 1 )
@@ -351,7 +319,7 @@
          CALL SLASD4( K, J, DSIGMA, Z, U( 1, J ), RHO, D( J ),
      $                VT( 1, J ), INFO )
 *
-*        If the zero finder fails, the computation is terminated.
+*        If the zero finder fails, report the convergence failure.
 *
          IF( INFO.NE.0 ) THEN
             RETURN

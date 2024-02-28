@@ -1,26 +1,26 @@
-*> \brief \b SSYGST
+*> \brief \b SSYGVD
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SSYGVD + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssygvd.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssygvd.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssygvd.f"> 
+*> Download SSYGVD + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssygvd.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssygvd.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssygvd.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSYGVD( ITYPE, JOBZ, UPLO, N, A, LDA, B, LDB, W, WORK,
 *                          LWORK, IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, UPLO
 *       INTEGER            INFO, ITYPE, LDA, LDB, LIWORK, LWORK, N
@@ -29,7 +29,7 @@
 *       INTEGER            IWORK( * )
 *       REAL               A( LDA, * ), B( LDB, * ), W( * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -42,12 +42,6 @@
 *> B are assumed to be symmetric and B is also positive definite.
 *> If eigenvectors are desired, it uses a divide and conquer algorithm.
 *>
-*> The divide and conquer algorithm makes very mild assumptions about
-*> floating point arithmetic. It will work on machines with a guard
-*> digit in add/subtract, or on those binary machines without guard
-*> digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
-*> Cray-2. It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.
 *> \endverbatim
 *
 *  Arguments:
@@ -190,7 +184,7 @@
 *>                    the submatrix lying in rows and columns INFO/(N+1)
 *>                    through mod(INFO,N+1);
 *>             > N:   if INFO = N + i, for 1 <= i <= N, then the leading
-*>                    minor of order i of B is not positive definite.
+*>                    principal minor of order i of B is not positive.
 *>                    The factorization of B could not be completed and
 *>                    no eigenvalues or eigenvectors were computed.
 *> \endverbatim
@@ -198,14 +192,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realSYeigen
+*> \ingroup hegvd
 *
 *> \par Further Details:
 *  =====================
@@ -227,10 +219,9 @@
       SUBROUTINE SSYGVD( ITYPE, JOBZ, UPLO, N, A, LDA, B, LDB, W, WORK,
      $                   LWORK, IWORK, LIWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, UPLO
@@ -254,7 +245,8 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      EXTERNAL           LSAME
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           LSAME, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SPOTRF, SSYEVD, SSYGST, STRMM, STRSM, XERBLA
@@ -298,7 +290,7 @@
       END IF
 *
       IF( INFO.EQ.0 ) THEN
-         WORK( 1 ) = LOPT
+         WORK( 1 ) = SROUNDUP_LWORK(LOPT)
          IWORK( 1 ) = LIOPT
 *
          IF( LWORK.LT.LWMIN .AND. .NOT.LQUERY ) THEN
@@ -333,8 +325,8 @@
       CALL SSYGST( ITYPE, UPLO, N, A, LDA, B, LDB, INFO )
       CALL SSYEVD( JOBZ, UPLO, N, A, LDA, W, WORK, LWORK, IWORK, LIWORK,
      $             INFO )
-      LOPT = MAX( REAL( LOPT ), REAL( WORK( 1 ) ) )
-      LIOPT = MAX( REAL( LIOPT ), REAL( IWORK( 1 ) ) )
+      LOPT = INT( MAX( REAL( LOPT ), REAL( WORK( 1 ) ) ) )
+      LIOPT = INT( MAX( REAL( LIOPT ), REAL( IWORK( 1 ) ) ) )
 *
       IF( WANTZ .AND. INFO.EQ.0 ) THEN
 *
@@ -370,7 +362,7 @@
          END IF
       END IF
 *
-      WORK( 1 ) = LOPT
+      WORK( 1 ) = SROUNDUP_LWORK(LOPT)
       IWORK( 1 ) = LIOPT
 *
       RETURN

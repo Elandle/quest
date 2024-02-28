@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       DOUBLE PRECISION FUNCTION ZQRT17( TRANS, IRESID, M, N, NRHS, A,
 *                        LDA, X, LDX, B, LDB, C, WORK, LWORK )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            IRESID, LDA, LDB, LDX, LWORK, M, N, NRHS
@@ -19,7 +19,7 @@
 *       COMPLEX*16         A( LDA, * ), B( LDB, * ), C( LDB, * ),
 *      $                   WORK( LWORK ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -28,12 +28,15 @@
 *>
 *> ZQRT17 computes the ratio
 *>
-*>    || R'*op(A) ||/(||A||*alpha*max(M,N,NRHS)*eps)
+*>    norm(R**H * op(A)) / ( norm(A) * alpha * max(M,N,NRHS) * EPS ),
 *>
-*> where R = op(A)*X - B, op(A) is A or A', and
+*> where R = B - op(A)*X, op(A) is A or A**H, depending on TRANS, EPS
+*> is the machine epsilon, and
 *>
-*>    alpha = ||B|| if IRESID = 1 (zero-residual problem)
-*>    alpha = ||R|| if IRESID = 2 (otherwise).
+*>    alpha = norm(B) if IRESID = 1 (zero-residual problem)
+*>    alpha = norm(R) if IRESID = 2 (otherwise).
+*>
+*> The norm used is the 1-norm.
 *> \endverbatim
 *
 *  Arguments:
@@ -44,7 +47,7 @@
 *>          TRANS is CHARACTER*1
 *>          Specifies whether or not the transpose of A is used.
 *>          = 'N':  No transpose, op(A) = A.
-*>          = 'C':  Conjugate transpose, op(A) = A'.
+*>          = 'C':  Conjugate transpose, op(A) = A**H.
 *> \endverbatim
 *>
 *> \param[in] IRESID
@@ -137,12 +140,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_lin
 *
@@ -150,10 +151,9 @@
       DOUBLE PRECISION FUNCTION ZQRT17( TRANS, IRESID, M, N, NRHS, A,
      $                 LDA, X, LDX, B, LDB, C, WORK, LWORK )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          TRANS
@@ -172,8 +172,7 @@
 *     ..
 *     .. Local Scalars ..
       INTEGER            INFO, ISCL, NCOLS, NROWS
-      DOUBLE PRECISION   BIGNUM, ERR, NORMA, NORMB, NORMRS, NORMX,
-     $                   SMLNUM
+      DOUBLE PRECISION   ERR, NORMA, NORMB, NORMRS, SMLNUM
 *     ..
 *     .. Local Arrays ..
       DOUBLE PRECISION   RWORK( 1 )
@@ -214,7 +213,6 @@
 *
       NORMA = ZLANGE( 'One-norm', M, N, A, LDA, RWORK )
       SMLNUM = DLAMCH( 'Safe minimum' ) / DLAMCH( 'Precision' )
-      BIGNUM = ONE / SMLNUM
       ISCL = 0
 *
 *     compute residual and scale it
@@ -230,7 +228,7 @@
      $                INFO )
       END IF
 *
-*     compute R'*A
+*     compute R**H * op(A)
 *
       CALL ZGEMM( 'Conjugate transpose', TRANS, NRHS, NCOLS, NROWS,
      $            DCMPLX( ONE ), C, LDB, A, LDA, DCMPLX( ZERO ), WORK,
@@ -250,9 +248,8 @@
          IF( NORMB.NE.ZERO )
      $      ERR = ERR / NORMB
       ELSE
-         NORMX = ZLANGE( 'One-norm', NCOLS, NRHS, X, LDX, RWORK )
-         IF( NORMX.NE.ZERO )
-     $      ERR = ERR / NORMX
+         IF( NORMRS.NE.ZERO )
+     $      ERR = ERR / NORMRS
       END IF
 *
       ZQRT17 = ERR / ( DLAMCH( 'Epsilon' )*DBLE( MAX( M, N, NRHS ) ) )

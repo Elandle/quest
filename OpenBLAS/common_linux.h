@@ -70,27 +70,19 @@ extern long int syscall (long int __sysno, ...);
 static inline int my_mbind(void *addr, unsigned long len, int mode,
 			   unsigned long *nodemask, unsigned long maxnode,
 			   unsigned flags) {
-#if defined (__LSB_VERSION__)
+#if defined (__LSB_VERSION__) || defined(ARCH_ZARCH)
 // So far,  LSB (Linux Standard Base) don't support syscall().
 // https://lsbbugs.linuxfoundation.org/show_bug.cgi?id=3482
         return 0;
-#else
-#if defined (LOONGSON3B)
-#if defined (__64BIT__)
-	return syscall(SYS_mbind, addr, len, mode, nodemask, maxnode, flags);
-#else
-	return 0; //NULL Implementation on Loongson 3B 32bit.
-#endif
 #else
 //Fixed randomly SEGFAULT when nodemask==NULL with above Linux 2.6.34
 //	unsigned long null_nodemask=0;
 	return syscall(SYS_mbind, addr, len, mode, nodemask, maxnode, flags);
 #endif
-#endif
 }
 
 static inline int my_set_mempolicy(int mode, const unsigned long *addr, unsigned long flag) {
-#if defined (__LSB_VERSION__)
+#if defined (__LSB_VERSION__) || defined(ARCH_ZARCH)
 // So far,  LSB (Linux Standard Base) don't support syscall().
 // https://lsbbugs.linuxfoundation.org/show_bug.cgi?id=3482
   return 0;

@@ -2,20 +2,20 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       INTEGER FUNCTION ILAENV( ISPEC, NAME, OPTS, N1, N2, N3,
 *                        N4 )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER*( * )    NAME, OPTS
 *       INTEGER            ISPEC, N1, N2, N3, N4
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -114,12 +114,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup aux_lin
 *
@@ -150,10 +148,9 @@
       INTEGER          FUNCTION ILAENV( ISPEC, NAME, OPTS, N1, N2, N3,
      $                 N4 )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER*( * )    NAME, OPTS
@@ -184,7 +181,21 @@
 *
 *        Return a value from the common block.
 *
-         ILAENV = IPARMS( ISPEC )
+         IF ( NAME(2:6).EQ.'GEQR ' ) THEN
+            IF (N3.EQ.2) THEN
+               ILAENV = IPARMS ( 2 )
+            ELSE
+               ILAENV = IPARMS ( 1 )
+            END IF
+         ELSE IF ( NAME(2:6).EQ.'GELQ ' ) THEN
+            IF (N3.EQ.2) THEN
+               ILAENV = IPARMS ( 2 )
+            ELSE
+               ILAENV = IPARMS ( 1 )
+            END IF
+         ELSE
+            ILAENV = IPARMS( ISPEC )
+         END IF
 *
       ELSE IF( ISPEC.EQ.6 ) THEN
 *
@@ -229,4 +240,51 @@ C        ILAENV = 0
 *
 *     End of ILAENV
 *
+      END
+      INTEGER FUNCTION ILAENV2STAGE( ISPEC, NAME, OPTS, N1, N2,
+     $                               N3, N4 )
+*     .. Scalar Arguments ..
+      CHARACTER*( * )    NAME, OPTS
+      INTEGER            ISPEC, N1, N2, N3, N4
+*     ..
+*
+*  =====================================================================
+*
+*     .. Local variables ..
+      INTEGER            IISPEC
+*     .. External Functions ..
+      INTEGER            IPARAM2STAGE
+      EXTERNAL           IPARAM2STAGE
+*     ..
+*     .. Arrays in Common ..
+      INTEGER            IPARMS( 100 )
+*     ..
+*     .. Common blocks ..
+      COMMON             / CLAENV / IPARMS
+*     ..
+*     .. Save statement ..
+      SAVE               / CLAENV /
+*     ..
+*     .. Executable Statements ..
+*
+      IF(( ISPEC.GE.1 ) .AND. (ISPEC.LE.5)) THEN
+*
+*     1 <= ISPEC <= 5: 2stage eigenvalues SVD routines. 
+*
+         IF( ISPEC.EQ.1 ) THEN
+             ILAENV2STAGE = IPARMS( 1 )
+         ELSE
+             IISPEC = 16 + ISPEC
+             ILAENV2STAGE = IPARAM2STAGE( IISPEC, NAME, OPTS,
+     $                                    N1, N2, N3, N4 ) 
+         ENDIF
+*
+      ELSE
+*
+*        Invalid value for ISPEC
+*
+         ILAENV2STAGE = -1
+      END IF
+*
+      RETURN
       END

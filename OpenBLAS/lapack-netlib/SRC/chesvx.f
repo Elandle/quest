@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CHESVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chesvx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chesvx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chesvx.f"> 
+*> Download CHESVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chesvx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chesvx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chesvx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE CHESVX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV, B,
 *                          LDB, X, LDX, RCOND, FERR, BERR, WORK, LWORK,
 *                          RWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          FACT, UPLO
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, LWORK, N, NRHS
@@ -33,7 +33,7 @@
 *       COMPLEX            A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -271,24 +271,21 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date April 2012
-*
-*> \ingroup complexHEsolve
+*> \ingroup hesvx
 *
 *  =====================================================================
       SUBROUTINE CHESVX( FACT, UPLO, N, NRHS, A, LDA, AF, LDAF, IPIV, B,
      $                   LDB, X, LDX, RCOND, FERR, BERR, WORK, LWORK,
      $                   RWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     April 2012
 *
 *     .. Scalar Arguments ..
       CHARACTER          FACT, UPLO
@@ -310,14 +307,14 @@
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, NOFACT
-      INTEGER            LWKOPT, NB
+      INTEGER            LWKMIN, LWKOPT, NB
       REAL               ANORM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      REAL               CLANHE, SLAMCH
-      EXTERNAL           ILAENV, LSAME, CLANHE, SLAMCH
+      REAL               CLANHE, SLAMCH, SROUNDUP_LWORK
+      EXTERNAL           ILAENV, LSAME, CLANHE, SLAMCH, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           CHECON, CHERFS, CHETRF, CHETRS, CLACPY, XERBLA
@@ -332,6 +329,7 @@
       INFO = 0
       NOFACT = LSAME( FACT, 'N' )
       LQUERY = ( LWORK.EQ.-1 )
+      LWKMIN = MAX( 1, 2*N )
       IF( .NOT.NOFACT .AND. .NOT.LSAME( FACT, 'F' ) ) THEN
          INFO = -1
       ELSE IF( .NOT.LSAME( UPLO, 'U' ) .AND. .NOT.LSAME( UPLO, 'L' ) )
@@ -349,17 +347,17 @@
          INFO = -11
       ELSE IF( LDX.LT.MAX( 1, N ) ) THEN
          INFO = -13
-      ELSE IF( LWORK.LT.MAX( 1, 2*N ) .AND. .NOT.LQUERY ) THEN
+      ELSE IF( LWORK.LT.LWKMIN .AND. .NOT.LQUERY ) THEN
          INFO = -18
       END IF
 *
       IF( INFO.EQ.0 ) THEN
-         LWKOPT = MAX( 1, 2*N )
+         LWKOPT = LWKMIN
          IF( NOFACT ) THEN
             NB = ILAENV( 1, 'CHETRF', UPLO, N, -1, -1, -1 )
             LWKOPT = MAX( LWKOPT, N*NB )
          END IF
-         WORK( 1 ) = LWKOPT
+         WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -408,7 +406,7 @@
       IF( RCOND.LT.SLAMCH( 'Epsilon' ) )
      $   INFO = N + 1
 *
-      WORK( 1 ) = LWKOPT
+      WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
 *
       RETURN
 *

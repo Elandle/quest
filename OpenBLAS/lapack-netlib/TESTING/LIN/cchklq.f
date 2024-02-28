@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -11,7 +11,7 @@
 *       SUBROUTINE CCHKLQ( DOTYPE, NM, MVAL, NN, NVAL, NNB, NBVAL, NXVAL,
 *                          NRHS, THRESH, TSTERR, NMAX, A, AF, AQ, AL, AC,
 *                          B, X, XACT, TAU, WORK, RWORK, NOUT )
-* 
+*
 *       .. Scalar Arguments ..
 *       LOGICAL            TSTERR
 *       INTEGER            NM, NMAX, NN, NNB, NOUT, NRHS
@@ -25,7 +25,7 @@
 *       COMPLEX            A( * ), AC( * ), AF( * ), AL( * ), AQ( * ),
 *      $                   B( * ), TAU( * ), WORK( * ), X( * ), XACT( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -182,12 +182,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -196,10 +194,9 @@
      $                   NRHS, THRESH, TSTERR, NMAX, A, AF, AQ, AL, AC,
      $                   B, X, XACT, TAU, WORK, RWORK, NOUT )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       LOGICAL            TSTERR
@@ -238,7 +235,7 @@
       REAL               RESULT( NTESTS )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           ALAERH, ALAHD, ALASUM, CERRLQ, CGELQS, CGET02,
+      EXTERNAL           ALAERH, ALAHD, ALASUM, CERRLQ, CGELS, CGET02,
      $                   CLACPY, CLARHS, CLATB4, CLATMS, CLQT01, CLQT02,
      $                   CLQT03, XLAENV
 *     ..
@@ -373,7 +370,7 @@
      $                               WORK, LWORK, RWORK, RESULT( 3 ) )
                         NT = NT + 4
 *
-*                       If M>=N and K=N, call CGELQS to solve a system
+*                       If M<=N and K=M, call CGELS to solve a system
 *                       with NRHS right hand sides and compute the
 *                       residual.
 *
@@ -390,14 +387,20 @@
 *
                            CALL CLACPY( 'Full', M, NRHS, B, LDA, X,
      $                                  LDA )
-                           SRNAMT = 'CGELQS'
-                           CALL CGELQS( M, N, NRHS, AF, LDA, TAU, X,
-     $                                  LDA, WORK, LWORK, INFO )
 *
-*                          Check error code from CGELQS.
+*                          Reset AF to the original matrix. CGELS
+*                          factors the matrix before solving the system.
+*
+                           CALL CLACPY( 'Full', M, N, A, LDA, AF, LDA )
+*
+                           SRNAMT = 'CGELS'
+                           CALL CGELS( 'No transpose', M, N, NRHS, AF,
+     $                                 LDA, X, LDA, WORK, LWORK, INFO )
+*
+*                          Check error code from CGELS.
 *
                            IF( INFO.NE.0 )
-     $                        CALL ALAERH( PATH, 'CGELQS', INFO, 0, ' ',
+     $                        CALL ALAERH( PATH, 'CGELS', INFO, 0, 'N',
      $                                     M, N, NRHS, -1, NB, IMAT,
      $                                     NFAIL, NERRS, NOUT )
 *

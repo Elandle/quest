@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download STGSNA + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/stgsna.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/stgsna.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/stgsna.f"> 
+*> Download STGSNA + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/stgsna.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/stgsna.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/stgsna.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE STGSNA( JOB, HOWMNY, SELECT, N, A, LDA, B, LDB, VL,
 *                          LDVL, VR, LDVR, S, DIF, MM, M, WORK, LWORK,
 *                          IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          HOWMNY, JOB
 *       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, M, MM, N
@@ -32,7 +32,7 @@
 *       REAL               A( LDA, * ), B( LDB, * ), DIF( * ), S( * ),
 *      $                   VL( LDVL, * ), VR( LDVR, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -225,14 +225,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realOTHERcomputational
+*> \ingroup tgsna
 *
 *> \par Further Details:
 *  =====================
@@ -381,10 +379,9 @@
      $                   LDVL, VR, LDVR, S, DIF, MM, M, WORK, LWORK,
      $                   IWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          HOWMNY, JOB
@@ -419,8 +416,9 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      REAL               SDOT, SLAMCH, SLAPY2, SNRM2
-      EXTERNAL           LSAME, SDOT, SLAMCH, SLAPY2, SNRM2
+      REAL               SDOT, SLAMCH, SLAPY2, SNRM2, SROUNDUP_LWORK
+      EXTERNAL           LSAME, SDOT, SLAMCH, SLAPY2, SNRM2,
+     $                   SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SGEMV, SLACPY, SLAG2, STGEXC, STGSYL, XERBLA
@@ -493,7 +491,7 @@
          ELSE
             LWMIN = N
          END IF
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
 *
          IF( MM.LT.M ) THEN
             INFO = -15
@@ -635,8 +633,8 @@
                C1 = TWO*( ALPHAR*ALPHAR+ALPHAI*ALPHAI+BETA*BETA )
                C2 = FOUR*BETA*BETA*ALPHAI*ALPHAI
                ROOT1 = C1 + SQRT( C1*C1-4.0*C2 )
-               ROOT2 = C2 / ROOT1
                ROOT1 = ROOT1 / TWO
+               ROOT2 = C2 / ROOT1
                COND = MIN( SQRT( ROOT1 ), SQRT( ROOT2 ) )
             END IF
 *
@@ -692,7 +690,7 @@
      $      KS = KS + 1
 *
    20 CONTINUE
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       RETURN
 *
 *     End of STGSNA

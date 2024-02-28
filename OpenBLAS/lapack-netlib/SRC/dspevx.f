@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DSPEVX + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dspevx.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dspevx.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dspevx.f"> 
+*> Download DSPEVX + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dspevx.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dspevx.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dspevx.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE DSPEVX( JOBZ, RANGE, UPLO, N, AP, VL, VU, IL, IU,
 *                          ABSTOL, M, W, Z, LDZ, WORK, IWORK, IFAIL,
 *                          INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, LDZ, M, N
@@ -31,7 +31,7 @@
 *       INTEGER            IFAIL( * ), IWORK( * )
 *       DOUBLE PRECISION   AP( * ), W( * ), WORK( * ), Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -96,12 +96,15 @@
 *> \param[in] VL
 *> \verbatim
 *>          VL is DOUBLE PRECISION
+*>          If RANGE='V', the lower bound of the interval to
+*>          be searched for eigenvalues. VL < VU.
+*>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
 *>          VU is DOUBLE PRECISION
-*>          If RANGE='V', the lower and upper bounds of the interval to
+*>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
@@ -109,13 +112,17 @@
 *> \param[in] IL
 *> \verbatim
 *>          IL is INTEGER
+*>          If RANGE='I', the index of the
+*>          smallest eigenvalue to be returned.
+*>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+*>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
 *>
 *> \param[in] IU
 *> \verbatim
 *>          IU is INTEGER
-*>          If RANGE='I', the indices (in ascending order) of the
-*>          smallest and largest eigenvalues to be returned.
+*>          If RANGE='I', the index of the
+*>          largest eigenvalue to be returned.
 *>          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
 *>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
@@ -213,12 +220,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup doubleOTHEReigen
 *
@@ -227,10 +232,9 @@
      $                   ABSTOL, M, W, Z, LDZ, WORK, IWORK, IFAIL,
      $                   INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
@@ -251,7 +255,7 @@
 *     .. Local Scalars ..
       LOGICAL            ALLEIG, INDEIG, TEST, VALEIG, WANTZ
       CHARACTER          ORDER
-      INTEGER            I, IINFO, IMAX, INDD, INDE, INDEE, INDIBL,
+      INTEGER            I, IINFO, IMAX, INDD, INDE, INDEE,
      $                   INDISP, INDIWO, INDTAU, INDWRK, ISCALE, ITMP1,
      $                   J, JJ, NSPLIT
       DOUBLE PRECISION   ABSTLL, ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN,
@@ -420,17 +424,16 @@
       ELSE
          ORDER = 'E'
       END IF
-      INDIBL = 1
-      INDISP = INDIBL + N
+      INDISP = 1 + N
       INDIWO = INDISP + N
       CALL DSTEBZ( RANGE, ORDER, N, VLL, VUU, IL, IU, ABSTLL,
      $             WORK( INDD ), WORK( INDE ), M, NSPLIT, W,
-     $             IWORK( INDIBL ), IWORK( INDISP ), WORK( INDWRK ),
+     $             IWORK( 1 ), IWORK( INDISP ), WORK( INDWRK ),
      $             IWORK( INDIWO ), INFO )
 *
       IF( WANTZ ) THEN
          CALL DSTEIN( N, WORK( INDD ), WORK( INDE ), M, W,
-     $                IWORK( INDIBL ), IWORK( INDISP ), Z, LDZ,
+     $                IWORK( 1 ), IWORK( INDISP ), Z, LDZ,
      $                WORK( INDWRK ), IWORK( INDIWO ), IFAIL, INFO )
 *
 *        Apply orthogonal matrix used in reduction to tridiagonal
@@ -467,11 +470,11 @@
    30       CONTINUE
 *
             IF( I.NE.0 ) THEN
-               ITMP1 = IWORK( INDIBL+I-1 )
+               ITMP1 = IWORK( 1 + I-1 )
                W( I ) = W( J )
-               IWORK( INDIBL+I-1 ) = IWORK( INDIBL+J-1 )
+               IWORK( 1 + I-1 ) = IWORK( 1 + J-1 )
                W( J ) = TMP1
-               IWORK( INDIBL+J-1 ) = ITMP1
+               IWORK( 1 + J-1 ) = ITMP1
                CALL DSWAP( N, Z( 1, I ), 1, Z( 1, J ), 1 )
                IF( INFO.NE.0 ) THEN
                   ITMP1 = IFAIL( I )

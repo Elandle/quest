@@ -41,8 +41,6 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define	N	r0
 #define	X	r1
 #define	INC_X	r2
-#define	OLD_Y	r3
-
 
 /******************************************************
 * [fp, #-128] - [fp, #-64] is reserved
@@ -50,7 +48,18 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 * registers
 *******************************************************/
 
-#define OLD_INC_Y	[fp, #4 ]
+#if !defined(__ARM_PCS_VFP)
+#define	OLD_RETURN_ADDR	r0
+#define	OLD_N		r1
+#define	OLD_X		r2
+#define	OLD_INC_X	r3
+#define	OLD_Y		[fp, #0 ]
+#define	OLD_INC_Y	[fp, #4 ]
+#define	RETURN_ADDR	r8
+#else
+#define	OLD_Y		r3
+#define	OLD_INC_Y	[fp, #0 ]
+#endif
 
 #define I	r5
 #define Y	r6
@@ -67,30 +76,30 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	pld	[ X, #X_PRE  ]
 	pld	[ Y, #X_PRE  ]
 
-	fldmias	X!, { s4 - s5 }
-	fldmias	Y!, { s8 - s9 }
+	vldmia.f32	X!, { s4 - s5 }
+	vldmia.f32	Y!, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
-	fldmias	X!, { s6 - s7 }
+	vldmia.f32	X!, { s6 - s7 }
 	fmacs   s2  , s5,  s9
 	fmacs   s3  , s5,  s8
 
-	fldmias	Y!, { s10 - s11 }
+	vldmia.f32	Y!, { s10 - s11 }
 	fmacs   s0  , s6,  s10
 	fmacs   s1  , s6,  s11
 	fmacs   s2  , s7,  s11
 	fmacs   s3  , s7,  s10
 
 
-	fldmias	X!, { s4 - s5 }
-	fldmias	Y!, { s8 - s9 }
+	vldmia.f32	X!, { s4 - s5 }
+	vldmia.f32	Y!, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
-	fldmias	X!, { s6 - s7 }
+	vldmia.f32	X!, { s6 - s7 }
 	fmacs   s2  , s5,  s9
 	fmacs   s3  , s5,  s8
 
-	fldmias	Y!, { s10 - s11 }
+	vldmia.f32	Y!, { s10 - s11 }
 	fmacs   s0  , s6,  s10
 	fmacs   s1  , s6,  s11
 	fmacs   s2  , s7,  s11
@@ -100,8 +109,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmias	X!, { s4 - s5 }
-	fldmias	Y!, { s8 - s9 }
+	vldmia.f32	X!, { s4 - s5 }
+	vldmia.f32	Y!, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
 	fmacs   s2  , s5,  s9
@@ -116,8 +125,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	nop
 
-	fldmias	X, { s4 - s5 }
-	fldmias	Y, { s8 - s9 }
+	vldmia.f32	X, { s4 - s5 }
+	vldmia.f32	Y, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
 	fmacs   s2  , s5,  s9
@@ -125,8 +134,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
-	fldmias	X, { s4 - s5 }
-	fldmias	Y, { s8 - s9 }
+	vldmia.f32	X, { s4 - s5 }
+	vldmia.f32	Y, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
 	fmacs   s2  , s5,  s9
@@ -134,8 +143,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
-	fldmias	X, { s4 - s5 }
-	fldmias	Y, { s8 - s9 }
+	vldmia.f32	X, { s4 - s5 }
+	vldmia.f32	Y, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
 	fmacs   s2  , s5,  s9
@@ -143,8 +152,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	add	X, X, INC_X
 	add	Y, Y, INC_Y
 
-	fldmias	X, { s4 - s5 }
-	fldmias	Y, { s8 - s9 }
+	vldmia.f32	X, { s4 - s5 }
+	vldmia.f32	Y, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
 	fmacs   s2  , s5,  s9
@@ -157,8 +166,8 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_S1
 
-	fldmias	X, { s4 - s5 }
-	fldmias	Y, { s8 - s9 }
+	vldmia.f32	X, { s4 - s5 }
+	vldmia.f32	Y, { s8 - s9 }
 	fmacs   s0  , s4,  s8
 	fmacs   s1  , s4,  s9
 	fmacs   s2  , s5,  s9
@@ -179,28 +188,38 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	.align 5
 
 	push	{r4 - r9, fp}
-	add	fp, sp, #24
+	add	fp, sp, #28
 	sub	sp, sp, #STACKSIZE				// reserve stack
 
 	sub	r4, fp, #128
 	vstm	r4, { s8 - s15} 				// store floating point registers
 
+        movs    r4, #0                                          // clear floating point register
+        vmov    s0, r4
+	vmov	s1, s0
+	vmov	s2, s0
+	vmov	s3, s0
+
+#if !defined(__ARM_PCS_VFP)
+	mov	RETURN_ADDR, OLD_RETURN_ADDR
+	mov	N, OLD_N
+	mov	X, OLD_X
+	mov	INC_X, OLD_INC_X
+	ldr	Y, OLD_Y
+	ldr	INC_Y, OLD_INC_Y
+#else
 	mov	Y, OLD_Y
 	ldr	INC_Y, OLD_INC_Y
-
-	vsub.f32                s0 , s0 , s0
-	vsub.f32                s1 , s1 , s1
-	vsub.f32                s2 , s2 , s2
-	vsub.f32                s3 , s3 , s3
+#endif
 
 	cmp	N, #0
 	ble	cdot_kernel_L999
 
-	cmp	INC_X, #0
-	beq	cdot_kernel_L999
+#	cmp	INC_X, #0
+#	beq	cdot_kernel_L999
 
-	cmp	INC_Y, #0
-	beq	cdot_kernel_L999
+#	cmp	INC_Y, #0
+#	beq	cdot_kernel_L999
 
 	cmp	INC_X, #1
 	bne	cdot_kernel_S_BEGIN
@@ -264,7 +283,6 @@ cdot_kernel_S10:
 
 
 cdot_kernel_L999:
-
 	sub	r3, fp, #128
 	vldm	r3, { s8 - s15}					// restore floating point registers
 
@@ -275,8 +293,11 @@ cdot_kernel_L999:
 	vadd.f32	s0 , s0, s2
 	vsub.f32	s1 , s1, s3
 #endif
+#if !defined(__ARM_PCS_VFP)
+	vstm	RETURN_ADDR, {s0 - s1}
+#endif
 
-	sub	sp, fp, #24
+	sub	sp, fp, #28
 	pop	{r4 - r9, fp}
 	bx	lr
 

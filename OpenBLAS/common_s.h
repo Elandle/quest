@@ -12,6 +12,7 @@
 #define	ISMAX_K			ismax_k
 #define	ISMIN_K			ismin_k
 #define	SASUM_K			sasum_k
+#define	SSUM_K			ssum_k
 #define	SAXPYU_K		saxpy_k
 #define	SAXPYC_K		saxpy_k
 #define	SCOPY_K			scopy_k
@@ -43,6 +44,10 @@
 
 #define SSYMV_THREAD_U		ssymv_thread_U
 #define SSYMV_THREAD_L		ssymv_thread_L
+
+
+#define SGEMM_DIRECT_PERFORMANT    sgemm_direct_performant
+#define SGEMM_DIRECT		sgemm_direct
 
 #define	SGEMM_ONCOPY		sgemm_oncopy
 #define	SGEMM_OTCOPY		sgemm_otcopy
@@ -152,7 +157,14 @@
 #define SOMATCOPY_K_RN          somatcopy_k_rn
 #define SOMATCOPY_K_CT          somatcopy_k_ct
 #define SOMATCOPY_K_RT          somatcopy_k_rt
+#define SIMATCOPY_K_CN          simatcopy_k_cn
+#define SIMATCOPY_K_RN          simatcopy_k_rn
+#define SIMATCOPY_K_CT          simatcopy_k_ct
+#define SIMATCOPY_K_RT          simatcopy_k_rt
 
+#define SGEADD_K                sgeadd_k 
+
+#define SGEMM_SMALL_MATRIX_PERMIT	sgemm_small_matrix_permit
 
 #else
 
@@ -165,6 +177,7 @@
 #define	ISMAX_K			gotoblas -> ismax_k
 #define	ISMIN_K			gotoblas -> ismin_k
 #define	SASUM_K			gotoblas -> sasum_k
+#define	SSUM_K			gotoblas -> ssum_k
 #define	SAXPYU_K		gotoblas -> saxpy_k
 #define	SAXPYC_K		gotoblas -> saxpy_k
 #define	SCOPY_K			gotoblas -> scopy_k
@@ -196,6 +209,14 @@
 
 #define SSYMV_THREAD_U		ssymv_thread_U
 #define SSYMV_THREAD_L		ssymv_thread_L
+
+#ifdef ARCH_X86_64
+#define SGEMM_DIRECT_PERFORMANT gotoblas -> sgemm_direct_performant
+#define  SGEMM_DIRECT		gotoblas -> sgemm_direct
+#else
+#define SGEMM_DIRECT_PERFORMANT    sgemm_direct_performant
+#define  SGEMM_DIRECT		sgemm_direct
+#endif
 
 #define	SGEMM_ONCOPY		gotoblas -> sgemm_oncopy
 #define	SGEMM_OTCOPY		gotoblas -> sgemm_otcopy
@@ -273,9 +294,27 @@
 #define SOMATCOPY_K_RN          gotoblas -> somatcopy_k_rn
 #define SOMATCOPY_K_CT          gotoblas -> somatcopy_k_ct
 #define SOMATCOPY_K_RT          gotoblas -> somatcopy_k_rt
+#define SIMATCOPY_K_CN          gotoblas -> simatcopy_k_cn
+#define SIMATCOPY_K_RN          gotoblas -> simatcopy_k_rn
+#define SIMATCOPY_K_CT          gotoblas -> simatcopy_k_ct
+#define SIMATCOPY_K_RT          gotoblas -> simatcopy_k_rt
 
+#define SGEADD_K                gotoblas -> sgeadd_k 
+
+#define SGEMM_SMALL_MATRIX_PERMIT	gotoblas -> sgemm_small_matrix_permit
 
 #endif
+
+#define SGEMM_SMALL_KERNEL_NN		FUNC_OFFSET(sgemm_small_kernel_nn)
+#define SGEMM_SMALL_KERNEL_NT		FUNC_OFFSET(sgemm_small_kernel_nt)
+#define SGEMM_SMALL_KERNEL_TN		FUNC_OFFSET(sgemm_small_kernel_tn)
+#define SGEMM_SMALL_KERNEL_TT		FUNC_OFFSET(sgemm_small_kernel_tt)
+
+#define SGEMM_SMALL_KERNEL_B0_NN	FUNC_OFFSET(sgemm_small_kernel_b0_nn)
+#define SGEMM_SMALL_KERNEL_B0_NT	FUNC_OFFSET(sgemm_small_kernel_b0_nt)
+#define SGEMM_SMALL_KERNEL_B0_TN	FUNC_OFFSET(sgemm_small_kernel_b0_tn)
+#define SGEMM_SMALL_KERNEL_B0_TT	FUNC_OFFSET(sgemm_small_kernel_b0_tt)
+
 
 #define	SGEMM_NN		sgemm_nn
 #define	SGEMM_CN		sgemm_tn

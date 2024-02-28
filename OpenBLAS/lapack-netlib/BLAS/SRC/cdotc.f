@@ -2,40 +2,72 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       COMPLEX FUNCTION CDOTC(N,CX,INCX,CY,INCY)
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
 *       COMPLEX CX(*),CY(*)
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
 *>
 *> \verbatim
 *>
-*>    forms the dot product of two vectors, conjugating the first
-*>    vector.
+*> CDOTC forms the dot product of two complex vectors
+*>      CDOTC = X^H * Y
+*>
+*> \endverbatim
+*
+*  Arguments:
+*  ==========
+*
+*> \param[in] N
+*> \verbatim
+*>          N is INTEGER
+*>         number of elements in input vector(s)
+*> \endverbatim
+*>
+*> \param[in] CX
+*> \verbatim
+*>          CX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*> \endverbatim
+*>
+*> \param[in] INCX
+*> \verbatim
+*>          INCX is INTEGER
+*>         storage spacing between elements of CX
+*> \endverbatim
+*>
+*> \param[in] CY
+*> \verbatim
+*>          CY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*> \endverbatim
+*>
+*> \param[in] INCY
+*> \verbatim
+*>          INCY is INTEGER
+*>         storage spacing between elements of CY
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
+*> \date November 2017
 *
 *> \ingroup complex_blas_level1
 *
@@ -51,10 +83,10 @@
 *  =====================================================================
       COMPLEX FUNCTION CDOTC(N,CX,INCX,CY,INCY)
 *
-*  -- Reference BLAS level1 routine (version 3.4.0) --
+*  -- Reference BLAS level1 routine (version 3.8.0) --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
+*     November 2017
 *
 *     .. Scalar Arguments ..
       INTEGER INCX,INCY,N

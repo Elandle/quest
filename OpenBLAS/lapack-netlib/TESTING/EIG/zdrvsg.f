@@ -2,8 +2,8 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
@@ -12,7 +12,7 @@
 *                          NOUNIT, A, LDA, B, LDB, D, Z, LDZ, AB, BB, AP,
 *                          BP, WORK, NWORK, RWORK, LRWORK, IWORK, LIWORK,
 *                          RESULT, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LDZ, LIWORK, LRWORK, NOUNIT,
 *      $                   NSIZES, NTYPES, NWORK
@@ -26,7 +26,7 @@
 *      $                   B( LDB, * ), BB( LDB, * ), BP( * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -236,7 +236,7 @@
 *>
 *>  B       COMPLEX*16 array, dimension (LDB , max(NN))
 *>          Used to hold the Hermitian positive definite matrix for
-*>          the generailzed problem.
+*>          the generalized problem.
 *>          On exit, B contains the last matrix actually
 *>          used.
 *>          Modified.
@@ -355,12 +355,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex16_eig
 *
@@ -370,10 +368,9 @@
      $                   BP, WORK, NWORK, RWORK, LRWORK, IWORK, LIWORK,
      $                   RESULT, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LDZ, LIWORK, LRWORK, NOUNIT,
@@ -421,7 +418,7 @@
       EXTERNAL           LSAME, DLAMCH, DLARND
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           DLABAD, DLAFTS, DLASUM, XERBLA, ZHBGV, ZHBGVD,
+      EXTERNAL           DLAFTS, DLASUM, XERBLA, ZHBGV, ZHBGVD,
      $                   ZHBGVX, ZHEGV, ZHEGVD, ZHEGVX, ZHPGV, ZHPGVD,
      $                   ZHPGVX, ZLACPY, ZLASET, ZLATMR, ZLATMS, ZSGT01
 *     ..
@@ -484,7 +481,6 @@
 *
       UNFL = DLAMCH( 'Safe minimum' )
       OVFL = DLAMCH( 'Overflow' )
-      CALL DLABAD( UNFL, OVFL )
       ULP = DLAMCH( 'Epsilon' )*DLAMCH( 'Base' )
       ULPINV = ONE / ULP
       RTUNFL = SQRT( UNFL )
@@ -666,8 +662,8 @@
                IL = 1
                IU = N
             ELSE
-               IL = 1 + ( N-1 )*DLARND( 1, ISEED2 )
-               IU = 1 + ( N-1 )*DLARND( 1, ISEED2 )
+               IL = 1 + INT( ( N-1 )*DLARND( 1, ISEED2 ) )
+               IU = 1 + INT( ( N-1 )*DLARND( 1, ISEED2 ) )
                IF( IL.GT.IU ) THEN
                   ITEMP = IL
                   IL = IU

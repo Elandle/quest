@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZGECON + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zgecon.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zgecon.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zgecon.f"> 
+*> Download ZGECON + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zgecon.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zgecon.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zgecon.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZGECON( NORM, N, A, LDA, ANORM, RCOND, WORK, RWORK,
 *                          INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            INFO, LDA, N
@@ -30,7 +30,7 @@
 *       DOUBLE PRECISION   RWORK( * )
 *       COMPLEX*16         A( LDA, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -105,29 +105,34 @@
 *> \verbatim
 *>          INFO is INTEGER
 *>          = 0:  successful exit
-*>          < 0:  if INFO = -i, the i-th argument had an illegal value
+*>          < 0:  if INFO = -i, the i-th argument had an illegal value.
+*>                NaNs are illegal values for ANORM, and they propagate to
+*>                the output parameter RCOND.
+*>                Infinity is illegal for ANORM, and it propagates to the output
+*>                parameter RCOND as 0.
+*>          = 1:  if RCOND = NaN, or
+*>                   RCOND = Inf, or
+*>                   the computed norm of the inverse of A is 0.
+*>                In the latter, RCOND = 0 is returned.
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complex16GEcomputational
+*> \ingroup gecon
 *
 *  =====================================================================
       SUBROUTINE ZGECON( NORM, N, A, LDA, ANORM, RCOND, WORK, RWORK,
      $                   INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          NORM
@@ -149,17 +154,17 @@
       LOGICAL            ONENRM
       CHARACTER          NORMIN
       INTEGER            IX, KASE, KASE1
-      DOUBLE PRECISION   AINVNM, SCALE, SL, SMLNUM, SU
+      DOUBLE PRECISION   AINVNM, SCALE, SL, SMLNUM, SU, HUGEVAL
       COMPLEX*16         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
 *     ..
 *     .. External Functions ..
-      LOGICAL            LSAME
+      LOGICAL            LSAME, DISNAN
       INTEGER            IZAMAX
       DOUBLE PRECISION   DLAMCH
-      EXTERNAL           LSAME, IZAMAX, DLAMCH
+      EXTERNAL           LSAME, IZAMAX, DLAMCH, DISNAN
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZDRSCL, ZLACN2, ZLATRS
@@ -174,6 +179,8 @@
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
+*
+      HUGEVAL = DLAMCH( 'Overflow' )
 *
 *     Test the input parameters.
 *
@@ -200,6 +207,13 @@
          RCOND = ONE
          RETURN
       ELSE IF( ANORM.EQ.ZERO ) THEN
+         RETURN
+      ELSE IF( DISNAN( ANORM ) ) THEN
+         RCOND = ANORM
+         INFO = -5
+         RETURN
+      ELSE IF( ANORM.GT.HUGEVAL ) THEN
+         INFO = -5
          RETURN
       END IF
 *
@@ -258,8 +272,17 @@
 *
 *     Compute the estimate of the reciprocal condition number.
 *
-      IF( AINVNM.NE.ZERO )
-     $   RCOND = ( ONE / AINVNM ) / ANORM
+      IF( AINVNM.NE.ZERO ) THEN
+         RCOND = ( ONE / AINVNM ) / ANORM
+      ELSE
+         INFO = 1
+         RETURN
+      END IF
+*
+*     Check for NaNs and Infs
+*
+      IF( DISNAN( RCOND ) .OR. RCOND.GT.HUGEVAL )
+     $   INFO = 1
 *
    20 CONTINUE
       RETURN

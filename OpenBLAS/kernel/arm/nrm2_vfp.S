@@ -58,7 +58,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 .macro KERNEL_F1
 
-	fldmiad	X!, 	{ d4 }
+	vldmia.f64	X!, 	{ d4 }
 	vcmpe.f64	d4, d6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
 	beq		KERNEL_F1_NEXT_\@
@@ -95,7 +95,7 @@ KERNEL_F1_NEXT_\@:
 
 .macro KERNEL_S1
 
-	fldmiad	X, 	{ d4 }
+	vldmia.f64	X, 	{ d4 }
 	vcmpe.f64	d4, d6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
 	beq		KERNEL_S1_NEXT
@@ -121,7 +121,7 @@ KERNEL_S1_NEXT:
 
 .macro KERNEL_F1
 
-	fldmias	X!, 	{ s4 }
+	vldmia.f32	X!, 	{ s4 }
 	vcmpe.f32	s4, s6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
 	beq		KERNEL_F1_NEXT_\@
@@ -158,7 +158,7 @@ KERNEL_F1_NEXT_\@:
 
 .macro KERNEL_S1
 
-	fldmias	X, 	{ s4 }
+	vldmia.f32	X, 	{ s4 }
 	vcmpe.f32	s4, s6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
 	beq		KERNEL_S1_NEXT
@@ -191,7 +191,7 @@ KERNEL_S1_NEXT:
 
 .macro KERNEL_F1
 
-	fldmiad	X!, 	{ d4 - d5 }
+	vldmia.f64	X!, 	{ d4 - d5 }
 
 	vcmpe.f64	d4, d6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
@@ -249,7 +249,7 @@ KERNEL_F1_END_\@:
 
 .macro KERNEL_S1
 
-	fldmiad	X, 	{ d4 - d5 }
+	vldmia.f64	X, 	{ d4 - d5 }
 
 	vcmpe.f64	d4, d6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
@@ -294,7 +294,7 @@ KERNEL_S1_END_\@:
 
 .macro KERNEL_F1
 
-	fldmias	X!, 	{ s4 - s5 }
+	vldmia.f32	X!, 	{ s4 - s5 }
 
 	vcmpe.f32	s4, s6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
@@ -350,7 +350,7 @@ KERNEL_F1_END_\@:
 
 .macro KERNEL_S1
 
-	fldmias	X, 	{ s4 - s5 }
+	vldmia.f32	X, 	{ s4 - s5 }
 
 	vcmpe.f32	s4, s6				// compare with 0.0
 	vmrs		APSR_nzcv, fpscr
@@ -409,11 +409,19 @@ KERNEL_S1_END_\@:
 
 #if	defined(DOUBLE)
 
+znrm2_zero:
+	.word	0x00000000
+	.word	0x00000000
+
+
 znrm2_one:
 	.word	0x00000000
 	.word	0x3ff00000
 
 #else
+
+cnrm2_zero:
+	.word	0x00000000
 
 cnrm2_one:
 	.word	0x3f800000
@@ -424,11 +432,19 @@ cnrm2_one:
 
 #if	defined(DOUBLE)
 
+dnrm2_zero:
+	.word	0x00000000
+	.word	0x00000000
+
+
 dnrm2_one:
 	.word	0x00000000
 	.word	0x3ff00000
 
 #else
+
+snrm2_zero:
+	.word	0x00000000
 
 snrm2_one:
 	.word	0x3f800000
@@ -446,12 +462,12 @@ nrm2_begin:
 #if defined(COMPLEX)
 
 #if defined(DOUBLE)
-	vsub.f64                d0 , d0 , d0		// scale=0.0
+	vldr.64			d0 , znrm2_zero	
 	vldr.64			d1 , znrm2_one		// ssq=1.0
 	vmov.f64		d7 , d1			// value 1.0
 	vmov.f64		d6 , d0			// value 0.0
 #else
-	vsub.f32                s0 , s0 , s0		// scale=0.0
+	vldr.32			s0 , cnrm2_zero
 	vldr.32			s1 , cnrm2_one		// ssq=1.0
 	vmov.f32		s7 , s1			// value 1.0
 	vmov.f32		s6 , s0			// value 0.0
@@ -460,12 +476,12 @@ nrm2_begin:
 #else
 
 #if defined(DOUBLE)
-	vsub.f64                d0 , d0 , d0		// scale=0.0
+	vldr.64			d0 , dnrm2_zero	
 	vldr.64			d1 , dnrm2_one		// ssq=1.0
 	vmov.f64		d7 , d1			// value 1.0
 	vmov.f64		d6 , d0			// value 0.0
 #else
-	vsub.f32                s0 , s0 , s0		// scale=0.0
+	vldr.32			s0 , snrm2_zero
 	vldr.32			s1 , snrm2_one		// ssq=1.0
 	vmov.f32		s7 , s1			// value 1.0
 	vmov.f32		s6 , s0			// value 0.0
@@ -557,6 +573,13 @@ nrm2_kernel_L999:
 #else
 	vsqrt.f32	s1, s1
 	vmul.f32	s0, s0, s1
+#endif
+#if !defined(__ARM_PCS_VFP)
+#if !defined(DOUBLE)
+	vmov	r0, s0
+#else
+	vmov	r0, r1, d0
+#endif
 #endif
 
 	bx	lr

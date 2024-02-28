@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CSTEMR + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cstemr.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cstemr.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cstemr.f"> 
+*> Download CSTEMR + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cstemr.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cstemr.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cstemr.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
@@ -21,7 +21,7 @@
 *       SUBROUTINE CSTEMR( JOBZ, RANGE, N, D, E, VL, VU, IL, IU,
 *                          M, W, Z, LDZ, NZC, ISUPPZ, TRYRAC, WORK, LWORK,
 *                          IWORK, LIWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE
 *       LOGICAL            TRYRAC
@@ -33,7 +33,7 @@
 *       REAL               D( * ), E( * ), W( * ), WORK( * )
 *       COMPLEX            Z( LDZ, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -153,13 +153,17 @@
 *> \param[in] VL
 *> \verbatim
 *>          VL is REAL
+*>
+*>          If RANGE='V', the lower bound of the interval to
+*>          be searched for eigenvalues. VL < VU.
+*>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
 *>          VU is REAL
 *>
-*>          If RANGE='V', the lower and upper bounds of the interval to
+*>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
 *> \endverbatim
@@ -167,14 +171,19 @@
 *> \param[in] IL
 *> \verbatim
 *>          IL is INTEGER
+*>
+*>          If RANGE='I', the index of the
+*>          smallest eigenvalue to be returned.
+*>          1 <= IL <= IU <= N, if N > 0.
+*>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
 *>
 *> \param[in] IU
 *> \verbatim
 *>          IU is INTEGER
 *>
-*>          If RANGE='I', the indices (in ascending order) of the
-*>          smallest and largest eigenvalues to be returned.
+*>          If RANGE='I', the index of the
+*>          largest eigenvalue to be returned.
 *>          1 <= IL <= IU <= N, if N > 0.
 *>          Not referenced if RANGE = 'A' or 'V'.
 *> \endverbatim
@@ -230,7 +239,7 @@
 *>
 *> \param[out] ISUPPZ
 *> \verbatim
-*>          ISUPPZ is INTEGER ARRAY, dimension ( 2*max(1,M) )
+*>          ISUPPZ is INTEGER array, dimension ( 2*max(1,M) )
 *>          The support of the eigenvectors in Z, i.e., the indices
 *>          indicating the nonzero elements in Z. The i-th computed eigenvector
 *>          is nonzero only in elements ISUPPZ( 2*i-1 ) through
@@ -241,13 +250,13 @@
 *> \param[in,out] TRYRAC
 *> \verbatim
 *>          TRYRAC is LOGICAL
-*>          If TRYRAC.EQ..TRUE., indicates that the code should check whether
+*>          If TRYRAC = .TRUE., indicates that the code should check whether
 *>          the tridiagonal matrix defines its eigenvalues to high relative
 *>          accuracy.  If so, the code uses relative-accuracy preserving
 *>          algorithms that might be (a bit) slower depending on the matrix.
 *>          If the matrix does not define its eigenvalues to high relative
 *>          accuracy, the code can uses possibly faster algorithms.
-*>          If TRYRAC.EQ..FALSE., the code is not required to guarantee
+*>          If TRYRAC = .FALSE., the code is not required to guarantee
 *>          relatively accurate eigenvalues and can use the fastest possible
 *>          techniques.
 *>          On exit, a .TRUE. TRYRAC will be set to .FALSE. if the matrix
@@ -306,14 +315,12 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2013
-*
-*> \ingroup complexOTHERcomputational
+*> \ingroup stemr
 *
 *> \par Contributors:
 *  ==================
@@ -322,17 +329,17 @@
 *> Jim Demmel, University of California, Berkeley, USA \n
 *> Inderjit Dhillon, University of Texas, Austin, USA \n
 *> Osni Marques, LBNL/NERSC, USA \n
-*> Christof Voemel, University of California, Berkeley, USA
+*> Christof Voemel, University of California, Berkeley, USA \n
+*> Aravindh Krishnamoorthy, FAU, Erlangen, Germany \n
 *
 *  =====================================================================
       SUBROUTINE CSTEMR( JOBZ, RANGE, N, D, E, VL, VU, IL, IU,
      $                   M, W, Z, LDZ, NZC, ISUPPZ, TRYRAC, WORK, LWORK,
      $                   IWORK, LIWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.5.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2013
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE
@@ -355,7 +362,8 @@
      $                     MINRGP = 3.0E-3 )
 *     ..
 *     .. Local Scalars ..
-      LOGICAL            ALLEIG, INDEIG, LQUERY, VALEIG, WANTZ, ZQUERY
+      LOGICAL            ALLEIG, INDEIG, LQUERY, VALEIG, WANTZ, ZQUERY,
+     $                   LAESWAP
       INTEGER            I, IBEGIN, IEND, IFIRST, IIL, IINDBL, IINDW,
      $                   IINDWK, IINFO, IINSPL, IIU, ILAST, IN, INDD,
      $                   INDE2, INDERR, INDGP, INDGRS, INDWRK, ITMP,
@@ -368,8 +376,8 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      REAL               SLAMCH, SLANST
-      EXTERNAL           LSAME, SLAMCH, SLANST
+      REAL               SLAMCH, SLANST, SROUNDUP_LWORK
+      EXTERNAL           LSAME, SLAMCH, SLANST, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           CLARRV, CSWAP, SCOPY, SLAE2, SLAEV2, SLARRC,
@@ -391,6 +399,7 @@
 *
       LQUERY = ( ( LWORK.EQ.-1 ).OR.( LIWORK.EQ.-1 ) )
       ZQUERY = ( NZC.EQ.-1 )
+      LAESWAP = .FALSE.
 
 *     SSTEMR needs WORK of size 6*N, IWORK of size 3*N.
 *     In addition, SLARRE needs WORK of size 6*N, IWORK of size 5*N.
@@ -453,7 +462,7 @@
       RMAX = MIN( SQRT( BIGNUM ), ONE / SQRT( SQRT( SAFMIN ) ) )
 *
       IF( INFO.EQ.0 ) THEN
-         WORK( 1 ) = LWMIN
+         WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
          IWORK( 1 ) = LIWMIN
 *
          IF( WANTZ .AND. ALLEIG ) THEN
@@ -513,6 +522,15 @@
          ELSE IF( WANTZ.AND.(.NOT.ZQUERY) ) THEN
             CALL SLAEV2( D(1), E(1), D(2), R1, R2, CS, SN )
          END IF
+*        D/S/LAE2 and D/S/LAEV2 outputs satisfy |R1| >= |R2|. However,
+*        the following code requires R1 >= R2. Hence, we correct
+*        the order of R1, R2, CS, SN if R1 < R2 before further processing.
+         IF( R1.LT.R2 ) THEN
+            E(2) = R1
+            R1 = R2
+            R2 = E(2)
+            LAESWAP = .TRUE.
+         ENDIF
          IF( ALLEIG.OR.
      $      (VALEIG.AND.(R2.GT.WL).AND.
      $                  (R2.LE.WU)).OR.
@@ -520,16 +538,21 @@
             M = M+1
             W( M ) = R2
             IF( WANTZ.AND.(.NOT.ZQUERY) ) THEN
-               Z( 1, M ) = -SN
-               Z( 2, M ) = CS
+               IF( LAESWAP ) THEN
+                  Z( 1, M ) = CS
+                  Z( 2, M ) = SN
+               ELSE
+                  Z( 1, M ) = -SN
+                  Z( 2, M ) = CS
+               ENDIF
 *              Note: At most one of SN and CS can be zero.
                IF (SN.NE.ZERO) THEN
                   IF (CS.NE.ZERO) THEN
                      ISUPPZ(2*M-1) = 1
-                     ISUPPZ(2*M-1) = 2
+                     ISUPPZ(2*M) = 2
                   ELSE
                      ISUPPZ(2*M-1) = 1
-                     ISUPPZ(2*M-1) = 1
+                     ISUPPZ(2*M) = 1
                   END IF
                ELSE
                   ISUPPZ(2*M-1) = 2
@@ -544,16 +567,21 @@
             M = M+1
             W( M ) = R1
             IF( WANTZ.AND.(.NOT.ZQUERY) ) THEN
-               Z( 1, M ) = CS
-               Z( 2, M ) = SN
+               IF( LAESWAP ) THEN
+                  Z( 1, M ) = -SN
+                  Z( 2, M ) = CS
+               ELSE
+                  Z( 1, M ) = CS
+                  Z( 2, M ) = SN
+               ENDIF
 *              Note: At most one of SN and CS can be zero.
                IF (SN.NE.ZERO) THEN
                   IF (CS.NE.ZERO) THEN
                      ISUPPZ(2*M-1) = 1
-                     ISUPPZ(2*M-1) = 2
+                     ISUPPZ(2*M) = 2
                   ELSE
                      ISUPPZ(2*M-1) = 1
-                     ISUPPZ(2*M-1) = 1
+                     ISUPPZ(2*M) = 1
                   END IF
                ELSE
                   ISUPPZ(2*M-1) = 2
@@ -773,7 +801,7 @@
       ENDIF
 *
 *
-      WORK( 1 ) = LWMIN
+      WORK( 1 ) = SROUNDUP_LWORK(LWMIN)
       IWORK( 1 ) = LIWMIN
       RETURN
 *

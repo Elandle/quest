@@ -2,24 +2,24 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SSYTRF + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssytrf.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssytrf.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssytrf.f"> 
+*> Download SSYTRF + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssytrf.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssytrf.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssytrf.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SSYTRF( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, LWORK, N
@@ -28,7 +28,7 @@
 *       INTEGER            IPIV( * )
 *       REAL               A( LDA, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -39,10 +39,10 @@
 *> the Bunch-Kaufman diagonal pivoting method.  The form of the
 *> factorization is
 *>
-*>    A = U*D*U**T  or  A = L*D*L**T
+*>    A = U**T*D*U  or  A = L*D*L**T
 *>
 *> where U (or L) is a product of permutation and unit upper (lower)
-*> triangular matrices, and D is symmetric and block diagonal with 
+*> triangular matrices, and D is symmetric and block diagonal with
 *> 1-by-1 and 2-by-2 diagonal blocks.
 *>
 *> This is the blocked version of the algorithm, calling Level 3 BLAS.
@@ -130,21 +130,19 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup realSYcomputational
+*> \ingroup hetrf
 *
 *> \par Further Details:
 *  =====================
 *>
 *> \verbatim
 *>
-*>  If UPLO = 'U', then A = U*D*U**T, where
+*>  If UPLO = 'U', then A = U**T*D*U, where
 *>     U = P(n)*U(n)* ... *P(k)U(k)* ...,
 *>  i.e., U is a product of terms P(k)*U(k), where k decreases from n to
 *>  1 in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1
@@ -182,10 +180,9 @@
 *  =====================================================================
       SUBROUTINE SSYTRF( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -205,7 +202,8 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      EXTERNAL           LSAME, ILAENV
+      REAL               SROUNDUP_LWORK
+      EXTERNAL           LSAME, ILAENV, SROUNDUP_LWORK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           SLASYF, SSYTF2, XERBLA
@@ -235,8 +233,8 @@
 *        Determine the block size
 *
          NB = ILAENV( 1, 'SSYTRF', UPLO, N, -1, -1, -1 )
-         LWKOPT = N*NB
-         WORK( 1 ) = LWKOPT
+         LWKOPT = MAX( 1, N*NB )
+         WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -262,7 +260,7 @@
 *
       IF( UPPER ) THEN
 *
-*        Factorize A as U*D*U**T using the upper triangle of A
+*        Factorize A as U**T*D*U using the upper triangle of A
 *
 *        K is the main loop index, decreasing from N to 1 in steps of
 *        KB, where KB is the number of columns factorized by SLASYF;
@@ -355,7 +353,8 @@
       END IF
 *
    40 CONTINUE
-      WORK( 1 ) = LWKOPT
+*
+      WORK( 1 ) = SROUNDUP_LWORK( LWKOPT )
       RETURN
 *
 *     End of SSYTRF

@@ -2,18 +2,18 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE DCHKHS( NSIZES, NN, NTYPES, DOTYPE, ISEED, THRESH,
 *                          NOUNIT, A, LDA, H, T1, T2, U, LDU, Z, UZ, WR1,
-*                          WI1, WR3, WI3, EVECTL, EVECTR, EVECTY, EVECTX,
-*                          UU, TAU, WORK, NWORK, IWORK, SELECT, RESULT,
-*                          INFO )
-* 
+*                          WI1, WR2, WI2, WR3, WI3, EVECTL, EVECTR, EVECTY,
+*                          EVECTX, UU, TAU, WORK, NWORK, IWORK, SELECT,
+*                          RESULT, INFO )
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDU, NOUNIT, NSIZES, NTYPES, NWORK
 *       DOUBLE PRECISION   THRESH
@@ -23,13 +23,13 @@
 *       INTEGER            ISEED( 4 ), IWORK( * ), NN( * )
 *       DOUBLE PRECISION   A( LDA, * ), EVECTL( LDU, * ),
 *      $                   EVECTR( LDU, * ), EVECTX( LDU, * ),
-*      $                   EVECTY( LDU, * ), H( LDA, * ), RESULT( 14 ),
+*      $                   EVECTY( LDU, * ), H( LDA, * ), RESULT( 16 ),
 *      $                   T1( LDA, * ), T2( LDA, * ), TAU( * ),
 *      $                   U( LDU, * ), UU( LDU, * ), UZ( LDU, * ),
-*      $                   WI1( * ), WI3( * ), WORK( * ), WR1( * ),
-*      $                   WR3( * ), Z( LDU, * )
+*      $                   WI1( * ), WI2( * ), WI3( * ), WORK( * ),
+*      $                   WR1( * ), WR2( * ), WR3( * ), Z( LDU, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -49,15 +49,21 @@
 *>            T is "quasi-triangular", and the eigenvalue vector W.
 *>
 *>            DTREVC computes the left and right eigenvector matrices
-*>            L and R for T.
+*>            L and R for T. L is lower quasi-triangular, and R is
+*>            upper quasi-triangular.
 *>
 *>            DHSEIN computes the left and right eigenvector matrices
 *>            Y and X for H, using inverse iteration.
 *>
+*>            DTREVC3 computes left and right eigenvector matrices
+*>            from a Schur matrix T and backtransforms them with Z
+*>            to eigenvector matrices L and R for A. L and R are
+*>            GE matrices.
+*>
 *>    When DCHKHS is called, a number of matrix "sizes" ("n's") and a
 *>    number of matrix "types" are specified.  For each size ("n")
 *>    and each type of matrix, one matrix will be generated and used
-*>    to test the nonsymmetric eigenroutines.  For each matrix, 14
+*>    to test the nonsymmetric eigenroutines.  For each matrix, 16
 *>    tests will be performed:
 *>
 *>    (1)     | A - U H U**T | / ( |A| n ulp )
@@ -87,6 +93,10 @@
 *>    (13)    | AX - XW | / ( |A| |X| ulp )
 *>
 *>    (14)    | Y**H A - W**H Y | / ( |A| |Y| ulp )
+*>
+*>    (15)    | AR - RW | / ( |A| |R| ulp )
+*>
+*>    (16)    | LA - WL | / ( |A| |L| ulp )
 *>
 *>    The "sizes" are specified by an array NN(1:NSIZES); the value of
 *>    each element NN(j) specifies one size.
@@ -268,6 +278,13 @@
 *>           On exit, WR1 + WI1*i are the eigenvalues of the matrix in A.
 *>           Modified.
 *>
+*>  WR2    - DOUBLE PRECISION array, dimension (max(NN))
+*>  WI2    - DOUBLE PRECISION array, dimension (max(NN))
+*>           The real and imaginary parts of the eigenvalues of A,
+*>           as computed when T is computed but not Z.
+*>           On exit, WR2 + WI2*i are the eigenvalues of the matrix in A.
+*>           Modified.
+*>
 *>  WR3    - DOUBLE PRECISION array, dimension (max(NN))
 *>  WI3    - DOUBLE PRECISION array, dimension (max(NN))
 *>           Like WR1, WI1, these arrays contain the eigenvalues of A,
@@ -324,7 +341,7 @@
 *>           Workspace.
 *>           Modified.
 *>
-*>  RESULT - DOUBLE PRECISION array, dimension (14)
+*>  RESULT - DOUBLE PRECISION array, dimension (16)
 *>           The values computed by the fourteen tests described above.
 *>           The values are currently limited to 1/ulp, to avoid
 *>           overflow.
@@ -389,26 +406,23 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup double_eig
 *
 *  =====================================================================
       SUBROUTINE DCHKHS( NSIZES, NN, NTYPES, DOTYPE, ISEED, THRESH,
      $                   NOUNIT, A, LDA, H, T1, T2, U, LDU, Z, UZ, WR1,
-     $                   WI1, WR3, WI3, EVECTL, EVECTR, EVECTY, EVECTX,
-     $                   UU, TAU, WORK, NWORK, IWORK, SELECT, RESULT,
-     $                   INFO )
+     $                   WI1, WR2, WI2, WR3, WI3, EVECTL, EVECTR,
+     $                   EVECTY, EVECTX, UU, TAU, WORK, NWORK, IWORK,
+     $                   SELECT, RESULT, INFO )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDU, NOUNIT, NSIZES, NTYPES, NWORK
@@ -419,11 +433,11 @@
       INTEGER            ISEED( 4 ), IWORK( * ), NN( * )
       DOUBLE PRECISION   A( LDA, * ), EVECTL( LDU, * ),
      $                   EVECTR( LDU, * ), EVECTX( LDU, * ),
-     $                   EVECTY( LDU, * ), H( LDA, * ), RESULT( 14 ),
+     $                   EVECTY( LDU, * ), H( LDA, * ), RESULT( 16 ),
      $                   T1( LDA, * ), T2( LDA, * ), TAU( * ),
      $                   U( LDU, * ), UU( LDU, * ), UZ( LDU, * ),
-     $                   WI1( * ), WI3( * ), WORK( * ), WR1( * ),
-     $                   WR3( * ), Z( LDU, * )
+     $                   WI1( * ), WI2( * ), WI3( * ), WORK( * ),
+     $                   WR1( * ), WR2( * ), WR3( * ), Z( LDU, * )
 *     ..
 *
 *  =====================================================================
@@ -457,7 +471,7 @@
       EXTERNAL           DCOPY, DGEHRD, DGEMM, DGET10, DGET22, DHSEIN,
      $                   DHSEQR, DHST01, DLABAD, DLACPY, DLAFTS, DLASET,
      $                   DLASUM, DLATME, DLATMR, DLATMS, DORGHR, DORMHR,
-     $                   DTREVC, XERBLA
+     $                   DTREVC, DTREVC3, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, MAX, MIN, SQRT
@@ -557,7 +571,7 @@
 *
 *           Initialize RESULT
 *
-            DO 30 J = 1, 14
+            DO 30 J = 1, 16
                RESULT( J ) = ZERO
    30       CONTINUE
 *
@@ -770,11 +784,11 @@
                END IF
             END IF
 *
-*           Eigenvalues (WR1,WI1) and Full Schur Form (T2)
+*           Eigenvalues (WR2,WI2) and Full Schur Form (T2)
 *
             CALL DLACPY( ' ', N, N, H, LDA, T2, LDA )
 *
-            CALL DHSEQR( 'S', 'N', N, ILO, IHI, T2, LDA, WR1, WI1, UZ,
+            CALL DHSEQR( 'S', 'N', N, ILO, IHI, T2, LDA, WR2, WI2, UZ,
      $                   LDU, WORK, NWORK, IINFO )
             IF( IINFO.NE.0 .AND. IINFO.LE.N+2 ) THEN
                WRITE( NOUNIT, FMT = 9999 )'DHSEQR(S)', IINFO, N, JTYPE,
@@ -787,7 +801,7 @@
 *           (UZ)
 *
             CALL DLACPY( ' ', N, N, H, LDA, T1, LDA )
-            CALL DLACPY( ' ', N, N, U, LDU, UZ, LDA )
+            CALL DLACPY( ' ', N, N, U, LDU, UZ, LDU )
 *
             CALL DHSEQR( 'S', 'V', N, ILO, IHI, T1, LDA, WR1, WI1, UZ,
      $                   LDU, WORK, NWORK, IINFO )
@@ -820,15 +834,15 @@
 *
             CALL DGET10( N, N, T2, LDA, T1, LDA, WORK, RESULT( 7 ) )
 *
-*           Do Test 8: | W3 - W1 | / ( max(|W1|,|W3|) ulp )
+*           Do Test 8: | W2 - W1 | / ( max(|W1|,|W2|) ulp )
 *
             TEMP1 = ZERO
             TEMP2 = ZERO
             DO 130 J = 1, N
                TEMP1 = MAX( TEMP1, ABS( WR1( J ) )+ABS( WI1( J ) ),
-     $                 ABS( WR3( J ) )+ABS( WI3( J ) ) )
-               TEMP2 = MAX( TEMP2, ABS( WR1( J )-WR3( J ) )+
-     $                 ABS( WR1( J )-WR3( J ) ) )
+     $                 ABS( WR2( J ) )+ABS( WI2( J ) ) )
+               TEMP2 = MAX( TEMP2, ABS( WR1( J )-WR2( J ) )+
+     &                 ABS( WI1( J )-WI2( J ) ) )
   130       CONTINUE
 *
             RESULT( 8 ) = TEMP2 / MAX( UNFL, ULP*MAX( TEMP1, TEMP2 ) )
@@ -1102,6 +1116,64 @@
      $                      WI3, WORK, DUMMA( 3 ) )
                IF( DUMMA( 3 ).LT.ULPINV )
      $            RESULT( 14 ) = DUMMA( 3 )*ANINV
+            END IF
+*
+*           Compute Left and Right Eigenvectors of A
+*
+*           Compute a Right eigenvector matrix:
+*
+            NTEST = 15
+            RESULT( 15 ) = ULPINV
+*
+            CALL DLACPY( ' ', N, N, UZ, LDU, EVECTR, LDU )
+*
+            CALL DTREVC3( 'Right', 'Back', SELECT, N, T1, LDA, DUMMA,
+     $                    LDU, EVECTR, LDU, N, IN, WORK, NWORK, IINFO )
+            IF( IINFO.NE.0 ) THEN
+               WRITE( NOUNIT, FMT = 9999 )'DTREVC3(R,B)', IINFO, N,
+     $            JTYPE, IOLDSD
+               INFO = ABS( IINFO )
+               GO TO 250
+            END IF
+*
+*           Test 15:  | AR - RW | / ( |A| |R| ulp )
+*
+*                     (from Schur decomposition)
+*
+            CALL DGET22( 'N', 'N', 'N', N, A, LDA, EVECTR, LDU, WR1,
+     $                   WI1, WORK, DUMMA( 1 ) )
+            RESULT( 15 ) = DUMMA( 1 )
+            IF( DUMMA( 2 ).GT.THRESH ) THEN
+               WRITE( NOUNIT, FMT = 9998 )'Right', 'DTREVC3',
+     $            DUMMA( 2 ), N, JTYPE, IOLDSD
+            END IF
+*
+*           Compute a Left eigenvector matrix:
+*
+            NTEST = 16
+            RESULT( 16 ) = ULPINV
+*
+            CALL DLACPY( ' ', N, N, UZ, LDU, EVECTL, LDU )
+*
+            CALL DTREVC3( 'Left', 'Back', SELECT, N, T1, LDA, EVECTL,
+     $                    LDU, DUMMA, LDU, N, IN, WORK, NWORK, IINFO )
+            IF( IINFO.NE.0 ) THEN
+               WRITE( NOUNIT, FMT = 9999 )'DTREVC3(L,B)', IINFO, N,
+     $            JTYPE, IOLDSD
+               INFO = ABS( IINFO )
+               GO TO 250
+            END IF
+*
+*           Test 16:  | LA - WL | / ( |A| |L| ulp )
+*
+*                     (from Schur decomposition)
+*
+            CALL DGET22( 'Trans', 'N', 'Conj', N, A, LDA, EVECTL, LDU,
+     $                   WR1, WI1, WORK, DUMMA( 3 ) )
+            RESULT( 16 ) = DUMMA( 3 )
+            IF( DUMMA( 4 ).GT.THRESH ) THEN
+               WRITE( NOUNIT, FMT = 9998 )'Left', 'DTREVC3', DUMMA( 4 ),
+     $            N, JTYPE, IOLDSD
             END IF
 *
 *           End of Loop -- Check for RESULT(j) > THRESH

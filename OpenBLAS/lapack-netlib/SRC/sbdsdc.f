@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download SBDSDC + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sbdsdc.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sbdsdc.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sbdsdc.f"> 
+*> Download SBDSDC + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sbdsdc.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sbdsdc.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sbdsdc.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SBDSDC( UPLO, COMPQ, N, D, E, U, LDU, VT, LDVT, Q, IQ,
 *                          WORK, IWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          COMPQ, UPLO
 *       INTEGER            INFO, LDU, LDVT, N
@@ -30,7 +30,7 @@
 *       REAL               D( * ), E( * ), Q( * ), U( LDU, * ),
 *      $                   VT( LDVT, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -44,13 +44,6 @@
 *> U and VT are orthogonal matrices of left and right singular vectors,
 *> respectively. SBDSDC can be used to compute all singular values,
 *> and optionally, singular vectors or singular vectors in compact form.
-*>
-*> This code makes very mild assumptions about floating point
-*> arithmetic. It will work on machines with a guard digit in
-*> add/subtract, or on those binary machines without guard digits
-*> which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or Cray-2.
-*> It could conceivably fail on hexadecimal or decimal machines
-*> without guard digits, but we know of none.  See SLASD3 for details.
 *>
 *> The code currently calls SLASDQ if singular values only are desired.
 *> However, it can be slightly modified to compute singular values
@@ -186,12 +179,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup auxOTHERcomputational
 *
@@ -205,10 +196,9 @@
       SUBROUTINE SBDSDC( UPLO, COMPQ, N, D, E, U, LDU, VT, LDVT, Q, IQ,
      $                   WORK, IWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          COMPQ, UPLO
@@ -316,7 +306,7 @@
       END IF
       IF( IUPLO.EQ.2 ) THEN
          QSTART = 5
-         WSTART = 2*N - 1
+         IF( ICOMPQ .EQ. 2 ) WSTART = 2*N - 1
          DO 10 I = 1, N - 1
             CALL SLARTG( D( I ), E( I ), CS, SN, R )
             D( I ) = R
@@ -335,8 +325,11 @@
 *     If ICOMPQ = 0, use SLASDQ to compute the singular values.
 *
       IF( ICOMPQ.EQ.0 ) THEN
+*        Ignore WSTART, instead using WORK( 1 ), since the two vectors
+*        for CS and -SN above are added only if ICOMPQ == 2,
+*        and adding them exceeds documented WORK size of 4*n.
          CALL SLASDQ( 'U', 0, N, 0, 0, 0, D, E, VT, LDVT, U, LDU, U,
-     $                LDU, WORK( WSTART ), INFO )
+     $                LDU, WORK( 1 ), INFO )
          GO TO 40
       END IF
 *

@@ -2,14 +2,14 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE SPOT01( UPLO, N, A, LDA, AFAC, LDAFAC, RWORK, RESID )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            LDA, LDAFAC, N
@@ -18,7 +18,7 @@
 *       .. Array Arguments ..
 *       REAL               A( LDA, * ), AFAC( LDAFAC, * ), RWORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -65,10 +65,10 @@
 *> \param[in,out] AFAC
 *> \verbatim
 *>          AFAC is REAL array, dimension (LDAFAC,N)
-*>          On entry, the factor L or U from the L*L' or U'*U
+*>          On entry, the factor L or U from the L * L**T or U**T * U
 *>          factorization of A.
-*>          Overwritten with the reconstructed matrix, and then with the
-*>          difference L*L' - A (or U'*U - A).
+*>          Overwritten with the reconstructed matrix, and then with
+*>          the difference L * L**T - A (or U**T * U - A).
 *> \endverbatim
 *>
 *> \param[in] LDAFAC
@@ -85,29 +85,26 @@
 *> \param[out] RESID
 *> \verbatim
 *>          RESID is REAL
-*>          If UPLO = 'L', norm(L*L' - A) / ( N * norm(A) * EPS )
-*>          If UPLO = 'U', norm(U'*U - A) / ( N * norm(A) * EPS )
+*>          If UPLO = 'L', norm(L * L**T - A) / ( N * norm(A) * EPS )
+*>          If UPLO = 'U', norm(U**T * U - A) / ( N * norm(A) * EPS )
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup single_lin
 *
 *  =====================================================================
       SUBROUTINE SPOT01( UPLO, N, A, LDA, AFAC, LDAFAC, RWORK, RESID )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -157,7 +154,7 @@
          RETURN
       END IF
 *
-*     Compute the product U'*U, overwriting U.
+*     Compute the product U**T * U, overwriting U.
 *
       IF( LSAME( UPLO, 'U' ) ) THEN
          DO 10 K = N, 1, -1
@@ -174,7 +171,7 @@
 *
    10    CONTINUE
 *
-*     Compute the product L*L', overwriting L.
+*     Compute the product L * L**T, overwriting L.
 *
       ELSE
          DO 20 K = N, 1, -1
@@ -194,7 +191,7 @@
    20    CONTINUE
       END IF
 *
-*     Compute the difference  L*L' - A (or U'*U - A).
+*     Compute the difference L * L**T - A (or U**T * U - A).
 *
       IF( LSAME( UPLO, 'U' ) ) THEN
          DO 40 J = 1, N

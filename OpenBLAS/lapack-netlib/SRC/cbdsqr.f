@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download CBDSQR + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cbdsqr.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cbdsqr.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cbdsqr.f"> 
+*> Download CBDSQR + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cbdsqr.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cbdsqr.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cbdsqr.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CBDSQR( UPLO, N, NCVT, NRU, NCC, D, E, VT, LDVT, U,
 *                          LDU, C, LDC, RWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDC, LDU, LDVT, N, NCC, NCVT, NRU
@@ -29,7 +29,7 @@
 *       REAL               D( * ), E( * ), RWORK( * )
 *       COMPLEX            C( LDC, * ), U( LDU, * ), VT( LDVT, * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -40,9 +40,9 @@
 *> left singular vectors from the singular value decomposition (SVD) of
 *> a real N-by-N (upper or lower) bidiagonal matrix B using the implicit
 *> zero-shift QR algorithm.  The SVD of B has the form
-*> 
+*>
 *>    B = Q * S * P**H
-*> 
+*>
 *> where S is the diagonal matrix of singular values, Q is an orthogonal
 *> matrix of left singular vectors, and P is an orthogonal matrix of
 *> right singular vectors.  If left singular vectors are requested, this
@@ -51,9 +51,9 @@
 *> P**H, for given complex input matrices U and VT.  When U and VT are
 *> the unitary matrices that reduce a general matrix A to bidiagonal
 *> form: A = U*B*VT, as computed by CGEBRD, then
-*> 
+*>
 *>    A = (U*Q) * S * (P**H*VT)
-*> 
+*>
 *> is the SVD of A.  Optionally, the subroutine may also compute Q**H*C
 *> for a given complex input matrix C.
 *>
@@ -166,8 +166,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is REAL array, dimension (2*N)
-*>          if NCVT = NRU = NCC = 0, (max(1, 4*N-4)) otherwise
+*>          RWORK is REAL array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -205,28 +204,36 @@
 *>          algorithm through its inner loop. The algorithms stops
 *>          (and so fails to converge) if the number of passes
 *>          through the inner loop exceeds MAXITR*N**2.
+*>
+*> \endverbatim
+*
+*> \par Note:
+*  ===========
+*>
+*> \verbatim
+*>  Bug report from Cezary Dendek.
+*>  On November 3rd 2023, the INTEGER variable MAXIT = MAXITR*N**2 is
+*>  removed since it can overflow pretty easily (for N larger or equal
+*>  than 18,919). We instead use MAXITDIVN = MAXITR*N.
 *> \endverbatim
 *
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complexOTHERcomputational
+*> \ingroup bdsqr
 *
 *  =====================================================================
       SUBROUTINE CBDSQR( UPLO, N, NCVT, NRU, NCC, D, E, VT, LDVT, U,
      $                   LDU, C, LDC, RWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.4.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
@@ -259,11 +266,11 @@
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LOWER, ROTATE
-      INTEGER            I, IDIR, ISUB, ITER, J, LL, LLL, M, MAXIT, NM1,
-     $                   NM12, NM13, OLDLL, OLDM
+      INTEGER            I, IDIR, ISUB, ITER, ITERDIVN, J, LL, LLL, M,
+     $                   MAXITDIVN, NM1, NM12, NM13, OLDLL, OLDM
       REAL               ABSE, ABSS, COSL, COSR, CS, EPS, F, G, H, MU,
      $                   OLDCS, OLDSN, R, SHIFT, SIGMN, SIGMX, SINL,
-     $                   SINR, SLL, SMAX, SMIN, SMINL, SMINOA,
+     $                   SINR, SLL, SMAX, SMIN, SMINOA,
      $                   SN, THRESH, TOL, TOLMUL, UNFL
 *     ..
 *     .. External Functions ..
@@ -322,7 +329,7 @@
          CALL SLASQ1( N, D, E, RWORK, INFO )
 *
 *     If INFO equals 2, dqds didn't finish, try to finish
-*         
+*
          IF( INFO .NE. 2 ) RETURN
          INFO = 0
       END IF
@@ -376,7 +383,7 @@
       DO 30 I = 1, N - 1
          SMAX = MAX( SMAX, ABS( E( I ) ) )
    30 CONTINUE
-      SMINL = ZERO
+      SMIN = ZERO
       IF( TOL.GE.ZERO ) THEN
 *
 *        Relative accuracy desired
@@ -393,20 +400,21 @@
    40    CONTINUE
    50    CONTINUE
          SMINOA = SMINOA / SQRT( REAL( N ) )
-         THRESH = MAX( TOL*SMINOA, MAXITR*N*N*UNFL )
+         THRESH = MAX( TOL*SMINOA, MAXITR*(N*(N*UNFL)) )
       ELSE
 *
 *        Absolute accuracy desired
 *
-         THRESH = MAX( ABS( TOL )*SMAX, MAXITR*N*N*UNFL )
+         THRESH = MAX( ABS( TOL )*SMAX, MAXITR*(N*(N*UNFL)) )
       END IF
 *
 *     Prepare for main iteration loop for the singular values
 *     (MAXIT is the maximum number of passes through the inner
 *     loop permitted before nonconvergence signalled.)
 *
-      MAXIT = MAXITR*N*N
-      ITER = 0
+      MAXITDIVN = MAXITR*N
+      ITERDIVN = 0
+      ITER = -1
       OLDLL = -1
       OLDM = -1
 *
@@ -422,15 +430,18 @@
 *
       IF( M.LE.1 )
      $   GO TO 160
-      IF( ITER.GT.MAXIT )
-     $   GO TO 200
+      IF( ITER.GE.N ) THEN
+         ITER = ITER - N
+         ITERDIVN = ITERDIVN + 1
+         IF( ITERDIVN.GE.MAXITDIVN )
+     $      GO TO 200
+      END IF
 *
 *     Find diagonal block of matrix to work on
 *
       IF( TOL.LT.ZERO .AND. ABS( D( M ) ).LE.THRESH )
      $   D( M ) = ZERO
       SMAX = ABS( D( M ) )
-      SMIN = SMAX
       DO 70 LLL = 1, M - 1
          LL = M - LLL
          ABSS = ABS( D( LL ) )
@@ -439,7 +450,6 @@
      $      D( LL ) = ZERO
          IF( ABSE.LE.THRESH )
      $      GO TO 80
-         SMIN = MIN( SMIN, ABSS )
          SMAX = MAX( SMAX, ABSS, ABSE )
    70 CONTINUE
       LL = 0
@@ -521,14 +531,14 @@
 *           apply convergence criterion forward
 *
             MU = ABS( D( LL ) )
-            SMINL = MU
+            SMIN = MU
             DO 100 LLL = LL, M - 1
                IF( ABS( E( LLL ) ).LE.TOL*MU ) THEN
                   E( LLL ) = ZERO
                   GO TO 60
                END IF
                MU = ABS( D( LLL+1 ) )*( MU / ( MU+ABS( E( LLL ) ) ) )
-               SMINL = MIN( SMINL, MU )
+               SMIN = MIN( SMIN, MU )
   100       CONTINUE
          END IF
 *
@@ -549,14 +559,14 @@
 *           apply convergence criterion backward
 *
             MU = ABS( D( M ) )
-            SMINL = MU
+            SMIN = MU
             DO 110 LLL = M - 1, LL, -1
                IF( ABS( E( LLL ) ).LE.TOL*MU ) THEN
                   E( LLL ) = ZERO
                   GO TO 60
                END IF
                MU = ABS( D( LLL ) )*( MU / ( MU+ABS( E( LLL ) ) ) )
-               SMINL = MIN( SMINL, MU )
+               SMIN = MIN( SMIN, MU )
   110       CONTINUE
          END IF
       END IF
@@ -566,7 +576,7 @@
 *     Compute shift.  First, test if shifting would ruin relative
 *     accuracy, and if so set the shift to zero.
 *
-      IF( TOL.GE.ZERO .AND. N*TOL*( SMINL / SMAX ).LE.
+      IF( TOL.GE.ZERO .AND. N*TOL*( SMIN / SMAX ).LE.
      $    MAX( EPS, HNDRTH*TOL ) ) THEN
 *
 *        Use a zero shift to avoid loss of relative accuracy

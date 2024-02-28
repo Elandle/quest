@@ -34,6 +34,11 @@ typedef long BLASLONG;
 typedef unsigned long BLASULONG;
 #endif
 
+#ifndef BFLOAT16
+#include <stdint.h>
+typedef uint16_t bfloat16;
+#endif
+
 #ifdef OPENBLAS_USE64BITINT
 typedef BLASLONG blasint;
 #else
@@ -58,8 +63,8 @@ typedef int blasint;
 /* C99 supports complex floating numbers natively, which GCC also offers as an
    extension since version 3.0.  If neither are available, use a compatible
    structure as fallback (see Clause 6.2.5.13 of the C99 standard). */
-#if (defined(__STDC_IEC_559_COMPLEX__) || __STDC_VERSION__ >= 199901L || \
-     (__GNUC__ >= 3 && !defined(__cplusplus)))
+#if ((defined(__STDC_IEC_559_COMPLEX__) || __STDC_VERSION__ >= 199901L || \
+      (__GNUC__ >= 3 && !defined(__cplusplus))) && !(defined(FORCE_OPENBLAS_COMPLEX_STRUCT))) && !defined(_MSC_VER)
   #define OPENBLAS_COMPLEX_C99
 #ifndef __cplusplus
   #include <complex.h>
@@ -90,4 +95,12 @@ typedef int blasint;
   #define openblas_complex_double_imag(z)            ((z).imag)
   #define openblas_complex_xdouble_real(z)           ((z).real)
   #define openblas_complex_xdouble_imag(z)           ((z).imag)
+#endif
+
+/* Inclusion of Linux-specific header is needed for definition of cpu_set_t. */
+#ifdef OPENBLAS_OS_LINUX
+#ifndef _GNU_SOURCE
+ #define _GNU_SOURCE
+#endif
+#include <sched.h>
 #endif

@@ -2,15 +2,15 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE CDRVRF3( NOUT, NN, NVAL, THRESH, A, LDA, ARF, B1, B2,
 *      +                    S_WORK_CLANGE, C_WORK_CGEQRF, TAU )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, NN, NOUT
 *       REAL               THRESH
@@ -22,7 +22,7 @@
 *      +                   B2( LDA, * )
 *       COMPLEX            C_WORK_CGEQRF( * ), TAU( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -106,12 +106,10 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
-*
-*> \date November 2011
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
 *> \ingroup complex_lin
 *
@@ -119,10 +117,9 @@
       SUBROUTINE CDRVRF3( NOUT, NN, NVAL, THRESH, A, LDA, ARF, B1, B2,
      +                    S_WORK_CLANGE, C_WORK_CGEQRF, TAU )
 *
-*  -- LAPACK test routine (version 3.4.0) --
+*  -- LAPACK test routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, NN, NOUT
@@ -159,9 +156,10 @@
       REAL               RESULT( NTESTS )
 *     ..
 *     .. External Functions ..
+      LOGICAL            LSAME
       REAL               SLAMCH, CLANGE
       COMPLEX            CLARND
-      EXTERNAL           SLAMCH, CLARND, CLANGE
+      EXTERNAL           SLAMCH, CLARND, CLANGE, LSAME
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           CTRTTF, CGEQRF, CGEQLF, CTFSM, CTRSM
@@ -225,9 +223,9 @@
 *
                            DO 100 IALPHA = 1, 3
 *
-                              IF ( IALPHA.EQ. 1) THEN
+                              IF ( IALPHA.EQ.1 ) THEN
                                  ALPHA = ZERO
-                              ELSE IF ( IALPHA.EQ. 1) THEN
+                              ELSE IF ( IALPHA.EQ.2 ) THEN
                                  ALPHA = ONE
                               ELSE
                                  ALPHA = CLARND( 4, ISEED )
@@ -257,16 +255,16 @@
                               END IF
 *
 *                             Generate A our NA--by--NA triangular
-*                             matrix. 
+*                             matrix.
 *                             Our test is based on forward error so we
-*                             do want A to be well conditionned! To get
-*                             a well-conditionned triangular matrix, we
+*                             do want A to be well conditioned! To get
+*                             a well-conditioned triangular matrix, we
 *                             take the R factor of the QR/LQ factorization
-*                             of a random matrix. 
+*                             of a random matrix.
 *
                               DO J = 1, NA
                                  DO I = 1, NA
-                                    A( I, J) = CLARND( 4, ISEED )
+                                    A( I, J ) = CLARND( 4, ISEED )
                                  END DO
                               END DO
 *
@@ -279,6 +277,20 @@
                                  CALL CGEQRF( NA, NA, A, LDA, TAU,
      +                                        C_WORK_CGEQRF, LDA,
      +                                        INFO )
+*
+*                                Forcing main diagonal of test matrix to
+*                                be unit makes it ill-conditioned for
+*                                some test cases
+*
+                                 IF ( LSAME( DIAG, 'U' ) ) THEN
+                                    DO J = 1, NA
+                                       DO I = 1, J
+                                          A( I, J ) = A( I, J ) /
+     +                                            ( 2.0 * A( J, J ) )
+                                       END DO
+                                    END DO
+                                 END IF
+*
                               ELSE
 *
 *                                The case IUPLO.EQ.2 is when SIDE.EQ.'L'
@@ -288,15 +300,30 @@
                                  CALL CGELQF( NA, NA, A, LDA, TAU,
      +                                        C_WORK_CGEQRF, LDA,
      +                                        INFO )
+*
+*                                Forcing main diagonal of test matrix to
+*                                be unit makes it ill-conditioned for
+*                                some test cases
+*
+                                 IF ( LSAME( DIAG, 'U' ) ) THEN
+                                    DO I = 1, NA
+                                       DO J = 1, I
+                                          A( I, J ) = A( I, J ) /
+     +                                            ( 2.0 * A( I, I ) )
+                                       END DO
+                                    END DO
+                                 END IF
+*
                               END IF
 *
 *                             After the QR factorization, the diagonal
 *                             of A is made of real numbers, we multiply
-*                             by a random complex number of absolute 
+*                             by a random complex number of absolute
 *                             value 1.0E+00.
 *
                               DO J = 1, NA
-                                 A( J, J) = A(J,J) * CLARND( 5, ISEED )
+                                 A( J, J ) = A( J, J ) *
+     +                                   CLARND( 5, ISEED )
                               END DO
 *
 *                             Store a copy of A in RFP format (in ARF).
@@ -310,8 +337,8 @@
 *
                               DO J = 1, N
                                  DO I = 1, M
-                                    B1( I, J) = CLARND( 4, ISEED )
-                                    B2( I, J) = B1( I, J)
+                                    B1( I, J ) = CLARND( 4, ISEED )
+                                    B2( I, J ) = B1( I, J )
                                  END DO
                               END DO
 *
@@ -334,24 +361,24 @@
 *
                               DO J = 1, N
                                  DO I = 1, M
-                                    B1( I, J) = B2( I, J ) - B1( I, J )
+                                    B1( I, J ) = B2( I, J ) - B1( I, J )
                                  END DO
                               END DO
 *
-                              RESULT(1) = CLANGE( 'I', M, N, B1, LDA,
+                              RESULT( 1 ) = CLANGE( 'I', M, N, B1, LDA,
      +                                            S_WORK_CLANGE )
 *
-                              RESULT(1) = RESULT(1) / SQRT( EPS )
-     +                                    / MAX ( MAX( M, N), 1 )
+                              RESULT( 1 ) = RESULT( 1 ) / SQRT( EPS )
+     +                                    / MAX ( MAX( M, N ), 1 )
 *
-                              IF( RESULT(1).GE.THRESH ) THEN
+                              IF( RESULT( 1 ).GE.THRESH ) THEN
                                  IF( NFAIL.EQ.0 ) THEN
                                     WRITE( NOUT, * )
                                     WRITE( NOUT, FMT = 9999 )
                                  END IF
-                                 WRITE( NOUT, FMT = 9997 ) 'CTFSM', 
+                                 WRITE( NOUT, FMT = 9997 ) 'CTFSM',
      +                              CFORM, SIDE, UPLO, TRANS, DIAG, M,
-     +                              N, RESULT(1)
+     +                              N, RESULT( 1 )
                                  NFAIL = NFAIL + 1
                               END IF
 *
@@ -372,7 +399,7 @@
          WRITE( NOUT, FMT = 9995 ) 'CTFSM', NFAIL, NRUN
       END IF
 *
- 9999 FORMAT( 1X, ' *** Error(s) or Failure(s) while testing CTFSM 
+ 9999 FORMAT( 1X, ' *** Error(s) or Failure(s) while testing CTFSM
      +         ***')
  9997 FORMAT( 1X, '     Failure in ',A5,', CFORM=''',A1,''',',
      + ' SIDE=''',A1,''',',' UPLO=''',A1,''',',' TRANS=''',A1,''',',

@@ -2,25 +2,25 @@
 *
 *  =========== DOCUMENTATION ===========
 *
-* Online html documentation available at 
-*            http://www.netlib.org/lapack/explore-html/ 
+* Online html documentation available at
+*            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download ZGELSS + dependencies 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zgelss.f"> 
-*> [TGZ]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zgelss.f"> 
-*> [ZIP]</a> 
-*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zgelss.f"> 
+*> Download ZGELSS + dependencies
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zgelss.f">
+*> [TGZ]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zgelss.f">
+*> [ZIP]</a>
+*> <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zgelss.f">
 *> [TXT]</a>
-*> \endhtmlonly 
+*> \endhtmlonly
 *
 *  Definition:
 *  ===========
 *
 *       SUBROUTINE ZGELSS( M, N, NRHS, A, LDA, B, LDB, S, RCOND, RANK,
 *                          WORK, LWORK, RWORK, INFO )
-* 
+*
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
 *       DOUBLE PRECISION   RCOND
@@ -29,7 +29,7 @@
 *       DOUBLE PRECISION   RWORK( * ), S( * )
 *       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
-*  
+*
 *
 *> \par Purpose:
 *  =============
@@ -165,23 +165,20 @@
 *  Authors:
 *  ========
 *
-*> \author Univ. of Tennessee 
-*> \author Univ. of California Berkeley 
-*> \author Univ. of Colorado Denver 
-*> \author NAG Ltd. 
+*> \author Univ. of Tennessee
+*> \author Univ. of California Berkeley
+*> \author Univ. of Colorado Denver
+*> \author NAG Ltd.
 *
-*> \date November 2011
-*
-*> \ingroup complex16GEsolve
+*> \ingroup gelss
 *
 *  =====================================================================
       SUBROUTINE ZGELSS( M, N, NRHS, A, LDA, B, LDB, S, RCOND, RANK,
      $                   WORK, LWORK, RWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.4.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2011
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
@@ -215,10 +212,9 @@
       COMPLEX*16         DUM( 1 )
 *     ..
 *     .. External Subroutines ..
-      EXTERNAL           DLABAD, DLASCL, DLASET, XERBLA, ZBDSQR, ZCOPY,
-     $                   ZDRSCL, ZGEBRD, ZGELQF, ZGEMM, ZGEMV, ZGEQRF,
-     $                   ZLACPY, ZLASCL, ZLASET, ZUNGBR, ZUNMBR, ZUNMLQ,
-     $                   ZUNMQR
+      EXTERNAL           DLASCL, DLASET, XERBLA, ZBDSQR, ZCOPY, ZDRSCL,
+     $                   ZGEBRD, ZGELQF, ZGEMM, ZGEMV, ZGEQRF, ZLACPY,
+     $                   ZLASCL, ZLASET, ZUNGBR, ZUNMBR, ZUNMLQ
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
@@ -269,11 +265,11 @@
 *
 *              Compute space needed for ZGEQRF
                CALL ZGEQRF( M, N, A, LDA, DUM(1), DUM(1), -1, INFO )
-               LWORK_ZGEQRF=DUM(1)
+               LWORK_ZGEQRF = INT( DUM(1) )
 *              Compute space needed for ZUNMQR
                CALL ZUNMQR( 'L', 'C', M, NRHS, N, A, LDA, DUM(1), B,
      $                   LDB, DUM(1), -1, INFO )
-               LWORK_ZUNMQR=DUM(1)
+               LWORK_ZUNMQR = INT( DUM(1) )
                MM = N
                MAXWRK = MAX( MAXWRK, N + N*ILAENV( 1, 'ZGEQRF', ' ', M,
      $                       N, -1, -1 ) )
@@ -285,18 +281,18 @@
 *              Path 1 - overdetermined or exactly determined
 *
 *              Compute space needed for ZGEBRD
-               CALL ZGEBRD( MM, N, A, LDA, S, DUM(1), DUM(1),
-     $                      DUM(1), DUM(1), -1, INFO )
-               LWORK_ZGEBRD=DUM(1)
+               CALL ZGEBRD( MM, N, A, LDA, S, S, DUM(1), DUM(1), DUM(1),
+     $                      -1, INFO )
+               LWORK_ZGEBRD = INT( DUM(1) )
 *              Compute space needed for ZUNMBR
                CALL ZUNMBR( 'Q', 'L', 'C', MM, NRHS, N, A, LDA, DUM(1),
      $                B, LDB, DUM(1), -1, INFO )
-               LWORK_ZUNMBR=DUM(1)
+               LWORK_ZUNMBR = INT( DUM(1) )
 *              Compute space needed for ZUNGBR
                CALL ZUNGBR( 'P', N, N, N, A, LDA, DUM(1),
      $                   DUM(1), -1, INFO )
-               LWORK_ZUNGBR=DUM(1)
-*              Compute total workspace needed 
+               LWORK_ZUNGBR = INT( DUM(1) )
+*              Compute total workspace needed
                MAXWRK = MAX( MAXWRK, 2*N + LWORK_ZGEBRD )
                MAXWRK = MAX( MAXWRK, 2*N + LWORK_ZUNMBR )
                MAXWRK = MAX( MAXWRK, 2*N + LWORK_ZUNGBR )
@@ -313,24 +309,24 @@
 *                 Compute space needed for ZGELQF
                   CALL ZGELQF( M, N, A, LDA, DUM(1), DUM(1),
      $                -1, INFO )
-                  LWORK_ZGELQF=DUM(1)
+                  LWORK_ZGELQF = INT( DUM(1) )
 *                 Compute space needed for ZGEBRD
-                  CALL ZGEBRD( M, M, A, LDA, S, DUM(1), DUM(1),
-     $                      DUM(1), DUM(1), -1, INFO )
-                  LWORK_ZGEBRD=DUM(1)
+                  CALL ZGEBRD( M, M, A, LDA, S, S, DUM(1), DUM(1),
+     $                         DUM(1), -1, INFO )
+                  LWORK_ZGEBRD = INT( DUM(1) )
 *                 Compute space needed for ZUNMBR
-                  CALL ZUNMBR( 'Q', 'L', 'C', M, NRHS, N, A, LDA, 
+                  CALL ZUNMBR( 'Q', 'L', 'C', M, NRHS, N, A, LDA,
      $                DUM(1), B, LDB, DUM(1), -1, INFO )
-                  LWORK_ZUNMBR=DUM(1)
+                  LWORK_ZUNMBR = INT( DUM(1) )
 *                 Compute space needed for ZUNGBR
                   CALL ZUNGBR( 'P', M, M, M, A, LDA, DUM(1),
      $                   DUM(1), -1, INFO )
-                  LWORK_ZUNGBR=DUM(1)
+                  LWORK_ZUNGBR = INT( DUM(1) )
 *                 Compute space needed for ZUNMLQ
                   CALL ZUNMLQ( 'L', 'C', N, NRHS, M, A, LDA, DUM(1),
      $                 B, LDB, DUM(1), -1, INFO )
-                  LWORK_ZUNMLQ=DUM(1)
-*                 Compute total workspace needed 
+                  LWORK_ZUNMLQ = INT( DUM(1) )
+*                 Compute total workspace needed
                   MAXWRK = M + LWORK_ZGELQF
                   MAXWRK = MAX( MAXWRK, 3*M + M*M + LWORK_ZGEBRD )
                   MAXWRK = MAX( MAXWRK, 3*M + M*M + LWORK_ZUNMBR )
@@ -346,17 +342,17 @@
 *                 Path 2 - underdetermined
 *
 *                 Compute space needed for ZGEBRD
-                  CALL ZGEBRD( M, N, A, LDA, S, DUM(1), DUM(1),
-     $                      DUM(1), DUM(1), -1, INFO )
-                  LWORK_ZGEBRD=DUM(1)
+                  CALL ZGEBRD( M, N, A, LDA, S, S, DUM(1), DUM(1),
+     $                         DUM(1), -1, INFO )
+                  LWORK_ZGEBRD = INT( DUM(1) )
 *                 Compute space needed for ZUNMBR
-                  CALL ZUNMBR( 'Q', 'L', 'C', M, NRHS, M, A, LDA, 
+                  CALL ZUNMBR( 'Q', 'L', 'C', M, NRHS, M, A, LDA,
      $                DUM(1), B, LDB, DUM(1), -1, INFO )
-                  LWORK_ZUNMBR=DUM(1)
+                  LWORK_ZUNMBR = INT( DUM(1) )
 *                 Compute space needed for ZUNGBR
                   CALL ZUNGBR( 'P', M, N, M, A, LDA, DUM(1),
      $                   DUM(1), -1, INFO )
-                  LWORK_ZUNGBR=DUM(1)
+                  LWORK_ZUNGBR = INT( DUM(1) )
                   MAXWRK = 2*M + LWORK_ZGEBRD
                   MAXWRK = MAX( MAXWRK, 2*M + LWORK_ZUNMBR )
                   MAXWRK = MAX( MAXWRK, 2*M + LWORK_ZUNGBR )
@@ -391,7 +387,6 @@
       SFMIN = DLAMCH( 'S' )
       SMLNUM = SFMIN / EPS
       BIGNUM = ONE / SMLNUM
-      CALL DLABAD( SMLNUM, BIGNUM )
 *
 *     Scale A if max element outside range [SMLNUM,BIGNUM]
 *
@@ -543,7 +538,7 @@
      $                     LDB, CZERO, WORK, N )
                CALL ZLACPY( 'G', N, BL, WORK, N, B( 1, I ), LDB )
    20       CONTINUE
-         ELSE
+         ELSE IF( NRHS.EQ.1 ) THEN
             CALL ZGEMV( 'C', N, N, CONE, A, LDA, B, 1, CZERO, WORK, 1 )
             CALL ZCOPY( N, WORK, 1, B, 1 )
          END IF
@@ -648,7 +643,7 @@
                CALL ZLACPY( 'G', M, BL, WORK( IWORK ), M, B( 1, I ),
      $                      LDB )
    40       CONTINUE
-         ELSE
+         ELSE IF( NRHS.EQ.1 ) THEN
             CALL ZGEMV( 'C', M, M, CONE, WORK( IL ), LDWORK, B( 1, 1 ),
      $                  1, CZERO, WORK( IWORK ), 1 )
             CALL ZCOPY( M, WORK( IWORK ), 1, B( 1, 1 ), 1 )
@@ -740,7 +735,7 @@
      $                     LDB, CZERO, WORK, N )
                CALL ZLACPY( 'F', N, BL, WORK, N, B( 1, I ), LDB )
    60       CONTINUE
-         ELSE
+         ELSE IF( NRHS.EQ.1 ) THEN
             CALL ZGEMV( 'C', M, N, CONE, A, LDA, B, 1, CZERO, WORK, 1 )
             CALL ZCOPY( N, WORK, 1, B, 1 )
          END IF
