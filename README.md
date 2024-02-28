@@ -28,7 +28,7 @@ other machine installations.
 ### Steps:
   1. Open a terminal and run the Oneapi setvars command: `source /opt/intel/oneapi/setvars.sh` (with a default installation).
   2. Clone this repository `git clone https://github.com/Meromorphics/quest.git` in a suitable folder (default name of cloned repository will be quest).
-  3. Download sprng5 from http://www.sprng.org/ or by running `http://www.sprng.org/Version5.0/sprng5.tar.bz2`
+  3. Download sprng5 from http://www.sprng.org/ or by running `wget http://www.sprng.org/Version5.0/sprng5.tar.bz2`
   4. Untar the download `tar xjf sprng5.tar.bz2`.
   5. Change directories to sprng5 `cd sprng5`, prepare to compile it with Fortran enabled `./configure --with-fortran=yes`, then compile it `make`.
   6. Get out of the sprng5 directory `cd ..`, and move it to quest/SRC `mv sprng5 quest/SRC`.
