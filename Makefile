@@ -187,7 +187,6 @@ export
 all : libdqmc example
 
 libdqmc :
-	(cd SRC/sprng5; ./configure; $(MAKE))
 	(cd SRC; $(MAKE))
 example : libdqmc
 	(cd EXAMPLE; $(MAKE))
@@ -202,4 +201,3 @@ clean :
 	(cd $(QUEST_DIR)/SRC; $(MAKE) clean)
 	(cd $(QUEST_DIR)/EXAMPLE; $(MAKE) clean)
 	(rm -f $(QUEST_DIR)/$(DQMCLIB))
-	(cd $(QUEST_DIR)/SRC/sprng5; $(MAKE) clean)
