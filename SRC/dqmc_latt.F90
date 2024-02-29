@@ -182,7 +182,7 @@ module DQMC_LATT
             integer, pointer        :: sc(:, :) 
             real*8                  :: projk(rdim), xxat(rdim), xx(rdim), invscc(rdim, rdim), ainv(rdim, rdim), cmin, cmax
  
-            if (.not. lattice%initialized) stop'Need to initialize lattice before construct_lattice'
+            if (.not. lattice%initialized) stop 'Need to initialize lattice before construct_lattice'
             
             ! Initialize local variables/pointers
             ndim   =  lattice%ndim
