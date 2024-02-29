@@ -1,5 +1,5 @@
 module DQMC_TDM1
-#include "dqmc_include.h"
+#   include "dqmc_include.h"
 
     use DQMC_UTIL
     use DQMC_STRUCT
@@ -933,49 +933,49 @@ module DQMC_TDM1
             else
                 mpi_err = 0
 
-    #           ifdef _QMC_MPI
-                ! Average sign
-                call mpi_allreduce(T1%sgn(1), T1%sgn(avg), 1, mpi_double, mpi_sum, mpi_comm_world, mpi_err)
+#               ifdef _QMC_MPI
+                    ! Average sign
+                    call mpi_allreduce(T1%sgn(1), T1%sgn(avg), 1, mpi_double, mpi_sum, mpi_comm_world, mpi_err)
 
-                ! Average properties
-                do iprop = 1, NTDMARRAY
-                    binptr => T1%properties(iprop)%values(:, :, 1)
-                    aveptr => T1%properties(iprop)%value(:, :, avg)
-                    n = T1%properties(iprop)%nClass * T1%L
-                    call mpi_allreduce(binptr, aveptr, n, mpi_double, mpi_sum, mpi_comm_world, mpi_err)
-                enddo
+                    ! Average properties
+                    do iprop = 1, NTDMARRAY
+                        binptr => T1%properties(iprop)%values(:, :, 1)
+                        aveptr => T1%properties(iprop)%value(:, :, avg)
+                        n = T1%properties(iprop)%nClass * T1%L
+                        call mpi_allreduce(binptr, aveptr, n, mpi_double, mpi_sum, mpi_comm_world, mpi_err)
+                    enddo
 
-                ! Compute average over n-1 processors
-                do iprop = 1, NTDMARRAY
-                    binptr => T1%properties(iprop)%values(:, :, 1)
-                    aveptr => T1%properties(iprop)%values(:, :, avg)
-                    binptr = (aveptr - binptr) / dble(nproc - 1)
-                enddo
-                T1%sgn(1)   = (T1%sgn(avg) - T1%sgn(1)) / dble(nproc - 1)
+                    ! Compute average over n-1 processors
+                    do iprop = 1, NTDMARRAY
+                        binptr => T1%properties(iprop)%values(:, :, 1)
+                        aveptr => T1%properties(iprop)%values(:, :, avg)
+                        binptr = (aveptr - binptr) / dble(nproc - 1)
+                    enddo
+                    T1%sgn(1)   = (T1%sgn(avg) - T1%sgn(1)) / dble(nproc - 1)
 
-                ! Store average amongst all processors
-                do iprop = 1, NTDMARRAY
-                    aveptr => T1%properties(iprop)%values(:, :, avg)
-                    aveptr =  aveptr / T1%sgn(avg) 
-                enddo
-                T1%sgn(:, avg)     = T1%sgn(:, avg) / dble(nproc)
+                    ! Store average amongst all processors
+                    do iprop = 1, NTDMARRAY
+                        aveptr => T1%properties(iprop)%values(:, :, avg)
+                        aveptr =  aveptr / T1%sgn(avg) 
+                    enddo
+                    T1%sgn(:, avg)     = T1%sgn(:, avg) / dble(nproc)
 
-                ! Store jackknife in the processor bin
-                do iprop = 1, NTDMARRAY
-                    binptr => T1%properties(iprop)%values(:, :, 1)
-                    binptr =  binptr / T1%sgn(1) 
-                enddo
+                    ! Store jackknife in the processor bin
+                    do iprop = 1, NTDMARRAY
+                        binptr => T1%properties(iprop)%values(:, :, 1)
+                        binptr =  binptr / T1%sgn(1) 
+                    enddo
 
-                ! Compute error
-                do iprop = 1, NTDMARRAY
-                    binptr => T1%properties(iprop)%values(:, :, 1)
-                    errptr => T1%properties(iprop)%values(:, :, err)
-                    n = T1%properties(iprop)%nClass * T1%L
-                    call mpi_allreduce(binptr**2, errptr, n, mpi_double, mpi_sum, mpi_comm_world, mpi_err)
-                    errptr = errptr / dble(nproc) - aveptr**2 
-                    errptr = sqrt(errptr * dble(nproc-1))
-                enddo
-    #           endif
+                    ! Compute error
+                    do iprop = 1, NTDMARRAY
+                        binptr => T1%properties(iprop)%values(:, :, 1)
+                        errptr => T1%properties(iprop)%values(:, :, err)
+                        n = T1%properties(iprop)%nClass * T1%L
+                        call mpi_allreduce(binptr**2, errptr, n, mpi_double, mpi_sum, mpi_comm_world, mpi_err)
+                        errptr = errptr / dble(nproc) - aveptr**2 
+                        errptr = sqrt(errptr * dble(nproc-1))
+                    enddo
+#               endif
             endif
 
         end subroutine DQMC_TDM1_GetErr
@@ -1123,9 +1123,9 @@ module DQMC_TDM1
                         error    => T1%properties(ip)%valuesk(:, it, T1%err)
                         binval   => T1%properties(ip)%valuesk(:, it, 1)
                         temp     =  cmplx((real(average-binval))**2, (aimag(average-binval))**2)
-    #                   ifdef _QMC_MPI
+#                       ifdef _QMC_MPI
                             call mpi_allreduce(temp, error, n, mpi_double, mpi_sum, mpi_comm_world, i)
-    #                   endif
+#                   endif
                         error  = (nproc-1)*error/nproc
                         error = cmplx(sqrt(real(error)), sqrt(aimag(error)))
                     enddo
@@ -1315,9 +1315,9 @@ module DQMC_TDM1
                         m = qmc_sim%size
                         ! Reuse tdmgkw for temporary storage
                         tdmgkw =  cmplx((real(binSE-avgSE))**2,(aimag(binSE-avgSE))**2)
-    #                   ifdef _QMC_MPI
+#                       ifdef _QMC_MPI
                             call mpi_allreduce(tdmgkw, errSE, n, mpi_double_complex, mpi_sum, mpi_comm_world, i)
-    #                   endif
+#                       endif
                     endif
 
                     errSE = cmplx(sqrt(real(errSE)),sqrt(aimag(errSE))) * sqrt(dble(m-1)/m)
