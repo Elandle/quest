@@ -1,5 +1,5 @@
 module DQMC_MATB
-    #include "dqmc_include.h"
+#   include "dqmc_include.h"
     use DQMC_UTIL
     use DQMC_Struct
     use DQMC_WSPACE
