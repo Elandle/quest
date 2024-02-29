@@ -1,10 +1,10 @@
 module DQMC_SEQB
-    #include "dqmc_include.h"
-    #ifdef DQMC_CKB
+#    include "dqmc_include.h"
+#    ifdef DQMC_CKB
         use DQMC_CheckerBoard
-    #else 
+#    else 
         use DQMC_MATB
-    #endif
+#    endif
     use DQMC_UTIL
     use DQMC_WSPACE
 
