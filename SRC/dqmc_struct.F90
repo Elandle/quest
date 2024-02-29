@@ -1,5 +1,5 @@
 module DQMC_STRUCT
-    #include "dqmc_include.h"
+#   include "dqmc_include.h"
     use DQMC_UTIL
     use DQMC_CFG
     implicit none 
