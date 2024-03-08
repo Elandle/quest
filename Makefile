@@ -197,7 +197,6 @@ libopenblas :
 	(cd $(QUEST_DIR)/OpenBLAS; $(MAKE))
 
 clean :
-	(cd $(QUEST_DIR)/OpenBLAS; $(MAKE) clean)
 	(cd $(QUEST_DIR)/SRC; $(MAKE) clean)
 	(cd $(QUEST_DIR)/EXAMPLE; $(MAKE) clean)
 	(rm -f $(QUEST_DIR)/$(DQMCLIB))
