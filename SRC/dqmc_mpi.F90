@@ -1,8 +1,8 @@
 module DQMC_MPI
+    implicit none
 #   ifdef _QMC_MPI
 #       include "mpif.h"
 #   endif
-    implicit none
 
 #   ifdef _QMC_MPI
 #   else
