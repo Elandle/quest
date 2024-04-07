@@ -1,34 +1,65 @@
 ############################################################################
 #  QUEST Makefile    
 ############################################################################
+
+# Top-level directory of QUEST.
+# By default, this is set to the directory of this current Makefile
 QUEST_DIR = $(shell pwd)
 
-# 1) gnu, 2) intel
+# Fortran compiler.
+# Two options:
+#     gnu  : gfortran compiler
+#     intel: intel compiler (ifort)
+# The intel compiler has the best performance (because of its MKL), 
+# but is only available on intel processors.
 COMPILER  = intel
 
-# 1) default, 2) mkl_seq, 3) mkl_par 4) intel
+# LAPACK distribution to use.
+# Four options (only default and intel have been recently tested):
+#     default: OpenBLAS distribution provided with QUEST
+#     mkl_seq: sequential MKL
+#     mkl_par: parallel MKL
+#     intel  : intel MKL
+# Note: the last three options require the intel compiler to be used
+# (since they are all part of intel's MKL library).
+# Note: when using the default LAPACK distribution, OpenBLAS must be compiled manually
+# before compiling QUEST (QUEST does not compile OpenBLAS when calling this Makefile).
+# This can be done by calling the top level Makefile of the OpenBLAS directory.
 LAPACK    = intel
 
-# intel MKL library path
+# Path of the installed intel MKL library.
+# Applicable only if using the intel compiler and its MKL.
+# By default, this is set to the default installation location when installing intel's MKL
 MKLPATH   = $(MKLROOT)/include/intel64/ilp64
 
-# MAGMA library path
+# MAGMA library path.
+# For use when using CUDA.
+# This option is untested.
 MAGMAPATH = 
 
-# nVidia CUDA installation path
+# nVidia CUDA installation path.
+# This option is untested.
 CUDAPATH  = #/usr/lib/nvidia-cuda-toolkit
 
-# Checkboard decomposition
-FLAG_CKB  = #-DDQMC_CKB
+# Whether to use the checkerboard decomposition or not when computing the
+# exponential of the kinetic energy matrix.
+# Two options:
+#     -DDQMC_CKB: use the checkerboard decomposition (FLAG_CKB  = -DDQMC_CKB)
+#     (blank)   : do not use the checkerboard decomposition (FLAG_CKB = )
+FLAG_CKB  = -DDQMC_CKB
 
-# GPU version equal-time Green's function kernel
+# GPU version equal-time Green's function kernel.
+# This option is untested.
 #FLAG_ASQRD = -DDQMC_ASQRD
 
 # GPU version time-dependent Green's function kernel
+# This option is untested.
 FLAG_BSOFI = #-DDQMC_BSOFI
 
 # Enabling nVidia CUDA support in DQMC
+# This option is untested.
 FLAG_CUDA = #-DDQMC_CUDA
+
 
 # --------------------------------------------------------------------------
 #  Check ASQRD and CKB compatibility
@@ -41,7 +72,6 @@ ifdef FLAG_ASQRD
 endif
 
 
-
 # --------------------------------------------------------------------------
 #  Compiler and flags
 # --------------------------------------------------------------------------
@@ -52,26 +82,25 @@ endif
 ifeq ($(COMPILER), intel)
   FC        = ifort
   CXX       = icpx
-  #FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays -heap-arrays
-  FC_FLAGS  = -qopenmp -m64 -warn all -unroll -heap-arrays -g -debug all
-  #FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
-  #CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
+  # Performance flags (should be using when not debugging):
+  FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays -heap-arrays
   CXX_FLAGS = -m64 -Wall -O3 -unroll $(CUDAINC) $(MAGMAINC)
+  # Debugging flags:
+  # FC_FLAGS  = -m64 -warn all -unroll -heap-arrays -g -debug all
+  # CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
 endif
 ifeq ($(COMPILER), gnu)
   FC        = gfortran
   CXX       = g++
-  FC_FLAGS  = -std=legacy -fopenmp -m64 -Wall -O3 -funroll-loops
+  FC_FLAGS  = -fopenmp -m64 -O3 -funroll-loops -ffree-line-length-none -cpp
   CXX_FLAGS = -m64 -Wall -O3 -funroll-loops $(CUDAINC) $(MAGMAINC)
 endif
-
 
 
 # --------------------------------------------------------------------------
 # C++ libraries
 # --------------------------------------------------------------------------
 CXXLIB = -lstdc++ #-lrt
-
 
 
 # --------------------------------------------------------------------------
@@ -127,7 +156,6 @@ ifdef MAGMAPATH
 endif
 
 
-
 # --------------------------------------------------------------------------
 # CUDA compiler and libraries
 # --------------------------------------------------------------------------
@@ -168,7 +196,6 @@ ARFLAG     = cr
 RANLIB     = ranlib
 
 
-
 # --------------------------------------------------------------------------
 # Optional complication flags
 # -D_SXX, -D_QMC_MPI
@@ -176,7 +203,6 @@ RANLIB     = ranlib
 PRG_FLAGS = $(FLAG_BSOFI) $(FLAG_ASQRD) $(FLAG_CKB) $(FLAG_CUDA) 
 
 FLAGS = $(FC_FLAGS) $(PRG_FLAGS)
-
 
 
 # --------------------------------------------------------------------------
@@ -197,7 +223,6 @@ libopenblas :
 	(cd $(QUEST_DIR)/OpenBLAS; $(MAKE))
 
 clean :
-	(cd $(QUEST_DIR)/OpenBLAS; $(MAKE) clean)
 	(cd $(QUEST_DIR)/SRC; $(MAKE) clean)
 	(cd $(QUEST_DIR)/EXAMPLE; $(MAKE) clean)
 	(rm -f $(QUEST_DIR)/$(DQMCLIB))
