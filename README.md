@@ -19,23 +19,33 @@ Currently, QUEST is being developed on an Ubuntu (22.04) machine running an Inte
 As QUEST is installed on more platforms, installation instructions for other machines and compilers will be added. The main differences should primaily be slight alterations of the top-level Makefile, so older Makefiles are included in the makefiles folder to hopefully aid in
 other machine installations.
 
-### Assumptions:
-  * Ubuntu (22.04) operating system (WSL with Ubuntu is known to work as well)
-  * Intel Oneapi base and HPC toolkits installed (the Oneapi setvars command should be run in any terminal before any QUEST compilation)
+### Assumptions for installation:
+  * Unix based operating system (eg, Ubuntu, Mac, WSL)
+  * Either the Intel Oneapi base and HPC toolkits **or** gfortran and an mpi installation (tested with openmpi, potentially usable without mpi with minor modifications)
   * Git installed
   * gnuMake installed
 
 ### Steps:
-  1. Open a terminal and run the Oneapi setvars command: `source /opt/intel/oneapi/setvars.sh` (with a default installation).
+  1. (if using Intel Oneapi) Open a terminal and run the Oneapi setvars command: `source /opt/intel/oneapi/setvars.sh` (with a default installation).
   2. Clone this repository `git clone https://github.com/Meromorphics/quest.git` in a suitable folder (default name of cloned repository will be quest).
   3. Download sprng5 from http://www.sprng.org/ or by running `wget http://www.sprng.org/Version5.0/sprng5.tar.bz2`
   4. Untar the download `tar xjf sprng5.tar.bz2`.
-  5. Change directories to sprng5 `cd sprng5`, prepare to compile it with Fortran enabled `./configure --with-fortran=yes`, then compile it `make`.
+  5. Change directories to sprng5 `cd sprng5`, prepare to compile it with Fortran and mpi enabled `./configure --with-fortran=yes --with-mpi=yes`, then compile it `make`.
   6. Get out of the sprng5 directory `cd ..`, and move it to quest/SRC `mv sprng5 quest/SRC`.
-  7. Go to the QUEST directory `cd quest` and make QUEST `make`.
+  7. Go to the QUEST directory `cd quest` and make QUEST `make` (this step will require more information, see below).
   8. Verify that QUEST runs properly by running the verify program `cd EXAMPLE/verify` `./verify`. This should take around 30 seconds to run. This program prints information about how well QUEST simulates two small nalytically solved models. QUEST will print how well it performed. If the performance is not acceptable, do not continue to run QUEST for the purposes of obtaining data (the installation went wrong or QUEST is badly bugged).
 
-If Oneapi is not installed in its default location, then the top level Makefile (the one in the quest directory) will have to be informed of this. MKLPATH should be set to the correct path to Oneapi's ilp64 folder (this should just be changing `$(MKLROOT)` to the installation directory of Oneapi). Due to complications in running make on an untarred file, an installation of sprng5 is not provided.
+### Step 7 continued:
+Step 7 requires the main Makefile (topmost one, and less likely the lesser Makefiles) to be configured for your machine and usage. The main Makefile has tons of information and compilation methodologies, but here we will go over the basic ones needed to get things up and running.
+
+If you are using Oneapi and it is not installed in its default location, then the top level Makefile (the one in the quest directory) will have to be informed of this. MKLPATH should be set to the correct path to Oneapi's ilp64 folder (this should just be changing `$(MKLROOT)` to the installation directory of Oneapi).
+
+Near the top of the Makefile you will see an option of choosing a compiler. Set `COMPILER = intel` if you are using Intel, and `COMPILER = gnu` if you are using gfortran.
+Below your compiler choice you will see an option of choosing a LAPACK installation. If you are using Intel, just set `LAPACK = intel`. If you are using gfortran, first set `LAPACK = default`, then compile this default LAPACK by typing `make lapack` in a terminal in the top-level quest directory.
+
+A little bit below this is a line setting the variable `FLAG_CKB` equal to something (in a fresh installation this is either set equal to nothing or commented out using `#`). This determines whether to use the checkerboard decomposition or not. To use the checkerboard decomposition, set `FLAG_CKB = ` (yes it looks like it is equal to something blank, setting it equal to something will give an error). To not use the checkerboard decomposition, either delete the line or comment it out.
+
+Lastly are the compiler flags. These are set a bit below where `FLAG_CKB` is set. There are two sections labeled by `ifeq ($(COMPILER), intel)` and `ifeq ($(COMPILER), gnu)`, which correspond to whether you are using an Intel compiler or gfortran. The most important thing here to change is `FC_FLAGS`, which determines what compiler flags you want to compile with. This is up to personal preference and use, but it is worth mentioning that `-g` adds in extra debugger information and `-Ox` for `x = 0,1,2,3,fast` adds extra compiler optimizations (faster code).
 
 ### Basic usage:
 
