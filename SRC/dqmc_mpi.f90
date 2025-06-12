@@ -1,13 +1,14 @@
 module DQMC_MPI
     implicit none
-#   ifdef _QMC_MPI
-#       include "mpif.h"
-#   endif
+#ifdef _QMC_MPI
+#include "mpif.h"
+#endif
 
-#   ifdef _QMC_MPI
-#   else
-        integer :: MPI_COMM_WORLD
-#   endif
+#ifdef _QMC_MPI
+#else
+    integer :: MPI_COMM_WORLD
+    integer :: MPI_SUCCESS
+#endif
 
     type MPI_SIMOR
         integer :: level       ! level of parallelization

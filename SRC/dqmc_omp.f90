@@ -23,7 +23,7 @@ module DQMC_OMP
                     if (nproc > 0 .AND. nproc .le. nprocmax) then
                         call OMP_SET_NUM_THREADS(nproc)
                     else
-                        write(*, "('Invalid number of threads, must be an integer between 1 and the max number of threads (', i2, ').')") nprocmax
+                        write(*, *) "('Invalid number of threads, must be an integer between 1 and the max number of threads ", nprocmax
                         stop
                     endif
                 endif
@@ -31,7 +31,7 @@ module DQMC_OMP
                 nproc = 1
             endif
 
-            write(*, "('Running the program in ', i2, ' threads.')"), nproc
+            write(*, *) "('Running the program in ", nproc, "threads."
 
         end subroutine DQMC_OMP_Init
 

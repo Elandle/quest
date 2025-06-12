@@ -4,10 +4,12 @@
 QUEST_DIR = $(shell pwd)
 
 # 1) gnu, 2) intel
-COMPILER  = intel
+# COMPILER  = intel
+COMPILER  = gnu
 
 # 1) default, 2) mkl_seq, 3) mkl_par 4) intel
-LAPACK    = intel
+# LAPACK    = intel
+LAPACK     = default
 
 # intel MKL library path
 MKLPATH   = $(MKLROOT)/include/intel64/ilp64
@@ -19,7 +21,10 @@ MAGMAPATH =
 CUDAPATH  = #/usr/lib/nvidia-cuda-toolkit
 
 # Checkboard decomposition
-FLAG_CKB  = #-DDQMC_CKB
+# Uncomment for checkerboard, leave commented for no checkerboard
+# This only needs to be defined for the checkerboard method to be used,
+# you will get an error if you set it to something
+FLAG_CKB  = 
 
 # GPU version equal-time Green's function kernel
 #FLAG_ASQRD = -DDQMC_ASQRD
@@ -52,19 +57,18 @@ endif
 ifeq ($(COMPILER), intel)
   FC        = ifort
   CXX       = icpx
-  #FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays -heap-arrays
-  FC_FLAGS  = -qopenmp -m64 -warn all -unroll -heap-arrays -g -debug all
-  #FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
-  #CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
+  FC_FLAGS  = -qopenmp -m64 -warn all -O3 -unroll -heap-arrays -heap-arrays
+  # FC_FLAGS  = -qopenmp -m64 -warn all -unroll -heap-arrays -g -debug all
+  # FC_FLAGS = -m64 -g -traceback -check all -O0 -ftrapuv -debug all
+  # CXX_FLAGS = -m64 -g -traceback -O0 -check-uninit -ftrapuv -debug all
   CXX_FLAGS = -m64 -Wall -O3 -unroll $(CUDAINC) $(MAGMAINC)
 endif
 ifeq ($(COMPILER), gnu)
   FC        = gfortran
   CXX       = g++
-  FC_FLAGS  = -std=legacy -fopenmp -m64 -Wall -O3 -funroll-loops
+  FC_FLAGS  = -fopenmp -m64 -Wall -O3 -funroll-loops -ffree-form -Wno-error -ffree-line-length-512 -cpp
   CXX_FLAGS = -m64 -Wall -O3 -funroll-loops $(CUDAINC) $(MAGMAINC)
 endif
-
 
 
 # --------------------------------------------------------------------------
